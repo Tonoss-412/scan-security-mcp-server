@@ -1,0 +1,388 @@
+{
+    "tools": [
+        {
+            "name": "homepage",
+            "description": "Multi-server dashboard homepage",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dashboard.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "about_page",
+            "description": "About page with project information",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dashboard.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "server_view",
+            "description": "Individual server state view",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dashboard.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "register_server",
+            "description": "Register a new MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dashboard.py",
+            "decorator": [
+                "self.app.post"
+            ]
+        },
+        {
+            "name": "list_servers",
+            "description": "Get list of registered servers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dashboard.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "get_server_state",
+            "description": "Get state from a specific MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dashboard.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "get_server_logs",
+            "description": "Get logs from a specific MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dashboard.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "unregister_server",
+            "description": "Unregister an MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dashboard.py",
+            "decorator": [
+                "self.app.delete"
+            ]
+        },
+        {
+            "name": "move_player",
+            "description": "Move the player in a given direction (north, south, east, west, up, down)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "look_around",
+            "description": "Get a description of the current room and its contents",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "take_item",
+            "description": "Take an item from the current room",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "drop_item",
+            "description": "Drop an item from inventory into current room",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "use_item",
+            "description": "Use an item, optionally on a target",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "talk_to_npc",
+            "description": "Talk to an NPC in the current room",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_inventory",
+            "description": "List items in player's inventory",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_available_actions",
+            "description": "Get list of available actions in current context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_game_status",
+            "description": "Get current game state summary",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "start_new_game",
+            "description": "Start a new game with given player name",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "end_game",
+            "description": "End the current game and generate summary",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "move_player",
+            "description": "Move the player in a given direction (north, south, east, west, up, down)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "look_around",
+            "description": "Get a description of the current room and its contents",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "take_item",
+            "description": "Take an item from the current room",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "drop_item",
+            "description": "Drop an item from inventory into current room",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "use_item",
+            "description": "Use an item, optionally on a target",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "talk_to_npc",
+            "description": "Talk to an NPC in the current room",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "check_inventory",
+            "description": "List items in player's inventory",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "get_available_actions",
+            "description": "Get list of available actions in current context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "get_game_status",
+            "description": "Get current game state summary",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "start_new_game",
+            "description": "Start a new game with given player name",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "end_game",
+            "description": "End the current game and generate summary",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "get_server_info",
+            "description": "Get information about this MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "dashboard",
+            "description": "Game state dashboard HTML page",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\web_interface.py",
+            "decorator": [
+                "app.get"
+            ]
+        }
+    ]
+}

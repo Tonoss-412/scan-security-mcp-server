@@ -1,0 +1,369 @@
+{
+    "tools": [
+        {
+            "name": "iot_lifespan",
+            "description": "\n    Manages the MQTT client lifecycle.\n    \n    Args:\n        server: The FastMCP server instance\n        \n    Yields:\n        IoTContext: The context containing the MQTT client\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string",
+                        "description": "The FastMCP server instance"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "IoTContext": {
+                        "type": "string",
+                        "description": "The context containing the MQTT client"
+                    }
+                },
+                "required": [
+                    "server",
+                    "Yields",
+                    "IoTContext"
+                ]
+            },
+            "file": "iot_mcp_server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "list_devices",
+            "description": "List all connected IoT devices.\n    \n    This tool returns information about all IoT devices that have been discovered\n    on the MQTT network. For each device, it provides the ID, type, online status,\n    and available commands.\n    \n    Note: Do NOT try to call a device ID directly. Instead, use the command tools like:\n    - light_bulb_on - To turn the light bulb ON\n    - light_bulb_off - To turn the light bulb OFF\n    - light_bulb_toggle - To toggle the light bulb\n    - check_light_status - To check light status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iot_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "turn_on_light",
+            "description": "Turn ON the light bulb.\n    \n    This tool will explicitly turn on the light bulb, setting its power state to true.\n    \n    Args:\n        ctx: The MCP server provided context\n        dummy: Optional parameter that does nothing (required for schema compatibility)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server provided context"
+                    },
+                    "dummy": {
+                        "type": "string",
+                        "description": "Optional parameter that does nothing (required for schema compatibility)"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "dummy"
+                ]
+            },
+            "file": "iot_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "turn_off_light",
+            "description": "Turn OFF the light bulb.\n    \n    This tool will explicitly turn off the light bulb, setting its power state to false.\n    \n    Args:\n        ctx: The MCP server provided context\n        dummy: Optional parameter that does nothing (required for schema compatibility)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server provided context"
+                    },
+                    "dummy": {
+                        "type": "string",
+                        "description": "Optional parameter that does nothing (required for schema compatibility)"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "dummy"
+                ]
+            },
+            "file": "iot_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "toggle_light",
+            "description": "Toggle the light bulb on/off.\n    \n    This is a simplified tool to toggle the light bulb power state.\n    \n    Args:\n        ctx: The MCP server provided context\n        dummy: Optional parameter that does nothing (required for schema compatibility)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server provided context"
+                    },
+                    "dummy": {
+                        "type": "string",
+                        "description": "Optional parameter that does nothing (required for schema compatibility)"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "dummy"
+                ]
+            },
+            "file": "iot_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_light_status",
+            "description": "Check the current status of the light bulb.\n    \n    Returns the current power state, brightness and color of the light bulb.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iot_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "light_bulb_on",
+            "description": "Turn the light bulb ON.\n    \n    This command turns on the light with ID 'light_bulb_001'.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iot_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "light_bulb_off",
+            "description": "Turn the light bulb OFF.\n    \n    This command turns off the light with ID 'light_bulb_001'.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iot_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "light_bulb_toggle",
+            "description": "Toggle the light bulb ON/OFF.\n    \n    This command toggles the light with ID 'light_bulb_001'.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iot_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_help",
+            "description": "Get help on how to control IoT devices.\n    \n    This tool provides information about how to properly control the connected IoT devices.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iot_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_command",
+            "description": "Check if a command is valid and provide guidance.\n    \n    This is a helper tool to check if a command exists and provide guidance on how to use it.\n    \n    Args:\n        ctx: The MCP server provided context\n        command: The command or device ID to check\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server provided context"
+                    },
+                    "command": {
+                        "type": "string",
+                        "description": "The command or device ID to check"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "command"
+                ]
+            },
+            "file": "iot_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "index",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "light_bulb_simulator.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "get_state",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "light_bulb_simulator.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "toggle_light",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "light_bulb_simulator.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "set_brightness",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "light_bulb_simulator.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "set_color",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "light_bulb_simulator.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "mem0_lifespan",
+            "description": "\n    Manages the Mem0 client lifecycle.\n    \n    Args:\n        server: The FastMCP server instance\n        \n    Yields:\n        Mem0Context: The context containing the Mem0 client\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string",
+                        "description": "The FastMCP server instance"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "Mem0Context": {
+                        "type": "string",
+                        "description": "The context containing the Mem0 client"
+                    }
+                },
+                "required": [
+                    "server",
+                    "Yields",
+                    "Mem0Context"
+                ]
+            },
+            "file": "memory_mcp_server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "save_memory",
+            "description": "Save information to your long-term memory.\n\n    This tool is designed to store any type of information that might be useful in the future.\n    The content will be processed and indexed for later retrieval through semantic search.\n\n    Args:\n        ctx: The MCP server provided context which includes the Mem0 client\n        text: The content to store in memory, including any relevant details and context\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server provided context which includes the Mem0 client"
+                    },
+                    "text": {
+                        "type": "string",
+                        "description": "The content to store in memory, including any relevant details and context"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "text"
+                ]
+            },
+            "file": "memory_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_all_memories",
+            "description": "Get all stored memories for the user.\n    \n    Call this tool when you need complete context of all previously memories.\n\n    Args:\n        ctx: The MCP server provided context which includes the Mem0 client\n\n    Returns a JSON formatted list of all stored memories, including when they were created\n    and their content. Results are paginated with a default of 50 items per page.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server provided context which includes the Mem0 client"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "memory_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_memories",
+            "description": "Search memories using semantic search.\n\n    This tool should be called to find relevant information from your memory. Results are ranked by relevance.\n    Always search your memories before making decisions to ensure you leverage your existing knowledge.\n\n    Args:\n        ctx: The MCP server provided context which includes the Mem0 client\n        query: Search query string describing what you're looking for. Can be natural language.\n        limit: Maximum number of results to return (default: 3)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server provided context which includes the Mem0 client"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Search query string describing what you're looking for. Can be natural language."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 3)"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "query",
+                    "limit"
+                ]
+            },
+            "file": "memory_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "ingest_document",
+            "description": "\n    Ingests a physics document (PDF or text), extracts knowledge,\n    and updates the server's knowledge base.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_documents_resource",
+            "description": "Lists all documents currently processed into the knowledge base.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "list_equations_resource",
+            "description": "Lists all equations currently in the knowledge base.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_equation_resource",
+            "description": "Provides the details of a specific equation by its ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "list_concepts_resource",
+            "description": "Lists all concepts (and definitions) currently in the knowledge base.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_concept_resource",
+            "description": "Provides the details of a specific concept by its ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "solve_physics_problem",
+            "description": "\n    Solves a given physics problem using the internal knowledge base,\n    symbolic math (conceptually), and LLM reasoning.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

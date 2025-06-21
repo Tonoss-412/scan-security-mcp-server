@@ -1,0 +1,77 @@
+{
+    "tools": [
+        {
+            "name": "mqtt_publish",
+            "description": "\n    Publishes a message to a specific MQTT topic.\n\n    Args:\n        topic: The MQTT topic to publish to.\n        message: The message payload to send.\n        qos: The Quality of Service level (0, 1, or 2). Defaults to 0.\n        retain: Whether the message should be retained by the broker. Defaults to False.\n\n    Returns:\n        A confirmation message string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string",
+                        "description": "The MQTT topic to publish to."
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "The message payload to send."
+                    },
+                    "qos": {
+                        "type": "string",
+                        "description": "The Quality of Service level (0, 1, or 2). Defaults to 0."
+                    },
+                    "retain": {
+                        "type": "string",
+                        "description": "Whether the message should be retained by the broker. Defaults to False."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "topic",
+                    "message",
+                    "qos",
+                    "retain",
+                    "Returns"
+                ]
+            },
+            "file": "mqtt_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mqtt_subscribe",
+            "description": "\n    Subscribes to an MQTT topic and receives a specified number of messages or waits for a timeout.\n\n    Args:\n        topic: The MQTT topic to subscribe to (can include wildcards like + or #).\n        num_messages: The maximum number of messages to receive. Defaults to 1.\n        timeout: The maximum time (in seconds) to wait for messages. Defaults to 10.\n\n    Returns:\n        A list of dictionaries, where each dictionary represents a received message\n        with 'topic' and 'payload' keys.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string",
+                        "description": "The MQTT topic to subscribe to (can include wildcards like + or #)."
+                    },
+                    "num_messages": {
+                        "type": "string",
+                        "description": "The maximum number of messages to receive. Defaults to 1."
+                    },
+                    "timeout": {
+                        "type": "string",
+                        "description": "The maximum time (in seconds) to wait for messages. Defaults to 10."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "topic",
+                    "num_messages",
+                    "timeout",
+                    "Returns"
+                ]
+            },
+            "file": "mqtt_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

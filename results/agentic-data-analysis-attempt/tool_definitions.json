@@ -1,0 +1,478 @@
+{
+    "tools": [
+        {
+            "name": "client",
+            "description": "Get or create ChromaDB client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\database\\chroma_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "embedding_function",
+            "description": "Get or create embedding function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\database\\chroma_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "Handle tools/list requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\mcp_server\\server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tools/call requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\mcp_server\\server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "Handle resources/list requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\mcp_server\\server.py",
+            "decorator": [
+                "self.server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "Handle resources/read requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\mcp_server\\server.py",
+            "decorator": [
+                "self.server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "Handle prompts/list requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\mcp_server\\server.py",
+            "decorator": [
+                "self.server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "Handle prompts/get requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\mcp_server\\server.py",
+            "decorator": [
+                "self.server.get_prompt"
+            ]
+        },
+        {
+            "name": "sample_csv_file",
+            "description": "Create a sample CSV file for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\tests\\test_agent.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "agent",
+            "description": "Create a test agent instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\tests\\test_agent.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_dependencies",
+            "description": "Mock all external dependencies.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create a server instance with mocked dependencies.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_list_tools",
+            "description": "Test tools listing functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_upload_dataset_tool",
+            "description": "Test dataset upload tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_upload_dataset_tool_failure",
+            "description": "Test dataset upload tool failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_query_data_tool",
+            "description": "Test data query tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_semantic_search_tool",
+            "description": "Test semantic search tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_datasets_tool",
+            "description": "Test list datasets tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_analyze_statistics_tool",
+            "description": "Test statistical analysis tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_visualization_tool",
+            "description": "Test visualization creation tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_resources",
+            "description": "Test resources listing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_datasets_resource",
+            "description": "Test reading datasets resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_schema_resource",
+            "description": "Test reading schema resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_prompts",
+            "description": "Test prompts listing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_explore_dataset_prompt",
+            "description": "Test getting explore dataset prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "mock_dependencies": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "mock_dependencies"
+                ]
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_chroma_client",
+            "description": "Mock ChromaDB client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_data_processor",
+            "description": "Mock data ingestion processor.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agentic_ai_analysis\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

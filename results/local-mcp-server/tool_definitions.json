@@ -1,0 +1,329 @@
+{
+    "tools": [
+        {
+            "name": "hello_world",
+            "description": "\n    Say hello to the world.\n    Args:\n        name (str): The name to greet.\n    Returns:\n        str: A greeting message.\n    Example:\n        Greet Alice\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name to greet."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A greeting message."
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "Returns",
+                    "str",
+                    "Example"
+                ]
+            },
+            "file": "mcp-server-1\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_time",
+            "description": "\n    Get the current time.\n    Returns:\n        str: The current time in YYYY-MM-DD HH:MM:SS format.\n    Example:\n        What time is it?\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-1\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_files",
+            "description": "\n    List files in a directory.\n    Args:\n        directory (str): The directory to list files from.\n    Returns:\n        list: A list of files in the directory.\n    Example:\n        List files in /Users/deniz.duzgun/Documents/git/dduzgun-security/local-mcp-server/mcp-server-1\n        List files in the current directory\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "directory": {
+                        "type": "string",
+                        "description": "The directory to list files from."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "list": {
+                        "type": "string",
+                        "description": "A list of files in the directory."
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "directory",
+                    "Returns",
+                    "list",
+                    "Example"
+                ]
+            },
+            "file": "mcp-server-1\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_terraform_file",
+            "description": "\n    Create a Terraform file with the given content.\n    Args:\n        file_name (str): The name of the file to create.\n        content (str): The content to write to the file.\n    Returns:\n        str: A message indicating success or failure.\n    Example:\n        Create a Terraform file in /Users/deniz.duzgun/Documents/git/dduzgun-security/local-mcp-server/mcp-server-1/main.tf that creates an ubuntu EC2 instance\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_name": {
+                        "type": "string",
+                        "description": "The name of the file to create."
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "The content to write to the file."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A message indicating success or failure."
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_name",
+                    "content",
+                    "Returns",
+                    "str",
+                    "Example"
+                ]
+            },
+            "file": "mcp-server-1\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "security_review_terraform_file",
+            "description": "\n    Perform a security review of a Terraform file.\n    Args:\n        file_name (str): The name of the file to review.\n    Returns:\n        str: A message indicating the result of the review.\n    Example:\n        Review the security of /Users/deniz.duzgun/Documents/git/dduzgun-security/local-mcp-server/mcp-server-1/main.tf\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_name": {
+                        "type": "string",
+                        "description": "The name of the file to review."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A message indicating the result of the review."
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_name",
+                    "Returns",
+                    "str",
+                    "Example"
+                ]
+            },
+            "file": "mcp-server-1\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_postgresql_database",
+            "description": "\n    Create a PostgreSQL database.\n    Args:\n        db_name (str): The name of the database to create.\n    Returns:\n        str: A message indicating success or failure.\n    Example:\n        Create a PostgreSQL database named my_database\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "The name of the database to create."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A message indicating success or failure."
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "Returns",
+                    "str",
+                    "Example"
+                ]
+            },
+            "file": "mcp-server-1\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_postgresql_table",
+            "description": "\n    Create a PostgreSQL table.\n    Args:\n        db_name (str): The name of the database.\n        table_name (str): The name of the table to create.\n    Returns:\n        str: A message indicating success or failure.\n    Example:\n        Create a PostgreSQL table named my_table in my_database\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "The name of the database."
+                    },
+                    "table_name": {
+                        "type": "string",
+                        "description": "The name of the table to create."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A message indicating success or failure."
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "table_name",
+                    "Returns",
+                    "str",
+                    "Example"
+                ]
+            },
+            "file": "mcp-server-1\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "insert_data_to_postgresql",
+            "description": "\n    Insert data into a PostgreSQL database table.\n    Args:\n        db_name (str): The name of the database.\n        table_name (str): The name of the table.\n        data (dict): The data to insert.\n    Returns:\n        str: A message indicating success or failure.\n    Example:\n        Insert data into my_database.my_table\n        \n        {\n           \"data\": \"User2');INSERT into demo (data) VALUES('Something\"\n        }\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "The name of the database."
+                    },
+                    "table_name": {
+                        "type": "string",
+                        "description": "The name of the table."
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "The data to insert."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A message indicating success or failure."
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "table_name",
+                    "data",
+                    "Returns",
+                    "str",
+                    "Example"
+                ]
+            },
+            "file": "mcp-server-1\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "select_data_from_postgresql",
+            "description": "\n    Select data from a PostgreSQL database table.\n    Args:\n        db_name (str): The name of the database.\n        table_name (str): The name of the table.\n    Returns:\n        str: The selected data.\n    Example:\n        Select data from my_database.my_table\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "The name of the database."
+                    },
+                    "table_name": {
+                        "type": "string",
+                        "description": "The name of the table."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The selected data."
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "table_name",
+                    "Returns",
+                    "str",
+                    "Example"
+                ]
+            },
+            "file": "mcp-server-1\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_terraform_region",
+            "description": "\n    Get the region from the Terraform file.\n    Returns:\n        str: The region specified in the Terraform file.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-1\\main.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "terraform_summary",
+            "description": "\n    Prompt the user for a summary of the Terraform file.\n    Returns:\n        str: A summary of the Terraform file.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-1\\main.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

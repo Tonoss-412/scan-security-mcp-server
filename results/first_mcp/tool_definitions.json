@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "general_search",
+            "description": "\n    Search Bilibili API with the given keyword.\n    \n    Args:\n        keyword: Search term to look for on Bilibili\n\n    Returns:\n        Dictionary containing the earch results from Bilibili API.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "keyword": {
+                        "type": "string",
+                        "description": "Search term to look for on Bilibili"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "keyword",
+                    "Returns"
+                ]
+            },
+            "file": "bilibili.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

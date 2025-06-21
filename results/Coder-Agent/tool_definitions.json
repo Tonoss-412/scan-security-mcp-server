@@ -1,0 +1,493 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "Root endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "process",
+            "description": "Process input data and generate output.\n        \n        Args:\n            input_data: The input data for the agent to process\n            \n        Returns:\n            Processed output data\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input_data": {
+                        "type": "string",
+                        "description": "The input data for the agent to process"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "input_data",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\app\\agents\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "register_user",
+            "description": "\n    Register a new user\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\v1\\auth.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "login",
+            "description": "\n    OAuth2 compatible token login, get an access token for future requests\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\v1\\auth.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "read_users_me",
+            "description": "\n    Get current user information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\v1\\auth.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_user_me",
+            "description": "\n    Update own user information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\v1\\auth.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "task_updates",
+            "description": "\n    Endpoint for SSE task updates with token in header.\n    \n    Args:\n        request: The HTTP request\n        current_user: The authenticated user from authorization header\n        \n    Returns:\n        EventSourceResponse for SSE events\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The HTTP request"
+                    },
+                    "current_user": {
+                        "type": "string",
+                        "description": "The authenticated user from authorization header"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "current_user",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\app\\api\\v1\\events.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "task_updates_with_token",
+            "description": "\n    Endpoint for SSE task updates with token in query parameter.\n    This is specifically for EventSource connections which can't set Authorization headers.\n    \n    Args:\n        request: The HTTP request\n        token: Auth token provided as query parameter\n        current_user: The authenticated user from token query param\n        \n    Returns:\n        EventSourceResponse for SSE events\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The HTTP request"
+                    },
+                    "token": {
+                        "type": "string",
+                        "description": "Auth token provided as query parameter"
+                    },
+                    "current_user": {
+                        "type": "string",
+                        "description": "The authenticated user from token query param"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "token",
+                    "current_user",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\app\\api\\v1\\events.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_settings",
+            "description": "Update application settings.\n    \n    Args:\n        request: The HTTP request\n        data: The settings update request\n        current_user: The authenticated user (must be active)\n    \n    Returns:\n        Success status and message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The HTTP request"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "The settings update request"
+                    },
+                    "current_user": {
+                        "type": "string",
+                        "description": "The authenticated user (must be active)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "data",
+                    "current_user",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\app\\api\\v1\\settings.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_settings",
+            "description": "Get current application settings.\n    \n    Args:\n        request: The HTTP request\n        current_user: The authenticated user (must be active)\n    \n    Returns:\n        Current settings\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The HTTP request"
+                    },
+                    "current_user": {
+                        "type": "string",
+                        "description": "The authenticated user (must be active)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "current_user",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\app\\api\\v1\\settings.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_debug_settings",
+            "description": "Debug endpoint to check current settings values directly from config and env.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\v1\\settings.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "solve_problem",
+            "description": "Submit a problem to be solved.\n    \n    Args:\n        request: The HTTP request\n        background_tasks: FastAPI background tasks\n        data: The problem details\n        current_user: The authenticated user\n        db: Database session\n        \n    Returns:\n        Task information with a unique ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The HTTP request"
+                    },
+                    "background_tasks": {
+                        "type": "string",
+                        "description": "FastAPI background tasks"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "The problem details"
+                    },
+                    "current_user": {
+                        "type": "string",
+                        "description": "The authenticated user"
+                    },
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "background_tasks",
+                    "data",
+                    "current_user",
+                    "db",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\app\\api\\v1\\solve.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_solution",
+            "description": "Get the solution for a specific task.\n    \n    Args:\n        request: The HTTP request\n        task_id: The unique ID of the task\n        current_user: The authenticated user\n        db: Database session\n        \n    Returns:\n        The solution if available\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The HTTP request"
+                    },
+                    "task_id": {
+                        "type": "string",
+                        "description": "The unique ID of the task"
+                    },
+                    "current_user": {
+                        "type": "string",
+                        "description": "The authenticated user"
+                    },
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "task_id",
+                    "current_user",
+                    "db",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\app\\api\\v1\\solve.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "cancel_task",
+            "description": "Cancel a running task.\n    \n    Args:\n        request: The HTTP request\n        task_id: The unique ID of the task\n        current_user: The authenticated user\n        db: Database session\n        \n    Returns:\n        Status message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The HTTP request"
+                    },
+                    "task_id": {
+                        "type": "string",
+                        "description": "The unique ID of the task"
+                    },
+                    "current_user": {
+                        "type": "string",
+                        "description": "The authenticated user"
+                    },
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "task_id",
+                    "current_user",
+                    "db",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\app\\api\\v1\\solve.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_task_history",
+            "description": "Get the task history for the current user.\n    \n    Args:\n        request: The HTTP request\n        current_user: The authenticated user\n        db: Database session\n        skip: Number of records to skip (for pagination)\n        limit: Maximum number of records to return (for pagination)\n        \n    Returns:\n        List of tasks with basic information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The HTTP request"
+                    },
+                    "current_user": {
+                        "type": "string",
+                        "description": "The authenticated user"
+                    },
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "skip": {
+                        "type": "string",
+                        "description": "Number of records to skip (for pagination)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of records to return (for pagination)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "current_user",
+                    "db",
+                    "skip",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\app\\api\\v1\\solve.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "cors_origins",
+            "description": "Parse and return CORS origins.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "generate_text",
+            "description": "Generate text from a prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\services\\ai_service.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "generate_structured_output",
+            "description": "Generate structured output from a prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\services\\ai_service.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "test_generate_text_with_mcp",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\tests\\test_ai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "get_extension",
+            "description": "Get the file extension for a given language.\n        \n        Args:\n            language: Programming language name\n            \n        Returns:\n            File extension for the language\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\app\\utils\\models.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "\n            Search tool using Serper API.\n            Args:\n                query (str): The search query.\n                api_key (str): The API key for Serper API.\n            Returns:\n                str: The search results in JSON format.\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query."
+                    },
+                    "api_key": {
+                        "type": "string",
+                        "description": "The API key for Serper API."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The search results in JSON format."
+                    }
+                },
+                "required": [
+                    "query",
+                    "api_key",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcpserver\\server\\api.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        }
+    ]
+}

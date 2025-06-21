@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "search",
+            "description": "\n    Search using DuckDuckGo's Search API and return the results as a list of dictionaries\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ddgs.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

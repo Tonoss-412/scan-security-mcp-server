@@ -1,0 +1,556 @@
+{
+    "tools": [
+        {
+            "name": "get_msk_cluster_info",
+            "description": "\n    Get information about an MSK cluster.\n\n    Args:\n        region: AWS region where the cluster is located\n        cluster_name: Name of the MSK cluster\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "region": {
+                        "type": "string",
+                        "description": "AWS region where the cluster is located"
+                    },
+                    "cluster_name": {
+                        "type": "string",
+                        "description": "Name of the MSK cluster"
+                    }
+                },
+                "required": [
+                    "region",
+                    "cluster_name"
+                ]
+            },
+            "file": "src\\msk_custom_domain\\server.py",
+            "decorator": [
+                "mcp_custom_domain.tool"
+            ]
+        },
+        {
+            "name": "get_msk_broker_info",
+            "description": "\n    Get broker information for an MSK cluster.\n\n    Args:\n        region: AWS region where the cluster is located\n        cluster_name: Name of the MSK cluster\n\n    Returns:\n        Dictionary containing broker information including bootstrap addresses\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "region": {
+                        "type": "string",
+                        "description": "AWS region where the cluster is located"
+                    },
+                    "cluster_name": {
+                        "type": "string",
+                        "description": "Name of the MSK cluster"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "region",
+                    "cluster_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\msk_custom_domain\\server.py",
+            "decorator": [
+                "mcp_custom_domain.tool"
+            ]
+        },
+        {
+            "name": "get_vpc_for_msk_cluster",
+            "description": "\n    Get the VPC ID for an MSK cluster.\n\n    Args:\n        region: AWS region where the cluster is located\n        cluster_name: Name of the MSK cluster\n\n    Returns:\n        Dictionary containing VPC information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "region": {
+                        "type": "string",
+                        "description": "AWS region where the cluster is located"
+                    },
+                    "cluster_name": {
+                        "type": "string",
+                        "description": "Name of the MSK cluster"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "region",
+                    "cluster_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\msk_custom_domain\\server.py",
+            "decorator": [
+                "mcp_custom_domain.tool"
+            ]
+        },
+        {
+            "name": "get_route53_hosted_zone_info",
+            "description": "\n    Get information about a Route53 hosted zone.\n\n    Args:\n        zone_name: Name of the hosted zone (e.g., \"example.com.\")\n\n    Returns:\n        Dictionary containing hosted zone information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "zone_name": {
+                        "type": "string",
+                        "description": "Name of the hosted zone (e.g., \"example.com.\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "zone_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\msk_custom_domain\\server.py",
+            "decorator": [
+                "mcp_custom_domain.tool"
+            ]
+        },
+        {
+            "name": "create_msk_custom_domain",
+            "description": "\n    Create a custom domain for an MSK cluster by setting up Route53 records.\n\n    Args:\n        region: AWS region where the cluster is located\n        cluster_name: Name of the MSK cluster\n        zone_name: Name of the Route53 hosted zone to use (e.g., \"kafka.example.com\")\n        vpc_id: Optional VPC ID (if not provided, will be auto-detected)\n\n    Returns:\n        Dictionary containing creation results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "region": {
+                        "type": "string",
+                        "description": "AWS region where the cluster is located"
+                    },
+                    "cluster_name": {
+                        "type": "string",
+                        "description": "Name of the MSK cluster"
+                    },
+                    "zone_name": {
+                        "type": "string",
+                        "description": "Name of the Route53 hosted zone to use (e.g., \"kafka.example.com\")"
+                    },
+                    "vpc_id": {
+                        "type": "string",
+                        "description": "Optional VPC ID (if not provided, will be auto-detected)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "region",
+                    "cluster_name",
+                    "zone_name",
+                    "vpc_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\msk_custom_domain\\server.py",
+            "decorator": [
+                "mcp_custom_domain.tool"
+            ]
+        },
+        {
+            "name": "list_route53_resource_record_sets",
+            "description": "\n    List all resource record sets in a Route53 hosted zone.\n\n    Args:\n        zone_name: Name of the hosted zone (e.g., \"example.com.\")\n\n    Returns:\n        Dictionary containing resource record sets\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "zone_name": {
+                        "type": "string",
+                        "description": "Name of the hosted zone (e.g., \"example.com.\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "zone_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\msk_custom_domain\\server.py",
+            "decorator": [
+                "mcp_custom_domain.tool"
+            ]
+        },
+        {
+            "name": "perform_dr_switch",
+            "description": "\n    Perform a DR switch by updating Route53 records to point to either the primary or DR cluster.\n\n    Args:\n        primary_region: AWS region of the primary cluster\n        primary_cluster_name: Name of the primary MSK cluster\n        dr_region: AWS region of the DR cluster\n        dr_cluster_name: Name of the DR MSK cluster\n        zone_name: Name of the Route53 hosted zone\n        primary_vpc_id: Optional VPC ID for primary cluster (auto-detected if not provided)\n        dr_vpc_id: Optional VPC ID for DR cluster (auto-detected if not provided)\n        activate_dr: If True, switch to DR cluster; if False, switch to primary cluster\n\n    Returns:\n        Dictionary containing switch results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "primary_region": {
+                        "type": "string",
+                        "description": "AWS region of the primary cluster"
+                    },
+                    "primary_cluster_name": {
+                        "type": "string",
+                        "description": "Name of the primary MSK cluster"
+                    },
+                    "dr_region": {
+                        "type": "string",
+                        "description": "AWS region of the DR cluster"
+                    },
+                    "dr_cluster_name": {
+                        "type": "string",
+                        "description": "Name of the DR MSK cluster"
+                    },
+                    "zone_name": {
+                        "type": "string",
+                        "description": "Name of the Route53 hosted zone"
+                    },
+                    "primary_vpc_id": {
+                        "type": "string",
+                        "description": "Optional VPC ID for primary cluster (auto-detected if not provided)"
+                    },
+                    "dr_vpc_id": {
+                        "type": "string",
+                        "description": "Optional VPC ID for DR cluster (auto-detected if not provided)"
+                    },
+                    "activate_dr": {
+                        "type": "string",
+                        "description": "If True, switch to DR cluster; if False, switch to primary cluster"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "primary_region",
+                    "primary_cluster_name",
+                    "dr_region",
+                    "dr_cluster_name",
+                    "zone_name",
+                    "primary_vpc_id",
+                    "dr_vpc_id",
+                    "activate_dr",
+                    "Returns"
+                ]
+            },
+            "file": "src\\msk_custom_domain\\server.py",
+            "decorator": [
+                "mcp_custom_domain.tool"
+            ]
+        },
+        {
+            "name": "list_all_connectors",
+            "description": "\n    Resource: List all MSK Connect connectors in the current AWS account/region.\n    \n    This resource provides a comprehensive view of all existing connectors, allowing\n    LLMs to understand the current state of the MSK Connect environment before\n    making changes or creating new connectors.\n    \n    Returns:\n        List[Dict]: List of connector objects with basic information including:\n            - connectorName: Name of the connector\n            - connectorArn: AWS ARN of the connector\n            - connectorState: Current state (CREATING, RUNNING, FAILED, etc.)\n            - connectorDescription: Optional description\n            - creationTime: When the connector was created\n            - currentVersion: Current version of the connector\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\msk_mm2_mcp_server\\server.py",
+            "decorator": [
+                "mcp_mm2.resource"
+            ]
+        },
+        {
+            "name": "get_connector_details",
+            "description": "\n    Resource: Get detailed information about a specific MSK Connect connector.\n    \n    This resource provides comprehensive details about a connector including its\n    configuration, status, and runtime information. Essential for troubleshooting\n    and understanding connector behavior.\n    \n    Args:\n        connector_name: Name of the connector to retrieve details for\n        \n    Returns:\n        Dict: Detailed connector information including:\n            - connectorName: Name of the connector\n            - connectorArn: AWS ARN\n            - connectorState: Current operational state\n            - connectorConfiguration: All configuration parameters\n            - kafkaConnectVersion: Version of Kafka Connect being used\n            - capacity: Provisioned capacity (MCU count, worker count)\n            - plugins: Custom plugins being used\n            - serviceExecutionRoleArn: IAM role for the connector\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "connector_name": {
+                        "type": "string",
+                        "description": "Name of the connector to retrieve details for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Dict": {
+                        "type": "string",
+                        "description": "Detailed connector information including:"
+                    }
+                },
+                "required": [
+                    "connector_name",
+                    "Returns",
+                    "Dict"
+                ]
+            },
+            "file": "src\\msk_mm2_mcp_server\\server.py",
+            "decorator": [
+                "mcp_mm2.resource"
+            ]
+        },
+        {
+            "name": "list_all_plugins",
+            "description": "\n    Resource: List all MSK Connect custom plugins.\n    \n    Custom plugins contain the JAR files and dependencies needed for specific\n    connector types. This resource helps LLMs understand what plugins are\n    available for creating new connectors.\n    \n    Returns:\n        List[Dict]: List of custom plugin objects including:\n            - name: Plugin name\n            - customPluginArn: AWS ARN of the plugin\n            - customPluginState: Current state (ACTIVE, CREATING, CREATE_FAILED, etc.)\n            - description: Optional description\n            - creationTime: When the plugin was created\n            - latestRevision: Current revision information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\msk_mm2_mcp_server\\server.py",
+            "decorator": [
+                "mcp_mm2.resource"
+            ]
+        },
+        {
+            "name": "list_all_worker_configs",
+            "description": "\n    Resource: List all MSK Connect worker configurations.\n    \n    Worker configurations define the behavior of Kafka Connect workers, including\n    converters, transforms, and other operational parameters. This resource helps\n    LLMs understand available configurations for new connectors.\n    \n    Returns:\n        List[Dict]: List of worker configuration objects including:\n            - name: Configuration name\n            - workerConfigurationArn: AWS ARN\n            - workerConfigurationState: Current state\n            - description: Optional description\n            - creationTime: When the configuration was created\n            - latestRevision: Current revision with properties\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\msk_mm2_mcp_server\\server.py",
+            "decorator": [
+                "mcp_mm2.resource"
+            ]
+        },
+        {
+            "name": "get_connector_status",
+            "description": "\n    Resource: Get quick status information for a specific connector.\n    \n    This resource provides a simplified view of connector status, useful for\n    health checks and monitoring. Returns key operational metrics without\n    the full configuration details.\n    \n    Args:\n        connector_name: Name of the connector to check status for\n        \n    Returns:\n        Dict: Status information including:\n            - name: Connector name\n            - state: Current operational state\n            - version: Current version\n            - creation_time: When the connector was created\n            - kafka_connect_version: Kafka Connect version in use\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "connector_name": {
+                        "type": "string",
+                        "description": "Name of the connector to check status for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Dict": {
+                        "type": "string",
+                        "description": "Status information including:"
+                    }
+                },
+                "required": [
+                    "connector_name",
+                    "Returns",
+                    "Dict"
+                ]
+            },
+            "file": "src\\msk_mm2_mcp_server\\server.py",
+            "decorator": [
+                "mcp_mm2.resource"
+            ]
+        },
+        {
+            "name": "setup_complete_mm2_replication",
+            "description": "\n    Prompt: Comprehensive guide for setting up complete MirrorMaker2 replication.\n    \n    This prompt provides step-by-step instructions for LLMs to understand the complete\n    process of setting up MirrorMaker2 replication between two Kafka clusters.\n    \n    Args:\n        source_cluster_name: Name of the source Kafka cluster\n        target_cluster_name: Name of the target Kafka cluster\n        \n    Returns:\n        str: Detailed setup guide with actionable steps\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "source_cluster_name": {
+                        "type": "string",
+                        "description": "Name of the source Kafka cluster"
+                    },
+                    "target_cluster_name": {
+                        "type": "string",
+                        "description": "Name of the target Kafka cluster"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Detailed setup guide with actionable steps"
+                    }
+                },
+                "required": [
+                    "source_cluster_name",
+                    "target_cluster_name",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "src\\msk_mm2_mcp_server\\server.py",
+            "decorator": [
+                "mcp_mm2.prompt"
+            ]
+        },
+        {
+            "name": "troubleshoot_connector",
+            "description": "\n    Prompt: Comprehensive troubleshooting guide for MSK Connect connectors.\n    \n    This prompt provides systematic troubleshooting steps for LLMs to diagnose\n    and resolve common connector issues. Covers network, authentication, \n    configuration, and operational problems.\n    \n    Args:\n        connector_name: Name of the connector to troubleshoot\n        \n    Returns:\n        str: Detailed troubleshooting checklist and diagnostic steps\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "connector_name": {
+                        "type": "string",
+                        "description": "Name of the connector to troubleshoot"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Detailed troubleshooting checklist and diagnostic steps"
+                    }
+                },
+                "required": [
+                    "connector_name",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "src\\msk_mm2_mcp_server\\server.py",
+            "decorator": [
+                "mcp_mm2.prompt"
+            ]
+        },
+        {
+            "name": "optimize_mm2_performance",
+            "description": "\n    Prompt: Performance optimization recommendations for MirrorMaker2 deployments.\n    \n    This prompt provides comprehensive performance tuning guidance for LLMs to\n    optimize MirrorMaker2 connectors based on different replication scales and\n    throughput requirements.\n    \n    Args:\n        replication_scale: Scale of replication (small, medium, large)\n        \n    Returns:\n        str: Detailed performance optimization recommendations\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "replication_scale": {
+                        "type": "string",
+                        "description": "Scale of replication (small, medium, large)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Detailed performance optimization recommendations"
+                    }
+                },
+                "required": [
+                    "replication_scale",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "src\\msk_mm2_mcp_server\\server.py",
+            "decorator": [
+                "mcp_mm2.prompt"
+            ]
+        },
+        {
+            "name": "create_empty_plugin_zip",
+            "description": "\n    Tool: Create an empty ZIP file and upload it to S3 for MSK Connect plugin use.\n    \n    This tool creates a minimal valid ZIP file that can be used as a plugin for MSK Connect.\n    Since MirrorMaker2 connectors use built-in Kafka Connect classes, an empty plugin\n    is sufficient. This approach avoids the complexity of managing JAR files while\n    satisfying MSK Connect's requirement for a custom plugin.\n    \n    Use Case:\n    - First step in MirrorMaker2 setup\n    - Creating a placeholder plugin for built-in connectors\n    - Avoiding JAR file management complexity\n    \n    Args:\n        bucket_name (str): Name of the S3 bucket where the ZIP file will be stored.\n                          Must be accessible by the MSK Connect service role.\n        key_path (str): S3 object key (path) for the ZIP file. \n                       Defaults to \"mm2/mm2.zip\" for organization.\n    \n    Returns:\n        str: Success message with S3 URL or error details if the operation fails.\n             Format: \"Successfully created and uploaded empty plugin ZIP to: s3://bucket/path\"\n    \n    Prerequisites:\n        - S3 bucket must exist and be accessible\n        - AWS credentials must have s3:PutObject permission on the bucket\n        - Bucket should be in the same region as MSK Connect for optimal performance\n    \n    Example:\n        create_empty_plugin_zip(\"my-kafka-plugins\", \"mirrormaker2/plugin.zip\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "bucket_name": {
+                        "type": "string",
+                        "description": "Name of the S3 bucket where the ZIP file will be stored."
+                    },
+                    "key_path": {
+                        "type": "string",
+                        "description": "S3 object key (path) for the ZIP file."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Success message with S3 URL or error details if the operation fails."
+                    },
+                    "Format": {
+                        "type": "string",
+                        "description": "\"Successfully created and uploaded empty plugin ZIP to: s3://bucket/path\""
+                    },
+                    "Prerequisites": {
+                        "type": "string"
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "bucket_name",
+                    "key_path",
+                    "Returns",
+                    "str",
+                    "Format",
+                    "Prerequisites",
+                    "Example"
+                ]
+            },
+            "file": "src\\msk_mm2_mcp_server\\server.py",
+            "decorator": [
+                "mcp_mm2.tool"
+            ]
+        },
+        {
+            "name": "create_custom_plugin",
+            "description": "\n    Tool: Create an MSK Connect custom plugin from an S3-stored ZIP file.\n    \n    This tool registers a custom plugin with MSK Connect, making it available for\n    connector creation. The plugin creation is asynchronous and may take several\n    minutes to complete. Use check_plugin_status or wait_for_plugin_ready to\n    monitor the plugin state before creating connectors.\n    \n    Use Case:\n    - Register plugin ZIP files with MSK Connect\n    - Second step in MirrorMaker2 setup (after uploading ZIP to S3)\n    - Making custom connector classes available for use\n    \n    Args:\n        plugin_name (str): Unique name for the plugin within the AWS account/region.\n                          Must be unique and follow AWS naming conventions.\n        s3_bucket (str): Name of the S3 bucket containing the plugin ZIP file.\n                        Must be accessible by the MSK Connect service.\n        s3_key (str): S3 object key (path) of the ZIP file containing the plugin.\n                     Should point to the ZIP file created by create_empty_plugin_zip.\n        description (str): Human-readable description of the plugin's purpose.\n                          Defaults to \"MirrorMaker2 plugin for MSK Connect\".\n    \n    Returns:\n        str: Creation status message including plugin ARN and initial state.\n             Format: \"Plugin creation started: [name], ARN: [arn], Initial state: [state]\"\n    \n    Prerequisites:\n        - S3 bucket and object must exist and be accessible\n        - MSK Connect service role must have s3:GetObject permission on the bucket\n        - Plugin name must be unique within the AWS account/region\n    \n    Next Steps:\n        - Use check_plugin_status(plugin_arn) to monitor creation progress\n        - Wait for plugin to reach ACTIVE state before creating connectors\n        - Plugin ARN from response is needed for connector creation\n    \n    Example:\n        create_custom_plugin(\"my-mm2-plugin\", \"kafka-plugins-bucket\", \"mm2/plugin.zip\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "plugin_name": {
+                        "type": "string",
+                        "description": "Unique name for the plugin within the AWS account/region."
+                    },
+                    "s3_bucket": {
+                        "type": "string",
+                        "description": "Name of the S3 bucket containing the plugin ZIP file."
+                    },
+                    "s3_key": {
+                        "type": "string",
+                        "description": "S3 object key (path) of the ZIP file containing the plugin."
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Human-readable description of the plugin's purpose."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Creation status message including plugin ARN and initial state."
+                    },
+                    "Format": {
+                        "type": "string",
+                        "description": "\"Plugin creation started: [name], ARN: [arn], Initial state: [state]\""
+                    },
+                    "Prerequisites": {
+                        "type": "string"
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "plugin_name",
+                    "s3_bucket",
+                    "s3_key",
+                    "description",
+                    "Returns",
+                    "str",
+                    "Format",
+                    "Prerequisites",
+                    "Example"
+                ]
+            },
+            "file": "src\\msk_mm2_mcp_server\\server.py",
+            "decorator": [
+                "mcp_mm2.tool"
+            ]
+        },
+        {
+            "name": "check_plugin_status",
+            "description": "\n    Tool: Check the current status of an MSK Connect custom plugin.\n    \n    This tool provides real-time status information for a custom plugin,\n    including its current state and creation details. Essential for monitoring\n    plugin creation progress and troubleshooting issues.\n    \n    Use Case:\n    - Monitor plugin creation progress after create_custom_plugin\n    - Troubleshoot plugin creation failures\n    - Verify plugin readiness before creating connectors\n    - Check plugin health during operations\n    \n    Args:\n        plugin_arn (str): AWS ARN of the custom plugin to check.\n                         Obtained from create_custom_plugin response.\n    \n    Returns:\n        str: Detailed status information including:\n             - Plugin name and ARN\n             - Current state (ACTIVE, CREATING, CREATE_FAILED, DELETING)\n             - Creation timestamp\n             - Status interpretation and next steps\n    \n    Plugin States:\n        - CREATING: Plugin is being created (normal during setup)\n        - ACTIVE: Plugin is ready for use in connectors\n        - CREATE_FAILED: Plugin creation failed (check S3 permissions/content)\n        - DELETING: Plugin is being deleted\n    \n    Example:\n        check_plugin_status(\"arn:aws:kafkaconnect:region:account:custom-plugin/name/uuid\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "plugin_arn": {
+                        "type": "string",
+                        "description": "AWS ARN of the custom plugin to check."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Detailed status information including:"
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "plugin_arn",
+                    "Returns",
+                    "str",
+                    "Example"
+                ]
+            },
+            "file": "src\\msk_mm2_mcp_server\\server.py",
+            "decorator": [
+                "mcp_mm2.tool"
+            ]
+        }
+    ]
+}

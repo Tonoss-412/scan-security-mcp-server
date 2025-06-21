@@ -1,0 +1,689 @@
+{
+    "tools": [
+        {
+            "name": "list_resources_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "truenas_mcp_server.py",
+            "decorator": [
+                "self.server.list_resources"
+            ]
+        },
+        {
+            "name": "read_resource_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "truenas_mcp_server.py",
+            "decorator": [
+                "self.server.read_resource"
+            ]
+        },
+        {
+            "name": "list_tools_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "truenas_mcp_tools_server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "truenas_mcp_tools_server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create a server instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\test_run_tests_tool.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_tool_is_registered",
+            "description": "Test that the run_tests tool is properly registered.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_run_tests_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_all_tests_success",
+            "description": "Test running all tests successfully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_subprocess": {
+                        "type": "string"
+                    },
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_subprocess",
+                    "server"
+                ]
+            },
+            "file": "tests\\test_run_tests_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "temp_docs_dir",
+            "description": "Create a temporary docs directory with test CLAUDE.md files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_truenas_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_handle_list_resources",
+            "description": "Test listing resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_docs_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_docs_dir"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_read_resource",
+            "description": "Test reading resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_docs_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_docs_dir"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_concurrent_resource_access",
+            "description": "Test concurrent access to resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_docs_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_docs_dir"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_resource_format",
+            "description": "Test that resources conform to MCP format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_docs_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_docs_dir"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_expected_resources_exist",
+            "description": "Test that all expected resources are created.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_docs_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_docs_dir"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_resource_content_validity",
+            "description": "Test that all resources return valid content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_docs_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_docs_dir"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_full_server_lifecycle",
+            "description": "Test complete server lifecycle.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_docs_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_docs_dir"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_real_docs_integration",
+            "description": "Test with the actual docs directory if available.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_truenas_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "Test error handling scenarios.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_docs_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_docs_dir"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_docs_path",
+            "description": "Create a mock documentation structure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create a server instance with mock documentation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docs_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docs_path"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_list_tools",
+            "description": "Test that all expected tools are listed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_overview_tool",
+            "description": "Test the overview tool returns middleware documentation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_plugin_docs_general",
+            "description": "Test plugin documentation without specific plugin.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_plugin_docs_specific",
+            "description": "Test getting documentation for a specific plugin.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_plugin_docs_nonexistent",
+            "description": "Test error handling for non-existent plugin.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_api_docs_all_topics",
+            "description": "Test API documentation for different topics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_testing_docs",
+            "description": "Test testing documentation retrieval.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_subsystem_docs",
+            "description": "Test subsystem documentation retrieval.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_subsystem_docs_missing_param",
+            "description": "Test subsystem docs with missing parameter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_docs",
+            "description": "Test documentation search functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_docs_no_results",
+            "description": "Test search with no results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_docs_empty_query",
+            "description": "Test search with empty query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_unknown_tool",
+            "description": "Test handling of unknown tool name.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_tool_error_handling",
+            "description": "Test that tools handle errors gracefully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_concurrent_tool_calls",
+            "description": "Test that multiple tools can be called concurrently (agent pattern).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_server_integration",
+            "description": "Test the server's MCP integration points.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_documentation_processing",
+            "description": "Test that documentation is properly processed on initialization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docs_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docs_path"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_tests_tool_validation",
+            "description": "Test that truenas_run_tests tool properly validates repo_path parameter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_tests_tool_description",
+            "description": "Test that the run tests tool has proper description mentioning current working directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_truenas_mcp_tools_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

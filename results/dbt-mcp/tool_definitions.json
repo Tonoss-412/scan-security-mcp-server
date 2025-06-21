@@ -1,0 +1,393 @@
+{
+    "tools": [
+        {
+            "name": "test_explicit_tool_request",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "evals\\semantic_layer\\test_eval_semantic_layer.py",
+            "decorator": [
+                "pytest.mark.parametrize",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_semantic_layer_fulfillment_query",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "evals\\semantic_layer\\test_eval_semantic_layer.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_semantic_layer_food_revenue_per_month",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "evals\\semantic_layer\\test_eval_semantic_layer.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_semantic_layer_what_percentage_of_orders_were_large",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "evals\\semantic_layer\\test_eval_semantic_layer.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "build",
+            "description": "get_prompt(\"dbt_cli/build\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\dbt_cli\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "compile",
+            "description": "get_prompt(\"dbt_cli/compile\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\dbt_cli\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "docs",
+            "description": "get_prompt(\"dbt_cli/docs\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\dbt_cli\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "ls",
+            "description": "get_prompt(\"dbt_cli/list\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\dbt_cli\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "parse",
+            "description": "get_prompt(\"dbt_cli/parse\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\dbt_cli\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "get_prompt(\"dbt_cli/run\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\dbt_cli\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "test",
+            "description": "get_prompt(\"dbt_cli/test\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\dbt_cli\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "show",
+            "description": "get_prompt(\"dbt_cli/show\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\dbt_cli\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_mart_models",
+            "description": "get_prompt(\"discovery/get_mart_models\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\discovery\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_all_models",
+            "description": "get_prompt(\"discovery/get_all_models\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\discovery\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_model_details",
+            "description": "get_prompt(\"discovery/get_model_details\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\discovery\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_model_parents",
+            "description": "get_prompt(\"discovery/get_model_parents\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\discovery\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_model_children",
+            "description": "get_prompt(\"discovery/get_model_children\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\discovery\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "app_lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\mcp\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "list_metrics",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\semantic_layer\\client.py",
+            "decorator": [
+                "cache"
+            ]
+        },
+        {
+            "name": "list_metrics",
+            "description": "get_prompt(\"semantic_layer/list_metrics\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\semantic_layer\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_dimensions",
+            "description": "get_prompt(\"semantic_layer/get_dimensions\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\semantic_layer\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_entities",
+            "description": "get_prompt(\"semantic_layer/get_entities\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\semantic_layer\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "query_metrics",
+            "description": "get_prompt(\"semantic_layer/query_metrics\")",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dbt_mcp\\semantic_layer\\tools.py",
+            "decorator": [
+                "dbt_mcp.tool"
+            ]
+        },
+        {
+            "name": "api_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\discovery\\test_discovery.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "models_fetcher",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\discovery\\test_discovery.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_remote_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\remote\\test_remote.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_dbt_command_execution",
+            "description": "\n        Tests the full execution path for dbt commands, ensuring they are properly\n        executed with the right arguments.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_popen": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_popen"
+                ]
+            },
+            "file": "tests\\unit\\dbt_cli\\test_cli_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_adds_quiet_flag_to_verbose_commands",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_popen": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_popen"
+                ]
+            },
+            "file": "tests\\unit\\dbt_cli\\test_tools.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_non_verbose_commands_not_modified",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_popen": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_popen"
+                ]
+            },
+            "file": "tests\\unit\\dbt_cli\\test_tools.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_show_command_correctly_formatted",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_popen": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_popen"
+                ]
+            },
+            "file": "tests\\unit\\dbt_cli\\test_tools.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "tools": [
+        {
+            "name": "validate_code",
+            "description": "\n        Validate Mathematica code for security issues.\n        Returns (is_valid, error_message)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "sanitize_output",
+            "description": "Remove potentially sensitive information from output.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "format_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        }
+    ]
+}

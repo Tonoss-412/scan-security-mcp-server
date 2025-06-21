@@ -1,0 +1,115 @@
+{
+    "tools": [
+        {
+            "name": "query_database",
+            "description": "ExecuteanSQLqueryornaturallanguagequeryontheSnowflakedatabase",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The SQL query or natural language question to execute"
+                    },
+                    "is_natural_language": {
+                        "type": "string",
+                        "description": "Whether the query is in natural language (true) or SQL (false)"
+                    },
+                    "max_rows": {
+                        "type": "string",
+                        "description": "Maximum number of rows to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "is_natural_language",
+                    "max_rows",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_tables",
+            "description": "Listalltablesinthedatabase",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "schema_name": {
+                        "type": "string",
+                        "description": "The schema to list tables from (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "schema_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_table_schema",
+            "description": "Gettheschemaofaspecifictable",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "table_name": {
+                        "type": "string",
+                        "description": "The name of the table"
+                    },
+                    "schema_name": {
+                        "type": "string",
+                        "description": "The schema containing the table (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "table_name",
+                    "schema_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "\n        Execute a query on Snowflake and return the results.\n        \n        Args:\n            query (str): The SQL query to execute\n            \n        Returns:\n            Tuple[bool, Union[pd.DataFrame, str]]: A tuple containing:\n                - bool: True if query was successful, False otherwise\n                - Union[pd.DataFrame, str]: DataFrame with results if successful, error message if not\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The SQL query to execute"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "src\\snowflake_service.py",
+            "decorator": [
+                "retry"
+            ]
+        }
+    ]
+}

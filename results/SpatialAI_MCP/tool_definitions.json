@@ -1,0 +1,296 @@
+{
+    "tools": [
+        {
+            "name": "cli",
+            "description": "OpenProblems Spatial Transcriptomics MCP Server CLI.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "verbose": {
+                        "type": "string"
+                    },
+                    "config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "verbose",
+                    "config"
+                ]
+            },
+            "file": "src\\mcp_server\\cli.py",
+            "decorator": [
+                "click.group",
+                "click.version_option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "serve",
+            "description": "Start the MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "string"
+                    },
+                    "transport": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port",
+                    "transport"
+                ]
+            },
+            "file": "src\\mcp_server\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "List available resources for spatial transcriptomics workflows.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server\\main.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "Read and return resource content based on URI.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server\\main.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools for spatial transcriptomics workflows.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server\\main.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool execution requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server\\main.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "test_list_resources",
+            "description": "Test that resources are properly listed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_server_status_resource",
+            "description": "Test reading the server status resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_documentation_resources",
+            "description": "Test reading documentation resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_templates_resource",
+            "description": "Test reading pipeline templates resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_resource_uri",
+            "description": "Test handling of invalid resource URIs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_tools",
+            "description": "Test that tools are properly listed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_echo_test_tool",
+            "description": "Test the echo test tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_available_tools_tool",
+            "description": "Test the list available tools tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_tool_name",
+            "description": "Test handling of invalid tool names.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_nextflow_workflow_execution",
+            "description": "Test Nextflow workflow execution tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_subprocess": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_subprocess"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_viash_component_execution",
+            "description": "Test Viash component execution tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_subprocess": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_subprocess"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_docker_image_build",
+            "description": "Test Docker image building tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_subprocess": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_subprocess"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_nextflow_log_analysis",
+            "description": "Test Nextflow log analysis tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_path"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        }
+    ]
+}

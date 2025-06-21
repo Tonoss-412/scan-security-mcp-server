@@ -1,0 +1,122 @@
+{
+    "tools": [
+        {
+            "name": "index_text_with_embedding",
+            "description": "\n    Ingest doc into Knowledge Base by convert text to embedding and then write text and embedding to OpenSearch vector database.\n\n    Args:\n        text: The text to convert and index\n        document_id: Optional ID for the document (auto-generated if not provided)\n        metadata: Optional metadata to store with the document as JSON string\n\n    Returns:\n        Dictionary containing the response or error information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "The text to convert and index"
+                    },
+                    "document_id": {
+                        "type": "string",
+                        "description": "Optional ID for the document (auto-generated if not provided)"
+                    },
+                    "metadata": {
+                        "type": "string",
+                        "description": "Optional metadata to store with the document as JSON string"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "document_id",
+                    "metadata",
+                    "Returns"
+                ]
+            },
+            "file": "app.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "text_similarity_search",
+            "description": "\n    Search in Knowledge Base by searching for similar documents by converting text to embedding and performing kNN search.\n\n    Args:\n        text: The text to search for similar documents\n        k: Number of similar documents to return\n        score: Minimum similarity score threshold (only return results with score > this value)\n\n    Returns:\n        Dictionary containing search results or error information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "The text to search for similar documents"
+                    },
+                    "k": {
+                        "type": "string",
+                        "description": "Number of similar documents to return"
+                    },
+                    "score": {
+                        "type": "string",
+                        "description": "Minimum similarity score threshold (only return results with score > this value)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "k",
+                    "score",
+                    "Returns"
+                ]
+            },
+            "file": "app.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "lambda_mcp\\lambda_mcp.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "create_table",
+            "description": "Create the DynamoDB table for sessions if it doesn't exist\n        \n        Args:\n            table_name: Name of the table to create\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "lambda_mcp\\session.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "model_validate",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "lambda_mcp\\types.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

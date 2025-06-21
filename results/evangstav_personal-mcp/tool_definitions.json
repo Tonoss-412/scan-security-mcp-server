@@ -1,0 +1,577 @@
+{
+    "tools": [
+        {
+            "name": "cli",
+            "description": "Personal MCP Server - Health and Well-being Tracking",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\cli.py",
+            "decorator": [
+                "click.group",
+                "click.option"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "Run the MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "dev",
+            "description": "Run the server in development mode.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "inspect",
+            "description": "Run the server with MCP Inspector.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "install",
+            "description": "Install the server configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "get_connection",
+            "description": "Get a database connection with context management.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\database.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "analyze_workout_load",
+            "description": "Analyze workout load and suggest adjustments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\prompts.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "nutrition_recommendations",
+            "description": "Get personalized nutrition recommendations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\prompts.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "journal_insights",
+            "description": "Generate insights from journal entries.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\prompts.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "get_workout_history",
+            "description": "Get workout history within a date range.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_nutrition_log",
+            "description": "Get nutrition log within a date range.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_journal_entries",
+            "description": "Get journal entries within a date range.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "log_journal_entry",
+            "description": "Logajournalentry",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\tools\\journal.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "analyze_journal_entries",
+            "description": "Analyzejournalentries",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\tools\\journal.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "log_meal",
+            "description": "Logamealwithnutritionalinformation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\tools\\nutrition.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_nutrition_targets",
+            "description": "Checkdailynutritiontargets",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\tools\\nutrition.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "log_workout",
+            "description": "Logaworkoutsessionwithexercises",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\tools\\workout.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "calculate_training_weights",
+            "description": "Calculatesafetrainingweightsbasedonrecovery",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\personal_mcp\\tools\\workout.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "temp_db_path",
+            "description": "Create a temporary database file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "db",
+            "description": "Create a test database instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_db_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_db_path"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create a test server instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_db_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_db_path"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_workout",
+            "description": "Create a sample workout data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_meal",
+            "description": "Create a sample meal data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_journal_entry",
+            "description": "Create a sample journal entry data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "cli_runner",
+            "description": "Create a CLI runner for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_config_dir",
+            "description": "Create a temporary config directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_cli_run",
+            "description": "Test CLI run command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_personal_mcp": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "temp_db_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_personal_mcp",
+                    "cli_runner",
+                    "temp_db_path"
+                ]
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_cli_dev_fallback",
+            "description": "Test CLI dev command falls back to normal mode when development server is unavailable.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_personal_mcp": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "temp_db_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_personal_mcp",
+                    "cli_runner",
+                    "temp_db_path"
+                ]
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_cli_inspect_fallback",
+            "description": "Test CLI inspect command falls back to normal mode when inspector is unavailable.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_personal_mcp": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "temp_db_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_personal_mcp",
+                    "cli_runner",
+                    "temp_db_path"
+                ]
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_cli_verbose_logging",
+            "description": "Test verbose logging option.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_personal_mcp": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "temp_db_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_personal_mcp",
+                    "cli_runner",
+                    "temp_db_path"
+                ]
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_cli_config_handling",
+            "description": "Test configuration file handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_personal_mcp": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_config_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_personal_mcp",
+                    "cli_runner",
+                    "mock_config_dir"
+                ]
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_workout_tools",
+            "description": "Test workout-related MCP tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_nutrition_tools",
+            "description": "Test nutrition-related MCP tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_journal_tools",
+            "description": "Test journal-related MCP tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_workout_history_resource",
+            "description": "Test workout history resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_nutrition_resource",
+            "description": "Test nutrition resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_journal_resource",
+            "description": "Test journal entries resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_prompts",
+            "description": "Test MCP prompts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "Test error handling in MCP tools and resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

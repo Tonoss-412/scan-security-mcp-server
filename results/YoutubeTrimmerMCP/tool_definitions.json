@@ -1,0 +1,167 @@
+{
+    "tools": [
+        {
+            "name": "suppress_output",
+            "description": "Context manager to completely suppress stdout and stderr.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\youtube_trimmer\\core.py",
+            "decorator": [
+                "contextlib.contextmanager"
+            ]
+        },
+        {
+            "name": "to_seconds",
+            "description": "Convert a timestamp (SS, MM:SS, or HH:MM:SS[.ms]) to seconds.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\youtube_trimmer\\core.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "trim_youtube_video",
+            "description": "Download and trim a YouTube video to a specific timeframe.\n    \n    Args:\n        url: YouTube video URL (e.g., \"https://www.youtube.com/watch?v=dQw4w9WgXcQ\")\n        start_time: Start timestamp in HH:MM:SS[.ms] format (e.g., \"0:30\", \"1:25:30\")\n        end_time: End timestamp in HH:MM:SS[.ms] format (e.g., \"0:45\", \"1:27:00\")\n        output_path: Optional output filename. If not provided, auto-generated from video title and timestamps\n        keep_temp: Whether to keep the full downloaded video file (default: False)\n        \n    Returns:\n        Path to the trimmed video file\n        \n    Raises:\n        ValueError: If timestamps are invalid (start >= end or exceed video duration)\n        RuntimeError: If download or trimming fails\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "YouTube video URL (e.g., \"https://www.youtube.com/watch?v=dQw4w9WgXcQ\")"
+                    },
+                    "start_time": {
+                        "type": "string",
+                        "description": "Start timestamp in HH:MM:SS[.ms] format (e.g., \"0:30\", \"1:25:30\")"
+                    },
+                    "end_time": {
+                        "type": "string",
+                        "description": "End timestamp in HH:MM:SS[.ms] format (e.g., \"0:45\", \"1:27:00\")"
+                    },
+                    "output_path": {
+                        "type": "string",
+                        "description": "Optional output filename. If not provided, auto-generated from video title and timestamps"
+                    },
+                    "keep_temp": {
+                        "type": "string",
+                        "description": "Whether to keep the full downloaded video file (default: False)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If timestamps are invalid (start >= end or exceed video duration)"
+                    },
+                    "RuntimeError": {
+                        "type": "string",
+                        "description": "If download or trimming fails"
+                    }
+                },
+                "required": [
+                    "url",
+                    "start_time",
+                    "end_time",
+                    "output_path",
+                    "keep_temp",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "RuntimeError"
+                ]
+            },
+            "file": "src\\youtube_trimmer\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_youtube_video_info",
+            "description": "Get information about a YouTube video without downloading it.\n    \n    Args:\n        url: YouTube video URL\n        \n    Returns:\n        Dictionary containing video information including:\n        - id: Video ID\n        - title: Video title\n        - duration: Duration in seconds\n        - description: Video description\n        - uploader: Channel name\n        - upload_date: Upload date\n        - view_count: Number of views\n        - thumbnail: Thumbnail URL\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "YouTube video URL"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "Returns"
+                ]
+            },
+            "file": "src\\youtube_trimmer\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "convert_timestamp_to_seconds",
+            "description": "Convert a timestamp string to seconds.\n    \n    Args:\n        timestamp: Timestamp in SS, MM:SS, or HH:MM:SS[.ms] format\n        \n    Returns:\n        Time in seconds as a float\n        \n    Examples:\n        - \"30\" -> 30.0\n        - \"1:30\" -> 90.0\n        - \"1:25:30\" -> 5130.0\n        - \"0:30.5\" -> 30.5\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "timestamp": {
+                        "type": "string",
+                        "description": "Timestamp in SS, MM:SS, or HH:MM:SS[.ms] format"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "timestamp",
+                    "Returns",
+                    "Examples"
+                ]
+            },
+            "file": "src\\youtube_trimmer\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "download_full_youtube_video",
+            "description": "Download a full YouTube video without trimming.\n    \n    Args:\n        url: YouTube video URL\n        output_path: Optional output filename. If not provided, auto-generated from video title\n        \n    Returns:\n        Path to the downloaded video file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "YouTube video URL"
+                    },
+                    "output_path": {
+                        "type": "string",
+                        "description": "Optional output filename. If not provided, auto-generated from video title"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "output_path",
+                    "Returns"
+                ]
+            },
+            "file": "src\\youtube_trimmer\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,124 @@
+{
+    "tools": [
+        {
+            "name": "_make_groq_api_call",
+            "description": "Make a Groq API call with retry logic.\n        \n        Args:\n            messages: List of message dictionaries\n            tools: Optional list of tool definitions\n            \n        Returns:\n            The Groq API response\n            \n        Raises:\n            Exception: If the API call fails after all retries\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "type": "string",
+                        "description": "List of message dictionaries"
+                    },
+                    "tools": {
+                        "type": "string",
+                        "description": "Optional list of tool definitions"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "Exception": {
+                        "type": "string",
+                        "description": "If the API call fails after all retries"
+                    }
+                },
+                "required": [
+                    "messages",
+                    "tools",
+                    "Returns",
+                    "Raises",
+                    "Exception"
+                ]
+            },
+            "file": "src\\mcp_client.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "list_tables",
+            "description": "\n    List all available tables in the PostgreSQL database.\n    \n    Returns:\n        str: A JSON-encoded string of available tables.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_table_schema",
+            "description": "\n    Get the schema for a specific table.\n    \n    Args:\n        table_name (str): The name of the table to get the schema for.\n        \n    Returns:\n        str: A JSON-encoded string of the table schema.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "table_name": {
+                        "type": "string",
+                        "description": "The name of the table to get the schema for."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A JSON-encoded string of the table schema."
+                    }
+                },
+                "required": [
+                    "table_name",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "\n    Execute a read-only SQL query against the PostgreSQL database.\n    \n    Args:\n        sql (str): The SQL query to execute.\n        \n    Returns:\n        str: A JSON-encoded string of the query results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sql": {
+                        "type": "string",
+                        "description": "The SQL query to execute."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A JSON-encoded string of the query results."
+                    }
+                },
+                "required": [
+                    "sql",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "describe_database",
+            "description": "\n    Get a high-level description of the database including tables and their row counts.\n    \n    Returns:\n        str: A JSON-encoded string with database information.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

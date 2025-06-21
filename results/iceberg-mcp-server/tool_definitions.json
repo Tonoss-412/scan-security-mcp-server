@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "execute_query",
+            "description": "\n    Execute a SQL query on the Impala database and return results as JSON.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_schema",
+            "description": "\n    Retrieve the list of table names in the current Impala database.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

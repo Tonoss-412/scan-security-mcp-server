@@ -1,0 +1,268 @@
+{
+    "tools": [
+        {
+            "name": "home",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "create_agent",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "chat_with_agent",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_agents",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "test_agent",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "start_agent_mcp_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "home",
+            "description": "Home page that lists all available agents",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main_app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "delete_agent",
+            "description": "Delete an agent and its MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main_app.py",
+            "decorator": [
+                "app.delete"
+            ]
+        },
+        {
+            "name": "redirect_to_sse",
+            "description": "Redirect to the actual SSE endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main_app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_mcp_servers",
+            "description": "List all running MCP servers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp_router.get"
+            ]
+        },
+        {
+            "name": "start_mcp_server",
+            "description": "Start an MCP server for an agent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp_router.post"
+            ]
+        },
+        {
+            "name": "stop_mcp_server_route",
+            "description": "Stop an MCP server for an agent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp_router.post"
+            ]
+        },
+        {
+            "name": "ask",
+            "description": "Ask the agent a question and get a response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_airbnb_agent.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "default",
+            "description": "Default agent prompt template",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_airbnb_agent.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "ask",
+            "description": "Ask the agent a question and get a response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_airbnb_agent_.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "default",
+            "description": "Default agent prompt template",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_airbnb_agent_.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "ask",
+            "description": "Ask the agent a question and get a response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_delta_flight_agent.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "default",
+            "description": "Default agent prompt template",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_delta_flight_agent.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "ask",
+            "description": "Ask the agent a question and get a response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_uber_agent.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "default",
+            "description": "Default agent prompt template",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_uber_agent.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "echo",
+            "description": "Echo the message back.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test_mcp_server.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "simple_prompt",
+            "description": "Returns a simple prompt template.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test_mcp_server.py",
+            "decorator": [
+                "mcp_server.prompt"
+            ]
+        }
+    ]
+}

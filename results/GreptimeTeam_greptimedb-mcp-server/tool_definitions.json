@@ -1,0 +1,225 @@
+{
+    "tools": [
+        {
+            "name": "description",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "conftest.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "connect",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "conftest.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "pytest_sessionfinish",
+            "description": "Restore original modules after all tests are done",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session": {
+                        "type": "string"
+                    },
+                    "exitstatus": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "session",
+                    "exitstatus"
+                ]
+            },
+            "file": "conftest.py",
+            "decorator": [
+                "pytest.hookimpl"
+            ]
+        },
+        {
+            "name": "from_env_arguments",
+            "description": "\n        Parse command line arguments.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\greptimedb_mcp_server\\config.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "config",
+            "description": "Create a test configuration",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "logger",
+            "description": "Create a test logger",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_list_resources",
+            "description": "Test listing database resources",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "logger": {
+                        "type": "string"
+                    },
+                    "config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "logger",
+                    "config"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_resource",
+            "description": "Test reading a specific database resource",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "logger": {
+                        "type": "string"
+                    },
+                    "config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "logger",
+                    "config"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_tools",
+            "description": "Test listing available database tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "logger": {
+                        "type": "string"
+                    },
+                    "config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "logger",
+                    "config"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_call_tool_select_query",
+            "description": "Test executing a SELECT query via tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "logger": {
+                        "type": "string"
+                    },
+                    "config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "logger",
+                    "config"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_security_gate_dangerous_query",
+            "description": "Test security gate blocking dangerous queries",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "logger": {
+                        "type": "string"
+                    },
+                    "config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "logger",
+                    "config"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_show_tables_query",
+            "description": "Test SHOW TABLES query execution",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "logger": {
+                        "type": "string"
+                    },
+                    "config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "logger",
+                    "config"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

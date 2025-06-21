@@ -1,0 +1,213 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "List the available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\email_mcp_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "send_email",
+            "description": "Send an email with optional attachments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\email_mcp_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "check_inbox",
+            "description": "Check the inbox for messages matching criteria.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\email_mcp_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "get_message",
+            "description": "Get the full content of a message by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\email_mcp_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List the available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\filesystem_mcp_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "store_file",
+            "description": "Store a file in the filesystem.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\filesystem_mcp_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "get_file_details",
+            "description": "Get details about a stored file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\filesystem_mcp_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "list_files",
+            "description": "List files in a category.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\filesystem_mcp_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "download_file",
+            "description": "Download a stored file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\filesystem_mcp_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "test_agent_society",
+            "description": "Test agent society construction and task delegation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_chat_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_chat_agent"
+                ]
+            },
+            "file": "tests\\integration_tests.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_mcp_toolkit",
+            "description": "Test MCP toolkit functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_popen": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_popen"
+                ]
+            },
+            "file": "tests\\integration_tests.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_end_to_end_workflow",
+            "description": "Test end-to-end workflow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_followup_process_task": {
+                        "type": "string"
+                    },
+                    "mock_submission_process_task": {
+                        "type": "string"
+                    },
+                    "mock_evidence_process_task": {
+                        "type": "string"
+                    },
+                    "mock_research_process_task": {
+                        "type": "string"
+                    },
+                    "mock_delegate_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_followup_process_task",
+                    "mock_submission_process_task",
+                    "mock_evidence_process_task",
+                    "mock_research_process_task",
+                    "mock_delegate_task"
+                ]
+            },
+            "file": "tests\\integration_tests.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "Create a message from a dictionary.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "data"
+                ]
+            },
+            "file": "tests\\mock_messages.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

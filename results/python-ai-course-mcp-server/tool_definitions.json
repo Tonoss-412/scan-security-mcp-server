@@ -1,0 +1,101 @@
+{
+    "tools": [
+        {
+            "name": "get_info",
+            "description": "Get information about this MCP server.\n    \n    Returns information about the purpose and capabilities of this demo MCP server.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_greetings",
+            "description": "Get a personalized greeting.\n    \n    Args:\n        name: The name of the person to greet\n    \n    Returns a friendly greeting that includes the provided name.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the person to greet"
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_workspace_info",
+            "description": "Get information about a workspace folder.\n    \n    Args:\n        workspace_folder: Path to the workspace folder (can use ${workspaceFolder} in VS Code)\n    \n    Returns information about the files in the workspace, including counts and statistics.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "workspace_folder": {
+                        "type": "string",
+                        "description": "Path to the workspace folder (can use ${workspaceFolder} in VS Code)"
+                    }
+                },
+                "required": [
+                    "workspace_folder"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_repo_info",
+            "description": "Get basic information about a Git repository status.\n    \n    Args:\n        repo_path: Path to the Git repository (can use ${workspaceFolder} in VS Code)\n    \n    Returns basic Git repository status information.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "repo_path": {
+                        "type": "string",
+                        "description": "Path to the Git repository (can use ${workspaceFolder} in VS Code)"
+                    }
+                },
+                "required": [
+                    "repo_path"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_diff",
+            "description": "Get the diff between the current branch and a target branch.\n    \n    Args:\n        repo_path: Path to the Git repository (can use ${workspaceFolder} in VS Code)\n        target_branch: The target branch to compare against (default: main)\n    \n    Returns the diff between the current branch and the target branch.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "repo_path": {
+                        "type": "string",
+                        "description": "Path to the Git repository (can use ${workspaceFolder} in VS Code)"
+                    },
+                    "target_branch": {
+                        "type": "string",
+                        "description": "The target branch to compare against (default: main)"
+                    }
+                },
+                "required": [
+                    "repo_path",
+                    "target_branch"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

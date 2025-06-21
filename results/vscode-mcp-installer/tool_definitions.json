@@ -1,0 +1,719 @@
+{
+    "tools": [
+        {
+            "name": "cli",
+            "description": "MCP Server Verification Tool for VS Code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_installer\\main.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "check_servers",
+            "description": "\n    Verify MCP server installation in VSCode.\n    \n    SERVERS: List of MCP server Docker images to check (e.g., \"mcr.microsoft.com/mcp/server:1.0\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "servers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "servers"
+                ]
+            },
+            "file": "mcp_installer\\main.py",
+            "decorator": [
+                "cli.command",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "list_servers",
+            "description": "List all MCP servers currently installed in VS Code settings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_installer\\main.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "registry",
+            "description": "Commands to interact with the MCP Registry.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_installer\\main.py",
+            "decorator": [
+                "cli.group"
+            ]
+        },
+        {
+            "name": "list_registry_servers",
+            "description": "List available MCP servers from the registry.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string"
+                    },
+                    "cursor": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "cursor"
+                ]
+            },
+            "file": "mcp_installer\\main.py",
+            "decorator": [
+                "registry.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "search_registry_servers",
+            "description": "Search for MCP servers in the registry by name or description.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            },
+            "file": "mcp_installer\\main.py",
+            "decorator": [
+                "registry.command",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "show_server_details",
+            "description": "Get detailed information about a specific MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_id"
+                ]
+            },
+            "file": "mcp_installer\\main.py",
+            "decorator": [
+                "registry.command",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "install_registry_server",
+            "description": "\n    Install an MCP server from the registry to VS Code.\n    \n    IDENTIFIER can be either a server name or ID (with --by-id flag).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "identifier": {
+                        "type": "string"
+                    },
+                    "by_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "identifier",
+                    "by_id"
+                ]
+            },
+            "file": "mcp_installer\\main.py",
+            "decorator": [
+                "registry.command",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "config_commands",
+            "description": "Commands for working with MCP configuration files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_installer\\main.py",
+            "decorator": [
+                "cli.group"
+            ]
+        },
+        {
+            "name": "install_from_config",
+            "description": "Install MCP servers from a configuration file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config_file": {
+                        "type": "string"
+                    },
+                    "no_interactive": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config_file",
+                    "no_interactive"
+                ]
+            },
+            "file": "mcp_installer\\main.py",
+            "decorator": [
+                "config_commands.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "list_servers",
+            "description": "ListallMCPserversinstalledinVSCode",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_installer\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_servers",
+            "description": "CheckifspecificMCPserversareinstalledinVSCode",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "servers": {
+                        "type": "string",
+                        "description": "List of MCP server identifiers to check"
+                    }
+                },
+                "required": [
+                    "servers"
+                ]
+            },
+            "file": "mcp_installer\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_available_servers",
+            "description": "ListallavailableMCPserversintheregistry",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of entries to return (default: 30)"
+                    },
+                    "cursor": {
+                        "type": "string",
+                        "description": "Pagination cursor for retrieving next set of results"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "cursor",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_installer\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_server_details",
+            "description": "GetdetailsaboutaspecificMCPserver",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the server"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_installer\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_servers",
+            "description": "SearchforMCPserversbynameordescription",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query string (case-insensitive)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_installer\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "install_server",
+            "description": "InstallanMCPserverfromtheregistry",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the server to install"
+                    },
+                    "server_name": {
+                        "type": "string",
+                        "description": "Name of the server to search for and install (used if server_id is not provided)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_id",
+                    "server_name",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_installer\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_registry_info",
+            "description": "Showregistryinformation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_installer\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_batch_search_servers",
+            "description": "Test batch_search_servers method with multiple identifiers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "tests\\test_batch_search.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_registry_list_command",
+            "description": "Test the 'registry list' command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_class"
+                ]
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_registry_search_command",
+            "description": "Test the 'registry search' command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_class"
+                ]
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_registry_show_command",
+            "description": "Test the 'registry show' command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_class"
+                ]
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_registry_install_command_by_id",
+            "description": "Test the 'registry install' command with --by-id flag.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_install": {
+                        "type": "string"
+                    },
+                    "mock_convert": {
+                        "type": "string"
+                    },
+                    "mock_client_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_install",
+                    "mock_convert",
+                    "mock_client_class"
+                ]
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_registry_install_command_by_name_multiple_matches",
+            "description": "Test the 'registry install' command with name that matches multiple servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_class"
+                ]
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_install_server_from_registry",
+            "description": "Test installing a server from the registry.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_secho": {
+                        "type": "string"
+                    },
+                    "mock_prompt": {
+                        "type": "string"
+                    },
+                    "mock_resolve": {
+                        "type": "string"
+                    },
+                    "mock_install": {
+                        "type": "string"
+                    },
+                    "mock_convert": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_secho",
+                    "mock_prompt",
+                    "mock_resolve",
+                    "mock_install",
+                    "mock_convert"
+                ]
+            },
+            "file": "tests\\test_config.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_install_server_from_registry_non_interactive",
+            "description": "Test installing a server from the registry in non-interactive mode.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_secho": {
+                        "type": "string"
+                    },
+                    "mock_prompt": {
+                        "type": "string"
+                    },
+                    "mock_resolve": {
+                        "type": "string"
+                    },
+                    "mock_install": {
+                        "type": "string"
+                    },
+                    "mock_convert": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_secho",
+                    "mock_prompt",
+                    "mock_resolve",
+                    "mock_install",
+                    "mock_convert"
+                ]
+            },
+            "file": "tests\\test_config.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_install_server_from_registry_installation_failure",
+            "description": "Test installing a server from the registry when installation fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_secho": {
+                        "type": "string"
+                    },
+                    "mock_resolve": {
+                        "type": "string"
+                    },
+                    "mock_install": {
+                        "type": "string"
+                    },
+                    "mock_convert": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_secho",
+                    "mock_resolve",
+                    "mock_install",
+                    "mock_convert"
+                ]
+            },
+            "file": "tests\\test_config.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "mock_registry_client",
+            "description": "Create a mock registry client that returns predefined server data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_config_cli.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_vscode_settings",
+            "description": "Create a temporary VSCode settings file for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_config_cli.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_mcp_config_file",
+            "description": "Create a temporary MCP config file for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_config_cli.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_list_servers",
+            "description": "Test listing servers from the registry",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "tests\\test_registry.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_servers_with_repo_paths",
+            "description": "Test exact name matching for server search",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "tests\\test_registry.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_server_tools_registration",
+            "description": "Test that all expected tools are registered in the MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_list_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_list_tools"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_install_server_in_vscode",
+            "description": "Test the install_server_in_vscode function that directly modifies settings.json",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_json_dump": {
+                        "type": "string"
+                    },
+                    "mock_file": {
+                        "type": "string"
+                    },
+                    "mock_find_settings": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_json_dump",
+                    "mock_file",
+                    "mock_find_settings"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_install_server_in_vscode_error_handling",
+            "description": "Test error handling in install_server_in_vscode when writing fails",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_file": {
+                        "type": "string"
+                    },
+                    "mock_find_settings": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_file",
+                    "mock_find_settings"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        }
+    ]
+}

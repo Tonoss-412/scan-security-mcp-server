@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "test_mcp_server_tools",
+            "description": "Test that we can connect to the server and list available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_stdio.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_server_mood",
+            "description": "Test that the mood tool works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_stdio.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

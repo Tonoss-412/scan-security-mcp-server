@@ -1,0 +1,165 @@
+{
+    "tools": [
+        {
+            "name": "get_api_info",
+            "description": "\n            Get information about the Benchling SDK capabilities and usage.\n            \n            This resource contains information about:\n            - Available SDK methods and services\n            - Authentication requirements\n            - Common usage patterns\n            - Available entity types\n            \n            Returns:\n                SDK information and usage guidelines\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\benchling_mcp\\server.py",
+            "decorator": [
+                "self.resource"
+            ]
+        },
+        {
+            "name": "benchling_mcp",
+            "description": "Create a real BenchlingMCP instance with actual credentials.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test\\test_benchling_mcp_real.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_projects_real_api",
+            "description": "Test get_projects with real API - should return the 5 projects from run_example.py.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "benchling_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "benchling_mcp"
+                ]
+            },
+            "file": "test\\test_benchling_mcp_real.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "benchling_server",
+            "description": "Create BenchlingMCP server instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test\\test_judge.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_agent",
+            "description": "Create test agent with Benchling tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "benchling_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "benchling_server"
+                ]
+            },
+            "file": "test\\test_judge.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "judge_agent",
+            "description": "Create judge agent.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test\\test_judge.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_question_with_judge",
+            "description": "Test each question by generating an answer and evaluating it with the judge.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "qa_item": {
+                        "type": "string"
+                    },
+                    "test_agent": {
+                        "type": "string"
+                    },
+                    "judge_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "qa_item",
+                    "test_agent",
+                    "judge_agent"
+                ]
+            },
+            "file": "test\\test_judge.py",
+            "decorator": [
+                "pytest.mark.skipif",
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "benchling_mcp",
+            "description": "Create BenchlingMCP instance with API credentials.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test\\test_upload_genbank_blob.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "genbank_file_path",
+            "description": "Get path to the test GenBank file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test\\test_upload_genbank_blob.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_genbank_blob_upload",
+            "description": "\n        Test uploading GenBank file as blob (preserving annotations).\n        \n        This test:\n        1. Uploads GenBank file as blob without parsing\n        2. Verifies blob was created successfully\n        3. Provides instructions for manual import in Benchling UI\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "benchling_mcp": {
+                        "type": "string"
+                    },
+                    "genbank_file_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "benchling_mcp",
+                    "genbank_file_path"
+                ]
+            },
+            "file": "test\\test_upload_genbank_blob.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

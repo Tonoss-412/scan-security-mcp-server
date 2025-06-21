@@ -1,0 +1,1899 @@
+{
+    "tools": [
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\basic\\decorator\\main.py",
+            "decorator": [
+                "agent_app.agent"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools.\n    Each tool specifies its arguments using JSON Schema validation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\basic\\mcp_agent_server\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handle tool execution requests.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\basic\\mcp_agent_server\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "show_roots",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\mcp\\mcp_root_test\\root_test_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\mcp\\mcp_sse\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\mcp\\mcp_sse\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "_",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mo": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mo"
+                ]
+            },
+            "file": "examples\\usecases\\marimo_mcp_basic_agent\\notebook.py",
+            "decorator": [
+                "app.cell"
+            ]
+        },
+        {
+            "name": "list_examples",
+            "description": "List all available examples.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\example.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "generate",
+            "description": "Generate JSON schema from Pydantic models in config.py",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\gen_schema.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "context",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "config",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "server_registry",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "executor",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "engine",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "upstream_session",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "upstream_session",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "value"
+                ]
+            },
+            "file": "src\\mcp_agent\\app.py",
+            "decorator": [
+                "upstream_session.setter"
+            ]
+        },
+        {
+            "name": "workflows",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "tasks",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "logger",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "\n        Run the application. Use as context manager.\n\n        Example:\n            async with app.run() as running_app:\n                # App is initialized here\n                pass\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\app.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "validate_uri",
+            "description": "Validate that the URI starts with file:// (required by specification 2024-11-05)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\config.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "find_config",
+            "description": "Find the config file in the current directory or parent directories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "find_secrets",
+            "description": "Find the secrets file in the current directory or parent directories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "_find_config",
+            "description": "Find the config file of one of the possible names in the current directory or parent directories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "context",
+            "description": "\n        Get context, with graceful fallback to global context if needed.\n        Raises clear error if no context is available.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\context_dependent.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "use_context",
+            "description": "Temporarily use a different context.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\context_dependent.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "start_server",
+            "description": "\n        Starts the server process based on its configuration. To initialize, call initialize_server\n\n        Args:\n            server_name (str): The name of the server to initialize.\n\n        Returns:\n            StdioServerParameters: The server parameters for stdio transport.\n\n        Raises:\n            ValueError: If the server is not found or has an unsupported transport.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string",
+                        "description": "The name of the server to initialize."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "StdioServerParameters": {
+                        "type": "string",
+                        "description": "The server parameters for stdio transport."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If the server is not found or has an unsupported transport."
+                    }
+                },
+                "required": [
+                    "server_name",
+                    "Returns",
+                    "StdioServerParameters",
+                    "Raises",
+                    "ValueError"
+                ]
+            },
+            "file": "src\\mcp_agent\\mcp_server_registry.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "initialize_server",
+            "description": "\n        Initialize a server based on its configuration.\n        After initialization, also calls any registered or provided initialization hook for the server.\n\n        Args:\n            server_name (str): The name of the server to initialize.\n            init_hook (InitHookCallable): Optional initialization hook function to call after initialization.\n\n        Returns:\n            StdioServerParameters: The server parameters for stdio transport.\n\n        Raises:\n            ValueError: If the server is not found or has an unsupported transport.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string",
+                        "description": "The name of the server to initialize."
+                    },
+                    "init_hook": {
+                        "type": "string",
+                        "description": "Optional initialization hook function to call after initialization."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "StdioServerParameters": {
+                        "type": "string",
+                        "description": "The server parameters for stdio transport."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If the server is not found or has an unsupported transport."
+                    }
+                },
+                "required": [
+                    "server_name",
+                    "Returns",
+                    "StdioServerParameters",
+                    "Raises",
+                    "ValueError"
+                ]
+            },
+            "file": "src\\mcp_agent\\mcp_server_registry.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "Main entry point for the MCP Agent CLI.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\cli\\main.py",
+            "decorator": [
+                "app.callback"
+            ]
+        },
+        {
+            "name": "show",
+            "description": "Show the configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\cli\\commands\\config.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "\n        Context manager for running the application.\n        Handles setup and teardown of the app and agents.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\core\\decorator_app.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "execution_context",
+            "description": "Context manager for execution setup/teardown.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\executor\\executor.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "execute",
+            "description": "Execute a list of tasks and return their results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\executor\\executor.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "execute_streaming",
+            "description": "Execute tasks and yield results as they complete",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\executor\\executor.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "signal_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\executor\\temporal.py",
+            "decorator": [
+                "workflow.signal"
+            ]
+        },
+        {
+            "name": "wrapped",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\executor\\temporal.py",
+            "decorator": [
+                "workflow.signal"
+            ]
+        },
+        {
+            "name": "wrap_as_activity",
+            "description": "\n        Convert a function into a Temporal activity and return its info.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\executor\\temporal.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "wrapped_activity",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\executor\\temporal.py",
+            "decorator": [
+                "activity.defn"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "\n        Main workflow implementation. Must be overridden by subclasses.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\executor\\workflow.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "signal",
+            "description": "Emit a signal to all waiting handlers and registered callbacks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\executor\\workflow_signal.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "wait_for_signal",
+            "description": "Wait for a signal to be emitted.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\executor\\workflow_signal.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "signal",
+            "description": "Emit a signal to all waiting handlers and registered callbacks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\executor\\workflow_signal.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "wait_for_signal",
+            "description": "Wait for a signal to be emitted.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\executor\\workflow_signal.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "handle_event",
+            "description": "Process an incoming event.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\logging\\listeners.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "event_context",
+            "description": "\n    Times a synchronous block, logs an event after completion.\n    Because logger methods are async, we schedule the final log.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\logging\\logger.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "async_event_context",
+            "description": "\n    Times an asynchronous block, logs an event after completion.\n    Because logger methods are async, we schedule the final log.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\logging\\logger.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "configure",
+            "description": "\n        Configure the logging system.\n\n        Args:\n            event_filter: Default filter for all loggers\n            transport: Transport for sending events to external systems\n            batch_size: Default batch size for batching listener\n            flush_interval: Default flush interval for batching listener\n            **kwargs: Additional configuration options\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\logging\\logger.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "shutdown",
+            "description": "Shutdown the logging system gracefully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\logging\\logger.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "managed",
+            "description": "Context manager for the logging system lifecycle.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\logging\\logger.py",
+            "decorator": [
+                "classmethod",
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "paused",
+            "description": "Context manager for temporarily pausing the display.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\logging\\rich_progress.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "async_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\logging\\tracing.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "sync_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\logging\\tracing.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "start_span_from_mcp_request",
+            "description": "Extract trace context from incoming MCP request and start a new span",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\logging\\tracing.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "inject_trace_context",
+            "description": "Inject current trace context into outgoing MCP request arguments",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\logging\\tracing.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "send_matched_event",
+            "description": "Send an event to the external system.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\logging\\transport.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "is_closed",
+            "description": "Check if transport is closed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\logging\\transport.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "get",
+            "description": "Get the singleton instance of the event bus.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\logging\\transport.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "reset",
+            "description": "\n        Reset the singleton instance.\n        This is primarily useful for testing scenarios where you need to ensure\n        a clean state between tests.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\logging\\transport.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "gen_client",
+            "description": "\n    Create a client session to the specified server.\n    Handles server startup, initialization, and message receive loop setup.\n    If required, callers can specify their own message receive loop and ClientSession class constructor to customize further.\n    For persistent connections, use connect() or MCPConnectionManager instead.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\mcp\\gen_client.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "run_workflow",
+            "description": "Run the workflow given its name or id",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\mcp\\mcp_agent_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "pause_workflow",
+            "description": "Pause a running workflow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\mcp\\mcp_agent_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "resume_workflow",
+            "description": "Resume a paused workflow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\mcp\\mcp_agent_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize an MCPAggregator.\n        Use this instead of constructor since we need async initialization.\n        If connection_persistence is True, the aggregator will maintain a\n        persistent connection to the servers for as long as this aggregator is around.\n        By default we do not maintain a persistent connection.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\mcp\\mcp_aggregator.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "embed",
+            "description": "\n        Generate embeddings for a list of messages\n\n        Args:\n            data: List of text strings to embed\n\n        Returns:\n            Array of embeddings, shape (len(texts), embedding_dim)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "string",
+                        "description": "List of text strings to embed"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\embedding\\embedding_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "embedding_dim",
+            "description": "Return the dimensionality of the embeddings",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\workflows\\embedding\\embedding_base.py",
+            "decorator": [
+                "property",
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "embedding_dim",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\workflows\\embedding\\embedding_cohere.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "embedding_dim",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\workflows\\embedding\\embedding_openai.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "classify",
+            "description": "\n        Classify the input request into one or more intents.\n\n        Args:\n            request: The input text to classify\n            top_k: Maximum number of top intent matches to return. May return fewer.\n\n        Returns:\n            List of classification results, ordered by confidence\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The input text to classify"
+                    },
+                    "top_k": {
+                        "type": "string",
+                        "description": "Maximum number of top intent matches to return. May return fewer."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "top_k",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_embedding.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_embedding_cohere.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_embedding_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_llm_anthropic.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_result",
+            "description": "Convert an LLM response to an MCP message result type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_result",
+            "description": "Convert an MCP message result to an LLM response type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_param",
+            "description": "Convert an LLM input to an MCP message (SamplingMessage) type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_param",
+            "description": "Convert an MCP message (SamplingMessage) to an LLM input type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_tool_result",
+            "description": "Convert an MCP tool result to an LLM input type",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "convert_message_to_message_param",
+            "description": "Convert a response object to an input parameter object to allow LLM calls to be chained.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_azure.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_azure.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_azure.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_param",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_azure.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_param",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_azure.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "convert_message_to_message_param",
+            "description": "Convert a response object to an input parameter object to allow LLM calls to be chained.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_bedrock.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_bedrock.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_bedrock.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_param",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_bedrock.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_param",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_bedrock.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "convert_message_to_message_param",
+            "description": "Convert a response object to an input parameter object to allow LLM calls to be chained.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "message"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_google.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_google.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_param",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_google.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_google.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_param",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_google.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_tool_result",
+            "description": "Convert an MCP tool result to an LLM input type",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_google.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "convert_message_to_message_param",
+            "description": "Convert a response object to an input parameter object to allow LLM calls to be chained.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_param",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_param",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\llm\\augmented_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "route",
+            "description": "\n        Route the input request to one or more MCP servers, agents, or functions.\n        If no routing decision can be made, returns an empty list.\n\n        Args:\n            request: The input to route.\n            top_k: The maximum number of top routing results to return. May return fewer.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The input to route."
+                    },
+                    "top_k": {
+                        "type": "string",
+                        "description": "The maximum number of top routing results to return. May return fewer."
+                    }
+                },
+                "required": [
+                    "request",
+                    "top_k"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\router\\router_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "route_to_server",
+            "description": "Route the input to one or more MCP servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\workflows\\router\\router_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "route_to_agent",
+            "description": "Route the input to one or more agents.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_agent\\workflows\\router\\router_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "route_to_function",
+            "description": "\n        Route the input to one or more functions.\n\n        Args:\n            input: The input to route.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "type": "string",
+                        "description": "The input to route."
+                    }
+                },
+                "required": [
+                    "input"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\router\\router_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a router.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\router\\router_embedding.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a router.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\router\\router_embedding_cohere.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a router.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\router\\router_embedding_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a router.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\router\\router_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a router.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\router\\router_llm_anthropic.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_agent\\workflows\\router\\router_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "mock_llm",
+            "description": "\n        Creates a mock LLM instance with common mocks set up.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\workflows\\llm\\test_augmented_llm_anthropic.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "default_usage",
+            "description": "\n        Returns a default usage object for testing.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\workflows\\llm\\test_augmented_llm_anthropic.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "create_tool_use_message",
+            "description": "\n        Creates a tool use message for testing.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "call_count": {
+                        "type": "string"
+                    },
+                    "usage": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "call_count",
+                    "usage"
+                ]
+            },
+            "file": "tests\\workflows\\llm\\test_augmented_llm_anthropic.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_text_message",
+            "description": "\n        Creates a text message for testing.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string"
+                    },
+                    "usage": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "usage"
+                ]
+            },
+            "file": "tests\\workflows\\llm\\test_augmented_llm_anthropic.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "check_final_iteration_prompt_in_messages",
+            "description": "\n        Checks if there's a final iteration prompt in the given messages.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "messages"
+                ]
+            },
+            "file": "tests\\workflows\\llm\\test_augmented_llm_anthropic.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "test_final_response_after_max_iterations_with_tool_use",
+            "description": "\n        Tests whether we get a final text response when reaching max_iterations with tool_use.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_llm": {
+                        "type": "string"
+                    },
+                    "default_usage": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_llm",
+                    "default_usage"
+                ]
+            },
+            "file": "tests\\workflows\\llm\\test_augmented_llm_anthropic.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

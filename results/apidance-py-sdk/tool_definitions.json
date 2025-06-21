@@ -1,0 +1,221 @@
+{
+    "tools": [
+        {
+            "name": "create_tweet",
+            "description": "\n    Create a new tweet or reply to an existing tweet.\n\n    Args:\n        text: The text content of the tweet\n        reply_to_tweet_id: Optional tweet ID to reply to\n\n    Returns:\n        Dict containing the tweet ID and status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "The text content of the tweet"
+                    },
+                    "reply_to_tweet_id": {
+                        "type": "string",
+                        "description": "Optional tweet ID to reply to"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "reply_to_tweet_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_tweet_by_id",
+            "description": "\n    Get details about a specific tweet by its ID.\n\n    Args:\n        tweet_id: The ID of the tweet to retrieve\n\n    Returns:\n        Dict containing the tweet details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tweet_id": {
+                        "type": "string",
+                        "description": "The ID of the tweet to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tweet_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_tweets",
+            "description": "\n    Search tweets to get information about specific topics or keywords.\n\n    Args:\n        query: Search query string, supports Twitter advanced search syntax\n        product: Type of search results. One of: Top, Latest, People, Photos, Videos\n        count: Number of results to return\n\n    Returns:\n        Dict containing the search results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query string, supports Twitter advanced search syntax"
+                    },
+                    "product": {
+                        "type": "string",
+                        "description": "Type of search results. One of: Top, Latest, People, Photos, Videos"
+                    },
+                    "count": {
+                        "type": "string",
+                        "description": "Number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "product",
+                    "count",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_user_info",
+            "description": "\n    Get detailed user information by screen name.\n\n    Args:\n        screen_name: Twitter username (without @ symbol)\n\n    Returns:\n        Dict containing user information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "screen_name": {
+                        "type": "string",
+                        "description": "Twitter username (without @ symbol)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "screen_name",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_user_tweets",
+            "description": "\n    Get tweets from a specific user.\n\n    Args:\n        user_id: User ID (either user_id or screen_name must be provided)\n        screen_name: Username (either user_id or screen_name must be provided)\n        count: Number of tweets to return\n\n    Returns:\n        Dict containing user tweets\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID (either user_id or screen_name must be provided)"
+                    },
+                    "screen_name": {
+                        "type": "string",
+                        "description": "Username (either user_id or screen_name must be provided)"
+                    },
+                    "count": {
+                        "type": "string",
+                        "description": "Number of tweets to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "screen_name",
+                    "count",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_note_tweet",
+            "description": "\n    Create a new note tweet (long-form content).\n\n    Args:\n        text: The text content of the tweet (supports markdown if use_richtext=True)\n        use_richtext: Whether to enable rich text formatting using markdown\n        reply_to_tweet_id: Optional tweet ID to reply to\n\n    Returns:\n        Dict containing the tweet ID and status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "The text content of the tweet (supports markdown if use_richtext=True)"
+                    },
+                    "use_richtext": {
+                        "type": "string",
+                        "description": "Whether to enable rich text formatting using markdown"
+                    },
+                    "reply_to_tweet_id": {
+                        "type": "string",
+                        "description": "Optional tweet ID to reply to"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "use_richtext",
+                    "reply_to_tweet_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "from_api_response",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "apidance\\models.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_api_response",
+            "description": "Create a Tweet instance from API response data.\n\n        Args:\n            data: A dictionary containing tweet data from the API response.\n\n        Returns:\n            A Tweet object constructed from the provided data.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "apidance\\models.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

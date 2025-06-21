@@ -1,0 +1,583 @@
+{
+    "tools": [
+        {
+            "name": "upload",
+            "description": "Endpoint to upload a file for processing by the assistant agent.\n\n    Args:\n        file (UploadFile): The file to be uploaded.\n        \n    Raises:\n        HTTPException: If an error occurs during file upload or writing.\n        \n    Returns:\n        dict: A dictionary containing the status of the upload and the file path.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file": {
+                        "type": "string",
+                        "description": "The file to be uploaded."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "HTTPException": {
+                        "type": "string",
+                        "description": "If an error occurs during file upload or writing."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "A dictionary containing the status of the upload and the file path."
+                    }
+                },
+                "required": [
+                    "file",
+                    "Raises",
+                    "HTTPException",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "backend\\api\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "query",
+            "description": "Endpoint to process a query message and return a response.\n\n    Args:\n        query_message (QueryMessage): The query message containing the user's question.\n\n    Raises:\n        HTTPException: If an error occurs during processing.\n\n    Returns:\n        QueryResponse: The response containing the answer to the query.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query_message": {
+                        "type": "string",
+                        "description": "The query message containing the user's question."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "HTTPException": {
+                        "type": "string",
+                        "description": "If an error occurs during processing."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "QueryResponse": {
+                        "type": "string",
+                        "description": "The response containing the answer to the query."
+                    }
+                },
+                "required": [
+                    "query_message",
+                    "Raises",
+                    "HTTPException",
+                    "Returns",
+                    "QueryResponse"
+                ]
+            },
+            "file": "backend\\api\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "invoke",
+            "description": "\n        Invokes the assistant agent with a given question.\n\n        Args:\n            question (str): The question to be answered by the agent.\n\n        Raises:\n            ValueError: If the question is not a valid nonempty string.\n\n        Returns:\n            str: The answer to the question provided by the agent.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "question": {
+                        "type": "string",
+                        "description": "The question to be answered by the agent."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If the question is not a valid nonempty string."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The answer to the question provided by the agent."
+                    }
+                },
+                "required": [
+                    "question",
+                    "Raises",
+                    "ValueError",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "backend\\api\\agents\\assistant\\assistant_agent.py",
+            "decorator": [
+                "traceable"
+            ]
+        },
+        {
+            "name": "ainvoke",
+            "description": "\n        Asynchronously invokes the assistant agent with a given question.\n        This method is designed to handle the question and return the result asynchronously.\n\n        Args:\n            question (str): The question to be answered by the agent.\n\n        Raises:\n            ValueError: If the question is not a valid nonempty string.\n\n        Returns:\n            str: The answer to the question provided by the agent.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "question": {
+                        "type": "string",
+                        "description": "The question to be answered by the agent."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If the question is not a valid nonempty string."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The answer to the question provided by the agent."
+                    }
+                },
+                "required": [
+                    "question",
+                    "Raises",
+                    "ValueError",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "backend\\api\\agents\\assistant\\assistant_agent.py",
+            "decorator": [
+                "traceable"
+            ]
+        },
+        {
+            "name": "task_planner_node",
+            "description": "Node responsible for planning tasks based on the input message.\n\n            Args:\n                state (AssistantState): The current state of the assistant agent.\n\n            Returns:\n                AssistantState: The updated state after planning tasks.\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "The current state of the assistant agent."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "AssistantState": {
+                        "type": "string",
+                        "description": "The updated state after planning tasks."
+                    }
+                },
+                "required": [
+                    "state",
+                    "Returns",
+                    "AssistantState"
+                ]
+            },
+            "file": "backend\\api\\agents\\assistant\\assistant_agent.py",
+            "decorator": [
+                "traceable"
+            ]
+        },
+        {
+            "name": "rag_node",
+            "description": "Node responsible for retrieving context information using the RAG agent.\n            This node processes each task in the state and retrieves relevant context using the RAG agent.\n\n            Args:\n                state (AssistantState): The current state of the assistant agent.\n\n            Returns:\n                AssistantState: The updated state after retrieving context.\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "The current state of the assistant agent."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "AssistantState": {
+                        "type": "string",
+                        "description": "The updated state after retrieving context."
+                    }
+                },
+                "required": [
+                    "state",
+                    "Returns",
+                    "AssistantState"
+                ]
+            },
+            "file": "backend\\api\\agents\\assistant\\assistant_agent.py",
+            "decorator": [
+                "traceable"
+            ]
+        },
+        {
+            "name": "web_node",
+            "description": "\n            Node responsible for performing web searches for tasks that do not have sufficient context.\n            This node checks the context decisions for each task and performs a call to mcp server for \n            web search if the decision is 'No'.\n\n            Args:\n                state (AssistantState): The current state of the assistant agent.\n\n            Returns:\n                AssistantState: The updated state after performing web searches.\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "The current state of the assistant agent."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "AssistantState": {
+                        "type": "string",
+                        "description": "The updated state after performing web searches."
+                    }
+                },
+                "required": [
+                    "state",
+                    "Returns",
+                    "AssistantState"
+                ]
+            },
+            "file": "backend\\api\\agents\\assistant\\assistant_agent.py",
+            "decorator": [
+                "traceable"
+            ]
+        },
+        {
+            "name": "question_node",
+            "description": "Node responsible for generating exam-style questions based on the tasks and context.\n            This node iterates through the tasks and generates questions using the mcp server exam generation tool.\n\n            Args:\n                state (AssistantState): The current state of the assistant agent.\n\n            Returns:\n                AssistantState: The updated state after generating questions.\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "The current state of the assistant agent."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "AssistantState": {
+                        "type": "string",
+                        "description": "The updated state after generating questions."
+                    }
+                },
+                "required": [
+                    "state",
+                    "Returns",
+                    "AssistantState"
+                ]
+            },
+            "file": "backend\\api\\agents\\assistant\\assistant_agent.py",
+            "decorator": [
+                "traceable"
+            ]
+        },
+        {
+            "name": "sumarize_node",
+            "description": "\n            Node responsible for summarizing the results of the tasks and generated questions.\n\n            Args:\n                state (AssistantState): The current state of the assistant agent.\n\n            Returns:\n                AssistantState: The updated state after summarizing the results.\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "The current state of the assistant agent."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "AssistantState": {
+                        "type": "string",
+                        "description": "The updated state after summarizing the results."
+                    }
+                },
+                "required": [
+                    "state",
+                    "Returns",
+                    "AssistantState"
+                ]
+            },
+            "file": "backend\\api\\agents\\assistant\\assistant_agent.py",
+            "decorator": [
+                "traceable"
+            ]
+        },
+        {
+            "name": "result_to_dict",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\agents\\assistant\\task_planner.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "document_lookup",
+            "description": "Retrieves relevant documents/information based on the given question.\n\n            Args:\n                question (str): given question\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "question": {
+                        "type": "string",
+                        "description": "given question"
+                    }
+                },
+                "required": [
+                    "question"
+                ]
+            },
+            "file": "backend\\api\\agents\\RAG\\rag_agent.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "documents_files",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\agents\\RAG\\vector_store.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "retriever",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\agents\\RAG\\vector_store.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "__validateTemperature",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\core\\models_provider.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "openai",
+            "description": "Provides an OpenAI LLM model according to given parameters.\n\n        Args:\n            model (str, optional): model for LLM. Defaults to \"gpt-4o-mini\".\n            temperature (float, optional): base temperature of the LLM. Defaults to 0.\n\n        Raises:\n            ValueError: No OPENAI_API_KEY provided in .env!\n            ValueError: Model name must be a nonempty string!\n            ValueError: Temperature must be in range [0, 1]!\n\n        Returns:\n            ChatOpenAI: OpenAI LLM model\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "model": {
+                        "type": "string",
+                        "description": "model for LLM. Defaults to \"gpt-4o-mini\"."
+                    },
+                    "temperature": {
+                        "type": "number",
+                        "description": "base temperature of the LLM. Defaults to 0."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "Temperature must be in range [0, 1]!"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "ChatOpenAI": {
+                        "type": "string",
+                        "description": "OpenAI LLM model"
+                    }
+                },
+                "required": [
+                    "Raises",
+                    "ValueError",
+                    "Returns",
+                    "ChatOpenAI"
+                ]
+            },
+            "file": "backend\\core\\models_provider.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "ollama",
+            "description": "Provides an Ollama LLM model according to the given parameters.\n\n        Args:\n            model (str, optional): model for LLM. Defaults to \"llama3.2\".\n            temperature (float, optional): base temperature of the LLM. Defaults to 0.\n\n        Raises:\n            ValueError: Model name must be a nonempty string!\n            ValueError: Temperature must be in range [0, 1]!\n\n        Returns:\n            ChatOllama: Ollama LLM model\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "model": {
+                        "type": "string",
+                        "description": "model for LLM. Defaults to \"llama3.2\"."
+                    },
+                    "temperature": {
+                        "type": "number",
+                        "description": "base temperature of the LLM. Defaults to 0."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "Temperature must be in range [0, 1]!"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "ChatOllama": {
+                        "type": "string",
+                        "description": "Ollama LLM model"
+                    }
+                },
+                "required": [
+                    "Raises",
+                    "ValueError",
+                    "Returns",
+                    "ChatOllama"
+                ]
+            },
+            "file": "backend\\core\\models_provider.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "openai",
+            "description": "Provides OpenAI embedding model\n\n        Raises:\n            ValueError: Please provide OPENAI_API_KEY to the .env file!\n\n        Returns:\n            OpenAIEmbeddings: OpenAI embedding model\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\core\\models_provider.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "huggingface",
+            "description": "Provides a HuggingFace embedding model according to given parameters.\n\n        Args:\n            model_name (str, optional): Name or path of the HuggingFace model. \n                Defaults to \"sentence-transformers/all-MiniLM-L6-v2\".\n            normalize (bool, optional): Whether to normalize embeddings. Defaults to False.\n            device (str, optional): Device to run the model on (e.g., \"cpu\", \"cuda\"). \n                Defaults to \"cpu\".\n            cache_folder (str, optional): Path to cache folder for the model. \n                Defaults to None.\n            encode_kwargs (dict, optional): Additional kwargs for encoding. \n                Defaults to None (will use normalize_embeddings).\n            model_kwargs (dict, optional): Additional kwargs for model initialization. \n                Defaults to None (will use device).\n\n        Raises:\n            ValueError: Model name must be a nonempty string!\n            ValueError: Device must be a nonempty string!\n            ValueError: Cache folder path must be a string if provided!\n\n        Returns:\n            HuggingFaceEmbeddings: HuggingFace embedding model\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "model_name": {
+                        "type": "string",
+                        "description": "Name or path of the HuggingFace model."
+                    },
+                    "normalize": {
+                        "type": "boolean",
+                        "description": "Whether to normalize embeddings. Defaults to False."
+                    },
+                    "device": {
+                        "type": "string",
+                        "description": "Device to run the model on (e.g., \"cpu\", \"cuda\")."
+                    },
+                    "cache_folder": {
+                        "type": "string",
+                        "description": "Path to cache folder for the model."
+                    },
+                    "encode_kwargs": {
+                        "type": "string",
+                        "description": "Additional kwargs for encoding."
+                    },
+                    "model_kwargs": {
+                        "type": "string",
+                        "description": "Additional kwargs for model initialization."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "Cache folder path must be a string if provided!"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "HuggingFaceEmbeddings": {
+                        "type": "string",
+                        "description": "HuggingFace embedding model"
+                    }
+                },
+                "required": [
+                    "Raises",
+                    "ValueError",
+                    "Returns",
+                    "HuggingFaceEmbeddings"
+                ]
+            },
+            "file": "backend\\core\\models_provider.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_create_agent",
+            "description": "Create the agent's graph using the provided LLM.\n        This method should be implemented by subclasses to define the specific behavior of the agent.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\core\\agents\\base_agent.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "listTools",
+            "description": "List available tools for the MCP server.\n    This method returns a list of tools that can be used by the MCP server.\n    \n    Returns:\n        Success: A list of dictionaries, each containing the name, description, and parameters of a tool.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\mcp\\mcp_server.py",
+            "decorator": [
+                "method"
+            ]
+        },
+        {
+            "name": "callTool",
+            "description": "Execute a call to a specific tool on the MCP server.\n    This method allows the MCP server to invoke a specific tool with the provided arguments.\n\n    Args:\n        tool (str): The name of the tool to call. Supported tools are \"search_web\" and \"create_exam_questions\".\n        args (dict): A dictionary of arguments to pass to the tool. For \"search_web\", it should contain a \"query\" \n        key with the search query string. For \"create_exam_questions\", it should contain a \"query\" key with the \n        topic and an optional \"context\" key with additional context.\n\n    Returns:\n        Success: If the tool call is successful, it returns a Success object containing the result of the tool call.\n        Error: If the tool is unsupported or if an error occurs during the tool call, it returns an Error object with an error code and message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tool": {
+                        "type": "string",
+                        "description": "The name of the tool to call. Supported tools are \"search_web\" and \"create_exam_questions\"."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "A dictionary of arguments to pass to the tool. For \"search_web\", it should contain a \"query\""
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Success": {
+                        "type": "string",
+                        "description": "If the tool call is successful, it returns a Success object containing the result of the tool call."
+                    },
+                    "Error": {
+                        "type": "string",
+                        "description": "If the tool is unsupported or if an error occurs during the tool call, it returns an Error object with an error code and message."
+                    }
+                },
+                "required": [
+                    "tool",
+                    "args",
+                    "Returns",
+                    "Success",
+                    "Error"
+                ]
+            },
+            "file": "backend\\mcp\\mcp_server.py",
+            "decorator": [
+                "method"
+            ]
+        }
+    ]
+}

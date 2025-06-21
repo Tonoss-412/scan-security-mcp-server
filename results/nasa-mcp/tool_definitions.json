@@ -1,0 +1,57 @@
+{
+    "tools": [
+        {
+            "name": "get_apod_data",
+            "description": "Get NASA's Astronomy Picture of the Day (APOD).\n    \n    Retrieves the featured astronomy image or video for a specific date,\n    along with its title, explanation, and metadata from NASA's APOD service.\n    \n    Args:\n        date: Optional date in YYYY-MM-DD format. If not provided, returns today's APOD.\n              Must be between 1995-06-16 (first APOD) and today's date.\n    \n    Returns:\n        JSON object containing APOD data including title, explanation, image URL,\n        date, and other metadata, or error message if request fails.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "description": "Optional date in YYYY-MM-DD format. If not provided, returns today's APOD."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "date",
+                    "Returns"
+                ]
+            },
+            "file": "nasa_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_images_data",
+            "description": "Search NASA's image and video library.\n    \n    Searches through NASA's extensive collection of images, videos, and audio files\n    using keywords. Returns metadata and links to matching media assets.\n    \n    Args:\n        q: Search query string. Can include keywords like mission names, celestial objects,\n           astronauts, space phenomena, etc. (e.g., \"Mars rover\", \"International Space Station\")\n        size: Number of results to return (default: 3). Recommended range: 1-20.\n    \n    Returns:\n        JSON array containing search results with titles, descriptions, image URLs,\n        dates, and other metadata for each matching item, or error message if search fails.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "q": {
+                        "type": "string",
+                        "description": "Search query string. Can include keywords like mission names, celestial objects,"
+                    },
+                    "size": {
+                        "type": "string",
+                        "description": "Number of results to return (default: 3). Recommended range: 1-20."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "q",
+                    "size",
+                    "Returns"
+                ]
+            },
+            "file": "nasa_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "tools": [
+        {
+            "name": "search_semantic_scholar",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "semantic_scholar_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_semantic_scholar_paper_details",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "semantic_scholar_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_semantic_scholar_author_details",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "semantic_scholar_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_semantic_scholar_citations_and_references",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "semantic_scholar_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

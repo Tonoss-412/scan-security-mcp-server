@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "terminal_tool",
+            "description": "Run a terminal command and return its output (non-blocking).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_mcp_readme",
+            "description": "Return the contents of the mcpreadme.md file from the Desktop.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

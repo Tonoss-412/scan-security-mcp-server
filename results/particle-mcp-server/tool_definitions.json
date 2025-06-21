@@ -1,0 +1,136 @@
+{
+    "tools": [
+        {
+            "name": "list_devices",
+            "description": "List all Particle devices in your account.\n\n    This function will return a comphrehensive list of every device within\n    the Particle organization. This should be used near the begining of an interaction\n    especially when a user is asking about an unknown name. Each device has a name and a node_id\n    which can be accessed with this tool, and other tools require the node_id to be used rather\n    than the name.\n\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "particle.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_product_devices",
+            "description": "\n    List devices in a specific product. A product in the particle ecosystem\n    corresponds to a specific project within the organization, and will usually match a project\n    within a database for the data the device provides.\n\n    Args:\n        product_id: The ID of the product\n        page: Page number for paginated results (default: 1)\n        per_page: Number of devices per page (default: 25)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "product_id": {
+                        "type": "string",
+                        "description": "The ID of the product"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "Page number for paginated results (default: 1)"
+                    },
+                    "per_page": {
+                        "type": "string",
+                        "description": "Number of devices per page (default: 25)"
+                    }
+                },
+                "required": [
+                    "product_id",
+                    "page",
+                    "per_page"
+                ]
+            },
+            "file": "particle.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "rename_device",
+            "description": "Rename a device.\n    This only affects the name and not the node-id. This should only be used if explicilty asked for\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "particle.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_device_notes",
+            "description": "Add notes to a device.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "particle.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "ping_device",
+            "description": "Ping a device to check if it's online. This sould only ever be called if specifically asked for.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "particle.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "call_function",
+            "description": "\n    Call a function on a device. This should only be used when a specific function needs to be called and explicitly asked for,\n    otherwise it should never be used as it may be dangerous.\n\n    Args:\n        device_id: The ID of the device\n        function_name: The name of the function to call\n        argument: Argument to pass to the function (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "The ID of the device"
+                    },
+                    "function_name": {
+                        "type": "string",
+                        "description": "The name of the function to call"
+                    },
+                    "argument": {
+                        "type": "string",
+                        "description": "Argument to pass to the function (optional)"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "function_name",
+                    "argument"
+                ]
+            },
+            "file": "particle.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_device_by_name",
+            "description": "\n    Find device(s) by name using fuzzy matching and return their node_ids without fetching all devices.\n\n    This function efficiently searches for device(s) using fuzzy matching to handle natural language\n    queries like \"device 47 in lccmr project\" \u2192 \"LCCMR_47\" or \"guadalupe\" \u2192 \"Guadalupe_Station_01\".\n    Uses pagination to avoid loading the entire device list into memory. Use this instead of\n    list_devices when you need to find specific device node_ids.\n\n    Args:\n        device_name: The name/description of the device to search for, or a list of device names (supports fuzzy matching)\n\n    Returns:\n        Dict containing device information including node_id, match_score, and match_type if found.\n        For multiple devices, returns a list of results under 'devices' key.\n    \"\"\"\n   ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_name": {
+                        "type": "string",
+                        "description": "The name/description of the device to search for, or a list of device names (supports fuzzy matching)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "device_name",
+                    "Returns"
+                ]
+            },
+            "file": "particle.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,364 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_resources",
+            "description": "\n    List available note resources.\n    Each note is exposed as a resource with a custom note:// URI scheme.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\langflow-version3\\src\\langflow_version3\\server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "\n    Read a specific note's content by its URI.\n    The note name is extracted from the URI host component.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\langflow-version3\\src\\langflow_version3\\server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "\n    List available prompts.\n    Each prompt can have optional arguments to customize its behavior.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\langflow-version3\\src\\langflow_version3\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "\n    Generate a prompt by combining arguments with server state.\n    The prompt includes all current notes and can be customized via arguments.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\langflow-version3\\src\\langflow_version3\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools for flow management.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\langflow-version3\\src\\langflow_version3\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handle tool execution requests for flow management.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\langflow-version3\\src\\langflow_version3\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "\n    List available note resources.\n    Each note is exposed as a resource with a custom note:// URI scheme.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\notes\\src\\notes\\server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "\n    Read a specific note's content by its URI.\n    The note name is extracted from the URI host component.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\notes\\src\\notes\\server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "\n    List available prompts.\n    Each prompt can have optional arguments to customize its behavior.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\notes\\src\\notes\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "\n    Generate a prompt by combining arguments with server state.\n    The prompt includes all current notes and can be customized via arguments.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\notes\\src\\notes\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools.\n    Each tool specifies its arguments using JSON Schema validation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\notes\\src\\notes\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handle tool execution requests.\n    Tools can modify server state and notify clients of changes.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\notes\\src\\notes\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "\n    List available resources within the specified MinIO bucket.\n    If no URI is provided, list resources from the first available bucket.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\s3\\src\\s3\\server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "\n    Read a resource (file) from the MinIO server.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\s3\\src\\s3\\server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "\n    List prompts supported by the server.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\s3\\src\\s3\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "\n    Generate a prompt based on its name and arguments.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\s3\\src\\s3\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List tools available for interacting with MinIO.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\s3\\src\\s3\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Execute a tool based on its name and arguments.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\s3\\src\\s3\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "\n    List available note and search resources.\n    Each note and search result is exposed as a resource with a custom URI scheme.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\Scout\\src\\scout\\server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "\n    Read a specific note or search result's content by its URI.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\Scout\\src\\scout\\server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "\n    List available prompts for notes and search results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\Scout\\src\\scout\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "\n    Generate a prompt by combining arguments with server state.\n    Supports prompts for notes and search results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\Scout\\src\\scout\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools, including web search and note management.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\Scout\\src\\scout\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handle tool execution requests for adding notes and web searching.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\Scout\\src\\scout\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "\n    List available Qdrant collections as resources.\n    Each collection is exposed as a resource with a custom URI scheme.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\Son\\src\\son\\server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "\n    Read a specific collection's information by its URI.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\Son\\src\\son\\server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "\n    List available prompts for Qdrant collection management.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\Son\\src\\son\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "\n    Generate prompts for Qdrant collection management and analysis.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\Son\\src\\son\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools for Qdrant vector database management.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\Son\\src\\son\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handle tool execution requests for Qdrant collection management.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\Son\\src\\son\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        }
+    ]
+}

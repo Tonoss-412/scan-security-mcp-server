@@ -1,0 +1,233 @@
+{
+    "tools": [
+        {
+            "name": "list_components",
+            "description": "\n    Lists all available web components with descriptions of their functionality\n\n    Args:\n        version: The version of Modus components to list (\"1.0\" or \"2.0\")\n\n    Returns:\n        JSON string with component names and descriptions\n\n    Example:\n        >>> list_components()\n        >>> list_components(version=\"1.0\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "version": {
+                        "type": "string",
+                        "description": "The version of Modus components to list (\"1.0\" or \"2.0\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "version",
+                    "Returns",
+                    "Example"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_component",
+            "description": "\n    Extract component data from v1_components.json or v2_components.json for the requested web component\n\n    Args:\n        component_name: The name of the component (e.g., 'button', 'alert', 'autocomplete')\n        version: The version of Modus components to use (\"1.0\" or \"2.0\")\n\n    Returns:\n        JSON string with component properties, events, and other metadata\n\n    Example:\n        >>> generate_component('button')\n        >>> generate_component('button', version=\"1.0\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "component_name": {
+                        "type": "string",
+                        "description": "The name of the component (e.g., 'button', 'alert', 'autocomplete')"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The version of Modus components to use (\"1.0\" or \"2.0\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "component_name",
+                    "version",
+                    "Returns",
+                    "Example"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_migration_guide",
+            "description": "\n    Get migration guidance for converting Modus 1.0 components to Modus 2.0\n\n    This function provides guidance on how to approach the migration process.\n    It encourages the agent to identify specific components needing migration\n    and then request detailed migration data for those components.\n\n    Returns:\n        JSON string with migration guidance\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_component_migration_data",
+            "description": "\n    Get migration data for a specific component\n\n    This function retrieves data needed to migrate a specific component from\n    Modus 1.0 to Modus 2.0, including definitions for both versions and mapping information.\n\n    Args:\n        component_name: The name of the component to get migration data for (e.g., 'button', 'alert')\n\n    Returns:\n        JSON string with component-specific migration data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "component_name": {
+                        "type": "string",
+                        "description": "The name of the component to get migration data for (e.g., 'button', 'alert')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "component_name",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_migration_data",
+            "description": "\n    Get complete migration dataset for all components\n\n    This function returns the complete migration dataset including all component\n    definitions for both versions, mapping rules, verification rules, and migration plan.\n\n    For a more targeted approach, consider using get_component_migration_data(component_name)\n    to get migration data for specific components.\n\n    Returns:\n        JSON string with complete migration dataset\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_analyze_guidance",
+            "description": "Return guidance for the 'Analyze' step, including analyze.md, component data, and relevant directory paths.\n\n    Returned JSON structure:\n    {\n      \"guidance_text\": \"...content of analyze.md...\",\n      \"component_data\": { ...component_mapping, v1_components, v2_components... },\n      \"directories\": { \"analysis_reports\": \"path/to/analysis_reports\" }\n    }\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "migration\\migration_server.py",
+            "decorator": [
+                "migration_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_migrate_guidance",
+            "description": "Return guidance for the 'Migrate' step, including migrate.md and component data.\n\n    Returned JSON structure:\n    {\n      \"guidance_text\": \"...content of migrate.md...\",\n      \"component_data\": { ...component_mapping, v1_components, v2_components... }\n    }\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "migration\\migration_server.py",
+            "decorator": [
+                "migration_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_verify_guidance",
+            "description": "Return guidance for the 'Verify' step, including verify.md, component data, and the gold standard.\n\n    Returned JSON structure:\n    {\n      \"guidance_text\": \"...content of verify.md...\",\n      \"component_data\": { ...component_mapping, v1_components, v2_components... },\n      \"gold_standard\": \"...content of gold_standard.md...\"\n    }\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "migration\\migration_server.py",
+            "decorator": [
+                "migration_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_log_guidance",
+            "description": "Return guidance for the 'Log' step, including log.md and relevant directory paths.\n\n    Returned JSON structure:\n    {\n      \"guidance_text\": \"...content of log.md...\",\n      \"directories\": { \"migration_logs\": \"path/to/migration_logs\" }\n    }\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "migration\\migration_server.py",
+            "decorator": [
+                "migration_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_workflow_guidance",
+            "description": "Return the overall workflow guidance (workflow.md) and all supporting data.\n\n    This tool provides workflow.md and also includes all other markdown prompts,\n    component data, the gold standard, and directory paths for a complete overview.\n\n    Returned JSON structure:\n    {\n      \"workflow_specific_guidance\": \"...content of workflow.md...\",\n      \"all_guidance_documents\": {\n        \"analyze\": \"...markdown...\",\n        \"migrate\": \"...markdown...\",\n        \"verify\": \"...markdown...\",\n        \"log\": \"...markdown...\",\n        \"workflow\": \"...markdown...\" (repeated for completeness if desired)\n      },\n      \"component_data\": { ...component_mapping, v1_components, v2_components... },\n      \"gold_standard\": \"...content of gold_standard.md...\",\n      \"directories\": { \"analysis_reports\": \"...\", \"migration_logs\": \"...\" }\n    }\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "migration\\migration_server.py",
+            "decorator": [
+                "migration_mcp.tool"
+            ]
+        },
+        {
+            "name": "analyze_code_for_migration_md",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "migration\\modus-migration-md-server.py",
+            "decorator": [
+                "md_mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_migrated_code_md",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "migration\\modus-migration-md-server.py",
+            "decorator": [
+                "md_mcp.tool"
+            ]
+        },
+        {
+            "name": "verify_migration_with_gold_standard_md",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "migration\\modus-migration-md-server.py",
+            "decorator": [
+                "md_mcp.tool"
+            ]
+        },
+        {
+            "name": "log_migration_summary_md",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "migration\\modus-migration-md-server.py",
+            "decorator": [
+                "md_mcp.tool"
+            ]
+        },
+        {
+            "name": "run_migration_workflow_md",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "migration\\modus-migration-md-server.py",
+            "decorator": [
+                "md_mcp.tool"
+            ]
+        }
+    ]
+}

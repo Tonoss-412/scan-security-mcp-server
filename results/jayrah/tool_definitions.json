@@ -1,0 +1,786 @@
+{
+    "tools": [
+        {
+            "name": "get_headers",
+            "description": "Get authentication headers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jayrah\\api\\auth.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "format_description",
+            "description": "Format description for the API version.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jayrah\\api\\formatters.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "format_comment",
+            "description": "Format comment for the API version.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jayrah\\api\\formatters.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "format_assignee",
+            "description": "Format assignee for the API version.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jayrah\\api\\formatters.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_issue_types_endpoint",
+            "description": "Get the endpoint for issue types.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "projectkey": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "projectkey"
+                ]
+            },
+            "file": "jayrah\\api\\formatters.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "cache",
+            "description": "Backward compatibility property to access the cache instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jayrah\\api\\jira_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "browse",
+            "description": "\n    Browse boards\n\n    SEARCH_TERMS are optional search terms that filter issues by summary or description.\n    Multiple terms are combined with AND by default (or with OR if --or flag is used).\n\n    Example: jayrah browse my-board term1 term2   # Searches for term1 AND term2\n    Example: jayrah browse my-board --or term1 term2   # Searches for term1 OR term2\n    Example: jayrah browse my-board --filter status=\"Code Review\"   # Filter by status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "jayrah_obj": {
+                        "type": "string"
+                    },
+                    "board": {
+                        "type": "string"
+                    },
+                    "search_terms": {
+                        "type": "string"
+                    },
+                    "use_or": {
+                        "type": "string"
+                    },
+                    "filters": {
+                        "type": "string"
+                    },
+                    "list_boards": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "jayrah_obj",
+                    "board",
+                    "search_terms",
+                    "use_or",
+                    "filters",
+                    "list_boards"
+                ]
+            },
+            "file": "jayrah\\commands\\browse.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.pass_obj"
+            ]
+        },
+        {
+            "name": "cache_command",
+            "description": "Manage jayrah cache.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "jayrah_obj": {
+                        "type": "string"
+                    },
+                    "clear": {
+                        "type": "string"
+                    },
+                    "prune": {
+                        "type": "string"
+                    },
+                    "max_age": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "jayrah_obj",
+                    "clear",
+                    "prune",
+                    "max_age"
+                ]
+            },
+            "file": "jayrah\\commands\\cache.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.pass_obj"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Jira Helper Tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    },
+                    "no_cache": {
+                        "type": "string"
+                    },
+                    "verbose": {
+                        "type": "string"
+                    },
+                    "insecure": {
+                        "type": "string"
+                    },
+                    "jira_user": {
+                        "type": "string"
+                    },
+                    "jira_password": {
+                        "type": "string"
+                    },
+                    "jira_component": {
+                        "type": "string"
+                    },
+                    "jira_server": {
+                        "type": "string"
+                    },
+                    "cache_ttl": {
+                        "type": "string"
+                    },
+                    "config_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "no_cache",
+                    "verbose",
+                    "insecure",
+                    "jira_user",
+                    "jira_password",
+                    "jira_component",
+                    "jira_server",
+                    "cache_ttl",
+                    "config_file"
+                ]
+            },
+            "file": "jayrah\\commands\\common.py",
+            "decorator": [
+                "click.group",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.pass_context"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "Create an issue",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "jayrah_obj": {
+                        "type": "string"
+                    },
+                    "issuetype": {
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "body": {
+                        "type": "string"
+                    },
+                    "body_file": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "string"
+                    },
+                    "assignee": {
+                        "type": "string"
+                    },
+                    "labels": {
+                        "type": "string"
+                    },
+                    "template": {
+                        "type": "string"
+                    },
+                    "components": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "jayrah_obj",
+                    "issuetype",
+                    "title",
+                    "body",
+                    "body_file",
+                    "priority",
+                    "assignee",
+                    "labels",
+                    "template",
+                    "components"
+                ]
+            },
+            "file": "jayrah\\commands\\create.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.pass_obj"
+            ]
+        },
+        {
+            "name": "mcp_server_cmd",
+            "description": "Start the MCP server for programmatic access.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    },
+                    "host": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "host",
+                    "port"
+                ]
+            },
+            "file": "jayrah\\commands\\mcp.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option",
+                "click.pass_context"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "List all available Jira boards as resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jayrah\\mcp\\server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "Read a specific resource by its URI.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jayrah\\mcp\\server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "\n        List available prompts.\n        Each prompt can have optional arguments to customize its behavior.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jayrah\\mcp\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "Generate a prompt by combining arguments with server state.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jayrah\\mcp\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n        List available tools, mapping to Jira CLI commands.\n        Each tool specifies its arguments using JSON Schema validation.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jayrah\\mcp\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool execution requests, mapping to Jira CLI commands.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jayrah\\mcp\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "sample_config",
+            "description": "Return a sample configuration dictionary with isolated cache directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_config_file",
+            "description": "Create a temporary config file with sample data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    },
+                    "sample_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path",
+                    "sample_config"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_jira_client",
+            "description": "Return a mocked Jira HTTP client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_issues",
+            "description": "Return a list of sample Jira issues.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_subprocess_run",
+            "description": "Mock the subprocess.run function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_browser_open",
+            "description": "Mock the webbrowser.open function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_getpass",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_prompt_ask",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_v3_basic_auth_request",
+            "description": "Test that a request with API v3 and Basic auth works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_urlopen": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_urlopen"
+                ]
+            },
+            "file": "tests\\test_auth_methods.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "runner",
+            "description": "Click test runner",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_commands.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_boards",
+            "description": "Mock the boards module to avoid real API calls",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\test_commands.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_read_config_empty",
+            "description": "Test reading an empty config.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_read_config": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_read_config",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\test_config.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_read_config_with_default_values",
+            "description": "Test reading config with default values.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_read_config": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_read_config",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\test_config.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_make_config_prompts_for_missing_values",
+            "description": "Test that make_config prompts for missing values.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_write_config": {
+                        "type": "string"
+                    },
+                    "mock_prompt_ask": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_write_config",
+                    "mock_prompt_ask",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\test_config.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "mock_urlopen",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_jirahttp.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_init_with_default_config",
+            "description": "Test ServerContext initialization with default config file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_boards": {
+                        "type": "string"
+                    },
+                    "mock_make_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_boards",
+                    "mock_make_config"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_init_with_custom_config",
+            "description": "Test ServerContext initialization with custom config file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_boards": {
+                        "type": "string"
+                    },
+                    "mock_make_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_boards",
+                    "mock_make_config"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "mock_context",
+            "description": "Create a mock ServerContext.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_context",
+            "description": "Create a mock ServerContext for integration testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_context",
+            "description": "Create a mock context for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_search_mcp.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_browser_open_ticket",
+            "description": "Test opening a ticket in the browser.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_open": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_open"
+                ]
+            },
+            "file": "tests\\test_utils.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_edit_text_with_editor",
+            "description": "Test editing text with the system editor.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_environ_get": {
+                        "type": "string"
+                    },
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_environ_get",
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\test_utils.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "tools": [
+        {
+            "name": "search_web",
+            "description": "\n    Search the web using Perplexity API and return results.\n    \n    Args:\n        query: The search query string\n        recency: Filter results by time period - 'day', 'week', 'month' (default), or 'year'\n    \n    Returns:\n        Search results as text\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query string"
+                    },
+                    "recency": {
+                        "type": "string",
+                        "description": "Filter results by time period - 'day', 'week', 'month' (default), or 'year'"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "recency",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "web_search_prompt",
+            "description": "\n    Create a prompt for searching the web with Perplexity.\n    \n    Args:\n        query: The search query\n        recency: Time period filter - 'day', 'week', 'month' (default), or 'year'\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query"
+                    },
+                    "recency": {
+                        "type": "string",
+                        "description": "Time period filter - 'day', 'week', 'month' (default), or 'year'"
+                    }
+                },
+                "required": [
+                    "query",
+                    "recency"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

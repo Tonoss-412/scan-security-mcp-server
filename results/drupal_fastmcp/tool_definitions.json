@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "generate_drupal_module",
+            "description": "Generate a complete Drupal 10 module following best practices and coding standards.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "drupal_mcp.tool"
+            ]
+        }
+    ]
+}

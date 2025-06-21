@@ -1,0 +1,381 @@
+{
+    "tools": [
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\clients\\exceptions.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "wrapped_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\clients\\exceptions.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "list_aliases",
+            "description": "List all aliases.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\alias.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_alias",
+            "description": "\n            Get alias information for a specific index.\n\n            Args:\n                index: Name of the index\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string",
+                        "description": "Name of the index"
+                    }
+                },
+                "required": [
+                    "index"
+                ]
+            },
+            "file": "src\\tools\\alias.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "put_alias",
+            "description": "\n            Create or update an alias for a specific index.\n\n            Args:\n                index: Name of the index\n                name: Name of the alias\n                body: Alias configuration\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string",
+                        "description": "Name of the index"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the alias"
+                    },
+                    "body": {
+                        "type": "string",
+                        "description": "Alias configuration"
+                    }
+                },
+                "required": [
+                    "index",
+                    "name",
+                    "body"
+                ]
+            },
+            "file": "src\\tools\\alias.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_alias",
+            "description": "\n            Delete an alias for a specific index.\n\n            Args:\n                index: Name of the index\n                name: Name of the alias\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string",
+                        "description": "Name of the index"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the alias"
+                    }
+                },
+                "required": [
+                    "index",
+                    "name"
+                ]
+            },
+            "file": "src\\tools\\alias.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_cluster_health",
+            "description": "Returns basic information about the health of the cluster.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\cluster.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_cluster_stats",
+            "description": "Returns high-level overview of cluster statistics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\cluster.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_documents",
+            "description": "\n            Search for documents.\n            \n            Args:\n                index: Name of the index\n                body: Search query\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string",
+                        "description": "Name of the index"
+                    },
+                    "body": {
+                        "type": "string",
+                        "description": "Search query"
+                    }
+                },
+                "required": [
+                    "index",
+                    "body"
+                ]
+            },
+            "file": "src\\tools\\document.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "index_document",
+            "description": "\n            Creates or updates a document in the index.\n            \n            Args:\n                index: Name of the index\n                document: Document data\n                id: Optional document ID\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string",
+                        "description": "Name of the index"
+                    },
+                    "document": {
+                        "type": "string",
+                        "description": "Document data"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Optional document ID"
+                    }
+                },
+                "required": [
+                    "index",
+                    "document",
+                    "id"
+                ]
+            },
+            "file": "src\\tools\\document.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_document",
+            "description": "\n            Get a document by ID.\n            \n            Args:\n                index: Name of the index\n                id: Document ID\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string",
+                        "description": "Name of the index"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Document ID"
+                    }
+                },
+                "required": [
+                    "index",
+                    "id"
+                ]
+            },
+            "file": "src\\tools\\document.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_document",
+            "description": "\n            Delete a document by ID.\n            \n            Args:\n                index: Name of the index\n                id: Document ID\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string",
+                        "description": "Name of the index"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Document ID"
+                    }
+                },
+                "required": [
+                    "index",
+                    "id"
+                ]
+            },
+            "file": "src\\tools\\document.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_by_query",
+            "description": "\n            Deletes documents matching the provided query.\n            \n            Args:\n                index: Name of the index\n                body: Query to match documents for deletion\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string",
+                        "description": "Name of the index"
+                    },
+                    "body": {
+                        "type": "string",
+                        "description": "Query to match documents for deletion"
+                    }
+                },
+                "required": [
+                    "index",
+                    "body"
+                ]
+            },
+            "file": "src\\tools\\document.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "general_api_request",
+            "description": "Perform a general HTTP API request.\n               Use this tool for any Elasticsearch/OpenSearch API that does not have a dedicated tool.\n            \n            Args:\n                method: HTTP method (GET, POST, PUT, DELETE, etc.)\n                path: API endpoint path\n                params: Query parameters\n                body: Request body\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "method": {
+                        "type": "string",
+                        "description": "HTTP method (GET, POST, PUT, DELETE, etc.)"
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "API endpoint path"
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "Query parameters"
+                    },
+                    "body": {
+                        "type": "string",
+                        "description": "Request body"
+                    }
+                },
+                "required": [
+                    "method",
+                    "path",
+                    "params",
+                    "body"
+                ]
+            },
+            "file": "src\\tools\\general.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_indices",
+            "description": "List all indices.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\index.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_index",
+            "description": "\n            Returns information (mappings, settings, aliases) about one or more indices.\n            \n            Args:\n                index: Name of the index\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string",
+                        "description": "Name of the index"
+                    }
+                },
+                "required": [
+                    "index"
+                ]
+            },
+            "file": "src\\tools\\index.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_index",
+            "description": "\n            Create a new index.\n            \n            Args:\n                index: Name of the index\n                body: Optional index configuration including mappings and settings\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string",
+                        "description": "Name of the index"
+                    },
+                    "body": {
+                        "type": "string",
+                        "description": "Optional index configuration including mappings and settings"
+                    }
+                },
+                "required": [
+                    "index",
+                    "body"
+                ]
+            },
+            "file": "src\\tools\\index.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_index",
+            "description": "\n            Delete an index.\n            \n            Args:\n                index: Name of the index\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "index": {
+                        "type": "string",
+                        "description": "Name of the index"
+                    }
+                },
+                "required": [
+                    "index"
+                ]
+            },
+            "file": "src\\tools\\index.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

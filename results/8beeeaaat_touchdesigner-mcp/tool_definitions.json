@@ -1,0 +1,95 @@
+{
+    "tools": [
+        {
+            "name": "normalize_request",
+            "description": "\n        Normalize request object to handle different request formats\n\n        Args:\n            request: Request object that might be in different formats\n\n        Returns:\n            Tuple containing (method, path, query_params, body)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "Request object that might be in different formats"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns"
+                ]
+            },
+            "file": "td\\modules\\mcp\\controllers\\api_controller.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_extract_method",
+            "description": "Extract HTTP method from request",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "td\\modules\\mcp\\controllers\\api_controller.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_extract_path_and_query",
+            "description": "Extract path and query parameters from request",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "td\\modules\\mcp\\controllers\\api_controller.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_extract_body",
+            "description": "Extract body content from request",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "td\\modules\\mcp\\controllers\\api_controller.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "td\\modules\\utils\\error_handling.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "from_string",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "td\\modules\\utils\\utils_logging.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

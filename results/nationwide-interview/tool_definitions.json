@@ -1,0 +1,631 @@
+{
+    "tools": [
+        {
+            "name": "prompts_resource",
+            "description": "List all available prompts in the AWS Bedrock account.\n\n    This resource returns a mapping of prompt IDs to their details, including:\n    - name: The human-readable name of the prompt\n    - description: A description of the prompt\n    - created_at: When the prompt was created\n    - updated_at: When the prompt was last updated\n    - id: The unique identifier of the prompt\n    - version: The version of the prompt\n\n    ## Example response structure:\n    ```json\n    {\n        \"prompt-12345\": {\n            \"name\": \"Customer Support Response\",\n            \"description\": \"Generates customer support responses\",\n            \"created_at\": \"2024-02-29T10:15:30Z\",\n            \"updated_at\": \"2024-03-14T08:45:12Z\",\n            \"id\": \"prompt-12345\",\n            \"version\": \"DRAFT\"\n        }\n    }\n    ```\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bedrock_prompt_management_mcp_server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "list_prompts_tool",
+            "description": "List all prompts available in your AWS Bedrock account.\n\n    This tool retrieves a list of all prompts stored in your AWS Bedrock Prompt Management,\n    showing their IDs, names, descriptions and other basic information.\n\n    ## Response format:\n    The response is a JSON object containing prompt summaries, each with:\n    - id: The unique identifier for the prompt\n    - name: The name of the prompt\n    - description: A description of what the prompt does\n    - createdAt: When the prompt was created\n    - updatedAt: When the prompt was last updated\n    - version: The version of the prompt\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bedrock_prompt_management_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_prompt_tool",
+            "description": "Retrieve detailed information about a specific prompt.\n    \n    This tool retrieves the details of a prompt by its ID, including its template configuration,\n    variants, and metadata. You can optionally specify a version to retrieve.\n    \n    ## Required parameters:\n    - prompt_id: The unique identifier of the prompt to retrieve\n    \n    ## Optional parameters:\n    - prompt_version: The version of the prompt to retrieve (omit for the working DRAFT version)\n    \n    ## Response format:\n    The response is a JSON object containing detailed information about the prompt,\n    including its variants, template configuration, and metadata.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bedrock_prompt_management_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_prompt_tool",
+            "description": "Create a new prompt in Amazon Bedrock Prompt Management.\n    \n    This tool creates a new prompt in your AWS Bedrock Prompt Management library.\n    You can create either a TEXT or CHAT prompt with customizable templates.\n    \n    ## Required parameters:\n    - name: The name of the prompt\n    - template_type: The type of prompt template (TEXT or CHAT)\n    - template_text: For TEXT templates, the template content; for CHAT templates, the system message\n    - input_variable_names: List of variable names to use in the template (without {{ }})\n    \n    ## Optional configuration:\n    - default_variant: Name of the default variant (defaults to \"default\")\n    - prompt_description: Description for the prompt\n    - model_id: Foundation model ID to use \n    - temperature: Controls randomness (0-1)\n    - max_tokens: Maximum tokens to generate\n    - chat_messages: For CHAT templates only - list of messages with 'role' and 'content'\n    - client_token: Unique identifier for idempotency\n    - customer_encryption_key_arn: ARN of KMS key for encryption\n    - tags: Key-value pairs for resource tagging\n    \n    ## Response format:\n    The response is a JSON object containing details about the created prompt,\n    including its ID, ARN, and variant information.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bedrock_prompt_management_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_prompt_tool",
+            "description": "Update an existing prompt in Amazon Bedrock Prompt Management.\n    \n    This tool updates an existing prompt in your AWS Bedrock Prompt Management library.\n    You must include both fields that you want to keep and fields that you want to replace.\n    \n    ## Required parameters:\n    - prompt_id: The ID of the prompt to update\n    - name: The name of the prompt (required even if unchanged)\n    \n    ## Optional parameters:\n    - default_variant: Name of the default variant\n    - prompt_description: Description for the prompt\n    - customer_encryption_key_arn: ARN of KMS key for encryption\n    - variants: List of prompt variants to update (see CreatePrompt for structure)\n    \n    ## Response format:\n    The response is a JSON object containing details about the updated prompt,\n    including its ID, ARN, and variant information.\n    \n    ## Important notes:\n    - The name parameter is required by the API even if you don't want to change it\n    - When updating variants, you must provide all configuration you want to keep\n    - Only the DRAFT version can be updated (use CreatePromptVersion for versioning)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bedrock_prompt_management_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_prompt_version_tool",
+            "description": "Create a new version of an existing prompt.\n    \n    This tool creates a static snapshot of a prompt that can be deployed to production.\n    It creates a permanent, versioned copy of the prompt's DRAFT version.\n    \n    ## Required parameters:\n    - prompt_id: The ID of the prompt to create a version of\n    \n    ## Optional parameters:\n    - description: Description for the prompt version\n    - client_token: Unique identifier for idempotency\n    - tags: Key-value pairs for resource tagging\n    \n    ## Response format:\n    The response is a JSON object containing details about the created prompt version,\n    including its ID, ARN, and variant information.\n    \n    ## Important notes:\n    - Versions are numbered incrementally starting from 1\n    - Versions are immutable snapshots that can be deployed to production\n    - You cannot edit a version after it's created (you can only create new versions)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bedrock_prompt_management_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_prompt_tool",
+            "description": "Delete a prompt or a specific version of a prompt.\n    \n    This tool deletes either an entire prompt or a specific version of a prompt.\n    \n    ## Required parameters:\n    - prompt_id: The ID of the prompt to delete\n    \n    ## Optional parameters:\n    - prompt_version: The version of the prompt to delete. Omit to delete the entire prompt.\n    \n    ## Response format:\n    The response is a JSON object containing the ID and version of the deleted prompt.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bedrock_prompt_management_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_get_bedrock_client_with_params",
+            "description": "Test client creation with explicit parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_boto3": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_boto3"
+                ]
+            },
+            "file": "tests\\test_clients.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_bedrock_client_with_env_vars",
+            "description": "Test client creation with environment variables.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_os": {
+                        "type": "string"
+                    },
+                    "mock_boto3": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_os",
+                    "mock_boto3"
+                ]
+            },
+            "file": "tests\\test_clients.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_bedrock_client_error",
+            "description": "Test error handling in client creation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_boto3": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_boto3"
+                ]
+            },
+            "file": "tests\\test_clients.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_init_with_custom_client",
+            "description": "Test initialization with a custom client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_client"
+                ]
+            },
+            "file": "tests\\test_clients.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_init_with_params",
+            "description": "Test initialization with parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_client"
+                ]
+            },
+            "file": "tests\\test_clients.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_tool_registration",
+            "description": "Test that all tools are registered.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_resource_registration",
+            "description": "Test that all resources are registered.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_main_default",
+            "description": "Test main function with default arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_mcp"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_main_with_sse",
+            "description": "Test main function with SSE transport.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_mcp"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_main_with_port",
+            "description": "Test main function with custom port.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_mcp"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_main_with_sse_and_port",
+            "description": "Test main function with SSE transport and custom port.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_mcp"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "mock_prompt_client",
+            "description": "Mock the Bedrock Prompt Management client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_list_prompts_success",
+            "description": "Test successful listing of prompts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_prompts_error",
+            "description": "Test handling of errors when listing prompts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_prompt_success",
+            "description": "Test successful retrieval of a prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_prompt_with_version",
+            "description": "Test retrieval of a prompt with a specific version.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_prompt_error",
+            "description": "Test handling of errors when retrieving a prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_prompt_text_minimal",
+            "description": "Test creating a TEXT prompt with minimal parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_prompt_chat_minimal",
+            "description": "Test creating a CHAT prompt with minimal parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_prompt_with_inference_config",
+            "description": "Test creating a prompt with inference configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_prompt_error",
+            "description": "Test handling of errors when creating a prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_update_prompt_minimal",
+            "description": "Test updating a prompt with minimal parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_update_prompt_with_variants",
+            "description": "Test updating a prompt with variants.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_update_prompt_error",
+            "description": "Test handling of errors when updating a prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_prompt_version_minimal",
+            "description": "Test creating a prompt version with minimal parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_prompt_version_full",
+            "description": "Test creating a prompt version with all parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_prompt_version_error",
+            "description": "Test handling of errors when creating a prompt version.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_prompt_entire",
+            "description": "Test deleting an entire prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_prompt_specific_version",
+            "description": "Test deleting a specific prompt version.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_prompt_error",
+            "description": "Test handling of errors when deleting a prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_prompts_resource_success",
+            "description": "Test successful retrieval of prompts resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_prompts_resource_error",
+            "description": "Test handling of errors in prompts resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_prompt_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_prompt_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

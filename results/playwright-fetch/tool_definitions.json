@@ -1,0 +1,1124 @@
+{
+    "tools": [
+        {
+            "name": "mock_html_content",
+            "description": "Sample HTML content for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_main_mocked",
+            "description": "Test that main calls serve with default parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_serve": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_serve"
+                ]
+            },
+            "file": "tests\\disable\\test_main.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_main_with_args_mocked",
+            "description": "Test that main passes CLI args to serve.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_serve": {
+                        "type": "string"
+                    },
+                    "mock_parse_args": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_serve",
+                    "mock_parse_args"
+                ]
+            },
+            "file": "tests\\disable\\test_main.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "create_mock_browser",
+            "description": "Create a mocked browser.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\browser_fixture.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_mock_context",
+            "description": "Create a mocked browser context.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\browser_fixture.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_mock_page",
+            "description": "Create a mocked page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\browser_fixture.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_mock_response",
+            "description": "Create a mocked response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\browser_fixture.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_mock_element",
+            "description": "Create a mocked element.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\browser_fixture.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "setup_full_mock",
+            "description": "Set up a complete mock environment for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\browser_fixture.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "mock_playwright_factory",
+            "description": "Fixture to provide the PlaywrightMockFactory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\browser_fixture.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "setup_mock_browser",
+            "description": "Fixture to set up a mocked browser environment.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\fixtures\\browser_fixture.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_fetch_with_main_content",
+            "description": "Test that the fetch function extracts main content when available.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\skip\\test_content_handling.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_fetch_non_html_content",
+            "description": "Test fetching non-HTML content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\skip\\test_content_handling.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_fetch_with_proxy",
+            "description": "Test fetching with a proxy server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\skip\\test_content_handling.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_successful_fetch",
+            "description": "Test a successful URL fetch.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_playwright": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_playwright"
+                ]
+            },
+            "file": "tests\\skip\\test_fetch.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_fetch_with_proxy",
+            "description": "Test fetching with a proxy configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_playwright": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_playwright"
+                ]
+            },
+            "file": "tests\\skip\\test_fetch.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_visible_browser",
+            "description": "Test fetching with a visible (non-headless) browser.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_playwright": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_playwright"
+                ]
+            },
+            "file": "tests\\skip\\test_fetch.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_fetch_non_html",
+            "description": "Test fetching non-HTML content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_playwright": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_playwright"
+                ]
+            },
+            "file": "tests\\skip\\test_fetch.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_fetch_force_raw",
+            "description": "Test fetching with force_raw=True.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_playwright": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_playwright"
+                ]
+            },
+            "file": "tests\\skip\\test_fetch.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_http_error_response",
+            "description": "Test handling HTTP error responses.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_playwright": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_playwright"
+                ]
+            },
+            "file": "tests\\skip\\test_fetch.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_no_response",
+            "description": "Test handling no response from goto.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_playwright": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_playwright"
+                ]
+            },
+            "file": "tests\\skip\\test_fetch.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playwright_error",
+            "description": "Test handling Playwright errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_playwright": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_playwright"
+                ]
+            },
+            "file": "tests\\skip\\test_fetch.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_timeout_error",
+            "description": "Test handling timeout errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_playwright": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_playwright"
+                ]
+            },
+            "file": "tests\\skip\\test_fetch.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_general_exception",
+            "description": "Test handling general exceptions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_playwright": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_playwright"
+                ]
+            },
+            "file": "tests\\skip\\test_fetch.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_content_extraction_failure",
+            "description": "Test when content extraction fails but HTML content is available.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_playwright": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_playwright"
+                ]
+            },
+            "file": "tests\\skip\\test_fetch.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_server_tool_call",
+            "description": "Test server handling a tool call request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_stdio_server": {
+                        "type": "string"
+                    },
+                    "mock_fetch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_stdio_server",
+                    "mock_fetch"
+                ]
+            },
+            "file": "tests\\skip\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_server_prompt_request",
+            "description": "Test server handling a get_prompt request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_stdio_server": {
+                        "type": "string"
+                    },
+                    "mock_fetch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_stdio_server",
+                    "mock_fetch"
+                ]
+            },
+            "file": "tests\\skip\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_list_tools",
+            "description": "Test the list_tools handler.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "setup_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_cls"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_list_prompts",
+            "description": "Test the list_prompts handler.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "setup_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_cls"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_call_tool",
+            "description": "Test the call_tool handler.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_fetch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_fetch"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "setup_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_cls"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_call_tool_content_truncation",
+            "description": "Test content truncation in call_tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_fetch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_fetch"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "setup_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_cls"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_call_tool_with_start_index",
+            "description": "Test call_tool with a non-zero start_index.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_fetch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_fetch"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "setup_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_cls"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_prompt",
+            "description": "Test the get_prompt handler.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_fetch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_fetch"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "setup_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_cls"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_prompt_error",
+            "description": "Test error handling in get_prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_fetch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_fetch"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "setup_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_cls"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_prompt_missing_url",
+            "description": "Test get_prompt with missing URL parameter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "setup_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_cls"
+                ]
+            },
+            "file": "tests\\skip\\test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "mock_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_error_handling.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_headless_parameter",
+            "description": "Test the headless parameter parsing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "args": {
+                        "type": "string"
+                    },
+                    "expected_headless": {
+                        "type": "string"
+                    },
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "args",
+                    "expected_headless",
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\unit\\test_main_entry.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_robots_allowed_basic",
+            "description": "Test robots.txt allows access.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_robots_basic.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_robots_denied_basic",
+            "description": "Test robots.txt denies access.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_robots_basic.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_robots_404_basic",
+            "description": "Test robots.txt returns 404.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_robots_basic.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_robots_403_basic",
+            "description": "Test robots.txt returns 403 Forbidden.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_robots_basic.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_robots_connection_error_basic",
+            "description": "Test connection error when fetching robots.txt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_robots_basic.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_robots_with_proxy_basic",
+            "description": "Test robots.txt check with proxy.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_robots_basic.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_robots_txt_url",
+            "description": "Test generating robots.txt URLs for various input URLs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "expected"
+                ]
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_robots_allowed",
+            "description": "Test when robots.txt allows access.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_async_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "test_robots_404",
+            "description": "Test when robots.txt returns a 404.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_async_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "test_robots_denied",
+            "description": "Test when robots.txt denies access.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_async_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "test_robots_forbidden",
+            "description": "Test when robots.txt returns a 403 Forbidden.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_async_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "test_robots_connection_error",
+            "description": "Test handling connection errors when fetching robots.txt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_async_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "test_with_proxy",
+            "description": "Test robots check with a proxy URL.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_async_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_robots_txt.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "mock_async_context",
+            "description": "Mock async context manager that yields read and write stream mocks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_server_endpoints.py",
+            "decorator": [
+                "contextlib.asynccontextmanager"
+            ]
+        },
+        {
+            "name": "server_fixture",
+            "description": "Fixture to provide a ServerFixture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\unit\\test_server_endpoints.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        }
+    ]
+}

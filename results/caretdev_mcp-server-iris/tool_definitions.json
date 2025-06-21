@@ -1,0 +1,258 @@
+{
+    "tools": [
+        {
+            "name": "interoperability_production_create",
+            "description": "CreateanInteroperabilityProduction",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\interoperability.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "interoperability_production_status",
+            "description": "StatusofanInteroperabilityProduction",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\interoperability.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "interoperability_production_start",
+            "description": "StartanInteroperabilityProduction",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\interoperability.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "interoperability_production_stop",
+            "description": "StopanInteroperabilityProduction",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\interoperability.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "interoperability_production_recover",
+            "description": "RecoveranInteroperabilityProduction",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\interoperability.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "interoperability_production_needsupdate",
+            "description": "CheckifanInteroperabilityProductionneedsupdate",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\interoperability.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "interoperability_production_update",
+            "description": "UpdateInteroperabilityProduction",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\interoperability.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "interoperability_production_logs",
+            "description": "GetInteroperabilityProductionlogs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\interoperability.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "interoperability_production_queues",
+            "description": "GetInteroperabilityProductionqueues",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\interoperability.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "iris",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\mcpserver.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "db",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\mcpserver.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "name",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\mcpserver.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "version",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\mcpserver.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "server_lifespan",
+            "description": "Manage server startup and shutdown lifecycle.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "execute_sql",
+            "description": "ExecuteanSQLqueryontheServer",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\server.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "execute_sql",
+            "description": "ExecuteanSQLqueryontheServer",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iris\\sql.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "iris_config",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_list_tools",
+            "description": "Test that list_tools returns expected tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_params_in_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_call_tool_execute_sql",
+            "description": "Test calling execute_sql with a query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "iris_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "iris_config"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

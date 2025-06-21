@@ -1,0 +1,200 @@
+{
+    "tools": [
+        {
+            "name": "generate_mock_api_tool",
+            "description": "GeneratesaFastAPImockserverfromanAPIspecification(e.g.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spec_url_or_path": {
+                        "type": "string",
+                        "description": "URL or local file path to the API specification."
+                    },
+                    "output_dir_name": {
+                        "type": "string",
+                        "description": "Optional name for the generated mock server directory."
+                    }
+                },
+                "required": [
+                    "spec_url_or_path",
+                    "output_dir_name"
+                ]
+            },
+            "file": "src\\mockloop_mcp\\main.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "query_mock_logs_tool",
+            "description": "QueryandanalyzerequestlogsfromarunningMockLoopserver.\"\n\"Supportsfilteringbymethod",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_url": {
+                        "type": "string",
+                        "description": "URL of the mock server (e.g., \"http://localhost:8000\")"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of logs to return (default: 100)"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "description": "Number of logs to skip for pagination (default: 0)"
+                    },
+                    "method": {
+                        "type": "string",
+                        "description": "Filter by HTTP method (e.g., \"GET\", \"POST\")"
+                    },
+                    "path_pattern": {
+                        "type": "string",
+                        "description": "Regex pattern to filter paths"
+                    },
+                    "time_from": {
+                        "type": "string",
+                        "description": "Start time filter (ISO format)"
+                    },
+                    "time_to": {
+                        "type": "string",
+                        "description": "End time filter (ISO format)"
+                    },
+                    "include_admin": {
+                        "type": "string",
+                        "description": "Include admin requests in results"
+                    },
+                    "analyze": {
+                        "type": "string",
+                        "description": "Perform analysis on the logs"
+                    }
+                },
+                "required": [
+                    "server_url",
+                    "limit",
+                    "offset",
+                    "method",
+                    "path_pattern",
+                    "time_from",
+                    "time_to",
+                    "include_admin",
+                    "analyze"
+                ]
+            },
+            "file": "src\\mockloop_mcp\\main.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "discover_mock_servers_tool",
+            "description": "DiscoverrunningMockLoopserversandgeneratedmockconfigurations.\"\n\"Scanscommonportsandmatcheswithgeneratedmocks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ports": {
+                        "type": "string",
+                        "description": "List of ports to scan (default: common ports 8000-8005, 3000-3001, 5000-5001)"
+                    },
+                    "check_health": {
+                        "type": "string",
+                        "description": "Perform health checks on discovered servers"
+                    },
+                    "include_generated": {
+                        "type": "string",
+                        "description": "Include information about generated but not running mocks"
+                    }
+                },
+                "required": [
+                    "ports",
+                    "check_health",
+                    "include_generated"
+                ]
+            },
+            "file": "src\\mockloop_mcp\\main.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "manage_mock_data_tool",
+            "description": "ManagedynamicresponsedataandscenariosforMockLoopservers.\"\n\"Supportsupdatingresponses",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_url": {
+                        "type": "string",
+                        "description": "URL of the mock server (e.g., \"http://localhost:8000\")"
+                    },
+                    "operation": {
+                        "type": "string",
+                        "description": "Operation to perform (\"update_response\", \"create_scenario\", \"switch_scenario\", \"list_scenarios\")"
+                    },
+                    "endpoint_path": {
+                        "type": "string",
+                        "description": "Specific endpoint to modify (required for update_response)"
+                    },
+                    "response_data": {
+                        "type": "string",
+                        "description": "New response data for updates (required for update_response)"
+                    },
+                    "scenario_name": {
+                        "type": "string",
+                        "description": "Scenario identifier (required for create_scenario, switch_scenario)"
+                    },
+                    "scenario_config": {
+                        "type": "string",
+                        "description": "Complete scenario configuration (required for create_scenario)"
+                    }
+                },
+                "required": [
+                    "server_url",
+                    "operation",
+                    "endpoint_path",
+                    "response_data",
+                    "scenario_name",
+                    "scenario_config"
+                ]
+            },
+            "file": "src\\mockloop_mcp\\main.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "test_integration_marker",
+            "description": "Test that integration marker works.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_structure.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_slow_marker",
+            "description": "Test that slow marker works.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_structure.py",
+            "decorator": [
+                "pytest.mark.slow"
+            ]
+        },
+        {
+            "name": "test_unit_marker",
+            "description": "Test that unit marker works.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_structure.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        }
+    ]
+}

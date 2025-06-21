@@ -1,0 +1,714 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "Application lifecycle management",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\main.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root path - Service information",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "api_info",
+            "description": "API information",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "api_v2_info",
+            "description": "API V2 information",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Basic health check",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\health.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "detailed_health_check",
+            "description": "Detailed health check",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\health.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "readiness_check",
+            "description": "Readiness check - for K8s readiness probe",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\health.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "liveness_check",
+            "description": "Liveness check - for K8s liveness probe",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\health.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "Handle chat request",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v1\\chat.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "chat_stream",
+            "description": "Streaming chat response (future extension)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v1\\chat.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_user_conversations",
+            "description": "Get user's conversation list",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v1\\conversation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_conversation",
+            "description": "Get detailed information for a specific conversation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v1\\conversation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "delete_conversation",
+            "description": "Delete conversation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v1\\conversation.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "update_conversation_title",
+            "description": "Update conversation title",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v1\\conversation.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "get_conversation_messages",
+            "description": "Get conversation message list",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v1\\conversation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "search_conversations",
+            "description": "Search user conversations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v1\\conversation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_conversation_statistics",
+            "description": "Get user conversation statistics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v1\\conversation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "Handle chat request",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v2\\chat.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "chat_stream",
+            "description": "Streaming chat response (future extension)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v2\\chat.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_user_conversations",
+            "description": "Get user's conversation list",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v2\\conversation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_conversation",
+            "description": "Get conversation details",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v2\\conversation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "delete_conversation",
+            "description": "Delete conversation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v2\\conversation.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "update_conversation_title",
+            "description": "Update conversation title",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v2\\conversation.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "get_conversation_messages",
+            "description": "Get conversation message list",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v2\\conversation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "search_conversations",
+            "description": "Search user conversations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v2\\conversation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_conversation_statistics",
+            "description": "Get user conversation statistics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\api\\v2\\conversation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "database_url",
+            "description": "Build database URL",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\configs\\database_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "base_url",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\configs\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "mcp_cwd",
+            "description": "MCP Server Working Directory",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\configs\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "mcp_command",
+            "description": "MCP Server Main File Path",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\configs\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "mcp_python",
+            "description": "MCP Server Python Interpreter Path",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\configs\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "debug_log_path",
+            "description": "Full Path of Debug Log File",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\configs\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "actual_server_command",
+            "description": "Actual Server Command (Using Correct Python Path)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\configs\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "server_command_with_log_redirect",
+            "description": "Server Command with Log Redirection",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\configs\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "get_connection",
+            "description": "Get database connection context manager",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\data\\database.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "Create instance from dictionary",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "ai-agent\\data\\models\\conversation.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "Create instance from dictionary",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "ai-agent\\data\\models\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "is_confident",
+            "description": "Determine if there is enough confidence",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\intent.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_academic_query",
+            "description": "Determine if it is an academic query",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\intent.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "search_papers",
+            "description": "Search papers intent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\intent.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "search_authors",
+            "description": "Search authors intent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\intent.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_author_details",
+            "description": "Get author details intent - Use the same search_authors tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\intent.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_paper_details",
+            "description": "Get paper details intent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\intent.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "general_chat",
+            "description": "General chat intent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\intent.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "unknown",
+            "description": "Unknown intent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\intent.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "validate_message",
+            "description": "Validate message content",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "ai-agent\\models\\request.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_conversation_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "ai-agent\\models\\request.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_user_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "ai-agent\\models\\request.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "execution_time",
+            "description": "Get execution time (seconds)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\task.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_success",
+            "description": "Check if task is successful",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\task.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "mcp_tool_call",
+            "description": "Create MCP tool call task",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\task.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "llm_generation",
+            "description": "Create LLM generation task",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\task.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "response_generation",
+            "description": "Create response generation task",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\task.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_dependent_chain",
+            "description": "Create dependent chain tasks",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\task.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_parallel_group",
+            "description": "Create parallel task group",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai-agent\\models\\task.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

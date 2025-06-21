@@ -1,0 +1,76 @@
+{
+    "tools": [
+        {
+            "name": "validate_operation",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "mcp_server_stats\\server.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_data",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "mcp_server_stats\\server.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "suggest_feature",
+            "description": "\n    Suggest a new feature or improvement for the StatSource analytics platform.\n    \n    ### What this tool does:\n    This tool allows you to submit feature suggestions or enhancement requests for \n    the StatSource platform. Suggestions are logged and reviewed by the development team.\n    \n    ### When to use this tool:\n    - When a user asks for functionality that doesn't currently exist\n    - When you identify gaps or limitations in the current analytics capabilities\n    - When a user expresses frustration about missing capabilities\n    - When you think of enhancements that would improve the user experience\n    \n    ### Required inputs:\n    - description: A clear, detailed description of the suggested feature\n    - use_case: Explanation of how and why users would use this feature\n    \n    ### Optional inputs:\n    - priority: Suggested priority level (\"low\", \"medium\", \"high\")\n    \n    ### Returns:\n    A confirmation message and reference ID for the feature suggestion.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_stats\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_statistics",
+            "description": "\n    Analyze data and calculate statistics or generate ML predictions based on provided parameters.\n    \n    ### What this tool does:\n    This tool connects to our analytics API and provides two main functionalities:\n    1. Statistical Analysis: Calculate various statistical measures on specified data columns\n    2. ML Predictions: Generate time-series forecasts for future periods based on historical data\n    \n    ### IMPORTANT INSTRUCTIONS FOR AI AGENTS:\n    - DO NOT make up or guess any parameter values, especially data sources or column names\n    - NEVER, UNDER ANY CIRCUMSTANCES, create or invent database connection strings - this is a severe security risk\n    - ALWAYS ask the user explicitly for all required information\n    - For CSV files: The user MUST first upload their file to statsource.me, then provide the filename\n    - For database connections: Ask the user for their exact PostgreSQL connection string - DO NOT GUESS OR MODIFY IT\n    - For database sources: You MUST provide the table_name parameter with the exact table name\n    - Never suggest default values, sample data, or example parameters - request specific information from the user\n    - If the user has configured a default database connection in their MCP config, inform them it will be used if they don't specify a data source\n    - If no database connection is provided in the MCP config and the user doesn't provide one, DO NOT PROCEED - ask user to provide connection details\n    \n    ### When to use this tool:\n    - When a user needs statistical analysis of their data (means, medians, etc.)\n    - When a user wants to predict future values based on historical trends\n    - When analyzing trends, patterns, or distributions in datasets\n    - When generating forecasts for business planning or decision-making\n    \n    ### Required inputs:\n    - columns: List of column names to analyze or predict (ask user for exact column names in their data)\n    \n    ### Optional inputs:\n    - data_source: Path to data file, database connection string, or API endpoint\n      * For CSV: Filename of a previously uploaded file on statsource.me (ask user to upload first)\n      * For Database: Full connection string (ask user for exact string)\n      * If not provided, will use the connection string from MCP config if available\n    - source_type: Type of data source (\"csv\", \"database\", or \"api\")\n      * If not provided, will use the source type from MCP config if available\n    - table_name: Name of the database table to use (REQUIRED for database sources)\n      * Must be provided when source_type is \"database\"\n      * Ask user for the exact table name in their database\n    - statistics: List of statistics to calculate (only required for statistical analysis)\n    - query_type: Type of query (\"statistics\" or \"ml_prediction\")\n    - periods: Number of future periods to predict (only used for ML predictions)\n    \n    ### Valid statistics options:\n    - Basic (free tier): \"mean\", \"median\", \"min\", \"max\", \"count\", \"sum\", \"std\", \"var\"\n    - Advanced (paid tier): \"skewness\", \"kurtosis\", \"percentile\", \"histogram\", \"correlation\"\n    \n    ### ML Prediction features:\n    - Time series forecasting with customizable prediction periods\n    - Trend direction analysis (\"increasing\", \"decreasing\", \"stable\")\n    - Model quality metrics (r-squared, slope)\n    - Works with numeric data columns from any supported data source\n    \n    ### Returns:\n    For statistics queries:\n    - Statistical measures for each requested column and statistic\n    \n    For ML prediction queries:\n    - Predicted future values for specified columns\n    - Trend direction and model quality metrics\n    - R-squared value and slope indicators\n    \n    ### Examples of QUESTIONS to ask users (DO NOT use these as defaults):\n    1. \"Have you already uploaded your CSV file to statsource.me? What is the filename?\"\n    2. \"What is your exact PostgreSQL connection string?\" (if not configured in MCP config)\n    3. \"Which specific columns in your data would you like to analyze?\"\n    4. \"Which statistics would you like to calculate for these columns?\"\n    5. \"How many future periods would you like to predict?\"\n    6. \"What is the exact name of the table in your database that contains this data?\"\n    \n    ### Configuration:\n    Users can set a default database connection string in their MCP config:\n    \n    ```json\n    {\n        \"mcpServers\": {\n            \"statsource\": {\n                \"command\": \"python\",\n                \"args\": [\"path/to/mcp_server.py\"],\n                \"env\": {\n                    \"API_KEY\": \"your_api_key\",\n                    \"DB_CONNECTION_STRING\": \"postgresql://username:password@localhost:5432/your_db\",\n                    \"DB_SOURCE_TYPE\": \"database\"\n                }\n            }\n        }\n    }\n    ```\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_stats\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

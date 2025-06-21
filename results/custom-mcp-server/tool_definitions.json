@@ -1,0 +1,100 @@
+{
+    "tools": [
+        {
+            "name": "login_for_access_token",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "register_tool_endpoint",
+            "description": "Endpoint to register a new tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "Endpoint to list all registered tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "execute_tool",
+            "description": "Execute a tool call and return the result.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "login_for_access_token",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server\\server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "register_tool_endpoint",
+            "description": "Endpoint to register a new tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server\\server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "Endpoint to list all registered tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "execute_tool",
+            "description": "Execute a tool call and return the result.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server\\server.py",
+            "decorator": [
+                "app.post"
+            ]
+        }
+    ]
+}

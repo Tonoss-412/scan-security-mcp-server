@@ -1,0 +1,194 @@
+{
+    "tools": [
+        {
+            "name": "test_mcp_get_weather_tool",
+            "description": "Test the MCP get_weather tool with a simulated API response",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "test_mcp_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_mcp_get_current_weather_tool",
+            "description": "Test the MCP get_current_weather tool with a simulated API response",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "test_mcp_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_api_key_parameter_overrides_env",
+            "description": "Test that API key provided as parameter overrides the environment variable",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "test_mcp_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_weather_success",
+            "description": "Test successful weather forecast retrieval",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "test_weather_mcp.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_current_weather_success",
+            "description": "Test successful current weather retrieval",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "test_weather_mcp.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_api_error_handling",
+            "description": "Test error handling for API failures",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "test_weather_mcp.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_location_not_found",
+            "description": "Test handling when location is not found",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "test_weather_mcp.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_current_weather_error_propagation",
+            "description": "Test that errors from get_weather are propagated to get_current_weather",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_weather": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_weather"
+                ]
+            },
+            "file": "test_weather_mcp.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_current_weather_missing_current",
+            "description": "Test handling when get_weather returns data without 'current' field",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_weather": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_weather"
+                ]
+            },
+            "file": "test_weather_mcp.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_geocoding_fallback",
+            "description": "Test that geocoding falls back to current weather API when geocoding API returns no results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "test_weather_mcp.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

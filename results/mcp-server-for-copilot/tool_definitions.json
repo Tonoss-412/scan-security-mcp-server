@@ -1,0 +1,54 @@
+{
+    "tools": [
+        {
+            "name": "initialize",
+            "description": "Initialize the Copilot Studio Agent.\n\n        Returns:\n            bool: True if initialization was successful, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\cps_connector.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "query_agent",
+            "description": "Query the Copilot Studio agent and get the response.\n\n        Args:\n            query: The message to send to the agent\n            conversation_id: Optional ID to continue an existing conversation\n            watermark: Optional watermark to track conversation state\n\n        Returns:\n            AgentResponse containing the response text, conversation_id, and watermark\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\cps_connector.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "query_agent",
+            "description": "f\"usetoquerytheagent:{agent.name}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

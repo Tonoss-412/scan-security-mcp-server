@@ -1,0 +1,41 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_agent_server\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls for time queries and conversation history.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_agent_server\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "MCP Agent Server - Agent functionality for MCP",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_agent_server\\__init__.py",
+            "decorator": [
+                "click.command",
+                "click.option"
+            ]
+        }
+    ]
+}

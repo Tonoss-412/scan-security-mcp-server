@@ -1,0 +1,378 @@
+{
+    "tools": [
+        {
+            "name": "group_tags",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tags": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tags"
+                ]
+            },
+            "file": "osm.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "fallback",
+            "description": "\n        If we do not have Overpass Turbo results, attempt to use the\n        Nominatim result instead.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "nominatim_result": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "nominatim_result"
+                ]
+            },
+            "file": "osm.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "find_address_for_coordinates",
+            "description": "\n    Resolves GPS coordinates to a specific address or place.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_store_or_place_near_coordinates",
+            "description": "\n    Finds specifically named stores, businesses, or landmarks near the given\n    GPS coordinates. This can be used for general or specific things,\n    like 'gas station' or 'grocery store', or the name of a specific\n    chain (like 'Wal-Mart' or 'Albert Heijn'). This function is intended\n    for finding specific chains or businesses near the given coordinates.\n    Use this if the user asks about businesses or places nearby.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_specific_place",
+            "description": "\n    Looks up details on OpenStreetMap of a specific address, landmark,\n    place, named building, or location. Used for when the user asks where\n    a specific unique entity (like a specific museum, or church, or shopping\n    center) is.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "navigate_between_places",
+            "description": "\n    Retrieve a navigation route and associated information between two places.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_grocery_stores_near_place",
+            "description": "\n    Finds supermarkets, grocery stores, and other food stores on\n    OpenStreetMap near a given place or address. The location of the\n    address or place is reverse geo-coded, then nearby results\n    are fetched from OpenStreetMap.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_bakeries_near_place",
+            "description": "\n    Finds bakeries on OpenStreetMap near a given place or\n    address. The location of the address or place is reverse\n    geo-coded, then nearby results are fetched from OpenStreetMap.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_food_near_place",
+            "description": "\n    Finds restaurants, fast food, bars, breweries, pubs, etc on\n    OpenStreetMap near a given place or address. The location of the\n    address or place is reverse geo-coded, then nearby results\n    are fetched from OpenStreetMap.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_swimming_near_place",
+            "description": "\n    Finds swimming pools, water parks, swimming areas, and other aquatic\n    activities on OpenStreetMap near a given place or address. The location\n    of the address or place is reverse geo-coded, then nearby results are fetched\n    from OpenStreetMap.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_playgrounds_near_place",
+            "description": "\n    Finds playgrounds and parks on OpenStreetMap near a given place, address, or coordinates.\n    The location of the address or place is reverse geo-coded, then nearby results are fetched\n    from OpenStreetMap.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_recreation_near_place",
+            "description": "\n    Finds playgrounds, theme parks, parks, frisbee golf, ice skating, and other recreational\n    activities on OpenStreetMap near a given place or address. The location\n    of the address or place is reverse geo-coded, then nearby results are fetched\n    from OpenStreetMap.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_tourist_attractions_near_place",
+            "description": "\n    Finds museums, landmarks, and other tourist attractions on OpenStreetMap near\n    a given place or address. The location of the address or place is reverse geo-coded,\n    then nearby results are fetched from OpenStreetMap.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_place_of_worship_near_place",
+            "description": "\n    Finds places of worship (churches, mosques, temples, etc) on\n    OpenStreetMap near a given place or address. The location of the\n    address or place is reverse geo-coded, then nearby results\n    are fetched from OpenStreetMap.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_accommodation_near_place",
+            "description": "\n    Finds accommodation (hotels, guesthouses, hostels, etc) on\n    OpenStreetMap near a given place or address. The location of the\n    address or place is reverse geo-coded, then nearby results\n    are fetched from OpenStreetMap.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_alcohol_near_place",
+            "description": "\n    Finds beer stores, liquor stores, and similar shops on OpenStreetMap\n    near a given place or address. The location of the address or place is\n    reverse geo-coded, then nearby results\n    are fetched from OpenStreetMap.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_drugs_near_place",
+            "description": "\n    Finds cannabis dispensaries, coffeeshops, smartshops, and similar stores on OpenStreetMap\n    near a given place or address. The location of the address or place is\n    reverse geo-coded, then nearby results\n    are fetched from OpenStreetMap.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_schools_near_place",
+            "description": "\n    Finds schools (NOT universities) on OpenStreetMap near a given place or address.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_universities_near_place",
+            "description": "\n    Finds universities and colleges on OpenStreetMap near a given place or address.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_libraries_near_place",
+            "description": "\n    Finds libraries on OpenStreetMap near a given place or address.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_public_transport_near_place",
+            "description": "\n    Finds public transportation stops on OpenStreetMap near a given place or address.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_bike_rentals_near_place",
+            "description": "\n    Finds bike rentals on OpenStreetMap near a given place or address.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_car_rentals_near_place",
+            "description": "\n    Finds car rentals on OpenStreetMap near a given place or address.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_hardware_store_near_place",
+            "description": "\n    Finds hardware stores, home improvement stores, and DIY stores\n    near given a place or address.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_electrical_store_near_place",
+            "description": "\n    Finds electrical stores and lighting stores near a given place\n    or address. These are stores that sell lighting and electrical\n    equipment like wires, sockets, and so forth.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_electronics_store_near_place",
+            "description": "\n    Finds consumer electronics stores near a given place or address.\n    These stores sell computers, cell phones, video games, and so on.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_doctor_near_place",
+            "description": "\n    Finds doctors near a given place or address.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_hospital_near_place",
+            "description": "\n    Finds hospital near a given place or address.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_pharmacy_near_place",
+            "description": "\n    Finds pharmacies and health shops near a given place or address\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_other_things_near_place",
+            "description": "\n    Find shops and other places not covered by a specific\n    category available in the other functions. Use this if the\n    user is asking for a type of store or place that other\n    functions do not support.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "osm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

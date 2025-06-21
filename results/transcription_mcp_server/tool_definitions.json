@@ -1,0 +1,52 @@
+{
+    "tools": [
+        {
+            "name": "transcribe_audio",
+            "description": "\n    Transcribe an MP3 audio file using AssemblyAI and save the transcript as JSON.\n\n    Args:\n        file_path: Path to the MP3 audio file to transcribe.\n\n    Returns:\n        Confirmation message with the path to the saved JSON transcript or an error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the MP3 audio file to transcribe."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\server_transcription.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "transcribe_audio",
+            "description": "\n    Transcribe an MP3 audio file using AssemblyAI and save the transcript as JSON.\n\n    Args:\n        file_path: Path to the MP3 audio file to transcribe.\n\n    Returns:\n        Confirmation message with the path to the saved JSON transcript or an error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the MP3 audio file to transcribe."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "Returns"
+                ]
+            },
+            "file": "run_with_docker\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

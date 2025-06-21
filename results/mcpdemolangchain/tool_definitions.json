@@ -1,0 +1,64 @@
+{
+    "tools": [
+        {
+            "name": "add",
+            "description": "\n    Adds two integers together.\n\n    Parameters:\n    a (int): The first integer.\n    b (int): The second integer.\n\n    Returns:\n    int: The sum of a and b.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mathserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "subtract",
+            "description": "\n    Subtracts the second integer from the first.\n\n    Parameters:\n    a (int): The first integer.\n    b (int): The second integer.\n\n    Returns:\n    int: The result of a minus b.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mathserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "multiply",
+            "description": "\n    Multiplies two integers together.\n\n    Parameters:\n    a (int): The first integer.\n    b (int): The second integer.\n\n    Returns:\n    int: The product of a and b.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mathserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "divide",
+            "description": "\n    Divides the first integer by the second.\n\n    Parameters:\n    a (int): The numerator.\n    b (int): The denominator.\n\n    Returns:\n    float: The result of a divided by b.\n    \n    Raises:\n    ValueError: If b is zero.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mathserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "\n    Retrieves the current weather for a specified city.\n\n    Parameters:\n    city (str): The name of the city to get the weather for.\n\n    Returns:\n    str: A string describing the current weather in the specified city.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

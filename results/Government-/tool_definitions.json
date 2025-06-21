@@ -1,0 +1,124 @@
+{
+    "tools": [
+        {
+            "name": "status_show",
+            "description": "Get the CKAN version and a list of installed extensions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "license_list",
+            "description": "Get the list of licenses available for datasets on the site.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "package_list",
+            "description": "Get a list of all package IDs (datasets).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "package_search",
+            "description": "Find packages (datasets) matching query terms.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "package_show",
+            "description": "Get metadata about one specific package (dataset).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "organization_list",
+            "description": "Get names of all organizations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "organization_show",
+            "description": "Get details of a specific organization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "resource_search",
+            "description": "Find resources based on their field values.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "datastore_search",
+            "description": "Search a datastore resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_data_gov_il",
+            "description": "Fetch data from the Israeli government public API (data.gov.il) based on a dataset name query",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

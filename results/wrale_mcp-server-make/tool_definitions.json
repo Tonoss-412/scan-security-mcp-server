@@ -1,0 +1,103 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "List available tools.\n\n        Returns:\n            List of available tools, currently only the make tool.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_make\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Execute a tool.\n\n        Args:\n            name: Name of the tool to execute\n            arguments: Arguments for the tool\n\n        Returns:\n            List of text content with tool execution results\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the tool to execute"
+                    },
+                    "arguments": {
+                        "type": "string",
+                        "description": "Arguments for the tool"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "arguments",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_make\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "list_prompts",
+            "description": "List available prompts.\n\n        Returns:\n            Empty list as no prompts are currently supported.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_make\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "get_prompt",
+            "description": "Get a prompt by name.\n\n        Args:\n            name: Name of the prompt\n            arguments: Optional arguments for the prompt\n\n        Raises:\n            McpError: Always raises as no prompts are currently supported\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the prompt"
+                    },
+                    "arguments": {
+                        "type": "string",
+                        "description": "Optional arguments for the prompt"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "McpError": {
+                        "type": "string",
+                        "description": "Always raises as no prompts are currently supported"
+                    }
+                },
+                "required": [
+                    "name",
+                    "arguments",
+                    "Raises",
+                    "McpError"
+                ]
+            },
+            "file": "src\\mcp_server_make\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "test_make_tool",
+            "description": "Test make tool creation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

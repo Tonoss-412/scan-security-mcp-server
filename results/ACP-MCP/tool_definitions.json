@@ -1,0 +1,104 @@
+{
+    "tools": [
+        {
+            "name": "find_files",
+            "description": "Find files matching the specified pattern.\n\n    Args:\n        directory: Directory path to search\n        pattern: File name pattern (supports regular expressions)\n        max_depth: Maximum search depth (default is 3)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "directory": {
+                        "type": "string",
+                        "description": "Directory path to search"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "File name pattern (supports regular expressions)"
+                    },
+                    "max_depth": {
+                        "type": "string",
+                        "description": "Maximum search depth (default is 3)"
+                    }
+                },
+                "required": [
+                    "directory",
+                    "pattern",
+                    "max_depth"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "view_file",
+            "description": "View file content.\n\n    Args:\n        file_path: File path\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "File path"
+                    }
+                },
+                "required": [
+                    "file_path"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_parameter",
+            "description": "Update specific parameters in a file.\n\n    Args:\n        file_path: File path\n        param_pattern: Parameter matching pattern (regular expression)\n        new_value: New parameter value\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "File path"
+                    },
+                    "param_pattern": {
+                        "type": "string",
+                        "description": "Parameter matching pattern (regular expression)"
+                    },
+                    "new_value": {
+                        "type": "string",
+                        "description": "New parameter value"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "param_pattern",
+                    "new_value"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_directory",
+            "description": "List directory contents.\n\n    Args:\n        directory: Directory path\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "directory": {
+                        "type": "string",
+                        "description": "Directory path"
+                    }
+                },
+                "required": [
+                    "directory"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

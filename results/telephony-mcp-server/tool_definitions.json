@@ -1,0 +1,211 @@
+{
+    "tools": [
+        {
+            "name": "log_requests",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\callback_server.py",
+            "decorator": [
+                "callback_app.middleware"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint for health check",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\callback_server.py",
+            "decorator": [
+                "callback_app.get"
+            ]
+        },
+        {
+            "name": "receive_event",
+            "description": "Main endpoint to receive Vonage Voice API events",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\callback_server.py",
+            "decorator": [
+                "callback_app.post"
+            ]
+        },
+        {
+            "name": "list_events",
+            "description": "Endpoint to retrieve stored events",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\callback_server.py",
+            "decorator": [
+                "callback_app.get"
+            ]
+        },
+        {
+            "name": "get_event",
+            "description": "Endpoint to retrieve a specific event by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\callback_server.py",
+            "decorator": [
+                "callback_app.get"
+            ]
+        },
+        {
+            "name": "get_speech_events",
+            "description": "Endpoint to retrieve only speech recognition events",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\callback_server.py",
+            "decorator": [
+                "callback_app.get"
+            ]
+        },
+        {
+            "name": "clear_events",
+            "description": "Endpoint to clear all stored events",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\callback_server.py",
+            "decorator": [
+                "callback_app.delete"
+            ]
+        },
+        {
+            "name": "voice_call",
+            "description": "Makeavoicecallorphonecalltoagivennumber.Acceptspromptslike'dialanumber",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "to": {
+                        "type": "string",
+                        "description": "str - The destination phone number."
+                    },
+                    "from_": {
+                        "type": "string",
+                        "description": "str - The source phone number (optional, defaults to VONAGE_LVN)."
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "str - The message to say during the call."
+                    }
+                },
+                "required": [
+                    "to",
+                    "from_",
+                    "message"
+                ]
+            },
+            "file": "servers\\telephony_server.py",
+            "decorator": [
+                "telephony_mcp.tool"
+            ]
+        },
+        {
+            "name": "send_sms",
+            "description": "(\n\"SendanSMSortextmessagetoagivennumber.Acceptspromptslike'sendsms",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "to": {
+                        "type": "string",
+                        "description": "str - The destination phone number."
+                    },
+                    "from_": {
+                        "type": "string",
+                        "description": "str - The sender phone number (optional, defaults to VONAGE_LVN)."
+                    },
+                    "text": {
+                        "type": "string",
+                        "description": "str - The message to send."
+                    }
+                },
+                "required": [
+                    "to",
+                    "from_",
+                    "text"
+                ]
+            },
+            "file": "servers\\telephony_server.py",
+            "decorator": [
+                "telephony_mcp.tool"
+            ]
+        },
+        {
+            "name": "check_call_status",
+            "description": "Checkstatusofapreviouslyinitiatedvoicecallorgetstatusofallactivecalls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "call_uuid": {
+                        "type": "string",
+                        "description": "str - Optional UUID of a specific call to check."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "call_uuid",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\telephony_server.py",
+            "decorator": [
+                "telephony_mcp.tool"
+            ]
+        },
+        {
+            "name": "voice_call_with_input",
+            "description": "Makeavoicecalltoagivennumberandwaitforspeechinputfromtherecipient.Acceptspromptslike'makeacallandcheck",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "to": {
+                        "type": "string",
+                        "description": "str - The destination phone number."
+                    },
+                    "from_": {
+                        "type": "string",
+                        "description": "str - The source phone number (optional, defaults to VONAGE_LVN)."
+                    },
+                    "prompt_message": {
+                        "type": "string",
+                        "description": "str - The message to say during the call, prompting for speech input."
+                    },
+                    "wait_for_result": {
+                        "type": "string",
+                        "description": "bool - Whether to wait for speech recognition results (default: True)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "to",
+                    "from_",
+                    "prompt_message",
+                    "wait_for_result",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\telephony_server.py",
+            "decorator": [
+                "telephony_mcp.tool"
+            ]
+        }
+    ]
+}

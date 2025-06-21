@@ -1,0 +1,487 @@
+{
+    "tools": [
+        {
+            "name": "check_adb_installed",
+            "description": "Check if ADB is installed on the system.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "adbdevicemanager.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_available_devices",
+            "description": "Get a list of available devices.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "adbdevicemanager.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_packages",
+            "description": "\n    Get all installed packages on the device\n    Returns:\n        str: A list of all installed packages on the device as a string\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_adb_shell_command",
+            "description": "Executes an ADB command and returns the output or an error.\n    Args:\n        command (str): The ADB shell command to execute\n    Returns:\n        str: The output of the ADB command\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "command": {
+                        "type": "string",
+                        "description": "The ADB shell command to execute"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The output of the ADB command"
+                    }
+                },
+                "required": [
+                    "command",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_uilayout",
+            "description": "\n    Retrieves information about clickable elements in the current UI.\n    Returns a formatted string containing details about each clickable element,\n    including its text, content description, bounds, and center coordinates.\n\n    Returns:\n        str: A formatted list of clickable elements with their properties\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_screenshot",
+            "description": "Takes a screenshot of the device and returns it.\n    Returns:\n        Image: the screenshot\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_package_action_intents",
+            "description": "\n    Get all non-data actions from Activity Resolver Table for a package\n    Args:\n        package_name (str): The name of the package to get actions for\n    Returns:\n        list[str]: A list of all non-data actions from the Activity Resolver Table for the package\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "package_name": {
+                        "type": "string",
+                        "description": "The name of the package to get actions for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "package_name",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_single_device_auto_selection",
+            "description": "Test auto-selection when only one device is connected",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_adb_client": {
+                        "type": "string"
+                    },
+                    "mock_get_devices": {
+                        "type": "string"
+                    },
+                    "mock_check_adb": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_adb_client",
+                    "mock_get_devices",
+                    "mock_check_adb"
+                ]
+            },
+            "file": "tests\\test_adb_device_manager.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_multiple_devices_no_selection_error",
+            "description": "Test error when multiple devices are connected but none specified",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_devices": {
+                        "type": "string"
+                    },
+                    "mock_check_adb": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_devices",
+                    "mock_check_adb"
+                ]
+            },
+            "file": "tests\\test_adb_device_manager.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_specific_device_selection",
+            "description": "Test selecting a specific device",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_adb_client": {
+                        "type": "string"
+                    },
+                    "mock_get_devices": {
+                        "type": "string"
+                    },
+                    "mock_check_adb": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_adb_client",
+                    "mock_get_devices",
+                    "mock_check_adb"
+                ]
+            },
+            "file": "tests\\test_adb_device_manager.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_device_not_found_error",
+            "description": "Test error when specified device is not found",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_devices": {
+                        "type": "string"
+                    },
+                    "mock_check_adb": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_devices",
+                    "mock_check_adb"
+                ]
+            },
+            "file": "tests\\test_adb_device_manager.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_no_devices_connected_error",
+            "description": "Test error when no devices are connected",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_devices": {
+                        "type": "string"
+                    },
+                    "mock_check_adb": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_devices",
+                    "mock_check_adb"
+                ]
+            },
+            "file": "tests\\test_adb_device_manager.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_adb_not_installed_error",
+            "description": "Test error when ADB is not installed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_check_adb": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_check_adb"
+                ]
+            },
+            "file": "tests\\test_adb_device_manager.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_check_adb_installed_success",
+            "description": "Test successful ADB installation check",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\test_adb_device_manager.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_check_adb_installed_failure",
+            "description": "Test failed ADB installation check",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\test_adb_device_manager.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_available_devices",
+            "description": "Test getting available devices",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_adb_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_adb_client"
+                ]
+            },
+            "file": "tests\\test_adb_device_manager.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_exit_on_error_true",
+            "description": "Test that exit_on_error=True calls sys.exit",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_adb_client": {
+                        "type": "string"
+                    },
+                    "mock_get_devices": {
+                        "type": "string"
+                    },
+                    "mock_check_adb": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_adb_client",
+                    "mock_get_devices",
+                    "mock_check_adb"
+                ]
+            },
+            "file": "tests\\test_adb_device_manager.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_no_config_auto_selection_success",
+            "description": "Test successful server start with no config file and single device",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_adb_client": {
+                        "type": "string"
+                    },
+                    "mock_get_devices": {
+                        "type": "string"
+                    },
+                    "mock_check_adb": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_adb_client",
+                    "mock_get_devices",
+                    "mock_check_adb"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_config_with_null_device_auto_selection",
+            "description": "Test server start with config file containing name: null",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_adb_client": {
+                        "type": "string"
+                    },
+                    "mock_get_devices": {
+                        "type": "string"
+                    },
+                    "mock_check_adb": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_adb_client",
+                    "mock_get_devices",
+                    "mock_check_adb"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_config_with_specific_device",
+            "description": "Test server start with config file specifying a device",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_adb_client": {
+                        "type": "string"
+                    },
+                    "mock_get_devices": {
+                        "type": "string"
+                    },
+                    "mock_check_adb": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_adb_client",
+                    "mock_get_devices",
+                    "mock_check_adb"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_multiple_devices_no_config_error",
+            "description": "Test server initialization fails with multiple devices and no config",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_devices": {
+                        "type": "string"
+                    },
+                    "mock_check_adb": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_devices",
+                    "mock_check_adb"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_device_not_found_error",
+            "description": "Test server initialization fails when specified device is not found",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_devices": {
+                        "type": "string"
+                    },
+                    "mock_check_adb": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_devices",
+                    "mock_check_adb"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        }
+    ]
+}

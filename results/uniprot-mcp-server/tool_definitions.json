@@ -1,0 +1,64 @@
+{
+    "tools": [
+        {
+            "name": "search_uniprot",
+            "description": "\n    Search for proteins in the UniProt database.\n    \n    Parameters:\n    - query: Search query (e.g., protein name, gene name, or UniProt ID)\n    - limit: Maximum number of results to return (default: 10)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_protein_by_id",
+            "description": "\n    Retrieve detailed information about a protein by UniProt ID.\n    \n    Parameters:\n    - uniprot_id: The UniProt identifier (e.g., P12345)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_protein_sequences",
+            "description": "\n    Retrieve the amino acid sequence of a protein by UniProt ID.\n    \n    Parameters:\n    - uniprot_id: The UniProt identifier (e.g., P12345)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_protein_functions",
+            "description": "\n    Retrieve the functional annotations of a protein by UniProt ID.\n    \n    Parameters:\n    - uniprot_id: The UniProt identifier (e.g., P12345)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_protein_structures",
+            "description": "\n    Retrieve structure information (PDB IDs) related to a protein by UniProt ID.\n    \n    Parameters:\n    - uniprot_id: The UniProt identifier (e.g., P12345)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

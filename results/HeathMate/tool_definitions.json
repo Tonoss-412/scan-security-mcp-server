@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "handle_mcp_request",
+            "description": "\n    Handles incoming MCP (Model Context Protocol) requests.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "mock_tool_get_fda_drug_info",
+            "description": " Mocks fetching FDA drug info. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\workflows\\postdischarge_workflow.py",
+            "decorator": [
+                "langchain_tool_decorator"
+            ]
+        }
+    ]
+}

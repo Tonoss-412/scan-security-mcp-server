@@ -1,0 +1,64 @@
+{
+    "tools": [
+        {
+            "name": "count_total_rs",
+            "description": "Count the total number of Rs in the given string\n\n    Input:\n        text: str -> text to count the total number of Rs\n\n    Output:\n        count: int -> total number of Rs in the given string\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "count_vowels",
+            "description": "Count the number of each vowel in the given string\n    \n    Input:\n        text: str -> text to analyze for vowels\n        \n    Output:\n        counts: dict -> dictionary with the count of each vowel and total\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "analyze_text",
+            "description": "Analyze text to provide various statistics\n    \n    Input:\n        text: str -> text to analyze\n        \n    Output:\n        stats: dict -> dictionary with various text statistics\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "count_specific_character",
+            "description": "Count occurrences of a specific character in the given string\n    \n    Input:\n        text: str -> text to analyze\n        character: str -> the character to count (only first character is used if multiple are provided)\n        \n    Output:\n        count: int -> number of occurrences of the character\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "tell_capital_of_country",
+            "description": "Get the capital of a specific country from a predefined list only.\n    \n    IMPORTANT: This tool only returns capitals from its internal database.\n    Do not supplement the response with external knowledge.\n    If the country is not found, return exactly \"No data found based on the tool used\".\n    \n    Input:\n        country: str -> name of the country to look up\n        \n    Output:\n        capital: str -> capital city of the country from internal database only, \n                       or \"No data found based on the tool used\" if not in the predefined list\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,489 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "Manage application lifecycle",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\app.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_demo_data",
+            "description": "Get demo data",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "solve_shifts",
+            "description": "Shift optimization (asynchronous)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_solution",
+            "description": "Get optimization result",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "solve_shifts_sync",
+            "description": "Shift optimization (synchronous)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_weekly_analysis",
+            "description": "Detailed analysis of weekly working hours",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "analyze_weekly_hours_sync",
+            "description": "Immediate analysis of weekly working hours (without optimization)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "test_weekly_constraints",
+            "description": "Test weekly working hours constraints",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "list_jobs",
+            "description": "List all jobs (both in-memory and persistent)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "delete_job",
+            "description": "Delete a job from both memory and persistent storage",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "cleanup_old_jobs",
+            "description": "Clean up old jobs from storage",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "add_employee_to_job",
+            "description": "Add employee to completed job and re-optimize",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_employee_skills_api",
+            "description": "Update employee skills and re-optimize affected assignments",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.patch"
+            ]
+        },
+        {
+            "name": "swap_shifts",
+            "description": "Swap employee assignments between two shifts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_solution_html",
+            "description": "Get optimization result as HTML report",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "shift_scheduling_constraints",
+            "description": "Define shift scheduling constraints",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner\\core\\constraints\\shift_constraints.py",
+            "decorator": [
+                "constraint_provider"
+            ]
+        },
+        {
+            "name": "shift_scheduling_prompt",
+            "description": "Prompt for shift scheduling assistance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\natural_shift_planner_mcp\\server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "swap_shifts",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "solver": {
+                        "type": "string"
+                    },
+                    "shift1_id": {
+                        "type": "string"
+                    },
+                    "shift2_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "solver",
+                    "shift1_id",
+                    "shift2_id"
+                ]
+            },
+            "file": "tests\\test_continuous_planning.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "find_replacement_for_shift",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "solver": {
+                        "type": "string"
+                    },
+                    "shift_id": {
+                        "type": "string"
+                    },
+                    "employee_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "solver",
+                    "shift_id",
+                    "employee_id"
+                ]
+            },
+            "file": "tests\\test_continuous_planning.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "reassign_shift",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "solver": {
+                        "type": "string"
+                    },
+                    "shift_id": {
+                        "type": "string"
+                    },
+                    "employee_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "solver",
+                    "shift_id",
+                    "employee_id"
+                ]
+            },
+            "file": "tests\\test_continuous_planning.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "pin_shifts",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "solver": {
+                        "type": "string"
+                    },
+                    "shift_ids": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "solver",
+                    "shift_ids"
+                ]
+            },
+            "file": "tests\\test_continuous_planning.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "sample_employees",
+            "description": "Create sample employees for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_continuous_planning.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_shifts",
+            "description": "Create sample shifts for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_continuous_planning.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "solver_config",
+            "description": "Create solver configuration for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_continuous_planning.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_shift_swap_problem_change",
+            "description": "Test shift swapping using ProblemChangeDirector",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_employees": {
+                        "type": "string"
+                    },
+                    "sample_shifts": {
+                        "type": "string"
+                    },
+                    "solver_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_employees",
+                    "sample_shifts",
+                    "solver_config"
+                ]
+            },
+            "file": "tests\\test_continuous_planning.py",
+            "decorator": [
+                "pytest.mark.skip"
+            ]
+        },
+        {
+            "name": "test_find_replacement_problem_change",
+            "description": "Test finding replacement using ProblemChangeDirector",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_employees": {
+                        "type": "string"
+                    },
+                    "sample_shifts": {
+                        "type": "string"
+                    },
+                    "solver_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_employees",
+                    "sample_shifts",
+                    "solver_config"
+                ]
+            },
+            "file": "tests\\test_continuous_planning.py",
+            "decorator": [
+                "pytest.mark.skip"
+            ]
+        },
+        {
+            "name": "test_reassign_shift",
+            "description": "Test reassigning a shift to specific employee",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_employees": {
+                        "type": "string"
+                    },
+                    "sample_shifts": {
+                        "type": "string"
+                    },
+                    "solver_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_employees",
+                    "sample_shifts",
+                    "solver_config"
+                ]
+            },
+            "file": "tests\\test_continuous_planning.py",
+            "decorator": [
+                "pytest.mark.skip"
+            ]
+        },
+        {
+            "name": "sample_schedule",
+            "description": "Create a sample schedule with some assigned and unassigned shifts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_emergency_staff.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_connection",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "sample_schedule",
+            "description": "Sample schedule for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_models.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

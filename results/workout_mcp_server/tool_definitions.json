@@ -1,0 +1,180 @@
+{
+    "tools": [
+        {
+            "name": "parse_date",
+            "description": "Parse date string to datetime object.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\workout_mcp_server\\data_loader.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_workout_by_id",
+            "description": "Get details of a specific workout by ID.\n\n    Args:\n        workout_id: The unique identifier of the workout\n\n    Returns:\n        Dictionary containing workout details including date, duration, TSS, and type\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "workout_id": {
+                        "type": "string",
+                        "description": "The unique identifier of the workout"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "workout_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\workout_mcp_server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_last_7_workouts",
+            "description": "Get the 7 most recent workouts for analyzing current training week.\n\n    Returns:\n        List of up to 7 workout dictionaries sorted by date (newest first),\n        or error dictionary if retrieval fails\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\workout_mcp_server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_last_50_workouts",
+            "description": "Get all 50 workouts providing complete training history.\n\n    Returns:\n        List of all 50 workout dictionaries sorted by date (newest first),\n        or error dictionary if retrieval fails\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\workout_mcp_server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "compute_fitness",
+            "description": "Calculate Chronic Training Load (CTL) for a given date.\n\n    CTL represents fitness and is calculated as a 42-day exponentially\n    weighted moving average of Training Stress Score (TSS).\n\n    Args:\n        target_date: Date in ISO format (YYYY-MM-DD) for CTL calculation\n\n    Returns:\n        Dictionary containing CTL value and metadata, or error dictionary\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target_date": {
+                        "type": "string",
+                        "description": "Date in ISO format (YYYY-MM-DD) for CTL calculation"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "target_date",
+                    "Returns"
+                ]
+            },
+            "file": "src\\workout_mcp_server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "compute_fatigue",
+            "description": "Calculate Acute Training Load (ATL) for a given date.\n\n    ATL represents fatigue and is calculated as a 7-day exponentially\n    weighted moving average of Training Stress Score (TSS).\n\n    Args:\n        target_date: Date in ISO format (YYYY-MM-DD) for ATL calculation\n\n    Returns:\n        Dictionary containing ATL value and metadata, or error dictionary\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target_date": {
+                        "type": "string",
+                        "description": "Date in ISO format (YYYY-MM-DD) for ATL calculation"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "target_date",
+                    "Returns"
+                ]
+            },
+            "file": "src\\workout_mcp_server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "compute_form",
+            "description": "Calculate Training Stress Balance (TSB) for a given date.\n\n    TSB represents form/freshness and is calculated as the difference\n    between CTL (fitness) and ATL (fatigue). Positive values indicate\n    freshness, negative values indicate fatigue.\n\n    Args:\n        target_date: Date in ISO format (YYYY-MM-DD) for TSB calculation\n\n    Returns:\n        Dictionary containing TSB value, interpretation, and metadata,\n        or error dictionary\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target_date": {
+                        "type": "string",
+                        "description": "Date in ISO format (YYYY-MM-DD) for TSB calculation"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "target_date",
+                    "Returns"
+                ]
+            },
+            "file": "src\\workout_mcp_server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sample_workouts",
+            "description": "Create sample workout objects for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_data_loader.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_workouts",
+            "description": "Create sample workout objects for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_data_loader.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_workouts_data",
+            "description": "Sample workout data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_data_loader.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

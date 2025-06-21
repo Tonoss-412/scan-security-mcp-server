@@ -1,0 +1,1002 @@
+{
+    "tools": [
+        {
+            "name": "generate_plan",
+            "description": "Generate a detailed project plan based on requirements.\n    \n    Args:\n        requirements: Project requirements and goals\n        context: Additional context or constraints (optional)\n        format: Output format (markdown, json, or text)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "requirements": {
+                        "type": "string",
+                        "description": "Project requirements and goals"
+                    },
+                    "context": {
+                        "type": "string",
+                        "description": "Additional context or constraints (optional)"
+                    },
+                    "format": {
+                        "type": "string",
+                        "description": "Output format (markdown, json, or text)"
+                    }
+                },
+                "required": [
+                    "requirements",
+                    "context",
+                    "format"
+                ]
+            },
+            "file": "deepseek-planner\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_code",
+            "description": "Generate code based on requirements.\n    \n    Args:\n        language: Programming language\n        task: Description of what the code should do\n        context: Additional context or existing code (optional)\n        comments: Whether to include comments in the code\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "language": {
+                        "type": "string",
+                        "description": "Programming language"
+                    },
+                    "task": {
+                        "type": "string",
+                        "description": "Description of what the code should do"
+                    },
+                    "context": {
+                        "type": "string",
+                        "description": "Additional context or existing code (optional)"
+                    },
+                    "comments": {
+                        "type": "string",
+                        "description": "Whether to include comments in the code"
+                    }
+                },
+                "required": [
+                    "language",
+                    "task",
+                    "context",
+                    "comments"
+                ]
+            },
+            "file": "deepseek-planner\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "review_code",
+            "description": "Review code and provide feedback.\n    \n    Args:\n        language: Programming language\n        code: Code to review\n        focus: Areas to focus on (bugs, performance, security, style, architecture)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "language": {
+                        "type": "string",
+                        "description": "Programming language"
+                    },
+                    "code": {
+                        "type": "string",
+                        "description": "Code to review"
+                    },
+                    "focus": {
+                        "type": "string",
+                        "description": "Areas to focus on (bugs, performance, security, style, architecture)"
+                    }
+                },
+                "required": [
+                    "language",
+                    "code",
+                    "focus"
+                ]
+            },
+            "file": "deepseek-planner\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "explain_code",
+            "description": "Explain code in detail.\n    \n    Args:\n        language: Programming language\n        code: Code to explain\n        detail_level: Level of detail in the explanation (basic, intermediate, advanced)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "language": {
+                        "type": "string",
+                        "description": "Programming language"
+                    },
+                    "code": {
+                        "type": "string",
+                        "description": "Code to explain"
+                    },
+                    "detail_level": {
+                        "type": "string",
+                        "description": "Level of detail in the explanation (basic, intermediate, advanced)"
+                    }
+                },
+                "required": [
+                    "language",
+                    "code",
+                    "detail_level"
+                ]
+            },
+            "file": "deepseek-planner\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "refactor_code",
+            "description": "Refactor code to improve quality.\n    \n    Args:\n        language: Programming language\n        code: Code to refactor\n        goals: Refactoring goals (readability, performance, modularity, security, maintainability)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "language": {
+                        "type": "string",
+                        "description": "Programming language"
+                    },
+                    "code": {
+                        "type": "string",
+                        "description": "Code to refactor"
+                    },
+                    "goals": {
+                        "type": "string",
+                        "description": "Refactoring goals (readability, performance, modularity, security, maintainability)"
+                    }
+                },
+                "required": [
+                    "language",
+                    "code",
+                    "goals"
+                ]
+            },
+            "file": "deepseek-planner\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_workflow",
+            "description": "Run a Dify workflow with the provided inputs.\n    \n    Args:\n        inputs: Dictionary of input parameters for the workflow\n        user_id: Optional user identifier for the request\n        api_key: Optional API key to override the default\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "inputs": {
+                        "type": "string",
+                        "description": "Dictionary of input parameters for the workflow"
+                    },
+                    "user_id": {
+                        "type": "string",
+                        "description": "Optional user identifier for the request"
+                    },
+                    "api_key": {
+                        "type": "string",
+                        "description": "Optional API key to override the default"
+                    }
+                },
+                "required": [
+                    "inputs",
+                    "user_id",
+                    "api_key"
+                ]
+            },
+            "file": "dify_mcp_servers\\dify_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "chat_completion",
+            "description": "Send a message to Dify chat completion API.\n    \n    Args:\n        message: The user message to send\n        conversation_id: Optional conversation ID for continuing a conversation\n        user_id: Optional user identifier for the request\n        api_key: Optional API key to override the default\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "The user message to send"
+                    },
+                    "conversation_id": {
+                        "type": "string",
+                        "description": "Optional conversation ID for continuing a conversation"
+                    },
+                    "user_id": {
+                        "type": "string",
+                        "description": "Optional user identifier for the request"
+                    },
+                    "api_key": {
+                        "type": "string",
+                        "description": "Optional API key to override the default"
+                    }
+                },
+                "required": [
+                    "message",
+                    "conversation_id",
+                    "user_id",
+                    "api_key"
+                ]
+            },
+            "file": "dify_mcp_servers\\dify_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_conversation_history",
+            "description": "Retrieve conversation history from Dify.\n    \n    Args:\n        conversation_id: The ID of the conversation to retrieve\n        first_id: Optional first message ID for pagination\n        limit: Maximum number of messages to retrieve (default: 20)\n        api_key: Optional API key to override the default\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "conversation_id": {
+                        "type": "string",
+                        "description": "The ID of the conversation to retrieve"
+                    },
+                    "first_id": {
+                        "type": "string",
+                        "description": "Optional first message ID for pagination"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of messages to retrieve (default: 20)"
+                    },
+                    "api_key": {
+                        "type": "string",
+                        "description": "Optional API key to override the default"
+                    }
+                },
+                "required": [
+                    "conversation_id",
+                    "first_id",
+                    "limit",
+                    "api_key"
+                ]
+            },
+            "file": "dify_mcp_servers\\dify_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_alerts",
+            "description": "Get weather alerts for a US state.\n\n    Args:\n        state: Two-letter US state code (e.g. CA, NY)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "Two-letter US state code (e.g. CA, NY)"
+                    }
+                },
+                "required": [
+                    "state"
+                ]
+            },
+            "file": "dify_mcp_servers\\weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_forecast",
+            "description": "Get weather forecast for a location.\n\n    Args:\n        latitude: Latitude of the location\n        longitude: Longitude of the location\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "type": "string",
+                        "description": "Latitude of the location"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "description": "Longitude of the location"
+                    }
+                },
+                "required": [
+                    "latitude",
+                    "longitude"
+                ]
+            },
+            "file": "dify_mcp_servers\\weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_game_lift_fleets",
+            "description": "Get gamelift fleet list in specific region\n    \n    Args:\n        region: AWS region name, e.g. us-east-1, if not provided, use us-east-1 as default\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "region": {
+                        "type": "string",
+                        "description": "AWS region name, e.g. us-east-1, if not provided, use us-east-1 as default"
+                    }
+                },
+                "required": [
+                    "region"
+                ]
+            },
+            "file": "gamelift-mcp-server\\src\\gamelift_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_gamelift_container_fleets",
+            "description": "Get gamelift container fleet list in specific region\n    \n    Args:\n        region: AWS region name, e.g. us-east-1, if not provided, use us-east-1 as default\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "region": {
+                        "type": "string",
+                        "description": "AWS region name, e.g. us-east-1, if not provided, use us-east-1 as default"
+                    }
+                },
+                "required": [
+                    "region"
+                ]
+            },
+            "file": "gamelift-mcp-server\\src\\gamelift_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_fleet_attributes",
+            "description": "Get fleet attributes by fleet id\n    \n    Args:\n        fleet_id: Gamelift fleet id\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "fleet_id": {
+                        "type": "string",
+                        "description": "Gamelift fleet id"
+                    }
+                },
+                "required": [
+                    "fleet_id"
+                ]
+            },
+            "file": "gamelift-mcp-server\\src\\gamelift_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_container_fleet_attributes",
+            "description": "Get container fleet attributes by fleet id\n    \n    Args:\n        fleet_id: Gamelift container fleet id\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "fleet_id": {
+                        "type": "string",
+                        "description": "Gamelift container fleet id"
+                    }
+                },
+                "required": [
+                    "fleet_id"
+                ]
+            },
+            "file": "gamelift-mcp-server\\src\\gamelift_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_compute_auth_token",
+            "description": "Get compute auth token by fleet id and compute name\n    \n    Args:\n        fleet_id: Gamelift fleet id\n        compute_name: compute name\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "fleet_id": {
+                        "type": "string",
+                        "description": "Gamelift fleet id"
+                    },
+                    "compute_name": {
+                        "type": "string",
+                        "description": "compute name"
+                    }
+                },
+                "required": [
+                    "fleet_id",
+                    "compute_name"
+                ]
+            },
+            "file": "gamelift-mcp-server\\src\\gamelift_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "app_lifespan",
+            "description": "\n    Application lifespan management context manager.\n\n    Args:\n        server: FastMCP server instance\n\n    Yields:\n        AppContext: Application context with ready_status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string",
+                        "description": "FastMCP server instance"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "AppContext": {
+                        "type": "string",
+                        "description": "Application context with ready_status"
+                    }
+                },
+                "required": [
+                    "server",
+                    "Yields",
+                    "AppContext"
+                ]
+            },
+            "file": "html_render_service\\src\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "render_markdown",
+            "description": "\n    uploads markdown it to a server.\n    \n    Args:\n        file_name: Name of the markdown file to be rendered\n        markdown_content: Markdown content to be rendered\n        \n    Returns:\n        URL string to access the rendered HTML page\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_name": {
+                        "type": "string",
+                        "description": "Name of the markdown file to be rendered"
+                    },
+                    "markdown_content": {
+                        "type": "string",
+                        "description": "Markdown content to be rendered"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_name",
+                    "markdown_content",
+                    "Returns"
+                ]
+            },
+            "file": "html_render_service\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "render_html",
+            "description": "\n    Upload the HTML content to a server.\n    \n    Args:\n        file_name: Name of the HTML file to be rendered\n        html_content: HTML content  to be rendered\n        \n    Returns:\n        URL string to access the rendered HTML page\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_name": {
+                        "type": "string",
+                        "description": "Name of the HTML file to be rendered"
+                    },
+                    "html_content": {
+                        "type": "string",
+                        "description": "HTML content  to be rendered"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_name",
+                    "html_content",
+                    "Returns"
+                ]
+            },
+            "file": "html_render_service\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "app_lifespan",
+            "description": "\n    Manage VNC and SSH connections lifecycle\n    \n    Args:\n        server: FastMCP server instance\n        \n    Yields:\n        AppContext: Application context with VNC and SSH controllers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string",
+                        "description": "FastMCP server instance"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "AppContext": {
+                        "type": "string",
+                        "description": "Application context with VNC and SSH controllers"
+                    }
+                },
+                "required": [
+                    "server",
+                    "Yields",
+                    "AppContext"
+                ]
+            },
+            "file": "remote_computer_use\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "capture_region",
+            "description": "\n    Capture screenshot only represents of a region of the remote desktop\n    \n    Args:\n        x: X coordinate (pixels from the left edge)\n        y: Y coordinate (pixels from the top edge)\n        w: Width of the region\n        h: Hight of the region\n        \n    Returns:\n        Image: Screenshot of the remote desktop\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "x": {
+                        "type": "string",
+                        "description": "X coordinate (pixels from the left edge)"
+                    },
+                    "y": {
+                        "type": "string",
+                        "description": "Y coordinate (pixels from the top edge)"
+                    },
+                    "w": {
+                        "type": "string",
+                        "description": "Width of the region"
+                    },
+                    "h": {
+                        "type": "string",
+                        "description": "Hight of the region"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Image": {
+                        "type": "string",
+                        "description": "Screenshot of the remote desktop"
+                    }
+                },
+                "required": [
+                    "x",
+                    "y",
+                    "w",
+                    "h",
+                    "Returns",
+                    "Image"
+                ]
+            },
+            "file": "remote_computer_use\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "capture_screenshot",
+            "description": "\n    Capture a screenshot of the remote desktop\n    \n    Returns:\n        Image: Screenshot of the remote desktop\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "remote_computer_use\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mouse_double_click",
+            "description": "\n    Double-click the left mouse button at the specified coordinates\n    \n    Args:\n        x: X coordinate (pixels from the left edge)\n        y: Y coordinate (pixels from the top edge)\n        \n    Returns:\n        str: execution result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "x": {
+                        "type": "string",
+                        "description": "X coordinate (pixels from the left edge)"
+                    },
+                    "y": {
+                        "type": "string",
+                        "description": "Y coordinate (pixels from the top edge)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "execution result"
+                    }
+                },
+                "required": [
+                    "x",
+                    "y",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "remote_computer_use\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mouse_click",
+            "description": "\n    Click at the specified coordinates and return a screenshot,\n    \n    Args:\n        x: X coordinate (pixels from the left edge)\n        y: Y coordinate (pixels from the top edge)\n        button: Mouse button (1=Click the left mouse button, 2=Click the middle mouse button, 3=Click the right mouse button)\n        \n    Returns:\n        Image: Screenshot after clicking\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "x": {
+                        "type": "string",
+                        "description": "X coordinate (pixels from the left edge)"
+                    },
+                    "y": {
+                        "type": "string",
+                        "description": "Y coordinate (pixels from the top edge)"
+                    },
+                    "button": {
+                        "type": "string",
+                        "description": "Mouse button (1=Click the left mouse button, 2=Click the middle mouse button, 3=Click the right mouse button)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Image": {
+                        "type": "string",
+                        "description": "Screenshot after clicking"
+                    }
+                },
+                "required": [
+                    "x",
+                    "y",
+                    "button",
+                    "Returns",
+                    "Image"
+                ]
+            },
+            "file": "remote_computer_use\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mouse_move",
+            "description": "\n    Move mouse to the specified coordinates and return a screenshot\n\n    Args:\n        x: X coordinate (pixels from the left edge)\n        y: Y coordinate (pixels from the top edge)\n        \n    Returns:\n        Image: Screenshot after moving mouse\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "x": {
+                        "type": "string",
+                        "description": "X coordinate (pixels from the left edge)"
+                    },
+                    "y": {
+                        "type": "string",
+                        "description": "Y coordinate (pixels from the top edge)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Image": {
+                        "type": "string",
+                        "description": "Screenshot after moving mouse"
+                    }
+                },
+                "required": [
+                    "x",
+                    "y",
+                    "Returns",
+                    "Image"
+                ]
+            },
+            "file": "remote_computer_use\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mouse_scroll",
+            "description": "\n    Scroll the mouse wheel and return a screenshot\n    \n    Args:\n        steps: Number of scroll steps\n        direction: 'up' or 'down'\n        \n    Returns:\n        Image: Screenshot after scrolling\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "steps": {
+                        "type": "string",
+                        "description": "Number of scroll steps"
+                    },
+                    "direction": {
+                        "type": "string",
+                        "description": "'up' or 'down'"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Image": {
+                        "type": "string",
+                        "description": "Screenshot after scrolling"
+                    }
+                },
+                "required": [
+                    "steps",
+                    "direction",
+                    "Returns",
+                    "Image"
+                ]
+            },
+            "file": "remote_computer_use\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "type_text",
+            "description": "\n    Type the specified text and return a screenshot\n    \n    Args:\n        text: Text to type\n        \n    Returns:\n        Image: Screenshot after typing text\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "Text to type"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Image": {
+                        "type": "string",
+                        "description": "Screenshot after typing text"
+                    }
+                },
+                "required": [
+                    "text",
+                    "Returns",
+                    "Image"
+                ]
+            },
+            "file": "remote_computer_use\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "key_press",
+            "description": "\n    Press a key and return a screenshot\n    \n    Args:\n        key: Key to press (e.g., 'enter', 'escape', etc.)\n        \n    Returns:\n        Image: Screenshot after pressing key\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "description": "Key to press (e.g., 'enter', 'escape', etc.)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Image": {
+                        "type": "string",
+                        "description": "Screenshot after pressing key"
+                    }
+                },
+                "required": [
+                    "key",
+                    "Returns",
+                    "Image"
+                ]
+            },
+            "file": "remote_computer_use\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_bash",
+            "description": "\n    Run commands in a bash shell\n    * When invoking this tool, the contents of the \"command\" parameter does NOT need to be XML-escaped.\n    * You have access to a mirror of common linux and python packages via apt and pip.\n    * State is persistent across command calls and discussions with the user.\n    * To inspect a particular line range of a file, e.g. lines 10-25, try 'sed -n 10,25p /path/to/the/file'.\n    * Please avoid commands that may produce a very large amount of output.\n    * Please run long lived commands in the background, e.g. 'sleep 10 &' or start a server in the background.    \n    Args:\n        command: The bash command to run. Required unless the tool is being restarted.\n        restart: Specifying true will restart this tool. Otherwise, leave this unspecified. Defaut to False\n    Returns:\n        dict: Command execution result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "command": {
+                        "type": "string",
+                        "description": "The bash command to run. Required unless the tool is being restarted."
+                    },
+                    "restart": {
+                        "type": "string",
+                        "description": "Specifying true will restart this tool. Otherwise, leave this unspecified. Defaut to False"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Command execution result"
+                    }
+                },
+                "required": [
+                    "command",
+                    "restart",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "remote_computer_use\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "app_lifespan",
+            "description": "\n    Manage VNC and SSH connections lifecycle\n    \n    Args:\n        server: FastMCP server instance\n        \n    Yields:\n        AppContext: Application context with VNC and SSH controllers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string",
+                        "description": "FastMCP server instance"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "AppContext": {
+                        "type": "string",
+                        "description": "Application context with VNC and SSH controllers"
+                    }
+                },
+                "required": [
+                    "server",
+                    "Yields",
+                    "AppContext"
+                ]
+            },
+            "file": "remote_computer_use\\server_claude.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "__call__",
+            "description": "Executes the tool with the given arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "remote_computer_use\\tools\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "to_params",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "remote_computer_use\\tools\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "to_params_nova",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "remote_computer_use\\tools\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "options",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "remote_computer_use\\tools\\computer.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "auth_middleware",
+            "description": "\n    Middleware to validate authentication for all requests except OPTIONS requests\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "call_next": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "call_next"
+                ]
+            },
+            "file": "streamble_mcp_server_demo\\src\\server.py",
+            "decorator": [
+                "mcp.app.middleware"
+            ]
+        },
+        {
+            "name": "add",
+            "description": "Adds two numbers together.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamble_mcp_server_demo\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "subtract",
+            "description": "Subtracts b from a.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamble_mcp_server_demo\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "multiply",
+            "description": "Multiplies two numbers together.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamble_mcp_server_demo\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "divide",
+            "description": "Divides a by b. Returns an error if b is zero.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamble_mcp_server_demo\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "power",
+            "description": "Raises base to the power of exponent.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamble_mcp_server_demo\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "square_root",
+            "description": "Calculates the square root of a number.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamble_mcp_server_demo\\src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "time(timezone_na",
+            "description": "nt time in specified timezone\n    \n    Args:\n        timezone_name: IANA timezone name (e.g., 'America/New_York', 'Europe/London'). Use '{local_tz}' as local timezone if no timezone provided by the user.\"\n    \n    \"\"\"\n    timezon",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "timezone_name": {
+                        "type": "string",
+                        "description": "IANA timezone name (e.g., 'America/New_York', 'Europe/London'). Use '{local_tz}' as local timezone if no timezone provided by the user.\""
+                    }
+                },
+                "required": [
+                    "timezone_name"
+                ]
+            },
+            "file": "time_server\\src\\server.py",
+            "decorator": [
+                "update_doc"
+            ]
+        }
+    ]
+}

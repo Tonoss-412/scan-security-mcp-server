@@ -1,0 +1,27 @@
+{
+    "tools": [
+        {
+            "name": "require_token",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    },
+                    "call_next": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "call_next"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "server.middleware#type:ignore[misc]"
+            ]
+        }
+    ]
+}

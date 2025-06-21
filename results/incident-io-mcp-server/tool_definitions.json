@@ -1,0 +1,255 @@
+{
+    "tools": [
+        {
+            "name": "list_incidents",
+            "description": "\n    List incidents from incident.io\n\n    Args:\n        page_size: Number of incidents to return (max 100, default 25)\n        after: Pagination cursor for fetching next page\n        status: Filter by incident status (e.g., 'open', 'closed')\n\n    Returns:\n        JSON string containing the list of incidents\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "page_size": {
+                        "type": "string",
+                        "description": "Number of incidents to return (max 100, default 25)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Pagination cursor for fetching next page"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Filter by incident status (e.g., 'open', 'closed')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "page_size",
+                    "after",
+                    "status",
+                    "Returns"
+                ]
+            },
+            "file": "src\\incident_io_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_incident",
+            "description": "\n    Get details for a specific incident\n\n    Args:\n        incident_id: The unique identifier for the incident\n\n    Returns:\n        JSON string containing incident details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "incident_id": {
+                        "type": "string",
+                        "description": "The unique identifier for the incident"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "incident_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\incident_io_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_incident",
+            "description": "\n    Create a new incident\n\n    Args:\n        name: The name/title of the incident\n        summary: A brief summary of the incident\n        severity_id: The severity level ID for the incident\n        status_id: Optional status ID (defaults to organization's default)\n        incident_type_id: Optional incident type ID\n\n    Returns:\n        JSON string containing the created incident details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name/title of the incident"
+                    },
+                    "summary": {
+                        "type": "string",
+                        "description": "A brief summary of the incident"
+                    },
+                    "severity_id": {
+                        "type": "string",
+                        "description": "The severity level ID for the incident"
+                    },
+                    "status_id": {
+                        "type": "string",
+                        "description": "Optional status ID (defaults to organization's default)"
+                    },
+                    "incident_type_id": {
+                        "type": "string",
+                        "description": "Optional incident type ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "summary",
+                    "severity_id",
+                    "status_id",
+                    "incident_type_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\incident_io_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_users",
+            "description": "\n    List users in the organization\n\n    Args:\n        page_size: Number of users to return (max 100, default 25)\n        after: Pagination cursor for fetching next page\n\n    Returns:\n        JSON string containing the list of users\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "page_size": {
+                        "type": "string",
+                        "description": "Number of users to return (max 100, default 25)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Pagination cursor for fetching next page"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "page_size",
+                    "after",
+                    "Returns"
+                ]
+            },
+            "file": "src\\incident_io_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_severities",
+            "description": "\n    List all available incident severities\n\n    Returns:\n        JSON string containing the list of severities\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\incident_io_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_incident_statuses",
+            "description": "\n    List all available incident statuses\n\n    Returns:\n        JSON string containing the list of incident statuses\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\incident_io_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_make_request_success",
+            "description": "Test successful API request",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_make_request_http_error",
+            "description": "Test API request with HTTP error",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_incidents_no_api_key",
+            "description": "Test list_incidents without API key",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_incidents_success",
+            "description": "Test successful incident listing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_incident_success",
+            "description": "Test successful incident retrieval",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_incident_success",
+            "description": "Test successful incident creation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_incidents_with_pagination",
+            "description": "Test list_incidents with pagination parameters",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_incidents_page_size_limit",
+            "description": "Test that page_size is limited to 100",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

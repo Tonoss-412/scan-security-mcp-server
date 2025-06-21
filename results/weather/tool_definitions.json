@@ -1,0 +1,49 @@
+{
+    "tools": [
+        {
+            "name": "get_alerts",
+            "description": "Get weather alerts for a US state.\n    \n    Args:\n        state (str): The two-letter US state code (e.g. CA, NY, etc.).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "The two-letter US state code (e.g. CA, NY, etc.)."
+                    }
+                },
+                "required": [
+                    "state"
+                ]
+            },
+            "file": "weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_forecast",
+            "description": "Get weather forecast for a given latitude and longitude.\n    \n    Args:\n        latitude (float): The latitude of the location.\n        longitude (float): The longitude of the location.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "type": "number",
+                        "description": "The latitude of the location."
+                    },
+                    "longitude": {
+                        "type": "number",
+                        "description": "The longitude of the location."
+                    }
+                },
+                "required": [
+                    "latitude",
+                    "longitude"
+                ]
+            },
+            "file": "weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

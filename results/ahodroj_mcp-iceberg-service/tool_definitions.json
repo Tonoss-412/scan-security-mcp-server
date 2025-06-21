@@ -1,0 +1,45 @@
+{
+    "tools": [
+        {
+            "name": "handle_tools",
+            "description": "\n            Return list of available tools\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_iceberg\\server.py",
+            "decorator": [
+                "self.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n            Handle tool call requests\n            \n            Args:\n                name (str): Tool name\n                arguments (dict): Tool arguments\n                \n            Returns:\n                list[TextContent]: Execution results\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Tool name"
+                    },
+                    "arguments": {
+                        "type": "string",
+                        "description": "Tool arguments"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "arguments",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_iceberg\\server.py",
+            "decorator": [
+                "self.call_tool"
+            ]
+        }
+    ]
+}

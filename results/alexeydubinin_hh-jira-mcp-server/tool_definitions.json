@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "search_team_active_portfolios",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\hh_jira_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_task",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\hh_jira_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "set_defence_checked",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\hh_jira_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

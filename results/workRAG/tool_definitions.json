@@ -1,0 +1,47 @@
+{
+    "tools": [
+        {
+            "name": "get_db_connection_string",
+            "description": "Return PostgreSQL connection string",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "data_preprocessing\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "clean_markdown",
+            "description": "Clean and normalize markdown text",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "data_preprocessing\\content_extractor.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "extract_metadata_from_markdown",
+            "description": "Extract metadata from markdown content (headers, lists, etc.)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "data_preprocessing\\content_extractor.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

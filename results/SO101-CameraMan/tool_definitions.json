@@ -1,0 +1,56 @@
+{
+    "tools": [
+        {
+            "name": "read_waypoint",
+            "description": "\n    Read the current joint positions from the SO100 robot as a waypoint.\n    \n    The SO100 is a 6-DOF robotic arm with the following joint configuration:\n    \n    Joint Layout (from base to end-effector):\n    - Joint 0 (shoulder_pan): Base rotation, rotates the entire arm left/right\n    - Joint 1 (shoulder_lift): Shoulder pitch, lifts/lowers the upper arm  \n    - Joint 2 (elbow_flex): Elbow bend, extends/flexes the forearm\n    - Joint 3 (wrist_flex): Wrist pitch, tilts the end-effector up/down\n    - Joint 4 (wrist_roll): Wrist roll, rotates the end-effector around its axis\n    - Joint 5 (gripper): Gripper opening, controls finger separation\n    \n    Units and Coordinate System:\n    - All joint angles are returned in RADIANS\n    - Coordinate system matches the robot's kinematic model with calibration offsets applied\n    - Positive angles follow right-hand rule conventions for each joint\n    - Values are directly compatible with play_waypoint() tool for motion execution\n    \n    Typical Joint Ranges (approximate):\n    - shoulder_pan: \u00b1180\u00b0 (\u00b13.14 rad) - full rotation\n    - shoulder_lift: \u00b190\u00b0 (\u00b11.57 rad) - limited vertical range  \n    - elbow_flex: \u00b1180\u00b0 (\u00b13.14 rad) - full elbow extension\n    - wrist_flex: \u00b1180\u00b0 (\u00b13.14 rad) - wrist pitch range\n    - wrist_roll: \u00b1180\u00b0 (\u00b13.14 rad) - continuous wrist rotation\n    - gripper: varies based on gripper type and calibration\n    \n    Use Cases:\n    - Capture current robot pose for later playback\n    - Record teaching points for trajectory planning\n    - Create reference positions for pick-and-place operations\n    - Establish home/safe positions for robot initialization\n    \n    Args:\n        name: Optional name for the waypoint (auto-generated timestamp if not provided)\n        port: Serial port for robot connection (default: /dev/ttyACM1)\n        \n    Returns:\n        JSON string containing:\n        - timestamp: ISO format timestamp when waypoint was captured\n        - joints: Array of 6 joint angles in radians [shoulder_pan, shoulder_lift, elbow_flex, wrist_flex, wrist_roll, gripper]\n        - type: \"joint_positions\" identifier\n        - name: Waypoint identifier for reference\n        \n    Example Return:\n    {\n      \"timestamp\": \"2024-01-15T10:30:45.123456\",\n      \"joints\": [0.0, -0.785, 1.57, -0.785, 0.0, 0.0],\n      \"type\": \"joint_positions\", \n      \"name\": \"home_position\"\n    }\n    \n    Safety Note: Always verify joint limits using get_joint_limits() before commanding motion.\n    \"\"\"\n    try:\n     ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Optional name for the waypoint (auto-generated timestamp if not provided)"
+                    },
+                    "port": {
+                        "type": "string",
+                        "description": "Serial port for robot connection (default: /dev/ttyACM1)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "try": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "port",
+                    "Returns",
+                    "try"
+                ]
+            },
+            "file": "src\\waypoint_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_read_waypoint_mock",
+            "description": "Test waypoint reading with mocked SO100Client",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_so100_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_so100_client"
+                ]
+            },
+            "file": "tests\\test_waypoint_mcp.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

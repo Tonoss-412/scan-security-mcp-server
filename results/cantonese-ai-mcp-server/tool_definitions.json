@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "text_to_speech",
+            "description": "\n    Converts a string of text into an audio file using the cantonese.ai API.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "speech_to_text",
+            "description": "\n    Transcribes an audio file into text using the cantonese.ai API.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

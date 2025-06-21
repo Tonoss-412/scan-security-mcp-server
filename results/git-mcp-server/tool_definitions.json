@@ -1,0 +1,172 @@
+{
+    "tools": [
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\error_handling.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "validate_repo_path",
+            "description": "Validate and return the Git repository.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "git_status",
+            "description": "Shows the working tree status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "git_diff_unstaged",
+            "description": "Shows changes in working directory not yet staged.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "git_diff_staged",
+            "description": "Shows changes that are staged for commit.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "git_diff",
+            "description": "Shows differences between branches or commits.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "git_commit",
+            "description": "Records changes to the repository.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "git_add",
+            "description": "Adds file contents to the staging area.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "git_reset",
+            "description": "Unstages all staged changes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "git_log",
+            "description": "Shows the commit logs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "git_create_branch",
+            "description": "Creates a new branch.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "git_checkout",
+            "description": "Switches branches.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "git_show",
+            "description": "Shows the contents of a commit.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "git_init",
+            "description": "Initializes a Git repository.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_git_server\\git_operations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

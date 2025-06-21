@@ -1,0 +1,112 @@
+{
+    "tools": [
+        {
+            "name": "check_kubestellar_status",
+            "description": "Check the status of KubeStellar installation and identify missing components.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_installation_prompt",
+            "description": "Get installation guidance prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "prompts\\kubestellar_prompts.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_troubleshooting_prompt",
+            "description": "Get troubleshooting guidance prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "prompts\\kubestellar_prompts.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_cluster_management_prompt",
+            "description": "Get cluster management guidance prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "prompts\\kubestellar_prompts.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_all_prompts",
+            "description": "Get all available prompts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "prompts\\kubestellar_prompts.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "run_command",
+            "description": "\n        Run a command asynchronously.\n        \n        Returns:\n            Tuple of (return_code, stdout, stderr)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\command_executor.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "run_command_sync",
+            "description": "Run a command synchronously.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\command_executor.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "run_command",
+            "description": "\n        Run a command asynchronously.\n        \n        Returns:\n            Tuple of (return_code, stdout, stderr)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\logger.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "run_command_sync",
+            "description": "Run a command synchronously.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\logger.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

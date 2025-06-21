@@ -1,0 +1,457 @@
+{
+    "tools": [
+        {
+            "name": "list_audio_devices",
+            "description": "List all available audio input and output devices on the system.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "audio_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "record_audio",
+            "description": "Record audio from the microphone.\n    \n    Args:\n        duration: Recording duration in seconds (default: 5)\n        sample_rate: Sample rate in Hz (default: 44100)\n        channels: Number of audio channels (default: 1)\n        device_index: Specific input device index to use (default: system default)\n    \n    Returns:\n        A message confirming the recording was captured\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "duration": {
+                        "type": "string",
+                        "description": "Recording duration in seconds (default: 5)"
+                    },
+                    "sample_rate": {
+                        "type": "string",
+                        "description": "Sample rate in Hz (default: 44100)"
+                    },
+                    "channels": {
+                        "type": "string",
+                        "description": "Number of audio channels (default: 1)"
+                    },
+                    "device_index": {
+                        "type": "string",
+                        "description": "Specific input device index to use (default: system default)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "duration",
+                    "sample_rate",
+                    "channels",
+                    "device_index",
+                    "Returns"
+                ]
+            },
+            "file": "audio_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "play_latest_recording",
+            "description": "Play the latest recorded audio through the speakers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "audio_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "play_audio",
+            "description": "\n    Play audio from text using text-to-speech.\n    \n    Args:\n        text: The text to convert to speech\n        voice: The voice to use (default: \"default\")\n    \n    Returns:\n        A message indicating if the audio was played successfully\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "The text to convert to speech"
+                    },
+                    "voice": {
+                        "type": "string",
+                        "description": "The voice to use (default: \"default\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "voice",
+                    "Returns"
+                ]
+            },
+            "file": "audio_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "play_audio_file",
+            "description": "\n    Play an audio file through the speakers.\n    \n    Args:\n        file_path: Path to the audio file\n        device_index: Specific output device index to use (default: system default)\n    \n    Returns:\n        A message indicating if the audio was played successfully\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the audio file"
+                    },
+                    "device_index": {
+                        "type": "string",
+                        "description": "Specific output device index to use (default: system default)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "device_index",
+                    "Returns"
+                ]
+            },
+            "file": "audio_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_audio_devices",
+            "description": "List all available audio input and output devices on the system.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "audio_server_exp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "record_audio",
+            "description": "Record audio from the microphone.\n    \n    Args:\n        duration: Recording duration in seconds (default: 5)\n        sample_rate: Sample rate in Hz (default: 44100)\n        channels: Number of audio channels (default: 1)\n        device_index: Specific input device index to use (default: system default)\n    \n    Returns:\n        A message confirming the recording was captured\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "duration": {
+                        "type": "string",
+                        "description": "Recording duration in seconds (default: 5)"
+                    },
+                    "sample_rate": {
+                        "type": "string",
+                        "description": "Sample rate in Hz (default: 44100)"
+                    },
+                    "channels": {
+                        "type": "string",
+                        "description": "Number of audio channels (default: 1)"
+                    },
+                    "device_index": {
+                        "type": "string",
+                        "description": "Specific input device index to use (default: system default)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "duration",
+                    "sample_rate",
+                    "channels",
+                    "device_index",
+                    "Returns"
+                ]
+            },
+            "file": "audio_server_exp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "play_latest_recording",
+            "description": "Play the latest recorded audio through the speakers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "audio_server_exp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "play_audio",
+            "description": "\n    Play audio from text using text-to-speech.\n    \n    Args:\n        text: The text to convert to speech\n        voice: The voice to use (default: \"default\")\n    \n    Returns:\n        A message indicating if the audio was played successfully\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "The text to convert to speech"
+                    },
+                    "voice": {
+                        "type": "string",
+                        "description": "The voice to use (default: \"default\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "voice",
+                    "Returns"
+                ]
+            },
+            "file": "audio_server_exp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "play_audio_file",
+            "description": "\n    Play an audio file through the speakers.\n    \n    Args:\n        file_path: Path to the audio file\n        device_index: Specific output device index to use (default: system default)\n    \n    Returns:\n        A message indicating if the audio was played successfully\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the audio file"
+                    },
+                    "device_index": {
+                        "type": "string",
+                        "description": "Specific output device index to use (default: system default)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "device_index",
+                    "Returns"
+                ]
+            },
+            "file": "audio_server_exp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "gemini_conversation",
+            "description": "\n    Start a real-time conversation with Gemini using your microphone and speakers.\n    \n    Args:\n        duration: Maximum recording duration in seconds (default: 5)\n        sample_rate: Sample rate in Hz (default: 44100)\n        channels: Number of audio channels (default: 1)\n        device_index: Specific input device index to use (default: system default)\n    \n    Returns:\n        A message indicating the conversation result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "duration": {
+                        "type": "string",
+                        "description": "Maximum recording duration in seconds (default: 5)"
+                    },
+                    "sample_rate": {
+                        "type": "string",
+                        "description": "Sample rate in Hz (default: 44100)"
+                    },
+                    "channels": {
+                        "type": "string",
+                        "description": "Number of audio channels (default: 1)"
+                    },
+                    "device_index": {
+                        "type": "string",
+                        "description": "Specific input device index to use (default: system default)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "duration",
+                    "sample_rate",
+                    "channels",
+                    "device_index",
+                    "Returns"
+                ]
+            },
+            "file": "audio_server_exp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_audio_devices",
+            "description": "List all available audio input and output devices on the system.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "audio_server_exp2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "record_audio",
+            "description": "Record audio from the microphone.\n    \n    Args:\n        duration: Recording duration in seconds (default: 5)\n        sample_rate: Sample rate in Hz (default: 44100)\n        channels: Number of audio channels (default: 1)\n        device_index: Specific input device index to use (default: system default)\n    \n    Returns:\n        A message confirming the recording was captured\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "duration": {
+                        "type": "string",
+                        "description": "Recording duration in seconds (default: 5)"
+                    },
+                    "sample_rate": {
+                        "type": "string",
+                        "description": "Sample rate in Hz (default: 44100)"
+                    },
+                    "channels": {
+                        "type": "string",
+                        "description": "Number of audio channels (default: 1)"
+                    },
+                    "device_index": {
+                        "type": "string",
+                        "description": "Specific input device index to use (default: system default)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "duration",
+                    "sample_rate",
+                    "channels",
+                    "device_index",
+                    "Returns"
+                ]
+            },
+            "file": "audio_server_exp2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "play_latest_recording",
+            "description": "Play the latest recorded audio through the speakers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "audio_server_exp2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "play_audio",
+            "description": "\n    Play audio from text using text-to-speech.\n    \n    Args:\n        text: The text to convert to speech\n        voice: The voice to use (default: \"default\")\n    \n    Returns:\n        A message indicating if the audio was played successfully\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "The text to convert to speech"
+                    },
+                    "voice": {
+                        "type": "string",
+                        "description": "The voice to use (default: \"default\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "voice",
+                    "Returns"
+                ]
+            },
+            "file": "audio_server_exp2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "play_audio_file",
+            "description": "\n    Play an audio file through the speakers.\n    \n    Args:\n        file_path: Path to the audio file\n        device_index: Specific output device index to use (default: system default)\n    \n    Returns:\n        A message indicating if the audio was played successfully\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the audio file"
+                    },
+                    "device_index": {
+                        "type": "string",
+                        "description": "Specific output device index to use (default: system default)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "device_index",
+                    "Returns"
+                ]
+            },
+            "file": "audio_server_exp2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "gemini_realtime_conversation",
+            "description": "\n    Start a real-time conversation with Gemini using your microphone and speakers.\n    \n    Args:\n        duration: Maximum conversation duration in seconds (default: 60)\n        sample_rate: Sample rate in Hz (default: 24000)\n        channels: Number of audio channels (default: 1)\n        device_index: Specific input device index to use (default: system default)\n    \n    Returns:\n        A message indicating the conversation result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "duration": {
+                        "type": "string",
+                        "description": "Maximum conversation duration in seconds (default: 60)"
+                    },
+                    "sample_rate": {
+                        "type": "string",
+                        "description": "Sample rate in Hz (default: 24000)"
+                    },
+                    "channels": {
+                        "type": "string",
+                        "description": "Number of audio channels (default: 1)"
+                    },
+                    "device_index": {
+                        "type": "string",
+                        "description": "Specific input device index to use (default: system default)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "duration",
+                    "sample_rate",
+                    "channels",
+                    "device_index",
+                    "Returns"
+                ]
+            },
+            "file": "audio_server_exp2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "stop_gemini_conversation",
+            "description": "Stop the active Gemini real-time conversation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "audio_server_exp2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

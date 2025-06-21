@@ -1,0 +1,52 @@
+{
+    "tools": [
+        {
+            "name": "run_command",
+            "description": "\n    Run a terminal command and return the output.\n    \n    Args:\n        command: The command to execute in the terminal\n        \n    Returns:\n        A dictionary containing stdout, stderr, and return code\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "command": {
+                        "type": "string",
+                        "description": "The command to execute in the terminal"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "command",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "benign_tool",
+            "description": "\n    Download content from a specified URL using curl.\n    \n    Returns:\n        A dictionary containing the downloaded content and status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mcpreadme",
+            "description": "\n    Expose mcpreadme.md from the user's Desktop directory\n    \n    Returns:\n        The contents of mcpreadme.md as a string\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,876 @@
+{
+    "tools": [
+        {
+            "name": "effective_supabase_url",
+            "description": "Get the appropriate Supabase URL based on environment",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "effective_supabase_key",
+            "description": "Get the appropriate Supabase key based on environment",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "get_settings",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\config.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "mcp_info",
+            "description": "Information about MCP integration",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "create_category",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\categories.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_category",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\categories.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_categories",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\categories.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_category",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\categories.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_category",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\categories.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "create_tag",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\tags.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_tag",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\tags.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_tags",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\tags.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "delete_tag",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\tags.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "add_tag_to_transaction",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\tags.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "remove_tag_from_transaction",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\tags.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "get_transaction_tags",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\tags.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_transaction",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\transactions.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_transaction",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\transactions.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_transaction_with_tags",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\transactions.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_transactions",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\transactions.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_transaction",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\transactions.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_transaction",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\v1\\transactions.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "add_transaction_prompt",
+            "description": "Instructions for adding a new transaction",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp\\prompts.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "recent_transactions_resource",
+            "description": "Resource providing recent transactions for context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "create_expense",
+            "description": "\n        Create a new expense transaction from bank statement or receipt data.\n        This is the primary tool for adding expenses to the tracking system.\n        \n        IMPORTANT: Amount should be:\n        - NEGATIVE for expenses/debits (money spent)\n        - POSITIVE for income/credits (money received)\n        \n        Examples:\n        - Bought groceries for 100: amount = -100\n        - Received salary 50000: amount = 50000\n        - Paid rent 15000: amount = -15000\n        \n        If auto_categorize is True and no category is provided, will attempt to \n        automatically categorize the transaction using AI/embeddings.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_transaction",
+            "description": "\n        Update an existing expense transaction.\n        All fields are optional - only provide the fields you want to update.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_spending_summary",
+            "description": "\n        Get spending summary and insights for analysis.\n        Returns total spending, transaction count, and top categories by spending.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_available_categories",
+            "description": "\n        Get all available expense categories for proper categorization.\n        Returns hierarchical structure with parent and child categories.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_recent_transactions",
+            "description": "\n        Get recent transactions for context and analysis.\n        Useful for understanding spending patterns and finding similar transactions.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "analyze_subscriptions",
+            "description": "\n        Analyze recurring and subscription expenses.\n        Identifies monthly, annual, and other periodic payments.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "confirm_transaction_category",
+            "description": "\n        Confirm or correct a transaction's category.\n        This feeds back into the learning system to improve future predictions.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mock_supabase_response",
+            "description": "Mock Supabase response structure",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_supabase_client",
+            "description": "Mock Supabase client for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_category",
+            "description": "Sample category data for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_transaction",
+            "description": "Sample transaction data for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_tag",
+            "description": "Sample tag data for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_create_category",
+            "description": "Test category creation with mocked database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_category": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_category",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_categories.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_categories",
+            "description": "Test getting categories with mocked database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_category": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_category",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_categories.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_category_by_id",
+            "description": "Test getting single category by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_category": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_category",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_categories.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_update_category",
+            "description": "Test updating a category",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_category": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_category",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_categories.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_category",
+            "description": "Test soft deleting a category",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_category": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_category",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_categories.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_tag",
+            "description": "Test tag creation with mocked database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_tag": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_tag",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_tags.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_tags",
+            "description": "Test getting tags with mocked database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_tag": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_tag",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_tags.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_tag_by_id",
+            "description": "Test getting single tag by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_tag": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_tag",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_tags.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_tag",
+            "description": "Test deleting a tag",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_tag": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_tag",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_tags.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_add_tag_to_transaction",
+            "description": "Test adding a tag to a transaction",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_tag": {
+                        "type": "string"
+                    },
+                    "sample_transaction": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_tag",
+                    "sample_transaction",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_tags.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_transaction",
+            "description": "Test transaction creation with mocked database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_transaction": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_transaction",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_transactions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_transactions",
+            "description": "Test getting transactions with mocked database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_transaction": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_transaction",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_transactions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_transaction_by_id",
+            "description": "Test getting single transaction by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_transaction": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_transaction",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_transactions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_update_transaction",
+            "description": "Test updating a transaction",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_transaction": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_transaction",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_transactions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_transaction",
+            "description": "Test deleting a transaction",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "sample_transaction": {
+                        "type": "string"
+                    },
+                    "mock_supabase_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "sample_transaction",
+                    "mock_supabase_response"
+                ]
+            },
+            "file": "tests\\test_transactions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

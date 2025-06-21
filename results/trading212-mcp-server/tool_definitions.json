@@ -1,0 +1,753 @@
+{
+    "tools": [
+        {
+            "name": "analyse_trading212_data_prompt",
+            "description": "Analyse trading212 data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\prompts.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "get_account_info",
+            "description": "Fetch account metadata.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_account_cash",
+            "description": "Fetch account cash balance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_account_positions",
+            "description": "Fetch all open positions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_account_position_by_ticker",
+            "description": "Fetch an open position by ticker.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_orders",
+            "description": "Fetch current orders.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_order_by_id",
+            "description": "Fetch a specific order by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_pies",
+            "description": "Fetch all pies.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_pie_by_id",
+            "description": "Fetch a specific pie by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_instruments",
+            "description": "Fetch all tradeable instruments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_exchanges",
+            "description": "Fetch all exchanges and their working schedules.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_reports",
+            "description": "Get account export reports.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "search_instrument",
+            "description": "\n    Fetch instruments, optionally filtered by ticker or name.\n    \n    Args:\n        search_term: Search term to filter instruments by ticker or name (case-insensitive)\n        \n    Returns:\n        List of matching TradeableInstrument objects, or all instruments if no search term is provided\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "search_term": {
+                        "type": "string",
+                        "description": "Search term to filter instruments by ticker or name (case-insensitive)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "search_term",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_exchange",
+            "description": "\n    Fetch exchanges, optionally filtered by name or ID.\n    \n    Args:\n        search_term: Optional search term to filter exchanges by name or ID (case-insensitive)\n        \n    Returns:\n        List of matching Exchange objects, or all exchanges if no search term is provided\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "search_term": {
+                        "type": "string",
+                        "description": "Optional search term to filter exchanges by name or ID (case-insensitive)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "search_term",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_pies",
+            "description": "Fetch all pies.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_pie",
+            "description": "\n    Create a new pie with the specified parameters.\n    \n    Args:\n        name: Name of the pie\n        instrument_shares: Dictionary mapping instrument tickers to their weights in the pie \n            (e.g., {'AAPL_US_EQ': 0.5, 'MSFT_US_EQ': 0.5})\n        dividend_cash_action: How dividends are handled. Defaults to REINVEST. \n            Possible values: REINVEST, TO_ACCOUNT_CASH\n        end_date: Optional end date for the pie in ISO 8601 format \n            (e.g., '2024-12-31T23:59:59Z')\n        goal: Total desired value of the pie in account currency\n        icon: Optional icon identifier for the pie\n    \n    Returns:\n        AccountBucketInstrumentsDetailedResponse: Details of the created pie\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the pie"
+                    },
+                    "instrument_shares": {
+                        "type": "string",
+                        "description": "Dictionary mapping instrument tickers to their weights in the pie"
+                    },
+                    "dividend_cash_action": {
+                        "type": "string",
+                        "description": "How dividends are handled. Defaults to REINVEST."
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "Optional end date for the pie in ISO 8601 format"
+                    },
+                    "goal": {
+                        "type": "string",
+                        "description": "Total desired value of the pie in account currency"
+                    },
+                    "icon": {
+                        "type": "string",
+                        "description": "Optional icon identifier for the pie"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "AccountBucketInstrumentsDetailedResponse": {
+                        "type": "string",
+                        "description": "Details of the created pie"
+                    }
+                },
+                "required": [
+                    "name",
+                    "instrument_shares",
+                    "dividend_cash_action",
+                    "end_date",
+                    "goal",
+                    "icon",
+                    "Returns",
+                    "AccountBucketInstrumentsDetailedResponse"
+                ]
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_pie",
+            "description": "Delete a pie.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_a_pie",
+            "description": "Fetch a specific pie by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_pie",
+            "description": "\n    Update an existing pie with new parameters. The pie must be renamed when updating it.\n    \n    Args:\n        pie_id: ID of the pie to update\n        name: New name for the pie. Required when updating a pie.\n        instrument_shares: Dictionary mapping instrument tickers to their new weights in the pie \n            (e.g., {'AAPL_US_EQ': 0.5, 'MSFT_US_EQ': 0.5})\n        dividend_cash_action: How dividends should be handled. \n            Possible values: REINVEST, TO_ACCOUNT_CASH\n        end_date: New end date for the pie in ISO 8601 format \n            (e.g., '2024-12-31T23:59:59Z')\n        goal: New total desired value of the pie in account currency\n        icon: New icon identifier for the pie\n    \n    Returns:\n        AccountBucketInstrumentsDetailedResponse: Updated details of the pie\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pie_id": {
+                        "type": "string",
+                        "description": "ID of the pie to update"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "New name for the pie. Required when updating a pie."
+                    },
+                    "instrument_shares": {
+                        "type": "string",
+                        "description": "Dictionary mapping instrument tickers to their new weights in the pie"
+                    },
+                    "dividend_cash_action": {
+                        "type": "string",
+                        "description": "How dividends should be handled."
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "New end date for the pie in ISO 8601 format"
+                    },
+                    "goal": {
+                        "type": "string",
+                        "description": "New total desired value of the pie in account currency"
+                    },
+                    "icon": {
+                        "type": "string",
+                        "description": "New icon identifier for the pie"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "AccountBucketInstrumentsDetailedResponse": {
+                        "type": "string",
+                        "description": "Updated details of the pie"
+                    }
+                },
+                "required": [
+                    "pie_id",
+                    "name",
+                    "instrument_shares",
+                    "dividend_cash_action",
+                    "end_date",
+                    "goal",
+                    "icon",
+                    "Returns",
+                    "AccountBucketInstrumentsDetailedResponse"
+                ]
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "duplicate_pie",
+            "description": "\n    Create a duplicate of an existing pie.\n    \n    Args:\n        pie_id: ID of the pie to duplicate\n        name: Optional new name for the duplicated pie\n        icon: Optional new icon for the duplicated pie\n        \n    Returns:\n        AccountBucketResultResponse: Details of the duplicated pie\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pie_id": {
+                        "type": "string",
+                        "description": "ID of the pie to duplicate"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Optional new name for the duplicated pie"
+                    },
+                    "icon": {
+                        "type": "string",
+                        "description": "Optional new icon for the duplicated pie"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "AccountBucketResultResponse": {
+                        "type": "string",
+                        "description": "Details of the duplicated pie"
+                    }
+                },
+                "required": [
+                    "pie_id",
+                    "name",
+                    "icon",
+                    "Returns",
+                    "AccountBucketResultResponse"
+                ]
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_orders",
+            "description": "Fetch all equity orders.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "place_limit_order",
+            "description": "\n    Place a limit order to buy or sell an instrument at a specified price or better.\n    \n    Args:\n        ticker: Ticker symbol of the instrument to trade (e.g., 'AAPL_US_EQ')\n        quantity: Number of shares/units to trade\n        limit_price: Limit price for the order\n        time_validity: Time validity of the order. Defaults to DAY. \n            Possible values: DAY, GOOD_TILL_CANCEL\n    \n    Returns:\n        Order: Details of the placed order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ticker": {
+                        "type": "string",
+                        "description": "Ticker symbol of the instrument to trade (e.g., 'AAPL_US_EQ')"
+                    },
+                    "quantity": {
+                        "type": "string",
+                        "description": "Number of shares/units to trade"
+                    },
+                    "limit_price": {
+                        "type": "string",
+                        "description": "Limit price for the order"
+                    },
+                    "time_validity": {
+                        "type": "string",
+                        "description": "Time validity of the order. Defaults to DAY."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Order": {
+                        "type": "string",
+                        "description": "Details of the placed order"
+                    }
+                },
+                "required": [
+                    "ticker",
+                    "quantity",
+                    "limit_price",
+                    "time_validity",
+                    "Returns",
+                    "Order"
+                ]
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "place_market_order",
+            "description": "\n    Place a market order to buy or sell an instrument at the current market price.\n    \n    Args:\n        ticker: Ticker symbol of the instrument to trade (e.g., 'AAPL_US_EQ')\n        quantity: Number of shares/units to trade\n    \n    Returns:\n        Order: Details of the placed order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ticker": {
+                        "type": "string",
+                        "description": "Ticker symbol of the instrument to trade (e.g., 'AAPL_US_EQ')"
+                    },
+                    "quantity": {
+                        "type": "string",
+                        "description": "Number of shares/units to trade"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Order": {
+                        "type": "string",
+                        "description": "Details of the placed order"
+                    }
+                },
+                "required": [
+                    "ticker",
+                    "quantity",
+                    "Returns",
+                    "Order"
+                ]
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "place_stop_order",
+            "description": "\n    Place a stop order to buy or sell an instrument when the market price reaches a specified stop price.\n    \n    Args:\n        ticker: Ticker symbol of the instrument to trade (e.g., 'AAPL_US_EQ')\n        quantity: Number of shares/units to trade\n        stop_price: Stop price that triggers the order\n        time_validity: Time validity of the order. Defaults to DAY. \n            Possible values: DAY, GOOD_TILL_CANCEL\n    \n    Returns:\n        Order: Details of the placed order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ticker": {
+                        "type": "string",
+                        "description": "Ticker symbol of the instrument to trade (e.g., 'AAPL_US_EQ')"
+                    },
+                    "quantity": {
+                        "type": "string",
+                        "description": "Number of shares/units to trade"
+                    },
+                    "stop_price": {
+                        "type": "string",
+                        "description": "Stop price that triggers the order"
+                    },
+                    "time_validity": {
+                        "type": "string",
+                        "description": "Time validity of the order. Defaults to DAY."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Order": {
+                        "type": "string",
+                        "description": "Details of the placed order"
+                    }
+                },
+                "required": [
+                    "ticker",
+                    "quantity",
+                    "stop_price",
+                    "time_validity",
+                    "Returns",
+                    "Order"
+                ]
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "place_stop_limit_order",
+            "description": "\n    Place a stop-limit order to buy or sell an instrument when the market price reaches a specified stop price,\n    then execute at a specified limit price or better.\n    \n    Args:\n        ticker: Ticker symbol of the instrument to trade (e.g., 'AAPL_US_EQ')\n        quantity: Number of shares/units to trade\n        stop_price: Stop price that triggers the limit order\n        limit_price: Limit price for the order\n        time_validity: Time validity of the order. Defaults to DAY. \n            Possible values: DAY, GOOD_TILL_CANCEL\n    \n    Returns:\n        Order: Details of the placed order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ticker": {
+                        "type": "string",
+                        "description": "Ticker symbol of the instrument to trade (e.g., 'AAPL_US_EQ')"
+                    },
+                    "quantity": {
+                        "type": "string",
+                        "description": "Number of shares/units to trade"
+                    },
+                    "stop_price": {
+                        "type": "string",
+                        "description": "Stop price that triggers the limit order"
+                    },
+                    "limit_price": {
+                        "type": "string",
+                        "description": "Limit price for the order"
+                    },
+                    "time_validity": {
+                        "type": "string",
+                        "description": "Time validity of the order. Defaults to DAY."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Order": {
+                        "type": "string",
+                        "description": "Details of the placed order"
+                    }
+                },
+                "required": [
+                    "ticker",
+                    "quantity",
+                    "stop_price",
+                    "limit_price",
+                    "time_validity",
+                    "Returns",
+                    "Order"
+                ]
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cancel_order_by_id",
+            "description": "Cancel an existing order.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_order_by_id",
+            "description": "Fetch a specific order by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_account_info",
+            "description": "Fetch account metadata.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_account_cash",
+            "description": "Fetch account cash balance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_all_open_positions",
+            "description": "Fetch all open positions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_open_position_by_ticker",
+            "description": "Fetch a position by ticker (deprecated).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_position_by_ticker",
+            "description": "Search for a position by ticker using POST endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_historical_order_data",
+            "description": "Fetch historical order data with pagination.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_paid_out_dividends",
+            "description": "Fetch historical dividend data with pagination.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_exports_list",
+            "description": "Lists detailed information about all csv account exports.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "request_csv_export",
+            "description": "\n    Request a CSV export of the account's orders, dividends and transactions history.\n    Once the export is complete it can be accessed from the download link in the exports list.\n    \n    Args:\n        include_dividends: Whether to include dividend information in the export. Defaults to True\n        include_interest: Whether to include interest information in the export. Defaults to True\n        include_orders: Whether to include order history in the export. Defaults to True\n        include_transactions: Whether to include transaction history in the export. Defaults to True\n        time_from: Start time for the report in ISO 8601 format (e.g., '2023-01-01T00:00:00Z')\n        time_to: End time for the report in ISO 8601 format (e.g., '2023-12-31T23:59:59Z')\n    \n    Returns:\n        EnqueuedReportResponse: Response containing the report ID and status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "include_dividends": {
+                        "type": "string",
+                        "description": "Whether to include dividend information in the export. Defaults to True"
+                    },
+                    "include_interest": {
+                        "type": "string",
+                        "description": "Whether to include interest information in the export. Defaults to True"
+                    },
+                    "include_orders": {
+                        "type": "string",
+                        "description": "Whether to include order history in the export. Defaults to True"
+                    },
+                    "include_transactions": {
+                        "type": "string",
+                        "description": "Whether to include transaction history in the export. Defaults to True"
+                    },
+                    "time_from": {
+                        "type": "string",
+                        "description": "Start time for the report in ISO 8601 format (e.g., '2023-01-01T00:00:00Z')"
+                    },
+                    "time_to": {
+                        "type": "string",
+                        "description": "End time for the report in ISO 8601 format (e.g., '2023-12-31T23:59:59Z')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "EnqueuedReportResponse": {
+                        "type": "string",
+                        "description": "Response containing the report ID and status"
+                    }
+                },
+                "required": [
+                    "include_dividends",
+                    "include_interest",
+                    "include_orders",
+                    "include_transactions",
+                    "time_from",
+                    "time_to",
+                    "Returns",
+                    "EnqueuedReportResponse"
+                ]
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_transaction_list",
+            "description": "Fetch superficial information about movements to and from your account.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

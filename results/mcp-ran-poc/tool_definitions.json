@@ -1,0 +1,206 @@
+{
+    "tools": [
+        {
+            "name": "postgres_lifespan",
+            "description": "Initialize PostgreSQL connections and clean up on shutdown",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\ocloud-pg.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "Execute a read-only SQL query on a specified database.\n\n    This tool allows AI to run SELECT queries to retrieve data, explore schemas,\n    list tables, or perform any read-only database operation.\n\n    Args:\n        database: Name of the database to query (alarms, resources, or clusters)\n        query: PostgreSQL SELECT query to execute\n\n    Returns:\n        JSON string with query results including data, row count, and column names\n\n    Database purposes for intelligent selection:\n        - alarms: Monitoring, alerting, incidents, notifications, and fault data\n        - resources: Infrastructure inventory, compute, storage, network resources\n        - clusters: Kubernetes clusters, nodes, workloads, and cluster management data\n\n    If unsure about database structure, start with exploration queries:\n        - List tables: SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'\n        - Show schema: SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'your_table'\n        - Get table comments: SELECT schemaname, tablename, obj_description(oid) FROM pg_tables JOIN pg_class ON relname = tablename WHERE schemaname = 'public'\n        - Get column comments: SELECT column_name, col_description(pgc.oid, pa.attnum) as comment FROM information_schema.columns c JOIN pg_class pgc ON pgc.relname = c.table_name JOIN pg_attribute pa ON pa.attrelid = pgc.oid AND pa.attname = c.column_name WHERE c.table_name = 'your_table'\n        - Sample data: SELECT * FROM table_name LIMIT 5\n\n    Strategy: If you don't know the database structure, explore first with schema queries, then craft targeted data queries.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "database": {
+                        "type": "string",
+                        "description": "Name of the database to query (alarms, resources, or clusters)"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "PostgreSQL SELECT query to execute"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Strategy": {
+                        "type": "string",
+                        "description": "If you don't know the database structure, explore first with schema queries, then craft targeted data queries."
+                    }
+                },
+                "required": [
+                    "database",
+                    "query",
+                    "Returns",
+                    "Strategy"
+                ]
+            },
+            "file": "servers\\ocloud-pg.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "talm_lifespan",
+            "description": "Initialize Kubernetes clients and clean up on shutdown",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\talm.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "list_clusters",
+            "description": "List all managed clusters in ACM",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\talm.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "list_policies",
+            "description": "List all policies bound to managed clusters",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\talm.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_cluster_status",
+            "description": "Get detailed status for a specific cluster",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\talm.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "server_status",
+            "description": "Check TALM MCP Server status and Kubernetes cluster connectivity.\n\n    Returns a JSON object with server component status, cluster connection state,\n    and troubleshooting recommendations if issues are detected.\n\n    Returns:\n        JSON string containing server status, client availability, and recommendations\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\talm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "remediate_cluster",
+            "description": "Create a ClusterGroupUpgrade to remediate policy compliance issues for a specific cluster.\n\n    This tool creates a TALM ClusterGroupUpgrade resource that will re-apply all\n    non-compliant policies to bring the cluster back into compliance.\n\n    Args:\n        cluster_name: Name of the ManagedCluster to remediate\n\n    Returns:\n        JSON string with remediation status, CGU name, and monitoring information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cluster_name": {
+                        "type": "string",
+                        "description": "Name of the ManagedCluster to remediate"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cluster_name",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\talm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_cluster_health",
+            "description": "Analyze the health status of a specific managed cluster.\n\n    Args:\n        cluster_name: Name of the ManagedCluster to check\n\n    Returns:\n        Dictionary with cluster and CGU data for AI analysis\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cluster_name": {
+                        "type": "string",
+                        "description": "Name of the ManagedCluster to check"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cluster_name",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\talm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_active_cgus",
+            "description": "List all currently active ClusterGroupUpgrade operations.\n\n    Returns:\n        List of active CGUs for AI analysis\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\talm.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "remediate_cluster_prompt",
+            "description": "Generate a remediation plan for a specific cluster",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\talm.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "cluster_health_audit",
+            "description": "Generate a comprehensive cluster health audit prompt",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\talm.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "batch_remediation_prompt",
+            "description": "Generate a batch remediation strategy",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\talm.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

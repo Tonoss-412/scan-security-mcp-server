@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "expense_per_member",
+            "description": "Calculate the expense per member.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "total_expenses",
+            "description": "Calculate total expenses for the gathering.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "total_payments",
+            "description": "Calculate total payments for the gathering.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "total_expenses",
+            "description": "Calculate total expenses for this member.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "total_payments",
+            "description": "Calculate total payments for this member.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "balance",
+            "description": "\n        Calculate the member's balance.\n        Positive balance means they are owed money (they paid more than their share).\n        Negative balance means they owe money (they paid less than their share).\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "status",
+            "description": "Get the member's payment status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        }
+    ]
+}

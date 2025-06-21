@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools.\n    Each tool specifies its arguments using JSON Schema validation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\jewish_library\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        }
+    ]
+}

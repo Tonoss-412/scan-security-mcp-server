@@ -1,0 +1,793 @@
+{
+    "tools": [
+        {
+            "name": "rate_limit_middleware",
+            "description": "Rate limiting middleware.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "call_next": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "call_next"
+                ]
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.middleware"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "login",
+            "description": "Login endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "create_api_key_endpoint",
+            "description": "Create API key endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "revoke_api_key_endpoint",
+            "description": "Revoke API key endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.delete"
+            ]
+        },
+        {
+            "name": "download_video_endpoint",
+            "description": "Download video endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "batch_download_videos_endpoint",
+            "description": "Batch download videos endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "process_video_endpoint",
+            "description": "Process video endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "analyze_video_endpoint",
+            "description": "Analyze video endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "search_videos_endpoint",
+            "description": "Search videos endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "vector_search_endpoint",
+            "description": "Vector search endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "similar_videos_endpoint",
+            "description": "Similar videos endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_job_status",
+            "description": "Get job status endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "parse_webhook_endpoints",
+            "description": "Parse comma-separated webhook endpoints into a list.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\config\\settings.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "validate_jwt_secret",
+            "description": "Validate JWT secret and generate one if it's the default.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\config\\settings.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "get_settings",
+            "description": "Get cached settings instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\config\\settings.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "get_pinecone_client",
+            "description": "Get a cached Pinecone client instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\db\\pinecone_init.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "get_supabase_client",
+            "description": "Get a cached Supabase client instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\db\\supabase_init.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "process_video",
+            "description": "\n    Process a video using FFmpeg.\n    \n    Args:\n        input_file: Path to the input video file\n        operation: Operation to perform (compress, trim, convert, extract_audio)\n        output_format: Output format (mp4, webm, gif, etc.)\n        resolution: Output resolution (1080p, 720p, 480p, etc.)\n        framerate: Output framerate (e.g., 30, 60)\n        crf: Constant Rate Factor for compression (0-51, lower is better quality)\n        preset: FFmpeg preset (ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow)\n        audio_bitrate: Audio bitrate (e.g., 128k, 192k)\n        start_time: Start time for trim (format: HH:MM:SS or seconds)\n        end_time: End time for trim (format: HH:MM:SS or seconds)\n        output_filename: Optional custom filename (without extension)\n        notify_webhook: Whether to send a webhook notification when complete\n        \n    Returns:\n        Dict containing information about the processed file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input_file": {
+                        "type": "string",
+                        "description": "Path to the input video file"
+                    },
+                    "operation": {
+                        "type": "string",
+                        "description": "Operation to perform (compress, trim, convert, extract_audio)"
+                    },
+                    "output_format": {
+                        "type": "string",
+                        "description": "Output format (mp4, webm, gif, etc.)"
+                    },
+                    "resolution": {
+                        "type": "string",
+                        "description": "Output resolution (1080p, 720p, 480p, etc.)"
+                    },
+                    "framerate": {
+                        "type": "string",
+                        "description": "Output framerate (e.g., 30, 60)"
+                    },
+                    "crf": {
+                        "type": "string",
+                        "description": "Constant Rate Factor for compression (0-51, lower is better quality)"
+                    },
+                    "preset": {
+                        "type": "string",
+                        "description": "FFmpeg preset (ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow)"
+                    },
+                    "audio_bitrate": {
+                        "type": "string",
+                        "description": "Audio bitrate (e.g., 128k, 192k)"
+                    },
+                    "start_time": {
+                        "type": "string",
+                        "description": "Start time for trim (format: HH:MM:SS or seconds)"
+                    },
+                    "end_time": {
+                        "type": "string",
+                        "description": "End time for trim (format: HH:MM:SS or seconds)"
+                    },
+                    "output_filename": {
+                        "type": "string",
+                        "description": "Optional custom filename (without extension)"
+                    },
+                    "notify_webhook": {
+                        "type": "string",
+                        "description": "Whether to send a webhook notification when complete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "input_file",
+                    "operation",
+                    "output_format",
+                    "resolution",
+                    "framerate",
+                    "crf",
+                    "preset",
+                    "audio_bitrate",
+                    "start_time",
+                    "end_time",
+                    "output_filename",
+                    "notify_webhook",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\ffmpeg_tools.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "batch_process_videos",
+            "description": "\n    Process multiple videos using FFmpeg.\n    \n    Args:\n        input_files: List of paths to the input video files\n        operation: Operation to perform (compress, trim, convert, extract_audio)\n        output_format: Output format (mp4, webm, gif, etc.)\n        resolution: Output resolution (1080p, 720p, 480p, etc.)\n        notify_webhook: Whether to send a webhook notification when complete\n        \n    Returns:\n        Dict containing information about the processed files\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input_files": {
+                        "type": "string",
+                        "description": "List of paths to the input video files"
+                    },
+                    "operation": {
+                        "type": "string",
+                        "description": "Operation to perform (compress, trim, convert, extract_audio)"
+                    },
+                    "output_format": {
+                        "type": "string",
+                        "description": "Output format (mp4, webm, gif, etc.)"
+                    },
+                    "resolution": {
+                        "type": "string",
+                        "description": "Output resolution (1080p, 720p, 480p, etc.)"
+                    },
+                    "notify_webhook": {
+                        "type": "string",
+                        "description": "Whether to send a webhook notification when complete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "input_files",
+                    "operation",
+                    "output_format",
+                    "resolution",
+                    "notify_webhook",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\ffmpeg_tools.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "extract_thumbnail",
+            "description": "\n    Extract a thumbnail from a video file.\n    \n    Args:\n        input_file: Path to the input video file\n        output_file: Path to save the thumbnail (if None, will be auto-generated)\n        time_offset: Time offset for the thumbnail (format: HH:MM:SS or seconds)\n        width: Optional width of the thumbnail\n        height: Optional height of the thumbnail\n        \n    Returns:\n        Path to the extracted thumbnail if successful, False otherwise\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input_file": {
+                        "type": "string",
+                        "description": "Path to the input video file"
+                    },
+                    "output_file": {
+                        "type": "string",
+                        "description": "Path to save the thumbnail (if None, will be auto-generated)"
+                    },
+                    "time_offset": {
+                        "type": "string",
+                        "description": "Time offset for the thumbnail (format: HH:MM:SS or seconds)"
+                    },
+                    "width": {
+                        "type": "string",
+                        "description": "Optional width of the thumbnail"
+                    },
+                    "height": {
+                        "type": "string",
+                        "description": "Optional height of the thumbnail"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "input_file",
+                    "output_file",
+                    "time_offset",
+                    "width",
+                    "height",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\ffmpeg_tools.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "analyze_video",
+            "description": "\n    Analyze a video file to extract technical details or other information.\n    \n    Args:\n        input_file: Path to the input video file\n        analysis_type: Type of analysis to perform (technical, scenes, motion, etc.)\n        \n    Returns:\n        Dict containing analysis results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input_file": {
+                        "type": "string",
+                        "description": "Path to the input video file"
+                    },
+                    "analysis_type": {
+                        "type": "string",
+                        "description": "Type of analysis to perform (technical, scenes, motion, etc.)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "input_file",
+                    "analysis_type",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\ffmpeg_tools.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "generate_video_embedding",
+            "description": "\n    Generate embedding for a video and store it in Pinecone.\n    \n    Args:\n        video_id: ID of the video in Supabase\n        include_audio_transcription: Whether to include audio transcription in the embedding\n        \n    Returns:\n        Dict containing the status of the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "video_id": {
+                        "type": "string",
+                        "description": "ID of the video in Supabase"
+                    },
+                    "include_audio_transcription": {
+                        "type": "string",
+                        "description": "Whether to include audio transcription in the embedding"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "video_id",
+                    "include_audio_transcription",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\vector_tools.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "search_videos_by_text",
+            "description": "\n    Search for videos using natural language.\n    \n    Args:\n        query: Text query to search for\n        limit: Maximum number of results to return\n        filter: Optional filter to apply to the search\n        namespace: Optional namespace to search in\n        \n    Returns:\n        Dict containing search results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Text query to search for"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "filter": {
+                        "type": "string",
+                        "description": "Optional filter to apply to the search"
+                    },
+                    "namespace": {
+                        "type": "string",
+                        "description": "Optional namespace to search in"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "limit",
+                    "filter",
+                    "namespace",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\vector_tools.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "batch_generate_embeddings",
+            "description": "\n    Generate embeddings for multiple videos.\n    \n    Args:\n        video_ids: List of video IDs to process. If None, processes videos without embeddings.\n        limit: Maximum number of videos to process if video_ids is None\n        include_audio_transcription: Whether to include audio transcription in the embeddings\n        \n    Returns:\n        Dict containing the status of the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "video_ids": {
+                        "type": "string",
+                        "description": "List of video IDs to process. If None, processes videos without embeddings."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of videos to process if video_ids is None"
+                    },
+                    "include_audio_transcription": {
+                        "type": "string",
+                        "description": "Whether to include audio transcription in the embeddings"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "video_ids",
+                    "limit",
+                    "include_audio_transcription",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\vector_tools.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "similar_videos",
+            "description": "\n    Find videos similar to a given video.\n    \n    Args:\n        video_id: ID of the video to find similar videos for\n        limit: Maximum number of results to return\n        namespace: Optional namespace to search in\n        \n    Returns:\n        Dict containing search results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "video_id": {
+                        "type": "string",
+                        "description": "ID of the video to find similar videos for"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "namespace": {
+                        "type": "string",
+                        "description": "Optional namespace to search in"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "video_id",
+                    "limit",
+                    "namespace",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\vector_tools.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "download_youtube",
+            "description": "\n    Download a video from YouTube or other supported platforms.\n    \n    Args:\n        url: URL of the video to download\n        format: Output format (mp4, mp3, webm, etc.)\n        quality: Quality of the video (best, worst, 1080p, 720p, etc.)\n        audio_only: If True, download audio only\n        output_filename: Optional custom filename (without extension)\n        create_thumbnail: Whether to create a thumbnail for the video\n        notify_webhook: Whether to send a webhook notification when complete\n        \n    Returns:\n        Dict containing information about the downloaded file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "URL of the video to download"
+                    },
+                    "format": {
+                        "type": "string",
+                        "description": "Output format (mp4, mp3, webm, etc.)"
+                    },
+                    "quality": {
+                        "type": "string",
+                        "description": "Quality of the video (best, worst, 1080p, 720p, etc.)"
+                    },
+                    "audio_only": {
+                        "type": "string",
+                        "description": "If True, download audio only"
+                    },
+                    "output_filename": {
+                        "type": "string",
+                        "description": "Optional custom filename (without extension)"
+                    },
+                    "create_thumbnail": {
+                        "type": "string",
+                        "description": "Whether to create a thumbnail for the video"
+                    },
+                    "notify_webhook": {
+                        "type": "string",
+                        "description": "Whether to send a webhook notification when complete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "format",
+                    "quality",
+                    "audio_only",
+                    "output_filename",
+                    "create_thumbnail",
+                    "notify_webhook",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\youtube_tools.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "batch_download_youtube",
+            "description": "\n    Download multiple videos from YouTube or other supported platforms.\n    \n    Args:\n        urls: List of URLs to download\n        format: Output format (mp4, mp3, webm, etc.)\n        quality: Quality of the videos (best, worst, 1080p, 720p, etc.)\n        audio_only: If True, download audio only\n        notify_webhook: Whether to send a webhook notification when complete\n        \n    Returns:\n        List of dictionaries containing information about the downloaded files\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "urls": {
+                        "type": "string",
+                        "description": "List of URLs to download"
+                    },
+                    "format": {
+                        "type": "string",
+                        "description": "Output format (mp4, mp3, webm, etc.)"
+                    },
+                    "quality": {
+                        "type": "string",
+                        "description": "Quality of the videos (best, worst, 1080p, 720p, etc.)"
+                    },
+                    "audio_only": {
+                        "type": "string",
+                        "description": "If True, download audio only"
+                    },
+                    "notify_webhook": {
+                        "type": "string",
+                        "description": "Whether to send a webhook notification when complete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "urls",
+                    "format",
+                    "quality",
+                    "audio_only",
+                    "notify_webhook",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\youtube_tools.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "search_videos",
+            "description": "\n    Search for videos on YouTube and return information about them.\n    \n    Args:\n        query: Search query\n        max_results: Maximum number of results to return\n        \n    Returns:\n        Dict containing search results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\youtube_tools.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "async_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\utils\\error_monitor.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "sync_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\utils\\error_monitor.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "get_all_jobs",
+            "description": "\n        Get information for all tracked jobs.\n        \n        Returns:\n            List of job information dictionaries\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\utils\\progress.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_job",
+            "description": "\n        Get information for a specific job.\n        \n        Args:\n            job_id: Unique identifier for the job\n            \n        Returns:\n            Dict containing the job information, or None if not found\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\utils\\progress.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "clean_completed_jobs",
+            "description": "\n        Remove completed jobs older than the specified age.\n        \n        Args:\n            max_age_seconds: Maximum age in seconds (default: 24 hours)\n            \n        Returns:\n            Number of jobs removed\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\utils\\progress.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

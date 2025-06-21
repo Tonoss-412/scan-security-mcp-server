@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "list_tables",
+            "description": "\n    Retrieve all base tables in non-system schemas from the PostgreSQL database.\n\n    This tool provides a comprehensive list of user-created tables across \n    different schemas, excluding system-level schemas.\n\n    Returns:\n        list[tuple]: A list of tuples containing (schema_name, table_name)\n    \n    Notes:\n        - Excludes tables from 'pg_catalog' and 'information_schema'\n        - Uses an active database connection to query table information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        }
+    ]
+}

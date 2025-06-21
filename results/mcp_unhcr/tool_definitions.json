@@ -1,0 +1,96 @@
+{
+    "tools": [
+        {
+            "name": "get_population_data",
+            "description": "\n    Get refugee population data from UNHCR.\n    \n    Args:\n        coo: Country of origin (ISO3 code) - Use for questions about refugees FROM a specific country\n        coa: Country of asylum (ISO3 code) - Use for questions about refugees IN a specific country\n        year: Year to filter by (defaults to 2024)\n        coo_all: Set to True when breaking down results by ORIGIN country\n        coa_all: Set to True when breaking down results by ASYLUM country\n    \n    Important:\n        - For \"Where are refugees from COUNTRY living?\" use coo=\"COUNTRY\" and coa_all=True\n        - For \"How many refugees are living in COUNTRY?\" use coa=\"COUNTRY\"\n        - For \"What countries do refugees in COUNTRY come from?\" use coa=\"COUNTRY\" and coo_all=True\n        \n    Returns:\n        Population data from UNHCR\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "coo": {
+                        "type": "string",
+                        "description": "Country of origin (ISO3 code) - Use for questions about refugees FROM a specific country"
+                    },
+                    "coa": {
+                        "type": "string",
+                        "description": "Country of asylum (ISO3 code) - Use for questions about refugees IN a specific country"
+                    },
+                    "year": {
+                        "type": "string",
+                        "description": "Year to filter by (defaults to 2024)"
+                    },
+                    "coo_all": {
+                        "type": "string",
+                        "description": "Set to True when breaking down results by ORIGIN country"
+                    },
+                    "coa_all": {
+                        "type": "string",
+                        "description": "Set to True when breaking down results by ASYLUM country"
+                    },
+                    "Important": {
+                        "type": "string"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "coo",
+                    "coa",
+                    "year",
+                    "coo_all",
+                    "coa_all",
+                    "Important",
+                    "Returns"
+                ]
+            },
+            "file": "app.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_rsd_applications",
+            "description": "\n    Get RSD application data from UNHCR.\n    \n    Args:\n        coo: Country of origin filter (ISO3 code, comma-separated for multiple) - Use for questions about asylum seekers FROM a specific country\n        coa: Country of asylum filter (ISO3 code, comma-separated for multiple) - Use for questions about asylum applications IN a specific country\n        year: Year filter (comma-separated for multiple years) - defaults to 2024 if not provided\n        coo_all:  Set to True when analyzing the ORIGIN COUNTRIES of asylum seekers\n            - Use when answering: \"Which nationalities applied for asylum in Germany?\"\n        coa_all: Set to True when analyzing the ASYLUM COUNTRIES where applications were filed\n            - Use when answering: \"Where did Syrians apply for asylum?\" (breakdown by country)\n            - Do NOT use when answering: \"How many asylum applications were filed in Germany?\"\n        \n        Important query patterns:\n        - \"How many [nationality] people applied for asylum in [country]?\"\n            \u2192 Use coo=\"[nationality code]\" and coa=\"[country code]\"\n        \n        - \"Where did [nationality] people apply for asylum?\"\n            \u2192 Use coo=\"[nationality code]\" and coa_all=True\n        \n        - \"Who applied for asylum in [country]?\"\n            \u2192 Use coa=\"[country code]\" and coo_all=True\n        \n        - \"How many asylum applications were there in [year]?\"\n            \u2192 Use year=\"[year]\" with appropriate coo/coa filters if needed\n        \n    Returns:\n        UNHCR RSD Applications data in a country of asylum\n    \"\"\"\n    ret",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "coo": {
+                        "type": "string",
+                        "description": "Country of origin filter (ISO3 code, comma-separated for multiple) - Use for questions about asylum seekers FROM a specific country"
+                    },
+                    "coa": {
+                        "type": "string",
+                        "description": "Country of asylum filter (ISO3 code, comma-separated for multiple) - Use for questions about asylum applications IN a specific country"
+                    },
+                    "year": {
+                        "type": "string",
+                        "description": "Year filter (comma-separated for multiple years) - defaults to 2024 if not provided"
+                    },
+                    "coo_all": {
+                        "type": "string",
+                        "description": "Set to True when analyzing the ORIGIN COUNTRIES of asylum seekers"
+                    },
+                    "coa_all": {
+                        "type": "string",
+                        "description": "Set to True when analyzing the ASYLUM COUNTRIES where applications were filed"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "coo",
+                    "coa",
+                    "year",
+                    "coo_all",
+                    "coa_all",
+                    "Returns"
+                ]
+            },
+            "file": "app.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,118 @@
+{
+    "tools": [
+        {
+            "name": "analyze_file_changes",
+            "description": "\n    Analyze file changes between current branch and target branch.\n    \n    Returns comprehensive git diff data including:\n    - List of changed files with their status\n    - Diff statistics\n    - Actual diff content (truncated if needed)\n    - Change summary and metadata\n    \n    Args:\n        target_branch: Branch to compare against (default: main)\n        repo_path: Path to git repository (default: current directory)\n        max_tokens: Maximum tokens for diff content (default: 25000)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target_branch": {
+                        "type": "string",
+                        "description": "Branch to compare against (default: main)"
+                    },
+                    "repo_path": {
+                        "type": "string",
+                        "description": "Path to git repository (default: current directory)"
+                    },
+                    "max_tokens": {
+                        "type": "string",
+                        "description": "Maximum tokens for diff content (default: 25000)"
+                    }
+                },
+                "required": [
+                    "target_branch",
+                    "repo_path",
+                    "max_tokens"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_pr_templates",
+            "description": "\n    Get all available PR templates with their content and metadata.\n    \n    Returns:\n        Dictionary containing all PR templates with:\n        - Template content\n        - Metadata (name, description, suitable_for)\n        - File paths\n        - Usage guidelines\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "suggest_template",
+            "description": "\n    Suggest appropriate PR templates based on code changes.\n    \n    This tool provides both automated suggestions and raw data for Claude\n    to make intelligent template recommendations.\n    \n    Args:\n        change_analysis: Pre-analyzed change data (if None, will analyze automatically)\n        target_branch: Branch to compare against\n        repo_path: Path to git repository\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "change_analysis": {
+                        "type": "string",
+                        "description": "Pre-analyzed change data (if None, will analyze automatically)"
+                    },
+                    "target_branch": {
+                        "type": "string",
+                        "description": "Branch to compare against"
+                    },
+                    "repo_path": {
+                        "type": "string",
+                        "description": "Path to git repository"
+                    }
+                },
+                "required": [
+                    "change_analysis",
+                    "target_branch",
+                    "repo_path"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_git_status",
+            "description": "Get current git repository status and branch information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "validate_pr_description",
+            "description": "\n    Validate a PR description against a template and change analysis.\n    \n    Args:\n        description: The PR description to validate\n        template_name: Name of the template to validate against\n        change_analysis: Analysis of the actual changes\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "The PR description to validate"
+                    },
+                    "template_name": {
+                        "type": "string",
+                        "description": "Name of the template to validate against"
+                    },
+                    "change_analysis": {
+                        "type": "string",
+                        "description": "Analysis of the actual changes"
+                    }
+                },
+                "required": [
+                    "description",
+                    "template_name",
+                    "change_analysis"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

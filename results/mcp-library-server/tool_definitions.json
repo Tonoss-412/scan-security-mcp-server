@@ -1,0 +1,674 @@
+{
+    "tools": [
+        {
+            "name": "search_books",
+            "description": "\n    Search across ML textbooks for relevant content.\n    \n    Args:\n        query: Search query (natural language)\n        max_results: Maximum number of results to return (default: 5)\n        book_filter: Optional list of book IDs to search within\n        \n    Returns:\n        JSON string with search results containing content, similarity scores, and metadata\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query (natural language)"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 5)"
+                    },
+                    "book_filter": {
+                        "type": "string",
+                        "description": "Optional list of book IDs to search within"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "book_filter",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_chapter_content",
+            "description": "\n    Get full content of a specific book chapter or entire book.\n    \n    Args:\n        book_id: Unique identifier of the book\n        chapter_id: Optional chapter number (if not provided, returns entire book)\n        format: Output format - \"markdown\" or \"plain\" (default: markdown)\n        \n    Returns:\n        Chapter or book content with metadata\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "book_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the book"
+                    },
+                    "chapter_id": {
+                        "type": "string",
+                        "description": "Optional chapter number (if not provided, returns entire book)"
+                    },
+                    "format": {
+                        "type": "string",
+                        "description": "Output format - \"markdown\" or \"plain\" (default: markdown)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "book_id",
+                    "chapter_id",
+                    "format",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_section",
+            "description": "\n    Generate a documentation section based on book sources.\n    \n    Args:\n        topic: Topic to write about\n        max_sources: Maximum number of source passages to use (default: 3)\n        style: Writing style - \"technical\", \"tutorial\", or \"overview\" (default: technical)\n        length: Length preference - \"brief\", \"standard\", or \"comprehensive\" (default: standard)\n        \n    Returns:\n        Generated documentation section with sources cited\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string",
+                        "description": "Topic to write about"
+                    },
+                    "max_sources": {
+                        "type": "string",
+                        "description": "Maximum number of source passages to use (default: 3)"
+                    },
+                    "style": {
+                        "type": "string",
+                        "description": "Writing style - \"technical\", \"tutorial\", or \"overview\" (default: technical)"
+                    },
+                    "length": {
+                        "type": "string",
+                        "description": "Length preference - \"brief\", \"standard\", or \"comprehensive\" (default: standard)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "topic",
+                    "max_sources",
+                    "style",
+                    "length",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "explain_concept",
+            "description": "\n    Explain an ML concept using textbook sources.\n    \n    Args:\n        concept: ML concept to explain\n        include_examples: Whether to include practical examples (default: True)\n        max_sources: Maximum number of sources to use (default: 3)\n        \n    Returns:\n        Generated explanation with source citations\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "concept": {
+                        "type": "string",
+                        "description": "ML concept to explain"
+                    },
+                    "include_examples": {
+                        "type": "string",
+                        "description": "Whether to include practical examples (default: True)"
+                    },
+                    "max_sources": {
+                        "type": "string",
+                        "description": "Maximum number of sources to use (default: 3)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "concept",
+                    "include_examples",
+                    "max_sources",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cite_sources",
+            "description": "\n    Generate proper citations for book content.\n    \n    Args:\n        book_id: Book identifier to cite\n        format: Citation format - \"APA\", \"MLA\", or \"Chicago\" (default: APA)\n        \n    Returns:\n        Formatted citation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "book_id": {
+                        "type": "string",
+                        "description": "Book identifier to cite"
+                    },
+                    "format": {
+                        "type": "string",
+                        "description": "Citation format - \"APA\", \"MLA\", or \"Chicago\" (default: APA)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "book_id",
+                    "format",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_available_books",
+            "description": "\n    List all available books in the knowledge base.\n    \n    Returns:\n        JSON list of available books with metadata\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_config",
+            "description": "Get current configuration settings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "embeddings",
+            "description": "Embedding configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\utils\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "generation",
+            "description": "Generation model configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\utils\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "books",
+            "description": "Books directory configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\utils\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "vector_store",
+            "description": "Vector store configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\utils\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "Search configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\utils\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "mock_config",
+            "description": "Mock configuration for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create temporary directory for test files",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_epub_file",
+            "description": "Create a mock EPUB file structure",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_dir"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_ollama_client",
+            "description": "Mock Ollama client for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_embedding_generator",
+            "description": "Mock embedding generator for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_chromadb_client",
+            "description": "Mock ChromaDB client for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "cleanup_test_dirs",
+            "description": "Clean up test directories after tests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_config",
+            "description": "Sample configuration for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_config.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "config_file",
+            "description": "Create a temporary config file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    },
+                    "sample_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path",
+                    "sample_config"
+                ]
+            },
+            "file": "tests\\test_config.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_setup_logging",
+            "description": "Test logging setup.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logging": {
+                        "type": "string"
+                    },
+                    "config_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logging",
+                    "config_file"
+                ]
+            },
+            "file": "tests\\test_config.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "mock_sentence_transformer",
+            "description": "Mock SentenceTransformer model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_embeddings.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "embedding_generator",
+            "description": "Create EmbeddingGenerator with mocked model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sentence_transformer": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sentence_transformer",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\test_embeddings.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "parser",
+            "description": "Create EPUBParser instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_epub_parser.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_epub_book",
+            "description": "Create a mock EPUB book.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_epub_parser.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_performance_mock",
+            "description": "Test performance with larger mock datasets.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.slow"
+            ]
+        },
+        {
+            "name": "mock_session",
+            "description": "Create a mock requests session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_ollama_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "ollama_client",
+            "description": "Create OllamaClient with mocked session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_session": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_session"
+                ]
+            },
+            "file": "tests\\test_ollama_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_ollama_client",
+            "description": "Create a mock OllamaClient.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_ollama_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "doc_generator",
+            "description": "Create DocumentGenerator with mock client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_ollama_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_ollama_client"
+                ]
+            },
+            "file": "tests\\test_ollama_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "setup_mocks",
+            "description": "Setup mocks for all server components.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_chromadb_collection",
+            "description": "Create a mock ChromaDB collection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_vector_store.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_chromadb_client",
+            "description": "Create a mock ChromaDB client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_chromadb_collection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_chromadb_collection"
+                ]
+            },
+            "file": "tests\\test_vector_store.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "vector_store",
+            "description": "Create VectorStore with mocked ChromaDB.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    },
+                    "mock_chromadb_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path",
+                    "mock_chromadb_client"
+                ]
+            },
+            "file": "tests\\test_vector_store.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_vector_store",
+            "description": "Create a mock vector store.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_vector_store.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_embedding_generator",
+            "description": "Create a mock embedding generator.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_vector_store.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "search_engine",
+            "description": "Create BookSearchEngine with mocks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_vector_store": {
+                        "type": "string"
+                    },
+                    "mock_embedding_generator": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_vector_store",
+                    "mock_embedding_generator"
+                ]
+            },
+            "file": "tests\\test_vector_store.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "tools": [
+        {
+            "name": "add",
+            "description": "Add two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_greeting",
+            "description": "Get a personalized greeting",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "steampipe_query",
+            "description": "\n   Executes a Steampipe SQL query just like in the terminal and returns the output.\n\n   Args:\n       sql (str): The SQL query to run. Example: \"select count(*) from aws_ec2_instance\"\n\n   Returns:\n       str: Raw terminal output from the Steampipe query.\n   ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sql": {
+                        "type": "string",
+                        "description": "The SQL query to run. Example: \"select count(*) from aws_ec2_instance\""
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Raw terminal output from the Steampipe query."
+                    }
+                },
+                "required": [
+                    "sql",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

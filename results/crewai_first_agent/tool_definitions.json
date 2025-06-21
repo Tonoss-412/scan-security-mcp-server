@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "Root endpoint with API information",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agent_router.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agent_router.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "run_writer_agent",
+            "description": "Run only the creative writer agent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agent_router.py",
+            "decorator": [
+                "app.post"
+            ]
+        }
+    ]
+}

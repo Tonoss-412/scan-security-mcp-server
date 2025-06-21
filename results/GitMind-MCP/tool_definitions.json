@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "home",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server\\server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "auth",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server\\server.py",
+            "decorator": [
+                "app.route"
+            ]
+        }
+    ]
+}

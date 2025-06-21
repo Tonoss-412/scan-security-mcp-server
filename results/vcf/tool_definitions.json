@@ -1,0 +1,138 @@
+{
+    "tools": [
+        {
+            "name": "list_resources",
+            "description": "List available HDF5 files as resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\hdf5-mcp\\mcp-h5-server\\mcp_h5_server\\server.py",
+            "decorator": [
+                "self.app.list_resources"
+            ]
+        },
+        {
+            "name": "read_resource",
+            "description": "Read a specific HDF5 resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\hdf5-mcp\\mcp-h5-server\\mcp_h5_server\\server.py",
+            "decorator": [
+                "self.app.read_resource"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\hdf5-mcp\\mcp-h5-server\\mcp_h5_server\\server.py",
+            "decorator": [
+                "self.app.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Call a tool with the given arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\hdf5-mcp\\mcp-h5-server\\mcp_h5_server\\server.py",
+            "decorator": [
+                "self.app.call_tool"
+            ]
+        },
+        {
+            "name": "tmp_h5_file",
+            "description": "Create a temporary HDF5 file with a well-structured test dataset.\n    \n    Yields:\n        str: Path to the temporary HDF5 file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\hdf5-mcp\\mcp-h5-server\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "tmp_directory",
+            "description": "Create a temporary directory with multiple HDF5 files.\n    \n    Yields:\n        str: Path to the temporary directory\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\hdf5-mcp\\mcp-h5-server\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_uris",
+            "description": "Sample URIs for testing URI parsing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\hdf5-mcp\\mcp-h5-server\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_slice_strings",
+            "description": "Sample slice strings for testing slice parsing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\hdf5-mcp\\mcp-h5-server\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create a server instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_h5_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_h5_dir"
+                ]
+            },
+            "file": "apps\\hdf5-mcp\\mcp-h5-server\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_server_mcp_handlers_registration",
+            "description": "Test that MCP handlers are properly registered.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "apps\\hdf5-mcp\\mcp-h5-server\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

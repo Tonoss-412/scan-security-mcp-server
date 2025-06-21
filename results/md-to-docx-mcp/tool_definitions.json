@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "md_to_docx_mcp\\server.py",
+            "decorator": [
+                "app.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool calls",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "md_to_docx_mcp\\server.py",
+            "decorator": [
+                "app.call_tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,136 @@
+{
+    "tools": [
+        {
+            "name": "app_lifespan",
+            "description": "Manage application lifecycle with type-safe context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tutorial_app\\mcp_server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_all_users",
+            "description": "Get all users from the database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tutorial_app\\mcp_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_user_profile",
+            "description": "Get user profile by user ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tutorial_app\\mcp_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_all_posts",
+            "description": "Get all posts from the database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tutorial_app\\mcp_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_post_by_id",
+            "description": "Get post by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tutorial_app\\mcp_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "create_user",
+            "description": "Create a new user with the given username and email",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tutorial_app\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_post",
+            "description": "Create a new post with the given title, content, and user ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tutorial_app\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_posts",
+            "description": "Search posts by title or content",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tutorial_app\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "user_profile_analysis",
+            "description": "Prompt for analyzing a user's profile and posts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tutorial_app\\mcp_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "post_feedback",
+            "description": "Interactive prompt for providing feedback on a post",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tutorial_app\\mcp_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "get_db_session",
+            "description": "Get a database session with context management for automatic closing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tutorial_app\\database\\connection.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        }
+    ]
+}

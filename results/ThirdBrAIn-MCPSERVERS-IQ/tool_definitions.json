@@ -1,0 +1,5993 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claudesidian\\src\\claudesidian_mcp\\server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claudesidian\\src\\claudesidian_mcp\\server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "_validate_config",
+            "description": "Validate the adapter configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "crewai_mcp_adapter\\crewai_adapters\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "execute",
+            "description": "Execute the adapter's main functionality.\n        \n        Args:\n            **kwargs: Keyword arguments for the execution\n            \n        Returns:\n            AdapterResponse: The response from the adapter execution\n            \n        Raises:\n            AdapterError: If execution fails\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "AdapterResponse": {
+                        "type": "string",
+                        "description": "The response from the adapter execution"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "AdapterError": {
+                        "type": "string",
+                        "description": "If execution fails"
+                    }
+                },
+                "required": [
+                    "Returns",
+                    "AdapterResponse",
+                    "Raises",
+                    "AdapterError"
+                ]
+            },
+            "file": "crewai_mcp_adapter\\crewai_adapters\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "Create a new instance of the adapter.\n        \n        Args:\n            **kwargs: Configuration parameters for the adapter\n            \n        Returns:\n            A new instance of the adapter\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "Returns"
+                ]
+            },
+            "file": "crewai_mcp_adapter\\crewai_adapters\\base.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "register",
+            "description": "Register a new adapter.\n        \n        Args:\n            name: Name of the adapter\n            adapter_cls: Adapter class to register\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "crewai_mcp_adapter\\crewai_adapters\\base.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get",
+            "description": "Get a registered adapter by name.\n        \n        Args:\n            name: Name of the adapter to retrieve\n            \n        Returns:\n            The adapter class\n            \n        Raises:\n            AdapterError: If adapter is not found\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "crewai_mcp_adapter\\crewai_adapters\\base.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "list_adapters",
+            "description": "List all registered adapters.\n        \n        Returns:\n            Dictionary of registered adapters\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "crewai_mcp_adapter\\crewai_adapters\\base.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "cached_search_tool",
+            "description": "Search with caching capability.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "crewai_mcp_adapter\\examples\\custom_tool.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "test_base_adapter",
+            "description": "Test base adapter functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "crewai_mcp_adapter\\tests\\test_base.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_adapter_creation",
+            "description": "Test adapter creation with kwargs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "crewai_mcp_adapter\\tests\\test_base.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "get_task_by_id",
+            "description": "Get details for a specific task by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_tasks",
+            "description": "Search tasks by title, description, or tags.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_task",
+            "description": "Create a new task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_task",
+            "description": "Update an existing task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_task",
+            "description": "Delete a task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sync_tasks",
+            "description": "Sync tasks from Obsidian markdown into SQLite.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_tasks",
+            "description": "List all tasks with optional tags, if you user asks for a tag, please provide it in the request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_statistics",
+            "description": "Get task statistics including completion rates and urgency distribution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_subtasks",
+            "description": "Create multiple subtasks for a parent task with categories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_all_tags",
+            "description": "Get all unique tag names used in tasks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_subtasks",
+            "description": "Get subtasks for a given parent task ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "finish_task",
+            "description": "Mark a task as completed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "session_scope",
+            "description": "Provide a transactional scope around a series of operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DeltaTask\\deltatask\\repositories\\task_repository.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools.\n    Each tool specifies its arguments using JSON Schema validation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "dify-mcp-server\\src\\dify_mcp_server\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "dify-mcp-server\\src\\dify_mcp_server\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "list",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\ollamaclient.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "show",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\ollamaclient.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "pull",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\ollamaclient.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "on_tool_toggled",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\chat_edit.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "model_option",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\chat_edit.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "on_submit",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\chat_export.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_submit",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\chat_rename.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_image_selected",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\image_browser.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_image_highlighted",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\image_browser.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_root_changed",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\image_browser.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "action_new_chat",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\oterm.py",
+            "decorator": [
+                "work"
+            ]
+        },
+        {
+            "name": "on_tab_activated",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\oterm.py",
+            "decorator": [
+                "work",
+                "on"
+            ]
+        },
+        {
+            "name": "pull_model",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\pull_model.py",
+            "decorator": [
+                "work"
+            ]
+        },
+        {
+            "name": "on_model_change",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\pull_model.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_pull",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\pull_model.py",
+            "decorator": [
+                "on",
+                "on"
+            ]
+        },
+        {
+            "name": "on_submit",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\chat.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "action_edit_chat",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\chat.py",
+            "decorator": [
+                "work"
+            ]
+        },
+        {
+            "name": "action_rename_chat",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\chat.py",
+            "decorator": [
+                "work"
+            ]
+        },
+        {
+            "name": "on_image_added",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\chat.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_click",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\chat.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_click",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\monkey.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "control",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "control",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "on_input_submitted",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_textarea_submitted",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_toggle_multiline_pressed",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_input_changed",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_area_changed",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_post",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\cli\\command.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "list_commands",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\cli\\command.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "delete_command",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\cli\\command.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "oterm",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\src\\oterm\\cli\\oterm.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "get_store",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "ggozad--oterm\\src\\oterm\\store\\store.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "load_test_models",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\conftest.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "llama_image",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_generate",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\test_llm_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_llm_context",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\test_llm_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_multi_modal_llm",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "llama_image": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "llama_image"
+                ]
+            },
+            "file": "ggozad--oterm\\tests\\test_llm_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_errors",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\test_llm_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_iterator",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\test_llm_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_tool_streaming",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\test_llm_client.py",
+            "decorator": [
+                "pytest.mark.skip",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "get_config",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\tools\\mcp_servers.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "oracle",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\tools\\mcp_servers.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_loading_custom_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\tools\\test_custom_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_date_time",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\tools\\test_date_time_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_location_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\tools\\test_location_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\tools\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_shell",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\tools\\test_shell_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_weather",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\tools\\test_weather_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_weather_with_location",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\tools\\test_weather_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_web",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ggozad--oterm\\tests\\tools\\test_web_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\examples\\decorator\\main.py",
+            "decorator": [
+                "agent_app.agent"
+            ]
+        },
+        {
+            "name": "_",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mo": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mo"
+                ]
+            },
+            "file": "mcp-agent\\examples\\marimo_mcp_basic_agent\\notebook.py",
+            "decorator": [
+                "app.cell"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools.\n    Each tool specifies its arguments using JSON Schema validation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\examples\\mcp_agent_server\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handle tool execution requests.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\examples\\mcp_agent_server\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "show_roots",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\examples\\mcp_root_test\\root_test_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_examples",
+            "description": "List all available examples.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\scripts\\example.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "generate",
+            "description": "Generate JSON schema from Pydantic models in config.py",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\scripts\\gen_schema.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "context",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "config",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "server_registry",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "executor",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "engine",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "upstream_session",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "upstream_session",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "value"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\app.py",
+            "decorator": [
+                "upstream_session.setter"
+            ]
+        },
+        {
+            "name": "workflows",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "tasks",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "logger",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "\n        Run the application. Use as context manager.\n\n        Example:\n            async with app.run() as running_app:\n                # App is initialized here\n                pass\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\app.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "validate_uri",
+            "description": "Validate that the URI starts with file:// (required by specification 2024-11-05)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\config.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "find_config",
+            "description": "Find the config file in the current directory or parent directories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "context",
+            "description": "\n        Get context, with graceful fallback to global context if needed.\n        Raises clear error if no context is available.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\context_dependent.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "use_context",
+            "description": "Temporarily use a different context.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\context_dependent.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "start_server",
+            "description": "\n        Starts the server process based on its configuration. To initialize, call initialize_server\n\n        Args:\n            server_name (str): The name of the server to initialize.\n\n        Returns:\n            StdioServerParameters: The server parameters for stdio transport.\n\n        Raises:\n            ValueError: If the server is not found or has an unsupported transport.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string",
+                        "description": "The name of the server to initialize."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "StdioServerParameters": {
+                        "type": "string",
+                        "description": "The server parameters for stdio transport."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If the server is not found or has an unsupported transport."
+                    }
+                },
+                "required": [
+                    "server_name",
+                    "Returns",
+                    "StdioServerParameters",
+                    "Raises",
+                    "ValueError"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\mcp_server_registry.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "initialize_server",
+            "description": "\n        Initialize a server based on its configuration.\n        After initialization, also calls any registered or provided initialization hook for the server.\n\n        Args:\n            server_name (str): The name of the server to initialize.\n            init_hook (InitHookCallable): Optional initialization hook function to call after initialization.\n\n        Returns:\n            StdioServerParameters: The server parameters for stdio transport.\n\n        Raises:\n            ValueError: If the server is not found or has an unsupported transport.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string",
+                        "description": "The name of the server to initialize."
+                    },
+                    "init_hook": {
+                        "type": "string",
+                        "description": "Optional initialization hook function to call after initialization."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "StdioServerParameters": {
+                        "type": "string",
+                        "description": "The server parameters for stdio transport."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If the server is not found or has an unsupported transport."
+                    }
+                },
+                "required": [
+                    "server_name",
+                    "Returns",
+                    "StdioServerParameters",
+                    "Raises",
+                    "ValueError"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\mcp_server_registry.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "Main entry point for the MCP Agent CLI.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\cli\\main.py",
+            "decorator": [
+                "app.callback"
+            ]
+        },
+        {
+            "name": "show",
+            "description": "Show the configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\cli\\commands\\config.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "\n        Context manager for running the application.\n        Handles setup and teardown of the app and agents.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\core\\decorator_app.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "execution_context",
+            "description": "Context manager for execution setup/teardown.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\executor\\executor.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "execute",
+            "description": "Execute a list of tasks and return their results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\executor\\executor.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "execute_streaming",
+            "description": "Execute tasks and yield results as they complete",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\executor\\executor.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "signal_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\executor\\temporal.py",
+            "decorator": [
+                "workflow.signal"
+            ]
+        },
+        {
+            "name": "wrapped",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\executor\\temporal.py",
+            "decorator": [
+                "workflow.signal"
+            ]
+        },
+        {
+            "name": "wrap_as_activity",
+            "description": "\n        Convert a function into a Temporal activity and return its info.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\executor\\temporal.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "wrapped_activity",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\executor\\temporal.py",
+            "decorator": [
+                "activity.defn"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "\n        Main workflow implementation. Must be overridden by subclasses.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\executor\\workflow.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "signal",
+            "description": "Emit a signal to all waiting handlers and registered callbacks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\executor\\workflow_signal.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "wait_for_signal",
+            "description": "Wait for a signal to be emitted.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\executor\\workflow_signal.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "signal",
+            "description": "Emit a signal to all waiting handlers and registered callbacks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\executor\\workflow_signal.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "wait_for_signal",
+            "description": "Wait for a signal to be emitted.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\executor\\workflow_signal.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "handle_event",
+            "description": "Process an incoming event.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\listeners.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "event_context",
+            "description": "\n    Times a synchronous block, logs an event after completion.\n    Because logger methods are async, we schedule the final log.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\logger.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "async_event_context",
+            "description": "\n    Times an asynchronous block, logs an event after completion.\n    Because logger methods are async, we schedule the final log.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\logger.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "configure",
+            "description": "\n        Configure the logging system.\n\n        Args:\n            event_filter: Default filter for all loggers\n            transport: Transport for sending events to external systems\n            batch_size: Default batch size for batching listener\n            flush_interval: Default flush interval for batching listener\n            **kwargs: Additional configuration options\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\logger.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "shutdown",
+            "description": "Shutdown the logging system gracefully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\logger.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "managed",
+            "description": "Context manager for the logging system lifecycle.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\logger.py",
+            "decorator": [
+                "classmethod",
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "paused",
+            "description": "Context manager for temporarily pausing the display.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\rich_progress.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "async_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\tracing.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "sync_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\tracing.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "start_span_from_mcp_request",
+            "description": "Extract trace context from incoming MCP request and start a new span",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\tracing.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "inject_trace_context",
+            "description": "Inject current trace context into outgoing MCP request arguments",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\tracing.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "send_matched_event",
+            "description": "Send an event to the external system.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\transport.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "is_closed",
+            "description": "Check if transport is closed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\transport.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "get",
+            "description": "Get the singleton instance of the event bus.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\logging\\transport.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "gen_client",
+            "description": "\n    Create a client session to the specified server.\n    Handles server startup, initialization, and message receive loop setup.\n    If required, callers can specify their own message receive loop and ClientSession class constructor to customize further.\n    For persistent connections, use connect() or MCPConnectionManager instead.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\mcp\\gen_client.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "run_workflow",
+            "description": "Run the workflow given its name or id",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\mcp\\mcp_agent_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "pause_workflow",
+            "description": "Pause a running workflow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\mcp\\mcp_agent_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "resume_workflow",
+            "description": "Resume a paused workflow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\mcp\\mcp_agent_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize an MCPAggregator.\n        Use this instead of constructor since we need async initialization.\n        If connection_persistence is True, the aggregator will maintain a\n        persistent connection to the servers for as long as this aggregator is around.\n        By default we do not maintain a persistent connection.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\mcp\\mcp_aggregator.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "stdio_client_with_rich_stderr",
+            "description": "\n    Modified version of stdio_client that captures stderr and routes it through our rich console.\n    Follows the original pattern closely for reliability.\n\n    Args:\n        server: The server parameters for the stdio connection\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string",
+                        "description": "The server parameters for the stdio connection"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\mcp\\stdio.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "embed",
+            "description": "\n        Generate embeddings for a list of messages\n\n        Args:\n            data: List of text strings to embed\n\n        Returns:\n            Array of embeddings, shape (len(texts), embedding_dim)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "string",
+                        "description": "List of text strings to embed"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "Returns"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\embedding\\embedding_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "embedding_dim",
+            "description": "Return the dimensionality of the embeddings",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\embedding\\embedding_base.py",
+            "decorator": [
+                "property",
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "embedding_dim",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\embedding\\embedding_cohere.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "embedding_dim",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\embedding\\embedding_openai.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "classify",
+            "description": "\n        Classify the input request into one or more intents.\n\n        Args:\n            request: The input text to classify\n            top_k: Maximum number of top intent matches to return. May return fewer.\n\n        Returns:\n            List of classification results, ordered by confidence\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The input text to classify"
+                    },
+                    "top_k": {
+                        "type": "string",
+                        "description": "Maximum number of top intent matches to return. May return fewer."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "top_k",
+                    "Returns"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_embedding.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_embedding_cohere.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_embedding_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_llm_anthropic.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\intent_classifier\\intent_classifier_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_result",
+            "description": "Convert an LLM response to an MCP message result type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\llm\\augmented_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_result",
+            "description": "Convert an MCP message result to an LLM response type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\llm\\augmented_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_param",
+            "description": "Convert an LLM input to an MCP message (SamplingMessage) type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\llm\\augmented_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_param",
+            "description": "Convert an MCP message (SamplingMessage) to an LLM input type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\llm\\augmented_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "convert_message_to_message_param",
+            "description": "Convert a response object to an input parameter object to allow LLM calls to be chained.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\llm\\augmented_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\llm\\augmented_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\llm\\augmented_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_mcp_message_param",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\llm\\augmented_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "to_mcp_message_param",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\llm\\augmented_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "route",
+            "description": "\n        Route the input request to one or more MCP servers, agents, or functions.\n        If no routing decision can be made, returns an empty list.\n\n        Args:\n            request: The input to route.\n            top_k: The maximum number of top routing results to return. May return fewer.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The input to route."
+                    },
+                    "top_k": {
+                        "type": "string",
+                        "description": "The maximum number of top routing results to return. May return fewer."
+                    }
+                },
+                "required": [
+                    "request",
+                    "top_k"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\router\\router_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "route_to_server",
+            "description": "Route the input to one or more MCP servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\router\\router_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "route_to_agent",
+            "description": "Route the input to one or more agents.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\router\\router_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "route_to_function",
+            "description": "\n        Route the input to one or more functions.\n\n        Args:\n            input: The input to route.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "type": "string",
+                        "description": "The input to route."
+                    }
+                },
+                "required": [
+                    "input"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\router\\router_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a router.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\router\\router_embedding.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a router.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\router\\router_embedding_cohere.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a router.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\router\\router_embedding_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a router.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\router\\router_llm.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a router.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\router\\router_llm_anthropic.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Factory method to create and initialize a classifier.\n        Use this instead of constructor since we need async initialization.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-agent\\src\\mcp_agent\\workflows\\router\\router_llm_openai.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "load_counter",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-cli\\src\\mcpcli\\messages\\message_types\\incrementing_id_message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "save_counter",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-cli\\src\\mcpcli\\messages\\message_types\\incrementing_id_message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "test_send_initialize_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_initialize.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_initialize_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_initialize.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_initialize_no_response",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_initialize.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_initialize_exception",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_initialize.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_optional_fields",
+            "description": "Test setting each optional field individually.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "field": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "field",
+                    "value"
+                ]
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_json_rpc_message.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_send_ping_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_ping.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_ping_timeout",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_ping.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_ping_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_ping.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_ping_no_response",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_ping.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_prompts_list_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_prompts_list_no_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_prompts_list_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_prompts_list_increment_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_resources_list_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_resources.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_resources_list_no_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_resources.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_resources_list_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_resources.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_resources_list_increment_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_resources.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_tools_list_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_tools_list_increment_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_call_tool_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_call_tool_increment_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\tests\\messges\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "stdio_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-cli\\src\\mcpcli\\transport\\stdio\\stdio_client.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "Create LLMConfig from dictionary.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-client-cli\\src\\mcp_client_cli\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "Create ServerConfig from dictionary.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-client-cli\\src\\mcp_client_cli\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "load",
+            "description": "Load configuration from file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-client-cli\\src\\mcp_client_cli\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "save_memory",
+            "description": "Save the given memory for the current user. Do not save duplicate memories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-client-cli\\src\\mcp_client_cli\\memory.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "list_resources",
+            "description": "List available resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-dev-server\\src\\mcp_dev_server\\server.py",
+            "decorator": [
+                "self.server.list_resources"
+            ]
+        },
+        {
+            "name": "read_resource",
+            "description": "Read resource content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-dev-server\\src\\mcp_dev_server\\server.py",
+            "decorator": [
+                "self.server.read_resource"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-dev-server\\src\\mcp_dev_server\\server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Execute a tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-dev-server\\src\\mcp_dev_server\\server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "list_prompts",
+            "description": "List available prompts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-dev-server\\src\\mcp_dev_server\\server.py",
+            "decorator": [
+                "self.server.list_prompts"
+            ]
+        },
+        {
+            "name": "_format_output",
+            "description": "Format output with colors and prefixes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-dev-server\\src\\mcp_dev_server\\docker\\streams.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_template",
+            "description": "Get Dockerfile template for specific environment.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-dev-server\\src\\mcp_dev_server\\docker\\templates.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_build_workflow",
+            "description": "Create a standard build workflow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "env_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "env_manager"
+                ]
+            },
+            "file": "mcp-dev-server\\src\\mcp_dev_server\\environments\\workflow.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_test_workflow",
+            "description": "Create a standard test workflow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "env_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "env_manager"
+                ]
+            },
+            "file": "mcp-dev-server\\src\\mcp_dev_server\\environments\\workflow.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "test_server_initialization",
+            "description": "Test server initialization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-dev-server\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "get_template_env",
+            "description": "\n    Get the Jinja2 environment for rendering templates.\n\n    Returns:\n        Environment: The Jinja2 environment.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-hitchcode\\mcp_hitchcode\\templates\\template_loader.py",
+            "decorator": [
+                "functools.lru_cache"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_fix",
+            "description": "Test that the apply_prompt_fix tool works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-hitchcode\\tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_initial",
+            "description": "Test that the apply_prompt_initial tool works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-hitchcode\\tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_initial_version",
+            "description": "Test that the apply_prompt_initial tool works with version parameter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-hitchcode\\tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_proceed",
+            "description": "Test that the apply_prompt_proceed tool works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-hitchcode\\tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_proceed_version",
+            "description": "Test that the apply_prompt_proceed tool works with version parameter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-hitchcode\\tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_change",
+            "description": "Test that the apply_prompt_change tool works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-hitchcode\\tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_change_version",
+            "description": "Test that the apply_prompt_change tool works with version parameter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-hitchcode\\tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_server_tools",
+            "description": "Test that we can connect to the server and list available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-hitchcode\\tests\\test_stdio.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_server_mood",
+            "description": "Test that the mood tool works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-hitchcode\\tests\\test_stdio.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available PDF manipulation tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-pdf-tools\\src\\pdf_tools\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle PDF tool execution requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-pdf-tools\\src\\pdf_tools\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "build",
+            "description": "Build a MkNodes page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "mcp-server-llmling\\duties.py",
+            "decorator": [
+                "duty"
+            ]
+        },
+        {
+            "name": "serve",
+            "description": "Serve a MkNodes page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "mcp-server-llmling\\duties.py",
+            "decorator": [
+                "duty"
+            ]
+        },
+        {
+            "name": "test",
+            "description": "Serve a MkNodes page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "mcp-server-llmling\\duties.py",
+            "decorator": [
+                "duty"
+            ]
+        },
+        {
+            "name": "clean",
+            "description": "Clean all files from the Git directory except checked-in files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "mcp-server-llmling\\duties.py",
+            "decorator": [
+                "duty"
+            ]
+        },
+        {
+            "name": "update",
+            "description": "Update all environment packages using pip directly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "mcp-server-llmling\\duties.py",
+            "decorator": [
+                "duty"
+            ]
+        },
+        {
+            "name": "lint",
+            "description": "Lint the code and fix issues if possible.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "mcp-server-llmling\\duties.py",
+            "decorator": [
+                "duty"
+            ]
+        },
+        {
+            "name": "lint_check",
+            "description": "Lint the code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "mcp-server-llmling\\duties.py",
+            "decorator": [
+                "duty"
+            ]
+        },
+        {
+            "name": "version",
+            "description": "Bump package version.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "mcp-server-llmling\\duties.py",
+            "decorator": [
+                "duty"
+            ]
+        },
+        {
+            "name": "inspector",
+            "description": "Run inspector tool for debugging.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "mcp-server-llmling\\duties.py",
+            "decorator": [
+                "duty"
+            ]
+        },
+        {
+            "name": "handle_set_level",
+            "description": "Handle logging level changes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\handlers.py",
+            "decorator": [
+                "llm_server.server.set_logging_level"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "Handle tools/list request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\handlers.py",
+            "decorator": [
+                "llm_server.server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tools/call request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\handlers.py",
+            "decorator": [
+                "llm_server.server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "Handle prompts/list request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\handlers.py",
+            "decorator": [
+                "llm_server.server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "Handle prompts/get request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\handlers.py",
+            "decorator": [
+                "llm_server.server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "Handle resources/list request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\handlers.py",
+            "decorator": [
+                "llm_server.server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_list_resource_templates",
+            "description": "Handle resource template listing request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\handlers.py",
+            "decorator": [
+                "llm_server.server.list_resource_templates"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "Handle direct resource content requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\handlers.py",
+            "decorator": [
+                "llm_server.server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_completion",
+            "description": "Handle completion requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\handlers.py",
+            "decorator": [
+                "llm_server.server.completion"
+            ]
+        },
+        {
+            "name": "handle_progress",
+            "description": "Handle progress notifications from client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\handlers.py",
+            "decorator": [
+                "llm_server.server.progress_notification"
+            ]
+        },
+        {
+            "name": "handle_subscribe",
+            "description": "Subscribe to resource updates.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\handlers.py",
+            "decorator": [
+                "llm_server.server.subscribe_resource"
+            ]
+        },
+        {
+            "name": "handle_unsubscribe",
+            "description": "Unsubscribe from resource updates.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\handlers.py",
+            "decorator": [
+                "llm_server.server.unsubscribe_resource"
+            ]
+        },
+        {
+            "name": "from_config_file",
+            "description": "Create and run server from config file with proper context management.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\server.py",
+            "decorator": [
+                "classmethod",
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "current_session",
+            "description": "Get client info from request context.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\server.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "client_info",
+            "description": "Get current session from request context.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\server.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "session",
+            "description": "Get active session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\sse_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\zed_wrapper.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "claude",
+            "description": "Install MCP server in Claude Desktop.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\cli\\install.py",
+            "decorator": [
+                "install_cli.command"
+            ]
+        },
+        {
+            "name": "inject_config",
+            "description": "Inject raw YAML configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.post"
+            ]
+        },
+        {
+            "name": "list_components",
+            "description": "List all registered components.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.get"
+            ]
+        },
+        {
+            "name": "add_resource",
+            "description": "Add or update a resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.post"
+            ]
+        },
+        {
+            "name": "list_resources",
+            "description": "List all resources with their configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.get"
+            ]
+        },
+        {
+            "name": "remove_resource",
+            "description": "Remove a resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.delete"
+            ]
+        },
+        {
+            "name": "add_tool",
+            "description": "Add or update a tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.post"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List all tools with their OpenAPI schemas.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.get"
+            ]
+        },
+        {
+            "name": "remove_tool",
+            "description": "Remove a tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.delete"
+            ]
+        },
+        {
+            "name": "bulk_update",
+            "description": "Update multiple components at once.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.post"
+            ]
+        },
+        {
+            "name": "websocket_endpoint",
+            "description": "Handle WebSocket connections.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.websocket"
+            ]
+        },
+        {
+            "name": "install_dependency",
+            "description": "Install a Python package dependency.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.post"
+            ]
+        },
+        {
+            "name": "register_code_tool",
+            "description": "Register a new tool from Python code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.post"
+            ]
+        },
+        {
+            "name": "register_imported_tool",
+            "description": "Register a tool from an import path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\routes.py",
+            "decorator": [
+                "server.app.post"
+            ]
+        },
+        {
+            "name": "port",
+            "description": "Get server port.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\injection\\server.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "serve",
+            "description": "Start serving the transport.\n\n        Args:\n            raise_exceptions: Whether to raise exceptions for debugging\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "raise_exceptions": {
+                        "type": "string",
+                        "description": "Whether to raise exceptions for debugging"
+                    }
+                },
+                "required": [
+                    "raise_exceptions"
+                ]
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\transports\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "shutdown",
+            "description": "Gracefully shutdown the transport.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\transports\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "dashboard",
+            "description": "Render dashboard page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\ui\\app.py",
+            "decorator": [
+                "ui.page"
+            ]
+        },
+        {
+            "name": "resources",
+            "description": "Render resources page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\ui\\app.py",
+            "decorator": [
+                "ui.page"
+            ]
+        },
+        {
+            "name": "tools",
+            "description": "Render tools page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\ui\\app.py",
+            "decorator": [
+                "ui.page"
+            ]
+        },
+        {
+            "name": "render",
+            "description": "Render the resource list.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\ui\\components\\resource_list.py",
+            "decorator": [
+                "ui.refreshable"
+            ]
+        },
+        {
+            "name": "render",
+            "description": "Render the tool list.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\ui\\components\\tool_list.py",
+            "decorator": [
+                "ui.refreshable"
+            ]
+        },
+        {
+            "name": "render",
+            "description": "Render the dashboard page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\ui\\pages\\dashboard.py",
+            "decorator": [
+                "ui.page"
+            ]
+        },
+        {
+            "name": "render",
+            "description": "Render the resources page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\ui\\pages\\resources.py",
+            "decorator": [
+                "ui.page"
+            ]
+        },
+        {
+            "name": "render",
+            "description": "Render the tools page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\src\\mcp_server_llmling\\ui\\pages\\tools.py",
+            "decorator": [
+                "ui.page"
+            ]
+        },
+        {
+            "name": "base_config",
+            "description": "Create minimal test configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "runtime_config",
+            "description": "Create test runtime configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create configured test server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "running_server",
+            "description": "Create and start test server with memory streams.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create a test client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_config",
+            "description": "Create test configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "config_file",
+            "description": "Create temporary config file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "configured_client",
+            "description": "Create client with test configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create a server instance with mocked notifications.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_events.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_prompt_notifications",
+            "description": "Test that prompt registry changes trigger notifications.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_events.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_tool_notifications",
+            "description": "Test that tool registry changes trigger notifications.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_events.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_resource_notifications",
+            "description": "Test that resource registry changes trigger notifications.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_events.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_notification_error_handling",
+            "description": "Test that notification errors are handled gracefully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_events.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_server_lifecycle_handshake_client",
+            "description": "Test server lifecycle using MCPInProcSession.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_handshake.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_server_lifecycle_test_session",
+            "description": "Test server lifecycle using test session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_handshake.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_server_lifecycle_direct",
+            "description": "Test server lifecycle using direct method calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_handshake.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_server_lifecycle_subprocess",
+            "description": "Test server lifecycle using raw subprocess.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_handshake.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "config",
+            "description": "Create a basic test configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_injection_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "runtime",
+            "description": "Create a runtime config.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_injection_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create server instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_injection_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create HTTP client connected to injection server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_injection_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_list_components",
+            "description": "Test listing all components.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_injection_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_add_resource",
+            "description": "Test adding a resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_injection_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_bulk_update",
+            "description": "Test bulk component updates.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_injection_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_websocket_communication",
+            "description": "Test WebSocket updates.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_injection_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_concurrent_updates",
+            "description": "Test concurrent updates.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_injection_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_resource_operations",
+            "description": "Test MCP resource operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_tool_operations",
+            "description": "Test MCP tool operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_prompt_operations",
+            "description": "Test MCP prompt operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_error_handling",
+            "description": "Test MCP error response format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_handshake",
+            "description": "Test MCP protocol handshake.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_streaming",
+            "description": "Test MCP streaming operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_resource_to_tool_workflow",
+            "description": "Test loading a resource and using it with a tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_uri_conversion_roundtrip",
+            "description": "Test URI conversion in both directions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_uri_handling.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_invalid_uri_conversion",
+            "description": "Test handling of invalid URIs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_uri_handling.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_zed_function_wrapping",
+            "description": "Test that function wrapping properly handles multiple arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_zed_mode.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_zed_wrapping_conditions",
+            "description": "Test that Zed wrapping only happens for multi-parameter functions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-llmling\\tests\\test_zed_mode.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\src\\git\\src\\mcp_server_git\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\src\\git\\src\\mcp_server_git\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "MCP Git Server - Git functionality for MCP",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\src\\git\\src\\mcp_server_git\\__init__.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "test_repository",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\src\\git\\tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\src\\sentry\\src\\mcp_server_sentry\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\src\\sentry\\src\\mcp_server_sentry\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\src\\sentry\\src\\mcp_server_sentry\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\src\\sentry\\src\\mcp_server_sentry\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\src\\sentry\\src\\mcp_server_sentry\\server.py",
+            "decorator": [
+                "click.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available time tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\src\\time\\src\\mcp_server_time\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls for time queries.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\src\\time\\src\\mcp_server_time\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "test_get_current_time",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_time": {
+                        "type": "string"
+                    },
+                    "timezone": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_time",
+                    "timezone",
+                    "expected"
+                ]
+            },
+            "file": "mcp-servers\\src\\time\\test\\time_server_test.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_convert_time_errors",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "source_tz": {
+                        "type": "string"
+                    },
+                    "time_str": {
+                        "type": "string"
+                    },
+                    "target_tz": {
+                        "type": "string"
+                    },
+                    "expected_error": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "source_tz",
+                    "time_str",
+                    "target_tz",
+                    "expected_error"
+                ]
+            },
+            "file": "mcp-servers\\src\\time\\test\\time_server_test.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_convert_time",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_time": {
+                        "type": "string"
+                    },
+                    "source_tz": {
+                        "type": "string"
+                    },
+                    "time_str": {
+                        "type": "string"
+                    },
+                    "target_tz": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_time",
+                    "source_tz",
+                    "time_str",
+                    "target_tz",
+                    "expected"
+                ]
+            },
+            "file": "mcp-servers\\src\\time\\test\\time_server_test.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "initialize",
+            "description": "Initialize connection and fetch tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_gradio_client\\mcp_client\\client.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Call a specific tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_gradio_client\\mcp_client\\client.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "_get_python_env",
+            "description": "Get Python environment variables from config",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_gradio_client\\mcp_client\\client.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_verify_command",
+            "description": "Verify command exists either as full path or in PATH",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_gradio_client\\mcp_client\\client.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "super_agent_system_prompt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_proxy_pydantic_agent\\mcp-client\\client2.py",
+            "decorator": [
+                "self.super_agent.system_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools.\n    Each tool specifies its arguments using JSON Schema validation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_proxy_pydantic_agent\\weather-server-python\\src\\weather\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handle tool execution requests.\n    Tools can fetch weather data and notify clients of changes.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_proxy_pydantic_agent\\weather-server-python\\src\\weather\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "list",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\ollamaclient.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "show",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\ollamaclient.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "pull",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\ollamaclient.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "on_tool_toggled",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\chat_edit.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "model_option",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\chat_edit.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "on_submit",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\chat_export.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_submit",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\chat_rename.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_image_selected",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\image_browser.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_image_highlighted",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\image_browser.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_root_changed",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\image_browser.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "action_new_chat",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\oterm.py",
+            "decorator": [
+                "work"
+            ]
+        },
+        {
+            "name": "on_tab_activated",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\oterm.py",
+            "decorator": [
+                "work",
+                "on"
+            ]
+        },
+        {
+            "name": "pull_model",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\pull_model.py",
+            "decorator": [
+                "work"
+            ]
+        },
+        {
+            "name": "on_model_change",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\pull_model.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_pull",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\pull_model.py",
+            "decorator": [
+                "on",
+                "on"
+            ]
+        },
+        {
+            "name": "on_submit",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\chat.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "action_edit_chat",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\chat.py",
+            "decorator": [
+                "work"
+            ]
+        },
+        {
+            "name": "action_rename_chat",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\chat.py",
+            "decorator": [
+                "work"
+            ]
+        },
+        {
+            "name": "on_image_added",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\chat.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_click",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\chat.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_click",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\monkey.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "control",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "control",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "on_input_submitted",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_textarea_submitted",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_toggle_multiline_pressed",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_input_changed",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_area_changed",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "on_post",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\app\\widgets\\prompt.py",
+            "decorator": [
+                "on"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\cli\\command.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "list_commands",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\cli\\command.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "delete_command",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\cli\\command.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "oterm",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\src\\oterm\\cli\\oterm.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "get_store",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "oterm\\src\\oterm\\store\\store.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "load_test_models",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\conftest.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "llama_image",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_generate",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\test_llm_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_llm_context",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\test_llm_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_multi_modal_llm",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "llama_image": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "llama_image"
+                ]
+            },
+            "file": "oterm\\tests\\test_llm_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_errors",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\test_llm_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_iterator",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\test_llm_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_tool_streaming",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\test_llm_client.py",
+            "decorator": [
+                "pytest.mark.skip",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "get_config",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\tools\\mcp_servers.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "oracle",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\tools\\mcp_servers.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_loading_custom_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\tools\\test_custom_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_date_time",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\tools\\test_date_time_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_location_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\tools\\test_location_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\tools\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_shell",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\tools\\test_shell_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_weather",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\tools\\test_weather_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_weather_with_location",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\tools\\test_weather_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_web",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "oterm\\tests\\tools\\test_web_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "\n    List available note resources.\n    Each note is exposed as a resource with a custom note:// URI scheme.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "playwright-plus-python-mcp\\src\\playwright_server\\server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "\n    Read a specific note's content by its URI.\n    The note name is extracted from the URI host component.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "playwright-plus-python-mcp\\src\\playwright_server\\server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "\n    List available prompts.\n    Each prompt can have optional arguments to customize its behavior.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "playwright-plus-python-mcp\\src\\playwright_server\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "\n    Generate a prompt by combining arguments with server state.\n    The prompt includes all current notes and can be customized via arguments.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "playwright-plus-python-mcp\\src\\playwright_server\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools.\n    Each tool specifies its arguments using JSON Schema validation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "playwright-plus-python-mcp\\src\\playwright_server\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "playwright-plus-python-mcp\\src\\playwright_server\\server.py",
+            "decorator": [
+                "update_page_after_click"
+            ]
+        },
+        {
+            "name": "handle",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "playwright-plus-python-mcp\\src\\playwright_server\\server.py",
+            "decorator": [
+                "update_page_after_click"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python-run-mcp\\src\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "\n    Execute Python code in a Docker container with specified requirements.\n    This now:\n    - Creates a temporary directory\n    - Writes a Dockerfile and the code to a file\n    - Builds a Docker image\n    - Runs the container and captures output\n    - Returns the output of the code execution\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python-run-mcp\\src\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\scripts\\release.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "update_packages",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\scripts\\release.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "generate_notes",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\scripts\\release.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "generate_version",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\scripts\\release.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "generate_matrix",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\scripts\\release.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\src\\git\\src\\mcp_server_git\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\src\\git\\src\\mcp_server_git\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "MCP Git Server - Git functionality for MCP",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\src\\git\\src\\mcp_server_git\\__init__.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "test_repository",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\src\\git\\tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\src\\sentry\\src\\mcp_server_sentry\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\src\\sentry\\src\\mcp_server_sentry\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\src\\sentry\\src\\mcp_server_sentry\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\src\\sentry\\src\\mcp_server_sentry\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\src\\sentry\\src\\mcp_server_sentry\\server.py",
+            "decorator": [
+                "click.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available time tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\src\\time\\src\\mcp_server_time\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls for time queries.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\src\\time\\src\\mcp_server_time\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "test_get_current_time",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_time": {
+                        "type": "string"
+                    },
+                    "timezone": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_time",
+                    "timezone",
+                    "expected"
+                ]
+            },
+            "file": "servers\\src\\time\\test\\time_server_test.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_convert_time_errors",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "source_tz": {
+                        "type": "string"
+                    },
+                    "time_str": {
+                        "type": "string"
+                    },
+                    "target_tz": {
+                        "type": "string"
+                    },
+                    "expected_error": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "source_tz",
+                    "time_str",
+                    "target_tz",
+                    "expected_error"
+                ]
+            },
+            "file": "servers\\src\\time\\test\\time_server_test.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_convert_time",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_time": {
+                        "type": "string"
+                    },
+                    "source_tz": {
+                        "type": "string"
+                    },
+                    "time_str": {
+                        "type": "string"
+                    },
+                    "target_tz": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_time",
+                    "source_tz",
+                    "time_str",
+                    "target_tz",
+                    "expected"
+                ]
+            },
+            "file": "servers\\src\\time\\test\\time_server_test.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "as_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "spotify-mcp\\src\\spotify_mcp\\server.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "spotify-mcp\\src\\spotify_mcp\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool execution requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "spotify-mcp\\src\\spotify_mcp\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "start_playback",
+            "description": "\n        Starts track playback. If track_id is omitted, resumes current playback.\n        - track_id: ID of track to play, or None.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "spotify-mcp\\src\\spotify_mcp\\spotify_api.py",
+            "decorator": [
+                "utils.validate"
+            ]
+        },
+        {
+            "name": "pause_playback",
+            "description": "Pauses playback.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "spotify-mcp\\src\\spotify_mcp\\spotify_api.py",
+            "decorator": [
+                "utils.validate"
+            ]
+        },
+        {
+            "name": "add_to_queue",
+            "description": "\n        Adds track to queue.\n        - track_id: ID of track to play.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "spotify-mcp\\src\\spotify_mcp\\spotify_api.py",
+            "decorator": [
+                "utils.validate"
+            ]
+        },
+        {
+            "name": "get_queue",
+            "description": "Returns the current queue of tracks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "spotify-mcp\\src\\spotify_mcp\\spotify_api.py",
+            "decorator": [
+                "utils.validate"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "spotify-mcp\\src\\spotify_mcp\\utils.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "do_something",
+            "description": "Do something",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swiss\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "managed_connection",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\streamlit_app.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "load_counter",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\messages\\message_types\\incrementing_id_message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "save_counter",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\messages\\message_types\\incrementing_id_message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "test_send_initialize_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_initialize.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_initialize_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_initialize.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_initialize_no_response",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_initialize.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_initialize_exception",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_initialize.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_optional_fields",
+            "description": "Test setting each optional field individually.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "field": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "field",
+                    "value"
+                ]
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_json_rpc_message.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_send_ping_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_ping.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_ping_timeout",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_ping.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_ping_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_ping.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_ping_no_response",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_ping.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_prompts_list_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_prompts_list_no_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_prompts_list_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_prompts_list_increment_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_resources_list_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_resources.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_resources_list_no_result",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_resources.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_resources_list_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_resources.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_resources_list_increment_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_resources.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_tools_list_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_tools_list_increment_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_call_tool_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_call_tool_increment_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\tests\\messges\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "stdio_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "universal-mcp-ui\\src\\mcpcli\\transport\\stdio\\stdio_client.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        }
+    ]
+}

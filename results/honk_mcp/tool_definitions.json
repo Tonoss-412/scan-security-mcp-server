@@ -1,0 +1,184 @@
+{
+    "tools": [
+        {
+            "name": "say_message",
+            "description": "Use the MacOS text-to-speech with the default voice to say the provided message",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_eddy",
+            "description": "Use the MacOS text-to-speech with Eddy's voice to say the provided message.\n    Eddy has a friendly, casual male voice.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_flo",
+            "description": "Use the MacOS text-to-speech with Flo's voice to say the provided message.\n    Flo has a cheerful, energetic female voice.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_grandma",
+            "description": "Use the MacOS text-to-speech with Grandma's voice to say the provided message.\n    Grandma has an elderly, warm female voice with a gentle pace.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_grandpa",
+            "description": "Use the MacOS text-to-speech with Grandpa's voice to say the provided message.\n    Grandpa has an elderly, wise-sounding male voice with a slower pace.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_reed",
+            "description": "Use the MacOS text-to-speech with Reed's voice to say the provided message.\n    Reed has a clear, neutral male voice suitable for narration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_rocko",
+            "description": "Use the MacOS text-to-speech with Rocko's voice to say the provided message.\n    Rocko has a bold, gruff male voice with character.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_sandy",
+            "description": "Use the MacOS text-to-speech with Sandy's voice to say the provided message.\n    Sandy has a friendly, approachable female voice.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_shelley",
+            "description": "Use the MacOS text-to-speech with Shelley's voice to say the provided message.\n    Shelley has a smooth, articulate female voice.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_fred",
+            "description": "Use the MacOS text-to-speech with Fred's voice to say the provided message.\n    Fred has a deep, authoritative male voice.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_junior",
+            "description": "Use the MacOS text-to-speech with Junior's voice to say the provided message.\n    Junior has a young male voice with childlike qualities.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_kathy",
+            "description": "Use the MacOS text-to-speech with Kathy's voice to say the provided message.\n    Kathy has a clear, professional female voice.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_superstar",
+            "description": "Use the MacOS text-to-speech with Superstar voice to say the provided message.\n    Superstar has a dramatic, exaggerated voice with a theatrical quality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_trinoids",
+            "description": "Use the MacOS text-to-speech with Trinoids voice to say the provided message.\n    Trinoids has a robotic, alien-like voice effect.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_message_bells",
+            "description": "Use the MacOS text-to-speech with Bells voice to say the provided message.\n    Bells has a melodic, musical quality with bell-like tones mixed with speech.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

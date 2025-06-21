@@ -1,0 +1,422 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "Root endpoint to verify the API server is running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "generate_diagram",
+            "description": "API endpoint to generate a diagram from a natural language description.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "global_exception_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    },
+                    "exc": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "exc"
+                ]
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "get_diagram",
+            "description": "\n    Serve the latest generated diagram image.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "log_requests",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "call_next": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "call_next"
+                ]
+            },
+            "file": "api_server_docker.py",
+            "decorator": [
+                "app.middleware"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint to verify the API server is running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server_docker.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "generate_diagram",
+            "description": "API endpoint to generate a diagram from a natural language description.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server_docker.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "global_exception_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    },
+                    "exc": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "exc"
+                ]
+            },
+            "file": "api_server_docker.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "get_diagram",
+            "description": "\n    Serve the latest generated diagram image.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server_docker.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "\n    Health check endpoint for container orchestration systems.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server_docker.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_diagrams",
+            "description": "\n    List all generated diagrams.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server_docker.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_diagram_by_filename",
+            "description": "\n    Serve a specific diagram by filename.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server_docker.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint to verify the API server is running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server_fixed.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "generate_diagram",
+            "description": "API endpoint to generate a diagram from a natural language description.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server_fixed.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "global_exception_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    },
+                    "exc": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "exc"
+                ]
+            },
+            "file": "api_server_fixed.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint to verify the API server is running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server_new.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "generate_diagram",
+            "description": "API endpoint to generate a diagram from a natural language description.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server_new.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_diagram",
+            "description": "\n    Serve the latest generated diagram image.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server_new.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "global_exception_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    },
+                    "exc": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "exc"
+                ]
+            },
+            "file": "api_server_new.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "generate_azure_diagram_from_text",
+            "description": "\n    Generate an Azure architecture diagram from a natural language description.\n    \n    Args:\n        architecture_description: A natural language description of the Azure architecture.\n        output_format: The output format of the diagram (png or svg). Default: png.\n        layout_direction: The layout direction of the diagram (TB for top-to-bottom or LR for left-to-right). Default: TB.\n    \n    Returns:\n        An image of the generated diagram.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "architecture_description": {
+                        "type": "string",
+                        "description": "A natural language description of the Azure architecture."
+                    },
+                    "output_format": {
+                        "type": "string",
+                        "description": "The output format of the diagram (png or svg). Default: png."
+                    },
+                    "layout_direction": {
+                        "type": "string",
+                        "description": "The layout direction of the diagram (TB for top-to-bottom or LR for left-to-right). Default: TB."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "architecture_description",
+                    "output_format",
+                    "layout_direction",
+                    "Returns"
+                ]
+            },
+            "file": "azure_diagram_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_azure_diagram_from_text",
+            "description": "\n    Generate an Azure architecture diagram from a natural language description.\n    \n    Args:\n        architecture_description: A natural language description of the Azure architecture.\n        output_format: The output format of the diagram (png or svg). Default: png.\n        layout_direction: The layout direction of the diagram (TB for top-to-bottom or LR for left-to-right). Default: TB.\n    \n    Returns:\n        An image of the generated diagram.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "architecture_description": {
+                        "type": "string",
+                        "description": "A natural language description of the Azure architecture."
+                    },
+                    "output_format": {
+                        "type": "string",
+                        "description": "The output format of the diagram (png or svg). Default: png."
+                    },
+                    "layout_direction": {
+                        "type": "string",
+                        "description": "The layout direction of the diagram (TB for top-to-bottom or LR for left-to-right). Default: TB."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "architecture_description",
+                    "output_format",
+                    "layout_direction",
+                    "Returns"
+                ]
+            },
+            "file": "azure_diagram_server_fixed.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_azure_diagram_from_text",
+            "description": "Generate an Azure architecture diagram from a natural language description.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fallback_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_azure_diagram_from_text",
+            "description": "Generate an Azure architecture diagram from a natural language description.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fallback_mcp_server_fixed.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint to verify the API server is running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fixed_api_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "generate_diagram",
+            "description": "API endpoint to generate a diagram from a natural language description.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fixed_api_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "global_exception_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    },
+                    "exc": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "exc"
+                ]
+            },
+            "file": "fixed_api_server.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        }
+    ]
+}

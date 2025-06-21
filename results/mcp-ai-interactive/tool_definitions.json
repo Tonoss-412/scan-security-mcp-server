@@ -1,0 +1,61 @@
+{
+    "tools": [
+        {
+            "name": "get_tree_view_stylesheet",
+            "description": "Get stylesheet for QTreeView with modern dark theme",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "ai_interaction_tool\\ui\\styles.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "_get_chevron_right_svg",
+            "description": "Get base64 encoded chevron right SVG",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "ai_interaction_tool\\ui\\styles.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "_get_chevron_down_svg",
+            "description": "Get base64 encoded chevron down SVG",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "ai_interaction_tool\\ui\\styles.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

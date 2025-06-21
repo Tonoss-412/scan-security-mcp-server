@@ -1,0 +1,962 @@
+{
+    "tools": [
+        {
+            "name": "hello",
+            "description": "Test tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archive\\legacy-tests\\test_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "validate_file_size",
+            "description": "Check if file size is within limits",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_extension",
+            "description": "Check if file extension is allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "source_file_id",
+            "description": "\n        Generate deterministic ID for source files based on filename\n        \n        Args:\n            filename: Original filename (e.g., \"lookin.mp4\", \"Subnautic Measures.flac\")\n            \n        Returns:\n            Deterministic ID (e.g., \"src_lookin_mp4\", \"src_subnautic_measures_flac\")\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filename": {
+                        "type": "string",
+                        "description": "Original filename (e.g., \"lookin.mp4\", \"Subnautic Measures.flac\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "filename",
+                    "Returns"
+                ]
+            },
+            "file": "src\\deterministic_id_generator.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "effect_file_id",
+            "description": "\n        Generate deterministic ID for effect operations\n        \n        Args:\n            input_ids: List of input file IDs\n            operation: Operation name (e.g., \"trim\", \"concatenate_simple\")\n            params: Operation parameters\n            \n        Returns:\n            Deterministic effect ID (e.g., \"effect_trim_1a2b3c4d\")\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input_ids": {
+                        "type": "string",
+                        "description": "List of input file IDs"
+                    },
+                    "operation": {
+                        "type": "string",
+                        "description": "Operation name (e.g., \"trim\", \"concatenate_simple\")"
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "Operation parameters"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "input_ids",
+                    "operation",
+                    "params",
+                    "Returns"
+                ]
+            },
+            "file": "src\\deterministic_id_generator.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "temp_file_path",
+            "description": "\n        Generate predictable temp file paths for better organization\n        \n        Args:\n            file_id: Deterministic file ID\n            operation: Operation name\n            params: Operation parameters\n            extension: File extension\n            \n        Returns:\n            Predictable file path\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_id": {
+                        "type": "string",
+                        "description": "Deterministic file ID"
+                    },
+                    "operation": {
+                        "type": "string",
+                        "description": "Operation name"
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "Operation parameters"
+                    },
+                    "extension": {
+                        "type": "string",
+                        "description": "File extension"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_id",
+                    "operation",
+                    "params",
+                    "extension",
+                    "Returns"
+                ]
+            },
+            "file": "src\\deterministic_id_generator.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "metadata_file_path",
+            "description": "\n        Generate metadata file paths\n        \n        Args:\n            file_id: Source or effect file ID\n            metadata_type: Type of metadata (e.g., \"analysis\", \"speech\", \"properties\")\n            \n        Returns:\n            Metadata file path\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_id": {
+                        "type": "string",
+                        "description": "Source or effect file ID"
+                    },
+                    "metadata_type": {
+                        "type": "string",
+                        "description": "Type of metadata (e.g., \"analysis\", \"speech\", \"properties\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_id",
+                    "metadata_type",
+                    "Returns"
+                ]
+            },
+            "file": "src\\deterministic_id_generator.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "validate_deterministic_naming",
+            "description": "\n        Validate that deterministic naming produces consistent results\n        \n        Returns:\n            Dict with validation results and examples\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\deterministic_id_generator.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "content_analysis_key",
+            "description": "Generate cache key for video content analysis",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\deterministic_id_generator.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "speech_detection_key",
+            "description": "Generate cache key for speech detection results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\deterministic_id_generator.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "properties_cache_key",
+            "description": "Generate cache key for file properties",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\deterministic_id_generator.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "komposition_key",
+            "description": "Generate cache key for komposition files",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\deterministic_id_generator.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "width",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\format_manager.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "height",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\format_manager.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "orientation",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\format_manager.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "orientation",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\format_manager.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "list_files",
+            "description": "\ud83c\udfac CORE WORKFLOW - List available source files with smart suggestions and quick actions\n    \n    This is typically your FIRST STEP in any video editing workflow.\n    \n    Returns:\n        - File IDs for secure processing\n        - Smart suggestions based on file types\n        - Quick action workflows\n        - File statistics and metadata\n    \n    Next Steps:\n        \u2192 analyze_video_content(file_id) - Understand video content with AI\n        \u2192 generate_komposition_from_description() - Create music video from text\n        \u2192 get_file_info(file_id) - Get detailed metadata\n        \u2192 process_file(file_id, operation) - Start processing\n    \n    Example Usage:\n        list_files()  # Start here to see all available media\n    \"\"\"\n    files ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_files",
+            "description": "List source files with secure IDs and smart suggestions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server_minimal.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_file_info",
+            "description": "Get detailed metadata for a file by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server_minimal.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_available_operations",
+            "description": "Get list of available FFMPEG operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server_minimal.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "process_file",
+            "description": "Process a file using FFMPEG with specified operation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server_minimal.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_generated_files",
+            "description": "List all generated/processed files in temp directory with metadata",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server_minimal.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cleanup_temp_files",
+            "description": "Clean up temporary files",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server_minimal.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_list_files_finds_test_video",
+            "description": "Test that list_files finds our test video",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_ffmpeg_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_file_info_for_test_video",
+            "description": "Test getting detailed info for test video",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_ffmpeg_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_available_operations",
+            "description": "Test that available operations are returned",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_ffmpeg_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_extract_audio_from_test_video",
+            "description": "Test extracting audio from the test video",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_ffmpeg_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_convert_to_mp3",
+            "description": "Test converting video to MP3",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_ffmpeg_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_trim_video",
+            "description": "Test trimming the video to first 5 seconds",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_ffmpeg_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_file_id",
+            "description": "Test handling of invalid file ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_ffmpeg_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_operation",
+            "description": "Test handling of invalid operation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_ffmpeg_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_cleanup_temp_files",
+            "description": "Test cleanup of temporary files",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_ffmpeg_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_ffmpeg_wrapper_directly",
+            "description": "Test FFMPEG wrapper functionality directly",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_ffmpeg_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_analyze_video_format_real_file",
+            "description": "Test video format analysis with real file (if available)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_format_manager.py",
+            "decorator": [
+                "pytest.mark.skipif"
+            ]
+        },
+        {
+            "name": "test_silero_vad_missing_dependencies",
+            "description": "Test SileroVAD handles missing dependencies gracefully",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_speech_detection.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_silero_vad_model_loading_failure",
+            "description": "Test SileroVAD handles model loading failure",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_torch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_torch"
+                ]
+            },
+            "file": "tests\\test_speech_detection.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_silero_vad_successful_initialization",
+            "description": "Test SileroVAD successful initialization",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_torch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_torch"
+                ]
+            },
+            "file": "tests\\test_speech_detection.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_audio_file_detection",
+            "description": "Test speech detection on audio file (mock)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_speech_detection.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_video_file_audio_extraction",
+            "description": "Test audio extraction from video file",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_speech_detection.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_engine_fallback_behavior",
+            "description": "Test fallback to secondary engine when primary fails",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_speech_detection.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_all_engines_fail",
+            "description": "Test behavior when all engines fail",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_speech_detection.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_detect_speech_segments_mcp_tool",
+            "description": "Test detect_speech_segments MCP tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_speech_detection.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_detect_speech_segments_file_not_found",
+            "description": "Test detect_speech_segments with non-existent file",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_speech_detection.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_speech_insights_mcp_tool",
+            "description": "Test get_speech_insights MCP tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_speech_detection.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_speech_insights_no_cached_data",
+            "description": "Test get_speech_insights when no cached data exists",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_speech_detection.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "transition_komposition",
+            "description": "Provide reference transition effects komposition JSON",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_transition_effects.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_transition_processor_integration",
+            "description": "Test integration with TransitionProcessor (if available)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "transition_komposition": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "transition_komposition"
+                ]
+            },
+            "file": "tests\\test_transition_effects.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "effect_processor",
+            "description": "Create effect processor with mocked dependencies",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_video_effects.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_apply_ffmpeg_effect",
+            "description": "Test applying FFmpeg-based effects",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "effect_processor": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "effect_processor"
+                ]
+            },
+            "file": "tests\\test_video_effects.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_effect_chain",
+            "description": "Test applying multiple effects in sequence",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "effect_processor": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "effect_processor"
+                ]
+            },
+            "file": "tests\\test_video_effects.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_effect_chain_failure_handling",
+            "description": "Test handling of failures in effect chains",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "effect_processor": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "effect_processor"
+                ]
+            },
+            "file": "tests\\test_video_effects.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "temp_video_file",
+            "description": "Create a temporary test video file",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_video_effects.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_data_dir",
+            "description": "Return path to test data directory",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\ci\\test_integration_basic.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_output_dir",
+            "description": "Create temporary directory for test outputs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\ci\\test_integration_basic.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_ffmpeg_wrapper_info",
+            "description": "Test FFMPEG wrapper file info functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\ci\\test_integration_basic.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_server_basic",
+            "description": "Test basic MCP server functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\ci\\test_integration_basic.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_basic_video_operations",
+            "description": "Test basic video operations if files are available",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\ci\\test_integration_basic.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_server_startup",
+            "description": "Test that MCP server can start and respond",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\ci\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_list_files",
+            "description": "Test MCP list_files functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\ci\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_file_info",
+            "description": "Test MCP get_file_info functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\ci\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "ensure_test_environment",
+            "description": "Ensure test environment directories exist",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\ci\\test_workflow_minimal.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_minimal_video_workflow",
+            "description": "Test minimal video processing workflow",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ensure_test_environment": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ensure_test_environment"
+                ]
+            },
+            "file": "tests\\ci\\test_workflow_minimal.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_speech_detection_mcp_tool",
+            "description": "Test speech detection via MCP tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\dev\\test_speech_features.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_lookin_video_speech",
+            "description": "Test speech detection on lookin video (if available)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\dev\\test_speech_features.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_dagny_video_speech",
+            "description": "Test speech detection on Dagny video (if available)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\dev\\test_speech_features.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_speech_insights_tool",
+            "description": "Test get_speech_insights MCP tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\dev\\test_speech_features.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_speech_komposition_tool",
+            "description": "Test speech komposition processing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\dev\\test_speech_features.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "hello",
+            "description": "Test tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\testing\\test_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        }
+    ]
+}

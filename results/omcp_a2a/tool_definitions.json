@@ -1,0 +1,236 @@
+{
+    "tools": [
+        {
+            "name": "execute_query",
+            "description": "ExecuteaSQLqueryagainstanOMOPdatabaseandreturnresultsasstructuredJSON\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\data_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_connection",
+            "description": "Testifadatabaseconnectionisvalid\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\data_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_omop_schema",
+            "description": "GettheOMOPCDMschemainformationforprompting\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\data_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "validate_query",
+            "description": "ValidateaSQLqueryagainstOMOPCDMvalidationrules\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\data_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_sql",
+            "description": "GenerateSQLfromnaturallanguageusinganLLM\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": "Natural language query"
+                    },
+                    "schema": {
+                        "type": "string",
+                        "description": "OMOP CDM schema information"
+                    },
+                    "medical_concepts": {
+                        "type": "string",
+                        "description": "Optional dictionary containing extracted medical concepts with their codes"
+                    },
+                    "model_name": {
+                        "type": "string",
+                        "description": "Optional model name override"
+                    },
+                    "system_prompt": {
+                        "type": "string",
+                        "description": "Optional system prompt override"
+                    }
+                },
+                "required": [
+                    "prompt",
+                    "schema",
+                    "medical_concepts",
+                    "model_name",
+                    "system_prompt"
+                ]
+            },
+            "file": "src\\data_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_explanation",
+            "description": "GenerateanexplanationforanSQLquery\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\data_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_answer",
+            "description": "Generateanaturallanguageanswerbasedonquery",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\data_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_available_models",
+            "description": "ListavailableLLMmodelsfromOllama\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\data_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "CheckiftheMCPserverisrunning\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\data_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "Execute a SQL query against an OMOP database and return results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent2agent_omcp\\data_agent.py",
+            "decorator": [
+                "skill"
+            ]
+        },
+        {
+            "name": "test_connection",
+            "description": "Test if a database connection is valid",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent2agent_omcp\\data_agent.py",
+            "decorator": [
+                "skill"
+            ]
+        },
+        {
+            "name": "get_omop_schema",
+            "description": "Get the OMOP CDM schema information for prompting",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent2agent_omcp\\data_agent.py",
+            "decorator": [
+                "skill"
+            ]
+        },
+        {
+            "name": "validate_query",
+            "description": "Validate a SQL query against OMOP CDM validation rules",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent2agent_omcp\\data_agent.py",
+            "decorator": [
+                "skill"
+            ]
+        },
+        {
+            "name": "generate_sql",
+            "description": "Generate SQL from natural language using an LLM",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent2agent_omcp\\data_agent.py",
+            "decorator": [
+                "skill"
+            ]
+        },
+        {
+            "name": "call_ollama_for_explanation",
+            "description": "Call Ollama API directly for SQL explanation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent2agent_omcp\\data_agent.py",
+            "decorator": [
+                "skill"
+            ]
+        },
+        {
+            "name": "generate_explanation",
+            "description": "Generate an explanation for an SQL query",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent2agent_omcp\\data_agent.py",
+            "decorator": [
+                "skill"
+            ]
+        },
+        {
+            "name": "call_ollama_directly",
+            "description": "Call Ollama API directly for SQL generation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent2agent_omcp\\data_agent.py",
+            "decorator": [
+                "skill"
+            ]
+        }
+    ]
+}

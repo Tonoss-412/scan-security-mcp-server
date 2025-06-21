@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "write_to_bigquery",
+            "description": "\n    Accepts payload from Claude with:\n    - table_id: str\n    - schema: list of {\"name\", \"type\", \"description\"}\n    - data: dict matching schema\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

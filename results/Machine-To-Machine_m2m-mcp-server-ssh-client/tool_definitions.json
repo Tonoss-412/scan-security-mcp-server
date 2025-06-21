@@ -1,0 +1,42 @@
+{
+    "tools": [
+        {
+            "name": "ssh_client",
+            "description": "\n    Establish an SSH connection to an MCP server.\n\n    Creates a secure communication channel to a remote MCP server using SSH\n    protocol. The connection handles authentication, encryption, and\n    message exchange between the local client and remote server.\n\n    Args:\n        params: SSH connection parameters defining the connection properties\n        errlog: Stream for error logging, defaults to stderr\n\n    Yields:\n        A tuple of (read_stream, write_stream) for message exchange with the\n        server\n\n    Raises:\n        asyncssh.Error: If the SSH connection fails\n        ConnectionError: If the connection cannot be established\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "params": {
+                        "type": "string",
+                        "description": "SSH connection parameters defining the connection properties"
+                    },
+                    "errlog": {
+                        "type": "string",
+                        "description": "Stream for error logging, defaults to stderr"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ConnectionError": {
+                        "type": "string",
+                        "description": "If the connection cannot be established"
+                    }
+                },
+                "required": [
+                    "params",
+                    "errlog",
+                    "Yields",
+                    "Raises",
+                    "ConnectionError"
+                ]
+            },
+            "file": "src\\m2m_mcp_server_ssh_client\\ssh_client.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        }
+    ]
+}

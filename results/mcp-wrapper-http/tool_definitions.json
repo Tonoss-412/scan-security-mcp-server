@@ -1,0 +1,64 @@
+{
+    "tools": [
+        {
+            "name": "mcp_post",
+            "description": "MCP Streamable HTTP POST endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "http_wrapper.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "mcp_get",
+            "description": "MCP Streamable HTTP GET endpoint for SSE",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "http_wrapper.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint (non-MCP)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "http_wrapper.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create a test client for the Flask app",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_http_wrapper.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_mcp_server",
+            "description": "Mock MCP server process with test data",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_http_wrapper.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

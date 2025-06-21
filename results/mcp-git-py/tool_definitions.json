@@ -1,0 +1,61 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_git\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_git\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "MCP Git Server - Git functionality for MCP",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_git\\__init__.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "setUpClass",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

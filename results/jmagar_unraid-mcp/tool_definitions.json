@@ -1,0 +1,369 @@
+{
+    "tools": [
+        {
+            "name": "validate",
+            "description": "Validate required configuration is present",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "array_status",
+            "description": "Currentarraystatusinformation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources\\array.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "shares",
+            "description": "ListofallusersharesontheUnraidserver",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources\\array.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "all_disks",
+            "description": "Listofalldisksinthesystem",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources\\disks.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "disk_details",
+            "description": "Detailedinformationaboutaspecificdisk",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "disk_id": {
+                        "type": "string",
+                        "description": "The ID of the disk"
+                    }
+                },
+                "required": [
+                    "disk_id"
+                ]
+            },
+            "file": "src\\resources\\disks.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "docker_containers",
+            "description": "ListofallDockercontainerswiththeirstatus",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources\\docker.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "container_details",
+            "description": "GetdetailedinformationaboutaspecificDockercontainer",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "container_name": {
+                        "type": "string",
+                        "description": "The name of the Docker container"
+                    }
+                },
+                "required": [
+                    "container_name"
+                ]
+            },
+            "file": "src\\resources\\docker.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "notification_overview",
+            "description": "OverviewofallnotificationsontheUnraidserver",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources\\notifications.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "unread_notifications",
+            "description": "Listofunreadnotifications",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources\\notifications.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "archived_notifications",
+            "description": "Listofarchivednotifications",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources\\notifications.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "system_info",
+            "description": "CurrentsysteminformationincludingCPU",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources\\system.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "plugins",
+            "description": "ListofallinstalledpluginsontheUnraidserver",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources\\system.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "virtual_machines",
+            "description": "Listofallvirtualmachinesandtheirstatus",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources\\vms.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "vm_details",
+            "description": "Getdetailedinformationaboutaspecificvirtualmachine",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "vm_name": {
+                        "type": "string",
+                        "description": "The name of the virtual machine"
+                    }
+                },
+                "required": [
+                    "vm_name"
+                ]
+            },
+            "file": "src\\resources\\vms.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "get_api_keys",
+            "description": "GetinformationaboutallAPIkeys",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\apikeys.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "get_disks",
+            "description": "Getinformationaboutalldisks",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\disks.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "get_docker_networks",
+            "description": "GetinformationaboutDockernetworks",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\docker.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "get_system_info",
+            "description": "Getsysteminformationinahuman-readableformat",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\formatting.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "get_notifications",
+            "description": "Getnotifications",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "notification_type": {
+                        "type": "string",
+                        "description": "Type of notifications to retrieve (UNREAD or ARCHIVE)"
+                    },
+                    "importance": {
+                        "type": "string",
+                        "description": "Optional filter by importance (INFO, WARNING, ALERT)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of notifications to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "notification_type",
+                    "importance",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\notifications.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "get_parity_history",
+            "description": "Getparitycheckhistory",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\parity.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "get_shares",
+            "description": "Getinformationaboutnetworkshares",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\shares.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "get_system_info",
+            "description": "Getdetailedsysteminformation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\system.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "get_unassigned_devices",
+            "description": "Getinformationaboutunassigneddevices",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\unassigned_devices.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "get_users",
+            "description": "Getinformationaboutallusers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\users.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "get_vm_details",
+            "description": "Getdetailedinformationaboutaspecificvirtualmachine",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "vm_name": {
+                        "type": "string",
+                        "description": "The name of the virtual machine"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "vm_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\vms.py",
+            "decorator": [
+                "server.tool"
+            ]
+        }
+    ]
+}

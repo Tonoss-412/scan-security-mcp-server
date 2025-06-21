@@ -1,0 +1,195 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "shared\\mcp_base.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "shared\\mcp_base.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "get_tools",
+            "description": "Return list of available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "shared\\mcp_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool execution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "shared\\mcp_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create test server instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_synthesis_tracker.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_tools",
+            "description": "Test that tools are properly defined.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_synthesis_tracker.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_check_synthesis_login_no_data",
+            "description": "Test login check with no existing data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_synthesis_tracker.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_study_progress_no_data",
+            "description": "Test progress retrieval with no data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_synthesis_tracker.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_study_reminder",
+            "description": "Test sending study reminder.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_synthesis_tracker.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_current_streak",
+            "description": "Test streak calculation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\test_synthesis_tracker.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "db",
+            "description": "Create test database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_synthesis_tracker.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "email_monitor",
+            "description": "Create test email monitor.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_synthesis_tracker.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_integration_workflow",
+            "description": "Test full workflow integration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_synthesis_tracker.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

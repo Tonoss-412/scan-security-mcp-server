@@ -1,0 +1,244 @@
+{
+    "tools": [
+        {
+            "name": "komodo_lifespan",
+            "description": "Initialize and manage the KomodoDefiClient instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_client_info",
+            "description": "Get information about the Komodo DeFi client instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_enabled_coins",
+            "description": "List all enabled coins in the Komodo DeFi Framework.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "activate_coin_electrum",
+            "description": "Activate a coin using electrum mode.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_orderbook",
+            "description": "Get the current orderbook for a trading pair.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_balance",
+            "description": "Get the balance for a specific coin.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "place_buy_order",
+            "description": "Place a buy order on the Komodo DeFi Framework.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "place_sell_order",
+            "description": "Place a sell order on the Komodo DeFi Framework.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "version",
+            "description": "Get the version of the Komodo DeFi Framework API",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "komodo_defi_client\\komodo_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "pubkey",
+            "description": "Get the public key of the node",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "komodo_defi_client\\komodo_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "pubkey_hash",
+            "description": "Get the public key hash of the node",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "komodo_defi_client\\komodo_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "peer_id",
+            "description": "Get the peer ID of the node",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "komodo_defi_client\\komodo_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "peers_info",
+            "description": "Get the peer information of the node",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "komodo_defi_client\\komodo_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "orders",
+            "description": "Get the current orders of the node",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "komodo_defi_client\\komodo_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "active_swaps",
+            "description": "Get the active swaps of the node",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "komodo_defi_client\\komodo_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "enabled_coins",
+            "description": "Get the enabled coins of the node",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "komodo_defi_client\\komodo_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "netid",
+            "description": "Get the network ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "komodo_defi_client\\komodo_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "rpcip",
+            "description": "Get the RPC IP address",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "komodo_defi_client\\komodo_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "rpcport",
+            "description": "Get the RPC port",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "komodo_defi_client\\komodo_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "db_dir",
+            "description": "Get the database directory",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "komodo_defi_client\\komodo_client.py",
+            "decorator": [
+                "property"
+            ]
+        }
+    ]
+}

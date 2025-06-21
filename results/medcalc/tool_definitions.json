@@ -1,0 +1,76 @@
+{
+    "tools": [
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpuse\\hello_mcp.py",
+            "decorator": [
+                "fast.agent"
+            ]
+        },
+        {
+            "name": "egfr_epi",
+            "description": "\n    Estimated Glomerular Filtration Rate (eGFR) using the EPI formula (version 2021)\n    Reference: N Engl J Med. 2021 Nov 4;385(19):1737-1749\n    \n    Parameters:\n    -----------\n    scr : float\n        serum creatinine level in mg/dL\n    age : int\n        Age in years\n    male : bool\n        true if Male\n    \n    Returns:\n    --------\n    float\n        Estimated GFR in mL/min/1.73m^2\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "medcalc\\calculator.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "egfr_epi",
+            "description": "\n    Estimated Glomerular Filtration Rate (eGFR) using the EPI formula (version 2021)\n    Reference: N Engl J Med. 2021 Nov 4;385(19):1737-1749\n    \n    Parameters:\n    -----------\n    scr : float\n        serum creatinine level in mg/dL\n    age : int\n        Age in years\n    male : bool\n        true if Male\n    \n    Returns:\n    --------\n    float\n        Estimated GFR in mL/min/1.73m^2\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "medcalc\\__main__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "MedCalcBench\\agent.py",
+            "decorator": [
+                "fast.agent"
+            ]
+        },
+        {
+            "name": "agent_function",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "MedCalcBench\\evaluation\\llm_inference.py",
+            "decorator": [
+                "fast.agent"
+            ]
+        },
+        {
+            "name": "agent_function",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "MedCalcBench\\evaluation\\llm_inference.py",
+            "decorator": [
+                "fast.agent"
+            ]
+        }
+    ]
+}

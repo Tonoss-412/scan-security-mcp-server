@@ -1,0 +1,110 @@
+{
+    "tools": [
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "generate_prayer",
+            "description": "Start a new prayer generation process",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\prayer_routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_prayer_status",
+            "description": "Get the status of a prayer generation process",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\prayer_routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "stream_prayer_status",
+            "description": "Stream updates for a prayer generation process",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\prayer_routes.py",
+            "decorator": [
+                "router.websocket"
+            ]
+        },
+        {
+            "name": "_search_brave",
+            "description": "\n        Perform a web search using Brave Search API.\n\n        Args:\n            query: Search query\n            count: Number of results to return\n\n        Returns:\n            List of search results with title, description, and URL\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    },
+                    "count": {
+                        "type": "string",
+                        "description": "Number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "count",
+                    "Returns"
+                ]
+            },
+            "file": "services\\groq_research_agent.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "_make_groq_request",
+            "description": "\n        Make a request to the Groq API with improved error handling.\n\n        Args:\n            system_prompt: System prompt for the API\n            user_prompt: User prompt for the API\n\n        Returns:\n            Response text from the API or None if the request fails\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "system_prompt": {
+                        "type": "string",
+                        "description": "System prompt for the API"
+                    },
+                    "user_prompt": {
+                        "type": "string",
+                        "description": "User prompt for the API"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "system_prompt",
+                    "user_prompt",
+                    "Returns"
+                ]
+            },
+            "file": "services\\groq_research_agent.py",
+            "decorator": [
+                "retry"
+            ]
+        }
+    ]
+}

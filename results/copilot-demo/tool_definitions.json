@@ -1,0 +1,56 @@
+{
+    "tools": [
+        {
+            "name": "cli",
+            "description": "Weather CLI tool for checking weather conditions and forecasts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "projects\\weather\\src\\weather_cli\\cli.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "current",
+            "description": "Get current weather for a location.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "location"
+                ]
+            },
+            "file": "projects\\weather\\src\\weather_cli\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "forecast",
+            "description": "Get weather forecast for a location.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "location"
+                ]
+            },
+            "file": "projects\\weather\\src\\weather_cli\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.argument"
+            ]
+        }
+    ]
+}

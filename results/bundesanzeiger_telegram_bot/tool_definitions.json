@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool execution",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        }
+    ]
+}

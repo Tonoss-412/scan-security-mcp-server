@@ -1,0 +1,498 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "Root endpoint providing basic info about the API",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-server\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint for the API server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-server\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "startup_event",
+            "description": "Initialize components on startup",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-server\\app\\main.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "shutdown_event",
+            "description": "Clean up resources on shutdown",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-server\\app\\main.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "global_exception_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-server\\app\\main.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "check_system_health",
+            "description": "\n    Check the health of all system components\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-server\\app\\routers\\admin.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "list_collections",
+            "description": "\n    List all collections in the vector database\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-server\\app\\routers\\admin.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_collection_stats",
+            "description": "\n    Get statistics for a specific collection\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-server\\app\\routers\\admin.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "delete_collection",
+            "description": "\n    Delete a collection from the vector database\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-server\\app\\routers\\admin.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "ingest_s3",
+            "description": "\n    Ingest data from S3\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-server\\app\\routers\\ingest.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "ingest_file",
+            "description": "\n    Ingest a file directly via the API\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-server\\app\\routers\\ingest.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "query",
+            "description": "\n    Send a natural language query to the RAG system\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-server\\app\\routers\\query.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_instance",
+            "description": "Singleton pattern to get the service instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "api-server\\app\\services\\eureka_service.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "_call_llm",
+            "description": "\n        Call the LLM to generate a response. Must be implemented by subclasses.\n\n        Args:\n            messages: List of message dictionaries representing the conversation\n\n        Returns:\n            Generated response from the LLM\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "type": "string",
+                        "description": "List of message dictionaries representing the conversation"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "messages",
+                    "Returns"
+                ]
+            },
+            "file": "llm\\base_client.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "\n        Create an LLM client for the specified provider.\n\n        Args:\n            provider: The LLM provider to use ('llamacpp', 'ollama')\n            model: The model to use\n            model_path: Path to the model file (for local models)\n            api_base: Base URL for the API (for local/custom endpoints)\n            api_key: API key for the provider (if needed)\n            temperature: Controls randomness in response generation\n            max_tokens: Maximum number of tokens to generate\n            system_prompt: Optional system prompt to guide the LLM\n            **kwargs: Additional provider-specific parameters\n\n        Returns:\n            An instance of BaseLLMClient for the specified provider\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "provider": {
+                        "type": "string",
+                        "description": "The LLM provider to use ('llamacpp', 'ollama')"
+                    },
+                    "model": {
+                        "type": "string",
+                        "description": "The model to use"
+                    },
+                    "model_path": {
+                        "type": "string",
+                        "description": "Path to the model file (for local models)"
+                    },
+                    "api_base": {
+                        "type": "string",
+                        "description": "Base URL for the API (for local/custom endpoints)"
+                    },
+                    "api_key": {
+                        "type": "string",
+                        "description": "API key for the provider (if needed)"
+                    },
+                    "temperature": {
+                        "type": "string",
+                        "description": "Controls randomness in response generation"
+                    },
+                    "max_tokens": {
+                        "type": "string",
+                        "description": "Maximum number of tokens to generate"
+                    },
+                    "system_prompt": {
+                        "type": "string",
+                        "description": "Optional system prompt to guide the LLM"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "provider",
+                    "model",
+                    "model_path",
+                    "api_base",
+                    "api_key",
+                    "temperature",
+                    "max_tokens",
+                    "system_prompt",
+                    "Returns"
+                ]
+            },
+            "file": "llm\\llm_client.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "search_s3",
+            "description": "\n    Search S3 objects for the given query.\n\n    Args:\n        query: The search query string\n        bucket: Optional bucket name to search in\n        prefix: Optional prefix to filter objects\n        ctx: MCP context object\n\n    Returns:\n        Search results from S3 as formatted text\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query string"
+                    },
+                    "bucket": {
+                        "type": "string",
+                        "description": "Optional bucket name to search in"
+                    },
+                    "prefix": {
+                        "type": "string",
+                        "description": "Optional prefix to filter objects"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context object"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "bucket",
+                    "prefix",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\s3.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_s3_object",
+            "description": "\n    Retrieve metadata or contents of a specific S3 object.\n\n    Args:\n        bucket: The S3 bucket name\n        key: The object key\n        ctx: MCP context object\n\n    Returns:\n        Object metadata or content as text\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "bucket": {
+                        "type": "string",
+                        "description": "The S3 bucket name"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "The object key"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context object"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "bucket",
+                    "key",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\s3.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_s3_buckets",
+            "description": "\n    List all available S3 buckets.\n\n    Returns:\n        A list of S3 buckets\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\s3.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "list_s3_objects",
+            "description": "\n    List objects in an S3 bucket with optional prefix and delimiter.\n\n    Args:\n        bucket: The S3 bucket name\n        prefix: Optional prefix to filter objects\n        delimiter: Optional delimiter for hierarchical listing\n        ctx: MCP context object\n\n    Returns:\n        List of objects as formatted text\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "bucket": {
+                        "type": "string",
+                        "description": "The S3 bucket name"
+                    },
+                    "prefix": {
+                        "type": "string",
+                        "description": "Optional prefix to filter objects"
+                    },
+                    "delimiter": {
+                        "type": "string",
+                        "description": "Optional delimiter for hierarchical listing"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context object"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "bucket",
+                    "prefix",
+                    "delimiter",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\s3.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_slack",
+            "description": "\n    Search Slack messages and content for the given query.\n\n    Args:\n        query: The search query string\n        channels: Optional comma-separated list of channel names to search in\n        users: Optional comma-separated list of usernames to filter by\n        ctx: MCP context object\n\n    Returns:\n        Search results from Slack as formatted text\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query string"
+                    },
+                    "channels": {
+                        "type": "string",
+                        "description": "Optional comma-separated list of channel names to search in"
+                    },
+                    "users": {
+                        "type": "string",
+                        "description": "Optional comma-separated list of usernames to filter by"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context object"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "channels",
+                    "users",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\slack.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_slack_conversation_history",
+            "description": "\n    Retrieve recent conversation history from a Slack channel.\n\n    Args:\n        channel: The channel name or ID\n        limit: Maximum number of messages to retrieve\n        ctx: MCP context object\n\n    Returns:\n        Conversation history as formatted text\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "channel": {
+                        "type": "string",
+                        "description": "The channel name or ID"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of messages to retrieve"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context object"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "channel",
+                    "limit",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\slack.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_slack_channels",
+            "description": "\n    List all available Slack channels.\n\n    Returns:\n        A list of Slack channels\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\slack.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "post_slack_message",
+            "description": "\n    Post a message to a Slack channel or thread.\n\n    Args:\n        channel: The channel name or ID to post to\n        message: The message text to post\n        thread_ts: Optional thread timestamp to reply to\n        ctx: MCP context object\n\n    Returns:\n        Confirmation of message posting\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "channel": {
+                        "type": "string",
+                        "description": "The channel name or ID to post to"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "The message text to post"
+                    },
+                    "thread_ts": {
+                        "type": "string",
+                        "description": "Optional thread timestamp to reply to"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context object"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "channel",
+                    "message",
+                    "thread_ts",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\slack.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

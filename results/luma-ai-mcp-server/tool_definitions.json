@@ -1,0 +1,358 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\luma_ai_mcp_server\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\luma_ai_mcp_server\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "MCP Luma Server - Luma AI video generation functionality for MCP",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\luma_ai_mcp_server\\__init__.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "mock_env",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_ping",
+            "description": "Test the ping function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_generation",
+            "description": "Test the create_generation function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_generation",
+            "description": "Test the get_generation function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_generations",
+            "description": "Test the list_generations function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_upscale_generation",
+            "description": "Test the upscale_generation function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_add_audio",
+            "description": "Test the add_audio function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_generate_image",
+            "description": "Test the generate_image function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_credits",
+            "description": "Test the get_credits function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_generation",
+            "description": "Test the delete_generation function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_camera_motions",
+            "description": "Test the get_camera_motions function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_server_call_tool",
+            "description": "Test the call_tool server function with different tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_generation_with_keyframes",
+            "description": "Test creating a generation with keyframes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_generation_with_video_model",
+            "description": "Test creating a generation with different video models.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_generation_with_aspect_ratio",
+            "description": "Test creating a generation with different aspect ratios.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_generate_image_with_references",
+            "description": "Test generating an image with reference images.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_state_handling",
+            "description": "Test handling of different generation states.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

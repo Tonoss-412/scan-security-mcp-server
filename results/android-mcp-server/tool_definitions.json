@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "open_chrome_and_search",
+            "description": "Opens the default browser on the connected Android device and searches Google for the provided query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "android_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

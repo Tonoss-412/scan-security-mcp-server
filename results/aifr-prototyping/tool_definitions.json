@@ -1,0 +1,175 @@
+{
+    "tools": [
+        {
+            "name": "from_rdf",
+            "description": "Create a FlawReport instance from RDF data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "packages\\semantic-aifr\\src\\semantic_aifr\\main.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "echo_tool",
+            "description": "Echo text for debugging that tool is connected correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp-aifr\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_flaw_report_jsonld",
+            "description": "\n    Create an AI flaw report and return it as JSON-LD.\n    \n    Args:\n        reporter_id: ID of the person or entity reporting the flaw\n        system_versions: List of affected system versions\n        description: Detailed description of the flaw\n        policy_violation: How this flaw violates policies\n        severity: High/Medium/Low estimate of severity\n        prevalence: How often the flaw might occur\n        impacts: Areas impacted (privacy, bias, misinformation, etc)\n        impacted_stakeholders: Who might be harmed if not addressed\n        risk_source: Source of the risk (model, data, deployment, etc)\n        \n    Returns:\n        A JSON-LD representation of the flaw report\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "reporter_id": {
+                        "type": "string",
+                        "description": "ID of the person or entity reporting the flaw"
+                    },
+                    "system_versions": {
+                        "type": "string",
+                        "description": "List of affected system versions"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Detailed description of the flaw"
+                    },
+                    "policy_violation": {
+                        "type": "string",
+                        "description": "How this flaw violates policies"
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "High/Medium/Low estimate of severity"
+                    },
+                    "prevalence": {
+                        "type": "string",
+                        "description": "How often the flaw might occur"
+                    },
+                    "impacts": {
+                        "type": "string",
+                        "description": "Areas impacted (privacy, bias, misinformation, etc)"
+                    },
+                    "impacted_stakeholders": {
+                        "type": "string",
+                        "description": "Who might be harmed if not addressed"
+                    },
+                    "risk_source": {
+                        "type": "string",
+                        "description": "Source of the risk (model, data, deployment, etc)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "reporter_id",
+                    "system_versions",
+                    "description",
+                    "policy_violation",
+                    "severity",
+                    "prevalence",
+                    "impacts",
+                    "impacted_stakeholders",
+                    "risk_source",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp-aifr\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_rdf_flaw_report",
+            "description": "\n    Create an AI flaw report and return it as RDF/Turtle.\n    \n    Args:\n        reporter_id: ID of the person reporting the flaw\n        system_versions: List of affected system versions\n        description: Detailed description of the flaw\n        policy_violation: How this flaw violates policies\n        severity: High/Medium/Low estimate of severity\n        prevalence: How often the flaw might occur\n        impacts: Areas impacted (privacy, bias, misinformation, etc)\n        impacted_stakeholders: Who might be harmed if not addressed\n        risk_source: Source of the risk (model, data, deployment, etc)\n        \n    Returns:\n        The flaw report serialized as RDF/Turtle\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "reporter_id": {
+                        "type": "string",
+                        "description": "ID of the person reporting the flaw"
+                    },
+                    "system_versions": {
+                        "type": "string",
+                        "description": "List of affected system versions"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Detailed description of the flaw"
+                    },
+                    "policy_violation": {
+                        "type": "string",
+                        "description": "How this flaw violates policies"
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "High/Medium/Low estimate of severity"
+                    },
+                    "prevalence": {
+                        "type": "string",
+                        "description": "How often the flaw might occur"
+                    },
+                    "impacts": {
+                        "type": "string",
+                        "description": "Areas impacted (privacy, bias, misinformation, etc)"
+                    },
+                    "impacted_stakeholders": {
+                        "type": "string",
+                        "description": "Who might be harmed if not addressed"
+                    },
+                    "risk_source": {
+                        "type": "string",
+                        "description": "Source of the risk (model, data, deployment, etc)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "reporter_id",
+                    "system_versions",
+                    "description",
+                    "policy_violation",
+                    "severity",
+                    "prevalence",
+                    "impacts",
+                    "impacted_stakeholders",
+                    "risk_source",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp-aifr\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "resource_aifr_ontology",
+            "description": "\n    Resource for accessing the AIFR prototype ontology.\n    \n    Returns:\n        The prototype AIFR ontology in Turtle format\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp-aifr\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,238 @@
+{
+    "tools": [
+        {
+            "name": "summarize_csv",
+            "description": "\n    Summarize the contents of a CSV file.\n    \n    Args:\n        filename: Name of the CSV file (e.g. 'sample.csv')\n    \n    Returns:\n        A string summarizing the file's contents.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filename": {
+                        "type": "string",
+                        "description": "Name of the CSV file (e.g. 'sample.csv')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "filename",
+                    "Returns"
+                ]
+            },
+            "file": "tools\\file_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "summarize_parquet",
+            "description": "\n    Summarize the contents of a Parquet file.\n    \n    Args:\n        filename: Name of the Parquet file (e.g. 'sample.parquet')\n    \n    Returns:\n        A string summarizing the file's contents.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filename": {
+                        "type": "string",
+                        "description": "Name of the Parquet file (e.g. 'sample.parquet')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "filename",
+                    "Returns"
+                ]
+            },
+            "file": "tools\\file_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_stock_price",
+            "description": "\n    Retrieve the current stock price for the given ticker symbol.\n    Returns the latest closing price as a float.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\finance_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "stock_resource",
+            "description": "\n    Expose stock price data as a resource.\n    Returns a formatted string with the current stock price for the given symbol.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\finance_tools.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_stock_history",
+            "description": "\n    Retrieve historical data for a stock given a ticker symbol and a period.\n    Returns the historical data as a CSV formatted string.\n    \n    Parameters:\n        symbol: The stock ticker symbol.\n        period: The period over which to retrieve historical data (e.g., '1mo', '3mo', '1y').\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\finance_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "compare_stocks",
+            "description": "\n    Compare the current stock prices of two ticker symbols.\n    Returns a formatted message comparing the two stock prices.\n    \n    Parameters:\n        symbol1: The first stock ticker symbol.\n        symbol2: The second stock ticker symbol.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\finance_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_kusto_query",
+            "description": "\n    Get data from kusto for a given query\n    Returns:\n        A json containing the results of the query.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\personal_reviews.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_reviews",
+            "description": "\n    Retrieve reviews from the database\n    Args:\n        query to get all review\n    Returns:\n        dict: Review data if found, else an error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Review data if found, else an error message."
+                    }
+                },
+                "required": [
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "tools\\personal_reviews.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_review",
+            "description": "\n    Retrieve a review from the database by its ID or Name.\n    Args:\n        review_id (str): The unique identifier of the review.\n    Returns:\n        dict: Review data if found, else an error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "review_id": {
+                        "type": "string",
+                        "description": "The unique identifier of the review."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Review data if found, else an error message."
+                    }
+                },
+                "required": [
+                    "review_id",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "tools\\personal_reviews.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_review",
+            "description": "\n    Create a new review in the database.\n    Args:\n        review_name (str): Name of the review.\n        workload_id (str): ID of the workload.\n        workload_name (str): Name of the workload.\n        owner (str): Owner of the review.\n    Returns:\n        str: Success or error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "review_name": {
+                        "type": "string",
+                        "description": "Name of the review."
+                    },
+                    "workload_id": {
+                        "type": "string",
+                        "description": "ID of the workload."
+                    },
+                    "workload_name": {
+                        "type": "string",
+                        "description": "Name of the workload."
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "Owner of the review."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Success or error message."
+                    }
+                },
+                "required": [
+                    "review_name",
+                    "workload_id",
+                    "workload_name",
+                    "owner",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "tools\\personal_reviews.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_review",
+            "description": "\n    Delete a review from the database.\n    Args:\n        review_id (str): The unique identifier of the review.\n    Returns:\n        str: Success or error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "review_id": {
+                        "type": "string",
+                        "description": "The unique identifier of the review."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Success or error message."
+                    }
+                },
+                "required": [
+                    "review_id",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "tools\\personal_reviews.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

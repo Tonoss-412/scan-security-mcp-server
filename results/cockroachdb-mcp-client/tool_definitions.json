@@ -1,0 +1,172 @@
+{
+    "tools": [
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\cli.py",
+            "decorator": [
+                "app.callback"
+            ]
+        },
+        {
+            "name": "post_context",
+            "description": "POST to /contexts with retry logic.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\commands\\create.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "create_context",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\commands\\create.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "delete_from_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\commands\\delete.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "delete_context",
+            "description": "\n    Delete a context by its UUID.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\commands\\delete.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "fetch_context",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\commands\\export.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "export_context",
+            "description": "Export a context by ID to a local YAML or JSON file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\commands\\export.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "fetch_context",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\commands\\get.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "get_context",
+            "description": "\n    Get a specific context by its UUID.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\commands\\get.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "fetch_contexts",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\commands\\list_.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "list_contexts",
+            "description": "\n    List all contexts from the MCP server.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\commands\\list_.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "run_context",
+            "description": "\n    Simulate an LLM call using the given provider and context.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\commands\\run.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "simulate_context",
+            "description": "\n    Run a batch of inputs through a model context.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\commands\\simulate.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "\n        Run an inference call against the provider with the given context and input.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cockroachdb_mcp_client\\providers\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        }
+    ]
+}

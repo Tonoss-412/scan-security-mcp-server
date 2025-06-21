@@ -1,0 +1,152 @@
+{
+    "tools": [
+        {
+            "name": "async_db_url",
+            "description": "Return SQLAlchemy async URL for asyncpg driver.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "muse_osc_mcp\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "global_engine_manager",
+            "description": "Manages the lifecycle of the global engine for the test session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "warm_up_db_on_session_start",
+            "description": "Warms up the global DB connection pool at the beginning of the test session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "db_prepared",
+            "description": "Initialise tables once for test session by calling db.init_db().",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "global_engine_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "global_engine_manager"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "db_session_for_test",
+            "description": "Creates a new async engine and session factory for each test,\n    and patches db.engine and db.async_session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "running_server",
+            "description": "Run OSC server and batch commit task in background, yield port.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "_clean_tables",
+            "description": "Truncate all tables after each test for idempotency.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_eeg_accel_flow",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "running_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "running_server"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_direct_db_commit_performance",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_stress_high_volume_mixed_messages",
+            "description": "Tests sending a high volume of mixed OSC messages and verifies DB persistence.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "running_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "running_server"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

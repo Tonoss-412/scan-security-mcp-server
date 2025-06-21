@@ -1,0 +1,548 @@
+{
+    "tools": [
+        {
+            "name": "post_tweet",
+            "description": "Post a new tweet to Twitter.\n    \n    Args:\n        text: The content of the tweet (required)\n        reply_to_tweet_id: ID of the tweet to reply to (optional)\n        quote_tweet_id: ID of the tweet to quote (optional)\n    \n    Returns:\n        Result of the tweet creation including tweet ID and URL\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "The content of the tweet (required)"
+                    },
+                    "reply_to_tweet_id": {
+                        "type": "string",
+                        "description": "ID of the tweet to reply to (optional)"
+                    },
+                    "quote_tweet_id": {
+                        "type": "string",
+                        "description": "ID of the tweet to quote (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "reply_to_tweet_id",
+                    "quote_tweet_id",
+                    "Returns"
+                ]
+            },
+            "file": "twitter\\twitter_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_recent_tweets",
+            "description": "Search for recent tweets matching a query.\n    \n    Args:\n        query: Search query text (required)\n        max_results: Number of results to return (default: 10, max: 100)\n        start_time: Oldest timestamp to include (format: YYYY-MM-DDTHH:mm:ssZ)\n        end_time: Newest timestamp to include (format: YYYY-MM-DDTHH:mm:ssZ)\n        sort_order: Order of results - \"recency\" or \"relevancy\" (default: recency)\n    \n    Returns:\n        Formatted list of matching tweets\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query text (required)"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Number of results to return (default: 10, max: 100)"
+                    },
+                    "start_time": {
+                        "type": "string",
+                        "description": "Oldest timestamp to include (format: YYYY-MM-DDTHH:mm:ssZ)"
+                    },
+                    "end_time": {
+                        "type": "string",
+                        "description": "Newest timestamp to include (format: YYYY-MM-DDTHH:mm:ssZ)"
+                    },
+                    "sort_order": {
+                        "type": "string",
+                        "description": "Order of results - \"recency\" or \"relevancy\" (default: recency)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "start_time",
+                    "end_time",
+                    "sort_order",
+                    "Returns"
+                ]
+            },
+            "file": "twitter\\twitter_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_posts",
+            "description": "Get WordPress posts with optional filtering.\n    \n    Args:\n        limit: Maximum number of posts to return (default: 10)\n        page: Page number for pagination (default: 1)\n        category_id: Filter posts by category ID\n        tag_id: Filter posts by tag ID\n        search: Search term to filter posts\n    \n    Returns:\n        Formatted post information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of posts to return (default: 10)"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "Page number for pagination (default: 1)"
+                    },
+                    "category_id": {
+                        "type": "string",
+                        "description": "Filter posts by category ID"
+                    },
+                    "tag_id": {
+                        "type": "string",
+                        "description": "Filter posts by tag ID"
+                    },
+                    "search": {
+                        "type": "string",
+                        "description": "Search term to filter posts"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "page",
+                    "category_id",
+                    "tag_id",
+                    "search",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_post_by_id",
+            "description": "Get a single WordPress post by ID.\n    \n    Args:\n        post_id: ID of the post to retrieve\n    \n    Returns:\n        Detailed post information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "post_id": {
+                        "type": "string",
+                        "description": "ID of the post to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "post_id",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_categories",
+            "description": "Get WordPress categories.\n    \n    Args:\n        limit: Maximum number of categories to return (default: 20)\n    \n    Returns:\n        Formatted category information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of categories to return (default: 20)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_tags",
+            "description": "Get WordPress tags.\n    \n    Args:\n        limit: Maximum number of tags to return (default: 20)\n    \n    Returns:\n        Formatted tag information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of tags to return (default: 20)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_pages",
+            "description": "Get WordPress pages.\n    \n    Args:\n        limit: Maximum number of pages to return (default: 10)\n    \n    Returns:\n        Formatted page information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of pages to return (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_content",
+            "description": "Search WordPress content.\n    \n    Args:\n        query: Search term\n        limit: Maximum number of results to return (default: 10)\n    \n    Returns:\n        Search results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search term"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_media",
+            "description": "Get WordPress media items.\n    \n    Args:\n        limit: Maximum number of media items to return (default: 10)\n    \n    Returns:\n        Formatted media information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of media items to return (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_users",
+            "description": "Get WordPress users.\n    \n    Args:\n        limit: Maximum number of users to return (default: 10)\n    \n    Returns:\n        Formatted user information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of users to return (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_comments",
+            "description": "Get WordPress comments, optionally for a specific post.\n    \n    Args:\n        post_id: Post ID to get comments for (or None for recent comments)\n        limit: Maximum number of comments to return (default: 10)\n    \n    Returns:\n        Formatted comment information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "post_id": {
+                        "type": "string",
+                        "description": "Post ID to get comments for (or None for recent comments)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of comments to return (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "post_id",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_post",
+            "description": "Create a new WordPress blog post.\n    \n    Args:\n        title: Title of the post\n        content: Content of the post (can include HTML)\n        status: Post status (default: draft, options: draft, publish, private, pending)\n        categories: List of category IDs to assign (optional)\n        tags: List of tag IDs to assign (optional)\n    \n    Returns:\n        Result of the post creation operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Title of the post"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Content of the post (can include HTML)"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Post status (default: draft, options: draft, publish, private, pending)"
+                    },
+                    "categories": {
+                        "type": "string",
+                        "description": "List of category IDs to assign (optional)"
+                    },
+                    "tags": {
+                        "type": "string",
+                        "description": "List of tag IDs to assign (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "content",
+                    "status",
+                    "categories",
+                    "tags",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_post",
+            "description": "Update an existing WordPress blog post.\n    \n    Args:\n        post_id: ID of the post to update\n        title: New title of the post (optional)\n        content: New content of the post (can include HTML) (optional)\n        status: New post status (options: draft, publish, private, pending) (optional)\n        categories: New list of category IDs to assign (optional)\n        tags: New list of tag IDs to assign (optional)\n    \n    Returns:\n        Result of the post update operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "post_id": {
+                        "type": "string",
+                        "description": "ID of the post to update"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "New title of the post (optional)"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "New content of the post (can include HTML) (optional)"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "New post status (options: draft, publish, private, pending) (optional)"
+                    },
+                    "categories": {
+                        "type": "string",
+                        "description": "New list of category IDs to assign (optional)"
+                    },
+                    "tags": {
+                        "type": "string",
+                        "description": "New list of tag IDs to assign (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "post_id",
+                    "title",
+                    "content",
+                    "status",
+                    "categories",
+                    "tags",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_site_info",
+            "description": "Get basic information about the WordPress site.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_api_routes",
+            "description": "Get available WordPress REST API routes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "create_page",
+            "description": "Create a new WordPress page.\n    \n    Args:\n        title: Title of the page\n        content: Content of the page (can include HTML)\n        status: Page status (default: draft, options: draft, publish, private, pending)\n        parent_id: ID of the parent page if this is a child page (optional)\n        menu_order: Order of the page in navigation menus (optional)\n        template: Template to use for the page (optional)\n    \n    Returns:\n        Result of the page creation operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Title of the page"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Content of the page (can include HTML)"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "Page status (default: draft, options: draft, publish, private, pending)"
+                    },
+                    "parent_id": {
+                        "type": "string",
+                        "description": "ID of the parent page if this is a child page (optional)"
+                    },
+                    "menu_order": {
+                        "type": "string",
+                        "description": "Order of the page in navigation menus (optional)"
+                    },
+                    "template": {
+                        "type": "string",
+                        "description": "Template to use for the page (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "content",
+                    "status",
+                    "parent_id",
+                    "menu_order",
+                    "template",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_page",
+            "description": "Update an existing WordPress page.\n    \n    Args:\n        page_id: ID of the page to update\n        title: New title of the page (optional)\n        content: New content of the page (can include HTML) (optional)\n        status: New page status (options: draft, publish, private, pending) (optional)\n        parent_id: New parent page ID if this is a child page (optional)\n        menu_order: New order of the page in navigation menus (optional)\n        template: New template to use for the page (optional)\n    \n    Returns:\n        Result of the page update operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "page_id": {
+                        "type": "string",
+                        "description": "ID of the page to update"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "New title of the page (optional)"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "New content of the page (can include HTML) (optional)"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "New page status (options: draft, publish, private, pending) (optional)"
+                    },
+                    "parent_id": {
+                        "type": "string",
+                        "description": "New parent page ID if this is a child page (optional)"
+                    },
+                    "menu_order": {
+                        "type": "string",
+                        "description": "New order of the page in navigation menus (optional)"
+                    },
+                    "template": {
+                        "type": "string",
+                        "description": "New template to use for the page (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "page_id",
+                    "title",
+                    "content",
+                    "status",
+                    "parent_id",
+                    "menu_order",
+                    "template",
+                    "Returns"
+                ]
+            },
+            "file": "wordpress\\wordpress_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

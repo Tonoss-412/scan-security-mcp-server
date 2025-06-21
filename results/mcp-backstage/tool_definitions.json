@@ -1,0 +1,189 @@
+{
+    "tools": [
+        {
+            "name": "get_all_entities",
+            "description": "Get all entities from the Backstage catalog.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_entities_by_kind",
+            "description": "Get entities of a specific kind from the Backstage catalog.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_entity",
+            "description": "Get a specific entity by its kind, namespace, and name.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "query_entities",
+            "description": "\n    Query entities from Backstage catalog using filter parameters.\n    \n    Example filter formats:\n    - kind=component\n    - kind=component,spec.type=service\n    - metadata.annotations.backstage.io/orphan=true\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_entity_relations",
+            "description": "Get all relationships for a specific entity.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_entities",
+            "description": "Search for entities using a text query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "count_entities_by_kind",
+            "description": "Count entities by kind and return a summary.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_entities_by_annotation",
+            "description": "\n    Find entities that have a specific annotation key or key-value pair.\n    \n    Args:\n        annotation_key: The annotation key to search for (e.g., 'example.com/service-discovery')\n        annotation_value: Optional value to match with the annotation key\n        \n    Returns:\n        JSON string containing matching entities\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "annotation_key": {
+                        "type": "string",
+                        "description": "The annotation key to search for (e.g., 'example.com/service-discovery')"
+                    },
+                    "annotation_value": {
+                        "type": "string",
+                        "description": "Optional value to match with the annotation key"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "annotation_key",
+                    "annotation_value",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_annotation_keys",
+            "description": "\n    List all unique annotation keys used across entities in the Backstage catalog.\n    \n    Returns:\n        JSON string with lists of annotation keys and their usage counts\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "analyze_entities",
+            "description": "Analyze the entities in the Backstage catalog.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "analyze_component_dependencies",
+            "description": "Analyze dependencies for a specific component.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "system_health_check",
+            "description": "Check the health of the system based on Backstage data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "discover_service",
+            "description": "Find and analyze a service by its service discovery ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "analyze_annotations",
+            "description": "Analyze annotations used across entities in the catalog.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

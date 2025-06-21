@@ -1,0 +1,1498 @@
+{
+    "tools": [
+        {
+            "name": "as_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\spotify_mcp_server\\server.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "handle_playback",
+            "description": "Manages the current playback with the following actions:\n    - get: Get information about user's current track.\n    - start: Starts playing new item or resumes current playback if called with no uri.\n    - pause: Pauses current playback.\n    - skip: Skips current track.\n    - previous: Goes to previous track.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\server.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "handle_search",
+            "description": "Search for tracks, albums, artists, or playlists on Spotify.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\server.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "handle_queue",
+            "description": "Manage the playback queue - get the queue or add tracks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\server.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "handle_get_info",
+            "description": "Get detailed information about a Spotify item (track, album, artist, or playlist).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\server.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "handle_playlist",
+            "description": "Manage Spotify playlists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\server.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "handle_devices",
+            "description": "Handle device listing requests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\server.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "set_username",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\spotify_api.py",
+            "decorator": [
+                "utils.validate"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "\n        Searches based of query term.\n        - query: query term\n        - qtype: the types of items to return. One or more of 'artist', 'album',  'track', 'playlist'.\n                 If multiple types are desired, pass in a comma separated string; e.g. 'track,album'\n        - limit: max # items to return\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\spotify_api.py",
+            "decorator": [
+                "utils.validate"
+            ]
+        },
+        {
+            "name": "start_playback",
+            "description": "\n        Starts spotify playback of uri. If spotify_uri is omitted, resumes current playback.\n        - spotify_uri: ID of resource to play, or None. Typically looks like 'spotify:track:xxxxxx' or 'spotify:album:xxxxxx'.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\spotify_api.py",
+            "decorator": [
+                "utils.validate"
+            ]
+        },
+        {
+            "name": "pause_playback",
+            "description": "Pauses playback.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\spotify_api.py",
+            "decorator": [
+                "utils.validate"
+            ]
+        },
+        {
+            "name": "add_to_queue",
+            "description": "\n        Adds track or album to queue.\n        - track_id: ID or URI of track or album. Can be either a Spotify ID or full URI.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\spotify_api.py",
+            "decorator": [
+                "utils.validate"
+            ]
+        },
+        {
+            "name": "get_queue",
+            "description": "Returns the current queue of tracks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\spotify_api.py",
+            "decorator": [
+                "utils.validate"
+            ]
+        },
+        {
+            "name": "get_playlist_tracks",
+            "description": "\n        Get tracks from a playlist.\n        - playlist_id: ID of the playlist to get tracks from.\n        - limit: Max number of tracks to return.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\spotify_api.py",
+            "decorator": [
+                "utils.ensure_username"
+            ]
+        },
+        {
+            "name": "add_tracks_to_playlist",
+            "description": "\n        Add tracks to a playlist.\n        - playlist_id: ID of the playlist to modify.\n        - track_ids: List of track IDs to add.\n        - position: Position to insert the tracks at (optional).\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\spotify_api.py",
+            "decorator": [
+                "utils.ensure_username"
+            ]
+        },
+        {
+            "name": "remove_tracks_from_playlist",
+            "description": "\n        Remove tracks from a playlist.\n        - playlist_id: ID of the playlist to modify.\n        - track_ids: List of track IDs to remove.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\spotify_api.py",
+            "decorator": [
+                "utils.ensure_username"
+            ]
+        },
+        {
+            "name": "change_playlist_details",
+            "description": "\n        Change playlist details.\n        - playlist_id: ID of the playlist to modify.\n        - name: New name for the playlist.\n        - public: Whether the playlist should be public.\n        - description: New description for the playlist.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\spotify_api.py",
+            "decorator": [
+                "utils.ensure_username"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\spotify_helper.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_mcp_server\\spotify_helper.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "mock_logger",
+            "description": "Create a mock logger for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_spotify_client",
+            "description": "Create a mock Spotify client for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_track",
+            "description": "Sample track data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_artist",
+            "description": "Sample artist data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_album",
+            "description": "Sample album data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_playlist",
+            "description": "Sample playlist data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_search_results",
+            "description": "Sample search results for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_devices",
+            "description": "Sample devices data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_queue",
+            "description": "Sample queue data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_env_vars",
+            "description": "Mock environment variables for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "reset_mocks",
+            "description": "Reset all mocks after each test.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_fastapi_request",
+            "description": "Create a mock FastAPI request object.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_oauth_manager",
+            "description": "Create a mock OAuth manager.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_spotipy",
+            "description": "Create a mock spotipy.Spotify instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_callback_endpoint_success",
+            "description": "Test successful callback endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_handle": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_handle"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_callback_endpoint_error",
+            "description": "Test callback endpoint with error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_handle": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_handle"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_playback_tool_integration",
+            "description": "Test playback tool integration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_tool_integration",
+            "description": "Test search tool integration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_tool_integration",
+            "description": "Test queue tool integration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playlist_tool_integration",
+            "description": "Test playlist tool integration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_devices_tool_integration",
+            "description": "Test devices tool integration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_info_tool_integration",
+            "description": "Test get info tool integration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_spotify_exception_handling",
+            "description": "Test handling of Spotify exceptions across tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_general_exception_handling",
+            "description": "Test handling of general exceptions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_validation_error_handling",
+            "description": "Test handling of validation errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_action_handling",
+            "description": "Test handling of invalid actions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_to_playback_flow",
+            "description": "Test flow from search to playback.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playlist_management_flow",
+            "description": "Test complete playlist management flow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_management_flow",
+            "description": "Test queue management flow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_concurrent_tool_calls",
+            "description": "Test concurrent tool calls don't interfere.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_spotify_callback_success",
+            "description": "Test successful Spotify callback.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_spotify_callback_no_code",
+            "description": "Test Spotify callback without code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_spotify_callback_exception",
+            "description": "Test Spotify callback with exception.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playback_get",
+            "description": "Test handle_playback with get action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playback_get_no_track",
+            "description": "Test handle_playback get action with no current track.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playback_start",
+            "description": "Test handle_playback with start action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playback_pause",
+            "description": "Test handle_playback with pause action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playback_skip",
+            "description": "Test handle_playback with skip action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playback_unknown_action",
+            "description": "Test handle_playback with unknown action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playback_spotify_exception",
+            "description": "Test handle_playback with SpotifyException.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playback_general_exception",
+            "description": "Test handle_playback with general exception.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_search_success",
+            "description": "Test successful search.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_search_with_options",
+            "description": "Test search with custom options.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_search_spotify_exception",
+            "description": "Test search with SpotifyException.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_search_general_exception",
+            "description": "Test search with general exception.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_queue_add",
+            "description": "Test adding track to queue.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_queue_add_no_track_id",
+            "description": "Test adding to queue without track ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_queue_get",
+            "description": "Test getting queue.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_queue_unknown_action",
+            "description": "Test queue with unknown action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_queue_spotify_exception",
+            "description": "Test queue with SpotifyException.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_get_info_success",
+            "description": "Test successful get info.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_get_info_spotify_exception",
+            "description": "Test get info with SpotifyException.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_get_info_general_exception",
+            "description": "Test get info with general exception.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playlist_get",
+            "description": "Test getting playlists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playlist_get_tracks",
+            "description": "Test getting playlist tracks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playlist_get_tracks_no_id",
+            "description": "Test getting playlist tracks without playlist ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playlist_add_tracks",
+            "description": "Test adding tracks to playlist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playlist_add_tracks_missing_params",
+            "description": "Test adding tracks without required parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playlist_remove_tracks",
+            "description": "Test removing tracks from playlist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playlist_change_details",
+            "description": "Test changing playlist details.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playlist_change_details_no_changes",
+            "description": "Test changing playlist details without name or description.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playlist_unknown_action",
+            "description": "Test playlist with unknown action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_playlist_spotify_exception",
+            "description": "Test playlist with SpotifyException.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_devices_success",
+            "description": "Test successful device listing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_devices_with_params",
+            "description": "Test device listing with parameters (should be ignored).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_devices_spotify_exception",
+            "description": "Test device listing with SpotifyException.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_devices_general_exception",
+            "description": "Test device listing with general exception.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_oauth_callback_success",
+            "description": "Test successful OAuth callback handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_oauth_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_oauth_manager"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_handle_oauth_callback_exception",
+            "description": "Test OAuth callback handling with exception.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_oauth_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_oauth_manager"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_client_initialization",
+            "description": "Test client initialization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_set_username",
+            "description": "Test setting username.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search",
+            "description": "Test search functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_results": {
+                        "type": "string"
+                    },
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_results",
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_current_track",
+            "description": "Test getting current track.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_track": {
+                        "type": "string"
+                    },
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_track",
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_current_track_no_playback",
+            "description": "Test getting current track when nothing is playing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_start_playback",
+            "description": "Test starting playback.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_pause_playback",
+            "description": "Test pausing playback.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_add_to_queue",
+            "description": "Test adding track to queue.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_queue",
+            "description": "Test getting playback queue.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_current_user_playlists",
+            "description": "Test getting user playlists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_playlist": {
+                        "type": "string"
+                    },
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_playlist",
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_playlist_tracks",
+            "description": "Test getting playlist tracks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_tracks": {
+                        "type": "string"
+                    },
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_tracks",
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_add_tracks_to_playlist",
+            "description": "Test adding tracks to playlist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_remove_tracks_from_playlist",
+            "description": "Test removing tracks from playlist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_change_playlist_details",
+            "description": "Test changing playlist details.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_devices",
+            "description": "Test getting available devices.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_is_active_device",
+            "description": "Test checking if device is active.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_candidate_device",
+            "description": "Test getting candidate device.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_spotify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_spotify"
+                ]
+            },
+            "file": "tests\\test_spotify_api.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_method",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_helper.py",
+            "decorator": [
+                "validate"
+            ]
+        },
+        {
+            "name": "test_method",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_helper.py",
+            "decorator": [
+                "validate"
+            ]
+        },
+        {
+            "name": "test_method",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_helper.py",
+            "decorator": [
+                "validate"
+            ]
+        },
+        {
+            "name": "test_method",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_helper.py",
+            "decorator": [
+                "ensure_username"
+            ]
+        },
+        {
+            "name": "test_method",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_helper.py",
+            "decorator": [
+                "ensure_username"
+            ]
+        }
+    ]
+}

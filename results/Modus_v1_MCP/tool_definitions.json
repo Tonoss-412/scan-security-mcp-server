@@ -1,0 +1,64 @@
+{
+    "tools": [
+        {
+            "name": "getting_started_installation_and_guidelines",
+            "description": "Get guidelines for installation and usage of Modus components",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ModusFromMCP.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_list_of_all_modus_components",
+            "description": "Get a list of all available Modus components (both form and UI)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ModusFromMCP.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_component_details",
+            "description": "Get properties and usage examples for a specific Modus component",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ModusFromMCP.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_knowledge_base",
+            "description": "Knowledge base for Modus components with examples and best practices",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ModusFromMCP.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_modus_icons_by_char",
+            "description": "Get Modus icon names that start with the specified character prefix",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ModusFromMCP.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

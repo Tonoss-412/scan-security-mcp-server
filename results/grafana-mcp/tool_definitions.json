@@ -1,0 +1,48 @@
+{
+    "tools": [
+        {
+            "name": "create_time_series_dashboard",
+            "description": "    Create a Grafana dashboard (ClickHouse data-source) with a single\n    **Time-series** panel.\n\n    -------------------- SQL CONTRACT (Grafana ClickHouse v4+) --------------------\n    \u2022 The query should return at least a time column and one numeric metric column. The time column must be a DateTime (or DateTime64) type so Grafana recognizes it as the timestamp. For instance: `SELECT timestamp AS time, count() AS total ...`.\n\n    \u2022 Always include a time filter macro to respect the dashboard\u2019s time range.\n        For tables with a single DateTime timestamp column, use `WHERE $__timeFilter(<TimeColumn_OR_Expression>)`. If the table has separate date and datetime columns, use `WHERE $__dateTimeFilter(<DateColumn>, <DateTimeColumn>)` to ensure both partition and time are filtered.\n\n\n    \u2022 Follow with one or more numeric columns.  Each column\u2019s alias becomes the\n      series name.  If you need multiple lines from a single numeric column,\n      insert a string label between `time` and the metric.\n\n    \u2022 Finish with:\n\n          GROUP BY time\n          ORDER BY time\n\n      Order results by the time column ascending (oldest first) for proper chronological rendering, unless the data source or Grafana does this automatically.\n\n    \u2022 **No trailing semicolon** \u2014 Grafana appends fragments internally.\n\n    \u2022 Other clickhouse/grafana macros and variables are not supported, **avoid them**.\n\n    Example minimal queries:\n\n        SELECT\n          created_at AS time,\n          avg(load_1m) AS \"Load-1m\"\n        FROM system.metrics\n        WHERE $__timeFilter(created_at)\n        GROUP BY time\n        ORDER BY time\n\n        SELECT\n            toStartOfInterval(event_time, INTERVAL 1 minute) as time,\n            count() as value\n        FROM events\n        WHERE $__timeFilter(event_time)\n        GROUP BY time\n        ORDER BY time\n\n\n    Args:\n        title (str): Title of the dashboard.\n        description (str): Description of the dashboard.\n        panel_title (str): Title of the panel.\n        raw_sql (str): Raw SQL query to be used in the panel. Make sure the query is adapted to use grafana magic strings for date ranges, as well as has the correct timeseries fields.\n        make_public (bool): Whether to make the dashboard public. Defaults to True.\n\n    Returns:\n        JSON response from the Grafana API with additional public URL if requested.\n    \"\"\"\n    client = get_",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Title of the dashboard."
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the dashboard."
+                    },
+                    "panel_title": {
+                        "type": "string",
+                        "description": "Title of the panel."
+                    },
+                    "raw_sql": {
+                        "type": "string",
+                        "description": "Raw SQL query to be used in the panel. Make sure the query is adapted to use grafana magic strings for date ranges, as well as has the correct timeseries fields."
+                    },
+                    "make_public": {
+                        "type": "boolean",
+                        "description": "Whether to make the dashboard public. Defaults to True."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "description",
+                    "panel_title",
+                    "raw_sql",
+                    "make_public",
+                    "Returns"
+                ]
+            },
+            "file": "src\\grafana_mcp\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

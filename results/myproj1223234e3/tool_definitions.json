@@ -1,0 +1,391 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "List available tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "http_server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "http_server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "add_numbers",
+            "description": "Add two numbers together.\n\n    Args:\n        a: First number\n        b: Second number\n\n    Returns:\n        The sum of the two numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "a": {
+                        "type": "string",
+                        "description": "First number"
+                    },
+                    "b": {
+                        "type": "string",
+                        "description": "Second number"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "a",
+                    "b",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "subtract_numbers",
+            "description": "Subtract two numbers.\n\n    Args:\n        a: First number\n        b: Second number\n\n    Returns:\n        The difference of the two numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "a": {
+                        "type": "string",
+                        "description": "First number"
+                    },
+                    "b": {
+                        "type": "string",
+                        "description": "Second number"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "a",
+                    "b",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "multiply_numbers",
+            "description": "Multiply two numbers.\n\n    Args:\n        a: First number\n        b: Second number\n\n    Returns:\n        The product of the two numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "a": {
+                        "type": "string",
+                        "description": "First number"
+                    },
+                    "b": {
+                        "type": "string",
+                        "description": "Second number"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "a",
+                    "b",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "divide_numbers",
+            "description": "Divide two numbers.\n\n    Args:\n        a: First number (dividend)\n        b: Second number (divisor)\n\n    Returns:\n        The quotient of the two numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "a": {
+                        "type": "string",
+                        "description": "First number (dividend)"
+                    },
+                    "b": {
+                        "type": "string",
+                        "description": "Second number (divisor)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "a",
+                    "b",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "calculate_power",
+            "description": "Calculate base raised to the power of exponent.\n\n    Args:\n        base: Base number\n        exponent: Exponent\n\n    Returns:\n        The result of base^exponent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "base": {
+                        "type": "string",
+                        "description": "Base number"
+                    },
+                    "exponent": {
+                        "type": "string",
+                        "description": "Exponent"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "base",
+                    "exponent",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_info",
+            "description": "Get information about this MCP server.\n\n    Returns:\n        Information about the server and its capabilities\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_numbers",
+            "description": "Add two numbers together.\n\n    Args:\n        a: First number\n        b: Second number\n\n    Returns:\n        The sum of the two numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "a": {
+                        "type": "string",
+                        "description": "First number"
+                    },
+                    "b": {
+                        "type": "string",
+                        "description": "Second number"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "a",
+                    "b",
+                    "Returns"
+                ]
+            },
+            "file": "simple_http_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "subtract_numbers",
+            "description": "Subtract two numbers.\n\n    Args:\n        a: First number\n        b: Second number\n\n    Returns:\n        The difference of the two numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "a": {
+                        "type": "string",
+                        "description": "First number"
+                    },
+                    "b": {
+                        "type": "string",
+                        "description": "Second number"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "a",
+                    "b",
+                    "Returns"
+                ]
+            },
+            "file": "simple_http_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "multiply_numbers",
+            "description": "Multiply two numbers.\n\n    Args:\n        a: First number\n        b: Second number\n\n    Returns:\n        The product of the two numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "a": {
+                        "type": "string",
+                        "description": "First number"
+                    },
+                    "b": {
+                        "type": "string",
+                        "description": "Second number"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "a",
+                    "b",
+                    "Returns"
+                ]
+            },
+            "file": "simple_http_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "divide_numbers",
+            "description": "Divide two numbers.\n\n    Args:\n        a: First number (dividend)\n        b: Second number (divisor)\n\n    Returns:\n        The quotient of the two numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "a": {
+                        "type": "string",
+                        "description": "First number (dividend)"
+                    },
+                    "b": {
+                        "type": "string",
+                        "description": "Second number (divisor)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "a",
+                    "b",
+                    "Returns"
+                ]
+            },
+            "file": "simple_http_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_info",
+            "description": "Get information about this MCP server.\n\n    Returns:\n        Information about the server and its capabilities\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "simple_http_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "stateful_server.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls with streaming notifications",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "stateful_server.py",
+            "decorator": [
+                "app.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamable_server.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls for calculator operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamable_server.py",
+            "decorator": [
+                "app.call_tool"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available calculator tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamable_server.py",
+            "decorator": [
+                "app.list_tools"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "Context manager for session manager lifecycle",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamable_server.py",
+            "decorator": [
+                "contextlib.asynccontextmanager"
+            ]
+        }
+    ]
+}

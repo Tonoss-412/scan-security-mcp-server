@@ -1,0 +1,777 @@
+{
+    "tools": [
+        {
+            "name": "app_lifespan",
+            "description": "Manage application lifecycle for accounting engine.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "echo",
+            "description": "\n    Echoes the input message back to the user.\n\n    Args:\n        message (str): The message to echo.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "The message to echo."
+                    }
+                },
+                "required": [
+                    "message"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_ledger",
+            "description": "\n    Sets up the ledger by:\n    - Creating the SQLAlchemy engine from configuration.\n    - Running migrations to create tables.\n    - Creating a default reporting entity, currency, chart of accounts, and taxes if not present.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "record_cash_sale",
+            "description": "\n    Records a cash sale transaction.\n    \n    Args:\n        narration: Description of the sale\n        amount: Sale amount (excluding tax)\n        quantity: Quantity of items sold\n        tax_code: Tax code to apply (default: GSTOUT)\n        entity_name: Entity name to use\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "narration": {
+                        "type": "string",
+                        "description": "Description of the sale"
+                    },
+                    "amount": {
+                        "type": "string",
+                        "description": "Sale amount (excluding tax)"
+                    },
+                    "quantity": {
+                        "type": "string",
+                        "description": "Quantity of items sold"
+                    },
+                    "tax_code": {
+                        "type": "string",
+                        "description": "Tax code to apply (default: GSTOUT)"
+                    },
+                    "entity_name": {
+                        "type": "string",
+                        "description": "Entity name to use"
+                    }
+                },
+                "required": [
+                    "narration",
+                    "amount",
+                    "quantity",
+                    "tax_code",
+                    "entity_name"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "record_cash_purchase",
+            "description": "\n    Records a cash purchase (expense) transaction.\n    \n    Args:\n        narration: Description of the purchase\n        amount: Purchase amount (excluding tax)\n        quantity: Quantity of items purchased\n        tax_code: Tax code to apply (default: GSTIN)\n        entity_name: Entity name to use\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "narration": {
+                        "type": "string",
+                        "description": "Description of the purchase"
+                    },
+                    "amount": {
+                        "type": "string",
+                        "description": "Purchase amount (excluding tax)"
+                    },
+                    "quantity": {
+                        "type": "string",
+                        "description": "Quantity of items purchased"
+                    },
+                    "tax_code": {
+                        "type": "string",
+                        "description": "Tax code to apply (default: GSTIN)"
+                    },
+                    "entity_name": {
+                        "type": "string",
+                        "description": "Entity name to use"
+                    }
+                },
+                "required": [
+                    "narration",
+                    "amount",
+                    "quantity",
+                    "tax_code",
+                    "entity_name"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "record_client_invoice",
+            "description": "\n    Records a client invoice (credit sale) transaction.\n    \n    Args:\n        narration: Description of the invoice\n        amount: Invoice amount (excluding tax)\n        quantity: Quantity of items invoiced\n        tax_code: Tax code to apply (default: GSTOUT)\n        entity_name: Entity name to use\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "narration": {
+                        "type": "string",
+                        "description": "Description of the invoice"
+                    },
+                    "amount": {
+                        "type": "string",
+                        "description": "Invoice amount (excluding tax)"
+                    },
+                    "quantity": {
+                        "type": "string",
+                        "description": "Quantity of items invoiced"
+                    },
+                    "tax_code": {
+                        "type": "string",
+                        "description": "Tax code to apply (default: GSTOUT)"
+                    },
+                    "entity_name": {
+                        "type": "string",
+                        "description": "Entity name to use"
+                    }
+                },
+                "required": [
+                    "narration",
+                    "amount",
+                    "quantity",
+                    "tax_code",
+                    "entity_name"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "record_supplier_bill",
+            "description": "\n    Records a supplier bill (credit purchase) transaction.\n    \n    Args:\n        narration: Description of the bill\n        amount: Bill amount (excluding tax)\n        quantity: Quantity of items billed\n        tax_code: Tax code to apply (default: GSTIN)  \n        entity_name: Entity name to use\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "narration": {
+                        "type": "string",
+                        "description": "Description of the bill"
+                    },
+                    "amount": {
+                        "type": "string",
+                        "description": "Bill amount (excluding tax)"
+                    },
+                    "quantity": {
+                        "type": "string",
+                        "description": "Quantity of items billed"
+                    },
+                    "tax_code": {
+                        "type": "string",
+                        "description": "Tax code to apply (default: GSTIN)"
+                    },
+                    "entity_name": {
+                        "type": "string",
+                        "description": "Entity name to use"
+                    }
+                },
+                "required": [
+                    "narration",
+                    "amount",
+                    "quantity",
+                    "tax_code",
+                    "entity_name"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_profit_loss_report",
+            "description": "\n    Generates a Profit & Loss (Income Statement) report in JSON format.\n    \n    Args:\n        entity_name: Entity name to generate report for\n        start_date: Start date for the report (YYYY-MM-DD format, optional)\n        end_date: End date for the report (YYYY-MM-DD format, optional)\n    \n    Returns:\n        JSON string containing the P&L report\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity_name": {
+                        "type": "string",
+                        "description": "Entity name to generate report for"
+                    },
+                    "start_date": {
+                        "type": "string",
+                        "description": "Start date for the report (YYYY-MM-DD format, optional)"
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "End date for the report (YYYY-MM-DD format, optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity_name",
+                    "start_date",
+                    "end_date",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "_add_filtering_criteria",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "execute_state": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "execute_state"
+                ]
+            },
+            "file": "python_accounting\\database\\event_listeners.py",
+            "decorator": [
+                "event.listens_for"
+            ]
+        },
+        {
+            "name": "_set_session_entity",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "object_": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "object_"
+                ]
+            },
+            "file": "python_accounting\\database\\event_listeners.py",
+            "decorator": [
+                "event.listens_for"
+            ]
+        },
+        {
+            "name": "_set_object_index",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "object_": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "object_"
+                ]
+            },
+            "file": "python_accounting\\database\\event_listeners.py",
+            "decorator": [
+                "event.listens_for"
+            ]
+        },
+        {
+            "name": "_set_ledger_hash",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mapper": {
+                        "type": "string"
+                    },
+                    "connection": {
+                        "type": "string"
+                    },
+                    "target": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mapper",
+                    "connection",
+                    "target"
+                ]
+            },
+            "file": "python_accounting\\database\\event_listeners.py",
+            "decorator": [
+                "event.listens_for"
+            ]
+        },
+        {
+            "name": "_validate_model",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "_": {
+                        "type": "string"
+                    },
+                    "__": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "_",
+                    "__"
+                ]
+            },
+            "file": "python_accounting\\database\\event_listeners.py",
+            "decorator": [
+                "event.listens_for"
+            ]
+        },
+        {
+            "name": "entity",
+            "description": "Returns the Entity of the instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python_accounting\\mixins\\isolating.py",
+            "decorator": [
+                "declared_attr"
+            ]
+        },
+        {
+            "name": "section_balances",
+            "description": "\n        Gets the opening, movement and closing balances of the accounts of the given section\n        (account types), organized by category.\n\n        Args:\n            session (Session): The accounting session to which the Account belongs.\n            account_types (`list` of `Account.AccountType`): The Account types\n                belonging to the section.\n            start_date (datetime): The earliest transaction date for Transaction amounts to be\n                included in the balance.\n            end_date (datetime): The latest transaction date for Transaction amounts to be included\n                in the balance.\n            full_balance (bool): Whether to include opening balance amounts in the balance.\n\n        Returns:\n            dict: A summary of the total opening, balance movement and closing balance, which\n            details of totals by Category and the Accounts contained in each Category.\n                - opening (Decimal): The sum of opening balances of Accounts in the section.\n                - movement (Decimal): The movememt of the balances of Accounts in the section.\n                - closing (Decimal): The sum of opening closing of Accounts in the section.\n                - categories (dict): The Accounts belonging to the section separated by Category.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session": {
+                        "type": "string",
+                        "description": "The accounting session to which the Account belongs."
+                    }
+                },
+                "required": [
+                    "session"
+                ]
+            },
+            "file": "python_accounting\\models\\account.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "is_posted",
+            "description": "is_posted analog for the assignment model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python_accounting\\models\\balance.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "credited",
+            "description": "credited analog for the assignment model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python_accounting\\models\\balance.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "compound",
+            "description": "compound analog for the assignment model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python_accounting\\models\\balance.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "opening_trial_balance",
+            "description": "\n        Gets the total opening balances for the Entity's accounts for the given year.\n\n        Args:\n            session (Session): The accounting session to which the Account belongs.\n            year (`int`, optional): The calendar year to retrieve the opening\n                trial balance for. Defaults to the Balance's Entity current Reporting\n                Period's calendar year.\n\n        Returns:\n            dict: With a A summary of the debit and credit balances of the Accounts\n            together with a list of the Accounts themselves.\n                - debits (Decimal): The total debit balance.\n                - credits (Decimal): The total credit balance.\n                - accounts (Decimal): Accounts constituting the opening trial balance.\n\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session": {
+                        "type": "string",
+                        "description": "The accounting session to which the Account belongs."
+                    }
+                },
+                "required": [
+                    "session"
+                ]
+            },
+            "file": "python_accounting\\models\\balance.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "__tablename__",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "python_accounting\\models\\base.py",
+            "decorator": [
+                "declared_attr.directive"
+            ]
+        },
+        {
+            "name": "_allocate_amount",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session": {
+                        "type": "string"
+                    },
+                    "post": {
+                        "type": "string"
+                    },
+                    "amount": {
+                        "type": "string"
+                    },
+                    "posts": {
+                        "type": "string"
+                    },
+                    "folios": {
+                        "type": "string"
+                    },
+                    "transaction": {
+                        "type": "string"
+                    },
+                    "entry_type": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "session",
+                    "post",
+                    "amount",
+                    "posts",
+                    "folios",
+                    "transaction",
+                    "entry_type"
+                ]
+            },
+            "file": "python_accounting\\models\\ledger.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_make_compound_ledgers",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "session"
+                ]
+            },
+            "file": "python_accounting\\models\\ledger.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_post_compound",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "session"
+                ]
+            },
+            "file": "python_accounting\\models\\ledger.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_transaction_ledgers",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python_accounting\\models\\ledger.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_post_simple",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "session"
+                ]
+            },
+            "file": "python_accounting\\models\\ledger.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "post",
+            "description": "\n        Posts the Transaction to the ledger.\n\n        Args:\n            session (Session): The accounting session to which the Account belongs.\n            transaction (Transaction): The Transaction to be posted.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session": {
+                        "type": "string",
+                        "description": "The accounting session to which the Account belongs."
+                    }
+                },
+                "required": [
+                    "session"
+                ]
+            },
+            "file": "python_accounting\\models\\ledger.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "validate_ledgers",
+            "description": "\n        Validates adding or removing of Line Item Ledgers.\n\n        Raises:\n            ValueError: If the Line Item Ledgers are manually added or removed.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string"
+                    },
+                    "ledger": {
+                        "type": "string"
+                    },
+                    "is_remove": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "key",
+                    "ledger",
+                    "is_remove"
+                ]
+            },
+            "file": "python_accounting\\models\\line_item.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "date_year",
+            "description": "\n        Returns the calendar year for the given date.\n\n        Args:\n            date (`datetime`, optional): The date whose calendar year is\n                to be found. Defaults to the current date.\n            entity (`int`, optional): The Entity for whom the calendar year\n                is to be found. If absent, defaults to the calendar year.\n\n        Returns:\n            int: The calendar year.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "description": "The date whose calendar year is"
+                    },
+                    "entity": {
+                        "type": "string",
+                        "description": "The Entity for whom the calendar year"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "int": {
+                        "type": "string",
+                        "description": "The calendar year."
+                    }
+                },
+                "required": [
+                    "Returns",
+                    "int"
+                ]
+            },
+            "file": "python_accounting\\models\\reporting_period.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_period",
+            "description": "\n        Returns the reporting period for the given date.\n\n        Args:\n            session (Session): The accounting session to which the Reporting Period\n                 belongs.\n            date (datetime): The date whose Reporting Period is to be found.\n\n        Raises:\n            MissingReportingPeriodError: If there no Reporting Period exists for the\n                given date.\n\n        Returns:\n            ReportingPeriod: The Reporting Period.\n\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session": {
+                        "type": "string",
+                        "description": "The accounting session to which the Reporting Period"
+                    }
+                },
+                "required": [
+                    "session"
+                ]
+            },
+            "file": "python_accounting\\models\\reporting_period.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "validate_line_items",
+            "description": "\n        Validates adding or removing of Transaction Line Items.\n\n        Raises:\n            PostedTransactionError: If the Transaction is posted and Line Items are added or removed from it.\n            ValueError: If the unsaved Line Item are added or removed from the Transaction.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "_": {
+                        "type": "string"
+                    },
+                    "line_item": {
+                        "type": "string"
+                    },
+                    "is_remove": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "_",
+                    "line_item",
+                    "is_remove"
+                ]
+            },
+            "file": "python_accounting\\models\\transaction.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_ledgers",
+            "description": "\n        Validates adding or removing of Transaction Ledgers\n\n        Raises:\n            ValueError: If the Transaction Ledgers are manually added or removed.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string"
+                    },
+                    "ledger": {
+                        "type": "string"
+                    },
+                    "is_remove": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "key",
+                    "ledger",
+                    "is_remove"
+                ]
+            },
+            "file": "python_accounting\\models\\transaction.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "tax",
+            "description": "\n        The taxes that have been applied to the transaction.\n            - taxes (dict): The taxes applied to the Transaction and their amounts.\n            - amount (str): The total tax applied to the Transaction.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python_accounting\\models\\transaction.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_posted",
+            "description": "Check if the Transaction has been posted to the ledger",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python_accounting\\models\\transaction.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "amount",
+            "description": "The amount of the Transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python_accounting\\models\\transaction.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "net_profit",
+            "description": "\n        Get the value of net profit for the given period.\n\n        Args:\n            session (Session): The accounting session to which the report belongs.\n            start_date (datetime): The earliest transaction date for Transaction amounts to be included in the report.\n            end_date (datetime): The latest transaction date for Transaction amounts to be included in the report.\n\n        Returns:\n            Decimal: The net profit or loss for the Entity for the period.\n\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session": {
+                        "type": "string",
+                        "description": "The accounting session to which the report belongs."
+                    }
+                },
+                "required": [
+                    "session"
+                ]
+            },
+            "file": "python_accounting\\reports\\income_statement.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

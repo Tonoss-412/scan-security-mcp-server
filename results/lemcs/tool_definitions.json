@@ -1,0 +1,2134 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main_simple.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "track_workflow",
+            "description": "\n        Context manager for tracking an entire workflow.\n        \n        Automatically handles workflow creation, completion, and failure.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\workflow_tracking_mixin.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "track_task",
+            "description": "\n        Context manager for tracking individual tasks within a workflow.\n        \n        Automatically handles task creation, completion, and failure.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\workflow_tracking_mixin.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "list_workflows",
+            "description": "\n    List agent workflows with optional filtering.\n    \n    Returns a paginated list of workflow summaries with task counts.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\agent_workflows.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_workflow_detail",
+            "description": "\n    Get detailed information about a specific workflow.\n    \n    Includes all workflow data and optionally all associated tasks.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\agent_workflows.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_workflow_tasks",
+            "description": "\n    Get all tasks for a specific workflow.\n    \n    Returns tasks in execution order (by started_at).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\agent_workflows.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_agent_metrics",
+            "description": "\n    Get performance metrics for all agent types.\n    \n    Returns aggregated metrics including success rates, execution times, and quality scores.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\agent_workflows.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "workflow_updates",
+            "description": "\n    WebSocket endpoint for real-time workflow updates.\n    \n    Clients can connect to receive live updates about workflow and task status changes.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\agent_workflows.py",
+            "decorator": [
+                "router.websocket"
+            ]
+        },
+        {
+            "name": "extract_citations",
+            "description": "\n    Extract citations from a document using eyecite.\n    \n    This endpoint processes a document to extract all legal citations,\n    optionally resolving reference citations and analyzing authority.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citations.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_document_citations",
+            "description": "\n    Get all citations for a specific document.\n    \n    Returns previously extracted citations for a document,\n    optionally including authority analysis.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citations.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "search_citations",
+            "description": "\n    Search citations by text content.\n    \n    Performs text-based search across extracted citations,\n    optionally limited to specific documents.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citations.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_citation_statistics",
+            "description": "\n    Get citation extraction statistics.\n    \n    Returns overall statistics about citation extraction performance,\n    optionally for a specific document.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citations.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_citation_workflows",
+            "description": "\n    Get recent citation extraction workflows.\n    \n    Returns information about recent citation extraction workflows\n    for monitoring and debugging purposes.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citations.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "batch_process_citations",
+            "description": "\n    Process all citations in batch to create embeddings.\n    \n    This endpoint processes citations that don't have embeddings yet,\n    or refreshes all embeddings if force_refresh is True.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_embeddings.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "refresh_embeddings_for_model",
+            "description": "\n    Refresh embeddings when the embedding model is updated.\n    \n    This deletes existing embeddings and recreates them with the new model.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_embeddings.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "cluster_citations",
+            "description": "\n    Cluster citations by semantic similarity.\n    \n    Groups similar citations together using k-means or DBSCAN clustering\n    on their embedding vectors.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_embeddings.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "find_similar_citations",
+            "description": "\n    Find citations similar to a given citation.\n    \n    Uses cosine similarity on embedding vectors to find semantically\n    similar citations.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_embeddings.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_embedding_statistics",
+            "description": "\n    Get comprehensive statistics about citation embeddings.\n    \n    Returns information about embedding coverage, recent activity,\n    and system configuration.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_embeddings.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "\n    Health check for citation embedding service.\n    \n    Returns the status of the embedding service and configuration.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_embeddings.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "analyze_citation_context",
+            "description": "\n    Analyze the context and semantic features of a specific citation.\n    \n    Returns detailed analysis including legal concepts, entities,\n    and contextual information used for embedding generation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_embeddings.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "build_citation_graph",
+            "description": "\n    Build a citation graph from multiple documents.\n    \n    Creates a graph structure representing citation relationships\n    across the specified documents.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_graph.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "build_document_citation_graph",
+            "description": "\n    Build a citation graph for a single document.\n    \n    Creates a graph showing all citation relationships within a document,\n    optionally including relationships to other documents.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_graph.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "export_citation_graph",
+            "description": "\n    Export citation graph in specified format for visualization.\n    \n    Supports multiple export formats:\n    - json: D3.js compatible format\n    - cytoscape: Cytoscape.js format\n    - graphml: GraphML XML format\n    - dot: Graphviz DOT format\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_graph.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "analyze_citation_graph",
+            "description": "\n    Perform network analysis on citation graph.\n    \n    Computes various graph metrics including centrality measures,\n    community detection, and citation-specific analytics.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_graph.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_citation_neighbors",
+            "description": "\n    Get neighboring citations for a specific citation.\n    \n    Returns citations that reference or are referenced by the given citation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_graph.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_citation_chains",
+            "description": "\n    Find citation chains starting from a specific citation.\n    \n    Returns paths of citation relationships that form logical chains.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_graph.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "citation_graph_health",
+            "description": "Health check for citation graph service",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\citation_graph.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_consolidation_job",
+            "description": "\n    Create a new document consolidation job.\n    \n    This endpoint initiates the CRRACC consolidation process for multiple legal memoranda.\n    The process runs asynchronously in the background.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\consolidation.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_consolidation_status",
+            "description": "Get the current status of a consolidation job.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\consolidation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_consolidation_result",
+            "description": "Get the final result of a completed consolidation job.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\consolidation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "analyze_document_grouping",
+            "description": "\n    Analyze how documents would be grouped for consolidation.\n    \n    This endpoint helps users understand document relationships before starting consolidation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\consolidation.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "analyze_citations",
+            "description": "\n    Analyze citations across documents for deduplication and formatting.\n    \n    This endpoint provides citation analysis before consolidation to preview\n    the citation management process.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\consolidation.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "cancel_consolidation_job",
+            "description": "Cancel a running consolidation job.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\consolidation.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "list_consolidation_jobs",
+            "description": "List consolidation jobs with optional filtering.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\consolidation.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "upload_documents",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\documents.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_document",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\documents.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "upload_documents",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\documents_simple.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_document",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\documents_simple.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\health.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_openai_health",
+            "description": "\n    Check OpenAI service health and connectivity.\n    \n    Returns connectivity status, configuration, and basic statistics.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\openai.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_openai_statistics",
+            "description": "\n    Get OpenAI service usage statistics.\n    \n    Returns detailed statistics about API usage, costs, and performance.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\openai.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "test_embedding_creation",
+            "description": "\n    Test embedding creation for a single text.\n    \n    Useful for testing API connectivity and understanding token usage.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\openai.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "create_batch_embeddings",
+            "description": "\n    Create embeddings for multiple texts in batch.\n    \n    Efficient for processing multiple texts with rate limiting and caching.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\openai.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "create_citation_embeddings",
+            "description": "\n    Create embeddings for specific citations.\n    \n    Creates embeddings for legal citations with legal-specific context.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\openai.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "clear_embedding_cache",
+            "description": "\n    Clear the OpenAI embedding cache.\n    \n    Useful for testing or when embeddings need to be regenerated.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\openai.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "extract_citation_context",
+            "description": "\n    Extract semantic context for a citation.\n    \n    Analyzes the surrounding text of a citation to extract legal entities,\n    concepts, case names, and statutory references.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\semantic_similarity.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "generate_citation_embedding",
+            "description": "\n    Generate semantic embedding for a citation.\n    \n    Creates a vector embedding using OpenAI that captures the semantic\n    meaning of the citation and optionally its surrounding context.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\semantic_similarity.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "calculate_semantic_similarity",
+            "description": "\n    Calculate semantic similarity between two citations.\n    \n    Computes multiple similarity metrics including semantic embedding similarity,\n    context overlap, and combined confidence scores.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\semantic_similarity.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "find_semantic_matches",
+            "description": "\n    Find semantically similar citations.\n    \n    Searches for citations that are semantically similar to a source citation,\n    useful for finding related cases, duplicate citations, or references to\n    the same legal authority expressed differently.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\semantic_similarity.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "cleanup_cache",
+            "description": "\n    Clean up expired cache entries.\n    \n    Manually trigger cache cleanup to free memory. This is also\n    done automatically based on cache expiry settings.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\semantic_similarity.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_semantic_statistics",
+            "description": "\n    Get semantic similarity service statistics.\n    \n    Returns information about cache usage and service performance.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes\\semantic_similarity.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "upload_document",
+            "description": "\n    Upload a legal document and extract text content.\n    \n    Args:\n        file_path: Path to the document file (DOCX or PDF)\n        document_type: Type of document (default: legal_memorandum)\n        metadata: Optional metadata dictionary\n        \n    Returns:\n        Document ID of the uploaded document\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the document file (DOCX or PDF)"
+                    },
+                    "document_type": {
+                        "type": "string",
+                        "description": "Type of document (default: legal_memorandum)"
+                    },
+                    "metadata": {
+                        "type": "string",
+                        "description": "Optional metadata dictionary"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "document_type",
+                    "metadata",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_document",
+            "description": "\n    Retrieve document metadata and content.\n    \n    Args:\n        document_id: UUID of the document\n        \n    Returns:\n        Dictionary containing document information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "document_id": {
+                        "type": "string",
+                        "description": "UUID of the document"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "document_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_documents",
+            "description": "\n    List available documents with optional filtering.\n    \n    Args:\n        status: Optional status filter (uploaded, processing, processed, failed)\n        limit: Maximum number of documents to return (default: 10)\n        \n    Returns:\n        List of document summaries\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "description": "Optional status filter (uploaded, processing, processed, failed)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of documents to return (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "status",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "extract_citations",
+            "description": "\n    Extract and analyze legal citations from a document.\n    \n    Args:\n        document_id: UUID of the document to process\n        resolve_references: Whether to resolve supra/id citations (default: True)\n        analyze_authority: Whether to analyze citation authority (default: True)\n        \n    Returns:\n        Dictionary containing extracted citations and analysis results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "document_id": {
+                        "type": "string",
+                        "description": "UUID of the document to process"
+                    },
+                    "resolve_references": {
+                        "type": "string",
+                        "description": "Whether to resolve supra/id citations (default: True)"
+                    },
+                    "analyze_authority": {
+                        "type": "string",
+                        "description": "Whether to analyze citation authority (default: True)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "document_id",
+                    "resolve_references",
+                    "analyze_authority",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_document_citations",
+            "description": "\n    Get all citations for a specific document.\n    \n    Args:\n        document_id: UUID of the document\n        include_authority: Whether to include authority analysis (default: True)\n        \n    Returns:\n        List of citations with optional authority analysis\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "document_id": {
+                        "type": "string",
+                        "description": "UUID of the document"
+                    },
+                    "include_authority": {
+                        "type": "string",
+                        "description": "Whether to include authority analysis (default: True)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "document_id",
+                    "include_authority",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_citations",
+            "description": "\n    Search citations by text content.\n    \n    Args:\n        query: Search query for citations\n        document_ids: Optional list of document IDs to limit search\n        limit: Maximum number of results (default: 10)\n        \n    Returns:\n        List of matching citations\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query for citations"
+                    },
+                    "document_ids": {
+                        "type": "string",
+                        "description": "Optional list of document IDs to limit search"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "document_ids",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "analyze_citation_authority",
+            "description": "\n    Analyze the precedential authority of a specific citation.\n    \n    Args:\n        citation_id: UUID of the citation\n        \n    Returns:\n        Authority analysis results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "citation_id": {
+                        "type": "string",
+                        "description": "UUID of the citation"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "citation_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_citation_statistics",
+            "description": "\n    Get citation extraction performance statistics.\n    \n    Args:\n        document_id: Optional document ID for document-specific stats\n        \n    Returns:\n        Statistics about citation extraction performance\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "document_id": {
+                        "type": "string",
+                        "description": "Optional document ID for document-specific stats"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "document_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_workflows",
+            "description": "\n    Get recent agent workflow executions.\n    \n    Args:\n        agent_type: Optional agent type filter (citation_extractor, etc.)\n        limit: Maximum number of workflows (default: 10)\n        \n    Returns:\n        List of workflow execution information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "agent_type": {
+                        "type": "string",
+                        "description": "Optional agent type filter (citation_extractor, etc.)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of workflows (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "agent_type",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_workflow_status",
+            "description": "\n    Get detailed status of a specific workflow.\n    \n    Args:\n        workflow_id: UUID of the workflow\n        \n    Returns:\n        Detailed workflow information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "workflow_id": {
+                        "type": "string",
+                        "description": "UUID of the workflow"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "workflow_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_document_content",
+            "description": "Get the full text content of a document.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_document_citations_resource",
+            "description": "Get all citations for a document as formatted text.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "_request",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "nlp\\openai_service.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "service",
+            "description": "Create a fresh service instance for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_citations",
+            "description": "Create mock citation objects",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_embeddings",
+            "description": "Create mock embedding vectors",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_embedding_results",
+            "description": "Create mock embedding result objects",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_embeddings": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_embeddings"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_batch_processing_success",
+            "description": "Test successful batch processing of citations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    },
+                    "mock_citations": {
+                        "type": "string"
+                    },
+                    "mock_embedding_results": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service",
+                    "mock_citations",
+                    "mock_embedding_results"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_batch_processing_with_force_refresh",
+            "description": "Test batch processing with force refresh",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    },
+                    "mock_citations": {
+                        "type": "string"
+                    },
+                    "mock_embedding_results": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service",
+                    "mock_citations",
+                    "mock_embedding_results"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_batch_processing_empty_citations",
+            "description": "Test batch processing with no citations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_batch_processing_with_failures",
+            "description": "Test batch processing with some embedding failures",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    },
+                    "mock_citations": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service",
+                    "mock_citations"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_model_refresh_success",
+            "description": "Test successful model refresh",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    },
+                    "mock_citations": {
+                        "type": "string"
+                    },
+                    "mock_embedding_results": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service",
+                    "mock_citations",
+                    "mock_embedding_results"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_clustering_kmeans",
+            "description": "Test k-means clustering functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_clustering_dbscan",
+            "description": "Test DBSCAN clustering functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_clustering_insufficient_data",
+            "description": "Test clustering with insufficient data",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_find_similar_citations",
+            "description": "Test finding similar citations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_embedding_statistics",
+            "description": "Test getting embedding statistics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_find_similar_citations_no_embedding",
+            "description": "Test finding similar citations when target has no embedding",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_kmeans_auto_cluster_detection",
+            "description": "Test automatic cluster count detection in k-means",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_dbscan_parameter_conversion",
+            "description": "Test DBSCAN parameter conversion from similarity to distance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service"
+                ]
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_global_service_instance",
+            "description": "Test that the global service instance is properly initialized",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_citation_embedding_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "sample_citations_with_relationships",
+            "description": "Fixture providing sample citations with relationships for graph testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_citation_graph.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "empty_citation_graph",
+            "description": "Fixture providing an empty citation graph",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_citation_graph.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "populated_citation_graph",
+            "description": "Fixture providing a citation graph populated with sample data",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_citations_with_relationships": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_citations_with_relationships"
+                ]
+            },
+            "file": "tests\\test_citation_graph.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_graph_builder_initialization",
+            "description": "Test graph builder initialization",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_citation_graph.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_build_graph_from_documents_mock",
+            "description": "Test building graph from documents with mocked database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_citations_with_relationships": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_citations_with_relationships"
+                ]
+            },
+            "file": "tests\\test_citation_graph.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_integration_with_graph_service",
+            "description": "Integration test with graph service functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_citation_graph.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "citation_service",
+            "description": "Fixture providing a CitationExtractionService instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_citation_relationships.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_citations",
+            "description": "Fixture providing sample citations for testing relationships",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_citation_relationships.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_db_session",
+            "description": "Mock database session",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_citation_relationships.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_create_citation_relationships_basic",
+            "description": "Test basic citation relationship creation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "citation_service": {
+                        "type": "string"
+                    },
+                    "sample_citations": {
+                        "type": "string"
+                    },
+                    "mock_db_session": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "citation_service",
+                    "sample_citations",
+                    "mock_db_session"
+                ]
+            },
+            "file": "tests\\test_citation_relationships.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_resolve_id_citation",
+            "description": "Test resolution of Id. citations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "citation_service": {
+                        "type": "string"
+                    },
+                    "sample_citations": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "citation_service",
+                    "sample_citations"
+                ]
+            },
+            "file": "tests\\test_citation_relationships.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_resolve_supra_citation",
+            "description": "Test resolution of supra citations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "citation_service": {
+                        "type": "string"
+                    },
+                    "sample_citations": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "citation_service",
+                    "sample_citations"
+                ]
+            },
+            "file": "tests\\test_citation_relationships.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_resolve_short_citation",
+            "description": "Test resolution of short citations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "citation_service": {
+                        "type": "string"
+                    },
+                    "sample_citations": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "citation_service",
+                    "sample_citations"
+                ]
+            },
+            "file": "tests\\test_citation_relationships.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_empty_citations_list",
+            "description": "Test behavior with empty citations list",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "citation_service": {
+                        "type": "string"
+                    },
+                    "mock_db_session": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "citation_service",
+                    "mock_db_session"
+                ]
+            },
+            "file": "tests\\test_citation_relationships.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_no_reference_citations",
+            "description": "Test behavior with only full citations (no references)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "citation_service": {
+                        "type": "string"
+                    },
+                    "mock_db_session": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "citation_service",
+                    "mock_db_session"
+                ]
+            },
+            "file": "tests\\test_citation_relationships.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_integration_with_real_legal_text",
+            "description": "Integration test with realistic legal document text",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_citation_relationships.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "fixture_memos_path",
+            "description": "Get path to fixture memos directory",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_consolidation_pipeline.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "memo_documents",
+            "description": "Load all fixture memo documents",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "fixture_memos_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "fixture_memos_path"
+                ]
+            },
+            "file": "tests\\test_consolidation_pipeline.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "consolidation_agent",
+            "description": "Create consolidation agent instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_consolidation_pipeline.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "grouping_service",
+            "description": "Create document grouping service instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_consolidation_pipeline.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "citation_service",
+            "description": "Create citation deduplication service instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_consolidation_pipeline.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "synthesis_service",
+            "description": "Create legal theory synthesis service instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_consolidation_pipeline.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_document_loading",
+            "description": "Test that fixture documents are loaded correctly",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memo_documents": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memo_documents"
+                ]
+            },
+            "file": "tests\\test_consolidation_pipeline.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "hybrid_nlp",
+            "description": "Create a hybrid NLP service instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hybrid_nlp.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_legal_text",
+            "description": "Sample legal text for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hybrid_nlp.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "legal_bert_service",
+            "description": "Create a Legal BERT service instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_legal_bert.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_legal_text",
+            "description": "Sample legal text for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_legal_bert.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "nlp_service",
+            "description": "Create a legal NLP service instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_legal_nlp.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_legal_text",
+            "description": "Sample legal text for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_legal_nlp.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_openai_response",
+            "description": "Mock OpenAI API response",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_batch_response",
+            "description": "Mock OpenAI API batch response",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "service_with_mocked_redis",
+            "description": "OpenAI service with mocked Redis",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_create_single_embedding_success",
+            "description": "Test successful single embedding creation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai_response"
+                ]
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_embedding_with_cache_hit",
+            "description": "Test embedding creation with cache hit",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_embedding_with_cache_miss",
+            "description": "Test embedding creation with cache miss",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai_response"
+                ]
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_batch_embedding_creation",
+            "description": "Test batch embedding creation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_batch_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_batch_response"
+                ]
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_rate_limiting_enforcement",
+            "description": "Test rate limiting functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_citation_embedding_creation",
+            "description": "Test citation-specific embedding creation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_batch_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_batch_response"
+                ]
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling_api_failure",
+            "description": "Test error handling when API fails",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_statistics_calculation",
+            "description": "Test statistics calculation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_health_check_success",
+            "description": "Test successful health check",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai_response"
+                ]
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_health_check_api_failure",
+            "description": "Test health check with API failure",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_empty_batch_handling",
+            "description": "Test handling of empty batch requests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_redis_connection_failure_graceful_degradation",
+            "description": "Test graceful degradation when Redis connection fails",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "sample_legal_document_text",
+            "description": "Fixture providing sample legal document text for context testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_semantic_similarity.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_citations",
+            "description": "Fixture providing sample citations for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_semantic_similarity.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_calculate_semantic_similarity_basic",
+            "description": "Test basic semantic similarity calculation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_citations": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_citations"
+                ]
+            },
+            "file": "tests\\test_semantic_similarity.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_find_best_semantic_matches",
+            "description": "Test finding best semantic matches for ambiguous citations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_citations": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_citations"
+                ]
+            },
+            "file": "tests\\test_semantic_similarity.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_semantic_matching_with_context",
+            "description": "Test semantic matching using legal context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_citations": {
+                        "type": "string"
+                    },
+                    "sample_legal_document_text": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_citations",
+                    "sample_legal_document_text"
+                ]
+            },
+            "file": "tests\\test_semantic_similarity.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_service_initialization",
+            "description": "Test service initializes correctly",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_semantic_similarity.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_performance_with_large_candidate_set",
+            "description": "Test performance with many candidate citations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_semantic_similarity.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_db",
+            "description": "Create a test database session",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_semantic_similarity_api.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create a test client with overridden database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db"
+                ]
+            },
+            "file": "tests\\test_semantic_similarity_api.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_document",
+            "description": "Create a sample document for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db"
+                ]
+            },
+            "file": "tests\\test_semantic_similarity_api.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_citations",
+            "description": "Create sample citations for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db": {
+                        "type": "string"
+                    },
+                    "sample_document": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db",
+                    "sample_document"
+                ]
+            },
+            "file": "tests\\test_semantic_similarity_api.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

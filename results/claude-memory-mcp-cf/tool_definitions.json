@@ -1,0 +1,281 @@
+{
+    "tools": [
+        {
+            "name": "store_memory_handler",
+            "description": "Storenewinformationinmemory",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory_mcp\\mcp\\server.py",
+            "decorator": [
+                "self.app.tool"
+            ]
+        },
+        {
+            "name": "retrieve_memory_handler",
+            "description": "Retrieverelevantmemoriesbasedonquery",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory_mcp\\mcp\\server.py",
+            "decorator": [
+                "self.app.tool"
+            ]
+        },
+        {
+            "name": "list_memories_handler",
+            "description": "Listavailablememorieswithfilteringoptions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory_mcp\\mcp\\server.py",
+            "decorator": [
+                "self.app.tool"
+            ]
+        },
+        {
+            "name": "update_memory_handler",
+            "description": "Updateexistingmemoryentries",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory_mcp\\mcp\\server.py",
+            "decorator": [
+                "self.app.tool"
+            ]
+        },
+        {
+            "name": "delete_memory_handler",
+            "description": "Removespecificmemories",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory_mcp\\mcp\\server.py",
+            "decorator": [
+                "self.app.tool"
+            ]
+        },
+        {
+            "name": "memory_stats_handler",
+            "description": "Getstatisticsaboutthememorystore",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory_mcp\\mcp\\server.py",
+            "decorator": [
+                "self.app.tool"
+            ]
+        },
+        {
+            "name": "store_memory_schema",
+            "description": "Schema for the store_memory tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory_mcp\\mcp\\tools.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "retrieve_memory_schema",
+            "description": "Schema for the retrieve_memory tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory_mcp\\mcp\\tools.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "list_memories_schema",
+            "description": "Schema for the list_memories tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory_mcp\\mcp\\tools.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "update_memory_schema",
+            "description": "Schema for the update_memory tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory_mcp\\mcp\\tools.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "delete_memory_schema",
+            "description": "Schema for the delete_memory tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory_mcp\\mcp\\tools.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "memory_stats_schema",
+            "description": "Schema for the memory_stats tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory_mcp\\mcp\\tools.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "validate_importance",
+            "description": "Validate importance score.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "memory_mcp\\utils\\schema.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "validate_content",
+            "description": "Validate conversation content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "memory_mcp\\utils\\schema.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "validate_content",
+            "description": "Validate fact content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "memory_mcp\\utils\\schema.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "validate_content",
+            "description": "Validate document content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "memory_mcp\\utils\\schema.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "validate_content",
+            "description": "Validate entity content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "memory_mcp\\utils\\schema.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "validate_content",
+            "description": "Validate reflection content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "memory_mcp\\utils\\schema.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "validate_content",
+            "description": "Validate code content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "memory_mcp\\utils\\schema.py",
+            "decorator": [
+                "validator"
+            ]
+        }
+    ]
+}

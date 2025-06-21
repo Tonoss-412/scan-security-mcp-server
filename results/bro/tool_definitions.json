@@ -1,0 +1,232 @@
+{
+    "tools": [
+        {
+            "name": "process_query",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "debug_info",
+            "description": "Use this tool to log debug information during processing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agents\\quant\\agent.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "lstm_forecast",
+            "description": "\n    LSTM forecast tool returning structured forecast data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\deep_learning_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "ml_direction_forecast",
+            "description": "\n    Machine Learning stock direction forecast with model consensus probabilities\n    Returns structured prediction data with model-level metrics\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\machine_learning_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "arima_forecast",
+            "description": "\n    ARIMA forecast tool returning structured forecast data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\probabilistic_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "hmm_forecast",
+            "description": "\n    HMM forecast tool returning structured forecast data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\probabilistic_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "kalman_forecast",
+            "description": "\n    Kalman Filter forecast tool returning structured forecast data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\probabilistic_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "fbprophet_forecast",
+            "description": "\n    Prophet forecast tool returning structured forecast data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\time_series_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "get_ticker_data",
+            "description": "\n    Get ticker data for a given symbol\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\util_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "get_stock_quote",
+            "description": "\n    Get stock quote for a given symbol\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\util_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "get_historical_data",
+            "description": "\n    Get historical data for a given symbol\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\util_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "get_multiple_tickers_data",
+            "description": "\n    Get multiple tickers data for a given list of symbols\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\util_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "get_today_date",
+            "description": "\n    Get today's date\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\util_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "get_current_time",
+            "description": "\n    Get current time\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\util_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "get_current_date",
+            "description": "\n    Get current date\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\util_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "get_stock_news",
+            "description": "\n    Get news for a given symbol\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\util_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "garch_volatility",
+            "description": "\n    GARCH volatility forecasting tool with confidence intervals\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\volatility_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "xgboost_volatility",
+            "description": "\n    XGBoost volatility forecasting tool with confidence intervals\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\volatility_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        },
+        {
+            "name": "rsi_analyzer",
+            "description": "\n    RSI analysis tool with historical context and actionable insights\n    Returns structured data with current status, historical context, and recent values\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\tools\\volatility_tools.py",
+            "decorator": [
+                "mcp_server.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "tools": [
+        {
+            "name": "generate_image",
+            "description": "Generateoreditimagesbasedonapromptandinputimagesifprovide",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": "The text prompt to generate images from."
+                    },
+                    "images": {
+                        "type": "string",
+                        "description": "List of image URLs to generate new image from."
+                    },
+                    "n": {
+                        "type": "string",
+                        "description": "The Number of images (1-10) to generate."
+                    },
+                    "size": {
+                        "type": "string",
+                        "description": "Image resolution size, can only be these value: `auto`, `1024x1024`, `1536x1024`, `1024x1536`"
+                    },
+                    "quality": {
+                        "type": "string",
+                        "description": "The quality of the image that will be generated: `low`,`medium`,`auto`,`high`"
+                    },
+                    "max_retries": {
+                        "type": "string",
+                        "description": "The number of times to retry the request in case of failure."
+                    },
+                    "Return": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "prompt",
+                    "images",
+                    "n",
+                    "size",
+                    "quality",
+                    "max_retries",
+                    "Return"
+                ]
+            },
+            "file": "openai_image.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,329 @@
+{
+    "tools": [
+        {
+            "name": "parse_code_directory",
+            "description": "\n    Parse a directory of Python code and build a code knowledge graph.\n    \n    Args:\n        directory_path: Path to the directory containing Python code\n        include_builtins: Whether to include built-in functions in the graph\n        include_stdlib: Whether to include standard library functions in the graph\n        \n    Returns:\n        A JSON string containing information about the graph\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "directory_path": {
+                        "type": "string",
+                        "description": "Path to the directory containing Python code"
+                    },
+                    "include_builtins": {
+                        "type": "string",
+                        "description": "Whether to include built-in functions in the graph"
+                    },
+                    "include_stdlib": {
+                        "type": "string",
+                        "description": "Whether to include standard library functions in the graph"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "directory_path",
+                    "include_builtins",
+                    "include_stdlib",
+                    "Returns"
+                ]
+            },
+            "file": "mcp-code-graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "visualize_code_graph_and_save",
+            "description": "\n    Generate an interactive HTML visualization of a code knowledge graph and save it to a file using the filesystem MCP.\n    \n    Args:\n        directory_path: Path to the directory containing Python code\n        output_path: Path where to save the HTML visualization\n        layout_type: Type of layout (hierarchical, circular, spring, kamada_kawai)\n        filter_relations: List of relation types to include (contains, imports, calls)\n        include_builtins: Whether to include built-in functions in the graph\n        include_stdlib: Whether to include standard library functions in the graph\n        ctx: MCP Context for progress reporting and accessing other MCP services\n        \n    Returns:\n        Information about the saved visualization\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "directory_path": {
+                        "type": "string",
+                        "description": "Path to the directory containing Python code"
+                    },
+                    "output_path": {
+                        "type": "string",
+                        "description": "Path where to save the HTML visualization"
+                    },
+                    "layout_type": {
+                        "type": "string",
+                        "description": "Type of layout (hierarchical, circular, spring, kamada_kawai)"
+                    },
+                    "filter_relations": {
+                        "type": "string",
+                        "description": "List of relation types to include (contains, imports, calls)"
+                    },
+                    "include_builtins": {
+                        "type": "string",
+                        "description": "Whether to include built-in functions in the graph"
+                    },
+                    "include_stdlib": {
+                        "type": "string",
+                        "description": "Whether to include standard library functions in the graph"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP Context for progress reporting and accessing other MCP services"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "directory_path",
+                    "output_path",
+                    "layout_type",
+                    "filter_relations",
+                    "include_builtins",
+                    "include_stdlib",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "mcp-code-graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "store_code_graph",
+            "description": "\n    Store a code knowledge graph in the database and optionally create vector embeddings.\n    \n    Args:\n        directory_path: Path to the directory containing Python code\n        project_name: Name to identify the project (defaults to directory name)\n        skip_summaries: Skip generating summaries to avoid timeouts (default: True)\n        store_embeddings: Whether to create and store vector embeddings (default: True)\n        \n    Returns:\n        The graph ID if successful, error message otherwise\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "directory_path": {
+                        "type": "string",
+                        "description": "Path to the directory containing Python code"
+                    },
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name to identify the project (defaults to directory name)"
+                    },
+                    "skip_summaries": {
+                        "type": "string",
+                        "description": "Skip generating summaries to avoid timeouts (default: True)"
+                    },
+                    "store_embeddings": {
+                        "type": "string",
+                        "description": "Whether to create and store vector embeddings (default: True)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "directory_path",
+                    "project_name",
+                    "skip_summaries",
+                    "store_embeddings",
+                    "Returns"
+                ]
+            },
+            "file": "mcp-code-graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_graph",
+            "description": "\n    Delete a code knowledge graph from the database.\n    \n    Args:\n        graph_id: ID of the graph to delete\n        \n    Returns:\n        Success or error message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "graph_id": {
+                        "type": "string",
+                        "description": "ID of the graph to delete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "graph_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp-code-graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_vector_db",
+            "description": "\n    Search for nodes and edges in the vector database using semantic similarity.\n    \n    Args:\n        query_text: The text query to search for. Can be a question, description, or keywords.\n        top_k: Number of results to return (default: 5)\n        project_name: Optional project name to filter results by\n        debug: If True, includes debugging information in the response\n        \n    Returns:\n        JSON string containing search results with similarity scores\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query_text": {
+                        "type": "string",
+                        "description": "The text query to search for. Can be a question, description, or keywords."
+                    },
+                    "top_k": {
+                        "type": "string",
+                        "description": "Number of results to return (default: 5)"
+                    },
+                    "project_name": {
+                        "type": "string",
+                        "description": "Optional project name to filter results by"
+                    },
+                    "debug": {
+                        "type": "string",
+                        "description": "If True, includes debugging information in the response"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query_text",
+                    "top_k",
+                    "project_name",
+                    "debug",
+                    "Returns"
+                ]
+            },
+            "file": "mcp-code-graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_embedding",
+            "description": "\n        Generate an embedding vector for the given text.\n        \n        Args:\n            text: The text to generate an embedding for\n            \n        Returns:\n            A list of floats representing the embedding vector\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "The text to generate an embedding for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "Returns"
+                ]
+            },
+            "file": "db\\vector_db_manager.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "generate_embeddings_batch",
+            "description": "\n        Generate embedding vectors for a batch of texts.\n        \n        Args:\n            texts: A list of texts to generate embeddings for\n            \n        Returns:\n            A list of embedding vectors\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "texts": {
+                        "type": "string",
+                        "description": "A list of texts to generate embeddings for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "texts",
+                    "Returns"
+                ]
+            },
+            "file": "db\\vector_db_manager.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "store_vectors",
+            "description": "\n        Store vectors in the vector database.\n        \n        Args:\n            ids: List of unique IDs for the vectors\n            vectors: List of embedding vectors\n            metadata: List of metadata dictionaries for the vectors\n            \n        Returns:\n            True if successful, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ids": {
+                        "type": "string",
+                        "description": "List of unique IDs for the vectors"
+                    },
+                    "vectors": {
+                        "type": "string",
+                        "description": "List of embedding vectors"
+                    },
+                    "metadata": {
+                        "type": "string",
+                        "description": "List of metadata dictionaries for the vectors"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ids",
+                    "vectors",
+                    "metadata",
+                    "Returns"
+                ]
+            },
+            "file": "db\\vector_db_manager.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "search_vectors",
+            "description": "\n        Search for similar vectors in the vector database.\n        \n        Args:\n            query_vector: The query vector to search for\n            top_k: Number of results to return\n            \n        Returns:\n            List of dictionaries containing the search results\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query_vector": {
+                        "type": "string",
+                        "description": "The query vector to search for"
+                    },
+                    "top_k": {
+                        "type": "string",
+                        "description": "Number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query_vector",
+                    "top_k",
+                    "Returns"
+                ]
+            },
+            "file": "db\\vector_db_manager.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "delete_collection",
+            "description": "\n        Delete the vector collection.\n        \n        Returns:\n            True if successful, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "db\\vector_db_manager.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "close",
+            "description": "Close the vector database connection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "db\\vector_db_manager.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        }
+    ]
+}

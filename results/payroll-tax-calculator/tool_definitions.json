@@ -1,0 +1,221 @@
+{
+    "tools": [
+        {
+            "name": "calculate_payroll",
+            "description": "Calculate wage with tax deductions for the given year.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\payroll_tax_calculator\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_flags",
+            "description": "Get available flags for the given calculation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\payroll_tax_calculator\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "from_yaml",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\payroll_tax_calculator\\engine.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "_extract_flags_from_docstring",
+            "description": "Helper method to extract flag names from a docstring.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\payroll_tax_calculator\\engine.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "compile",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\payroll_tax_calculator\\rules.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "register",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\payroll_tax_calculator\\rules.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "register",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\payroll_tax_calculator\\rules.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "test_data_dir",
+            "description": "Return the path to the test data directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_dsl_path",
+            "description": "Return the path to the test DSL file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_data_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_data_dir"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_compiled_rules",
+            "description": "Return a list of mock CompiledRule objects for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_context",
+            "description": "Return a sample context dictionary for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_breakdown",
+            "description": "Return a sample breakdown dictionary for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_from_yaml",
+            "description": "Test PayrollEngine.from_yaml factory method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_load_rules": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_load_rules"
+                ]
+            },
+            "file": "tests\\test_engine.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_load_rules_unknown_rule_type",
+            "description": "Test load_rules with an unknown rule type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_registry": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_registry"
+                ]
+            },
+            "file": "tests\\test_loader.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

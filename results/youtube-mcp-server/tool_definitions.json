@@ -1,0 +1,70 @@
+{
+    "tools": [
+        {
+            "name": "upload_video",
+            "description": "Upload a video to YouTube.\n    \n    Args:\n        file_path: Path to the video file to upload\n        title: Title of the video\n        description: Description of the video\n        keywords: Comma-separated list of keywords/tags\n        category_id: YouTube category ID (default: 22 - People & Blogs)\n        privacy_status: Privacy status (private, unlisted, or public)\n        made_for_kids: Whether the video is made for kids\n    \n    Returns:\n        Upload status with video ID and URL if successful\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the video file to upload"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Title of the video"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the video"
+                    },
+                    "keywords": {
+                        "type": "string",
+                        "description": "Comma-separated list of keywords/tags"
+                    },
+                    "category_id": {
+                        "type": "string",
+                        "description": "YouTube category ID (default: 22 - People & Blogs)"
+                    },
+                    "privacy_status": {
+                        "type": "string",
+                        "description": "Privacy status (private, unlisted, or public)"
+                    },
+                    "made_for_kids": {
+                        "type": "string",
+                        "description": "Whether the video is made for kids"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "title",
+                    "description",
+                    "keywords",
+                    "category_id",
+                    "privacy_status",
+                    "made_for_kids",
+                    "Returns"
+                ]
+            },
+            "file": "youtube_uploader.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_upload_quota",
+            "description": "Check YouTube API quota usage and limits.\n    \n    Returns:\n        Information about API quota (note: detailed quota info requires additional API setup)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "youtube_uploader.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,307 @@
+{
+    "tools": [
+        {
+            "name": "validate_context_levels",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\memory_alpha\\params.py",
+            "decorator": [
+                "model_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_level",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\memory_alpha\\params.py",
+            "decorator": [
+                "model_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "store_memory",
+            "description": "Storechunksofcontextinthememoryserver",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\memory_alpha\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_memory",
+            "description": "QuerythememoryserverforagivencommitIDandchunks",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\memory_alpha\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cluster_collection",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\memory_alpha\\settings.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "chunk_collection",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\memory_alpha\\settings.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "check_ollama",
+            "description": "Ensure Ollama is running and has the required model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "setup_test_collections",
+            "description": "\n    Set up test collections in Qdrant and clean them up after tests.\n\n    This fixture creates unique collection names for tests to avoid\n    interfering with existing collections.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "check_ollama": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "check_ollama"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_code_chunks",
+            "description": "Sample code chunks for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_store_params",
+            "description": "Sample parameters for store_memory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_code_chunks": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_code_chunks"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_ollama_connection",
+            "description": "Test that we can connect to Ollama and get embeddings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_qdrant_connection",
+            "description": "Test that we can connect to Qdrant and perform basic operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_end_to_end_with_real_code_samples",
+            "description": "Full integration test with real-world code samples.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_store_memory_basic",
+            "description": "Test that store_memory can store chunks without errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_store_params": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_store_params"
+                ]
+            },
+            "file": "tests\\test_memory.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_query_with_no_data",
+            "description": "Test query_memory with empty database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_memory.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_store_and_query_full_cycle",
+            "description": "Test the full cycle of storing and then querying memory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_store_params": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_store_params"
+                ]
+            },
+            "file": "tests\\test_memory.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_querying_by_level",
+            "description": "Test that querying by specific levels works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_store_params": {
+                        "type": "string"
+                    },
+                    "level": {
+                        "type": "string"
+                    },
+                    "expected_snippet": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_store_params",
+                    "level",
+                    "expected_snippet"
+                ]
+            },
+            "file": "tests\\test_memory.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_token_limiting",
+            "description": "Test that max_tokens parameter correctly limits the returned content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_store_params": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_store_params"
+                ]
+            },
+            "file": "tests\\test_memory.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_multiple_stores_affects_importance",
+            "description": "Test that storing similar chunks multiple times affects their importance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_store_params": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_store_params"
+                ]
+            },
+            "file": "tests\\test_memory.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

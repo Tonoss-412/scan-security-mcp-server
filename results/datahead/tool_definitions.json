@@ -1,0 +1,189 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Detailed health check",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "upload_file",
+            "description": "\n    Upload a music file and process it into embeddings\n    \n    Args:\n        file: Music file to upload (supports: mp3, wav, flac, m4a, etc.)\n        \n    Returns:\n        Upload response with processing results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file": {
+                        "type": "string",
+                        "description": "Music file to upload (supports: mp3, wav, flac, m4a, etc.)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file",
+                    "Returns"
+                ]
+            },
+            "file": "src\\api\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "search_similar",
+            "description": "\n    Search for similar music using an uploaded query file\n    \n    Args:\n        file: Query music file to find similar music for\n        n_results: Number of similar results to return (1-50)\n        \n    Returns:\n        Search response with similar music results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file": {
+                        "type": "string",
+                        "description": "Query music file to find similar music for"
+                    },
+                    "n_results": {
+                        "type": "string",
+                        "description": "Number of similar results to return (1-50)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file",
+                    "n_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\api\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "search_by_id",
+            "description": "\n    Search for similar music using a file ID from the database\n    \n    Args:\n        file_id: ID of the file in the database to search for similar music\n        n_results: Number of similar results to return (1-50)\n        \n    Returns:\n        Search response with similar music results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_id": {
+                        "type": "string",
+                        "description": "ID of the file in the database to search for similar music"
+                    },
+                    "n_results": {
+                        "type": "string",
+                        "description": "Number of similar results to return (1-50)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_id",
+                    "n_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\api\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_files",
+            "description": "\n    List all files in the database with their metadata\n    \n    Returns:\n        List of files with metadata\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_file",
+            "description": "\n    Get details of a specific file by ID\n    \n    Args:\n        file_id: ID of the file in the database\n        \n    Returns:\n        File details with metadata\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_id": {
+                        "type": "string",
+                        "description": "ID of the file in the database"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\api\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "delete_file",
+            "description": "\n    Delete a file from the database\n    \n    Args:\n        file_id: ID of the file to delete\n        \n    Returns:\n        Deletion confirmation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_id": {
+                        "type": "string",
+                        "description": "ID of the file to delete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\api\\api.py",
+            "decorator": [
+                "app.delete"
+            ]
+        },
+        {
+            "name": "create_directories",
+            "description": "Create necessary directories if they don't exist",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\utils\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

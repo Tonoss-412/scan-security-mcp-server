@@ -1,0 +1,121 @@
+{
+    "tools": [
+        {
+            "name": "get_transactions_by_month_and_name",
+            "description": "\n    Fetches all transactions for a given person in a specific month.\n    Args:\n        first_name (str): First name of the person.\n        last_name (str): Last name of the person.\n        month (int): The month number (1-12).\n    Returns:\n        list: A list of tuples representing the transactions, or empty list if none found.\n              Each tuple contains (transaction_id, transaction_date, amount, location, description).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "first_name": {
+                        "type": "string",
+                        "description": "First name of the person."
+                    },
+                    "last_name": {
+                        "type": "string",
+                        "description": "Last name of the person."
+                    },
+                    "month": {
+                        "type": "integer",
+                        "description": "The month number (1-12)."
+                    }
+                },
+                "required": [
+                    "first_name",
+                    "last_name",
+                    "month"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_transactions_by_day_and_name",
+            "description": "\n    Fetches all transactions for a given person on a specific day.\n    Args:\n        first_name (str): First name of the person.\n        last_name (str): Last name of the person.\n        date_str (str): The date string in 'YYYY-MM-DD' format.\n    Returns:\n        list: A list of tuples representing the transactions, or empty list if none found.\n              Each tuple contains (transaction_id, transaction_date, amount, location, description).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "first_name": {
+                        "type": "string",
+                        "description": "First name of the person."
+                    },
+                    "last_name": {
+                        "type": "string",
+                        "description": "Last name of the person."
+                    },
+                    "date_str": {
+                        "type": "string",
+                        "description": "The date string in 'YYYY-MM-DD' format."
+                    }
+                },
+                "required": [
+                    "first_name",
+                    "last_name",
+                    "date_str"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_total_transaction_amount_by_name",
+            "description": "\n    Calculates the total amount spent in transactions by a given person.\n    Args:\n        first_name (str): First name of the person.\n        last_name (str): Last name of the person.\n    Returns:\n        float: The total amount spent, or 0.0 if the person or transactions are not found.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "first_name": {
+                        "type": "string",
+                        "description": "First name of the person."
+                    },
+                    "last_name": {
+                        "type": "string",
+                        "description": "Last name of the person."
+                    }
+                },
+                "required": [
+                    "first_name",
+                    "last_name"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_all_people",
+            "description": "\n    Fetches a list of all people in the system, including their\n    most frequent transaction location.\n    Returns:\n        list: A list of dictionaries, each representing a person.\n              Keys: 'person_id', 'first_name', 'last_name', 'email',\n                    'phone_number', 'most_frequent_location' (can be None).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_transactions_by_location",
+            "description": "\n    Fetches all transactions that occurred at a specific location.\n    Args:\n        location (str): The location name to filter by.\n    Returns:\n        list: A list of dictionaries representing the transactions including person's name.\n              Keys: 'transaction_id', 'first_name', 'last_name', 'transaction_date',\n                    'amount', 'location', 'description'\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The location name to filter by."
+                    }
+                },
+                "required": [
+                    "location"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

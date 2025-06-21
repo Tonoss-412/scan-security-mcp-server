@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "chat",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        }
+    ]
+}

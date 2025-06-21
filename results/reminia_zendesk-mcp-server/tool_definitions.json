@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_prompts",
+            "description": "List available prompts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\zendesk_mcp_server\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "Handle prompt requests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\zendesk_mcp_server\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available Zendesk tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\zendesk_mcp_server\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle Zendesk tool execution requests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\zendesk_mcp_server\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\zendesk_mcp_server\\server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "get_cached_kb",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\zendesk_mcp_server\\server.py",
+            "decorator": [
+                "ttl_cache"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\zendesk_mcp_server\\server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        }
+    ]
+}

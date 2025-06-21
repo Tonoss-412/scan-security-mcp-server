@@ -1,0 +1,333 @@
+{
+    "tools": [
+        {
+            "name": "nebula_lifespan",
+            "description": "This is a context manager for NebulaGraph connection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\nebulagraph_mcp_server\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_space_schema_resource",
+            "description": "Get the schema information of the specified space\n    Args:\n        space: The space to get the schema for\n    Returns:\n        The schema information of the specified space\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "space": {
+                        "type": "string",
+                        "description": "The space to get the schema for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "space",
+                    "Returns"
+                ]
+            },
+            "file": "src\\nebulagraph_mcp_server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_path_resource",
+            "description": "Get the path between two vertices\n    Args:\n        space: The space to use\n        src: The source vertex ID\n        dst: The destination vertex ID\n        depth: The maximum path depth\n        limit: The maximum number of paths to return\n    Returns:\n        The path between the source and destination vertices\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "space": {
+                        "type": "string",
+                        "description": "The space to use"
+                    },
+                    "src": {
+                        "type": "string",
+                        "description": "The source vertex ID"
+                    },
+                    "dst": {
+                        "type": "string",
+                        "description": "The destination vertex ID"
+                    },
+                    "depth": {
+                        "type": "string",
+                        "description": "The maximum path depth"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "The maximum number of paths to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "space",
+                    "src",
+                    "dst",
+                    "depth",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "src\\nebulagraph_mcp_server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "list_spaces",
+            "description": "List all available spaces\n    Returns:\n        The available spaces\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\nebulagraph_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_space_schema",
+            "description": "Get the schema information of the specified space\n    Args:\n        space: The space to get the schema for\n    Returns:\n        The schema information of the specified space\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "space": {
+                        "type": "string",
+                        "description": "The space to get the schema for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "space",
+                    "Returns"
+                ]
+            },
+            "file": "src\\nebulagraph_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "Execute a query\n    Args:\n        query: The query to execute\n        space: The space to use\n    Returns:\n        The results of the query\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The query to execute"
+                    },
+                    "space": {
+                        "type": "string",
+                        "description": "The space to use"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "space",
+                    "Returns"
+                ]
+            },
+            "file": "src\\nebulagraph_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_path",
+            "description": "Find paths between two vertices\n    Args:\n        src: The source vertex ID\n        dst: The destination vertex ID\n        space: The space to use\n        depth: The maximum path depth\n        limit: The maximum number of paths to return\n    Returns:\n        The path results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "src": {
+                        "type": "string",
+                        "description": "The source vertex ID"
+                    },
+                    "dst": {
+                        "type": "string",
+                        "description": "The destination vertex ID"
+                    },
+                    "space": {
+                        "type": "string",
+                        "description": "The space to use"
+                    },
+                    "depth": {
+                        "type": "string",
+                        "description": "The maximum path depth"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "The maximum number of paths to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "src",
+                    "dst",
+                    "space",
+                    "depth",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "src\\nebulagraph_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_neighbors_resource",
+            "description": "Get the neighbors of the specified vertex\n    Args:\n        space: The space to use\n        vertex: The vertex ID to query\n        depth: The depth of the query\n    Returns:\n        The neighbors of the specified vertex\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "space": {
+                        "type": "string",
+                        "description": "The space to use"
+                    },
+                    "vertex": {
+                        "type": "string",
+                        "description": "The vertex ID to query"
+                    },
+                    "depth": {
+                        "type": "string",
+                        "description": "The depth of the query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "space",
+                    "vertex",
+                    "depth",
+                    "Returns"
+                ]
+            },
+            "file": "src\\nebulagraph_mcp_server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "find_neighbors",
+            "description": "Find the neighbors of the specified vertex\n    Args:\n        vertex: The vertex ID to query\n        space: The space to use\n        depth: The depth of the query, default is 1\n    Returns:\n        The neighbors of the specified vertex\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "vertex": {
+                        "type": "string",
+                        "description": "The vertex ID to query"
+                    },
+                    "space": {
+                        "type": "string",
+                        "description": "The space to use"
+                    },
+                    "depth": {
+                        "type": "string",
+                        "description": "The depth of the query, default is 1"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "vertex",
+                    "space",
+                    "depth",
+                    "Returns"
+                ]
+            },
+            "file": "src\\nebulagraph_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "setup_env",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "setup_connection",
+            "description": "Initialize connection pool and prepare test data",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_integration_list_spaces",
+            "description": "Test the list spaces function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_integration_execute_query",
+            "description": "Test the execute query function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_integration_find_path",
+            "description": "Test the find path function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_integration_get_neighbors",
+            "description": "Test the get neighbors function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

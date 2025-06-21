@@ -1,0 +1,42 @@
+{
+    "tools": [
+        {
+            "name": "from_env",
+            "description": "Create a ServerConfig instance from environment variables.\n        \n        Returns:\n            ServerConfig: The configured server settings.\n            \n        Raises:\n            ValueError: If required environment variables are missing or invalid.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\rcon_mcp\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_args",
+            "description": "Create an AppConfig instance from command line arguments.\n        \n        Args:\n            args: Optional dictionary of command line arguments.\n            \n        Returns:\n            AppConfig: The configured application settings.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\rcon_mcp\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,298 @@
+{
+    "tools": [
+        {
+            "name": "from_config",
+            "description": "\n        Create an assistant agent from a configuration object.\n        \n        Args:\n            config: Agent configuration\n            tools: List of tools available to the agent\n            \n        Returns:\n            A new AssistantAgent instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\agents\\assistant_agent.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_config",
+            "description": "\n        Create an agent from a configuration object.\n        \n        Args:\n            config: Agent configuration\n            tools: List of tools available to the agent\n            \n        Returns:\n            A new BaseAgent instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\agents\\base_agent.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_config",
+            "description": "\n        Create a specialized agent from a configuration object.\n        \n        Args:\n            config: Agent configuration\n            domain: Domain of specialization\n            domain_knowledge: Domain-specific knowledge and configuration\n            tools: List of tools available to the agent\n            \n        Returns:\n            A new SpecializedAgent instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\agents\\specialized_agent.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_config",
+            "description": "\n        Create a user proxy agent from a configuration object.\n        \n        Args:\n            config: Agent configuration\n            tools: List of tools available to the agent\n            code_execution_config: Configuration for code execution\n            \n        Returns:\n            A new UserProxyAgent instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\agents\\user_proxy_agent.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_endpoint",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "src\\config\\config_manager.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "from_config",
+            "description": "\n        Create a tool from a configuration object.\n        \n        Args:\n            config: Tool configuration\n            function: Function implementing the tool\n            \n        Returns:\n            A new Tool instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\tools\\tool_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "test_resolve_library_id",
+            "description": "Test resolving a library ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "tests\\test_context7_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_library_docs",
+            "description": "Test getting library documentation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "tests\\test_context7_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_resolve_library_id_tool",
+            "description": "Test the resolve library ID tool function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_resolve": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_resolve"
+                ]
+            },
+            "file": "tests\\test_context7_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_library_docs_tool",
+            "description": "Test the get library docs tool function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_docs": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_docs"
+                ]
+            },
+            "file": "tests\\test_context7_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_agent",
+            "description": "Test creating an agent.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_agent"
+                ]
+            },
+            "file": "tests\\test_framework_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_specialized_agent",
+            "description": "Test creating a specialized agent.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_agent"
+                ]
+            },
+            "file": "tests\\test_framework_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_register_mcp_server",
+            "description": "Test registering an MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_mcp_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_mcp_client"
+                ]
+            },
+            "file": "tests\\test_framework_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_memory_integration",
+            "description": "Test integration with memory manager.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_agent"
+                ]
+            },
+            "file": "tests\\test_framework_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_group_chat",
+            "description": "Test creating and starting a group chat.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_manager": {
+                        "type": "string"
+                    },
+                    "mock_group_chat": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_manager",
+                    "mock_group_chat"
+                ]
+            },
+            "file": "tests\\test_framework_integration.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        }
+    ]
+}

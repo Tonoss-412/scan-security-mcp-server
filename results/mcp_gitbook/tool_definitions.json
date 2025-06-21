@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "example_tool",
+            "description": "Anexampletoolthatechoesamessage",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_gitbook\\main.py",
+            "decorator": [
+                "self.server.tool"
+            ]
+        }
+    ]
+}

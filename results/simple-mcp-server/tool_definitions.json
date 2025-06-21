@@ -1,0 +1,57 @@
+{
+    "tools": [
+        {
+            "name": "hello_world",
+            "description": "A simple hello world tool that returns a greeting.\n\n        Args:\n            name: Name to greet\n            delay: Optional delay in seconds\n\n        Returns:\n            A greeting message\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name to greet"
+                    },
+                    "delay": {
+                        "type": "string",
+                        "description": "Optional delay in seconds"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "delay",
+                    "Returns"
+                ]
+            },
+            "file": "run_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_version",
+            "description": "Get server version information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "run_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "system_info",
+            "description": "Get basic system information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "run_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

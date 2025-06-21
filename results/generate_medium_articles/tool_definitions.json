@@ -1,0 +1,64 @@
+{
+    "tools": [
+        {
+            "name": "get_top_search_results",
+            "description": "\n    Fetches the top organic search results for a given topic using the Serper.dev API.\n\n    This function sends a POST request to the Serper.dev Google Search API with the specified topic\n    and returns a list of dictionaries containing the title, URL, and snippet for each result.\n\n    Args:\n        topic (str): The search query or topic to retrieve results for.\n        limit (int, optional): The maximum number of search results to return. Default is 5.\n\n    Returns:\n        List[dict]: A list of search results, where each result is a dictionary with the keys:\n            - 'title': The title of the search result.\n            - 'url': The URL of the result.\n            - 'snippet': A short description or snippet from the result.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string",
+                        "description": "The search query or topic to retrieve results for."
+                    }
+                },
+                "required": [
+                    "topic"
+                ]
+            },
+            "file": "server_basic.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_top_tweets_via_serper",
+            "description": "\n    Retrieves top publicly visible tweets related to a given topic using the Serper.dev API.\n\n    This function leverages Google's search capabilities via the Serper.dev API to simulate\n    tweet discovery by querying for tweets on X.com (formerly Twitter). It constructs a search\n    query with the \"site:x.com\" filter to fetch relevant tweet links and metadata.\n\n    Args:\n        topic (str): The topic or keyword to search tweets for.\n        limit (int, optional): The maximum number of tweet results to return. Default is 5.\n\n    Returns:\n        List[dict]: A list of tweet-like results, where each result is a dictionary containing:\n            - 'title': The title of the tweet or page (as returned by the search engine).\n            - 'url': The direct URL to the tweet on X.com.\n            - 'snippet': A preview text or snippet from the tweet content.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string",
+                        "description": "The topic or keyword to search tweets for."
+                    }
+                },
+                "required": [
+                    "topic"
+                ]
+            },
+            "file": "server_basic.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_top_reddit_posts",
+            "description": "\n    Retrieves top Reddit posts related to a given topic using the Serper.dev API.\n\n    This function uses Google's search engine through Serper.dev to find public Reddit\n    posts or discussions by including the \"site:reddit.com\" filter in the query.\n\n    Args:\n        topic (str): The search term or topic to look up on Reddit.\n        limit (int, optional): The maximum number of Reddit posts to return. Default is 5.\n\n    Returns:\n        List[dict]: A list of Reddit results, where each result is a dictionary with:\n            - 'title': The post title or page title.\n            - 'url': Direct URL to the Reddit post or thread.\n            - 'snippet': A short snippet or preview of the post.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string",
+                        "description": "The search term or topic to look up on Reddit."
+                    }
+                },
+                "required": [
+                    "topic"
+                ]
+            },
+            "file": "server_basic.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

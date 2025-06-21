@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "run_agent",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-client.py",
+            "decorator": [
+                "app.post"
+            ]
+        }
+    ]
+}

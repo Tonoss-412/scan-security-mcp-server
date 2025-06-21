@@ -1,0 +1,99 @@
+{
+    "tools": [
+        {
+            "name": "te_by_product(product_cod",
+            "description": "rate a price quote for a specific product with given code,quantity and brand.\n    \n    Args:\n        product_code: The product code to generate a quote for\n        quantity: The quantity of the product\n        brand: The brand of the product (optional)\n        \n    Returns:\n        A formatted quote with pricing information\n    \"\"\"\n    logger.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "product_code": {
+                        "type": "string",
+                        "description": "The product code to generate a quote for"
+                    },
+                    "quantity": {
+                        "type": "string",
+                        "description": "The quantity of the product"
+                    },
+                    "brand": {
+                        "type": "string",
+                        "description": "The brand of the product (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "product_code",
+                    "quantity",
+                    "brand",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "update_doc"
+            ]
+        },
+        {
+            "name": "normalize_tool_name",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tool_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tool_name"
+                ]
+            },
+            "file": "src\\mcp_client.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_tool_name4llm",
+            "description": "Convert MCP server tool name to llm tool call",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_id": {
+                        "type": "string"
+                    },
+                    "tool_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_id",
+                    "tool_name"
+                ]
+            },
+            "file": "src\\mcp_client.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_tool_name4mcp",
+            "description": "Convert llm tool call name to MCP server original name",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tool_name4llm": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tool_name4llm"
+                ]
+            },
+            "file": "src\\mcp_client.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

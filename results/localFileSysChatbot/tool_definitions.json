@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "get_user_input",
+            "description": "Store user input in state",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fsm.py",
+            "decorator": [
+                "action"
+            ]
+        },
+        {
+            "name": "determine_intent",
+            "description": "Determine the intent of the user's message",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fsm.py",
+            "decorator": [
+                "action"
+            ]
+        },
+        {
+            "name": "extract_params",
+            "description": "Extract parameters from the user's message based on intent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fsm.py",
+            "decorator": [
+                "action"
+            ]
+        },
+        {
+            "name": "execute_operation",
+            "description": "Execute the filesystem operation based on intent and parameters",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fsm.py",
+            "decorator": [
+                "action"
+            ]
+        },
+        {
+            "name": "generate_response",
+            "description": "Generate a natural language response based on the operation result",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fsm.py",
+            "decorator": [
+                "action"
+            ]
+        },
+        {
+            "name": "update_chat_history",
+            "description": "Update the chat history with the user input and assistant response",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fsm.py",
+            "decorator": [
+                "action"
+            ]
+        },
+        {
+            "name": "present_response",
+            "description": "Action to mark the endpoint of one interaction cycle",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fsm.py",
+            "decorator": [
+                "action"
+            ]
+        }
+    ]
+}

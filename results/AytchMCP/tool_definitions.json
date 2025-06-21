@@ -1,0 +1,176 @@
+{
+    "tools": [
+        {
+            "name": "user_id",
+            "description": "Get the user ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aytchmcp\\context.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "conversation_id",
+            "description": "Get the conversation ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aytchmcp\\context.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "request_id",
+            "description": "Get the request ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aytchmcp\\context.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "mcp_root",
+            "description": "MCP root endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aytchmcp\\server.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "mcp_resources",
+            "description": "MCP resources endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aytchmcp\\server.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "mcp_tools",
+            "description": "MCP tools endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aytchmcp\\server.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aytchmcp\\server.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "exception_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aytchmcp\\server.py",
+            "decorator": [
+                "self.app.exception_handler"
+            ]
+        },
+        {
+            "name": "from_bytes",
+            "description": "\n        Create an Image from bytes.\n        \n        Args:\n            content: The image content as bytes.\n            mime_type: The MIME type of the image.\n            **kwargs: Additional metadata.\n            \n        Returns:\n            An Image instance.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\aytchmcp\\images\\__init__.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_base64",
+            "description": "\n        Create an Image from base64-encoded content.\n        \n        Args:\n            base64_content: The base64-encoded image content.\n            mime_type: The MIME type of the image.\n            **kwargs: Additional metadata.\n            \n        Returns:\n            An Image instance.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\aytchmcp\\images\\__init__.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_url",
+            "description": "\n        Create an Image from a URL.\n        \n        Args:\n            url: The URL to the image.\n            **kwargs: Additional metadata.\n            \n        Returns:\n            An Image instance.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\aytchmcp\\images\\__init__.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_path",
+            "description": "\n        Create an Image from a file path.\n        \n        Args:\n            path: The path to the image file.\n            **kwargs: Additional metadata.\n            \n        Returns:\n            An Image instance.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\aytchmcp\\images\\__init__.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

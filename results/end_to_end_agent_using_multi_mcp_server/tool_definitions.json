@@ -1,0 +1,419 @@
+{
+    "tools": [
+        {
+            "name": "send_email",
+            "description": "Sends an email with google sheet link. Usage: send_email|input={\"recipient_id\":\"xyz@gmail.com\", \"subject\": \"Result of your query\", \"message\": \"Message with link to google sheet\"}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gmail_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "write_data_to_sheet",
+            "description": "Writes data to a Google Sheet. Usage: write_data_to_sheet|input={\"data\":[\"1 | Max Verstappen - 437 points, 2\", \"2 | Lando Norris - 374 points\"]}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "google_sheet_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add",
+            "description": "Add two numbers. Usage: add|input={\"a\": 10, \"b\": 5}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sqrt",
+            "description": "Compute the square root of a number. Usage: sqrt|input={\"a\": 49}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "subtract",
+            "description": "Subtract one number from another. Usage: subtract|a=10|b=3",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "multiply",
+            "description": "Multiply two integers. Usage: multiply|a=6|b=7",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "divide",
+            "description": "Divide one number by another. Usage: divide|a=20|b=4",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "power",
+            "description": "Compute a raised to the power of b. Usage: power|a=2|b=10",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cbrt",
+            "description": "Compute the cube root of a number. Usage: cbrt|a=27",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "factorial",
+            "description": "Compute the factorial of a number. Usage: factorial|a=5",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "remainder",
+            "description": "Compute the remainder of a divided by b. Usage: remainder|a=17|b=4",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sin",
+            "description": "Compute sine of an angle in radians. Usage: sin|a=1",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cos",
+            "description": "Compute cosine of an angle in radians. Usage: cos|a=1",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "tan",
+            "description": "Compute tangent of an angle in radians. Usage: tan|a=1",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mine",
+            "description": "special mining tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_thumbnail",
+            "description": "Create a 100x100 thumbnail from image. Usage: create_thumbnail|image_path=\"example.jpg\\",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "strings_to_chars_to_int",
+            "description": "Convert characters to ASCII values. Usage: strings_to_chars_to_int|input={\"string\": \"INDIA\"}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "int_list_to_exponential_sum",
+            "description": "Sum exponentials of int list. Usage: int_list_to_exponential_sum|input={\"numbers\": [65, 66, 67]}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fibonacci_numbers",
+            "description": "Generate first n Fibonacci numbers. Usage: fibonacci_numbers|n=10",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_python_sandbox",
+            "description": "Run math code in Python sandbox. Usage: run_python_sandbox|input={\"code\": \"result = math.sqrt(49)\"}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_shell_command",
+            "description": "Run a safe shell command. Usage: run_shell_command|input={\"command\": \"ls\"}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_sql_query",
+            "description": "Run safe SELECT-only SQL query. Usage: run_sql_query|input={\"code\": \"SELECT * FROM users LIMIT 5\"}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_greeting",
+            "description": "Get a personalized greeting",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "review_code",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "debug_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_1.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "\n    Search DuckDuckGo and return formatted results.\n\n    Args:\n        query: The search query string\n        max_results: Maximum number of results to return (default: 10)\n        ctx: MCP context for logging\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query string"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 10)"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context for logging"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "ctx"
+                ]
+            },
+            "file": "mcp_server_3.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_content",
+            "description": "\n    Fetch and parse content from a webpage URL.\n\n    Args:\n        url: The webpage URL to fetch content from\n        ctx: MCP context for logging\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The webpage URL to fetch content from"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context for logging"
+                    }
+                },
+                "required": [
+                    "url",
+                    "ctx"
+                ]
+            },
+            "file": "mcp_server_3.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sse_endpoint",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "telegram_mcp_sse_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_telegram_message",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "telegram_mcp_sse_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "put_telegram_message",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "telegram_mcp_sse_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "send_telegram_message",
+            "description": "sendsamessagetotelegram",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "telegram_mcp_sse_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "send_message",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "telegram_mcp_sse_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        }
+    ]
+}

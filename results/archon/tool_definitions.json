@@ -1,0 +1,680 @@
+{
+    "tools": [
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "graph_service.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "invoke_agent",
+            "description": "Process a message through the agentic flow and return the complete response.\n\n    The agent streams the response but this API endpoint waits for the full output\n    before returning so it's a synchronous operation for MCP.\n    Another endpoint will be made later to fully stream the response from the API.\n    \n    Args:\n        request: The InvokeRequest containing message and thread info\n        \n    Returns:\n        dict: Contains the complete response from the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The InvokeRequest containing message and thread info"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Contains the complete response from the agent"
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "graph_service.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "is_completed",
+            "description": "Return True if the crawling process is completed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archon\\crawl_pydantic_ai_docs.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_successful",
+            "description": "Return True if the crawling process completed successfully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archon\\crawl_pydantic_ai_docs.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "retrieve_relevant_documentation",
+            "description": "\n    Retrieve relevant documentation chunks based on the query with RAG.\n    \n    Args:\n        ctx: The context including the Supabase client and OpenAI client\n        user_query: The user's question or query\n        \n    Returns:\n        A formatted string containing the top 5 most relevant documentation chunks\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client and OpenAI client"
+                    },
+                    "user_query": {
+                        "type": "string",
+                        "description": "The user's question or query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "user_query",
+                    "Returns"
+                ]
+            },
+            "file": "iterations\\v1-single-agent\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "list_documentation_pages",
+            "description": "\n    Retrieve a list of all available Pydantic AI documentation pages.\n    \n    Returns:\n        List[str]: List of unique URLs for all documentation pages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v1-single-agent\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n    Retrieve the full content of a specific documentation page by combining all its chunks.\n    \n    Args:\n        ctx: The context including the Supabase client\n        url: The URL of the page to retrieve\n        \n    Returns:\n        str: The complete page content with all chunks combined in order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the page to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The complete page content with all chunks combined in order"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v1-single-agent\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "add_reasoner_output",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v2-agentic-workflow\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.system_prompt"
+            ]
+        },
+        {
+            "name": "retrieve_relevant_documentation",
+            "description": "\n    Retrieve relevant documentation chunks based on the query with RAG.\n    \n    Args:\n        ctx: The context including the Supabase client and OpenAI client\n        user_query: The user's question or query\n        \n    Returns:\n        A formatted string containing the top 5 most relevant documentation chunks\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client and OpenAI client"
+                    },
+                    "user_query": {
+                        "type": "string",
+                        "description": "The user's question or query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "user_query",
+                    "Returns"
+                ]
+            },
+            "file": "iterations\\v2-agentic-workflow\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "list_documentation_pages",
+            "description": "\n    Retrieve a list of all available Pydantic AI documentation pages.\n    \n    Returns:\n        List[str]: List of unique URLs for all documentation pages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v2-agentic-workflow\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n    Retrieve the full content of a specific documentation page by combining all its chunks.\n    \n    Args:\n        ctx: The context including the Supabase client\n        url: The URL of the page to retrieve\n        \n    Returns:\n        str: The complete page content with all chunks combined in order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the page to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The complete page content with all chunks combined in order"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v2-agentic-workflow\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "get_thread_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v2-agentic-workflow\\streamlit_ui.py",
+            "decorator": [
+                "st.cache_resource"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v3-mcp-support\\graph_service.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "invoke_agent",
+            "description": "Process a message through the agentic flow and return the complete response.\n\n    The agent streams the response but this API endpoint waits for the full output\n    before returning so it's a synchronous operation for MCP.\n    Another endpoint will be made later to fully stream the response from the API.\n    \n    Args:\n        request: The InvokeRequest containing message and thread info\n        \n    Returns:\n        dict: Contains the complete response from the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The InvokeRequest containing message and thread info"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Contains the complete response from the agent"
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "iterations\\v3-mcp-support\\graph_service.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "create_thread",
+            "description": "Create a new conversation thread for Archon.\n    Always call this tool before invoking Archon for the first time in a conversation.\n    (if you don't already have a thread ID)\n    \n    Returns:\n        str: A unique thread ID for the conversation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v3-mcp-support\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_agent",
+            "description": "Run the Archon agent with user input.\n    Only use this tool after you have called create_thread in this conversation to get a unique thread ID.\n    If you already created a thread ID in this conversation, do not create another one. Reuse the same ID.\n    After you receive the code from Archon, always implement it into the codebase unless asked not to.\n    \n    Args:\n        thread_id: The conversation thread ID\n        user_input: The user's message to process\n    \n    Returns:\n        str: The agent's response which generally includes the code for the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "thread_id": {
+                        "type": "string",
+                        "description": "The conversation thread ID"
+                    },
+                    "user_input": {
+                        "type": "string",
+                        "description": "The user's message to process"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The agent's response which generally includes the code for the agent"
+                    }
+                },
+                "required": [
+                    "thread_id",
+                    "user_input",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v3-mcp-support\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_thread_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v3-mcp-support\\streamlit_ui.py",
+            "decorator": [
+                "st.cache_resource"
+            ]
+        },
+        {
+            "name": "add_reasoner_output",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v3-mcp-support\\archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.system_prompt"
+            ]
+        },
+        {
+            "name": "retrieve_relevant_documentation",
+            "description": "\n    Retrieve relevant documentation chunks based on the query with RAG.\n    \n    Args:\n        ctx: The context including the Supabase client and OpenAI client\n        user_query: The user's question or query\n        \n    Returns:\n        A formatted string containing the top 5 most relevant documentation chunks\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client and OpenAI client"
+                    },
+                    "user_query": {
+                        "type": "string",
+                        "description": "The user's question or query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "user_query",
+                    "Returns"
+                ]
+            },
+            "file": "iterations\\v3-mcp-support\\archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "list_documentation_pages",
+            "description": "\n    Retrieve a list of all available Pydantic AI documentation pages.\n    \n    Returns:\n        List[str]: List of unique URLs for all documentation pages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v3-mcp-support\\archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n    Retrieve the full content of a specific documentation page by combining all its chunks.\n    \n    Args:\n        ctx: The context including the Supabase client\n        url: The URL of the page to retrieve\n        \n    Returns:\n        str: The complete page content with all chunks combined in order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the page to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The complete page content with all chunks combined in order"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v3-mcp-support\\archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v3-mcp-support\\utils\\utils.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v4-streamlit-ui-overhaul\\graph_service.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "invoke_agent",
+            "description": "Process a message through the agentic flow and return the complete response.\n\n    The agent streams the response but this API endpoint waits for the full output\n    before returning so it's a synchronous operation for MCP.\n    Another endpoint will be made later to fully stream the response from the API.\n    \n    Args:\n        request: The InvokeRequest containing message and thread info\n        \n    Returns:\n        dict: Contains the complete response from the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The InvokeRequest containing message and thread info"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Contains the complete response from the agent"
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "iterations\\v4-streamlit-ui-overhaul\\graph_service.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "create_thread",
+            "description": "Create a new conversation thread for Archon.\n    Always call this tool before invoking Archon for the first time in a conversation.\n    (if you don't already have a thread ID)\n    \n    Returns:\n        str: A unique thread ID for the conversation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v4-streamlit-ui-overhaul\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_agent",
+            "description": "Run the Archon agent with user input.\n    Only use this tool after you have called create_thread in this conversation to get a unique thread ID.\n    If you already created a thread ID in this conversation, do not create another one. Reuse the same ID.\n    After you receive the code from Archon, always implement it into the codebase unless asked not to.\n    \n    Args:\n        thread_id: The conversation thread ID\n        user_input: The user's message to process\n    \n    Returns:\n        str: The agent's response which generally includes the code for the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "thread_id": {
+                        "type": "string",
+                        "description": "The conversation thread ID"
+                    },
+                    "user_input": {
+                        "type": "string",
+                        "description": "The user's message to process"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The agent's response which generally includes the code for the agent"
+                    }
+                },
+                "required": [
+                    "thread_id",
+                    "user_input",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v4-streamlit-ui-overhaul\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "is_completed",
+            "description": "Return True if the crawling process is completed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v4-streamlit-ui-overhaul\\archon\\crawl_pydantic_ai_docs.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_successful",
+            "description": "Return True if the crawling process completed successfully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v4-streamlit-ui-overhaul\\archon\\crawl_pydantic_ai_docs.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "create_thread",
+            "description": "Create a new conversation thread for Archon.\n    Always call this tool before invoking Archon for the first time in a conversation.\n    (if you don't already have a thread ID)\n    \n    Returns:\n        str: A unique thread ID for the conversation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v4-streamlit-ui-overhaul\\mcp\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_agent",
+            "description": "Run the Archon agent with user input.\n    Only use this tool after you have called create_thread in this conversation to get a unique thread ID.\n    If you already created a thread ID in this conversation, do not create another one. Reuse the same ID.\n    After you receive the code from Archon, always implement it into the codebase unless asked not to.\n    \n    Args:\n        thread_id: The conversation thread ID\n        user_input: The user's message to process\n    \n    Returns:\n        str: The agent's response which generally includes the code for the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "thread_id": {
+                        "type": "string",
+                        "description": "The conversation thread ID"
+                    },
+                    "user_input": {
+                        "type": "string",
+                        "description": "The user's message to process"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The agent's response which generally includes the code for the agent"
+                    }
+                },
+                "required": [
+                    "thread_id",
+                    "user_input",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v4-streamlit-ui-overhaul\\mcp\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v4-streamlit-ui-overhaul\\utils\\utils.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "create_thread",
+            "description": "Create a new conversation thread for Archon.\n    Always call this tool before invoking Archon for the first time in a conversation.\n    (if you don't already have a thread ID)\n    \n    Returns:\n        str: A unique thread ID for the conversation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_agent",
+            "description": "Run the Archon agent with user input.\n    Only use this tool after you have called create_thread in this conversation to get a unique thread ID.\n    If you already created a thread ID in this conversation, do not create another one. Reuse the same ID.\n    After you receive the code from Archon, always implement it into the codebase unless asked not to.\n    \n    Args:\n        thread_id: The conversation thread ID\n        user_input: The user's message to process\n    \n    Returns:\n        str: The agent's response which generally includes the code for the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "thread_id": {
+                        "type": "string",
+                        "description": "The conversation thread ID"
+                    },
+                    "user_input": {
+                        "type": "string",
+                        "description": "The user's message to process"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The agent's response which generally includes the code for the agent"
+                    }
+                },
+                "required": [
+                    "thread_id",
+                    "user_input",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_thread_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamlit_pages\\chat.py",
+            "decorator": [
+                "st.cache_resource"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\utils.py",
+            "decorator": [
+                "wraps"
+            ]
+        }
+    ]
+}

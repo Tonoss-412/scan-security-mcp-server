@@ -1,0 +1,64 @@
+{
+    "tools": [
+        {
+            "name": "get_schema",
+            "description": "Provide the database schema as a resource",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "featurestore_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "store_feature",
+            "description": "Store a feature vector with optional metadata",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "featurestore_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_feature",
+            "description": "Retrieve a feature vector by key",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "featurestore_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_features",
+            "description": "List all available feature keys",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "featurestore_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "feature_resource",
+            "description": "Expose feature data via URI",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "featurestore_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

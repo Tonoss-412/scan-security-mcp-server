@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "process_task",
+            "description": "Process a single task - must be implemented by subclasses",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\base_agent.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+{
+    "tools": [
+        {
+            "name": "open_browser",
+            "description": "Open a browser at the specified URL and start monitoring console logs and network requests.\n    \n    Args:\n        url: String, the URL to open in the browser\n        headless: Boolean, whether to run the browser in headless mode\n        \n    Returns:\n        A confirmation message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "String, the URL to open in the browser"
+                    },
+                    "headless": {
+                        "type": "string",
+                        "description": "Boolean, whether to run the browser in headless mode"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "headless",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_playwright\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_console_logs",
+            "description": "Get console logs from the currently open browser page.\n    Repeated messages are deduplicated and shown with a count of repetitions.\n    \n    Args:\n        last_n: Number of log entries to return, prioritizing the most recent ones.\n               Use a large number to get all logs.\n    \n    Returns:\n        A list of console log entries with type, text, location, timestamp, and count for repeated messages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "last_n": {
+                        "type": "string",
+                        "description": "Number of log entries to return, prioritizing the most recent ones."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "last_n",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_playwright\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_network_requests",
+            "description": "Get network requests from the currently open browser page.\n    \n    Args:\n        last_n: Number of network request entries to return, prioritizing the most recent ones.\n               Use a large number to get all requests.\n    \n    Returns:\n        A list of network request entries with URL, method, headers, and response data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "last_n": {
+                        "type": "string",
+                        "description": "Number of network request entries to return, prioritizing the most recent ones."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "last_n",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_playwright\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "close_browser",
+            "description": "Close the browser and clean up resources.\n    \n    Returns:\n        A confirmation message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_playwright\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "mul",
+            "description": "multiply two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mul",
+            "description": "multiply two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test\\test.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

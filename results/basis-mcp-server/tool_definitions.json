@@ -1,0 +1,49 @@
+{
+    "tools": [
+        {
+            "name": "get_all_logarithm_vault_info",
+            "description": "Returns a list of all available Logarithm vaults along with their information.\n    Vault Info Parameters Explained:\n        Address: The address of the vault.\n        Name: The name of the vault.\n        Symbol: The symbol of the vault.\n        Total Supply: The total supply of the vault in decimals.\n        Total Assets: The total assets of the vault in decimals.\n        Share Price: The current share price of the vault in decimals.\n        Entry Cost Rate: The entry cost rate in decimals which is applied to the depositor when they deposit.\n        Exit Cost Rate: The exit cost rate in decimals which is applied to the depositor when they withdraw.\n        Idle Assets: The idle assets of the vault in decimals, offsetting exit costs.\n        Total Pending Withdraw: The total pending withdraw of the vault in decimals, offsetting entry costs.\n        Max Deposit: The max deposit of the depositor in decimals (null if no depositor provided).\n        Share Balance: The share balance of the depositor in decimals (null if no depositor provided).\n\n    Args:\n        depositor: The address of the depositor. If provided, additional information related to the depositor will be returned.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "depositor": {
+                        "type": "string",
+                        "description": "The address of the depositor. If provided, additional information related to the depositor will be returned."
+                    }
+                },
+                "required": [
+                    "depositor"
+                ]
+            },
+            "file": "logarithm_vault.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_share_price_history",
+            "description": "Returns the latest daily share price history of the vaults.\n    Args:\n        vault_addresses: The addresses of the vaults.\n        length: The length of days to get the share price history for.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "vault_addresses": {
+                        "type": "string",
+                        "description": "The addresses of the vaults."
+                    },
+                    "length": {
+                        "type": "string",
+                        "description": "The length of days to get the share price history for."
+                    }
+                },
+                "required": [
+                    "vault_addresses",
+                    "length"
+                ]
+            },
+            "file": "logarithm_vault.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

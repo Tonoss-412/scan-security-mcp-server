@@ -1,0 +1,76 @@
+{
+    "tools": [
+        {
+            "name": "list_tables",
+            "description": "List all tables in the database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_postgresql.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_table_schema",
+            "description": "Get schema definition for a specific table",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_postgresql.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "all_table_names",
+            "description": "f\"Returnalltablenamesinthedatabaseseparatedbycomma.{DB_INFO}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_postgresql.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "filter_table_names",
+            "description": "f\"Returntablenamescontainingthesearchterm",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_postgresql.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "schema_definitions",
+            "description": "f\"Returnsdetailedschemainformationforthegiventables.{DB_INFO}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_postgresql.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "f\"ExecuteaSQLquery(read-only).Resultstruncatedat{EXECUTE_QUERY_MAX_CHARS}chars.{DB_INFO}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_postgresql.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

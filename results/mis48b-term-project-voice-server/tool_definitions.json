@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "on_participant_disconnected",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agent.py",
+            "decorator": [
+                "room.on"
+            ]
+        }
+    ]
+}

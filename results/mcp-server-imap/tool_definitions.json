@@ -1,0 +1,246 @@
+{
+    "tools": [
+        {
+            "name": "test_dsl_to_search_parametrized",
+            "description": "Test dsl_to_search conversion with various inputs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "dsl": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    },
+                    "test_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dsl",
+                    "expected",
+                    "test_id"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_search_function",
+            "description": "Test the search function with mocked IMAPClient",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_imap_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_imap_client"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_function_empty_result",
+            "description": "Test the search function with no results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_imap_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_imap_client"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_function_complex_query",
+            "description": "Test the search function with a complex query",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_imap_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_imap_client"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_function_empty_query",
+            "description": "Test the search function with an empty query object",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_imap_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_imap_client"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_function_empty_json_string_query",
+            "description": "Test the search function with a query parameter that is an empty JSON string '{}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_imap_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_imap_client"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_function_with_headers",
+            "description": "Test the search function with headers field",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_imap_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_imap_client"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_function_with_body",
+            "description": "Test the search function with body field",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_imap_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_imap_client"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_function_with_multiple_fields",
+            "description": "Test the search function with multiple fields",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_imap_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_imap_client"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_function_with_throttling",
+            "description": "Test the search function's throttling functionality for fetch operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_imap_client": {
+                        "type": "string"
+                    },
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_imap_client",
+                    "mock_sleep"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_fetch_multiple_messages",
+            "description": "Test the fetch function with multiple message IDs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_email_body": {
+                        "type": "string"
+                    },
+                    "mock_message_from_bytes": {
+                        "type": "string"
+                    },
+                    "mock_imap_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_email_body",
+                    "mock_message_from_bytes",
+                    "mock_imap_client"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        }
+    ]
+}

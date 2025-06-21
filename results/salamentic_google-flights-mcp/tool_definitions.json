@@ -1,0 +1,181 @@
+{
+    "tools": [
+        {
+            "name": "search_flights",
+            "description": "\n    Search for flights between two airports.\n\n    Args:\n        from_airport: Departure airport code (3-letter IATA code, e.g., 'LAX')\n        to_airport: Arrival airport code (3-letter IATA code, e.g., 'JFK')\n        departure_date: Departure date in YYYY-MM-DD format\n        return_date: Return date in YYYY-MM-DD format (optional, for round trips)\n        adults: Number of adult passengers (default: 1)\n        children: Number of children (default: 0)\n        infants_in_seat: Number of infants in seat (default: 0)\n        infants_on_lap: Number of infants on lap (default: 0)\n        seat_class: Seat class (economy, premium_economy, business, first) (default: economy)\n\n    Returns:\n        Flight search results in a formatted string\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "from_airport": {
+                        "type": "string",
+                        "description": "Departure airport code (3-letter IATA code, e.g., 'LAX')"
+                    },
+                    "to_airport": {
+                        "type": "string",
+                        "description": "Arrival airport code (3-letter IATA code, e.g., 'JFK')"
+                    },
+                    "departure_date": {
+                        "type": "string",
+                        "description": "Departure date in YYYY-MM-DD format"
+                    },
+                    "return_date": {
+                        "type": "string",
+                        "description": "Return date in YYYY-MM-DD format (optional, for round trips)"
+                    },
+                    "adults": {
+                        "type": "string",
+                        "description": "Number of adult passengers (default: 1)"
+                    },
+                    "children": {
+                        "type": "string",
+                        "description": "Number of children (default: 0)"
+                    },
+                    "infants_in_seat": {
+                        "type": "string",
+                        "description": "Number of infants in seat (default: 0)"
+                    },
+                    "infants_on_lap": {
+                        "type": "string",
+                        "description": "Number of infants on lap (default: 0)"
+                    },
+                    "seat_class": {
+                        "type": "string",
+                        "description": "Seat class (economy, premium_economy, business, first) (default: economy)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "from_airport",
+                    "to_airport",
+                    "departure_date",
+                    "return_date",
+                    "adults",
+                    "children",
+                    "infants_in_seat",
+                    "infants_on_lap",
+                    "seat_class",
+                    "Returns"
+                ]
+            },
+            "file": "src\\flights-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "airport_search",
+            "description": "\n    Search for airport codes by name or city.\n\n    Args:\n        query: The search term (city name, airport name, or partial code)\n\n    Returns:\n        List of matching airports with their codes\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search term (city name, airport name, or partial code)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "src\\flights-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_travel_dates",
+            "description": "\n    Get suggested travel dates based on days from now and trip length.\n\n    Args:\n        days_from_now: Number of days from today for departure \n                      (default: configured default_advance_days)\n        trip_length: Length of the trip in days\n                     (default: configured default_trip_days)\n\n    Returns:\n        Suggested travel dates in YYYY-MM-DD format\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "days_from_now": {
+                        "type": "string",
+                        "description": "Number of days from today for departure"
+                    },
+                    "trip_length": {
+                        "type": "string",
+                        "description": "Length of the trip in days"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "days_from_now",
+                    "trip_length",
+                    "Returns"
+                ]
+            },
+            "file": "src\\flights-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_airports_database",
+            "description": "\n    Update the airports database from the configured CSV source.\n\n    Returns:\n        Status message with the number of airports loaded\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\flights-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_all_airports",
+            "description": "Get a list of all available airports.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\flights-mcp-server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_airport_info",
+            "description": "Get information about a specific airport by its code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\flights-mcp-server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "plan_trip",
+            "description": "Create a prompt for trip planning to a specific destination.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\flights-mcp-server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "compare_destinations",
+            "description": "Create a prompt for comparing two travel destinations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\flights-mcp-server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

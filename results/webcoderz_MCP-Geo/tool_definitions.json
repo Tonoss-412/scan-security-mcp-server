@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "geocode_location",
+            "description": "\n    Geocodes a single location string (an address or place name).\n    Returns {'latitude', 'longitude', 'address'} or None if not found.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "geo.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "reverse_geocode",
+            "description": "\n    Reverse geocodes a latitude and longitude to find the nearest address.\n    Returns {'latitude', 'longitude', 'address'} or None if not found.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "geo.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "geocode_with_details",
+            "description": "\n    Geocodes a single location string with extra details such as bounding box\n    and detailed address info, if available.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "geo.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "geocode_multiple_locations",
+            "description": "\n    Geocodes multiple address strings, returning a list of results.\n    Each element is either:\n      {\n        \"latitude\": float,\n        \"longitude\": float,\n        \"address\": str\n      }\n    or None if no result was found.\n    This function uses the same RateLimiter above, so it waits min_delay_seconds\n    between each geocode call to respect usage limits.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "geo.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "reverse_geocode_multiple_locations",
+            "description": "\n    Reverse geocodes multiple [latitude, longitude] pairs to find the nearest address.\n\n    Each item in `coords` should be a list with two floats: [lat, lon].\n    Example: [[37.7749, -122.4194], [40.7128, -74.0060]]\n\n    Returns a list of results, where each result is either:\n        {\n          \"latitude\": float,\n          \"longitude\": float,\n          \"address\": str\n        }\n    or None if the location could not be found or an error occurred.\n\n    This function uses the same RateLimiter above, so it waits at least\n    min_delay_seconds between each reverse geocode call.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "geo.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "distance_between_addresses",
+            "description": "\n    Calculate the distance between two addresses or place names.\n\n    :param address1: The first address or place name.\n    :param address2: The second address or place name.\n    :param unit: \"kilometers\" (default) or \"miles\".\n\n    Returns the distance in the specified unit, or None if either address could not be geocoded.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "geo.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "distance_between_coords",
+            "description": "\n    Calculate the distance between two lat/lon pairs.\n\n    :param lat1: Latitude of the first location.\n    :param lon1: Longitude of the first location.\n    :param lat2: Latitude of the second location.\n    :param lon2: Longitude of the second location.\n    :param unit: \"kilometers\" (default) or \"miles\".\n\n    Returns the distance in the specified unit.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "geo.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

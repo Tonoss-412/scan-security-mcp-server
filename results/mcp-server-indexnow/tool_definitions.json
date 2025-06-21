@@ -1,0 +1,43 @@
+{
+    "tools": [
+        {
+            "name": "submit_urls",
+            "description": "Submit one or more URLs to search engines using the IndexNow protocol.\n\n        Args:\n            urls: List of URLs to submit\n                  (e.g. [\"https://example.com/page1\", \"https://example.com/page2\"])\n            key: Your IndexNow secret key\n                 (optional if INDEXNOW_SECRET_KEY env var is set)\n            host: The host of your website\n                  (e.g. \\\"example.com\\\", required if submitting multiple URLs and it\n                   cannot be inferred from the first URL, or if submitting an\n                   empty list)\n            key_location: Optional location of your key file\n                          (e.g. \"https://example.com/key.txt\")\n                          If not provided, the server will check for the\n                          INDEXNOW_KEY_LOCATION environment variable.\n\n        Returns:\n            A dictionary containing the result of the submission:\n            {\"status\": 200, \"message\": \"OK\"}\n            {\"status\": 202, \"message\": \"Accepted\"}\n            {\"status\": 4xx/5xx, \"error\": \"Error description\"}\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "urls": {
+                        "type": "string",
+                        "description": "List of URLs to submit"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Your IndexNow secret key"
+                    },
+                    "host": {
+                        "type": "string",
+                        "description": "The host of your website"
+                    },
+                    "key_location": {
+                        "type": "string",
+                        "description": "Optional location of your key file"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "urls",
+                    "key",
+                    "host",
+                    "key_location",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server_indexnow\\tools\\indexnow.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

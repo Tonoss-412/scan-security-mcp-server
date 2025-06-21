@@ -1,0 +1,513 @@
+{
+    "tools": [
+        {
+            "name": "main",
+            "description": "Weather Multi-Interface Application.\n\n    A comprehensive weather application with CLI, Web, and MCP interfaces.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\__main__.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Run the CLI interface.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "verbose": {
+                        "type": "string"
+                    },
+                    "zipcode": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "country": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "verbose",
+                    "zipcode",
+                    "city",
+                    "state",
+                    "country"
+                ]
+            },
+            "file": "src\\weather_app\\__main__.py",
+            "decorator": [
+                "main.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "web",
+            "description": "Run the Flask web interface.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "string"
+                    },
+                    "debug": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port",
+                    "debug"
+                ]
+            },
+            "file": "src\\weather_app\\__main__.py",
+            "decorator": [
+                "main.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "mcp",
+            "description": "Run the MCP server for VS Code integration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\__main__.py",
+            "decorator": [
+                "main.command"
+            ]
+        },
+        {
+            "name": "display_name",
+            "description": "Get a human-readable display name for the location.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\domain\\models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_us_location",
+            "description": "Check if this is a US location.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\domain\\models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "validate_zipcode",
+            "description": "Validate US zipcode format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\domain\\services.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "validate_city_state",
+            "description": "Validate city and state inputs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\domain\\services.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "validate_city_state_country",
+            "description": "Validate city, state, and country inputs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\domain\\services.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "validate_city_country",
+            "description": "Validate city and country inputs (for international locations without state).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\domain\\services.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_temperature_unit_for_location",
+            "description": "Get the appropriate temperature unit for a location.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\domain\\services.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_speed_unit_for_location",
+            "description": "Get the appropriate speed unit for a location.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\domain\\services.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_distance_unit_for_location",
+            "description": "Get the appropriate distance unit for a location.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\domain\\services.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Weather Multi-Interface Application CLI.\n\n    Get current weather and 3-day forecasts for any location worldwide.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\interfaces\\cli.py",
+            "decorator": [
+                "click.group",
+                "click.option"
+            ]
+        },
+        {
+            "name": "weather",
+            "description": "Get current weather and forecast for a location.\n\n    Examples:\n        weather --zipcode 90210\n        weather --city \"Los Angeles\" --state \"CA\"\n        weather --city \"Toronto\" --state \"ON\" --country \"CA\"\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\interfaces\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "get_weather_by_zipcode",
+            "description": "Get current weather and 3-day forecast by US zipcode.\n\n    Args:\n        zipcode: US zipcode (e.g., \"90210\" or \"90210-1234\")\n\n    Returns:\n        Weather data including current conditions and 3-day forecast\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "zipcode": {
+                        "type": "string",
+                        "description": "US zipcode (e.g., \"90210\" or \"90210-1234\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "zipcode",
+                    "Returns"
+                ]
+            },
+            "file": "src\\weather_app\\interfaces\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_weather_by_city",
+            "description": "Get current weather and 3-day forecast by city, state, and country.\n\n    Args:\n        city: City name (e.g., \"Los Angeles\")\n        state: State or province (e.g., \"CA\" or \"Ontario\")\n        country: Country name or code (e.g., \"USA\", \"Canada\", \"UK\")\n\n    Returns:\n        Weather data including current conditions and 3-day forecast\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "city": {
+                        "type": "string",
+                        "description": "City name (e.g., \"Los Angeles\")"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "State or province (e.g., \"CA\" or \"Ontario\")"
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "Country name or code (e.g., \"USA\", \"Canada\", \"UK\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "city",
+                    "state",
+                    "country",
+                    "Returns"
+                ]
+            },
+            "file": "src\\weather_app\\interfaces\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_weather_summary",
+            "description": "Get a concise weather summary for any location.\n\n    Args:\n        location_query: Location query (zipcode, \"city, state\", or \"city, state, country\")\n\n    Returns:\n        Human-readable weather summary\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "location_query": {
+                        "type": "string",
+                        "description": "Location query (zipcode, \"city, state\", or \"city, state, country\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "location_query",
+                    "Returns"
+                ]
+            },
+            "file": "src\\weather_app\\interfaces\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "index",
+            "description": "Home page with search form.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\interfaces\\web.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "weather",
+            "description": "Weather results page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\interfaces\\web.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "api_weather",
+            "description": "API endpoint for weather data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\weather_app\\interfaces\\web.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "not_found",
+            "description": "Handle 404 errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error"
+                ]
+            },
+            "file": "src\\weather_app\\interfaces\\web.py",
+            "decorator": [
+                "app.errorhandler"
+            ]
+        },
+        {
+            "name": "internal_error",
+            "description": "Handle 500 errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error"
+                ]
+            },
+            "file": "src\\weather_app\\interfaces\\web.py",
+            "decorator": [
+                "app.errorhandler"
+            ]
+        },
+        {
+            "name": "sample_location",
+            "description": "Sample location for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_temperature",
+            "description": "Sample temperature for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_weather_data",
+            "description": "Sample weather data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_location": {
+                        "type": "string"
+                    },
+                    "sample_temperature": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_location",
+                    "sample_temperature"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_daily_forecast",
+            "description": "Sample daily forecast for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_weather_forecast",
+            "description": "Sample weather forecast for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_location": {
+                        "type": "string"
+                    },
+                    "sample_weather_data": {
+                        "type": "string"
+                    },
+                    "sample_daily_forecast": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_location",
+                    "sample_weather_data",
+                    "sample_daily_forecast"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_weather_repository",
+            "description": "Mock weather repository.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_location_repository",
+            "description": "Mock location repository.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "event_loop",
+            "description": "Create an instance of the default event loop for the test session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

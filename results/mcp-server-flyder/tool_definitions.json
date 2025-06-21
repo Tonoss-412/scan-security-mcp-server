@@ -1,0 +1,256 @@
+{
+    "tools": [
+        {
+            "name": "list_workflows",
+            "description": "Toolthatreturnsthelistofworkflowsbelongingtotheuser.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_flyder\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_workflow_by_id",
+            "description": "ToolthatrunsaspecificworkflowwiththeassociatedID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "workflow_id": {
+                        "type": "integer",
+                        "description": "The ID of the workflow to run."
+                    },
+                    "input": {
+                        "type": "string",
+                        "description": "The input text to be passed to the workflow. If not provided, the default input from the workflow will be used."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "workflow_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_flyder\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mock_env_variables",
+            "description": "Set up mock environment variables for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_httpx_client",
+            "description": "Mock the httpx.AsyncClient.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_api_request_get_success",
+            "description": "Test successful GET request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env_variables": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env_variables",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_api_request_post_success",
+            "description": "Test successful POST request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env_variables": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env_variables",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_api_request_invalid_method",
+            "description": "Test invalid HTTP method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env_variables": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env_variables",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_api_request_exception_handling",
+            "description": "Test exception handling in API request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env_variables": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env_variables",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_workflows_success",
+            "description": "Test successful workflow listing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_workflows_empty",
+            "description": "Test empty workflow list.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_workflows_invalid_format",
+            "description": "Test invalid response format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_workflows_api_failure",
+            "description": "Test API request failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_workflow_success",
+            "description": "Test successful workflow run.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_workflow_default_input",
+            "description": "Test workflow run with default input.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_workflow_details_failure",
+            "description": "Test failure to fetch workflow details.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_workflow_execution_failure",
+            "description": "Test failure to execute workflow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

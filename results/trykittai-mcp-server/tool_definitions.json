@@ -1,0 +1,96 @@
+{
+    "tools": [
+        {
+            "name": "verify_email_send",
+            "description": "\n    verify an email using trykitt.\n\n    Args:\n        email: The email address to verify\n        custom_data: Optional custom data to associate with the request\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "The email address to verify"
+                    },
+                    "custom_data": {
+                        "type": "string",
+                        "description": "Optional custom data to associate with the request"
+                    }
+                },
+                "required": [
+                    "email",
+                    "custom_data"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_email",
+            "description": "\n    Find an email address for a person.\n\n    Args:\n        full_name: The full name of the person\n        domain: The company domain or website\n        linkedin_url: Optional LinkedIn profile URL\n        custom_data: Optional custom data to associate with the request\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "full_name": {
+                        "type": "string",
+                        "description": "The full name of the person"
+                    },
+                    "domain": {
+                        "type": "string",
+                        "description": "The company domain or website"
+                    },
+                    "linkedin_url": {
+                        "type": "string",
+                        "description": "Optional LinkedIn profile URL"
+                    },
+                    "custom_data": {
+                        "type": "string",
+                        "description": "Optional custom data to associate with the request"
+                    }
+                },
+                "required": [
+                    "full_name",
+                    "domain",
+                    "linkedin_url",
+                    "custom_data"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_job_status",
+            "description": "\n    Get the status of a job.\n\n    Args:\n        job_id: The ID of the job to check\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "job_id": {
+                        "type": "string",
+                        "description": "The ID of the job to check"
+                    }
+                },
+                "required": [
+                    "job_id"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_jobs",
+            "description": "\n    List jobs\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

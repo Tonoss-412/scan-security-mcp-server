@@ -1,0 +1,280 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "Initialize the chatbot when the server starts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\fastapi_app.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "Stream chat queries from the front-end.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\fastapi_app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "search_papers",
+            "description": "\n    Search for papers on arXiv based on a topic and store their information.\n    \n    Args:\n        topic: The topic to search for\n        max_results: Maximum number of results to retrieve (default: 5)\n        \n    Returns:\n        List of paper IDs found in the search\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string",
+                        "description": "The topic to search for"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to retrieve (default: 5)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "topic",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp-server\\arxiv_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "extract_info",
+            "description": "\n    Search for information about a specific paper across all topic directories.\n    \n    Args:\n        paper_id: The ID of the paper to look for\n        \n    Returns:\n        JSON string with paper information if found, error message if not found\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "paper_id": {
+                        "type": "string",
+                        "description": "The ID of the paper to look for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "paper_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp-server\\arxiv_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_available_folders",
+            "description": "\n    List all available topic folders in the papers directory.\n    \n    This resource provides a simple list of all available topic folders.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp-server\\arxiv_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_topic_papers",
+            "description": "\n    Get detailed information about papers on a specific topic.\n    \n    Args:\n        topic: The research topic to retrieve papers for\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string",
+                        "description": "The research topic to retrieve papers for"
+                    }
+                },
+                "required": [
+                    "topic"
+                ]
+            },
+            "file": "src\\mcp-server\\arxiv_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "generate_search_prompt",
+            "description": "Generate a prompt for Claude to find and discuss academic papers on a specific topic.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp-server\\arxiv_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "search_clinical_trials",
+            "description": "\n    Search for clinical trials based on queries and return the results.\n    \n    Args:\n        cond: conditions or disease to search for\n        intr: intervention or treatment to search for\n        ids: study IDs to search for\n        max_results: Maximum number of results to retrieve (default: 5)\n        \n    Returns:\n        Dictionary containing the search results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cond": {
+                        "type": "string",
+                        "description": "conditions or disease to search for"
+                    },
+                    "intr": {
+                        "type": "string",
+                        "description": "intervention or treatment to search for"
+                    },
+                    "ids": {
+                        "type": "string",
+                        "description": "study IDs to search for"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to retrieve (default: 5)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cond",
+                    "intr",
+                    "ids",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp-server\\clinicaltrials_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_drug",
+            "description": "\n    Search for drug information using the OpenFDA API.\n    \n    Args:\n        drug_name: The name of the drug to search for.\n        \n    Returns:\n        A dictionary containing the drug information.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "drug_name": {
+                        "type": "string",
+                        "description": "The name of the drug to search for."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "drug_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp-server\\openfda_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_pdb_ids",
+            "description": "\n    Search for PDB ids using a text query.\n    \n    Args:\n        query: The search query string.\n        \n    Returns:\n        A list containing matched PDB ids.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query string."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp-server\\pdb_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "extract_pdb_data",
+            "description": "\n    Extract PDB data for a given PDB id.\n    \n    Args:\n        pdb_id: The PDB id to extract data for.\n        \n    Returns:\n        A dictionary containing the extracted PDB data.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pdb_id": {
+                        "type": "string",
+                        "description": "The PDB id to extract data for."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "pdb_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp-server\\pdb_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_similar_sequence",
+            "description": "\n    Search for sequence PDB ids using a sequence similarity query.\n    \n    Args:\n        sequence: protein or nucleotide sequence\n        evalue_cutoff: upper cutoff for E-value (lower is more significant). Defaults to 0.1.\n        identity_cutoff: lower cutoff for percent sequence match (0-1). Defaults to 0.\n        sequence_type: type of biological sequence (\u201cprotein\u201d, \u201cdna\u201d, \u201crna\u201d). Defaults to \u201cprotein\u201d.\n        max_results: Maximum number of results to retrieve (default: 5)\n        \n    Returns:\n        A list containing PDB ids with matched sequence.\n    \"\"\"\n    sq = SeqSim",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sequence": {
+                        "type": "string",
+                        "description": "protein or nucleotide sequence"
+                    },
+                    "evalue_cutoff": {
+                        "type": "string",
+                        "description": "upper cutoff for E-value (lower is more significant). Defaults to 0.1."
+                    },
+                    "identity_cutoff": {
+                        "type": "string",
+                        "description": "lower cutoff for percent sequence match (0-1). Defaults to 0."
+                    },
+                    "sequence_type": {
+                        "type": "string",
+                        "description": "type of biological sequence (\u201cprotein\u201d, \u201cdna\u201d, \u201crna\u201d). Defaults to \u201cprotein\u201d."
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to retrieve (default: 5)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sequence",
+                    "evalue_cutoff",
+                    "identity_cutoff",
+                    "sequence_type",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp-server\\pdb_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

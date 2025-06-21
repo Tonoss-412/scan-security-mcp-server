@@ -1,0 +1,136 @@
+{
+    "tools": [
+        {
+            "name": "echo",
+            "description": "Echoes back the input message",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "repeat",
+            "description": "Repeats the input message a specified number of times (default: 10)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "count_letters",
+            "description": "Count the number of letters in a word",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "second_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fibonacci",
+            "description": "Calculate the fibonacci number for a given input",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "second_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "connect_mcp_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "disconnect_mcp_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_servers",
+            "description": "List all connected servers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_index",
+            "description": "Serve the main page",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "ls",
+            "description": "List contents of a directory",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "example_mcp_servers\\file_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

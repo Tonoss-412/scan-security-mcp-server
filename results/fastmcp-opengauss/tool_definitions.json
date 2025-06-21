@@ -1,0 +1,84 @@
+{
+    "tools": [
+        {
+            "name": "get_schemas",
+            "description": "Getallschemasofthedatabase.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_tables",
+            "description": "\nGetalltablenamesincurrentschema",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "Execute an SQL commands on the openGauss server.\n\n    Args:\n        query: SQL command\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "SQL command"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_tables_in_current_schema",
+            "description": "\n        List table names in current schema on the openGauss server.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_table_definition",
+            "description": "\n         Get table definition.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_user_and_schema",
+            "description": "\n         Get current schema and current user.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

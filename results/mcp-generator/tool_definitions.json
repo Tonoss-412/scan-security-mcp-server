@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "generate_mcp_server",
+            "description": "\n    Generate a Python MCP server from an OpenAPI specification.\n    \n    - source: Whether the spec is provided as a 'url' or direct 'content'\n    - value: The URL to fetch the spec from, or the spec content itself\n    - server_name: Name for the generated server (defaults to \"generated_mcp_server\")\n    - skip_validation: Skip OpenAPI validation (useful for specs with validation issues)\n    \n    Returns a zip file containing the generated server code.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        }
+    ]
+}

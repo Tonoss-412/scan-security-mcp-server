@@ -1,0 +1,47 @@
+{
+    "tools": [
+        {
+            "name": "from_env",
+            "description": "Create config from environment variables.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_vertica\\connection.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_vertica\\__init__.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        }
+    ]
+}

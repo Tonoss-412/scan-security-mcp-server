@@ -1,0 +1,311 @@
+{
+    "tools": [
+        {
+            "name": "test_config",
+            "description": "Test configuration fixture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "config_manager",
+            "description": "ConfigManager fixture with test configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_config": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_config",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "api_client",
+            "description": "OpenAlexAPIClient fixture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config_manager"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_work_response",
+            "description": "Mock OpenAlex work response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_author_response",
+            "description": "Mock OpenAlex author response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_concept_response",
+            "description": "Mock OpenAlex concept response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_search_response",
+            "description": "Mock OpenAlex search response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_work_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_work_response"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "publication_retriever",
+            "description": "OpenAlexPublicationRetriever fixture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "api_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_client"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "author_retriever",
+            "description": "OpenAlexAuthorRetriever fixture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "api_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_client"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "concept_retriever",
+            "description": "OpenAlexConceptRetriever fixture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "api_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_client"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_publication_results",
+            "description": "Mock publication search results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_author_results",
+            "description": "Mock author search results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_concept_results",
+            "description": "Mock concept search results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_work_response",
+            "description": "Mock single work response with complete data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_make_request_success",
+            "description": "Test successful API request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    },
+                    "api_client": {
+                        "type": "string"
+                    },
+                    "mock_search_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get",
+                    "api_client",
+                    "mock_search_response"
+                ]
+            },
+            "file": "tests\\unit\\test_api_clients.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_make_request_http_error_retry",
+            "description": "Test API request with HTTP error retries.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    },
+                    "api_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get",
+                    "api_client"
+                ]
+            },
+            "file": "tests\\unit\\test_api_clients.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_openalex_email_from_env",
+            "description": "Test getting OpenAlex email from environment variable.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_config_manager.py",
+            "decorator": [
+                "patch.dict"
+            ]
+        },
+        {
+            "name": "test_get_openalex_email_missing",
+            "description": "Test getting OpenAlex email when not set.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_config_manager.py",
+            "decorator": [
+                "patch.dict"
+            ]
+        },
+        {
+            "name": "logger",
+            "description": "DailyRotatingLogger fixture with temporary directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\unit\\test_logger.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

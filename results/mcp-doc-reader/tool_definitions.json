@@ -1,0 +1,61 @@
+{
+    "tools": [
+        {
+            "name": "mcp",
+            "description": "Call an MCP method by name with optional JSON args.\n\n    Examples:\n        python example_clients/test_sse.py mcp list_tools\n        python example_clients/test_sse.py mcp call_tool --args '{\"name\": \"fetch_webpage_and_markdownify\", \"arguments\": {\"url\": \"https://example.com\"}}'\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "method_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "method_name"
+                ]
+            },
+            "file": "example_clients\\sse_client.py",
+            "decorator": [
+                "command"
+            ]
+        },
+        {
+            "name": "mcp",
+            "description": "Call an MCP method by name with optional JSON args (stdio transport).\n\n    Examples:\n        This will only work locally:\n\n            python example_clients/test_stdio.py mcp list_tools\n            python example_clients/test_stdio.py mcp call_tool --args '{\n                \"name\": \"pdf_to_markdown\",\n                \"arguments\": {\n                    \"url\": \"https://arxiv.org/pdf/1706.03762\"\n                }\n            }'\n\n        To run against your deployed code:\n\n            heroku run --app $APP_NAME -- bash -c 'python -m example_clients.test_stdio mcp list_tools'\n\n            json='{\"name\": \"html_to_markdown\", \"arguments\": {\"url\": \"https://example.com\"}}'\n            heroku run --app \"$APP_NAME\" -- bash -c \"python -m example_clients.test_stdio mcp call_tool --args '$json'\"\n\n        Or simulate a raw STDIO client:\n\n            heroku run --app \"$APP_NAME\" -- bash -c \"python -m src.stdio_server 2> logs.txt\" <<EOF\n\n{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"0.1.0\",\"capabilities\":{},\"clientInfo\":{\"name\":\"test\",\"version\":\"1.0.0\"}}}\n\n{\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\",\"params\":{}}\n\n{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"pdf_to_markdown\",\"arguments\":{\"url\":\"https://arxiv.org/pdf/1706.03762\"}}}\nEOF\n\n        Soon, you'll also be able to connect up your MPC repo to Heroku's MCP Gateway, which will make streaming from one-off dynos simple!\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "method_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "method_name"
+                ]
+            },
+            "file": "example_clients\\stdio_client.py",
+            "decorator": [
+                "command"
+            ]
+        },
+        {
+            "name": "mcp",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "method_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "method_name"
+                ]
+            },
+            "file": "example_clients\\streamable_http_client.py",
+            "decorator": [
+                "command"
+            ]
+        }
+    ]
+}

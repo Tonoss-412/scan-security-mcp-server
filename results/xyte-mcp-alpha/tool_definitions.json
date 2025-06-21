@@ -1,0 +1,969 @@
+{
+    "tools": [
+        {
+            "name": "multi_tenant",
+            "description": "Return ``True`` when running without a baked-in API key.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "get_settings",
+            "description": "Return a cached Settings instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\config.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "get_session",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\db.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_client",
+            "description": "Yield a new API client instance for a request.\n\n    Args:\n        request: Current HTTP request providing the authorization header.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "Current HTTP request providing the authorization header."
+                    }
+                },
+                "required": [
+                    "request"
+                ]
+            },
+            "file": "src\\xyte_mcp\\deps.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\logging_utils.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available MCP tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\openai_wrapper.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_resources",
+            "description": "List available MCP resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\openai_wrapper.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_devices",
+            "description": "List all devices.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\openai_wrapper.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_device",
+            "description": "Get device details.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\openai_wrapper.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "send_command",
+            "description": "Send command to a device.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\openai_wrapper.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "update_device",
+            "description": "Update device configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\openai_wrapper.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_tickets",
+            "description": "List tickets.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\openai_wrapper.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "update_ticket",
+            "description": "Update a ticket.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\openai_wrapper.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\openai_wrapper.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_openapi",
+            "description": "Get OpenAPI schema.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\openai_wrapper.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "http_exception_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\openai_wrapper.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "general_exception_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\openai_wrapper.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "Liveness probe.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\server.py",
+            "decorator": [
+                "mcp.custom_route"
+            ]
+        },
+        {
+            "name": "ready",
+            "description": "Readiness probe.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\server.py",
+            "decorator": [
+                "mcp.custom_route"
+            ]
+        },
+        {
+            "name": "metrics",
+            "description": "Expose Prometheus metrics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\server.py",
+            "decorator": [
+                "mcp.custom_route"
+            ]
+        },
+        {
+            "name": "config_endpoint",
+            "description": "Return sanitized configuration for debugging purposes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\server.py",
+            "decorator": [
+                "mcp.custom_route"
+            ]
+        },
+        {
+            "name": "webhook",
+            "description": "Receive external events and enqueue them for streaming.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\server.py",
+            "decorator": [
+                "mcp.custom_route"
+            ]
+        },
+        {
+            "name": "stream_events",
+            "description": "Stream events to clients using Server-Sent Events.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\server.py",
+            "decorator": [
+                "mcp.custom_route"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\server.py",
+            "decorator": [
+                "mcp.custom_route"
+            ]
+        },
+        {
+            "name": "list_resources_route",
+            "description": "List available resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\server.py",
+            "decorator": [
+                "mcp.custom_route"
+            ]
+        },
+        {
+            "name": "list_devices_route",
+            "description": "Compatibility endpoint returning all devices.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\server.py",
+            "decorator": [
+                "mcp.custom_route"
+            ]
+        },
+        {
+            "name": "silence_stdout",
+            "description": "Temporarily redirect stdout to devnull to prevent pollution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\stdio_guard.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "send_command_long",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\xyte_mcp\\worker\\long.py",
+            "decorator": [
+                "celery_app.task"
+            ]
+        },
+        {
+            "name": "anyio_backend",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_auth.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "no_network",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\test_auth.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_auth_modes",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "env_key": {
+                        "type": "string"
+                    },
+                    "header": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    },
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "env_key",
+                    "header",
+                    "expected",
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\test_auth.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "anyio_backend",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_auth_middleware.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "no_network",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\test_auth_middleware.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_multi_tenant_auth",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "header": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "header",
+                    "expected"
+                ]
+            },
+            "file": "tests\\test_auth_middleware.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "anyio_backend",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_deployment_assets.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_swagger_docs",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\test_deployment_assets.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "anyio_backend",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_errors.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_missing_key",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_errors.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_rate_limit",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\test_errors.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create test client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_wrapper.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_server",
+            "description": "Create mock MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_wrapper.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "api_key",
+            "description": "Test API key.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_wrapper.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_call_mcp_tool_success",
+            "description": "Test successful tool call.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_call_mcp_tool_string_response",
+            "description": "Test tool call with string response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_call_mcp_tool_not_found",
+            "description": "Test tool not found.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_call_mcp_tool_error",
+            "description": "Test tool execution error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_mcp_resource_json",
+            "description": "Test reading resource with JSON response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_mcp_resource_plain_text",
+            "description": "Test reading resource with plain text response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_mcp_resource_not_found",
+            "description": "Test resource not found.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_mcp_resource_error",
+            "description": "Test resource read error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create test client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_wrapper_standalone.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_server",
+            "description": "Create mock MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_wrapper_standalone.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "api_key",
+            "description": "Test API key.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openai_wrapper_standalone.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_call_mcp_tool_success",
+            "description": "Test successful tool call.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper_standalone.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_call_mcp_tool_string_response",
+            "description": "Test tool call with string response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper_standalone.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_call_mcp_tool_not_found",
+            "description": "Test tool not found.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper_standalone.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_call_mcp_tool_error",
+            "description": "Test tool execution error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper_standalone.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_mcp_resource_json",
+            "description": "Test reading resource with JSON response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper_standalone.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_mcp_resource_plain_text",
+            "description": "Test reading resource with plain text response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper_standalone.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_mcp_resource_not_found",
+            "description": "Test resource not found.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper_standalone.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_mcp_resource_error",
+            "description": "Test resource read error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server"
+                ]
+            },
+            "file": "tests\\test_openai_wrapper_standalone.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "anyio_backend",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_presets.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_start_meeting_room_preset",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\test_presets.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "fake_get_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_presets.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_session",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_tasks.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        }
+    ]
+}

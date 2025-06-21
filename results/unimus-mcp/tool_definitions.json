@@ -1,0 +1,2070 @@
+{
+    "tools": [
+        {
+            "name": "unimus_get_health",
+            "description": "\n    Get Unimus system health status.\n\n    Returns:\n        Health status information containing:\n        - status: 'OK', 'LICENSING_UNREACHABLE', or 'ERROR'\n\n    The status meanings:\n    - OK: Unimus is ready to handle all requests\n    - LICENSING_UNREACHABLE: License server unreachable, limited functionality\n    - ERROR: Unimus requires user interaction, requests will be refused\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_devices",
+            "description": "\n    Get all devices from Unimus with optional filtering.\n    Automatically handles pagination to return complete results.\n\n    Args:\n        filters: Optional dictionary of filters to apply. Common options include:\n            - managed: Boolean, filter by managed state (true/false)\n            - vendor: String, filter by vendor name (e.g., \"Cisco\", \"MikroTik\")\n            - type: String, filter by device type (e.g., \"IOS\", \"RouterOS\")\n            - model: String, filter by device model\n            - site_id: Number, filter by site ID\n            - zone_id: String, filter by zone ID\n            - address: String, filter by device address\n            - description: String, filter by description content\n\n    Returns:\n        List of device objects, each containing:\n        - id: Device ID\n        - uuid: Device UUID\n        - address: IP address or hostname\n        - description: Device description\n        - managed: Management status\n        - vendor: Device vendor\n        - type: Device type\n        - model: Device model\n        - lastJobStatus: Last job status (SUCCESSFUL, FAILED, UNKNOWN)\n        - createTime: Creation timestamp\n        - zoneId: Zone identifier\n\n    Examples:\n        Get all Cisco devices: {\"vendor\": \"Cisco\"}\n        Get managed devices only: {\"managed\": true}\n        Get devices from specific zone: {\"zone_id\": \"1\"}\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filters": {
+                        "type": "string",
+                        "description": "Optional dictionary of filters to apply. Common options include:"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "filters",
+                    "Returns",
+                    "Examples"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_device_by_id",
+            "description": "\n    Get detailed information about a specific device by its ID with flexible attribute selection and enhanced metadata.\n\n    Args:\n        device_id: The numeric ID of the device to retrieve\n        include_connections: Whether to include connection information (backward compatibility)\n                           If None and include_attributes is None, defaults to True\n        include_attributes: List of specific attributes to include. Options:\n                          - 'schedule' or 's': Include backup schedule information\n                          - 'connections' or 'c': Include connection details (SSH/TELNET)\n                          - None: Use include_connections parameter or default behavior\n        enrich_metadata: Whether to add calculated metadata fields (Phase 2 feature)\n                        Adds backup health, timing, connectivity, and configuration analysis\n\n    Returns:\n        Device object with detailed information including:\n        - Basic device info (id, address, description, vendor, type, model, etc.)\n        - Schedule information (if requested via attributes or include_connections)\n        - Connection details (if requested via attributes or include_connections):\n          - Connection type (SSH, TELNET)\n          - Port number\n          - Credentials information\n          - Enable password status\n        - Enhanced metadata (if enrich_metadata=True):\n          - backupAge, lastBackupTime, backupFreshness\n          - deviceHealth, deviceLifecycle, connectionTypes\n          - configurationStability, changeFrequency, hasRecentChanges\n\n    Raises:\n        ValueError: If device_id is invalid or device not found\n\n    Examples:\n        # Backward compatibility - include all (schedule + connections)\n        device = unimus_get_device_by_id(123)\n        device = unimus_get_device_by_id(123, include_connections=True)\n        \n        # New flexible selection - only schedule information\n        device = unimus_get_device_by_id(123, include_attributes=['schedule'])\n        \n        # New flexible selection - only connection details\n        device = unimus_get_device_by_id(123, include_attributes=['connections'])\n        \n        # New flexible selection - specific combination\n        device = unimus_get_device_by_id(123, include_attributes=['schedule', 'connections'])\n        \n        # Basic device info only (no additional attributes)\n        device = unimus_get_device_by_id(123, include_attributes=[])\n        device = unimus_get_device_by_id(123, include_connections=False)\n        \n        # Enhanced metadata with calculated fields (Phase 2)\n        device = unimus_get_device_by_id(123, enrich_metadata=True)\n        # Returns additional calculated fields for advanced analysis\n        \n        # Combined: specific attributes + enhanced metadata\n        device = unimus_get_device_by_id(123, include_attributes=['schedule'], enrich_metadata=True)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "The numeric ID of the device to retrieve"
+                    },
+                    "include_connections": {
+                        "type": "string",
+                        "description": "Whether to include connection information (backward compatibility)"
+                    },
+                    "include_attributes": {
+                        "type": "string",
+                        "description": "List of specific attributes to include. Options:"
+                    },
+                    "enrich_metadata": {
+                        "type": "string",
+                        "description": "Whether to add calculated metadata fields (Phase 2 feature)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If device_id is invalid or device not found"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "include_connections",
+                    "include_attributes",
+                    "enrich_metadata",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "Examples"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_device_by_address",
+            "description": "\n    Get a device by its network address (IP address or hostname).\n\n    Args:\n        address: The device address - can be IPv4, IPv6, or hostname\n        zone_id: Optional zone ID to limit search scope (default: search default zone)\n\n    Returns:\n        Device object with detailed information including schedule and connections\n\n    Raises:\n        ValueError: If device with given address is not found\n\n    Examples:\n        Find device by IP: address=\"192.168.1.1\"\n        Find in specific zone: address=\"router.example.com\", zone_id=\"2\"\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "type": "string",
+                        "description": "The device address - can be IPv4, IPv6, or hostname"
+                    },
+                    "zone_id": {
+                        "type": "string",
+                        "description": "Optional zone ID to limit search scope (default: search default zone)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If device with given address is not found"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "address",
+                    "zone_id",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "Examples"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_device_backups",
+            "description": "\n    Get all configuration backups for a specific device.\n    Backups are returned in descending chronological order (newest first).\n\n    Args:\n        device_id: The numeric ID of the device\n        limit: Optional limit on number of backups to return (default: all backups)\n\n    Returns:\n        List of backup objects, each containing:\n        - id: Backup ID\n        - validSince: Timestamp when configuration was first retrieved\n        - validUntil: Timestamp when configuration was last seen (null if only retrieved once)\n        - type: Backup type ('TEXT' or 'BINARY')\n        - content: Decoded backup content (readable text for TEXT, base64 for BINARY)\n        - content_type: Format indicator ('text' or 'base64')\n\n    Note: TEXT backups are automatically decoded from base64 to readable text.\n    BINARY backups remain in base64 format. No more manual decoding needed!\n\n    Raises:\n        ValueError: If device_id is invalid or device not found\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "The numeric ID of the device"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Optional limit on number of backups to return (default: all backups)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Note": {
+                        "type": "string",
+                        "description": "TEXT backups are automatically decoded from base64 to readable text."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If device_id is invalid or device not found"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "limit",
+                    "Returns",
+                    "Note",
+                    "Raises",
+                    "ValueError"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_device_latest_backup",
+            "description": "\n    Get the most recent configuration backup for a specific device.\n\n    Args:\n        device_id: The numeric ID of the device\n\n    Returns:\n        Latest backup object or None if no backups exist.\n        Backup object contains:\n        - id: Backup ID\n        - validSince: Timestamp when configuration was first retrieved\n        - validUntil: Timestamp when configuration was last seen\n        - type: Backup type ('TEXT' or 'BINARY')\n        - content: Decoded backup content (readable text for TEXT, base64 for BINARY)\n        - content_type: Format indicator ('text' or 'base64')\n\n    Raises:\n        ValueError: If device_id is invalid or device not found\n\n    Note: Returns None if the device exists but has no backups yet.\n    TEXT backups are automatically decoded - no more base64 artifacts needed!\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "The numeric ID of the device"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If device_id is invalid or device not found"
+                    },
+                    "Note": {
+                        "type": "string",
+                        "description": "Returns None if the device exists but has no backups yet."
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "Note"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_backup_by_id",
+            "description": "\n    Get a specific backup by its ID.\n\n    Args:\n        backup_id: The numeric ID of the backup\n\n    Returns:\n        Backup object containing:\n        - id: Backup ID\n        - validSince: Timestamp when configuration was first retrieved\n        - validUntil: Timestamp when configuration was last seen\n        - type: Backup type ('TEXT' or 'BINARY')\n        - content: Decoded backup content (readable text for TEXT, base64 for BINARY)\n        - content_type: Format indicator ('text' or 'base64')\n\n    Raises:\n        ValueError: If backup_id is invalid or backup not found\n\n    Note: TEXT backups are automatically decoded to readable text format.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "backup_id": {
+                        "type": "string",
+                        "description": "The numeric ID of the backup"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If backup_id is invalid or backup not found"
+                    },
+                    "Note": {
+                        "type": "string",
+                        "description": "TEXT backups are automatically decoded to readable text format."
+                    }
+                },
+                "required": [
+                    "backup_id",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "Note"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_devices_by_description",
+            "description": "\n    Get devices by description content with exact or partial matching.\n\n    **Performance Note**: When exact_match=True, this retrieves ALL devices that partially\n    match the description and filters them in Python. For large device inventories, always\n    use the limit parameter to improve performance.\n\n    Args:\n        description: Description text to search for\n        exact_match: If True, match description exactly. If False, partial match (default)\n                    **Warning: May be slow with large inventories without limit**\n        limit: Optional limit on number of results. **Strongly recommended** when exact_match=True\n\n    Returns:\n        List of device objects matching the description criteria, each containing:\n        - id: Device ID\n        - uuid: Device UUID\n        - address: IP address or hostname\n        - description: Device description\n        - managed: Management status\n        - vendor: Device vendor\n        - type: Device type\n        - model: Device model\n        - lastJobStatus: Last job status (SUCCESSFUL, FAILED, UNKNOWN)\n        - createTime: Creation timestamp\n        - zoneId: Zone identifier\n\n    Examples:\n        Fast partial match: description=\"router\", exact_match=False\n        Optimized exact match: description=\"Main Core Router\", exact_match=True, limit=10\n        Performance-friendly: description=\"switch\", limit=10\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Description text to search for"
+                    },
+                    "exact_match": {
+                        "type": "string",
+                        "description": "If True, match description exactly. If False, partial match (default)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Optional limit on number of results. **Strongly recommended** when exact_match=True"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description",
+                    "exact_match",
+                    "limit",
+                    "Returns",
+                    "Examples"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_backup_diff",
+            "description": "\n    Get differences between two backup configurations.\n\n    Args:\n        orig_id: ID of the backup that will be considered as original\n        rev_id: ID of the backup that will be considered as revised\n\n    Returns:\n        Dictionary containing diff information with:\n        - original: Information about the original backup\n        - revised: Information about the revised backup  \n        - added: Lines that were added in the revised backup\n        - removed: Lines that were removed from the original backup\n        - changed: Lines that were changed between backups\n\n    Raises:\n        ValueError: If backup IDs are invalid or backups not found\n\n    Examples:\n        Compare two backups: orig_id=100, rev_id=105\n        Compare device config changes over time\n        Analyze configuration differences between devices\n\n    Note: This function can compare backups from different devices.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "orig_id": {
+                        "type": "string",
+                        "description": "ID of the backup that will be considered as original"
+                    },
+                    "rev_id": {
+                        "type": "string",
+                        "description": "ID of the backup that will be considered as revised"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If backup IDs are invalid or backups not found"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    },
+                    "Note": {
+                        "type": "string",
+                        "description": "This function can compare backups from different devices."
+                    }
+                },
+                "required": [
+                    "orig_id",
+                    "rev_id",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "Examples",
+                    "Note"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_devices_with_changed_backups",
+            "description": "\n    Get devices that had backup changes within a specific time range.\n\n    Args:\n        since: Start of time range in seconds (unix timestamp). If None, defaults to 0\n        until: End of time range in seconds (unix timestamp). If None, defaults to current time\n\n    Returns:\n        List of device objects that had backup changes, each containing:\n        - id: Device ID\n        - createTime: Device creation time in seconds\n        - address: Hostname, IPv4 or IPv6 address\n        - description: Device description\n\n    Raises:\n        ValueError: If time range parameters are invalid\n\n    Examples:\n        All changes since epoch: since=None, until=None\n        Last 24 hours: since=current_time-86400, until=current_time\n        Specific period: since=1640995200, until=1641081600\n\n    Note: Returns empty list if no devices had backup changes in the time range.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "since": {
+                        "type": "string",
+                        "description": "Start of time range in seconds (unix timestamp). If None, defaults to 0"
+                    },
+                    "until": {
+                        "type": "string",
+                        "description": "End of time range in seconds (unix timestamp). If None, defaults to current time"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If time range parameters are invalid"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    },
+                    "Note": {
+                        "type": "string",
+                        "description": "Returns empty list if no devices had backup changes in the time range."
+                    }
+                },
+                "required": [
+                    "since",
+                    "until",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "Examples",
+                    "Note"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_schedules",
+            "description": "\n    Get a list of all schedules in Unimus.\n\n    Returns:\n        List of schedule objects containing schedule information including:\n        - Schedule ID and name\n        - Configuration and timing details\n        - Associated devices and rules\n        - Status and execution information\n\n    Raises:\n        ValueError: If the request fails\n\n    Examples:\n        List all backup schedules\n        View schedule configuration details\n        Check schedule status and effectiveness\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_schedule_by_id",
+            "description": "\n    Get detailed information about a specific schedule.\n\n    Args:\n        schedule_id: The schedule ID to retrieve\n\n    Returns:\n        Schedule object containing detailed information including:\n        - Complete schedule configuration\n        - Timing and recurrence settings\n        - Associated devices and filters\n        - Execution history and status\n\n    Raises:\n        ValueError: If schedule_id is invalid or schedule not found\n\n    Examples:\n        Get specific schedule: schedule_id=5\n        View schedule configuration details\n        Check schedule execution status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "schedule_id": {
+                        "type": "string",
+                        "description": "The schedule ID to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If schedule_id is invalid or schedule not found"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "schedule_id",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "Examples"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_search_backup_content",
+            "description": "\n    Search through backup configurations for specific patterns using regular expressions.\n    \n    **Performance Warning**: This function retrieves backup content from devices and searches \n    through them client-side. For large device inventories, always use device_filters and/or \n    limit parameters to optimize performance and avoid timeouts.\n\n    Args:\n        pattern: Regular expression pattern to search for (case-insensitive, multiline)\n        device_filters: Optional filters to limit device search scope:\n            - vendor: String, filter by vendor name (e.g., \"Cisco\", \"MikroTik\", \"Juniper\")\n            - type: String, filter by device type (e.g., \"IOS\", \"RouterOS\", \"JunOS\")\n            - managed: Boolean, filter by managed devices only (true/false)\n            - site_id: Number, filter by site ID\n            - zone_id: String, filter by zone ID\n            - address: String, filter by device address pattern\n        context_lines: Number of context lines to include around matches (default: 2)\n        limit: Optional limit on number of devices to search (**strongly recommended**)\n        since: Start time range for backup filtering (unix timestamp, optional)\n        until: End time range for backup filtering (unix timestamp, optional)\n\n    Returns:\n        List of search result objects, each containing:\n        - device: Device information (id, address, description, vendor, type, model)\n        - backup: Backup information (id, validSince, validUntil, type)\n        - matches: List of pattern matches with:\n          - line_number: Line number where pattern was found\n          - line_content: Content of the matching line\n          - context_before: Lines before the match for context\n          - context_after: Lines after the match for context\n          - match_groups: Regex capture groups if any\n\n    Raises:\n        ValueError: If pattern is invalid regex, parameters are invalid, or search fails\n\n    Performance Tips:\n        - **Always use device_filters** to reduce search scope (vendor, type, managed)\n        - **Set a reasonable limit** for large inventories (e.g., 50-100 devices)\n        - Use time filters to search recent backups only\n        - Test regex patterns on small device sets first\n        - Prefer specific patterns over broad wildcards\n\n    Examples:\n        # Search for interface configurations on Cisco devices\n        results = unimus_search_backup_content(\n            pattern=r\"interface GigabitEthernet\\d+/\\d+\",\n            device_filters={\"vendor\": \"Cisco\", \"managed\": True},\n            limit=50\n        )\n        \n        # Find VLAN configurations with extended context\n        results = unimus_search_backup_content(\n            pattern=r\"vlan (\\d+)\",\n            device_filters={\"type\": \"IOS\"},\n            context_lines=5,\n            limit=25\n        )\n        \n        # Search for recent configuration changes\n        import time\n        week_ago = int(time.time()) - (7 * 24 * 60 * 60)\n        results = unimus_search_backup_content(\n            pattern=r\"ip route\",\n            since=week_ago,\n            device_filters={\"vendor\": \"Cisco\"},\n            limit=30\n        )\n\n    Use Cases:\n        - Find specific configuration patterns across devices\n        - Audit security configurations (ACLs, users, passwords)\n        - Locate interface or VLAN configurations\n        - Search for routing or switching protocols\n        - Identify configuration inconsistencies\n        - Compliance checking across network infrastructure\n\n    Note: Only searches TEXT-type backups with decoded content. Binary backups are skipped.\n    Search is performed on the latest backup for each device.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pattern": {
+                        "type": "string",
+                        "description": "Regular expression pattern to search for (case-insensitive, multiline)"
+                    },
+                    "device_filters": {
+                        "type": "string",
+                        "description": "Optional filters to limit device search scope:"
+                    },
+                    "context_lines": {
+                        "type": "string",
+                        "description": "Number of context lines to include around matches (default: 2)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Optional limit on number of devices to search (**strongly recommended**)"
+                    },
+                    "since": {
+                        "type": "string",
+                        "description": "Start time range for backup filtering (unix timestamp, optional)"
+                    },
+                    "until": {
+                        "type": "string",
+                        "description": "End time range for backup filtering (unix timestamp, optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If pattern is invalid regex, parameters are invalid, or search fails"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    },
+                    "Note": {
+                        "type": "string",
+                        "description": "Only searches TEXT-type backups with decoded content. Binary backups are skipped."
+                    }
+                },
+                "required": [
+                    "pattern",
+                    "device_filters",
+                    "context_lines",
+                    "limit",
+                    "since",
+                    "until",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "Examples",
+                    "Note"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_device_relationships",
+            "description": "\n    Analyze and discover device relationships and topology connections (NEW v0.5.0 Phase 3).\n    \n    Provides comprehensive relationship mapping including network topology analysis,\n    zone-based device groupings, and connection pattern analysis.\n    \n    Args:\n        device_id: The device ID to analyze relationships for\n        include_network_neighbors: Whether to discover network neighbors via IP subnet analysis\n        include_zone_peers: Whether to include devices in the same zone\n        include_connection_analysis: Whether to analyze connection patterns and security\n        \n    Returns:\n        Comprehensive relationship analysis containing:\n        - device: Base device information with enhanced metadata\n        - networkNeighbors: Devices in same network segments with subnet analysis\n        - zonePeers: Devices in same zone with grouping information\n        - connectionPatterns: Connection method analysis and security assessment\n        - topologyInsights: High-level network topology analysis\n        - relationshipMetadata: Calculated relationship metrics and statistics\n        \n    Network Analysis Features:\n        - Intelligent subnet detection (supports /16, /20, /22, /24, /25, /26, /27, /28)\n        - Network distance calculation between devices\n        - IP address relationship mapping\n        \n    Zone Analysis Features:\n        - Zone peer discovery and grouping\n        - Vendor and device type diversity analysis\n        - Management status distribution within zones\n        \n    Connection Analysis Features:\n        - Connection method similarity scoring\n        - Port usage pattern analysis\n        - Security assessment (SSH vs TELNET usage)\n        - Network-wide security recommendations\n        \n    Topology Insights:\n        - Network position classification (isolated, lightly_connected, moderately_connected, highly_connected)\n        - Connectivity role analysis (standalone, endpoint, network_node, infrastructure_hub)\n        - Zone importance assessment (minimal, moderate, important, critical)\n        \n    Raises:\n        ValueError: If device_id is invalid or device not found\n        \n    Examples:\n        # Full relationship analysis\n        relationships = unimus_get_device_relationships(123)\n        \n        # Network topology focus\n        relationships = unimus_get_device_relationships(\n            device_id=123,\n            include_network_neighbors=True,\n            include_zone_peers=False,\n            include_connection_analysis=False\n        )\n        \n        # Security and connection analysis focus\n        relationships = unimus_get_device_relationships(\n            device_id=123,\n            include_network_neighbors=False,\n            include_zone_peers=False,\n            include_connection_analysis=True\n        )\n        \n    Performance Note:\n        This function analyzes relationships against all devices in the system.\n        For very large device inventories (>1000 devices), analysis may take\n        several seconds. Results include comprehensive metrics and insights.\n        \n    Use Cases:\n        - Network topology visualization and mapping\n        - Security assessment and audit (connection methods)\n        - Zone organization and device grouping analysis\n        - Infrastructure planning and network segmentation\n        - Device relationship discovery for troubleshooting\n        - Compliance checking across network zones\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "The device ID to analyze relationships for"
+                    },
+                    "include_network_neighbors": {
+                        "type": "string",
+                        "description": "Whether to discover network neighbors via IP subnet analysis"
+                    },
+                    "include_zone_peers": {
+                        "type": "string",
+                        "description": "Whether to include devices in the same zone"
+                    },
+                    "include_connection_analysis": {
+                        "type": "string",
+                        "description": "Whether to analyze connection patterns and security"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If device_id is invalid or device not found"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "include_network_neighbors",
+                    "include_zone_peers",
+                    "include_connection_analysis",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "Examples"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_network_topology_analysis",
+            "description": "\n    Analyze network topology and device clusters across infrastructure (NEW v0.5.0 Phase 3).\n    \n    Provides comprehensive network-wide topology analysis including device clustering,\n    network segmentation, zone analysis, and security pattern assessment.\n    \n    Args:\n        zone_id: Optional zone ID to limit analysis scope (default: analyze all zones)\n        include_clusters: Whether to perform device clustering and network segmentation analysis\n        include_security_analysis: Whether to include network-wide security pattern analysis\n        \n    Returns:\n        Comprehensive network topology analysis containing:\n        - networkOverview: High-level network statistics and device distribution\n        - deviceClusters: Identified device clusters (network, vendor, zone-based)\n        - networkSegments: Discovered network segments and subnet analysis\n        - zoneTopology: Zone-based topology insights and device groupings\n        - securityPatterns: Network-wide security analysis and recommendations\n        - topologyMetadata: Analysis metadata, insights, and performance metrics\n        \n    Network Overview Features:\n        - Total device count and management status distribution\n        - Vendor and device type distribution across infrastructure\n        - Zone distribution and connection method statistics\n        - Health status distribution and managed device percentages\n        \n    Device Clustering Features:\n        - Network subnet-based clustering (/24 subnets)\n        - Vendor-based device groupings (minimum 3 devices)\n        - Zone-based device clusters (minimum 2 devices)\n        - Cluster size analysis and device count metrics\n        \n    Network Segmentation Features:\n        - Multi-subnet analysis (supports /16, /20, /22, /24, /25, /26, /27, /28)\n        - Network segment device count and diversity analysis\n        - Vendor and device type diversity within segments\n        - Top 20 largest network segments identification\n        \n    Zone Topology Features:\n        - Per-zone device statistics and management percentages\n        - Vendor and device type diversity within zones\n        - Health status distribution per zone\n        - Connection method analysis per zone\n        \n    Security Analysis Features:\n        - Protocol distribution (SSH vs TELNET usage)\n        - Security score calculation and risk assessment\n        - Network-wide security recommendations\n        - Connection security percentage analysis\n        \n    Raises:\n        ValueError: If topology analysis fails or invalid parameters provided\n        \n    Examples:\n        # Full network topology analysis\n        topology = unimus_get_network_topology_analysis()\n        \n        # Zone-specific analysis\n        topology = unimus_get_network_topology_analysis(zone_id=\"1\")\n        \n        # Clustering focus (no security analysis)\n        topology = unimus_get_network_topology_analysis(\n            include_clusters=True,\n            include_security_analysis=False\n        )\n        \n        # Security assessment focus\n        topology = unimus_get_network_topology_analysis(\n            include_clusters=False,\n            include_security_analysis=True\n        )\n        \n    Performance Note:\n        This function analyzes all devices in the specified scope (all zones or specific zone).\n        For very large infrastructures (>1000 devices), analysis may take several seconds.\n        Consider using zone_id parameter to limit scope for faster analysis.\n        \n    Use Cases:\n        - Infrastructure overview and visualization\n        - Network segmentation planning and optimization\n        - Security audit and compliance assessment\n        - Device clustering and organization analysis\n        - Zone-based infrastructure management\n        - Vendor diversity and standardization analysis\n        - Connection method security assessment\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "zone_id": {
+                        "type": "string",
+                        "description": "Optional zone ID to limit analysis scope (default: analyze all zones)"
+                    },
+                    "include_clusters": {
+                        "type": "string",
+                        "description": "Whether to perform device clustering and network segmentation analysis"
+                    },
+                    "include_security_analysis": {
+                        "type": "string",
+                        "description": "Whether to include network-wide security pattern analysis"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If topology analysis fails or invalid parameters provided"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "zone_id",
+                    "include_clusters",
+                    "include_security_analysis",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "Examples"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unimus_get_latest_backups",
+            "description": "\n    Get the latest backups for multiple specific devices.\n\n    Args:\n        device_ids: List of device IDs to retrieve latest backups for\n\n    Returns:\n        List of objects, each containing:\n        - deviceId: The device ID\n        - address: Device IP address or hostname\n        - backup: Backup object with:\n          - id: Backup ID\n          - validSince: Timestamp when configuration was first retrieved\n          - validUntil: Timestamp when configuration was last seen\n          - type: Backup type ('TEXT' or 'BINARY')\n          - content: Decoded backup content (readable text for TEXT, base64 for BINARY)\n          - content_type: Format indicator ('text' or 'base64')\n\n    Raises:\n        ValueError: If device_ids list is empty, contains invalid IDs, or devices not found\n\n    Examples:\n        Single device: device_ids=[42]\n        Multiple devices: device_ids=[1, 15, 23, 45]\n\n    Note: Only returns data for devices that exist and have backups.\n    TEXT backups are automatically decoded - massive performance improvement!\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_ids": {
+                        "type": "string",
+                        "description": "List of device IDs to retrieve latest backups for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If device_ids list is empty, contains invalid IDs, or devices not found"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    },
+                    "Note": {
+                        "type": "string",
+                        "description": "Only returns data for devices that exist and have backups."
+                    }
+                },
+                "required": [
+                    "device_ids",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "Examples",
+                    "Note"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "unimus_client.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "get_health",
+            "description": "\n        Get Unimus health status.\n\n        Returns:\n            Health status information containing 'status' field.\n            Status can be: 'OK', 'LICENSING_UNREACHABLE', or 'ERROR'\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "unimus_client.py",
+            "decorator": [
+                "unimus_cache"
+            ]
+        },
+        {
+            "name": "get_devices",
+            "description": "\n        Get all devices with optional filtering.\n        Automatically handles pagination to return all results.\n\n        Args:\n            filters: Optional filters to apply. Common filters include:\n                - managed: Boolean, filter by managed state\n                - vendor: String, filter by vendor name\n                - type: String, filter by device type\n                - site_id: Number, filter by site ID\n                - zone_id: String, filter by zone ID\n\n        Returns:\n            List of device objects\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filters": {
+                        "type": "string",
+                        "description": "Optional filters to apply. Common filters include:"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "filters",
+                    "Returns"
+                ]
+            },
+            "file": "unimus_client.py",
+            "decorator": [
+                "unimus_cache"
+            ]
+        },
+        {
+            "name": "get_device_by_id",
+            "description": "\n        Get a specific device by its ID with flexible attribute selection and enhanced metadata.\n\n        Args:\n            device_id: The numeric ID of the device\n            include_connections: Whether to include connection information (backward compatibility)\n                               If None and include_attributes is None, defaults to True\n            include_attributes: List of specific attributes to include. Options:\n                              - 'schedule' or 's': Include backup schedule information\n                              - 'connections' or 'c': Include connection details (SSH/TELNET)\n                              - None: Use include_connections parameter or default behavior\n            enrich_metadata: Whether to add calculated metadata fields (Phase 2 feature)\n                           Adds: backupAge, lastSeen, configurationHealth, etc.\n\n        Returns:\n            Device object with detailed information and optional enriched metadata\n\n        Raises:\n            UnimusNotFoundError: If device with given ID doesn't exist\n            UnimusValidationError: If device_id is invalid\n\n        Examples:\n            # Backward compatibility - include all (schedule + connections)\n            device = client.get_device_by_id(123)\n            device = client.get_device_by_id(123, include_connections=True)\n            \n            # New flexible selection - only schedule\n            device = client.get_device_by_id(123, include_attributes=['schedule'])\n            device = client.get_device_by_id(123, include_attributes=['s'])\n            \n            # New flexible selection - only connections\n            device = client.get_device_by_id(123, include_attributes=['connections'])\n            device = client.get_device_by_id(123, include_attributes=['c'])\n            \n            # New flexible selection - specific combination\n            device = client.get_device_by_id(123, include_attributes=['schedule', 'connections'])\n            \n            # Basic device info only (no additional attributes)\n            device = client.get_device_by_id(123, include_attributes=[])\n            device = client.get_device_by_id(123, include_connections=False)\n            \n            # Enhanced metadata with calculated fields (Phase 2)\n            device = client.get_device_by_id(123, enrich_metadata=True)\n            # Returns additional fields: backupAge, lastSeen, configurationHealth, etc.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "The numeric ID of the device"
+                    },
+                    "include_connections": {
+                        "type": "string",
+                        "description": "Whether to include connection information (backward compatibility)"
+                    },
+                    "include_attributes": {
+                        "type": "string",
+                        "description": "List of specific attributes to include. Options:"
+                    },
+                    "enrich_metadata": {
+                        "type": "string",
+                        "description": "Whether to add calculated metadata fields (Phase 2 feature)"
+                    },
+                    "Adds": {
+                        "type": "string",
+                        "description": "backupAge, lastSeen, configurationHealth, etc."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "UnimusNotFoundError": {
+                        "type": "string",
+                        "description": "If device with given ID doesn't exist"
+                    },
+                    "UnimusValidationError": {
+                        "type": "string",
+                        "description": "If device_id is invalid"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "include_connections",
+                    "include_attributes",
+                    "enrich_metadata",
+                    "Adds",
+                    "Returns",
+                    "Raises",
+                    "UnimusNotFoundError",
+                    "UnimusValidationError",
+                    "Examples"
+                ]
+            },
+            "file": "unimus_client.py",
+            "decorator": [
+                "unimus_cache"
+            ]
+        },
+        {
+            "name": "get_device_backups",
+            "description": "\n        Get all backups for a specific device.\n        Backups are returned in descending order by creation time (newest first).\n\n        Args:\n            device_id: The numeric ID of the device\n            limit: Optional limit on number of results to return\n\n        Returns:\n            List of backup objects for the device, with decoded content\n\n        Raises:\n            UnimusNotFoundError: If device with given ID doesn't exist\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "The numeric ID of the device"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Optional limit on number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "UnimusNotFoundError": {
+                        "type": "string",
+                        "description": "If device with given ID doesn't exist"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "limit",
+                    "Returns",
+                    "Raises",
+                    "UnimusNotFoundError"
+                ]
+            },
+            "file": "unimus_client.py",
+            "decorator": [
+                "unimus_cache"
+            ]
+        },
+        {
+            "name": "get_latest_backups",
+            "description": "\n        Get the latest backups for multiple devices.\n\n        Args:\n            device_ids: List of device IDs to get backups for\n\n        Returns:\n            List of objects containing deviceId, address, and backup information with decoded content\n\n        Raises:\n            UnimusValidationError: If device_ids list is empty or contains invalid IDs\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_ids": {
+                        "type": "string",
+                        "description": "List of device IDs to get backups for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "UnimusValidationError": {
+                        "type": "string",
+                        "description": "If device_ids list is empty or contains invalid IDs"
+                    }
+                },
+                "required": [
+                    "device_ids",
+                    "Returns",
+                    "Raises",
+                    "UnimusValidationError"
+                ]
+            },
+            "file": "unimus_client.py",
+            "decorator": [
+                "unimus_cache"
+            ]
+        },
+        {
+            "name": "get_schedules",
+            "description": "\n        Get a list of all schedules in Unimus.\n\n        Returns:\n            List of schedule objects containing schedule information\n\n        Raises:\n            UnimusError: If the request fails\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "unimus_client.py",
+            "decorator": [
+                "unimus_cache"
+            ]
+        },
+        {
+            "name": "search_backup_content",
+            "description": "\n        Search through backup configurations for specific patterns.\n        \n        **Performance Warning**: This function retrieves backup content from devices\n        and searches through them client-side. For large device inventories, this can\n        be resource-intensive. Use device_filters and limit parameters to optimize performance.\n\n        Args:\n            pattern: Regular expression pattern to search for\n            device_filters: Optional filters to limit device scope:\n                - vendor: String, filter by vendor name (e.g., \"Cisco\", \"MikroTik\")\n                - type: String, filter by device type (e.g., \"IOS\", \"RouterOS\")\n                - managed: Boolean, filter by managed state\n                - site_id: Number, filter by site ID\n                - zone_id: String, filter by zone ID\n            context_lines: Number of context lines to include around matches (default: 2)\n            limit: Optional limit on number of devices to search (recommended for performance)\n            since: Start time range for backup filtering (unix timestamp)\n            until: End time range for backup filtering (unix timestamp)\n\n        Returns:\n            List of search result objects, each containing:\n            - device: Device information (id, address, description, vendor, type)\n            - backup: Backup information (id, validSince, validUntil, type)\n            - matches: List of pattern matches with:\n              - line_number: Line number of the match\n              - line_content: Content of the matching line\n              - context_before: Lines before the match\n              - context_after: Lines after the match\n              - match_groups: Regex capture groups if any\n\n        Raises:\n            UnimusValidationError: If pattern is invalid regex or parameters are invalid\n            UnimusError: If API requests fail\n\n        Performance Tips:\n            - Use specific device_filters to reduce search scope\n            - Set a reasonable limit parameter for large inventories\n            - Use time filters (since/until) to limit backup age\n            - Consider partial matches before exact regex patterns\n\n        Examples:\n            # Search for interface configurations\n            results = client.search_backup_content(\n                pattern=r\"interface GigabitEthernet\\d+/\\d+\",\n                device_filters={\"vendor\": \"Cisco\"},\n                limit=50\n            )\n            \n            # Search for VLAN configurations with context\n            results = client.search_backup_content(\n                pattern=r\"vlan \\d+\",\n                context_lines=3,\n                device_filters={\"type\": \"IOS\"}\n            )\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pattern": {
+                        "type": "string",
+                        "description": "Regular expression pattern to search for"
+                    },
+                    "device_filters": {
+                        "type": "string",
+                        "description": "Optional filters to limit device scope:"
+                    },
+                    "context_lines": {
+                        "type": "string",
+                        "description": "Number of context lines to include around matches (default: 2)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Optional limit on number of devices to search (recommended for performance)"
+                    },
+                    "since": {
+                        "type": "string",
+                        "description": "Start time range for backup filtering (unix timestamp)"
+                    },
+                    "until": {
+                        "type": "string",
+                        "description": "End time range for backup filtering (unix timestamp)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "UnimusValidationError": {
+                        "type": "string",
+                        "description": "If pattern is invalid regex or parameters are invalid"
+                    },
+                    "UnimusError": {
+                        "type": "string",
+                        "description": "If API requests fail"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "pattern",
+                    "device_filters",
+                    "context_lines",
+                    "limit",
+                    "since",
+                    "until",
+                    "Returns",
+                    "Raises",
+                    "UnimusValidationError",
+                    "UnimusError",
+                    "Examples"
+                ]
+            },
+            "file": "unimus_client.py",
+            "decorator": [
+                "unimus_cache"
+            ]
+        },
+        {
+            "name": "get_device_relationships",
+            "description": "\n        Analyze and discover device relationships and topology connections (Phase 3 feature).\n        \n        Discovers device relationships through:\n        - Network topology analysis (IP ranges, subnets)\n        - Zone-based device groupings\n        - Connection pattern analysis\n        - Configuration-based neighbor discovery\n        \n        Args:\n            device_id: The device ID to analyze relationships for\n            include_network_neighbors: Whether to discover network neighbors via IP analysis\n            include_zone_peers: Whether to include devices in the same zone\n            include_connection_analysis: Whether to analyze connection patterns\n            \n        Returns:\n            Dictionary containing relationship analysis:\n            - device: Base device information\n            - networkNeighbors: Devices in same network segments\n            - zonePeers: Devices in same zone\n            - connectionPatterns: Analysis of connection methods and paths\n            - topologyInsights: Network topology analysis\n            - relationshipMetadata: Calculated relationship metrics\n            \n        Raises:\n            UnimusNotFoundError: If device with given ID doesn't exist\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "The device ID to analyze relationships for"
+                    },
+                    "include_network_neighbors": {
+                        "type": "string",
+                        "description": "Whether to discover network neighbors via IP analysis"
+                    },
+                    "include_zone_peers": {
+                        "type": "string",
+                        "description": "Whether to include devices in the same zone"
+                    },
+                    "include_connection_analysis": {
+                        "type": "string",
+                        "description": "Whether to analyze connection patterns"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "UnimusNotFoundError": {
+                        "type": "string",
+                        "description": "If device with given ID doesn't exist"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "include_network_neighbors",
+                    "include_zone_peers",
+                    "include_connection_analysis",
+                    "Returns",
+                    "Raises",
+                    "UnimusNotFoundError"
+                ]
+            },
+            "file": "unimus_client.py",
+            "decorator": [
+                "unimus_cache"
+            ]
+        },
+        {
+            "name": "get_network_topology_analysis",
+            "description": "\n        Analyze network topology and device clusters across the entire infrastructure (Phase 3 feature).\n        \n        Provides comprehensive network-wide topology analysis including:\n        - Device cluster identification and mapping\n        - Network segment analysis\n        - Zone-based topology insights\n        - Security pattern analysis across the infrastructure\n        \n        Args:\n            zone_id: Optional zone ID to limit analysis scope (default: analyze all zones)\n            include_clusters: Whether to perform device clustering analysis\n            include_security_analysis: Whether to include security pattern analysis\n            \n        Returns:\n            Dictionary containing comprehensive topology analysis:\n            - networkOverview: High-level network statistics and metrics\n            - deviceClusters: Identified device clusters and groupings\n            - networkSegments: Discovered network segments and subnets\n            - zoneTopology: Zone-based topology analysis\n            - securityPatterns: Network-wide security analysis\n            - topologyMetadata: Analysis metadata and insights\n            \n        Raises:\n            UnimusError: If topology analysis fails\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "zone_id": {
+                        "type": "string",
+                        "description": "Optional zone ID to limit analysis scope (default: analyze all zones)"
+                    },
+                    "include_clusters": {
+                        "type": "string",
+                        "description": "Whether to perform device clustering analysis"
+                    },
+                    "include_security_analysis": {
+                        "type": "string",
+                        "description": "Whether to include security pattern analysis"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "UnimusError": {
+                        "type": "string",
+                        "description": "If topology analysis fails"
+                    }
+                },
+                "required": [
+                    "zone_id",
+                    "include_clusters",
+                    "include_security_analysis",
+                    "Returns",
+                    "Raises",
+                    "UnimusError"
+                ]
+            },
+            "file": "unimus_client.py",
+            "decorator": [
+                "unimus_cache"
+            ]
+        },
+        {
+            "name": "create_device",
+            "description": "Create a mock device object.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_device_list",
+            "description": "Create a list of mock devices with different characteristics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_backup",
+            "description": "Create a mock backup object.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_backup_list",
+            "description": "Create a list of mock backups for a device.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_schedule",
+            "description": "Create a mock schedule object.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_schedule_list",
+            "description": "Create a list of mock schedules.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_health_status",
+            "description": "Create a mock health status response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_device_with_connections",
+            "description": "Create a mock device with connection information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_device_with_schedule",
+            "description": "Create a mock device with schedule information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_enriched_metadata",
+            "description": "Create mock enriched metadata for a device.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_device_relationships",
+            "description": "Create mock device relationships.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_topology_analysis",
+            "description": "Create mock network topology analysis.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_api_error",
+            "description": "Create mock API error for testing error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\mock_data.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "mock_config",
+            "description": "Create a mock configuration for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_unimus_client",
+            "description": "Create a mock Unimus client with realistic responses.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_config"
+                ]
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_server_globals",
+            "description": "Mock the global variables in server.py.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_config": {
+                        "type": "string"
+                    },
+                    "mock_unimus_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_config",
+                    "mock_unimus_client"
+                ]
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_config_file",
+            "description": "Create a temporary configuration file for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "clean_environment",
+            "description": "Clean environment variables for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_device_data",
+            "description": "Provide mock device data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_backup_data",
+            "description": "Provide mock backup data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_schedule_data",
+            "description": "Provide mock schedule data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_api_responses",
+            "description": "Provide mock API responses for different scenarios.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_network_topology",
+            "description": "Provide mock network topology data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_device_relationships",
+            "description": "Provide mock device relationships for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "error_scenarios",
+            "description": "Provide different error scenarios for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "setup_test_logging",
+            "description": "Set up logging for tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "caplog": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "caplog"
+                ]
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_fastmcp",
+            "description": "Mock FastMCP server for testing MCP tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_search_content",
+            "description": "Provide sample configuration content for search testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_http_responses",
+            "description": "Mock HTTP responses for different API scenarios.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "performance_test_data",
+            "description": "Provide data for performance testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "assert_called_with_timeout",
+            "description": "Helper to assert function calls with timeout.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "validate_api_response",
+            "description": "Helper to validate API response structure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\fixtures\\pytest_fixtures.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_error_handling.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_network_connection_errors",
+            "description": "Test handling of network connection errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get",
+                    "client"
+                ]
+            },
+            "file": "tests\\unit\\test_error_handling.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_http_error_status_codes",
+            "description": "Test handling of various HTTP error status codes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get",
+                    "client"
+                ]
+            },
+            "file": "tests\\unit\\test_error_handling.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_invalid_json_response",
+            "description": "Test handling of invalid JSON responses.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get",
+                    "client"
+                ]
+            },
+            "file": "tests\\unit\\test_error_handling.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_empty_response_body",
+            "description": "Test handling of empty response body.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get",
+                    "client"
+                ]
+            },
+            "file": "tests\\unit\\test_error_handling.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_authentication_errors",
+            "description": "Test that authentication errors are properly handled across all tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tool_name": {
+                        "type": "string"
+                    },
+                    "client_method": {
+                        "type": "string"
+                    },
+                    "expected_exception": {
+                        "type": "string"
+                    },
+                    "mock_server_globals": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tool_name",
+                    "client_method",
+                    "expected_exception",
+                    "mock_server_globals"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_successful_server_startup",
+            "description": "Test successful health server startup with threading.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_http_server": {
+                        "type": "string"
+                    },
+                    "mock_thread": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_http_server",
+                    "mock_thread"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_server_startup_http_server_error",
+            "description": "Test server startup when HTTPServer creation fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logger": {
+                        "type": "string"
+                    },
+                    "mock_http_server": {
+                        "type": "string"
+                    },
+                    "mock_thread": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logger",
+                    "mock_http_server",
+                    "mock_thread"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_server_startup_thread_creation_error",
+            "description": "Test server startup when thread creation fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logger": {
+                        "type": "string"
+                    },
+                    "mock_http_server": {
+                        "type": "string"
+                    },
+                    "mock_thread": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logger",
+                    "mock_http_server",
+                    "mock_thread"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_setup_unimus_client_success",
+            "description": "Test successful Unimus client setup from environment.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_class": {
+                        "type": "string"
+                    },
+                    "mock_load_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_class",
+                    "mock_load_config"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_setup_unimus_client_config_error",
+            "description": "Test client setup with configuration error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logger": {
+                        "type": "string"
+                    },
+                    "mock_load_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logger",
+                    "mock_load_config"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_setup_unimus_client_client_initialization_error",
+            "description": "Test client setup when UnimusRestClient initialization fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_class": {
+                        "type": "string"
+                    },
+                    "mock_load_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_class",
+                    "mock_load_config"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_initialize_client_success",
+            "description": "Test successful client initialization with validation (deprecated function).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logger": {
+                        "type": "string"
+                    },
+                    "mock_client_class": {
+                        "type": "string"
+                    },
+                    "mock_validate_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logger",
+                    "mock_client_class",
+                    "mock_validate_env"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_initialize_client_environment_failure",
+            "description": "Test client initialization when environment validation fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logger": {
+                        "type": "string"
+                    },
+                    "mock_validate_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logger",
+                    "mock_validate_env"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_initialize_client_connection_failure",
+            "description": "Test client initialization when connection validation fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logger": {
+                        "type": "string"
+                    },
+                    "mock_client_class": {
+                        "type": "string"
+                    },
+                    "mock_validate_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logger",
+                    "mock_client_class",
+                    "mock_validate_env"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_main_execution_success",
+            "description": "Test successful main server execution logic.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_start_health": {
+                        "type": "string"
+                    },
+                    "mock_setup_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_start_health",
+                    "mock_setup_client"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_main_execution_client_initialization_failure",
+            "description": "Test main execution when client initialization fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logger": {
+                        "type": "string"
+                    },
+                    "mock_start_health": {
+                        "type": "string"
+                    },
+                    "mock_setup_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logger",
+                    "mock_start_health",
+                    "mock_setup_client"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_main_execution_health_server_disabled",
+            "description": "Test main execution when health server is disabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logger": {
+                        "type": "string"
+                    },
+                    "mock_start_health": {
+                        "type": "string"
+                    },
+                    "mock_setup_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logger",
+                    "mock_start_health",
+                    "mock_setup_client"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_complete_degraded_mode_operation",
+            "description": "Test complete server operation in degraded mode.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_start_health": {
+                        "type": "string"
+                    },
+                    "mock_init_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_start_health",
+                    "mock_init_client"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_thread_daemon_configuration",
+            "description": "Test that health server thread is properly configured as daemon.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_http_server": {
+                        "type": "string"
+                    },
+                    "mock_thread": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_http_server",
+                    "mock_thread"
+                ]
+            },
+            "file": "tests\\unit\\test_server_health_checks.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create a test client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_unimus_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_devices_response",
+            "description": "Mock devices API response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_unimus_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_device_response",
+            "description": "Mock single device API response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_unimus_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_health_response",
+            "description": "Mock health API response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_unimus_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_unimus_client_errors.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_http_status_code_errors",
+            "description": "Test handling of various HTTP status codes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    },
+                    "status_code": {
+                        "type": "string"
+                    },
+                    "error_message": {
+                        "type": "string"
+                    },
+                    "expected_exception": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client",
+                    "status_code",
+                    "error_message",
+                    "expected_exception"
+                ]
+            },
+            "file": "tests\\unit\\test_unimus_client_errors.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_unimus_client_errors.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_unimus_client_errors.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_unimus_client_errors.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_unimus_client_errors.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_unimus_client_errors.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_unimus_client_errors.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

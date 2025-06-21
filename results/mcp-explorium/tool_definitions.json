@@ -1,0 +1,306 @@
+{
+    "tools": [
+        {
+            "name": "match_businesses",
+            "description": "\n    Get the Explorium business IDs from business name and/or domain in bulk.\n    Use this when:\n    - Need company size/revenue/industry\n    - Analyzing overall business metrics\n    - Researching company background\n    - Looking for specific employees (use fetch_prospects next)\n\n    Do NOT use when:\n    - Looking for specific employees\n    - Getting executive contact info\n    - Finding team member details\n    - You already called fetch_businesses - the response already contains business IDs\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_businesses",
+            "description": "\n    Fetch businesses from the Explorium API filtered by various criteria.\n    You MUST call the autocomplete tool to get the list of possible values for\n    filters specified in the autocomplete tool's description.\n\n    Do NOT use this tool first if you do not have a list of available values for\n    mandatory filters specified in the autocomplete tool's description.\n\n    This tool returns Business IDs, which can be used to fetch more information.\n    Do NOT call match_businesses afterwards.\n\n    If a requested filter is not supported by the Explorium API, stop the\n    execution and notify the user.\n\n    If you are looking for employees at a company, use fetch_prospects next.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "autocomplete",
+            "description": "\n    Autocomplete values for business filters based on a query.\n\n    Use this tool **only** for the following filters. If the filter is not listed below, do **not** use autocomplete:\n    - country\n    - country_code\n    - region_country_code\n    - google_category\n    - naics_category\n    - linkedin_category\n    - company_tech_stack_tech\n    - company_tech_stack_categories\n    - job_title\n    - company_size\n    - company_revenue\n    - number_of_locations\n    - company_age\n    - job_department\n    - job_level\n      - For C-suite titles (e.g., CEO, CTO), **search for \"cxo\"** and select the appropriate result.\n    - city_region_country\n    - company_name\n\n    Do **not** call this tool for `website_keywords` or any field not explicitly listed above.\n\n    Always call autocomplete in **parallel**, not sequentially.\n    Prefer `linkedin_category` over `google_category` when both are available.\n\n    Hints:\n    - When looking for 'saas' in categories, use 'software'\n    - Use 'country' to get the country code\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_businesses_events",
+            "description": "\n    Retrieves business-related events from the Explorium API in bulk.\n    If you're looking for events related to role changes, you should use the\n    prospects events tool instead.\n\n    This is a VERY useful tool for researching a company's events and history.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_businesses_statistics",
+            "description": "\n    Fetch aggregated insights into businesses by industry, revenue, employee count, and geographic distribution.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_businesses_firmographics",
+            "description": "\n    Get firmographics data in bulk.\n    Returns:\n    - Business ID and name\n    - Detailed business description\n    - Website URL\n    - Geographic information (country, region)\n    - Industry classification (NAICS code and description)\n    - SIC code and description\n    - Stock ticker symbol (for public companies)\n    - Company size (number of employees range)\n    - Annual revenue range\n    - LinkedIn industry category and profile URL\n\n    **Do NOT use when**:\n    - You need to find a specific employee at a company\n    - Looking for leadership info of a company\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_businesses_technographics",
+            "description": "\n    Get technographics data in bulk.\n    Returns:\n    - Full technology stack used by the business\n    - Nested technology stack categorized by function (e.g., Sales, Marketing, DevOps)\n    - Detailed breakdown by categories including:\n      - Testing and QA tools\n      - Sales software\n      - Programming languages and frameworks\n      - Productivity and operations tools\n      - Product and design software\n      - Platform and storage solutions\n      - Operations software\n      - Operations management tools\n      - Marketing technologies\n      - IT security solutions\n      - IT management systems\n      - HR software\n      - Health tech applications\n      - Finance and accounting tools\n      - E-commerce platforms\n      - DevOps and development tools\n      - Customer management systems\n      - Computer networks\n      - Communications tools\n      - Collaboration platforms\n      - Business intelligence and analytics\n\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_businesses_company_ratings",
+            "description": "\n    Get internal company ratings in bulk.\n    Returns:\n    - Employee satisfaction ratings across multiple categories\n    - Company culture and work-life balance assessments\n    - Management and leadership quality ratings\n    - Career growth and advancement opportunities metrics\n    - Interview experience feedback from candidates\n    - Overall company reputation scores from current and former employees\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_businesses_financial_metrics",
+            "description": "\n    Get financial metrics for **public companies only** in bulk.\n    You may also use this tool when looking for leadership information (CEO, CTO, CFO, etc.)\n\n    Returns:\n    - Financial metrics including EBITDA, revenue, and cost of goods sold (COGS)\n    - Profitability indicators like ROA (Return on Assets) and ROC (Return on Capital)\n    - Asset turnover and working capital figures\n    - Price-to-earnings ratio and enterprise value metrics\n    - Executive leadership details including names, titles, and compensation\n    - Earnings surprises with actual vs. estimated results\n    - Peer companies for competitive analysis\n    - Total shareholder return (TSR) metrics for various time periods\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_businesses_funding_and_acquisitions",
+            "description": "\n    Get businesses funding and acquisition history in bulk.\n    Returns:\n    - Detailed funding history including dates, amounts, and round types\n    - IPO information including date and size\n    - List of investors and lead investors for each funding round\n    - Total known funding value\n    - Current board members and advisors\n    - Acquisition information (if applicable)\n    - First and latest funding round details\n    - Number of funding rounds and investors\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_businesses_challenges",
+            "description": "\n    Get insights on the challenges, breaches, and competition of public companies.\n    Returns:\n    - Technological disruption challenges identified in SEC filings\n    - Data security breaches and cybersecurity vulnerabilities\n    - Market saturation concerns and competitive pressures\n    - Data security and privacy regulatory compliance issues\n    - Competitive landscape and market position challenges\n    - Customer adoption risks and third-party dependencies\n    - Links to official SEC filings and documents\n    - Company identifiers including ticker symbols and CIK numbers\n    - Filing dates and form types for regulatory submissions\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_businesses_competitive_landscape",
+            "description": "\n    Get insights on the market landscape of public companies.\n    Returns:\n    - Competitive differentiation strategies from SEC filings\n    - Key competitors identified in public disclosures\n    - Company ticker symbols and CIK identifiers\n    - Links to official SEC filings and documents\n    - Filing dates and form types for regulatory submissions\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_businesses_strategic_insights",
+            "description": "\n    Get strategic insights for public companies.\n    Returns:\n    - Strategic focus areas and company value propositions from SEC filings\n    - Target market segments and customer demographics\n    - Product development roadmaps and innovation initiatives\n    - Marketing and sales strategies from public disclosures\n    - Strategic partnerships and acquisition information\n    - Company identifiers including ticker symbols and CIK numbers\n    - Links to official SEC filings and documents\n    - Filing dates and form types for regulatory submissions\n\n    Do NOT use this when you need to find employees at a company.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_businesses_workforce_trends",
+            "description": "\n    Get workforce trends and department composition for companies.\n    Returns:\n    - Percentage breakdown of employees across different departments (engineering, sales, marketing, etc.)\n    - Changes in department composition compared to previous quarter\n    - Total employee profiles found per quarter\n    - Quarterly timestamp information for trend analysis\n    - Insights into company structure and hiring priorities\n    - Department growth or reduction indicators\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_businesses_linkedin_posts",
+            "description": "\n    Get LinkedIn posts for public companies.\n    Returns:\n    - Post text content from company LinkedIn posts\n    - Engagement metrics including number of likes and comments\n    - Publication dates and time since posting\n    - Company display names when available\n    - Historical social media content for trend analysis\n    - Marketing messaging and brand voice examples\n    - Product announcements and company updates\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_businesses_website_changes",
+            "description": "\n    Get website changes for public companies.\n    Returns:\n    - Website content changes with before and after text comparisons\n    - Strategic implications of content modifications\n    - Dates when changes were detected\n    - Changes in featured products, services, or content\n    - Shifts in marketing messaging or positioning\n    - Updates to promotional content and featured items\n    - Changes in top charts or featured content listings\n    - Insights into business strategy and market focus\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_businesses_website_keywords",
+            "description": "\n    Get website keywords for public companies.\n    For each keyword, input multiple search terms separated by commas (\",\"), which simulates a logical \"AND\" operation.\n    Returns:\n    - Website URL\n    - Keywords indicator showing if keywords were found\n    - Text results containing:\n        - Position/rank of the result\n        - Text snippet showing keyword matches\n        - URL where the keyword was found\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\businesses.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "match_prospects",
+            "description": "\n    Get the Explorium prospect ID from a prospect's email, full name, and company.\n    At least email OR (full name AND company) must be provided.\n    You MUST use this tool if the input is about someone working at a specific company.\n\n    Use this when:\n    - Need prospect enrichment tools\n    - Getting contact information\n    - Analyzing an individual's social media presence\n    - Gathering information on a person's professional profile and workplace\n\n    Do NOT use for:\n    - Finding leadership information (CEO, CTO, CFO, etc.)\n    - Looking for employees at a company\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\prospects.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_prospects",
+            "description": "\n    Fetch prospects (employees) using filters such as job level, department, and other professional attributes.\n\n    You MUST use the autocomplete tool to retrieve valid values for required filters before calling this tool.\n\n    Do NOT call this tool first if you don\u2019t have the necessary filter values.\n\n    Returns Prospect IDs for individuals at specific companies.\n\n    If a requested filter is not supported by the Explorium API, stop execution and inform the user.\n\n    Use fetch_businesses if you're looking for companies instead.\n\n    For leadership details at public companies, use enrich_businesses_financial_metrics.\n    \"\"\"\n\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\prospects.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "do_request",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\explorium_mcp_server\\tools\\shared.py",
+            "decorator": [
+                "backoff.on_exception"
+            ]
+        },
+        {
+            "name": "test_fetch_businesses",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "size": {
+                        "type": "string"
+                    },
+                    "page_size": {
+                        "type": "string"
+                    },
+                    "page": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "size",
+                    "page_size",
+                    "page"
+                ]
+            },
+            "file": "tests\\tools\\test_businesses.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_enrich_simple",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "func": {
+                        "type": "string"
+                    },
+                    "endpoint": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "func",
+                    "endpoint"
+                ]
+            },
+            "file": "tests\\tools\\test_businesses.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_fetch_prospects_builds_payload",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\tools\\test_prospects.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        }
+    ]
+}

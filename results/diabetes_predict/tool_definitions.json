@@ -1,0 +1,443 @@
+{
+    "tools": [
+        {
+            "name": "serve_index",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "serve_static",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "path"
+                ]
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "read_root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_dataset_info",
+            "description": "Get basic information about the dataset",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_dataset_head",
+            "description": "Get the first n rows of the dataset",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_dataset_description",
+            "description": "Get basic statistics for all columns",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_feature_stats",
+            "description": "Get detailed statistics for specified features or all features",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_correlation_matrix",
+            "description": "Get the correlation matrix for all numeric features",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_target_correlation",
+            "description": "Get correlation coefficients between each feature and the target variable",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_feature_histogram",
+            "description": "Get histogram data for a specific feature",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_feature_boxplot",
+            "description": "Get boxplot data for a specific feature",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_feature_comparison",
+            "description": "Get data for comparing two features, optionally filtered by diabetic status",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_group_analysis",
+            "description": "Group the data by a feature and calculate statistics for another feature in each group",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "read_root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_dataset_info",
+            "description": "Get basic information about the dataset",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_dataset_head",
+            "description": "Get the first n rows of the dataset",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_dataset_description",
+            "description": "Get basic statistics for all columns",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_feature_stats",
+            "description": "Get detailed statistics for specified features or all features",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_correlation_matrix",
+            "description": "Get the correlation matrix for all numeric features",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_target_correlation",
+            "description": "Get correlation coefficients between each feature and the specified target variable",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_feature_histogram",
+            "description": "Get histogram data for a specific feature",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_feature_boxplot",
+            "description": "Get boxplot data for a specific feature",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_feature_comparison",
+            "description": "\n    Get data for comparing two features, optionally filtered by any column and value\n    \n    Parameters:\n    - feature1: First feature to compare\n    - feature2: Second feature to compare\n    - filter_column: Optional column to filter on (e.g., 'is_diabetic')\n    - filter_value: Optional value to filter for in filter_column\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_group_analysis",
+            "description": "Group the data by a feature and calculate statistics for another feature in each group",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "diabetes_analysis_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "read_root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ipynb_checkpoints\\diabetes_analysis-checkpoint.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_dataset_info",
+            "description": "Get basic information about the dataset",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ipynb_checkpoints\\diabetes_analysis-checkpoint.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_dataset_head",
+            "description": "Get the first n rows of the dataset",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ipynb_checkpoints\\diabetes_analysis-checkpoint.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_dataset_description",
+            "description": "Get basic statistics for all columns",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ipynb_checkpoints\\diabetes_analysis-checkpoint.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_feature_stats",
+            "description": "Get detailed statistics for specified features or all features",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ipynb_checkpoints\\diabetes_analysis-checkpoint.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_correlation_matrix",
+            "description": "Get the correlation matrix for all numeric features",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ipynb_checkpoints\\diabetes_analysis-checkpoint.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_target_correlation",
+            "description": "Get correlation coefficients between each feature and the target variable",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ipynb_checkpoints\\diabetes_analysis-checkpoint.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_feature_histogram",
+            "description": "Get histogram data for a specific feature",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ipynb_checkpoints\\diabetes_analysis-checkpoint.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_feature_boxplot",
+            "description": "Get boxplot data for a specific feature",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ipynb_checkpoints\\diabetes_analysis-checkpoint.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_feature_comparison",
+            "description": "Get data for comparing two features, optionally filtered by diabetic status",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ipynb_checkpoints\\diabetes_analysis-checkpoint.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_group_analysis",
+            "description": "Group the data by a feature and calculate statistics for another feature in each group",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ipynb_checkpoints\\diabetes_analysis-checkpoint.py",
+            "decorator": [
+                "app.get"
+            ]
+        }
+    ]
+}

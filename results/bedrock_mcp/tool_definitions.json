@@ -1,0 +1,548 @@
+{
+    "tools": [
+        {
+            "name": "bedrock_client",
+            "description": "Get or create the Bedrock client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\bedrock_claude_mcp\\bedrock_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "bedrock_runtime_client",
+            "description": "Get or create the Bedrock Runtime client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\bedrock_claude_mcp\\bedrock_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "list_foundation_models",
+            "description": "List available foundation models in Bedrock.\n\n        Args:\n            by_provider: Filter by model provider (e.g., 'Anthropic', 'Amazon')\n            by_customization_type: Filter by customization type\n            by_output_modality: Filter by output modality\n            by_inference_type: Filter by inference type\n\n        Returns:\n            List of BedrockModel objects\n\n        Raises:\n            ClientError: If AWS API call fails\n            BotoCoreError: If there's a configuration issue\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "by_provider": {
+                        "type": "string",
+                        "description": "Filter by model provider (e.g., 'Anthropic', 'Amazon')"
+                    },
+                    "by_customization_type": {
+                        "type": "string",
+                        "description": "Filter by customization type"
+                    },
+                    "by_output_modality": {
+                        "type": "string",
+                        "description": "Filter by output modality"
+                    },
+                    "by_inference_type": {
+                        "type": "string",
+                        "description": "Filter by inference type"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ClientError": {
+                        "type": "string",
+                        "description": "If AWS API call fails"
+                    },
+                    "BotoCoreError": {
+                        "type": "string",
+                        "description": "If there's a configuration issue"
+                    }
+                },
+                "required": [
+                    "by_provider",
+                    "by_customization_type",
+                    "by_output_modality",
+                    "by_inference_type",
+                    "Returns",
+                    "Raises",
+                    "ClientError",
+                    "BotoCoreError"
+                ]
+            },
+            "file": "src\\bedrock_claude_mcp\\bedrock_client.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "display_name",
+            "description": "Get display name for the status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\bedrock_claude_mcp\\models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "display_name",
+            "description": "Get display name for the modality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\bedrock_claude_mcp\\models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "list_bedrock_models",
+            "description": "List available AWS Bedrock foundation models.\n\n        Args:\n            provider: Filter by model provider (e.g., 'Anthropic', 'Amazon', 'AI21', 'Cohere', 'Meta', 'Mistral')\n            output_modality: Filter by output modality ('TEXT', 'IMAGE', 'EMBEDDING')\n            inference_type: Filter by inference type ('ON_DEMAND', 'PROVISIONED')\n\n        Returns:\n            JSON string containing list of available models with their details\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "provider": {
+                        "type": "string",
+                        "description": "Filter by model provider (e.g., 'Anthropic', 'Amazon', 'AI21', 'Cohere', 'Meta', 'Mistral')"
+                    },
+                    "output_modality": {
+                        "type": "string",
+                        "description": "Filter by output modality ('TEXT', 'IMAGE', 'EMBEDDING')"
+                    },
+                    "inference_type": {
+                        "type": "string",
+                        "description": "Filter by inference type ('ON_DEMAND', 'PROVISIONED')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "provider",
+                    "output_modality",
+                    "inference_type",
+                    "Returns"
+                ]
+            },
+            "file": "src\\bedrock_claude_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_bedrock_model_details",
+            "description": "Get detailed information about a specific Bedrock model.\n\n        Args:\n            model_id: The model identifier (e.g., 'anthropic.claude-3-sonnet-20240229-v1:0')\n\n        Returns:\n            JSON string containing detailed model information\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "model_id": {
+                        "type": "string",
+                        "description": "The model identifier (e.g., 'anthropic.claude-3-sonnet-20240229-v1:0')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "model_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\bedrock_claude_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_models_by_provider",
+            "description": "List all models from a specific provider.\n\n        Args:\n            provider: Provider name (e.g., 'Anthropic', 'Amazon', 'AI21', 'Cohere', 'Meta', 'Mistral')\n\n        Returns:\n            JSON string containing list of models from the specified provider\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "provider": {
+                        "type": "string",
+                        "description": "Provider name (e.g., 'Anthropic', 'Amazon', 'AI21', 'Cohere', 'Meta', 'Mistral')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "provider",
+                    "Returns"
+                ]
+            },
+            "file": "src\\bedrock_claude_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_web",
+            "description": "Search the web for information using DuckDuckGo.\n\n        Args:\n            query: Search query string\n            max_results: Maximum number of results to return (default: 10, max: 20)\n\n        Returns:\n            JSON string containing search results with titles, URLs, and snippets\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query string"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 10, max: 20)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\bedrock_claude_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_news",
+            "description": "Search for recent news articles using DuckDuckGo.\n\n        Args:\n            query: News search query string\n            max_results: Maximum number of news articles to return (default: 10, max: 20)\n\n        Returns:\n            JSON string containing news results with titles, URLs, snippets, and publication dates\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "News search query string"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of news articles to return (default: 10, max: 20)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\bedrock_claude_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_bedrock_regions",
+            "description": "Get list of AWS regions where Bedrock is available.\n\n        Returns:\n            JSON string containing list of available regions\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\bedrock_claude_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_provider_models",
+            "description": "Get models for a specific provider as a resource.\n\n        Args:\n            provider: Provider name\n\n        Returns:\n            JSON string with provider models\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "provider": {
+                        "type": "string",
+                        "description": "Provider name"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "provider",
+                    "Returns"
+                ]
+            },
+            "file": "src\\bedrock_claude_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "model_selection_guide",
+            "description": "Provide guidance on selecting the right Bedrock model for a specific use case.\n\n        Args:\n            use_case: Description of the intended use case\n\n        Returns:\n            Guidance prompt for model selection\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "use_case": {
+                        "type": "string",
+                        "description": "Description of the intended use case"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "use_case",
+                    "Returns"
+                ]
+            },
+            "file": "src\\bedrock_claude_mcp\\server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\bedrock_claude_mcp\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "api_execute",
+            "description": "ExecuteanAPIrequestfromasingleusermessage",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\chat.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "change_product_search(\n",
+            "description": "(\n\"SearchproductsorpricedatafromcommodityexchangeslikeNYMEX",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\chat.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "bedrock_client",
+            "description": "Create a BedrockClient instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_bedrock_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_bedrock_response",
+            "description": "Mock response from Bedrock list_foundation_models API.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_bedrock_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_list_foundation_models_success",
+            "description": "Test successful listing of foundation models.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "bedrock_client": {
+                        "type": "string"
+                    },
+                    "mock_bedrock_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "bedrock_client",
+                    "mock_bedrock_response"
+                ]
+            },
+            "file": "tests\\test_bedrock_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_foundation_models_with_filters",
+            "description": "Test listing foundation models with filters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "bedrock_client": {
+                        "type": "string"
+                    },
+                    "mock_bedrock_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "bedrock_client",
+                    "mock_bedrock_response"
+                ]
+            },
+            "file": "tests\\test_bedrock_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_foundation_models_client_error",
+            "description": "Test handling of ClientError during model listing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "bedrock_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "bedrock_client"
+                ]
+            },
+            "file": "tests\\test_bedrock_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_model_details_found",
+            "description": "Test getting model details for existing model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "bedrock_client": {
+                        "type": "string"
+                    },
+                    "mock_bedrock_response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "bedrock_client",
+                    "mock_bedrock_response"
+                ]
+            },
+            "file": "tests\\test_bedrock_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_model_details_not_found",
+            "description": "Test getting model details for non-existing model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "bedrock_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "bedrock_client"
+                ]
+            },
+            "file": "tests\\test_bedrock_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_models_by_provider",
+            "description": "Test listing models by provider.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "bedrock_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "bedrock_client"
+                ]
+            },
+            "file": "tests\\test_bedrock_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_text_models",
+            "description": "Test listing text models.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "bedrock_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "bedrock_client"
+                ]
+            },
+            "file": "tests\\test_bedrock_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_image_models",
+            "description": "Test listing image models.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "bedrock_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "bedrock_client"
+                ]
+            },
+            "file": "tests\\test_bedrock_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_embedding_models",
+            "description": "Test listing embedding models.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "bedrock_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "bedrock_client"
+                ]
+            },
+            "file": "tests\\test_bedrock_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

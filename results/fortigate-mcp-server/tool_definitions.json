@@ -1,0 +1,548 @@
+{
+    "tools": [
+        {
+            "name": "fortigate_list_devices",
+            "description": "List all configured Fortigate devices",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcptool\\base.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_add_device",
+            "description": "Adds a new Fortigate device\n\n\tArgs:\n\t    device_id: Unique identifier of the device\n\t    host: IP address or hostname of the Fortigate\n\t    token: API token for authentication\n\t    vdoms: List of VDOMs (optional, default: ['root'])\n\t",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Unique identifier of the device"
+                    },
+                    "host": {
+                        "type": "string",
+                        "description": "IP address or hostname of the Fortigate"
+                    },
+                    "token": {
+                        "type": "string",
+                        "description": "API token for authentication"
+                    },
+                    "vdoms": {
+                        "type": "string",
+                        "description": "List of VDOMs (optional, default: ['root'])"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "host",
+                    "token",
+                    "vdoms"
+                ]
+            },
+            "file": "mcptool\\base.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_get_firewall_policies",
+            "description": "\n    Gets list of firewall policies\n\n    Args:\n        device_id: Device ID\n        vdom: Target VDOM (default: root)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID"
+                    },
+                    "vdom": {
+                        "type": "string",
+                        "description": "Target VDOM (default: root)"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "vdom"
+                ]
+            },
+            "file": "mcptool\\policy.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_get_policy_by_id",
+            "description": "\n    Gets specific firewall policy by ID\n\n    Args:\n        device_id: Device ID\n        policy_id: Policy ID\n        vdom: Target VDOM (default: root)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID"
+                    },
+                    "policy_id": {
+                        "type": "string",
+                        "description": "Policy ID"
+                    },
+                    "vdom": {
+                        "type": "string",
+                        "description": "Target VDOM (default: root)"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "policy_id",
+                    "vdom"
+                ]
+            },
+            "file": "mcptool\\policy.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_delete_firewall_policy",
+            "description": "\n    Deletes firewall policy\n\n    Args:\n        device_id: Device ID\n        policy_id: Policy ID to be deleted\n        vdom: Target VDOM (default: root)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID"
+                    },
+                    "policy_id": {
+                        "type": "string",
+                        "description": "Policy ID to be deleted"
+                    },
+                    "vdom": {
+                        "type": "string",
+                        "description": "Target VDOM (default: root)"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "policy_id",
+                    "vdom"
+                ]
+            },
+            "file": "mcptool\\policy.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_delete_firewall_policy",
+            "description": "\n    Deletes firewall policy\n\n    Args:\n        device_id: Device ID\n        policy_id: Policy ID to be deleted\n        vdom: Target VDOM (default: root)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID"
+                    },
+                    "policy_id": {
+                        "type": "string",
+                        "description": "Policy ID to be deleted"
+                    },
+                    "vdom": {
+                        "type": "string",
+                        "description": "Target VDOM (default: root)"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "policy_id",
+                    "vdom"
+                ]
+            },
+            "file": "mcptool\\policy.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_firewall_policy",
+            "description": "\n    Creates firewall policy\n\n    Args:\n        name: Policy name\n        srcintf: List of source interface\n        dstintf: List of destination interface\n        srcaddr: List of source address\n        dstaddr: List of destination address\n        service: List of service\n        action: Action to be performed (accept, deny)\n        schedule: Schedule (default: always)\n        comments: Comments (default: None)\n        vdom: Target VDOM (default: root)\n\n    Returns:\n        Resulting firewall policy\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Policy name"
+                    },
+                    "srcintf": {
+                        "type": "string",
+                        "description": "List of source interface"
+                    },
+                    "dstintf": {
+                        "type": "string",
+                        "description": "List of destination interface"
+                    },
+                    "srcaddr": {
+                        "type": "string",
+                        "description": "List of source address"
+                    },
+                    "dstaddr": {
+                        "type": "string",
+                        "description": "List of destination address"
+                    },
+                    "service": {
+                        "type": "string",
+                        "description": "List of service"
+                    },
+                    "action": {
+                        "type": "string",
+                        "description": "Action to be performed (accept, deny)"
+                    },
+                    "schedule": {
+                        "type": "string",
+                        "description": "Schedule (default: always)"
+                    },
+                    "comments": {
+                        "type": "string",
+                        "description": "Comments (default: None)"
+                    },
+                    "vdom": {
+                        "type": "string",
+                        "description": "Target VDOM (default: root)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "srcintf",
+                    "dstintf",
+                    "srcaddr",
+                    "dstaddr",
+                    "service",
+                    "action",
+                    "schedule",
+                    "comments",
+                    "vdom",
+                    "Returns"
+                ]
+            },
+            "file": "mcptool\\policy.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_firewall_address",
+            "description": "\n    Create a new address object on FortiGate\n\n    Args:\n        device_id: Device identifier\n        name: Address object name\n        type: Address type (ipmask, iprange, fqdn, geography, interface-subnet)\n        subnet: Subnet in CIDR format (for type=ipmask), e.g. \"192.168.1.0/24\"\n        start_ip: Start IP address (for type=iprange)\n        end_ip: End IP address (for type=iprange)\n        fqdn: Fully qualified domain name (for type=fqdn)\n        country: Country code (for type=geography)\n        interface: Interface name (for type=interface-subnet)\n        comments: Optional comments\n        vdom: Target VDOM (default: root)\n\n    Returns:\n        Result of address object creation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device identifier"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Address object name"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Address type (ipmask, iprange, fqdn, geography, interface-subnet)"
+                    },
+                    "subnet": {
+                        "type": "string",
+                        "description": "Subnet in CIDR format (for type=ipmask), e.g. \"192.168.1.0/24\""
+                    },
+                    "start_ip": {
+                        "type": "string",
+                        "description": "Start IP address (for type=iprange)"
+                    },
+                    "end_ip": {
+                        "type": "string",
+                        "description": "End IP address (for type=iprange)"
+                    },
+                    "fqdn": {
+                        "type": "string",
+                        "description": "Fully qualified domain name (for type=fqdn)"
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "Country code (for type=geography)"
+                    },
+                    "interface": {
+                        "type": "string",
+                        "description": "Interface name (for type=interface-subnet)"
+                    },
+                    "comments": {
+                        "type": "string",
+                        "description": "Optional comments"
+                    },
+                    "vdom": {
+                        "type": "string",
+                        "description": "Target VDOM (default: root)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "name",
+                    "type",
+                    "subnet",
+                    "start_ip",
+                    "end_ip",
+                    "fqdn",
+                    "country",
+                    "interface",
+                    "comments",
+                    "vdom",
+                    "Returns"
+                ]
+            },
+            "file": "mcptool\\policy.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_get_vip_objects",
+            "description": "Gets configured vip objects ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcptool\\policy.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_delete_vip_object",
+            "description": " Deletes vip object by name",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcptool\\policy.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_get_static_routes",
+            "description": "\n    Gets configured static routes\n\n    Args:\n        device_id: Device ID\n        vdom: Target VDOM (default: root)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID"
+                    },
+                    "vdom": {
+                        "type": "string",
+                        "description": "Target VDOM (default: root)"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "vdom"
+                ]
+            },
+            "file": "mcptool\\routing.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_get_routing_table",
+            "description": "\n    Gets configured routing table\n\n    Args:\n        device_id: Device ID\n        vdom: Target VDOM (default: root)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID"
+                    },
+                    "vdom": {
+                        "type": "string",
+                        "description": "Target VDOM (default: root)"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "vdom"
+                ]
+            },
+            "file": "mcptool\\routing.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_get_bgp_peers",
+            "description": "\n    Get configured BGP peers\n\n    Args:\n        device_id: Device ID\n        vdom: Target VDOM (default: root)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID"
+                    },
+                    "vdom": {
+                        "type": "string",
+                        "description": "Target VDOM (default: root)"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "vdom"
+                ]
+            },
+            "file": "mcptool\\routing.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_get_system_status",
+            "description": "\n    Gets Fortigate system status\n\n    Args:\n        device_id: Device ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID"
+                    }
+                },
+                "required": [
+                    "device_id"
+                ]
+            },
+            "file": "mcptool\\system.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_get_vdoms",
+            "description": "\n    Lists all VDOMs of a device\n\n    Args:\n        device_id: Device ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID"
+                    }
+                },
+                "required": [
+                    "device_id"
+                ]
+            },
+            "file": "mcptool\\system.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_get_service_objects",
+            "description": "\n    Gets configured service objects\n\n    Args:\n        device_id: Device ID\n        vdom: Target VDOM (default: root)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID"
+                    },
+                    "vdom": {
+                        "type": "string",
+                        "description": "Target VDOM (default: root)"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "vdom"
+                ]
+            },
+            "file": "mcptool\\system.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_get_interfaces",
+            "description": "\n    Gets configured interfaces\n\n    Args:\n        device_id: Device ID\n        vdom: Target VDOM (default: root)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID"
+                    },
+                    "vdom": {
+                        "type": "string",
+                        "description": "Target VDOM (default: root)"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "vdom"
+                ]
+            },
+            "file": "mcptool\\system.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fortigate_validate_policy",
+            "description": "\n    Validates the parameters of a policy before creation\n\n    Args:\n        name: Policy name\n        srcintf: List of source interfaces\n        dstintf: List of destination interfaces\n        srcaddr: List of source addresses\n        dstaddr: List of destination addresses\n        service: List of services\n        action: Action (accept/deny)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Policy name"
+                    },
+                    "srcintf": {
+                        "type": "string",
+                        "description": "List of source interfaces"
+                    },
+                    "dstintf": {
+                        "type": "string",
+                        "description": "List of destination interfaces"
+                    },
+                    "srcaddr": {
+                        "type": "string",
+                        "description": "List of source addresses"
+                    },
+                    "dstaddr": {
+                        "type": "string",
+                        "description": "List of destination addresses"
+                    },
+                    "service": {
+                        "type": "string",
+                        "description": "List of services"
+                    },
+                    "action": {
+                        "type": "string",
+                        "description": "Action (accept/deny)"
+                    }
+                },
+                "required": [
+                    "name",
+                    "srcintf",
+                    "dstintf",
+                    "srcaddr",
+                    "dstaddr",
+                    "service",
+                    "action"
+                ]
+            },
+            "file": "mcptool\\system.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

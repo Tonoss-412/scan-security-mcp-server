@@ -1,0 +1,1130 @@
+{
+    "tools": [
+        {
+            "name": "host",
+            "description": "Get the ntopng host.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_ntopng\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "port",
+            "description": "Get the ClickHouse port.\n\n        Defaults to 9440 if secure=True, 9000 if secure=False.\n        Can be overridden by CLICKHOUSE_PORT environment variable.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_ntopng\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "user",
+            "description": "Get the ClickHouse user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_ntopng\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "password",
+            "description": "Get the ClickHouse password.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_ntopng\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "database",
+            "description": "Get the default database name if set.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_ntopng\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "secure",
+            "description": "Get whether HTTPS is enabled.\n\n        Default: False\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_ntopng\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "verify",
+            "description": "Get whether SSL certificate verification is enabled.\n\n        Default: True\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_ntopng\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "connect_timeout",
+            "description": "Get the connection timeout in seconds.\n\n        Default: 30\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_ntopng\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "send_receive_timeout",
+            "description": "Get the send/receive timeout in seconds.\n\n        Default: 300 (ClickHouse default)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_ntopng\\mcp_config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "list_tables",
+            "description": "Listtablesstructureofthentopngdatabase",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_ntopngdb",
+            "description": "QuerythentopngClickhousedatabase.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "SQL query to execute"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Response object with status, data, and error information"
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_all_ifids",
+            "description": "RetrieveallavailableinterfaceIDsfromntopng.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_hosts_location",
+            "description": "Fetchgeographicallocationandadditionalinfoforhosts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_top_local_talkers",
+            "description": "Retrievethetop10localtalkersforaspecifiedinterface.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_top_remote_talkers",
+            "description": "Retrievethetop10remotetalkersforaspecifiedinterface.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_all_alert_stats",
+            "description": "Retrievestatisticsforallalerts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "epoch_begin": {
+                        "type": "integer",
+                        "description": "Start time (epoch)."
+                    },
+                    "epoch_end": {
+                        "type": "integer",
+                        "description": "End time (epoch)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "epoch_begin",
+                    "epoch_end",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_flow_alert_stats",
+            "description": "Retrievestatisticsforflowalerts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "epoch_begin": {
+                        "type": "integer",
+                        "description": "Start time (epoch)."
+                    },
+                    "epoch_end": {
+                        "type": "integer",
+                        "description": "End time (epoch)."
+                    },
+                    "alert_id": {
+                        "type": "string",
+                        "description": "Alert identifier (e.g., 'id;eq')."
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "Severity identifier (e.g., 'id;eq')."
+                    },
+                    "score": {
+                        "type": "string",
+                        "description": "Score filter (e.g., 'id;eq')."
+                    },
+                    "ip_version": {
+                        "type": "string",
+                        "description": "IP version filter (e.g., 'id;eq')."
+                    },
+                    "ip": {
+                        "type": "string",
+                        "description": "IP address filter (e.g., 'id;eq')."
+                    },
+                    "cli_ip": {
+                        "type": "string",
+                        "description": "Client IP filter (e.g., 'id;eq')."
+                    },
+                    "srv_ip": {
+                        "type": "string",
+                        "description": "Server IP filter (e.g., 'id;eq')."
+                    },
+                    "cli_name": {
+                        "type": "string",
+                        "description": "Client hostname filter (e.g., 'id;eq')."
+                    },
+                    "srv_name": {
+                        "type": "string",
+                        "description": "Server hostname filter (e.g., 'id;eq')."
+                    },
+                    "cli_port": {
+                        "type": "string",
+                        "description": "Client port filter (e.g., 'id;eq')."
+                    },
+                    "srv_port": {
+                        "type": "string",
+                        "description": "Server port filter (e.g., 'id;eq')."
+                    },
+                    "vlan_id": {
+                        "type": "string",
+                        "description": "VLAN ID filter (e.g., 'id;eq')."
+                    },
+                    "l7proto": {
+                        "type": "string",
+                        "description": "Application protocol filter (e.g., 'id;eq')."
+                    },
+                    "cli_country": {
+                        "type": "string",
+                        "description": "Client country filter (e.g., 'id;eq')."
+                    },
+                    "srv_country": {
+                        "type": "string",
+                        "description": "Server country filter (e.g., 'id;eq')."
+                    },
+                    "probe_ip": {
+                        "type": "string",
+                        "description": "Probe IP filter (e.g., 'id;eq')."
+                    },
+                    "input_snmp": {
+                        "type": "string",
+                        "description": "Input SNMP interface filter (e.g., 'id;eq')."
+                    },
+                    "output_snmp": {
+                        "type": "string",
+                        "description": "Output SNMP interface filter (e.g., 'id;eq')."
+                    },
+                    "snmp_interface": {
+                        "type": "string",
+                        "description": "SNMP interface filter (e.g., 'id;eq')."
+                    },
+                    "cli_host_pool_id": {
+                        "type": "string",
+                        "description": "Client host pool filter (e.g., 'id;eq')."
+                    },
+                    "srv_host_pool_id": {
+                        "type": "string",
+                        "description": "Server host pool filter (e.g., 'id;eq')."
+                    },
+                    "cli_network": {
+                        "type": "string",
+                        "description": "Client network filter (e.g., 'id;eq')."
+                    },
+                    "srv_network": {
+                        "type": "string",
+                        "description": "Server network filter (e.g., 'id;eq')."
+                    },
+                    "l7_error_id": {
+                        "type": "string",
+                        "description": "Application layer error filter (e.g., 'id;eq')."
+                    },
+                    "traffic_direction": {
+                        "type": "string",
+                        "description": "Traffic direction filter (e.g., 'id;eq')."
+                    },
+                    "format": {
+                        "type": "string",
+                        "description": "Format of return data ('json' or 'txt')."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "epoch_begin",
+                    "epoch_end",
+                    "alert_id",
+                    "severity",
+                    "score",
+                    "ip_version",
+                    "ip",
+                    "cli_ip",
+                    "srv_ip",
+                    "cli_name",
+                    "srv_name",
+                    "cli_port",
+                    "srv_port",
+                    "vlan_id",
+                    "l7proto",
+                    "cli_country",
+                    "srv_country",
+                    "probe_ip",
+                    "input_snmp",
+                    "output_snmp",
+                    "snmp_interface",
+                    "cli_host_pool_id",
+                    "srv_host_pool_id",
+                    "cli_network",
+                    "srv_network",
+                    "l7_error_id",
+                    "traffic_direction",
+                    "format",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_host_alert_stats",
+            "description": "Retrievestatisticsforhostalerts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "epoch_begin": {
+                        "type": "integer",
+                        "description": "Start time (epoch)."
+                    },
+                    "epoch_end": {
+                        "type": "integer",
+                        "description": "End time (epoch)."
+                    },
+                    "alert_id": {
+                        "type": "string",
+                        "description": "Alert identifier (e.g., 'id;eq')."
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "Severity identifier (e.g., 'id;eq')."
+                    },
+                    "score": {
+                        "type": "string",
+                        "description": "Score filter (e.g., 'id;eq')."
+                    },
+                    "vlan_id": {
+                        "type": "string",
+                        "description": "VLAN ID filter (e.g., 'id;eq')."
+                    },
+                    "ip_version": {
+                        "type": "string",
+                        "description": "IP version filter (e.g., 'id;eq')."
+                    },
+                    "ip": {
+                        "type": "string",
+                        "description": "IP address filter (e.g., 'id;eq')."
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Hostname filter (e.g., 'id;eq')."
+                    },
+                    "host_pool_id": {
+                        "type": "string",
+                        "description": "Host pool filter (e.g., 'id;eq')."
+                    },
+                    "network": {
+                        "type": "string",
+                        "description": "Network filter (e.g., 'id;eq')."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "epoch_begin",
+                    "epoch_end",
+                    "alert_id",
+                    "severity",
+                    "score",
+                    "vlan_id",
+                    "ip_version",
+                    "ip",
+                    "name",
+                    "host_pool_id",
+                    "network",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_interface_alert_stats",
+            "description": "Retrievestatisticsforinterfacealerts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "epoch_begin": {
+                        "type": "integer",
+                        "description": "Start time (epoch)."
+                    },
+                    "epoch_end": {
+                        "type": "integer",
+                        "description": "End time (epoch)."
+                    },
+                    "alert_id": {
+                        "type": "string",
+                        "description": "Alert identifier (e.g., 'id;eq')."
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "Severity identifier (e.g., 'id;eq')."
+                    },
+                    "score": {
+                        "type": "string",
+                        "description": "Score filter (e.g., 'id;eq')."
+                    },
+                    "subtype": {
+                        "type": "string",
+                        "description": "Alert subtype."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "epoch_begin",
+                    "epoch_end",
+                    "alert_id",
+                    "severity",
+                    "score",
+                    "subtype",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_mac_alert_stats",
+            "description": "RetrievestatisticsforMACalerts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "epoch_begin": {
+                        "type": "integer",
+                        "description": "Start time (epoch)."
+                    },
+                    "epoch_end": {
+                        "type": "integer",
+                        "description": "End time (epoch)."
+                    },
+                    "alert_id": {
+                        "type": "string",
+                        "description": "Alert identifier (e.g., 'id;eq')."
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "Severity identifier (e.g., 'id;eq')."
+                    },
+                    "score": {
+                        "type": "string",
+                        "description": "Score filter (e.g., 'id;eq')."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "epoch_begin",
+                    "epoch_end",
+                    "alert_id",
+                    "severity",
+                    "score",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_network_alert_stats",
+            "description": "Retrievestatisticsfornetworkalerts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "epoch_begin": {
+                        "type": "integer",
+                        "description": "Start time (epoch)."
+                    },
+                    "epoch_end": {
+                        "type": "integer",
+                        "description": "End time (epoch)."
+                    },
+                    "alert_id": {
+                        "type": "string",
+                        "description": "Alert identifier (e.g., 'id;eq')."
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "Severity identifier (e.g., 'id;eq')."
+                    },
+                    "score": {
+                        "type": "string",
+                        "description": "Score filter (e.g., 'id;eq')."
+                    },
+                    "network_name": {
+                        "type": "string",
+                        "description": "Network name filter (e.g., 'id;eq')."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "epoch_begin",
+                    "epoch_end",
+                    "alert_id",
+                    "severity",
+                    "score",
+                    "network_name",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_snmp_device_alert_list",
+            "description": "RetrievealistofSNMPdevicealerts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "start": {
+                        "type": "integer",
+                        "description": "Starting record index (e.g., 100 for 101st record)."
+                    },
+                    "length": {
+                        "type": "integer",
+                        "description": "Maximum number of records to retrieve."
+                    },
+                    "epoch_begin": {
+                        "type": "integer",
+                        "description": "Start time (epoch)."
+                    },
+                    "epoch_end": {
+                        "type": "integer",
+                        "description": "End time (epoch)."
+                    },
+                    "alert_id": {
+                        "type": "string",
+                        "description": "Alert identifier (e.g., 'id;eq')."
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "Severity identifier (e.g., 'id;eq')."
+                    },
+                    "score": {
+                        "type": "string",
+                        "description": "Score filter (e.g., 'id;eq')."
+                    },
+                    "ip": {
+                        "type": "string",
+                        "description": "IP address filter (e.g., 'id;eq')."
+                    },
+                    "snmp_interface": {
+                        "type": "string",
+                        "description": "SNMP interface filter (e.g., 'id;eq')."
+                    },
+                    "format": {
+                        "type": "string",
+                        "description": "Format of return data ('json' or 'txt')."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "start",
+                    "length",
+                    "epoch_begin",
+                    "epoch_end",
+                    "alert_id",
+                    "severity",
+                    "score",
+                    "ip",
+                    "snmp_interface",
+                    "format",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_snmp_device_alert_stats",
+            "description": "RetrievestatisticsforSNMPdevicealerts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "epoch_begin": {
+                        "type": "integer",
+                        "description": "Start time (epoch)."
+                    },
+                    "epoch_end": {
+                        "type": "integer",
+                        "description": "End time (epoch)."
+                    },
+                    "alert_id": {
+                        "type": "string",
+                        "description": "Alert identifier (e.g., 'id;eq')."
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "Severity identifier (e.g., 'id;eq')."
+                    },
+                    "score": {
+                        "type": "string",
+                        "description": "Score filter (e.g., 'id;eq')."
+                    },
+                    "ip": {
+                        "type": "string",
+                        "description": "IP address filter (e.g., 'id;eq')."
+                    },
+                    "snmp_interface": {
+                        "type": "string",
+                        "description": "SNMP interface filter (e.g., 'id;eq')."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "epoch_begin",
+                    "epoch_end",
+                    "alert_id",
+                    "severity",
+                    "score",
+                    "ip",
+                    "snmp_interface",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_system_alert_stats",
+            "description": "Retrievestatisticsforsystemalerts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "epoch_begin": {
+                        "type": "integer",
+                        "description": "Start time (epoch)."
+                    },
+                    "epoch_end": {
+                        "type": "integer",
+                        "description": "End time (epoch)."
+                    },
+                    "alert_id": {
+                        "type": "string",
+                        "description": "Alert identifier (e.g., 'id;eq')."
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "Severity identifier (e.g., 'id;eq')."
+                    },
+                    "score": {
+                        "type": "string",
+                        "description": "Score filter (e.g., 'id;eq')."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "epoch_begin",
+                    "epoch_end",
+                    "alert_id",
+                    "severity",
+                    "score",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_flows_data",
+            "description": "Retrievedetailedflowsdatafromthentopngflowsdatabase.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "begin_time_clause": {
+                        "type": "integer",
+                        "description": "Start time in epoch format."
+                    },
+                    "end_time_clause": {
+                        "type": "integer",
+                        "description": "End time in epoch format."
+                    },
+                    "select_clause": {
+                        "type": "string",
+                        "description": "SQL SELECT clause (default: \"*\")."
+                    },
+                    "where_clause": {
+                        "type": "string",
+                        "description": "SQL WHERE clause (default: none)."
+                    },
+                    "maxhits_clause": {
+                        "type": "integer",
+                        "description": "Maximum number of hits (default: 10)."
+                    },
+                    "order_by_clause": {
+                        "type": "string",
+                        "description": "SQL ORDER BY clause (default: none)."
+                    },
+                    "group_by_clause": {
+                        "type": "string",
+                        "description": "SQL GROUP BY clause (default: none)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "begin_time_clause",
+                    "end_time_clause",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_topk_flows",
+            "description": "Retrievetop-kflowsdatafromthentopngflowsdatabase.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "begin_time_clause": {
+                        "type": "integer",
+                        "description": "Start time (epoch)."
+                    },
+                    "end_time_clause": {
+                        "type": "integer",
+                        "description": "End time (epoch)."
+                    },
+                    "select_keys_clause": {
+                        "type": "string",
+                        "description": "Comma-separated keys list (default: 'IPV4_SRC_ADDR,IPV4_DST_ADDR,L7_PROTO')."
+                    },
+                    "select_values_clause": {
+                        "type": "string",
+                        "description": "Select value (default: 'BYTES')."
+                    },
+                    "where_clause": {
+                        "type": "string",
+                        "description": "SQL WHERE clause (default: none)."
+                    },
+                    "topk_clause": {
+                        "type": "string",
+                        "description": "Top-K clause (default: 'SUM')."
+                    },
+                    "approx_search": {
+                        "type": "string",
+                        "description": "Approximate search (default: 'true')."
+                    },
+                    "maxhits_clause": {
+                        "type": "integer",
+                        "description": "Maximum number of hits (default: 10)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "begin_time_clause",
+                    "end_time_clause",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_user_alert_stats",
+            "description": "Retrievestatisticsforuseralerts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "epoch_begin": {
+                        "type": "integer",
+                        "description": "Start time (epoch)."
+                    },
+                    "epoch_end": {
+                        "type": "integer",
+                        "description": "End time (epoch)."
+                    },
+                    "alert_id": {
+                        "type": "string",
+                        "description": "Alert identifier (e.g., 'id;eq')."
+                    },
+                    "severity": {
+                        "type": "string",
+                        "description": "Severity identifier (e.g., 'id;eq')."
+                    },
+                    "score": {
+                        "type": "string",
+                        "description": "Score filter (e.g., 'id;eq')."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "epoch_begin",
+                    "epoch_end",
+                    "alert_id",
+                    "severity",
+                    "score",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_flow_devices_stats",
+            "description": "Retrievestatisticsforallflowdevices.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_sflow_devices_stats",
+            "description": "RetrievestatisticsforallsFlowdevices.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ifid": {
+                        "type": "integer",
+                        "description": "Interface identifier."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ifid",
+                    "Returns",
+                    "Raises"
+                ]
+            },
+            "file": "mcp_ntopng\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

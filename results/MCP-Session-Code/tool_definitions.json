@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "web_search",
+            "description": "Search the web for information about the given query",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "roll_dice",
+            "description": "Roll the dice with the given notation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "YOUR_TOOL_NAME",
+            "description": "YOUR_TOOL_DESCRIPTION",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

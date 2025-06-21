@@ -1,0 +1,84 @@
+{
+    "tools": [
+        {
+            "name": "test_readme_first_success",
+            "description": "Test readme_first() with mocked file system.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_file": {
+                        "type": "string"
+                    },
+                    "mock_exists": {
+                        "type": "string"
+                    },
+                    "mock_home": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_file",
+                    "mock_exists",
+                    "mock_home"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_readme_first_missing_directory",
+            "description": "Test readme_first() when conventions directory doesn't exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_exists": {
+                        "type": "string"
+                    },
+                    "mock_home": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_exists",
+                    "mock_home"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_check_conventions_setup_missing",
+            "description": "Test check_conventions_setup() when conventions are missing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_exists": {
+                        "type": "string"
+                    },
+                    "mock_home": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_exists",
+                    "mock_home"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

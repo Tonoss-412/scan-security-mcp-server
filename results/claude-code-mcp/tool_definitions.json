@@ -1,0 +1,54 @@
+{
+    "tools": [
+        {
+            "name": "claude_code_query",
+            "description": "\n    Send a query to Claude Code in print mode (non-interactive).\n    \n    Args:\n        prompt: The query or task to send to Claude Code\n        model: AI model to use (default: sonnet, options: sonnet, opus, claude-sonnet-4-20250514, etc.)\n        output_format: Output format (text, json, stream-json)\n    Returns:\n        Dictionary with status, output, and execution details\n    Examples:\n        # Basic query\n        claude_code_query(\"Explain this codebase structure\")\n        # Code generation\n        claude_code_query(\"Create a Python REST API\", model=\"opus\", output_format=\"json\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": "The query or task to send to Claude Code"
+                    },
+                    "model": {
+                        "type": "string",
+                        "description": "AI model to use (default: sonnet, options: sonnet, opus, claude-sonnet-4-20250514, etc.)"
+                    },
+                    "output_format": {
+                        "type": "string",
+                        "description": "Output format (text, json, stream-json)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "prompt",
+                    "model",
+                    "output_format",
+                    "Returns",
+                    "Examples"
+                ]
+            },
+            "file": "claude_code_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "claude_code_status",
+            "description": "\n    Get Claude Code status and version information.\n    \n    This runs basic Claude Code commands to check installation and status.\n    \n    Returns:\n        Dictionary with Claude Code status information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_code_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

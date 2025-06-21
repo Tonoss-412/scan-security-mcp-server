@@ -1,0 +1,448 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "create_alert",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\alerts.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_alerts",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\alerts.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_alerts_by_state",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\alerts.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_alert",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\alerts.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_alert",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\alerts.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_alert",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\alerts.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "assemble_dashboard",
+            "description": "\n    Assemble a public health dashboard summary using the LangGraph agent.\n\n    This endpoint creates a dashboard agent and uses it to:\n    1. Fetch health alerts and trends from the MCP server\n    2. Analyze the data for patterns and insights\n    3. Assemble dashboard summary\n    4. Provide actionable insights for public health officials\n\n    The agent uses Anthropic Claude for enhanced reasoning and analysis.\n    MCP server configuration is handled through environment variables.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\dashboard.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_dashboard_status",
+            "description": "\n    Check the status of the dashboard agent and its dependencies.\n\n    Returns information about:\n    - Agent availability\n    - MCP server accessibility\n    - Anthropic API availability\n    - System timestamp\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\dashboard.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "generate_strategies_from_alert",
+            "description": "\n    Generate multiple strategy variations based on an alert using Claude with extended thinking.\n\n    Takes an Alert model as input and generates at least four strategy variations with different\n    severity levels and approaches. Uses policy documents for context and compliance.\n\n    The strategies will vary in:\n    - Severity level (immediate, moderate, preventive, long-term)\n    - Response approach (containment, mitigation, communication, resource allocation)\n    - Target audience (public, healthcare workers, officials)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\dashboard.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "generate_policy_draft",
+            "description": "\n    Generate a comprehensive policy draft based on a selected strategy and its corresponding alert.\n\n    Takes both the selected strategy and the original alert as input to generate a formal policy\n    document that implements the strategy while addressing the specific alert context.\n\n    The generated policy includes:\n    - Executive Summary\n    - Background and Rationale (referencing both alert and strategy)\n    - Policy Objectives and Scope\n    - Implementation Guidelines and Requirements\n    - Roles and Responsibilities\n    - Monitoring and Evaluation framework\n    - Compliance and Enforcement mechanisms\n\n    Uses Claude Sonnet 4 with extended thinking and references policy/strategy documents for\n    compliance with official guidelines and evidence-based approaches.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\dashboard.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "create_policy",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\policies.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_policies",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\policies.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_policy",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\policies.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_policy",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\policies.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_policy",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\policies.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "generate_policy",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\policies.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_policies_by_status_by_alert",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\policies.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_policies_by_alert",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\policies.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_policies_by_status",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\policies.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "generate_strategies",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\strategies.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_strategy",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\strategies.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_strategies_by_alert",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\strategies.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_strategy",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\strategies.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_strategy",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\strategies.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_strategy",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\strategies.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "create_summmary",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\summary.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_summaries",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\summary.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_summary",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\summary.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_summary",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\summary.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_summary",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\summary.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "create_summmary",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\trends.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_trends",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\trends.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_trend",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\trends.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_trend",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\trends.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_trend",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\routers\\trends.py",
+            "decorator": [
+                "router.delete"
+            ]
+        }
+    ]
+}

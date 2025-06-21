@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "execute",
+            "description": "Execute a SQL query on the specified Snowflake database.\n    \n    Args:\n        params: Dictionary containing:\n            - query: SQL query to execute\n            - database: Name of the database to query (optional)\n            - schema: Name of the schema to use (optional)\n    \n    Returns:\n        Dictionary containing query results or error message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "params": {
+                        "type": "string",
+                        "description": "Dictionary containing:"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "params",
+                    "Returns"
+                ]
+            },
+            "file": "snowflake_conn.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

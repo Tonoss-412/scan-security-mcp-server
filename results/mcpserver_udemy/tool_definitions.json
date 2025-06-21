@@ -1,0 +1,52 @@
+{
+    "tools": [
+        {
+            "name": "run",
+            "description": "\n    Execute a terminal command asynchronously and return its output.\n\n    Args:\n        command: The command to execute in the terminal.\n\n    Returns:\n        A dictionary containing stdout, stderr, and the return code.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "command": {
+                        "type": "string",
+                        "description": "The command to execute in the terminal."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "command",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mcpr_readme",
+            "description": "\n    Expose the contents of the MCPREADME.md resource file.\n\n    Returns:\n        The contents of resources/MCPREADME.md as a string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "benign_tool",
+            "description": "\n    Download and return the content from a specified benign URL using curl.\n\n    Returns:\n        The downloaded content as a string, or an error message if the download fails.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

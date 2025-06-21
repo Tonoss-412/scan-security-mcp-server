@@ -1,0 +1,220 @@
+{
+    "tools": [
+        {
+            "name": "create_gathering",
+            "description": "Create a new gathering",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gatherings_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_expense",
+            "description": "Add an expense for a member",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gatherings_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "calculate_reimbursements",
+            "description": "Calculate reimbursements for a gathering",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gatherings_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "record_payment",
+            "description": "Record a payment made by a member",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gatherings_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "rename_member",
+            "description": "Rename an unnamed member",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gatherings_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "show_gathering",
+            "description": "Show details of a gathering",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gatherings_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_gatherings",
+            "description": "List all gatherings",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gatherings_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "close_gathering",
+            "description": "Close a gathering",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gatherings_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_gathering",
+            "description": "Delete a gathering",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gatherings_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_member",
+            "description": "Add a new member to a gathering",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gatherings_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "remove_member",
+            "description": "Remove a member from a gathering",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gatherings_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "expense_per_member",
+            "description": "Calculate the expense per member.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "total_expenses",
+            "description": "Calculate total expenses for the gathering.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "total_payments",
+            "description": "Calculate total payments for the gathering.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "total_expenses",
+            "description": "Calculate total expenses for this member.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "total_payments",
+            "description": "Calculate total payments for this member.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "balance",
+            "description": "\n        Calculate the member's balance.\n        Positive balance means they are owed money (they paid more than their share).\n        Negative balance means they owe money (they paid less than their share).\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "status",
+            "description": "Get the member's payment status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "models.py",
+            "decorator": [
+                "property"
+            ]
+        }
+    ]
+}

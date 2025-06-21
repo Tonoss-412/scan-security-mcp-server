@@ -1,0 +1,141 @@
+{
+    "tools": [
+        {
+            "name": "cosmos_lifespan",
+            "description": "Manage Cosmos DB connection lifecycle.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cosmos\\cosmos.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_document_by_id",
+            "description": "Fetch a document by id from the configured Cosmos DB container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cosmos\\cosmos.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_container_info",
+            "description": "Get information about the Cosmos DB container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cosmos\\cosmos.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "play",
+            "description": "Play or resume the current track.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "sound\\sound.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "pause",
+            "description": "Pause the current track.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "sound\\sound.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "next_track",
+            "description": "Skip to the next track.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "sound\\sound.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "previous_track",
+            "description": "Return to the previous track.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "sound\\sound.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_alerts",
+            "description": "Get weather alerts for a US state.\n\n    Args:\n        state: Two-letter US state code (e.g. CA, NY)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "Two-letter US state code (e.g. CA, NY)"
+                    }
+                },
+                "required": [
+                    "state"
+                ]
+            },
+            "file": "weather\\weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_forecast",
+            "description": "Get weather forecast for a US location using the National Weather Service API.\n    \n    IMPORTANT: This function ONLY works for locations within the United States.\n    Coordinates outside the US will return an error.\n\n    Args:\n        latitude: Latitude of the US location (-90 to 90)\n        longitude: Longitude of the US location (-180 to 180)\n        \n    Returns:\n        A formatted string containing the 5-period weather forecast\n        \n    Example:\n        get_forecast(40.7128, -74.0060)  # New York City coordinates\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "type": "string",
+                        "description": "Latitude of the US location (-90 to 90)"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "description": "Longitude of the US location (-180 to 180)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "latitude",
+                    "longitude",
+                    "Returns",
+                    "Example"
+                ]
+            },
+            "file": "weather\\weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

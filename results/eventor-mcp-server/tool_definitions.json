@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "get_weekly_club_results",
+            "description": "\n    H\u00e4mta veckans resultat f\u00f6r min klubb i eventor.\n    Returns the results_all_relevant_events_org to the AI.\n    \"\"\"\n ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

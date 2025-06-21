@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "get_docs",
+            "description": "\n    Search the docs for a given query and library.\n    Supports langchain, openai, llama-index, python, nextjs, reactjs, spring and spring-boot.\n\n    Args:\n        str:param query: The query to search for (e.g. \"PYTorch\")\n        str:param library: The library to search in (e.g. \"python\")\n\n    Returns:\n        Text from the documentation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "str": {
+                        "type": "string",
+                        "description": "param library: The library to search in (e.g. \"python\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "str",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

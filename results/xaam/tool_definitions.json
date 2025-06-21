@@ -1,0 +1,1043 @@
+{
+    "tools": [
+        {
+            "name": "health_check",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_agents",
+            "description": "\n    Get all agents, optionally filtered by type (WORKER or JUDGE)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\agents.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_agent",
+            "description": "\n    Get a specific agent by ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\agents.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_agent",
+            "description": "\n    Register a new agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\agents.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_agent",
+            "description": "\n    Update an agent's information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\agents.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "update_agent_reputation",
+            "description": "\n    Update an agent's reputation after task completion\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\agents.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "get_agent_by_wallet",
+            "description": "\n    Get an agent by wallet address\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\agents.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "search_agents",
+            "description": "\n    Search agents by name or description\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\agents.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "delete_agent",
+            "description": "\n    Delete an agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\agents.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "mint_nft",
+            "description": "\n    Mint a new NFT for a task\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\blockchain.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "stake_sol",
+            "description": "\n    Stake SOL for a task\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\blockchain.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "unstake_sol",
+            "description": "\n    Unstake SOL after task completion\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\blockchain.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "transfer_reward",
+            "description": "\n    Transfer reward to the winning agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\blockchain.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "submit_deliverable",
+            "description": "\n    Submit a deliverable for a task\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\blockchain.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_wallet_info",
+            "description": "\n    Get information about a wallet\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\blockchain.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_transaction",
+            "description": "\n    Get information about a transaction\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\blockchain.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "request_airdrop",
+            "description": "\n    Request an airdrop of SOL to a wallet (only works on devnet and testnet)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\blockchain.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_deliverables",
+            "description": "\n    Get all deliverables, optionally filtered by status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\deliverables.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_deliverable",
+            "description": "\n    Get a specific deliverable by ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\deliverables.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_deliverable",
+            "description": "\n    Create a new deliverable with encrypted content\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\deliverables.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_deliverable",
+            "description": "\n    Update a deliverable\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\deliverables.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "update_deliverable_status",
+            "description": "\n    Update a deliverable's status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\deliverables.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "get_deliverables_by_task",
+            "description": "\n    Get all deliverables for a task\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\deliverables.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_deliverables_by_agent",
+            "description": "\n    Get all deliverables submitted by an agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\deliverables.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "judge_deliverable",
+            "description": "\n    Judge a deliverable and decrypt its content\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\deliverables.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "delete_deliverable",
+            "description": "\n    Delete a deliverable\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\deliverables.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "generate_keys",
+            "description": "\n    Generate a new key pair for an agent.\n    The public key is stored in the database, and the private key is stored securely.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\encryption.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_public_key",
+            "description": "\n    Get the public key for an agent.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\encryption.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "encrypt_task_payload",
+            "description": "\n    Encrypt a task payload for multiple judges.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\encryption.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "decrypt_task_payload",
+            "description": "\n    Decrypt a task payload for an agent.\n    This endpoint should only be accessible to agents who have staked on the task.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\encryption.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "encrypt_deliverable",
+            "description": "\n    Encrypt a deliverable for multiple judges.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\encryption.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "decrypt_deliverable",
+            "description": "\n    Decrypt a deliverable for a judge.\n    This endpoint should only be accessible to judges assigned to the task.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\encryption.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "encrypt_data",
+            "description": "\n    Encrypt arbitrary data with a public key.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\encryption.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "decrypt_data",
+            "description": "\n    Decrypt arbitrary data with a private key.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\encryption.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_judges",
+            "description": "\n    Get all judges\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\judges.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_judge",
+            "description": "\n    Get a specific judge by ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\judges.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_judge",
+            "description": "\n    Register a new judge\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\judges.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_judge_tasks",
+            "description": "\n    Get all tasks assigned to a judge\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\judges.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "submit_score",
+            "description": "\n    Submit a score and feedback for a task deliverable\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\judges.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_judges_by_specialization",
+            "description": "\n    Get judges by specialization\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\judges.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_judge",
+            "description": "\n    Update a judge's information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\judges.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "get_tasks",
+            "description": "\n    Get all tasks, optionally filtered by status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\tasks.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_task",
+            "description": "\n    Get a specific task by ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\tasks.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_task",
+            "description": "\n    Create a new task with encrypted payload\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\tasks.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_task",
+            "description": "\n    Update a task\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\tasks.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "update_task_status",
+            "description": "\n    Update a task's status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\tasks.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "get_tasks_by_creator",
+            "description": "\n    Get tasks created by a specific creator\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\tasks.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_tasks_by_judge",
+            "description": "\n    Get tasks assigned to a specific judge\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\tasks.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "stake_on_task",
+            "description": "\n    Stake on a task and get access to the encrypted payload.\n    In a real implementation, this would verify the stake on the blockchain.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\tasks.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "delete_task",
+            "description": "\n    Delete a task\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\tasks.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "create_agent_wallet",
+            "description": "\n    Create a new wallet for an agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\wallets.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "fund_agent_wallet",
+            "description": "\n    Fund an agent's wallet\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\wallets.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "withdraw_from_agent_wallet",
+            "description": "\n    Withdraw funds from an agent's wallet\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\wallets.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_agent_wallet",
+            "description": "\n    Get an agent's wallet\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\api\\routes\\wallets.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "from_secret_key",
+            "description": "\n        Create a keypair from a secret key.\n        \n        Args:\n            secret_key: Bytes of the secret key\n            \n        Returns:\n            Keypair instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "secret_key": {
+                        "type": "string",
+                        "description": "Bytes of the secret key"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "secret_key"
+                ]
+            },
+            "file": "backend\\app\\blockchain\\solana_client.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "event_loop",
+            "description": "Create an instance of the default event loop for each test case.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "db_session",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_data",
+            "description": "Create test data for the tests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "encryption_service",
+            "description": "Create a temporary encryption service for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tests\\unit\\test_encryption.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_db",
+            "description": "Create a mock database session",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tests\\unit\\test_encryption.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_agent",
+            "description": "Create a mock agent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tests\\unit\\test_encryption.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_generate_keys_for_agent",
+            "description": "Test generating keys for an agent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_encryption_service": {
+                        "type": "string"
+                    },
+                    "mock_db": {
+                        "type": "string"
+                    },
+                    "mock_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_encryption_service",
+                    "mock_db",
+                    "mock_agent"
+                ]
+            },
+            "file": "backend\\tests\\unit\\test_encryption.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_agent_public_key",
+            "description": "Test getting an agent's public key",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_encryption_service": {
+                        "type": "string"
+                    },
+                    "mock_db": {
+                        "type": "string"
+                    },
+                    "mock_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_encryption_service",
+                    "mock_db",
+                    "mock_agent"
+                ]
+            },
+            "file": "backend\\tests\\unit\\test_encryption.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_agent_private_key",
+            "description": "Test getting an agent's private key",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_encryption_service": {
+                        "type": "string"
+                    },
+                    "mock_db": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_encryption_service",
+                    "mock_db"
+                ]
+            },
+            "file": "backend\\tests\\unit\\test_encryption.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_judge_public_keys",
+            "description": "Test getting public keys for multiple judges",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_encryption_service": {
+                        "type": "string"
+                    },
+                    "mock_db": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_encryption_service",
+                    "mock_db"
+                ]
+            },
+            "file": "backend\\tests\\unit\\test_encryption.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "mcp_protocol",
+            "description": "\n    Create an instance of the MCPProtocol for testing\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\tests\\unit\\test_protocol.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_register_and_execute_tool",
+            "description": "\n    Test registering and executing a tool\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_protocol": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_protocol"
+                ]
+            },
+            "file": "mcp\\tests\\unit\\test_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_register_and_access_resource",
+            "description": "\n    Test registering and accessing a resource\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_protocol": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_protocol"
+                ]
+            },
+            "file": "mcp\\tests\\unit\\test_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_tool_call_message",
+            "description": "\n    Test handling a tool call message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_protocol": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_protocol"
+                ]
+            },
+            "file": "mcp\\tests\\unit\\test_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_resource_access_message",
+            "description": "\n    Test handling a resource access message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_protocol": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_protocol"
+                ]
+            },
+            "file": "mcp\\tests\\unit\\test_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_invalid_message",
+            "description": "\n    Test handling an invalid message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_protocol": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_protocol"
+                ]
+            },
+            "file": "mcp\\tests\\unit\\test_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_unknown_message_type",
+            "description": "\n    Test handling a message with an unknown type\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_protocol": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_protocol"
+                ]
+            },
+            "file": "mcp\\tests\\unit\\test_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_nonexistent_tool",
+            "description": "\n    Test executing a tool that doesn't exist\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_protocol": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_protocol"
+                ]
+            },
+            "file": "mcp\\tests\\unit\\test_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_access_nonexistent_resource",
+            "description": "\n    Test accessing a resource that doesn't exist\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_protocol": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_protocol"
+                ]
+            },
+            "file": "mcp\\tests\\unit\\test_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_callable_resource",
+            "description": "\n    Test registering and accessing a callable resource\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_protocol": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_protocol"
+                ]
+            },
+            "file": "mcp\\tests\\unit\\test_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

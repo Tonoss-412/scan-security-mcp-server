@@ -1,0 +1,166 @@
+{
+    "tools": [
+        {
+            "name": "raccoon_lifespan",
+            "description": "Initialize the Raccoon AI client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\raccoonai_mcp_server\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_lam_request_schema",
+            "description": "Get the schema for LAM API requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\raccoonai_mcp_server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "lam_run",
+            "description": "\n    The Raccoon LAM Tool enables AI agents to browse and interact with the web to perform tasks like:\n    - Executing simple and complex web tasks and workflows across multiple sites\n    - Web navigation and form submission\n    - Data extraction from websites\n    - Online research and information gathering\n\n    ## Key Features\n    - **Web Browsing and Web Tasks**: Automated navigation of web pages and completion of user defined tasks\n    - **Data Extraction**: Structured data extraction from websites\n    - **Schema Definition**: Define the structure of data you want extracted\n\n    ## Capabilities\n    - Search and browse websites\n    - Fill out forms and navigate UI elements\n    - Extract structured data based on defined schemas\n    - Handle multistep tasks across websites\n\n    ## Schemas and Deepsearch\n    - Schemas are used only when you want to extract information from the web.\n    - Deepsearch is only used if answering the query involves gathering data from multiple sources and detailed reports.\n    - Schemas can be used alongside deepsearch.\n    - Schemas should not be used when the user query is about performing actions/task rather than data collection\n\n\n    Args:\n        query: The input query string for the request\n        response_schema: The expected schema for the response (optional)\n        app_url: The entrypoint URL for the web agent (optional)\n        chat_history: Chat history as list of messages (optional)\n        max_count: Maximum number of results (default: 1)\n        stream: Whether to stream responses (default: True)\n        mode: Mode of execution (\"default\" or \"deepsearch\")\n        advanced: Advanced configuration options\n        ctx: The context\n\n    Returns:\n        The LAM results as a formatted string\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The input query string for the request"
+                    },
+                    "response_schema": {
+                        "type": "string",
+                        "description": "The expected schema for the response (optional)"
+                    },
+                    "app_url": {
+                        "type": "string",
+                        "description": "The entrypoint URL for the web agent (optional)"
+                    },
+                    "chat_history": {
+                        "type": "string",
+                        "description": "Chat history as list of messages (optional)"
+                    },
+                    "max_count": {
+                        "type": "string",
+                        "description": "Maximum number of results (default: 1)"
+                    },
+                    "stream": {
+                        "type": "string",
+                        "description": "Whether to stream responses (default: True)"
+                    },
+                    "mode": {
+                        "type": "string",
+                        "description": "Mode of execution (\"default\" or \"deepsearch\")"
+                    },
+                    "advanced": {
+                        "type": "string",
+                        "description": "Advanced configuration options"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "response_schema",
+                    "app_url",
+                    "chat_history",
+                    "max_count",
+                    "stream",
+                    "mode",
+                    "advanced",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "src\\raccoonai_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "extract_data_prompt",
+            "description": "\n    Create a prompt for extracting specific data from a website.\n\n    Args:\n        website_url: URL of the website to extract data from\n        data_to_extract: Description of the data to extract\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "website_url": {
+                        "type": "string",
+                        "description": "URL of the website to extract data from"
+                    },
+                    "data_to_extract": {
+                        "type": "string",
+                        "description": "Description of the data to extract"
+                    }
+                },
+                "required": [
+                    "website_url",
+                    "data_to_extract"
+                ]
+            },
+            "file": "src\\raccoonai_mcp_server\\server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "execute_web_task_prompt",
+            "description": "\n    Create a prompt for executing actions on one or multiple websites.\n\n    Args:\n        entrypoint_url: URL of the website to start the execution from\n        task_to_execute: Description of the task to execute\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entrypoint_url": {
+                        "type": "string",
+                        "description": "URL of the website to start the execution from"
+                    },
+                    "task_to_execute": {
+                        "type": "string",
+                        "description": "Description of the task to execute"
+                    }
+                },
+                "required": [
+                    "entrypoint_url",
+                    "task_to_execute"
+                ]
+            },
+            "file": "src\\raccoonai_mcp_server\\server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "get_usage_info",
+            "description": "Get information about LAM API usage.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\raccoonai_mcp_server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "sample_lam_query",
+            "description": "\n    Return a sample LAM query to demonstrate the API functionality.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\raccoonai_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

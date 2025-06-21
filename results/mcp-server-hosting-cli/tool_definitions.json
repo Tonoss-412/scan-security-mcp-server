@@ -1,0 +1,431 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "List all available pre-integrated tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_host\\cli\\main.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "create_server",
+            "description": "Create and configure a new MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_host\\cli\\main.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "deploy_server",
+            "description": "Deploy the configured MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_host\\cli\\main.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "list_servers",
+            "description": "List all deployed MCP servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_host\\cli\\main.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "delete_server",
+            "description": "Delete a deployed MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_host\\cli\\main.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "get_server_url",
+            "description": "Get the URL of a deployed MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_host\\cli\\main.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "get_server_capabilities",
+            "description": "Generate a client script for an MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_host\\cli\\main.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Call a specified tool on an MCP server with given arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_host\\cli\\main.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "basic_math",
+            "description": "Perform basic mathematical operations.\n    \n    Args:\n        ctx: The MCP context\n        operation: One of 'add', 'subtract', 'multiply', 'divide'\n        numbers: List of numbers to operate on\n        \n    Returns:\n        Dict containing the result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context"
+                    },
+                    "operation": {
+                        "type": "string",
+                        "description": "One of 'add', 'subtract', 'multiply', 'divide'"
+                    },
+                    "numbers": {
+                        "type": "string",
+                        "description": "List of numbers to operate on"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "operation",
+                    "numbers",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_host\\tools\\calculator.py",
+            "decorator": [
+                "app_setup.mcp_app.tool"
+            ]
+        },
+        {
+            "name": "advanced_math",
+            "description": "Perform advanced mathematical operations.\n    \n    Args:\n        ctx: The MCP context\n        operation: One of 'sqrt', 'sin', 'cos', 'tan', 'log'\n        number: Number to operate on\n        \n    Returns:\n        Dict containing the result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context"
+                    },
+                    "operation": {
+                        "type": "string",
+                        "description": "One of 'sqrt', 'sin', 'cos', 'tan', 'log'"
+                    },
+                    "number": {
+                        "type": "string",
+                        "description": "Number to operate on"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "operation",
+                    "number",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_host\\tools\\calculator.py",
+            "decorator": [
+                "app_setup.mcp_app.tool"
+            ]
+        },
+        {
+            "name": "statistics",
+            "description": "Calculate basic statistics.\n    \n    Args:\n        ctx: The MCP context\n        numbers: List of numbers\n        \n    Returns:\n        Dict containing statistical results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context"
+                    },
+                    "numbers": {
+                        "type": "string",
+                        "description": "List of numbers"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "numbers",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_host\\tools\\calculator.py",
+            "decorator": [
+                "app_setup.mcp_app.tool"
+            ]
+        },
+        {
+            "name": "create_event",
+            "description": "Create a new calendar event.\n    \n    Args:\n        ctx: The MCP context\n        title: Title of the event\n        start_time: Start time in ISO format (YYYY-MM-DD HH:MM)\n        duration_minutes: Duration in minutes\n        \n    Returns:\n        Dict containing event details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Title of the event"
+                    },
+                    "start_time": {
+                        "type": "string",
+                        "description": "Start time in ISO format (YYYY-MM-DD HH:MM)"
+                    },
+                    "duration_minutes": {
+                        "type": "string",
+                        "description": "Duration in minutes"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "title",
+                    "start_time",
+                    "duration_minutes",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_host\\tools\\calendar.py",
+            "decorator": [
+                "app_setup.mcp_app.tool"
+            ]
+        },
+        {
+            "name": "list_events",
+            "description": "List events within a date range.\n    \n    Args:\n        ctx: The MCP context\n        start_date: Start date in ISO format (YYYY-MM-DD)\n        end_date: End date in ISO format (YYYY-MM-DD)\n        \n    Returns:\n        List of events in the date range\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context"
+                    },
+                    "start_date": {
+                        "type": "string",
+                        "description": "Start date in ISO format (YYYY-MM-DD)"
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "End date in ISO format (YYYY-MM-DD)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "start_date",
+                    "end_date",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_host\\tools\\calendar.py",
+            "decorator": [
+                "app_setup.mcp_app.tool"
+            ]
+        },
+        {
+            "name": "delete_event",
+            "description": "Delete a calendar event.\n    \n    Args:\n        ctx: The MCP context\n        event_id: ID of the event to delete\n        \n    Returns:\n        Dict containing the deleted event\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context"
+                    },
+                    "event_id": {
+                        "type": "string",
+                        "description": "ID of the event to delete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "event_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_host\\tools\\calendar.py",
+            "decorator": [
+                "app_setup.mcp_app.tool"
+            ]
+        },
+        {
+            "name": "web_search",
+            "description": "Search the web for information.\n    \n    Args:\n        ctx: The MCP context\n        query: Search query\n        max_results: Maximum number of results to return\n        \n    Returns:\n        List of search results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "query",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_host\\tools\\search.py",
+            "decorator": [
+                "app_setup.mcp_app.tool"
+            ]
+        },
+        {
+            "name": "news_search",
+            "description": "Search for news articles.\n    \n    Args:\n        ctx: The MCP context\n        query: Search query\n        max_results: Maximum number of results to return\n        \n    Returns:\n        List of news articles\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "query",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_host\\tools\\search.py",
+            "decorator": [
+                "app_setup.mcp_app.tool"
+            ]
+        },
+        {
+            "name": "image_search",
+            "description": "Search for images.\n    \n    Args:\n        ctx: The MCP context\n        query: Search query\n        max_results: Maximum number of results to return\n        \n    Returns:\n        List of image results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "query",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_host\\tools\\search.py",
+            "decorator": [
+                "app_setup.mcp_app.tool"
+            ]
+        },
+        {
+            "name": "get_forecast",
+            "description": "Get weather forecast for a location.\n\n    Args:\n        ctx: The MCP context\n        latitude: Latitude of the location\n        longitude: Longitude of the location\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context"
+                    },
+                    "latitude": {
+                        "type": "string",
+                        "description": "Latitude of the location"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "description": "Longitude of the location"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "latitude",
+                    "longitude"
+                ]
+            },
+            "file": "mcp_host\\tools\\weather.py",
+            "decorator": [
+                "app_setup.mcp_app.tool"
+            ]
+        }
+    ]
+}

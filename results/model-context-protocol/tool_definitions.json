@@ -1,0 +1,61 @@
+{
+    "tools": [
+        {
+            "name": "safe_load",
+            "description": "Parse simple YAML content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "content"
+                ]
+            },
+            "file": "servers\\core\\tools\\simple_yaml.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_parse_lines",
+            "description": "Parse YAML lines into a Python structure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "lines": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "lines"
+                ]
+            },
+            "file": "servers\\core\\tools\\simple_yaml.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_parse_value",
+            "description": "Parse a value, handling common types.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "value"
+                ]
+            },
+            "file": "servers\\core\\tools\\simple_yaml.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

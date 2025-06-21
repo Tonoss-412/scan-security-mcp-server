@@ -1,0 +1,45 @@
+{
+    "tools": [
+        {
+            "name": "db_session",
+            "description": "Context manager for database sessions.\n    \n    This ensures that sessions are properly closed and rolled back in case of exceptions.\n    \n    Yields:\n        SQLAlchemy session: A database session\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\db\\connection.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "app_lifespan",
+            "description": "Manage application lifecycle with type-safe context.\n    \n    Args:\n        server (FastMCP): The MCP server\n        \n    Yields:\n        AppContext: The application context\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string",
+                        "description": "The MCP server"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "AppContext": {
+                        "type": "string",
+                        "description": "The application context"
+                    }
+                },
+                "required": [
+                    "server",
+                    "Yields",
+                    "AppContext"
+                ]
+            },
+            "file": "app\\mcp\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        }
+    ]
+}

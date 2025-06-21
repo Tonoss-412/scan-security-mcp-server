@@ -1,0 +1,46 @@
+{
+    "tools": [
+        {
+            "name": "list_posthog_projects",
+            "description": "List all available PostHog projects.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "posthog.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_posthog_annotation",
+            "description": "Create a PostHog annotation.\n    \n    Args:\n        project_id: The ID of the project as an integer (e.g. 99423)\n        content: The content/text of the annotation\n        date_marker: Optional ISO-8601 timestamp for the annotation (e.g. 2024-03-20T14:15:22Z)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_id": {
+                        "type": "string",
+                        "description": "The ID of the project as an integer (e.g. 99423)"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "The content/text of the annotation"
+                    },
+                    "date_marker": {
+                        "type": "string",
+                        "description": "Optional ISO-8601 timestamp for the annotation (e.g. 2024-03-20T14:15:22Z)"
+                    }
+                },
+                "required": [
+                    "project_id",
+                    "content",
+                    "date_marker"
+                ]
+            },
+            "file": "posthog.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

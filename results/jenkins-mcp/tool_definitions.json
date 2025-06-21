@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "fetch_jenkins_console_log_tool",
+            "description": "Fetch console log from a Jenkins job build.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jenkins_agent.py",
+            "decorator": [
+                "jenkins_agent.tool"
+            ]
+        },
+        {
+            "name": "get_jenkins_job_info",
+            "description": "Get basic information about a Jenkins job.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jenkins_agent.py",
+            "decorator": [
+                "jenkins_agent.tool"
+            ]
+        }
+    ]
+}

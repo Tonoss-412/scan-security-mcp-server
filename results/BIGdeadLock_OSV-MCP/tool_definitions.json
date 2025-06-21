@@ -1,0 +1,86 @@
+{
+    "tools": [
+        {
+            "name": "query_package_cve",
+            "description": "\n    Query the OSV database for a package and return the CVE ID.\n\n    Args:\n        package: The package name to query\n        version: The version of the package to query, can be None if you want to query all versions\n        ecosystem: The ecosystem of the package to query, can be None if you want to query all ecosystems. \n        * Supported ecosystems:\n         - For python packages, the ecosystem is \"PyPI\"\n    Returns:\n        A list of CVE IDs\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "package": {
+                        "type": "string",
+                        "description": "The package name to query"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The version of the package to query, can be None if you want to query all versions"
+                    },
+                    "ecosystem": {
+                        "type": "string",
+                        "description": "The ecosystem of the package to query, can be None if you want to query all ecosystems."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "package",
+                    "version",
+                    "ecosystem",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_for_cve_affected",
+            "description": "\n    Query the OSV database for a CVE and return the affected versions.\n\n    Args:\n        cve: The CVE ID to query\n\n    Returns:\n        A list of affected versions\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cve": {
+                        "type": "string",
+                        "description": "The CVE ID to query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cve",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_for_cve_fix_versions",
+            "description": "\n    Query the OSV database for a CVE and return the fix versions.\n\n    Args:\n        cve: The CVE ID to query\n\n    Returns:\n        A list of fix versions\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cve": {
+                        "type": "string",
+                        "description": "The CVE ID to query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cve",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

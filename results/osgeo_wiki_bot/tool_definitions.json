@@ -1,0 +1,83 @@
+{
+    "tools": [
+        {
+            "name": "ROOM_IDS",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_client\\matrix\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "validate",
+            "description": "Validate configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp_client\\matrix\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "startup_event",
+            "description": "Run startup tasks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\app.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint - server health check.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "mcp_endpoint",
+            "description": "Main MCP protocol endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_cursor",
+            "description": "Context manager for database cursor.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\db\\connection.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        }
+    ]
+}

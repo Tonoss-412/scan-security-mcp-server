@@ -1,0 +1,64 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools.\n    Each tool can take arguments and return results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp_server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handle tool calls.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp_server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "\n    List available resources.\n    Resources provide context that can be retrieved by the client.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp_server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "\n    Read a specific resource.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp_server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "get_mastodon_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\core\\mastodon_client.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        }
+    ]
+}

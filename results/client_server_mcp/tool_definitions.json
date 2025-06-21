@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "fetch_weather",
+            "description": "Tooltofetchtheweatherofacity",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server_weather\\server_weather_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

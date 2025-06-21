@@ -1,0 +1,41 @@
+{
+    "tools": [
+        {
+            "name": "app_lifespan",
+            "description": "Manage application lifecycle with type-safe context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "run_snowflake_query",
+            "description": "\n    Execute a SQL query against the Snowflake database.\n\n    Args:\n        ctx: The MCP server provided context containing the Snowflake connection.\n        query: A valid SQL query string to execute.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server provided context containing the Snowflake connection."
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "A valid SQL query string to execute."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "query"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

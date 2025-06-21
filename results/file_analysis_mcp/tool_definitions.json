@@ -1,0 +1,100 @@
+{
+    "tools": [
+        {
+            "name": "analyze_text",
+            "description": "\n    Analyze text content and provide statistics.\n    \n    Args:\n        text: The text content to analyze\n        \n    Returns:\n        Dictionary with text statistics\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "The text content to analyze"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "Returns"
+                ]
+            },
+            "file": "src\\file_analysis_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "read_file",
+            "description": "\n    Read the contents of a text file.\n    \n    Args:\n        file_path: Path to the file to read\n        \n    Returns:\n        File contents as text\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the file to read"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "Returns"
+                ]
+            },
+            "file": "src\\file_analysis_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_files",
+            "description": "\n    List files in a directory.\n    \n    Args:\n        directory: Directory path to list files from (defaults to current directory)\n        \n    Returns:\n        Dictionary with lists of files and directories\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "directory": {
+                        "type": "string",
+                        "description": "Directory path to list files from (defaults to current directory)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "directory",
+                    "Returns"
+                ]
+            },
+            "file": "src\\file_analysis_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_file_resource",
+            "description": "\n    Access a file as a resource.\n    \n    Args:\n        file_path: Path to the file\n        \n    Returns:\n        File contents as text\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the file"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "Returns"
+                ]
+            },
+            "file": "src\\file_analysis_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

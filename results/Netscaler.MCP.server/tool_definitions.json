@@ -1,0 +1,52 @@
+{
+    "tools": [
+        {
+            "name": "list_tool",
+            "description": " This tool lists object on an Netscaler device using NITRO API (REST).\n     Args:\n            object_name is the name of the object. \n            object_type can be : lbvserver,csvserver, service, server  \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "NetscalerMCPserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_tool",
+            "description": " This tool creates an object on an Netscaler device using NITRO API (REST).\n        Args:\n            payload contains the configuration of the pool. \n            object_type can be : lbvserver,csvserver, service, server  \n        The configuration of the object is the body for an POST request.        \n       \n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "NetscalerMCPserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_tool",
+            "description": " This tool updates an object on an Netscaler device using NITRO API (REST).\n        Args:\n            payload contains the configuration of the pool. \n            object_type can be : lbvserver,csvserver, service, server.\n            object_name is the name of the object.\n\n        The configuration of the object is the body for an PUT request.\n       \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "NetscalerMCPserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_tool",
+            "description": " This tool updates an object on an Netscaler device using NITRO API (REST).\n        Args:\n            object_type can be : lbvserver,csvserver, service, server\n            object_name is the name of the object to be deleted.\n\n       \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "NetscalerMCPserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

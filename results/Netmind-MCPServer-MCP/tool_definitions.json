@@ -1,0 +1,52 @@
+{
+    "tools": [
+        {
+            "name": "query_server",
+            "description": "\n    Query the server list with optional fuzzy name matching and pagination.\n    :param name: Optional name to filter servers by a fuzzy match.\n    :param offset: The starting point for pagination.\n    :param limit: The maximum number of servers to return.\n    :return: A list of servers in JSON format.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\netmind_mcpserver_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_server",
+            "description": "\n    Retrieves detailed information about a specific server by its name.\n    :param server_name: The name of the server to retrieve information for.\n    :return: A JSON object containing the server's details.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\netmind_mcpserver_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_update_rating_review",
+            "description": "\n    Adds or updates a rating and review for a specific server.\n    :param server_name: The name of the server to add or update the rating and review for.\n    :param rating: The rating to give the server, between 1.0 and 5.0.\n    :param review: The review text to add or update for the server.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\netmind_mcpserver_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_rating_review",
+            "description": "\n    Lists reviews and ratings for a specific server.\n\n    :param server_name: The name of the server to list reviews for.\n    :param offset: The starting point for pagination.\n    :param limit: The maximum number of reviews to return.\n    :return: A JSON object containing the total number of reviews, average rating, and a list of reviews.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\netmind_mcpserver_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

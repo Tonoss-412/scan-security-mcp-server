@@ -1,0 +1,76 @@
+{
+    "tools": [
+        {
+            "name": "health_check",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fastapi-sse-mcp-server\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "test",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fastapi-sse-mcp-server\\app\\api\\v1\\endpoints\\test.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_log",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "fastapi-sse-mcp-server\\app\\utils\\logger.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_file_on_pi",
+            "description": "\n    Create a file on the Raspberry Pi\n\n    * Args:\n        * filename (str): The name of the file to create\n        * path (str): The path to create the file in.\n            * The path will always be relative to the home directory.\n            * If no path is provided, the file will be created in the home directory.\n        * content (str): The content of the file\n\n    * Returns:\n        * str: A success message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "raspberrypi\\app\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "remove_file_on_pi",
+            "description": "\n    Remove a file on the Raspberry Pi\n\n    * Args:\n        * file_path (str): The path to the file to remove\n\n    * Returns:\n        * str: A success message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "raspberrypi\\app\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_log",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "raspberrypi\\app\\utils\\logger.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

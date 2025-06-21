@@ -1,0 +1,331 @@
+{
+    "tools": [
+        {
+            "name": "api_get",
+            "description": "\n    Make a GET request to an API endpoint.\n    \n    Args:\n        endpoint: API endpoint (path relative to base URL or full URL)\n        params: Optional query parameters\n        \n    Returns:\n        API response data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "endpoint": {
+                        "type": "string",
+                        "description": "API endpoint (path relative to base URL or full URL)"
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "Optional query parameters"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "endpoint",
+                    "params",
+                    "Returns"
+                ]
+            },
+            "file": "app\\tools\\api_tools.py",
+            "decorator": [
+                "tool_definition"
+            ]
+        },
+        {
+            "name": "api_post",
+            "description": "\n    Make a POST request to an API endpoint.\n    \n    Args:\n        endpoint: API endpoint (path relative to base URL or full URL)\n        data: Request payload\n        \n    Returns:\n        API response data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "endpoint": {
+                        "type": "string",
+                        "description": "API endpoint (path relative to base URL or full URL)"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "Request payload"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "endpoint",
+                    "data",
+                    "Returns"
+                ]
+            },
+            "file": "app\\tools\\api_tools.py",
+            "decorator": [
+                "tool_definition"
+            ]
+        },
+        {
+            "name": "api_put",
+            "description": "\n    Make a PUT request to an API endpoint.\n    \n    Args:\n        endpoint: API endpoint (path relative to base URL or full URL)\n        data: Request payload\n        \n    Returns:\n        API response data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "endpoint": {
+                        "type": "string",
+                        "description": "API endpoint (path relative to base URL or full URL)"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "Request payload"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "endpoint",
+                    "data",
+                    "Returns"
+                ]
+            },
+            "file": "app\\tools\\api_tools.py",
+            "decorator": [
+                "tool_definition"
+            ]
+        },
+        {
+            "name": "api_delete",
+            "description": "\n    Make a DELETE request to an API endpoint.\n    \n    Args:\n        endpoint: API endpoint (path relative to base URL or full URL)\n        \n    Returns:\n        API response data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "endpoint": {
+                        "type": "string",
+                        "description": "API endpoint (path relative to base URL or full URL)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "endpoint",
+                    "Returns"
+                ]
+            },
+            "file": "app\\tools\\api_tools.py",
+            "decorator": [
+                "tool_definition"
+            ]
+        },
+        {
+            "name": "http_get",
+            "description": "\n    Make an HTTP GET request.\n    \n    Args:\n        url: The URL to request\n        params: Optional query parameters\n        headers: Optional HTTP headers\n        \n    Returns:\n        The HTTP response data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The URL to request"
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "Optional query parameters"
+                    },
+                    "headers": {
+                        "type": "string",
+                        "description": "Optional HTTP headers"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "params",
+                    "headers",
+                    "Returns"
+                ]
+            },
+            "file": "app\\tools\\http_tools.py",
+            "decorator": [
+                "tool_definition"
+            ]
+        },
+        {
+            "name": "http_post",
+            "description": "\n    Make an HTTP POST request.\n    \n    Args:\n        url: The URL to request\n        data: Form data to send\n        json_data: JSON data to send\n        params: Optional query parameters\n        headers: Optional HTTP headers\n        \n    Returns:\n        The HTTP response data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The URL to request"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "Form data to send"
+                    },
+                    "json_data": {
+                        "type": "string",
+                        "description": "JSON data to send"
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "Optional query parameters"
+                    },
+                    "headers": {
+                        "type": "string",
+                        "description": "Optional HTTP headers"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "data",
+                    "json_data",
+                    "params",
+                    "headers",
+                    "Returns"
+                ]
+            },
+            "file": "app\\tools\\http_tools.py",
+            "decorator": [
+                "tool_definition"
+            ]
+        },
+        {
+            "name": "http_put",
+            "description": "\n    Make an HTTP PUT request.\n    \n    Args:\n        url: The URL to request\n        data: Form data to send\n        json_data: JSON data to send\n        params: Optional query parameters\n        headers: Optional HTTP headers\n        \n    Returns:\n        The HTTP response data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The URL to request"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "Form data to send"
+                    },
+                    "json_data": {
+                        "type": "string",
+                        "description": "JSON data to send"
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "Optional query parameters"
+                    },
+                    "headers": {
+                        "type": "string",
+                        "description": "Optional HTTP headers"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "data",
+                    "json_data",
+                    "params",
+                    "headers",
+                    "Returns"
+                ]
+            },
+            "file": "app\\tools\\http_tools.py",
+            "decorator": [
+                "tool_definition"
+            ]
+        },
+        {
+            "name": "http_delete",
+            "description": "\n    Make an HTTP DELETE request.\n    \n    Args:\n        url: The URL to request\n        params: Optional query parameters\n        headers: Optional HTTP headers\n        \n    Returns:\n        The HTTP response data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The URL to request"
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "Optional query parameters"
+                    },
+                    "headers": {
+                        "type": "string",
+                        "description": "Optional HTTP headers"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "params",
+                    "headers",
+                    "Returns"
+                ]
+            },
+            "file": "app\\tools\\http_tools.py",
+            "decorator": [
+                "tool_definition"
+            ]
+        },
+        {
+            "name": "navigate",
+            "description": "\n    Navigate to a web page and extract its content.\n    \n    Args:\n        url: The URL to navigate to (can be absolute or relative)\n        \n    Returns:\n        Parsed content from the web page\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The URL to navigate to (can be absolute or relative)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "Returns"
+                ]
+            },
+            "file": "app\\tools\\web_tools.py",
+            "decorator": [
+                "tool_definition"
+            ]
+        },
+        {
+            "name": "current_page",
+            "description": "\n    Get content from the current page.\n    \n    Returns:\n        Parsed content from the current page or an error if no page has been visited\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\tools\\web_tools.py",
+            "decorator": [
+                "tool_definition"
+            ]
+        },
+        {
+            "name": "browse_history",
+            "description": "\n    Get the list of visited URLs.\n    \n    Returns:\n        List of previously visited URLs\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\tools\\web_tools.py",
+            "decorator": [
+                "tool_definition"
+            ]
+        },
+        {
+            "name": "extract_links",
+            "description": "\n    Extract all links from the current page.\n    \n    Returns:\n        List of links with text and URL\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\tools\\web_tools.py",
+            "decorator": [
+                "tool_definition"
+            ]
+        }
+    ]
+}

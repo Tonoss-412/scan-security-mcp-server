@@ -1,0 +1,563 @@
+{
+    "tools": [
+        {
+            "name": "postgres_server",
+            "description": "ProvidesaccesstoPostgreSQLdatabaseinlocalhost.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "database\\postgresql\\async_postgressql_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "postgres_query_prompt",
+            "description": "\n    Provides guidance for executing SQL queries.\n\n    Returns:\n        List[dict]: A list of chat messages for the AI to consider\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "database\\postgresql\\async_postgressql_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "analyze_table_prompt",
+            "description": "\n    Provides a prompt for analyzing a database table.\n\n    Returns:\n        List[dict]: A list of chat messages for the AI to consider\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "database\\postgresql\\async_postgressql_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "connect_database",
+            "description": "ConnecttoaspecificPostgreSQLdatabase.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "Name of the database to connect to"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "Context for logging and progress reporting"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "database\\postgresql\\async_postgressql_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "ExecuteSQLqueriesontheconnectedPostgreSQLdatabase.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "SQLQuery model with query string and optional parameters"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "Context for logging and progress reporting"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "database\\postgresql\\async_postgressql_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_tables",
+            "description": "Listalltablesinthespecifieddatabase.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "Context for logging and progress reporting"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "database\\postgresql\\async_postgressql_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "describe_table",
+            "description": "Describethestructureofaspecifictable.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "table": {
+                        "type": "string",
+                        "description": "TableDescription model with table name"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "Context for logging and progress reporting"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "table",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "database\\postgresql\\async_postgressql_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "close_connection",
+            "description": "Closetheconnectiontothedatabase.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "Context for logging and progress reporting"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "database\\postgresql\\async_postgressql_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "postgres_server",
+            "description": "ProvidesaccesstoPostgresSQLdatabaseinlocalhost.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "database\\postgresql\\sync_postgressql_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "postgres_query_prompt",
+            "description": "\n    Provides guidance and context for executing SQL queries.\n\n    Args:\n        db_name: The name of the database to query        : Optional query to execute\n\n    Returns:\n        list: A list of chat messages for the AI to consider\n        :param db_name:\n        :param query:\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "The name of the database to query        : Optional query to execute"
+                    }
+                },
+                "required": [
+                    "db_name"
+                ]
+            },
+            "file": "database\\postgresql\\sync_postgressql_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "analyze_table_prompt",
+            "description": "\n    Provides a prompt for analyzing a specific database table.\n\n    Args:\n        db_name: The name of the database\n        table_name: The name of the table to analyze\n\n    Returns:\n        list: A list of chat messages for the AI to consider\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "The name of the database"
+                    },
+                    "table_name": {
+                        "type": "string",
+                        "description": "The name of the table to analyze"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "table_name"
+                ]
+            },
+            "file": "database\\postgresql\\sync_postgressql_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "connect_database",
+            "description": "ConnecttoaspecificPostgresSQLdatabase.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "Name of the database to connect to"
+                    }
+                },
+                "required": [
+                    "db_name"
+                ]
+            },
+            "file": "database\\postgresql\\sync_postgressql_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "ExecutesSQLqueriesontheconnectedPostgresSQLdatabase.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "Name of the database to query         (str): SQL query to execute"
+                    },
+                    "query": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "query"
+                ]
+            },
+            "file": "database\\postgresql\\sync_postgressql_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_tables",
+            "description": "Listsalltablesinthespecifieddatabase.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "Name of the database"
+                    }
+                },
+                "required": [
+                    "db_name"
+                ]
+            },
+            "file": "database\\postgresql\\sync_postgressql_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "describe_table",
+            "description": "Describesthestructureofaspecifictable.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "Name of the database"
+                    },
+                    "table_name": {
+                        "type": "string",
+                        "description": "Name of the table to describe"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "table_name"
+                ]
+            },
+            "file": "database\\postgresql\\sync_postgressql_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "close_connection",
+            "description": "Closestheconnectiontothespecifieddatabase.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "Name of the database connection to close"
+                    }
+                },
+                "required": [
+                    "db_name"
+                ]
+            },
+            "file": "database\\postgresql\\sync_postgressql_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "folder_server",
+            "description": "Providesaccesstoafolderontheserver.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "file explore\\basic_file_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "file_read",
+            "description": "Readcontentfromaspecifiedfileintheallowedfolder.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "op": {
+                        "type": "string",
+                        "description": "FileOperation model containing the file path"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "Context for logging and progress reporting"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "op",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "file explore\\basic_file_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "file_write",
+            "description": "Writecontenttoaspecifiedfileintheallowedfolder.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "op": {
+                        "type": "string",
+                        "description": "FileOperation model containing path and content"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "Context for logging and progress reporting"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "op",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "file explore\\basic_file_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "file_delete",
+            "description": "Deleteaspecifiedfileintheallowedfolder.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "op": {
+                        "type": "string",
+                        "description": "FileOperation model containing the file path"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "Context for logging and progress reporting"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "op",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "file explore\\basic_file_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "folder_analysis",
+            "description": "Analyzeafoldertoprovidecontextaboutitscontents.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "folder": {
+                        "type": "string",
+                        "description": "FolderAnalysis model containing the folder path"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "Context for logging and progress reporting"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "folder",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "file explore\\basic_file_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "folder_server_prompt",
+            "description": "\n    Provides guidance and context for performing operations in the folder server.\n\n    Returns:\n        List[Dict]: A list of chat messages for the AI to consider\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "file explore\\basic_file_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "folder_content",
+            "description": "Readcontentofaspecificfileasaresource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Relative path to the file"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "File content"
+                    }
+                },
+                "required": [
+                    "path",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "file explore\\basic_file_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "web_search",
+            "description": "Perform a web search using the Tavily API.\n\n    Args:\n        query: The search query string.\n\n    Returns:\n        A list of URLs from the search results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query string."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "web search\\web_search_stdio.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "web_search",
+            "description": "PerformawebsearchusingtheTavilyAPI.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query string."
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "Context for logging and progress reporting."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "web search\\web_serach_sse.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

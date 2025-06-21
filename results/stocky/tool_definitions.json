@@ -1,0 +1,157 @@
+{
+    "tools": [
+        {
+            "name": "search",
+            "description": "Search for images.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "stocky_mcp.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_details",
+            "description": "Get detailed information about a specific image.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "stocky_mcp.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "search_stock_images",
+            "description": "\n            Search for royalty-free stock images across multiple providers.\n\n            Args:\n                query: Search query string\n                providers: List of specific providers to search\n                per_page: Number of results per page\n                page: Page number for pagination\n                sort_by: Sort order ('relevant', 'newest')\n                include_attribution: Whether to include attribution links\n                    (defaults to value from ENABLE_ATTRIBUTION_LINKS env var)\n\n            Returns:\n                Search results with metadata\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query string"
+                    },
+                    "providers": {
+                        "type": "string",
+                        "description": "List of specific providers to search"
+                    },
+                    "per_page": {
+                        "type": "string",
+                        "description": "Number of results per page"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "Page number for pagination"
+                    },
+                    "sort_by": {
+                        "type": "string",
+                        "description": "Sort order ('relevant', 'newest')"
+                    },
+                    "include_attribution": {
+                        "type": "string",
+                        "description": "Whether to include attribution links"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "providers",
+                    "per_page",
+                    "page",
+                    "sort_by",
+                    "include_attribution",
+                    "Returns"
+                ]
+            },
+            "file": "stocky_mcp.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "get_image_details",
+            "description": "\n            Get detailed information about a specific image.\n\n            Args:\n                image_id: Provider-prefixed image ID\n                          (e.g., 'pexels_12345')\n                include_attribution: Whether to include attribution links\n                    (defaults to value from ENABLE_ATTRIBUTION_LINKS env var)\n\n            Returns:\n                Detailed image information or None if not found\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "image_id": {
+                        "type": "string",
+                        "description": "Provider-prefixed image ID"
+                    },
+                    "include_attribution": {
+                        "type": "string",
+                        "description": "Whether to include attribution links"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "image_id",
+                    "include_attribution",
+                    "Returns"
+                ]
+            },
+            "file": "stocky_mcp.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "download_image",
+            "description": "\n            Download an image to local storage or return base64 encoded data.\n\n            Args:\n                image_id: Image ID in format provider_id (e.g., pexels_123456)\n                size: Image size variant to download\n                     Options: thumbnail, small, medium, large, original\n                output_path: Optional path to save the image locally\n\n            Returns:\n                Path to downloaded file or base64 data\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "image_id": {
+                        "type": "string",
+                        "description": "Image ID in format provider_id (e.g., pexels_123456)"
+                    },
+                    "size": {
+                        "type": "string",
+                        "description": "Image size variant to download"
+                    },
+                    "Options": {
+                        "type": "string",
+                        "description": "thumbnail, small, medium, large, original"
+                    },
+                    "output_path": {
+                        "type": "string",
+                        "description": "Optional path to save the image locally"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "image_id",
+                    "size",
+                    "Options",
+                    "output_path",
+                    "Returns"
+                ]
+            },
+            "file": "stocky_mcp.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "help_resource",
+            "description": "Provide help documentation for the Stocky MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "stocky_mcp.py",
+            "decorator": [
+                "self.mcp.resource"
+            ]
+        }
+    ]
+}

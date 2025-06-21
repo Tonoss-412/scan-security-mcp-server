@@ -1,0 +1,33 @@
+{
+    "tools": [
+        {
+            "name": "reason",
+            "description": "\n    Process a query using DeepSeek's R1 reasoning engine and prepare it for integration with DeepSeek V3 or claude.\n\n    DeepSeek R1 leverages advanced reasoning capabilities that naturally evolved from large-scale \n    reinforcement learning, enabling sophisticated reasoning behaviors. The output is enclosed \n    within `<ant_thinking>` tags to align with V3 or Claude's thought processing framework.\n\n    Args:\n        query (dict): Contains the following keys:\n            - context (str): Optional background information for the query.\n            - question (str): The specific question to be analyzed.\n\n    Returns:\n        str: The reasoning output from DeepSeek, formatted with `<ant_thinking>` tags for seamless use with V3 or Claude.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Contains the following keys:"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The reasoning output from DeepSeek, formatted with `<ant_thinking>` tags for seamless use with V3 or Claude."
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

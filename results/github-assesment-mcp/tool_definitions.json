@@ -1,0 +1,120 @@
+{
+    "tools": [
+        {
+            "name": "get_repository_visibility",
+            "description": "\n    Checks if a given GitHub repository is public or private.\n    \n    Args:\n        repo_name: The name of the repository to check.\n        \n    Returns:\n        str: Repository visibility status or error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "repo_name": {
+                        "type": "string",
+                        "description": "The name of the repository to check."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Repository visibility status or error message."
+                    }
+                },
+                "required": [
+                    "repo_name",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "git-asses1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_main_branch_protection",
+            "description": "\n    Checks if the main branch of a repository has branch protection rules enabled.\n    \n    Args:\n        repo_name: The name of the repository to check.\n        \n    Returns:\n        str: Branch protection status or error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "repo_name": {
+                        "type": "string",
+                        "description": "The name of the repository to check."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Branch protection status or error message."
+                    }
+                },
+                "required": [
+                    "repo_name",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "git-asses1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_repository_languages",
+            "description": "\n    Gets the primary programming languages used in a repository.\n    \n    Args:\n        repo_name: The name of the repository to check.\n        \n    Returns:\n        str: Comma-separated list of languages or error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "repo_name": {
+                        "type": "string",
+                        "description": "The name of the repository to check."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Comma-separated list of languages or error message."
+                    }
+                },
+                "required": [
+                    "repo_name",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "git-asses1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_security_policies",
+            "description": "\n    Checks if the repository has security policies and vulnerability reporting setup.\n    \n    Args:\n        repo_name: The name of the repository to check.\n        \n    Returns:\n        str: Security policy status.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "repo_name": {
+                        "type": "string",
+                        "description": "The name of the repository to check."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Security policy status."
+                    }
+                },
+                "required": [
+                    "repo_name",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "git-asses1.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

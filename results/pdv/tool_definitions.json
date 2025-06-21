@@ -1,0 +1,268 @@
+{
+    "tools": [
+        {
+            "name": "create_credential",
+            "description": "Createanewcredential",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_credential",
+            "description": "Retrieveacredential",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "revoke_credential",
+            "description": "Revokeacredential",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "record_consent",
+            "description": "Recordauserconsentdecision",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_consent",
+            "description": "Checkthelatestconsentdecisionforascope",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_proof",
+            "description": "Generateasignedproofofdata",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "record_consent",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\consents.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "list_consents",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\consents.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_credential",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\credentials.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_credential",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\credentials.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "revoke_credential",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\credentials.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "alive",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\health.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "generate_proof",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\proof.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "generate_key",
+            "description": "Generate a new key with the given key_id.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\kms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_signer",
+            "description": "Return a callable that signs bytes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\kms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "encrypt",
+            "description": "Encrypt data using key_id.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\kms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "decrypt",
+            "description": "Decrypt data using key_id.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\kms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "setup_db",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_consents.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "setup_db",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_credentials.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "kms",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_kms.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "setup_db",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_storage.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

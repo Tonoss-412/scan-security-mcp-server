@@ -1,0 +1,76 @@
+{
+    "tools": [
+        {
+            "name": "get_sla_status",
+            "description": "\n    Retrieves the SLA status from Commvault.\n    Returns:\n        A dictionary containing information about the SLA status.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_security_posture",
+            "description": "\n    Retrieves the security posture of the Commcell.\n    Returns:\n        A dictionary containing information about the security posture of the Commcell.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_security_score",
+            "description": "\n    Retrieves the security score of the Commcell.\n    Returns:\n        A dictionary containing information about the security score of the Commcell.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_jobs_in_last_24_hours",
+            "description": "\n    Retrieves all jobs in the last 24 hours from Commvault.\n    Returns:\n        A dictionary containing information about all the jobs in the last 24 hours.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_active_jobs",
+            "description": "\n    Retrieves all active jobs from Commvault.\n    Returns:\n        A dictionary containing information about all the active jobs.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_job_by_id",
+            "description": "\n    Retrieves a specific job from Commvault.\n\n    Returns:\n        A dictionary containing information about the specified job.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

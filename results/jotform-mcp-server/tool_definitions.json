@@ -1,0 +1,1537 @@
+{
+    "tools": [
+        {
+            "name": "jotform_lifespan",
+            "description": "\n    Manages the JotformAPIClient lifecycle.\n    \n    Args:\n        server: The FastMCP server instance\n        \n    Yields:\n        JotformContext: The context containing the JotformAPIClient\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string",
+                        "description": "The FastMCP server instance"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "JotformContext": {
+                        "type": "string",
+                        "description": "The context containing the JotformAPIClient"
+                    }
+                },
+                "required": [
+                    "server",
+                    "Yields",
+                    "JotformContext"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_user",
+            "description": "Get user account details for a JotForm user.\n\n    Returns:\n        User account type, avatar URL, name, email, website URL and account limits as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_usage",
+            "description": "Get number of form submissions received this month.\n\n    Returns:\n        Number of submissions, SSL submissions, payment submissions, and upload space used as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_forms",
+            "description": "Get a list of forms for this account.\n\n    Args:\n        ctx: The MCP server context.\n        offset (Optional[int]): Start of each result set for form list.\n        limit (Optional[int]): Number of results in each result set for form list.\n        filter_array (Optional[Dict[str, Any]]): Filters the query results. Example: {\"status:eq\": \"ENABLED\"}\n        order_by (Optional[str]): Order results by a form field name.\n\n    Returns:\n        Basic details of forms as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "offset": {
+                        "type": "string",
+                        "description": "Start of each result set for form list."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Number of results in each result set for form list."
+                    },
+                    "filter_array": {
+                        "type": "string",
+                        "description": "Filters the query results. Example: {\"status:eq\": \"ENABLED\"}"
+                    },
+                    "order_by": {
+                        "type": "string",
+                        "description": "Order results by a form field name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_submissions",
+            "description": "Get a list of submissions for this account.\n\n    Args:\n        ctx: The MCP server context.\n        offset (Optional[int]): Start of each result set.\n        limit (Optional[int]): Number of results in each result set.\n        filter_array (Optional[Dict[str, Any]]): Filters the query results.\n        order_by (Optional[str]): Order results by a field name.\n\n    Returns:\n        Basic details of submissions as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "offset": {
+                        "type": "string",
+                        "description": "Start of each result set."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Number of results in each result set."
+                    },
+                    "filter_array": {
+                        "type": "string",
+                        "description": "Filters the query results."
+                    },
+                    "order_by": {
+                        "type": "string",
+                        "description": "Order results by a field name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_subusers",
+            "description": "Get a list of sub users for this account.\n\n    Returns:\n        List of forms and form folders with access privileges as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_folders",
+            "description": "Get a list of form folders for this account.\n\n    Returns:\n        Name of the folder and owner of the folder for shared folders as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_reports",
+            "description": "List of URLs for reports in this account.\n\n    Returns:\n        Reports for all of the forms (Excel, CSV, etc.) as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_settings",
+            "description": "Get user's settings for this account.\n\n    Returns:\n        User's time zone and language as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_settings",
+            "description": "Update user's settings.\n\n    Args:\n        ctx: The MCP server context.\n        settings (Dict[str, Any]): New user setting values with setting keys.\n\n    Returns:\n        Changes on user settings as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "settings": {
+                        "type": "string",
+                        "description": "New user setting values with setting keys."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "settings",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_history",
+            "description": "Get user activity log.\n\n    Args:\n        ctx: The MCP server context.\n        action (Optional[str]): Filter results by activity performed. Default is 'all'.\n        date (Optional[str]): Limit results by a date range.\n        sort_by (Optional[str]): Lists results by ascending and descending order.\n        start_date (Optional[str]): Limit results to only after a specific date. Format: MM/DD/YYYY.\n        end_date (Optional[str]): Limit results to only before a specific date. Format: MM/DD/YYYY.\n\n    Returns:\n        Activity log as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "action": {
+                        "type": "string",
+                        "description": "Filter results by activity performed. Default is 'all'."
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "Limit results by a date range."
+                    },
+                    "sort_by": {
+                        "type": "string",
+                        "description": "Lists results by ascending and descending order."
+                    },
+                    "start_date": {
+                        "type": "string",
+                        "description": "Limit results to only after a specific date. Format: MM/DD/YYYY."
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "Limit results to only before a specific date. Format: MM/DD/YYYY."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_form",
+            "description": "Get basic information about a form.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n\n    Returns:\n        Form details as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_form_questions",
+            "description": "Get a list of all questions on a form.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n\n    Returns:\n        Question properties of a form as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_form_question",
+            "description": "Get details about a question.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        qid (str): Question ID.\n\n    Returns:\n        Question properties as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "qid": {
+                        "type": "string",
+                        "description": "Question ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "qid",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_form_submissions",
+            "description": "List of a form submissions.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        offset (Optional[int]): Start of each result set.\n        limit (Optional[int]): Number of results in each result set.\n        filter_array (Optional[Dict[str, Any]]): Filters the query results.\n        order_by (Optional[str]): Order results by a field name.\n\n    Returns:\n        Submissions of a specific form as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "offset": {
+                        "type": "string",
+                        "description": "Start of each result set."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Number of results in each result set."
+                    },
+                    "filter_array": {
+                        "type": "string",
+                        "description": "Filters the query results."
+                    },
+                    "order_by": {
+                        "type": "string",
+                        "description": "Order results by a field name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_form_submission",
+            "description": "Submit data to this form using the API.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        submission (Dict[str, Any]): Submission data with question IDs.\n            Example: {\"1_first\": \"John\", \"1_last\": \"Doe\", \"2\": \"test@example.com\"}\n            For complex fields like name (qid_first, qid_last) or address (qid_addr_line1), use the underscore notation.\n\n    Returns:\n        Posted submission ID and URL as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "submission": {
+                        "type": "string",
+                        "description": "Submission data with question IDs."
+                    },
+                    "Example": {
+                        "type": "string",
+                        "description": "{\"1_first\": \"John\", \"1_last\": \"Doe\", \"2\": \"test@example.com\"}"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "submission",
+                    "Example",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_form_submissions",
+            "description": "Submit multiple data entries to a form using the API (via PUT request).\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        submissions (Union[List[Dict[str, Any]], str]): A list of submission objects or a JSON string representing the list.\n            Each submission object is a dictionary of submission data with question IDs.\n            Example: [{\"1_first\": \"Jane\", \"2\": \"jane@example.com\"}, {\"1_first\": \"Mike\", \"2\": \"mike@example.com\"}]\n\n    Returns:\n        Response from the API, typically indicating success or failure, as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "submissions": {
+                        "type": "string",
+                        "description": "A list of submission objects or a JSON string representing the list."
+                    },
+                    "Example": {
+                        "type": "string",
+                        "description": "[{\"1_first\": \"Jane\", \"2\": \"jane@example.com\"}, {\"1_first\": \"Mike\", \"2\": \"mike@example.com\"}]"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "submissions",
+                    "Example",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_form_files",
+            "description": "List of files uploaded on a form.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n\n    Returns:\n        Uploaded file information and URLs as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_form_webhooks",
+            "description": "Get list of webhooks for a form.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n\n    Returns:\n        List of webhooks as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_form_webhook",
+            "description": "Add a new webhook.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        webhook_url (str): Webhook URL.\n\n    Returns:\n        List of webhooks for the form as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "webhook_url": {
+                        "type": "string",
+                        "description": "Webhook URL."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "webhook_url",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_form_webhook",
+            "description": "Delete a specific webhook of a form.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        webhook_id (str): Webhook ID.\n\n    Returns:\n        Remaining webhook URLs of form as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "webhook_id": {
+                        "type": "string",
+                        "description": "Webhook ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "webhook_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_submission",
+            "description": "Get submission data.\n\n    Args:\n        ctx: The MCP server context.\n        sid (str): Submission ID.\n\n    Returns:\n        Information and answers of a specific submission as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "sid": {
+                        "type": "string",
+                        "description": "Submission ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "sid",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_submission",
+            "description": "Delete a single submission.\n\n    Args:\n        ctx: The MCP server context.\n        sid (str): Submission ID.\n\n    Returns:\n        Status of request as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "sid": {
+                        "type": "string",
+                        "description": "Submission ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "sid",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "edit_submission",
+            "description": "Edit a single submission.\n\n    Args:\n        ctx: The MCP server context.\n        sid (str): Submission ID.\n        submission (Dict[str, Any]): New submission data with question IDs.\n\n    Returns:\n        Status of request as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "sid": {
+                        "type": "string",
+                        "description": "Submission ID."
+                    },
+                    "submission": {
+                        "type": "string",
+                        "description": "New submission data with question IDs."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "sid",
+                    "submission",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_report",
+            "description": "Get report details.\n\n    Args:\n        ctx: The MCP server context.\n        report_id (str): Report ID.\n\n    Returns:\n        Properties of a specific report as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "report_id": {
+                        "type": "string",
+                        "description": "Report ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "report_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_report",
+            "description": "Create new report of a form.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        report (Dict[str, Any]): Report details (list_type, title, etc.).\n\n    Returns:\n        Report details and URL as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "Report details (list_type, title, etc.)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "report",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_report",
+            "description": "Delete a specific report.\n\n    Args:\n        ctx: The MCP server context.\n        report_id (str): Report ID.\n\n    Returns:\n        Status of request as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "report_id": {
+                        "type": "string",
+                        "description": "Report ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "report_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_folder",
+            "description": "Get folder details.\n\n    Args:\n        ctx: The MCP server context.\n        folder_id (str): Folder ID.\n\n    Returns:\n        A list of forms in a folder and other details as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "folder_id": {
+                        "type": "string",
+                        "description": "Folder ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "folder_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_folder",
+            "description": "Create a new folder.\n\n    Args:\n        ctx: The MCP server context.\n        folder_properties (Dict[str, Any]): Properties of the new folder.\n\n    Returns:\n        New folder details as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "folder_properties": {
+                        "type": "string",
+                        "description": "Properties of the new folder."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "folder_properties",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_folder",
+            "description": "Delete a specific folder and its subfolders.\n\n    Args:\n        ctx: The MCP server context.\n        folder_id (str): Folder ID.\n\n    Returns:\n        Status of request as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "folder_id": {
+                        "type": "string",
+                        "description": "Folder ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "folder_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_folder",
+            "description": "Update a specific folder.\n\n    Args:\n        ctx: The MCP server context.\n        folder_id (str): Folder ID.\n        folder_properties (Union[Dict[str, Any], str]): New properties of the folder (dict or JSON string).\n            The client method expects a JSON string for the PUT body.\n\n    Returns:\n        Status of request as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "folder_id": {
+                        "type": "string",
+                        "description": "Folder ID."
+                    },
+                    "folder_properties": {
+                        "type": "string",
+                        "description": "New properties of the folder (dict or JSON string)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "folder_id",
+                    "folder_properties",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_forms_to_folder",
+            "description": "Add forms to a folder.\n\n    Args:\n        ctx: The MCP server context.\n        folder_id (str): Folder ID.\n        form_ids (List[str]): List of Form IDs.\n\n    Returns:\n        Status of request as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "folder_id": {
+                        "type": "string",
+                        "description": "Folder ID."
+                    },
+                    "form_ids": {
+                        "type": "string",
+                        "description": "List of Form IDs."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "folder_id",
+                    "form_ids",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_form_to_folder",
+            "description": "Add a specific form to a folder.\n\n    Args:\n        ctx: The MCP server context.\n        folder_id (str): Folder ID.\n        form_id (str): Form ID.\n\n    Returns:\n        Status of request as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "folder_id": {
+                        "type": "string",
+                        "description": "Folder ID."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "folder_id",
+                    "form_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_form_properties",
+            "description": "Get a list of all properties on a form.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n\n    Returns:\n        Form properties as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_form_property",
+            "description": "Get a specific property of the form.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        property_key (str): Property key.\n\n    Returns:\n        Given property key value as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "property_key": {
+                        "type": "string",
+                        "description": "Property key."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "property_key",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "set_form_properties",
+            "description": "Add or edit properties of a specific form (POST).\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        form_properties (Dict[str, Any]): New properties.\n\n    Returns:\n        Edited properties as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "form_properties": {
+                        "type": "string",
+                        "description": "New properties."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "form_properties",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "set_multiple_form_properties",
+            "description": "Add or edit properties of a specific form (PUT).\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        form_properties (Union[Dict[str, Any], str]): New properties (dict or JSON string).\n            The client method expects a JSON string for the PUT body.\n\n    Returns:\n        Edited properties as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "form_properties": {
+                        "type": "string",
+                        "description": "New properties (dict or JSON string)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "form_properties",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_form_reports",
+            "description": "Get all the reports of a form.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n\n    Returns:\n        List of all reports in a form as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "clone_form",
+            "description": "Clone a single form.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n\n    Returns:\n        Status of request (details of the new cloned form) as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_form_question",
+            "description": "Delete a single form question.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        qid (str): Question ID.\n\n    Returns:\n        Status of request as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "qid": {
+                        "type": "string",
+                        "description": "Question ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "qid",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_form_question",
+            "description": "Add new question to specified form.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        question (Dict[str, Any]): New question properties.\n\n    Returns:\n        Properties of new question as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "question": {
+                        "type": "string",
+                        "description": "New question properties."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "question",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_form_questions",
+            "description": "Add new questions to specified form (PUT).\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        questions (Union[List[Dict[str, Any]], str]): New questions (list of dicts or JSON string).\n            The client method expects a JSON string for the PUT body.\n\n    Returns:\n        Properties of new questions as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "questions": {
+                        "type": "string",
+                        "description": "New questions (list of dicts or JSON string)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "questions",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "edit_form_question",
+            "description": "Add or edit a single question properties.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n        qid (str): Question ID.\n        question_properties (Dict[str, Any]): New question properties.\n\n    Returns:\n        Edited property and type of question as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "qid": {
+                        "type": "string",
+                        "description": "Question ID."
+                    },
+                    "question_properties": {
+                        "type": "string",
+                        "description": "New question properties."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "qid",
+                    "question_properties",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_form",
+            "description": "Create a new form.\n\n    Args:\n        ctx: The MCP server context.\n        form_definition (Dict[str, Any]): Questions, properties, and emails of the new form.\n            Example: {\"questions\": [{\"type\": \"control_textbox\", \"text\": \"Name\", \"order\": \"1\"}],\n                      \"properties\": {\"title\": \"My New Form\"}}\n\n    Returns:\n        New form details as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_definition": {
+                        "type": "string",
+                        "description": "Questions, properties, and emails of the new form."
+                    },
+                    "Example": {
+                        "type": "string",
+                        "description": "{\"questions\": [{\"type\": \"control_textbox\", \"text\": \"Name\", \"order\": \"1\"}],"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_definition",
+                    "Example",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_forms",
+            "description": "Create new forms (PUT).\n\n    Args:\n        ctx: The MCP server context.\n        forms_definition (Union[List[Dict[str, Any]], str]): List of form definitions or a JSON string.\n            The client method expects a JSON string for the PUT body.\n\n    Returns:\n        New forms details as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "forms_definition": {
+                        "type": "string",
+                        "description": "List of form definitions or a JSON string."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "forms_definition",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_form",
+            "description": "Delete a specific form.\n\n    Args:\n        ctx: The MCP server context.\n        form_id (str): Form ID.\n\n    Returns:\n        Properties of deleted form as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_id": {
+                        "type": "string",
+                        "description": "Form ID."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "form_id",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "register_user",
+            "description": "Register with username, password and email.\n\n    Args:\n        ctx: The MCP server context.\n        user_details (Dict[str, str]): Username, password, and email.\n\n    Returns:\n        New user's details as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "user_details": {
+                        "type": "string",
+                        "description": "Username, password, and email."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "user_details",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "login_user",
+            "description": "Login user with given credentials.\n\n    Args:\n        ctx: The MCP server context.\n        credentials (Dict[str, str]): Username, password, application name, and access type.\n\n    Returns:\n        Logged in user's settings and app key as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "credentials": {
+                        "type": "string",
+                        "description": "Username, password, application name, and access type."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "credentials",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "logout_user",
+            "description": "Logout user.\n\n    Returns:\n        Status of request as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_plan",
+            "description": "Get details of a plan.\n\n    Args:\n        ctx: The MCP server context.\n        plan_name (str): Name of the requested plan (e.g., FREE, PREMIUM).\n\n    Returns:\n        Details of a plan as a JSON string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "plan_name": {
+                        "type": "string",
+                        "description": "Name of the requested plan (e.g., FREE, PREMIUM)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "plan_name",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_submissions_by_date",
+            "description": "Search submissions by date range or period across specified forms or all enabled forms.\n\n    Provide EITHER 'period' OR ('start_date' and/or 'end_date').\n\n    Args:\n        ctx: The MCP server context.\n        form_ids (Optional[List[str]]): List of form IDs to search. If None or empty, searches all *enabled* forms.\n        start_date (Optional[str]): Start date in YYYY-MM-DD format (inclusive). Use with end_date.\n        end_date (Optional[str]): End date in YYYY-MM-DD format (inclusive). Use with start_date.\n        period (Optional[str]): Relative period. Options: \"today\", \"last_7_days\", \"last_30_days\",\n                                \"current_month\", \"last_month\", \"current_accounting_month\",\n                                \"last_accounting_month\". Cannot be used with start_date/end_date.\n        limit_per_form (Optional[int]): Max submissions per form request (default/max 1000).\n\n    Returns:\n        A JSON string containing a list of submissions aggregated from all searched forms,\n        or an error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP server context."
+                    },
+                    "form_ids": {
+                        "type": "string",
+                        "description": "List of form IDs to search. If None or empty, searches all *enabled* forms."
+                    },
+                    "start_date": {
+                        "type": "string",
+                        "description": "Start date in YYYY-MM-DD format (inclusive). Use with end_date."
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "End date in YYYY-MM-DD format (inclusive). Use with start_date."
+                    },
+                    "period": {
+                        "type": "string",
+                        "description": "Relative period. Options: \"today\", \"last_7_days\", \"last_30_days\","
+                    },
+                    "limit_per_form": {
+                        "type": "string",
+                        "description": "Max submissions per form request (default/max 1000)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "jotform_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

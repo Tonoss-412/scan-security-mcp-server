@@ -1,0 +1,91 @@
+{
+    "tools": [
+        {
+            "name": "about_me",
+            "description": "f\"\"\"\n    Get personal information about {personal_info['name']}.\n    \n    Returns:\n        dict: Personal information requested\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "me_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "contact",
+            "description": "f\"\"\"\n    Send a message to {personal_info['name']}. If the user has not specified a sender email, subject, or message, ask them for those details before continuing.\n    Do NOT use sample or example email addresses. You must explicitly ask the user for these details if they are not provided.\n    If you do not have the correct information provided by the user, you must NOT use this tool and should inform the user of the reason why.\n    \n    Args:\n        sender_email: Email address of the sender\n        subject: Subject line of the message\n        message: Content of the message\n    \n    Returns:\n        dict: Status of the message delivery\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sender_email": {
+                        "type": "string",
+                        "description": "Email address of the sender"
+                    },
+                    "subject": {
+                        "type": "string",
+                        "description": "Subject line of the message"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Content of the message"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Status of the message delivery"
+                    }
+                },
+                "required": [
+                    "sender_email",
+                    "subject",
+                    "message",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "me_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "about_me_resource",
+            "description": "\n    Returns complete personal information as a resource.\n    \n    Returns:\n        dict: All personal information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "me_mcp.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "about_me_prompt",
+            "description": "f\"\"\"Get information about {personal_info['name']}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "me_mcp.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "send_message",
+            "description": "Send a message to me",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "me_mcp.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

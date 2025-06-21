@@ -1,0 +1,71 @@
+{
+    "tools": [
+        {
+            "name": "run_browser_agent",
+            "description": "\n    This is the entrypoint for running a browser-based agent.\n\n    :param task: The main instruction or goal for the agent.\n    :param add_infos: Additional information or context for the agent.\n    :return: The final result string from the agent run.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_browser_use\\server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "type_with_custom_actions",
+            "description": "\n        Create a new Pydantic model that inherits from CustomAgentOutput\n        but redefines the 'action' field to be a list of the given\n        custom action model.\n\n        :param custom_actions: The action model type from the controller registry.\n        :return: A new Pydantic model class based on CustomAgentOutput.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_browser_use\\agent\\custom_views.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "from_env",
+            "description": "\n        Create a BrowserPersistenceConfig from environment variables:\n        - CHROME_PERSISTENT_SESSION=true/false\n        - CHROME_USER_DATA=path/to/data\n        - CHROME_DEBUGGING_PORT=9222\n        - CHROME_DEBUGGING_HOST=localhost\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcp_browser_use\\browser\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "copy_to_clipboard",
+            "description": "\n            Copy the given text to the system's clipboard.\n            Returns an ActionResult with the same text as extracted_content.\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_browser_use\\controller\\custom_controller.py",
+            "decorator": [
+                "self.registry.action"
+            ]
+        },
+        {
+            "name": "paste_from_clipboard",
+            "description": "\n            Paste whatever is currently in the system's clipboard\n            into the active browser page by simulating keyboard typing.\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_browser_use\\controller\\custom_controller.py",
+            "decorator": [
+                "self.registry.action"
+            ]
+        }
+    ]
+}

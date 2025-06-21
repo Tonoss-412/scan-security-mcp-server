@@ -1,0 +1,59 @@
+{
+    "tools": [
+        {
+            "name": "add_keep_alive_header",
+            "description": "Add keep-alive header to responses to prevent ALB from closing the connection",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "call_next": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "call_next"
+                ]
+            },
+            "file": "lib\\server\\nova_act_mcp_server.py",
+            "decorator": [
+                "app.middleware"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "ALB health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "lib\\server\\nova_act_mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_logs",
+            "description": "Endpoint to retrieve recent logs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "lib\\server\\nova_act_mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "browse",
+            "description": "\n    Execute a sequence of instructions in a single browser session.\n    This endpoint handles the entire workflow: starting a browser, executing instructions, and closing the session.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "lib\\server\\nova_act_mcp_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        }
+    ]
+}

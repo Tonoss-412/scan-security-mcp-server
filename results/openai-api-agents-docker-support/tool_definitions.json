@@ -1,0 +1,491 @@
+{
+    "tools": [
+        {
+            "name": "update_child_threshold_status",
+            "description": "\n    Checks participant ages in the context and updates the meets_child_threshold flag.\n\n    Args:\n        context: The run context containing the TripContext.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "context": {
+                        "type": "string",
+                        "description": "The run context containing the TripContext."
+                    }
+                },
+                "required": [
+                    "context"
+                ]
+            },
+            "file": "adventurebot\\tools\\context_tools.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "get_weather_forecast",
+            "description": "Get weather forecast for a location and date range using Open-Meteo API.\n    \n    Args:\n        location: City name or coordinates (lat,lon)\n        start_date: Start date in YYYY-MM-DD format. Defaults to today.\n        end_date: End date in YYYY-MM-DD format. Defaults to 7 days from start.\n    \n    Returns:\n        WeatherForecast object containing hourly weather data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "City name or coordinates (lat,lon)"
+                    },
+                    "start_date": {
+                        "type": "string",
+                        "description": "Start date in YYYY-MM-DD format. Defaults to today."
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "End date in YYYY-MM-DD format. Defaults to 7 days from start."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "location",
+                    "start_date",
+                    "end_date",
+                    "Returns"
+                ]
+            },
+            "file": "adventurebot_advanced\\tools\\weather_lookup.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\agent_patterns\\forcing_tool_use.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "math_guardrail",
+            "description": "This is an input guardrail function, which happens to call an agent to check if the input\n    is a math homework question.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\agent_patterns\\input_guardrails.py",
+            "decorator": [
+                "input_guardrail"
+            ]
+        },
+        {
+            "name": "sensitive_data_check",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\agent_patterns\\output_guardrails.py",
+            "decorator": [
+                "output_guardrail"
+            ]
+        },
+        {
+            "name": "random_number",
+            "description": "\n    Generate a random number up to the provided maximum.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\basic\\agent_lifecycle_example.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "multiply_by_two",
+            "description": "Simple multiplication by two.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\basic\\agent_lifecycle_example.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "random_number",
+            "description": "Generate a random number up to the provided max.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\basic\\lifecycle_example.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "multiply_by_two",
+            "description": "Return x times two.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\basic\\lifecycle_example.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "how_many_jokes",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\basic\\stream_items.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\basic\\tools.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "faq_lookup_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\customer_service\\main.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "update_seat",
+            "description": "\n    Update the seat for a given confirmation number.\n\n    Args:\n        confirmation_number: The confirmation number for the flight.\n        new_seat: The new seat to update to.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "confirmation_number": {
+                        "type": "string",
+                        "description": "The confirmation number for the flight."
+                    },
+                    "new_seat": {
+                        "type": "string",
+                        "description": "The new seat to update to."
+                    }
+                },
+                "required": [
+                    "confirmation_number",
+                    "new_seat"
+                ]
+            },
+            "file": "examples\\customer_service\\main.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "random_number_tool",
+            "description": "Return a random integer between 0 and the given maximum.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\handoffs\\message_filter.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "random_number_tool",
+            "description": "Return a random integer between 0 and the given maximum.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\handoffs\\message_filter_streaming.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "add",
+            "description": "Add two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\mcp\\sse_example\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_secret_word",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\mcp\\sse_example\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_weather",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\mcp\\sse_example\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add",
+            "description": "Add two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\mcp\\streamablehttp_example\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_secret_word",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\mcp\\streamablehttp_example\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_weather",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\mcp\\streamablehttp_example\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\model_providers\\custom_example_agent.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\model_providers\\custom_example_global.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\model_providers\\custom_example_provider.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\model_providers\\litellm_auto.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\model_providers\\litellm_provider.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "playwright",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\tools\\computer_use.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "browser",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\tools\\computer_use.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "page",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\tools\\computer_use.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "environment",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\tools\\computer_use.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "dimensions",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\tools\\computer_use.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "Get the weather for a given city.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\voice\\static\\main.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "render",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\voice\\streamed\\main.py",
+            "decorator": [
+                "override"
+            ]
+        },
+        {
+            "name": "render",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\voice\\streamed\\main.py",
+            "decorator": [
+                "override"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "Get the weather for a given city.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\voice\\streamed\\my_workflow.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available weather tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_weather\\src\\mcp_server_weather\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls for weather queries.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_weather\\src\\mcp_server_weather\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        }
+    ]
+}

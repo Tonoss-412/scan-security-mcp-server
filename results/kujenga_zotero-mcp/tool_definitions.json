@@ -1,0 +1,83 @@
+{
+    "tools": [
+        {
+            "name": "get_item_metadata",
+            "description": "GetmetadatainformationaboutaspecificZoteroitem",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\zotero_mcp\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_item_fulltext",
+            "description": "GetthefulltextcontentofaZoteroitem",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\zotero_mcp\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_items",
+            "description": "SearchforitemsinyourZoterolibrary",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\zotero_mcp\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mock_zotero",
+            "description": "Fixture that returns a mocked Zotero client",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_item",
+            "description": "Fixture that returns a sample Zotero item",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_attachment",
+            "description": "Fixture that returns a sample Zotero attachment item",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

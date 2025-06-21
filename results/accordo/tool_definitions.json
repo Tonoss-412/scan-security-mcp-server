@@ -1,0 +1,2374 @@
+{
+    "tools": [
+        {
+            "name": "main",
+            "description": "\ud83d\udd27 Workflow Commander CLI - Configure MCP servers for Cursor, Claude, and VS Code.\"\"\"\n  ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_cli\\main.py",
+            "decorator": [
+                "app.callback"
+            ]
+        },
+        {
+            "name": "create_config",
+            "description": "Create platform-specific configuration from MCP servers.\n\n        Args:\n            servers: Dictionary of MCP server configurations\n\n        Returns:\n            Platform-specific configuration dictionary\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "servers": {
+                        "type": "string",
+                        "description": "Dictionary of MCP server configurations"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "servers",
+                    "Returns"
+                ]
+            },
+            "file": "src\\accordo_cli\\handlers\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "load_existing_config",
+            "description": "Load existing configuration from file.\n\n        Args:\n            config_path: Path to configuration file\n\n        Returns:\n            Existing configuration dictionary or None if not found\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config_path": {
+                        "type": "string",
+                        "description": "Path to configuration file"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config_path",
+                    "Returns"
+                ]
+            },
+            "file": "src\\accordo_cli\\handlers\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_servers_from_config",
+            "description": "Extract MCP servers from platform-specific configuration.\n\n        Args:\n            config: Platform-specific configuration\n\n        Returns:\n            Dictionary of server name to MCPServer objects\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "Platform-specific configuration"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config",
+                    "Returns"
+                ]
+            },
+            "file": "src\\accordo_cli\\handlers\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "merge_configs",
+            "description": "Merge new configuration with existing configuration.\n\n        Args:\n            existing: Existing configuration\n            new: New configuration to merge\n\n        Returns:\n            Merged configuration\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "existing": {
+                        "type": "string",
+                        "description": "Existing configuration"
+                    },
+                    "new": {
+                        "type": "string",
+                        "description": "New configuration to merge"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "existing",
+                    "new",
+                    "Returns"
+                ]
+            },
+            "file": "src\\accordo_cli\\handlers\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "_extract_server_names",
+            "description": "Extract server names from platform-specific configuration.\n\n        Args:\n            config: Platform-specific configuration\n\n        Returns:\n            List of server names\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "Platform-specific configuration"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config",
+                    "Returns"
+                ]
+            },
+            "file": "src\\accordo_cli\\handlers\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_basic_template",
+            "description": "Get basic configuration template with minimal options.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_advanced_template",
+            "description": "Get advanced configuration template with comprehensive options.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_cache_enabled_template",
+            "description": "Get cache-enabled configuration template.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_template",
+            "description": "Get template configuration by enum value.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "command_not_empty",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\config.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_base_config",
+            "description": "Create Cursor config from base configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_base_config",
+            "description": "Create Claude config from base configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_base_config",
+            "description": "Create VS Code config from base configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_cursor_info",
+            "description": "Get platform information for Cursor.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\platform.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_claude_info",
+            "description": "Get platform information for Claude Desktop.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\platform.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_claude_code_info",
+            "description": "Get platform information for Claude Code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\platform.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_vscode_info",
+            "description": "Get platform information for VS Code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\platform.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_all_platforms",
+            "description": "Get information for all supported platforms.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\platform.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "for_platform",
+            "description": "Get platform information for a specific platform.\n\n        Args:\n            platform: The platform enum value\n\n        Returns:\n            PlatformInfo for the specified platform\n\n        Raises:\n            ValueError: If platform is not supported\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_cli\\models\\platform.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "workflow_commander_dir",
+            "description": "Get the .accordo directory path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "workflows_dir",
+            "description": "Get the workflows directory path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "project_config_path",
+            "description": "Get the project configuration file path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "sessions_dir",
+            "description": "Get the sessions directory path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "cache_dir",
+            "description": "Get the cache directory path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "validate_prefix",
+            "description": "Ensure prefix ends with slash.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_workflow_mcp\\models\\config.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_s3_config",
+            "description": "Validate S3 configuration consistency.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\models\\config.py",
+            "decorator": [
+                "model_validator"
+            ]
+        },
+        {
+            "name": "from_server_config",
+            "description": "Create WorkflowConfig from ServerConfig instance.\n\n        Args:\n            server_config: ServerConfig instance with CLI-provided values\n\n        Returns:\n            WorkflowConfig instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "server_config": {
+                        "type": "string",
+                        "description": "ServerConfig instance with CLI-provided values"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "server_config"
+                ]
+            },
+            "file": "src\\accordo_workflow_mcp\\models\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_format",
+            "description": "Validate format is MD or JSON.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_workflow_mcp\\models\\config.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "ensure_session_id",
+            "description": "Ensure session_id is present, auto-generating if needed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_workflow_mcp\\models\\workflow_state.py",
+            "decorator": [
+                "model_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_node_outputs",
+            "description": "Validate node_outputs structure and provide guidance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "src\\accordo_workflow_mcp\\models\\workflow_state.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "is_leaf_node",
+            "description": "Check if this is a leaf node (no children).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\models\\yaml_workflow.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_decision_node",
+            "description": "Check if this is a decision node (has children).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\models\\yaml_workflow.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "validate_tree_structure",
+            "description": "Validate the workflow tree structure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_workflow_mcp\\models\\yaml_workflow.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_workflow_root",
+            "description": "Validate that the root node exists in the tree.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_workflow_mcp\\models\\yaml_workflow.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "workflow_discovery",
+            "description": "Discover available workflows and provide them to the agent for selection.\n\n        The MCP server now performs server-side workflow discovery and provides\n        the actual workflow content to the agent for selection.\n\n        \ud83c\udfaf **SESSION_ID WORKFLOW**: When starting workflows, they auto-generate unique session_ids\n        that are returned in all responses. Use these session_ids for multi-session support:\n        - workflow_guidance(session_id='returned-uuid', ...) to target specific sessions\n        - workflow_state(session_id='returned-uuid', ...) to check specific session status\n\n        Args:\n            task_description: Description of the task to be performed\n            workflows_dir: Directory containing workflow YAML files (optional, uses config if available)\n            client_id: Client session identifier\n\n        Returns:\n            dict: Available workflows with their content or session conflict information.\n                  All responses include session_id when workflows are started.\n        \"\"\"\n  ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_description": {
+                        "type": "string",
+                        "description": "Description of the task to be performed"
+                    },
+                    "workflows_dir": {
+                        "type": "string",
+                        "description": "Directory containing workflow YAML files (optional, uses config if available)"
+                    },
+                    "client_id": {
+                        "type": "string",
+                        "description": "Client session identifier"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Available workflows with their content or session conflict information."
+                    }
+                },
+                "required": [
+                    "task_description",
+                    "workflows_dir",
+                    "client_id",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "src\\accordo_workflow_mcp\\prompts\\discovery_prompts.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_platform_info",
+            "description": "Get platform information for a specific platform type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\accordo_workflow_mcp\\services\\config_service.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "workflow_commander_dir",
+            "description": "Get the .accordo directory path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\services\\config_service.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "workflows_dir",
+            "description": "Get the workflows directory path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\services\\config_service.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "project_config_path",
+            "description": "Get the project configuration file path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\services\\config_service.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "sessions_dir",
+            "description": "Get the sessions directory path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\services\\config_service.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "cache_dir",
+            "description": "Get the cache directory path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\accordo_workflow_mcp\\services\\config_service.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create a temporary directory for testing file operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_project_config_file",
+            "description": "Create a temporary project config file in .accordo directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_workflow_state",
+            "description": "Create a sample WorkflowState for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_workflow_items",
+            "description": "Create sample workflow items for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_workflow_state_content",
+            "description": "Create sample workflow state content for testing (session-based).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "valid_project_config_content",
+            "description": "Create valid project config file content for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "invalid_workflow_state_content",
+            "description": "Create invalid workflow state file content for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_cache_dir",
+            "description": "Create a temporary directory for cache testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_cache_manager",
+            "description": "Create a mock cache manager for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_server_config",
+            "description": "Create a test server configuration with cache enabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_workflow_yaml_content",
+            "description": "Create a simple test workflow YAML content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_workflows_dir",
+            "description": "Create a temporary workflows directory with test YAML files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mcp_server_with_cache",
+            "description": "Create MCP server instance with cache mode enabled for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "cli_runner",
+            "description": "Fixture providing a Typer CLI runner.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_config_dir",
+            "description": "Fixture providing a temporary directory for config files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_server",
+            "description": "Fixture providing a sample MCP server configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_full_interactive_workflow",
+            "description": "Test complete interactive configuration workflow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_confirm": {
+                        "type": "string"
+                    },
+                    "mock_location": {
+                        "type": "string"
+                    },
+                    "mock_server_details": {
+                        "type": "string"
+                    },
+                    "mock_platform": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "temp_config_dir": {
+                        "type": "string"
+                    },
+                    "sample_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_confirm",
+                    "mock_location",
+                    "mock_server_details",
+                    "mock_platform",
+                    "cli_runner",
+                    "temp_config_dir",
+                    "sample_server"
+                ]
+            },
+            "file": "tests\\test_cli.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_configure_command_interactive",
+            "description": "Test configure command in interactive mode.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_confirm": {
+                        "type": "string"
+                    },
+                    "mock_prompt": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_confirm",
+                    "mock_prompt"
+                ]
+            },
+            "file": "tests\\test_cli_commands.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_main_with_default_args",
+            "description": "Test main function with default arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_register_discovery": {
+                        "type": "string"
+                    },
+                    "mock_register_phase": {
+                        "type": "string"
+                    },
+                    "mock_init_config": {
+                        "type": "string"
+                    },
+                    "mock_fastmcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_register_discovery",
+                    "mock_register_phase",
+                    "mock_init_config",
+                    "mock_fastmcp"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_main_with_repository_path",
+            "description": "Test main function with repository path specified.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_register_discovery": {
+                        "type": "string"
+                    },
+                    "mock_register_phase": {
+                        "type": "string"
+                    },
+                    "mock_init_config": {
+                        "type": "string"
+                    },
+                    "mock_fastmcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_register_discovery",
+                    "mock_register_phase",
+                    "mock_init_config",
+                    "mock_fastmcp"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_main_with_invalid_repository_path",
+            "description": "Test main function with invalid repository path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_print": {
+                        "type": "string"
+                    },
+                    "mock_init_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_print",
+                    "mock_init_config"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_workflow_creation_guidance_basic_functionality",
+            "description": "Test basic functionality of workflow_creation_guidance tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_workflow_creation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_workflow_creation_guidance_with_different_types",
+            "description": "Test workflow creation guidance with different workflow types.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_workflow_creation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_workflow_creation_guidance_complexity_levels",
+            "description": "Test workflow creation guidance with different complexity levels.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_workflow_creation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_workflow_creation_guidance_yaml_format_validation",
+            "description": "Test that the guidance provides proper YAML formatting requirements.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_workflow_creation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_workflow_creation_guidance_instructions",
+            "description": "Test that creation instructions are provided properly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_workflow_creation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_workflow_creation_guidance_complete_example",
+            "description": "Test that the complete example workflow is properly formatted.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_workflow_creation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "setup_method",
+            "description": "Clear session state before each test.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_mcp_server_initialization_with_cache",
+            "description": "Test that MCP server initializes correctly with cache mode enabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_server_with_cache": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_server_with_cache"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_workflow_discovery_via_mcp_tools",
+            "description": "Test workflow discovery functionality through MCP tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_server_with_cache": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_server_with_cache"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_workflow_session_creation_and_progression",
+            "description": "Test complete workflow session creation and progression.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_server_with_cache": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_server_with_cache"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_semantic_cache_population_and_search",
+            "description": "Test semantic cache population and search functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_end_to_end_workflow_with_cache_persistence",
+            "description": "Test complete end-to-end workflow execution with cache persistence.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_server_with_cache": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_server_with_cache"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_concurrent_workflow_sessions_with_cache",
+            "description": "Test multiple concurrent workflow sessions with cache functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_server_with_cache": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_server_with_cache"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_cache_restoration_after_server_restart",
+            "description": "Test cache restoration functionality after server restart simulation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_semantic_search_result_quality",
+            "description": "Test the quality and relevance of semantic search results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "setup_method",
+            "description": "Clear session state before each test.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_cache_unavailable_graceful_degradation",
+            "description": "Test graceful degradation when cache is unavailable.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_server_with_cache": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_server_with_cache"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_workflow_yaml_handling",
+            "description": "Test handling of invalid workflow YAML files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_semantic_search_with_empty_cache",
+            "description": "Test semantic search behavior with empty cache.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_mcp_client_semantic_workflow.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create a temporary directory for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_session_restoration_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "server_config",
+            "description": "Create test server configuration with cache enabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_dir"
+                ]
+            },
+            "file": "tests\\integration\\test_session_restoration_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "cache_manager",
+            "description": "Create cache manager for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_config"
+                ]
+            },
+            "file": "tests\\integration\\test_session_restoration_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "session_repository",
+            "description": "Create session repository for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_session_restoration_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "session_sync_service",
+            "description": "Create session sync service for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session_repository": {
+                        "type": "string"
+                    },
+                    "cache_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "session_repository",
+                    "cache_manager"
+                ]
+            },
+            "file": "tests\\integration\\test_session_restoration_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_workflow_def",
+            "description": "Create a sample workflow definition for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_session_restoration_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_workflow_def",
+            "description": "Create a test workflow definition.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration\\test_cache_mode_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "cache_enabled_config",
+            "description": "Create a server config with cache mode enabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration\\test_cache_mode_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_add_log_entry",
+            "description": "Test adding log entry with timestamp.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_datetime": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_datetime"
+                ]
+            },
+            "file": "tests\\test_models\\test_workflow_state.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_add_multiple_log_entries",
+            "description": "Test adding multiple log entries.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_datetime": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_datetime"
+                ]
+            },
+            "file": "tests\\test_models\\test_workflow_state.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_add_log_entry_triggers_rotation",
+            "description": "Test that adding log entry triggers rotation when over 5000 chars.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_datetime": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_datetime"
+                ]
+            },
+            "file": "tests\\test_models\\test_workflow_state.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "mock_workflow_def",
+            "description": "Create a mock WorkflowDefinition for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_models\\test_workflow_state.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "dynamic_state_with_progress",
+            "description": "Create a DynamicWorkflowState with completed nodes and outputs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_workflow_def": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_workflow_def"
+                ]
+            },
+            "file": "tests\\test_models\\test_workflow_state.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_cache_manager",
+            "description": "Create a mock cache manager with our enhanced methods.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompts\\test_cache_management_enhancements.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_cache_stats",
+            "description": "Create mock cache statistics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompts\\test_cache_management_enhancements.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_regenerate_embeddings_operation",
+            "description": "Test the regenerate_embeddings operation we added.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_cache_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_cache_manager"
+                ]
+            },
+            "file": "tests\\test_prompts\\test_cache_management_enhancements.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_mcp",
+            "description": "Create a mock FastMCP instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompts\\test_phase_prompts.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_context",
+            "description": "Create a mock Context instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompts\\test_phase_prompts.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_phase_prompts_registration",
+            "description": "Test that all phase prompts are registered correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompts\\test_phase_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_workflow_guidance_output",
+            "description": "Test workflow_guidance output format for different actions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_prompts\\test_phase_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_workflow_state_output",
+            "description": "Test workflow_state output format for different operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_prompts\\test_phase_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_tool_parameters",
+            "description": "Test that tools have correct parameter definitions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompts\\test_phase_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_workflow_guidance_actions",
+            "description": "Test that workflow_guidance supports all expected actions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_prompts\\test_phase_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_workflow_state_operations",
+            "description": "Test that workflow_state supports all expected operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_prompts\\test_phase_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling_invalid_action",
+            "description": "Test error handling for invalid workflow_guidance action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_prompts\\test_phase_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling_invalid_operation",
+            "description": "Test error handling for invalid workflow_state operation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_prompts\\test_phase_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_consolidated_tools_contain_required_elements",
+            "description": "Test that consolidated tools have all required functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_prompts\\test_phase_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mandatory_execution_emphasis",
+            "description": "Test that mandatory execution emphasis is properly displayed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_prompts\\test_phase_prompts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_function",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_services\\test_dependency_injection.py",
+            "decorator": [
+                "inject_service"
+            ]
+        },
+        {
+            "name": "test_function",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_services\\test_dependency_injection.py",
+            "decorator": [
+                "inject_service"
+            ]
+        },
+        {
+            "name": "test_function",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_services\\test_dependency_injection.py",
+            "decorator": [
+                "inject_config_service"
+            ]
+        },
+        {
+            "name": "test_function",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config"
+                ]
+            },
+            "file": "tests\\test_services\\test_dependency_injection.py",
+            "decorator": [
+                "inject_config_service"
+            ]
+        },
+        {
+            "name": "get_cache_max_results",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_services\\test_dependency_injection.py",
+            "decorator": [
+                "inject_service"
+            ]
+        },
+        {
+            "name": "test_server_startup_with_configuration_service",
+            "description": "Test server startup with new configuration service.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_register_discovery": {
+                        "type": "string"
+                    },
+                    "mock_register_phase": {
+                        "type": "string"
+                    },
+                    "mock_fastmcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_register_discovery",
+                    "mock_register_phase",
+                    "mock_fastmcp"
+                ]
+            },
+            "file": "tests\\test_services\\test_server_integration.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_server_startup_with_cache_mode",
+            "description": "Test server startup with cache mode enabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_register_discovery": {
+                        "type": "string"
+                    },
+                    "mock_register_phase": {
+                        "type": "string"
+                    },
+                    "mock_fastmcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_register_discovery",
+                    "mock_register_phase",
+                    "mock_fastmcp"
+                ]
+            },
+            "file": "tests\\test_services\\test_server_integration.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_server_startup_configuration_error",
+            "description": "Test server startup with configuration error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_fastmcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_fastmcp"
+                ]
+            },
+            "file": "tests\\test_services\\test_server_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "mock_workflow_state",
+            "description": "Create a mock WorkflowState for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_markdown_generator.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "executor",
+            "description": "Create a NodeExecutor instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_node_executor.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_state",
+            "description": "Create a mock DynamicWorkflowState for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_node_executor.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_workflow_def",
+            "description": "Create a mock WorkflowDefinition for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_node_executor.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "action_node",
+            "description": "Create a mock action node (no children).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_node_executor.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "decision_node",
+            "description": "Create a mock decision node (with children).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_node_executor.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create a temporary directory for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_path_utils.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_workflow_def",
+            "description": "Create a mock WorkflowDefinition for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_schema_analyzer_emphasis.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "single_transition_node",
+            "description": "Create a mock node with single transition option.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_schema_analyzer_emphasis.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "multiple_transition_node",
+            "description": "Create a mock node with multiple transition options.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_schema_analyzer_emphasis.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "terminal_node",
+            "description": "Create a mock terminal node with no transitions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_schema_analyzer_emphasis.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_workflow_def",
+            "description": "Create a test workflow definition.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_session_manager_extended.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_file_operation_instructions_disabled",
+            "description": "Test get_file_operation_instructions when local state file is disabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_state_manager.py",
+            "decorator": [
+                "patch.dict"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create a temporary directory for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_template_generator.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "generator",
+            "description": "Create a WorkflowTemplateGenerator instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_dir"
+                ]
+            },
+            "file": "tests\\test_utils\\test_template_generator.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_workflow",
+            "description": "Create a mock workflow for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_template_generator.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_generate_template_from_existing_success",
+            "description": "Test successful template generation from existing workflow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_loader_class": {
+                        "type": "string"
+                    },
+                    "generator": {
+                        "type": "string"
+                    },
+                    "temp_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_loader_class",
+                    "generator",
+                    "temp_dir"
+                ]
+            },
+            "file": "tests\\test_utils\\test_template_generator.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create a temporary directory for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_template_generator.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "generator",
+            "description": "Create a WorkflowTemplateGenerator instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_dir"
+                ]
+            },
+            "file": "tests\\test_utils\\test_template_generator.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "engine",
+            "description": "Create a WorkflowEngine instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_workflow_engine.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_workflow_def",
+            "description": "Create a mock WorkflowDefinition for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_workflow_engine.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_state",
+            "description": "Create a mock DynamicWorkflowState for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_workflow_engine.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create a temporary directory for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_yaml_loader.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "valid_workflow_yaml",
+            "description": "Create valid workflow YAML content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_yaml_loader.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "invalid_workflow_yaml",
+            "description": "Create invalid workflow YAML content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_yaml_loader.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "workflows_dir_with_files",
+            "description": "Create a workflows directory with test files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_dir": {
+                        "type": "string"
+                    },
+                    "valid_workflow_yaml": {
+                        "type": "string"
+                    },
+                    "invalid_workflow_yaml": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_dir",
+                    "valid_workflow_yaml",
+                    "invalid_workflow_yaml"
+                ]
+            },
+            "file": "tests\\test_utils\\test_yaml_loader.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create a temporary directory for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_yaml_loader.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "valid_workflow_yaml",
+            "description": "Create valid workflow YAML content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_utils\\test_yaml_loader.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

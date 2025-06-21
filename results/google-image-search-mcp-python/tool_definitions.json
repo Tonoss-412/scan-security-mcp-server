@@ -1,0 +1,96 @@
+{
+    "tools": [
+        {
+            "name": "search_images_tool",
+            "description": "\n    Search for images using Google Image Search\n\n    Args:\n        query: The search query for finding images\n        limit: Maximum number of results to return (default: 10)\n\n    Returns:\n        Dictionary containing the search results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query for finding images"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "download_image_tool",
+            "description": "\n    Download an image to a local directory\n\n    Args:\n        image_url: URL of the image to download\n        output_path: Directory path where the image should be saved\n        filename: Filename for the downloaded image (including extension)\n\n    Returns:\n        Dictionary containing the download result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "image_url": {
+                        "type": "string",
+                        "description": "URL of the image to download"
+                    },
+                    "output_path": {
+                        "type": "string",
+                        "description": "Directory path where the image should be saved"
+                    },
+                    "filename": {
+                        "type": "string",
+                        "description": "Filename for the downloaded image (including extension)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "image_url",
+                    "output_path",
+                    "filename",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "analyze_images_tool",
+            "description": "\n    Analyze image search results to find the most relevant ones\n\n    Args:\n        search_results: Array of image search results to analyze\n        criteria: Criteria for selecting the best images (e.g., 'professional', 'colorful', etc.)\n\n    Returns:\n        Dictionary containing the analysis results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "search_results": {
+                        "type": "string",
+                        "description": "Array of image search results to analyze"
+                    },
+                    "criteria": {
+                        "type": "string",
+                        "description": "Criteria for selecting the best images (e.g., 'professional', 'colorful', etc.)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "search_results",
+                    "criteria",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

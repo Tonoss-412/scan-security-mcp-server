@@ -1,0 +1,143 @@
+{
+    "tools": [
+        {
+            "name": "configure",
+            "description": "Configure the Listen-in server with necessary settings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "listen_in\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_podcast_script",
+            "description": "\n    Generate a podcast script from a local document.\n    \n    Args:\n        file_path: Path to the input document (.txt or .pdf)\n        style: Script style ('monologue' or 'dialogue')\n        tone: Tone of the script (defaults to configured tone)\n        audience: Target audience (defaults to configured audience)\n        custom_instructions: Additional instructions for script generation\n        model: Model to use (\"o3\" for gpt-4.1-mini via Agents SDK or \"gpt-3.5-turbo\")\n        \n    Returns:\n        Dictionary with script_path and metadata\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the input document (.txt or .pdf)"
+                    },
+                    "style": {
+                        "type": "string",
+                        "description": "Script style ('monologue' or 'dialogue')"
+                    },
+                    "tone": {
+                        "type": "string",
+                        "description": "Tone of the script (defaults to configured tone)"
+                    },
+                    "audience": {
+                        "type": "string",
+                        "description": "Target audience (defaults to configured audience)"
+                    },
+                    "custom_instructions": {
+                        "type": "string",
+                        "description": "Additional instructions for script generation"
+                    },
+                    "model": {
+                        "type": "string",
+                        "description": "Model to use (\"o3\" for gpt-4.1-mini via Agents SDK or \"gpt-3.5-turbo\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "style",
+                    "tone",
+                    "audience",
+                    "custom_instructions",
+                    "model",
+                    "Returns"
+                ]
+            },
+            "file": "listen_in\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_generated_scripts",
+            "description": "List all generated podcast scripts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "listen_in\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_podcast_audio",
+            "description": "\n    Generate audio from a podcast script using ElevenLabs.\n    \n    Args:\n        script_path: Path to the generated script file\n        voice_mode: \"bulletin\" for monologue, \"conversation\" for dialogue\n        quality: Audio quality (standard/high/ultra/ultra_lossless)\n        duration_scale: Length preference (short/default/long)\n        voice_id: Optional specific voice ID to use\n        voice_name: Optional voice name (rachel/adam/bella/emily/jessica/matthew)\n        callback_url: Optional webhook URL for async processing\n        \n    Returns:\n        Dictionary with audio file information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "script_path": {
+                        "type": "string",
+                        "description": "Path to the generated script file"
+                    },
+                    "voice_mode": {
+                        "type": "string",
+                        "description": "\"bulletin\" for monologue, \"conversation\" for dialogue"
+                    },
+                    "quality": {
+                        "type": "string",
+                        "description": "Audio quality (standard/high/ultra/ultra_lossless)"
+                    },
+                    "duration_scale": {
+                        "type": "string",
+                        "description": "Length preference (short/default/long)"
+                    },
+                    "voice_id": {
+                        "type": "string",
+                        "description": "Optional specific voice ID to use"
+                    },
+                    "voice_name": {
+                        "type": "string",
+                        "description": "Optional voice name (rachel/adam/bella/emily/jessica/matthew)"
+                    },
+                    "callback_url": {
+                        "type": "string",
+                        "description": "Optional webhook URL for async processing"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "script_path",
+                    "voice_mode",
+                    "quality",
+                    "duration_scale",
+                    "voice_id",
+                    "voice_name",
+                    "callback_url",
+                    "Returns"
+                ]
+            },
+            "file": "listen_in\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_available_voices",
+            "description": "List available voices for podcast generation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "listen_in\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

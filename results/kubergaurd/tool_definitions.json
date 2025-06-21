@@ -1,0 +1,663 @@
+{
+    "tools": [
+        {
+            "name": "api_run_agent",
+            "description": "Run the agent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "api_agent_status",
+            "description": "Get the agent status",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "api_set_auto_run",
+            "description": "Enable or disable automatic agent runs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "api_get_incidents",
+            "description": "Get incidents",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "api_get_incident",
+            "description": "Get an incident by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "api_resolve_incident",
+            "description": "Resolve an incident",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "api_get_restart_counts",
+            "description": "Get restart counts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "api_simulate_issue",
+            "description": "Simulate an issue",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "api_stop_simulation",
+            "description": "Stop all simulations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "api_get_logs",
+            "description": "Get agent logs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "startup_event",
+            "description": "Run the agent on startup",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\api.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "shutdown",
+            "description": "Shutdown the application - this will cause the container to exit and Docker will restart it",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "status",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "trigger_cpu_spike",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "trigger_memory_spike",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "stop_simulations",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "add_metrics",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    },
+                    "call_next": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "call_next"
+                ]
+            },
+            "file": "src\\api\\main.py",
+            "decorator": [
+                "app.middleware"
+            ]
+        },
+        {
+            "name": "create_issue",
+            "description": "Create a GitHub issue",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\github\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_issues",
+            "description": "List GitHub issues",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\github\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "create_pull_request",
+            "description": "Create a GitHub pull request",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\github\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_file",
+            "description": "Get a file from a GitHub repository",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\github\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "create_branch",
+            "description": "Create a new branch in a GitHub repository",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\github\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "create_file",
+            "description": "Create a file in a GitHub repository",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\github\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "update_file",
+            "description": "Update a file in a GitHub repository",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\github\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_schema",
+            "description": "Get the MCP schema for this server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\github\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\github\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\github\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_dashboards",
+            "description": "List Grafana dashboards",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\grafana\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_dashboard",
+            "description": "Get a Grafana dashboard by UID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\grafana\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "create_annotation",
+            "description": "Create a Grafana annotation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\grafana\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_alerts",
+            "description": "List Grafana alerts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\grafana\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_schema",
+            "description": "Get the MCP schema for this server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\grafana\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\grafana\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\grafana\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "restart_pod",
+            "description": "Restart a pod by actually restarting the Docker container",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\kubernetes\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_pods",
+            "description": "List pods based on test application status",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\kubernetes\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_nodes",
+            "description": "List nodes in the cluster",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\kubernetes\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_logs",
+            "description": "Get logs from the test application",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\kubernetes\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_app_code",
+            "description": "Get application code from the pod",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\kubernetes\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_schema",
+            "description": "Get the MCP schema for this server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\kubernetes\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\kubernetes\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\kubernetes\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "query",
+            "description": "Execute an instant query against Prometheus",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\prometheus\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "query_range",
+            "description": "Execute a range query against Prometheus",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\prometheus\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "alerts",
+            "description": "Get alerts from Prometheus",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\prometheus\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "targets",
+            "description": "Get targets from Prometheus",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\prometheus\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "metrics",
+            "description": "Get list of metrics from Prometheus",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\prometheus\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_schema",
+            "description": "Get the MCP schema for this server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\prometheus\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\prometheus\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\prometheus\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "multiply",
+            "description": "Multiply two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\multiplication_tool.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "celsius_to_fahrenheit",
+            "description": "Convert Celsius to Fahrenheit",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\temperature_converter_tool.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fahrenheit_to_celsius",
+            "description": "Convert Fahrenheit to Celsius",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\temperature_converter_tool.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_alerts",
+            "description": "Get weather alerts for a US state",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\weather_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_forecast",
+            "description": "Get weather forecast for coordinates",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\weather_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

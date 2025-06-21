@@ -1,0 +1,76 @@
+{
+    "tools": [
+        {
+            "name": "check_wifi_status",
+            "description": "Check current WiFi adapter status and connection state",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "wifi_diagnostics_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "diagnose_connection_issues",
+            "description": "Run comprehensive WiFi connection diagnostics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "wifi_diagnostics_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_authentication_issues",
+            "description": "Check for 802.1X authentication problems and certificate issues",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "wifi_diagnostics_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "analyze_wifi_environment",
+            "description": "Analyze WiFi environment for interference and signal issues",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "wifi_diagnostics_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_diagnostic_report",
+            "description": "Generate comprehensive WiFi diagnostic report",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "wifi_diagnostics_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fix_common_issues",
+            "description": "Attempt to fix common WiFi issues automatically",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "wifi_diagnostics_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

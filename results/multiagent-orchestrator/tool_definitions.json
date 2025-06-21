@@ -1,0 +1,115 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "Root endpoint to check if the API is running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "process_request",
+            "description": "\n    Process a client request containing audio, image, or text.\n    \n    Args:\n        audio: Optional audio file for speech-to-text processing\n        image: Optional image file for object detection\n        text: Optional text input if audio is not provided\n    \n    Returns:\n        JSON response with processed results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "audio": {
+                        "type": "string",
+                        "description": "Optional audio file for speech-to-text processing"
+                    },
+                    "image": {
+                        "type": "string",
+                        "description": "Optional image file for object detection"
+                    },
+                    "text": {
+                        "type": "string",
+                        "description": "Optional text input if audio is not provided"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "audio",
+                    "image",
+                    "text",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "execute_mcp_tool",
+            "description": "\n    Execute an MCP tool with the given arguments.\n    \n    Args:\n        tool_name: Name of the tool to execute\n        arguments: Arguments for the tool\n        \n    Returns:\n        Result of the tool execution\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tool_name": {
+                        "type": "string",
+                        "description": "Name of the tool to execute"
+                    },
+                    "arguments": {
+                        "type": "string",
+                        "description": "Arguments for the tool"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tool_name",
+                    "arguments",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "access_mcp_resource",
+            "description": "\n    Access an MCP resource with the given URI.\n    \n    Args:\n        uri: URI of the resource to access\n        \n    Returns:\n        Result of the resource access\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "uri": {
+                        "type": "string",
+                        "description": "URI of the resource to access"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "uri",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.get"
+            ]
+        }
+    ]
+}

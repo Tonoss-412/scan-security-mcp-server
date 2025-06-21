@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "assist",
+            "description": "Handle the /assist endpoint: parse JSON payload, store a snippet in state, call Gemini summarization, and return the result.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\browsingassistant\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "Return available note resources based on in-memory state.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\browsingassistant\\server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "Retrieve the content of a specific note resource identified by its URI.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\browsingassistant\\server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "List prompts supported by the server (e.g., summarize-notes).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\browsingassistant\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "Generate a prompt to summarize existing notes, with optional detail level.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\browsingassistant\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available server tools (e.g., add-note) with their input schemas.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\browsingassistant\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Execute a tool by name, such as adding a new note, updating server state.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\browsingassistant\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        }
+    ]
+}

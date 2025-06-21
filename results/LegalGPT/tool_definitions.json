@@ -1,0 +1,468 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "legal_research",
+            "description": "Main legal research endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "Legal chat endpoint for conversational legal research",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "websocket_chat",
+            "description": "WebSocket endpoint for interactive chat",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.websocket"
+            ]
+        },
+        {
+            "name": "get_case_details",
+            "description": "Get detailed case information",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "search_cases",
+            "description": "Search for cases with filtering",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "search_statutes",
+            "description": "Search for statutes and regulations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_statute_details",
+            "description": "Get detailed statute information",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "download_case_documents",
+            "description": "Download PDF and attachments for a case",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "download_statute_document",
+            "description": "Download PDF for a statute",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "constitutional_context",
+            "description": "\n    Get contextual responses based on the Kenyan Constitution and legal sources from kenyalaw.org and new.kenyalaw.org\n    \n    This endpoint specifically focuses on constitutional analysis and provides comprehensive contextual responses\n    backed by the Kenyan Constitution, relevant case law, and applicable statutes.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_courts",
+            "description": "Get the hierarchy of Kenyan courts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_chat_demo",
+            "description": "Simple chat demo page",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "add_timing_middleware",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "call_next": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "call_next"
+                ]
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.middleware"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "legal_research",
+            "description": "Main legal research endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_case_details",
+            "description": "Get detailed case information",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "search_cases",
+            "description": "Search for cases with filtering",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "search_statutes",
+            "description": "Search for statutes and regulations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "analyze_contract",
+            "description": "Analyze contract using SimGRAG",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_courts",
+            "description": "Get the hierarchy of Kenyan courts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "shutdown_event",
+            "description": "Clean up resources on shutdown",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\mcp_servers\\base_mcp.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "get_capabilities",
+            "description": "Get the list of capabilities supported by this MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\mcp_servers\\base_mcp.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "execute_capability",
+            "description": "Execute a capability with the provided parameters",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\mcp_servers\\base_mcp.py",
+            "decorator": [
+                "self.app.post"
+            ]
+        },
+        {
+            "name": "test_search_cases",
+            "description": "Test search_cases capability",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "backend\\tests\\test_kenya_law_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_case_details",
+            "description": "Test get_case_details capability",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "backend\\tests\\test_kenya_law_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_statutes",
+            "description": "Test search_statutes capability",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "backend\\tests\\test_kenya_law_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_court_hierarchy",
+            "description": "Test get_court_hierarchy capability",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "backend\\tests\\test_kenya_law_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_general_search",
+            "description": "Test general search capability",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "backend\\tests\\test_kenya_law_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "Test error handling in capabilities",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "backend\\tests\\test_kenya_law_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_calculate_similarity_score",
+            "description": "Test calculation of similarity score",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_cosine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_cosine"
+                ]
+            },
+            "file": "backend\\tests\\test_simgrag.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

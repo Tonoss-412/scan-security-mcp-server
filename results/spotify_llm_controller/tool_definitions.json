@@ -1,0 +1,1000 @@
+{
+    "tools": [
+        {
+            "name": "handle_command",
+            "description": "\n    Handle natural language commands from the Telegram bot.\n    \n    Args:\n        request: The command request containing the natural language command\n        \n    Returns:\n        The result of executing the command\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The command request containing the natural language command"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns"
+                ]
+            },
+            "file": "src\\spotify_llm_controller\\client.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "\n    Health check endpoint to verify the service is running.\n    \n    Returns:\n        Status information about the service\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_llm_controller\\client.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "\n    Root endpoint with basic information about the API.\n    \n    Returns:\n        Information about the API and available endpoints\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\spotify_llm_controller\\client.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "mock_mcp_session",
+            "description": "Create a mock MCP session for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_openai_client",
+            "description": "Create a mock OpenAI client for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_search_result",
+            "description": "Sample search result for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_album_search_result",
+            "description": "Sample album search result for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_mcp_result_success",
+            "description": "Create a mock successful MCP result.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_mcp_result_error",
+            "description": "Create a mock error MCP result.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_track_search_response",
+            "description": "Mock response for track search.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_album_search_response",
+            "description": "Mock response for album search.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_playlist_response",
+            "description": "Mock response for playlist operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_actions_sequence",
+            "description": "Sample sequence of actions for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_queue_actions_sequence",
+            "description": "Sample sequence of actions for queueing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_context",
+            "description": "Mock execution context for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_context_with_search",
+            "description": "Mock execution context with search result.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "event_loop",
+            "description": "Create an instance of the default event loop for the test session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_env_vars",
+            "description": "Mock environment variables for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_streamable_client",
+            "description": "Mock streamable client fixture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_client_session",
+            "description": "Mock client session fixture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_command_endpoint_success",
+            "description": "Test successful command execution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_session": {
+                        "type": "string"
+                    },
+                    "mock_streamable_client": {
+                        "type": "string"
+                    },
+                    "mock_execute_actions": {
+                        "type": "string"
+                    },
+                    "mock_parse_command": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_session",
+                    "mock_streamable_client",
+                    "mock_execute_actions",
+                    "mock_parse_command"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_command_endpoint_parse_error",
+            "description": "Test command endpoint with parsing error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_command": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_command"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_command_endpoint_mcp_connection_error",
+            "description": "Test command endpoint with MCP connection error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_streamable_client": {
+                        "type": "string"
+                    },
+                    "mock_parse_command": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_streamable_client",
+                    "mock_parse_command"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_full_command_flow",
+            "description": "Test the full command processing flow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_session": {
+                        "type": "string"
+                    },
+                    "mock_streamable_client": {
+                        "type": "string"
+                    },
+                    "mock_execute_actions": {
+                        "type": "string"
+                    },
+                    "mock_openai_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_session",
+                    "mock_streamable_client",
+                    "mock_execute_actions",
+                    "mock_openai_client"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_openai_initialization_error",
+            "description": "Test handling of OpenAI initialization error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai_client"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_mcp_server_url_usage",
+            "description": "Test that the correct MCP server URL is used.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_streamable_client": {
+                        "type": "string"
+                    },
+                    "mock_parse_command": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_streamable_client",
+                    "mock_parse_command"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_session_initialization_error",
+            "description": "Test handling of session initialization error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_session": {
+                        "type": "string"
+                    },
+                    "mock_streamable_client": {
+                        "type": "string"
+                    },
+                    "mock_execute_actions": {
+                        "type": "string"
+                    },
+                    "mock_parse_command": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_session",
+                    "mock_streamable_client",
+                    "mock_execute_actions",
+                    "mock_parse_command"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_action_execution_error",
+            "description": "Test handling of action execution error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_session": {
+                        "type": "string"
+                    },
+                    "mock_streamable_client": {
+                        "type": "string"
+                    },
+                    "mock_execute_actions": {
+                        "type": "string"
+                    },
+                    "mock_parse_command": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_session",
+                    "mock_streamable_client",
+                    "mock_execute_actions",
+                    "mock_parse_command"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_version_detection",
+            "description": "Test OpenAI SDK version detection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_version": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_version"
+                ]
+            },
+            "file": "tests\\test_openai_helper.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_version_detection_failure",
+            "description": "Test handling of version detection failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_version": {
+                        "type": "string"
+                    },
+                    "caplog": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_version",
+                    "caplog"
+                ]
+            },
+            "file": "tests\\test_openai_helper.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_completion_legacy_sdk",
+            "description": "Test completion creation with legacy OpenAI SDK.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai"
+                ]
+            },
+            "file": "tests\\test_openai_helper.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_completion_new_sdk",
+            "description": "Test completion creation with new OpenAI SDK.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai"
+                ]
+            },
+            "file": "tests\\test_openai_helper.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_completion_with_custom_parameters",
+            "description": "Test completion creation with custom parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai"
+                ]
+            },
+            "file": "tests\\test_openai_helper.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_completion_api_error",
+            "description": "Test handling of OpenAI API errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai"
+                ]
+            },
+            "file": "tests\\test_openai_helper.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_successful_call_first_attempt",
+            "description": "Test successful tool call on first attempt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_retry_on_failure",
+            "description": "Test retry mechanism when tool call fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_max_retries_exceeded",
+            "description": "Test that exception is raised when max retries are exceeded.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_successful_track_search",
+            "description": "Test successful track search.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_successful_album_search",
+            "description": "Test successful album search.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_no_results",
+            "description": "Test search with no results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_error_response",
+            "description": "Test search with error response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_invalid_json",
+            "description": "Test search with invalid JSON response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_info_with_search_context",
+            "description": "Test get info action using search result from context.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_info_with_explicit_uri",
+            "description": "Test get info action with explicit item_uri.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_info_error_response",
+            "description": "Test get info with error response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playback_start_with_search_result",
+            "description": "Test starting playback with search result.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playback_resume_without_uri",
+            "description": "Test resuming playback without URI.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playback_pause",
+            "description": "Test pausing playback.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playback_skip",
+            "description": "Test skipping track.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playback_error_response",
+            "description": "Test playback with error response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_with_search_result",
+            "description": "Test adding to queue with search result.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_with_explicit_track_id",
+            "description": "Test adding to queue with explicit track ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_without_track_id_or_search_result",
+            "description": "Test queue action without track ID or search result.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_error_response",
+            "description": "Test queue with error response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playlist_get",
+            "description": "Test getting user playlists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playlist_get_tracks",
+            "description": "Test getting tracks from a playlist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playlist_get_tracks_missing_id",
+            "description": "Test getting tracks without playlist ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playlist_add_tracks",
+            "description": "Test adding tracks to playlist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playlist_remove_tracks",
+            "description": "Test removing tracks from playlist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playlist_change_details",
+            "description": "Test changing playlist details.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_playlist_unknown_action",
+            "description": "Test unknown playlist action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_search_action",
+            "description": "Test executing a search action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_unsupported_action",
+            "description": "Test executing an unsupported action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_successful_sequence",
+            "description": "Test executing a successful sequence of actions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_search_failure_stops_execution",
+            "description": "Test that search failure stops execution of subsequent actions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_context_propagation",
+            "description": "Test that context is properly propagated between actions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_exception_handling",
+            "description": "Test exception handling during action execution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_spotify_actions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

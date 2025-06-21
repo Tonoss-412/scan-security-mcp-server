@@ -1,0 +1,124 @@
+{
+    "tools": [
+        {
+            "name": "preview_chart",
+            "description": "View a screenshot of the chart as a PNG image",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\datawrapper_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "export_chart",
+            "description": "Export a chart to different formats (PNG, PDF, SVG)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\datawrapper_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_charts",
+            "description": "Search and filter a list of your charts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\datawrapper_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_chart",
+            "description": "Create a new chart with the specified properties",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\datawrapper_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "upload_chart_data",
+            "description": "\n    Upload data for a chart or map.\n\n    The data can be in CSV format (comma or semicolon separated) or JSON format.\n    For CSV data, the first row is expected to contain column headers.\n\n    Example CSV data:\n    ```\n    country;Share of population that lives in the capital;in other urban areas;in rural areas\n    Iceland (Reykjavik);56.02;38;6\n    Argentina (Buenos Aires);34.95;56.6;8.4\n    Japan (Tokyo);29.52;63.5;7\n    UK (London);22.7;59.6;17.7\n    Denmark (Copenhagen);22.16;65.3;12.5\n    France (Paris);16.77;62.5;20.7\n    Russia (Moscow);8.39;65.5;26.1\n    Niger (Niamey);5.53;12.9;81.5\n    Germany (Berlin);4.35;70.7;24.9\n    India (Delhi);1.93;30.4;67.6\n    USA (Washington, D.C.);1.54;79.9;18.6\n    China (Beijing);1.4;53;45.6\n    ```\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\datawrapper_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_chart_data",
+            "description": "Request the data of a chart, which is usually a CSV",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\datawrapper_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_chart_metadata",
+            "description": "Request the metadata of a chart including title, type, theme, and other properties",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\datawrapper_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_chart_metadata",
+            "description": "Update metadata for an existing chart\n\n    This function allows you to update various properties of an existing chart.\n    Only the properties you specify will be updated; all others will remain unchanged.\n\n    Get the current metadata for an existing chart with get_chart_metadata().\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\datawrapper_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_themes",
+            "description": "Get a list of themes accessible by the authenticated user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\datawrapper_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_tool_functionality",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,1749 @@
+{
+    "tools": [
+        {
+            "name": "sample_question",
+            "description": "Sample question for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_answer",
+            "description": "Sample answer for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_reasoning_steps",
+            "description": "Sample reasoning steps for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_metadata",
+            "description": "Sample metadata for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sequential_reasoner",
+            "description": "Sequential reasoner instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "branching_reasoner",
+            "description": "Branching reasoner instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "abductive_reasoner",
+            "description": "Abductive reasoner instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "lateral_reasoner",
+            "description": "Lateral reasoner instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "logical_reasoner",
+            "description": "Logical reasoner instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "orchestrator",
+            "description": "Orchestrator instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "validator",
+            "description": "Answer validator instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "reviewer",
+            "description": "Answer reviewer instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "search_manager",
+            "description": "Search manager instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_test_questions",
+            "description": "Set of test questions with expected results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_search_results",
+            "description": "Mock search results for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "event_loop",
+            "description": "Create event loop for async tests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "validator",
+            "description": "Create validator instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_advanced_validator.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_semantic_coherence",
+            "description": "Test semantic coherence checking",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "validator": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "validator"
+                ]
+            },
+            "file": "tests\\test_advanced_validator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_factual_support",
+            "description": "Test factual support verification",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "validator": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "validator"
+                ]
+            },
+            "file": "tests\\test_advanced_validator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_style_quality",
+            "description": "Test style quality assessment",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "validator": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "validator"
+                ]
+            },
+            "file": "tests\\test_advanced_validator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_source_credibility",
+            "description": "Test source credibility evaluation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "validator": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "validator"
+                ]
+            },
+            "file": "tests\\test_advanced_validator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_context_consistency",
+            "description": "Test context consistency checking",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "validator": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "validator"
+                ]
+            },
+            "file": "tests\\test_advanced_validator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_full_validation_process",
+            "description": "Test complete validation process",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "validator": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "validator"
+                ]
+            },
+            "file": "tests\\test_advanced_validator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "Test error handling in validation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "validator": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "validator"
+                ]
+            },
+            "file": "tests\\test_advanced_validator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_lateral_initialization",
+            "description": "Test lateral reasoner initialization",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_creative_logical.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_analogical_thinking",
+            "description": "Test analogical thinking approach",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_creative_logical.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_random_association",
+            "description": "Test random association approach",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_creative_logical.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_perspective_shift",
+            "description": "Test perspective shifting approach",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_creative_logical.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_lateral_full_reasoning",
+            "description": "Test complete lateral reasoning process",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_creative_logical.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_logical_initialization",
+            "description": "Test logical reasoner initialization",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_creative_logical.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_argument_construction",
+            "description": "Test logical argument construction",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_creative_logical.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_logical_full_reasoning",
+            "description": "Test complete logical reasoning process",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_creative_logical.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "Test error handling in both reasoners",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_creative_logical.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_end_to_end_scenario",
+            "description": "\n    Test end-to-end processing of different question types\n    \n    Args:\n        scenario: Test scenario with question and expectations\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "scenario": {
+                        "type": "string",
+                        "description": "Test scenario with question and expectations"
+                    }
+                },
+                "required": [
+                    "scenario"
+                ]
+            },
+            "file": "tests\\test_end_to_end.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_error_handling_scenarios",
+            "description": "Test how the system handles various error conditions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_end_to_end.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_complex_reasoning_chain",
+            "description": "Test a complex multi-step reasoning process with research",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_end_to_end.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_research_integration",
+            "description": "Test specific research integration capabilities",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_end_to_end.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_multi_strategy_orchestration",
+            "description": "Test specifically how multiple strategies work together",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_end_to_end.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_validation_system",
+            "description": "Test specifically the validation capabilities",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_end_to_end.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_errors.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "integration",
+            "description": "Create integration instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_strategy_selection",
+            "description": "Test initial strategy selection",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "integration"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_validation_config",
+            "description": "Test validation configuration creation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "integration"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_strategy_adjustment",
+            "description": "Test strategy adjustment based on feedback",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "integration"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_strategy_performance_tracking",
+            "description": "Test strategy performance tracking",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "integration"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_full_integration_process",
+            "description": "Test complete integration process",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "integration"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_feedback_loop",
+            "description": "Test feedback loop between reasoning and validation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "integration"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "Test error handling in integration",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "integration"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_result_combination",
+            "description": "Test combining results from reasoning and validation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "integration"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_validation_with_context",
+            "description": "Test validation with different contexts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "integration"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_orchestrator_basic_reasoning",
+            "description": "\n    Test basic reasoning with research integration\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_orchestrator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_orchestrator_complex_question",
+            "description": "\n    Test reasoning with a more complex question\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_orchestrator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_orchestrator_creative_question",
+            "description": "\n    Test reasoning with a creative thinking prompt\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_orchestrator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_orchestrator_error_handling",
+            "description": "\n    Test orchestrator's error handling with edge cases\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_orchestrator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_orchestrator_multi_strategy",
+            "description": "\n    Test reasoning with multiple strategies\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_orchestrator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_strategy_selection",
+            "description": "Test strategy selection for different question types",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_confidence_thresholds",
+            "description": "Test confidence thresholds for different question types",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_source_requirements",
+            "description": "Test source requirements for different questions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_parallel_execution",
+            "description": "Test parallel execution of strategies",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_recovery",
+            "description": "Test recovery from strategy failures",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_reasoning_steps_quality",
+            "description": "Test quality of reasoning steps",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_context_handling",
+            "description": "Test handling of context in reasoning",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_inputs",
+            "description": "Test handling of invalid inputs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_cross_validation",
+            "description": "Test cross-validation between components",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "validator": {
+                        "type": "string"
+                    },
+                    "reviewer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "validator",
+                    "reviewer"
+                ]
+            },
+            "file": "tests\\test_reasoning_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_performance_requirements",
+            "description": "Test performance requirements",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_memory_management",
+            "description": "Test memory management during reasoning",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_branching_initialization",
+            "description": "Test branching reasoner initialization",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_branching_path_execution",
+            "description": "Test execution of individual reasoning paths",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_branching_full_reasoning",
+            "description": "Test complete branching reasoning process",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_abductive_initialization",
+            "description": "Test abductive reasoner initialization",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_hypothesis_generation",
+            "description": "Test generation of initial hypotheses",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_evidence_gathering",
+            "description": "Test evidence gathering for hypotheses",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_abductive_full_reasoning",
+            "description": "Test complete abductive reasoning process",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "Test error handling in both reasoners",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_research_context",
+            "description": "Create a mock research context for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_strategy_selection",
+            "description": "Test strategy selection based on question characteristics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "strategy": {
+                        "type": "string"
+                    },
+                    "questions": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "strategy",
+                    "questions"
+                ]
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "mock_reasoning_modules",
+            "description": "Mock all reasoning modules to return predictable results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_strategy_execution",
+            "description": "Test execution of multiple reasoning strategies",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_reasoning_modules": {
+                        "type": "string"
+                    },
+                    "mock_research_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_reasoning_modules",
+                    "mock_research_context"
+                ]
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_strategy_combination",
+            "description": "Test combination of results from multiple strategies",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_reasoning_modules": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_reasoning_modules"
+                ]
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_confidence_based_selection",
+            "description": "Test selection of results based on confidence scores",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sequential_reasoning_steps",
+            "description": "Test sequential reasoning produces meaningful steps",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_logical_strategy_for_deduction",
+            "description": "Test logical reasoning for deductive questions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_branching_reasoning_paths",
+            "description": "Test branching reasoning explores multiple paths",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_abductive_hypothesis_formation",
+            "description": "Test abductive reasoning forms and evaluates hypotheses",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_lateral_creative_thinking",
+            "description": "Test lateral thinking produces creative outputs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_fallback_to_sequential",
+            "description": "Test fallback to sequential reasoning when other strategies fail",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_combined_confidence_calculation",
+            "description": "Test confidence calculation when combining multiple strategy results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_empty_results_handling",
+            "description": "Test handling of case where no strategies produce valid results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_reasoning_with_validation",
+            "description": "Test final validation step of reasoning results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_reasoning_strategies_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_research_integrator_basic",
+            "description": "\n    Test basic research integration functionality\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_query_variations",
+            "description": "\n    Test query variation generation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_result_extraction",
+            "description": "\n    Test information extraction from research results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_exa_search_integration",
+            "description": "\n    Test direct Exa Search API integration\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_information_function",
+            "description": "\n    Test high-level search information function\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "\n    Test error handling in research integration\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_exa_search",
+            "description": "Set up mocked Exa search for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_basic_research",
+            "description": "Test basic research functionality with mocked search responses",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_exa_search": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_exa_search"
+                ]
+            },
+            "file": "tests\\test_research_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_query_variation",
+            "description": "Test that query variation produces multiple search terms",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_confidence_scoring",
+            "description": "Test confidence scoring mechanism",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_exa_search": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_exa_search"
+                ]
+            },
+            "file": "tests\\test_research_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_empty_search_results",
+            "description": "Test handling of empty search results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_error_handling",
+            "description": "Test handling of search errors",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_information_extraction",
+            "description": "Test extraction of key information from research results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_exa_search": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_exa_search"
+                ]
+            },
+            "file": "tests\\test_research_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_research_with_reasoning_integration",
+            "description": "Test integration of research with reasoning",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_rate_limiting",
+            "description": "Test rate limiting functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_source_diversity",
+            "description": "Test source diversity calculation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_research_with_multiple_query_variations",
+            "description": "Test that multiple query variations improve research outcomes",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_research_api_error_recovery",
+            "description": "Test recovery from API errors during research",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_research_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "simple_template",
+            "description": "Create simple resource template",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_resources.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "complex_template",
+            "description": "Create complex resource template",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_resources.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_resource_handler",
+            "description": "Test resource handler functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_resources.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handler_error_handling",
+            "description": "Test handler error handling",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_resources.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sequential_reasoning",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_sequential.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sequential_reasoning_empty_question",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_sequential.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_reasoning_basic",
+            "description": "Test basic reasoning functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_simplified.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_empty_question",
+            "description": "Test error handling for empty questions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_simplified.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_validation",
+            "description": "Test validation functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_simplified.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_research",
+            "description": "Test research functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_simplified.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_reviewer",
+            "description": "Test reviewer functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_simplified.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_basic_validation",
+            "description": "\n    Test basic validation functionality\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_validation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_semantic_validation",
+            "description": "\n    Test semantic validation capabilities\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_validation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_complex_validation",
+            "description": "\n    Test validation with complex scenarios\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_validation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "\n    Test validator error handling\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_validation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_basic_validation",
+            "description": "Test basic validation functionality with different test cases",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "case": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "case"
+                ]
+            },
+            "file": "tests\\test_validation_system.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_advanced_validation",
+            "description": "Test advanced validation capabilities",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_validation_system.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_reviewer_functionality",
+            "description": "Test the AI reviewer component",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_validation_system.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_reviewer_catches_errors",
+            "description": "Test that reviewer catches incorrect information",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_validation_system.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_validation_pipeline",
+            "description": "Test the complete validation pipeline",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_validation_system.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_validation_system_integration",
+            "description": "Test integration of validation system with reasoning",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_validation_system.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_individual_validation_criteria",
+            "description": "Test each validation criterion independently",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "criteria_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "criteria_name"
+                ]
+            },
+            "file": "tests\\test_validation_system.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        }
+    ]
+}

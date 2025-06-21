@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "is_configured",
+            "description": "Check if all required GitHub environment variables are set.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\github_integration.py",
+            "decorator": [
+                "property"
+            ]
+        }
+    ]
+}

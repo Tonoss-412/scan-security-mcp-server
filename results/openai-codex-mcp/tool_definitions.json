@@ -1,0 +1,111 @@
+{
+    "tools": [
+        {
+            "name": "codex_agent",
+            "description": "\n    Interact with OpenAI's Codex CLI - a lightweight coding agent that runs in your terminal.\n    \n    This tool provides access to all Codex CLI capabilities including code generation, \n    explanation, debugging, refactoring, and more. Codex can read files, execute commands,\n    and make changes to your codebase with appropriate approval modes.\n    \n    Args:\n        prompt: The task or question to send to Codex\n        model: AI model to use (default: o4-mini, options: o4-mini, o4-preview, gpt-4.1, etc.)\n        approval_mode: Agent autonomy level:\n            - \"suggest\": Only suggests changes, requires approval for all actions (default, safest)\n            - \"auto-edit\": Can read and write files automatically, asks for shell commands\n            - \"full-auto\": Full autonomy with network-disabled sandbox (most powerful)\n        images: List of image paths or data URIs to include (for multimodal tasks)\n        provider: AI provider (openai, azure, gemini, ollama, mistral, deepseek, xai, groq, etc.)\n        json_output: Return structured JSON output when possible\n        task_type: Type of task for optimized prompting:\n            - \"general\": General coding assistance (default)\n            - \"code-generation\": Generate new code\n            - \"code-explanation\": Explain existing code\n            - \"debugging\": Find and fix bugs\n            - \"refactoring\": Improve code structure\n            - \"testing\": Write or fix tests\n            - \"security\": Security analysis and fixes\n            - \"documentation\": Generate or improve documentation\n        additional_args: Additional CLI arguments to pass to Codex\n        \n    Returns:\n        Dictionary with status, output, and execution details\n        \n    Examples:\n        # Basic code generation\n        codex_agent(\"Create a Python function to calculate fibonacci numbers\")\n        \n        # Code explanation with auto-edit mode\n        codex_agent(\"Explain this codebase to me\", approval_mode=\"auto-edit\")\n        \n        # Debugging with specific model\n        codex_agent(\"Fix the bug in utils.py\", model=\"o4-preview\", task_type=\"debugging\")\n        \n        # Multimodal task with image\n        codex_agent(\"Implement this UI design\", images=[\"design.png\"], task_type=\"code-generation\")\n        \n        # Security analysis\n        codex_agent(\"Review this code for security vulnerabilities\", task_type=\"security\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": "The task or question to send to Codex"
+                    },
+                    "model": {
+                        "type": "string",
+                        "description": "AI model to use (default: o4-mini, options: o4-mini, o4-preview, gpt-4.1, etc.)"
+                    },
+                    "approval_mode": {
+                        "type": "string",
+                        "description": "Agent autonomy level:"
+                    },
+                    "images": {
+                        "type": "string",
+                        "description": "List of image paths or data URIs to include (for multimodal tasks)"
+                    },
+                    "provider": {
+                        "type": "string",
+                        "description": "AI provider (openai, azure, gemini, ollama, mistral, deepseek, xai, groq, etc.)"
+                    },
+                    "json_output": {
+                        "type": "string",
+                        "description": "Return structured JSON output when possible"
+                    },
+                    "task_type": {
+                        "type": "string",
+                        "description": "Type of task for optimized prompting:"
+                    },
+                    "additional_args": {
+                        "type": "string",
+                        "description": "Additional CLI arguments to pass to Codex"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "prompt",
+                    "model",
+                    "approval_mode",
+                    "images",
+                    "provider",
+                    "json_output",
+                    "task_type",
+                    "additional_args",
+                    "Returns",
+                    "Examples"
+                ]
+            },
+            "file": "codex_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "codex_interactive",
+            "description": "\n    Start an interactive Codex session (REPL mode).\n    \n    This launches Codex in interactive mode where you can have a conversation\n    with the coding agent. Useful for iterative development and exploration.\n    \n    Args:\n        initial_prompt: Optional initial prompt to start the session\n        model: AI model to use (default: o4-mini)\n        approval_mode: Agent autonomy level (suggest, auto-edit, full-auto)\n        provider: AI provider to use\n        \n    Returns:\n        Dictionary with session information and instructions\n        \n    Note: This starts an interactive session that requires terminal access.\n    For non-interactive use, prefer the codex_agent tool.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "initial_prompt": {
+                        "type": "string",
+                        "description": "Optional initial prompt to start the session"
+                    },
+                    "model": {
+                        "type": "string",
+                        "description": "AI model to use (default: o4-mini)"
+                    },
+                    "approval_mode": {
+                        "type": "string",
+                        "description": "Agent autonomy level (suggest, auto-edit, full-auto)"
+                    },
+                    "provider": {
+                        "type": "string",
+                        "description": "AI provider to use"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Note": {
+                        "type": "string",
+                        "description": "This starts an interactive session that requires terminal access."
+                    }
+                },
+                "required": [
+                    "initial_prompt",
+                    "model",
+                    "approval_mode",
+                    "provider",
+                    "Returns",
+                    "Note"
+                ]
+            },
+            "file": "codex_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

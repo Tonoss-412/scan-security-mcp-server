@@ -1,0 +1,52 @@
+{
+    "tools": [
+        {
+            "name": "get_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "github_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "invoke_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "github_mcp.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "parse_prompt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "github_mcp.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "sse",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "github_mcp.py",
+            "decorator": [
+                "app.get"
+            ]
+        }
+    ]
+}

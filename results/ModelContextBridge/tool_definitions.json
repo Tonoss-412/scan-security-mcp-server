@@ -1,0 +1,30 @@
+{
+    "tools": [
+        {
+            "name": "main",
+            "description": "CLI entry point",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "_generate_cache_key",
+            "description": "Generate a cache key for the input.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "core\\llm.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        }
+    ]
+}

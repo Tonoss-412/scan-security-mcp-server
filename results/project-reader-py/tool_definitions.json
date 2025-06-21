@@ -1,0 +1,179 @@
+{
+    "tools": [
+        {
+            "name": "parse",
+            "description": "\n        Parse code content and extract definitions.\n\n        Args:\n            content: The content of the file.\n            file_path: The path to the file.\n\n        Returns:\n            List[CodeDefinition]: A list of code definitions.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "The content of the file."
+                    },
+                    "file_path": {
+                        "type": "string",
+                        "description": "The path to the file."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "content",
+                    "file_path",
+                    "Returns"
+                ]
+            },
+            "file": "src\\services\\parsers\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "find_line_number",
+            "description": "\n        Find the line number for a position in the content.\n\n        Args:\n            content: The content of the file.\n            position: The position in the content.\n\n        Returns:\n            int: The line number (1-based).\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "The content of the file."
+                    },
+                    "position": {
+                        "type": "string",
+                        "description": "The position in the content."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "int": {
+                        "type": "string",
+                        "description": "The line number (1-based)."
+                    }
+                },
+                "required": [
+                    "content",
+                    "position",
+                    "Returns",
+                    "int"
+                ]
+            },
+            "file": "src\\services\\parsers\\base.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "extract_docstring",
+            "description": "\n        Extract a docstring using a regex pattern.\n\n        Args:\n            content: The content of the file.\n            pattern: The regex pattern for the docstring.\n            start_pos: The position to start searching from.\n\n        Returns:\n            Optional[str]: The extracted docstring, or None if not found.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "The content of the file."
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "The regex pattern for the docstring."
+                    },
+                    "start_pos": {
+                        "type": "string",
+                        "description": "The position to start searching from."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "content",
+                    "pattern",
+                    "start_pos",
+                    "Returns"
+                ]
+            },
+            "file": "src\\services\\parsers\\base.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "find_block_end",
+            "description": "\n        Find the end of a block (e.g., a function or class body).\n\n        Args:\n            content: The content of the file.\n            start_pos: The position to start searching from.\n            open_char: The character that opens a block.\n            close_char: The character that closes a block.\n\n        Returns:\n            int: The position of the end of the block.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "The content of the file."
+                    },
+                    "start_pos": {
+                        "type": "string",
+                        "description": "The position to start searching from."
+                    },
+                    "open_char": {
+                        "type": "string",
+                        "description": "The character that opens a block."
+                    },
+                    "close_char": {
+                        "type": "string",
+                        "description": "The character that closes a block."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "int": {
+                        "type": "string",
+                        "description": "The position of the end of the block."
+                    }
+                },
+                "required": [
+                    "content",
+                    "start_pos",
+                    "open_char",
+                    "close_char",
+                    "Returns",
+                    "int"
+                ]
+            },
+            "file": "src\\services\\parsers\\base.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "find_next_definition",
+            "description": "\n        Find the next definition in the content.\n\n        Args:\n            content: The content of the file.\n            start_pos: The position to start searching from.\n            pattern: The regex pattern for the definition.\n\n        Returns:\n            Tuple[int, Optional[re.Match]]: The position and match of the next definition.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "The content of the file."
+                    },
+                    "start_pos": {
+                        "type": "string",
+                        "description": "The position to start searching from."
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "The regex pattern for the definition."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "content",
+                    "start_pos",
+                    "pattern",
+                    "Returns"
+                ]
+            },
+            "file": "src\\services\\parsers\\base.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

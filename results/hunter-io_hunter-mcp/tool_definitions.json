@@ -1,0 +1,76 @@
+{
+    "tools": [
+        {
+            "name": "domain_search",
+            "description": "Returnthetop10emailsonagivendomain.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "email_verifier",
+            "description": "Returnthevalidityofagivenemailaddress.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "email_finder",
+            "description": "Returnthemostlikelyemailaddressforagivendomainandfullname.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_email",
+            "description": "Returnalltheinformationassociatedwithanemailaddress",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "enrich_company",
+            "description": "Returnalltheinformationassociatedwithadomain",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_lead",
+            "description": "Createaleadinuser'saccount.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,282 @@
+{
+    "tools": [
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_tables",
+            "description": "List all tables in the database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_table_schema",
+            "description": "Get schema information for a specific table",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "query_database",
+            "description": "Query the database using natural language",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "execute_sql",
+            "description": "Execute an SQL query directly",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_database_info",
+            "description": "Get comprehensive information about the database structure",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "Interactive chat interface to query the database using natural language.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "query",
+            "description": "One-off query to the database using natural language.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "serve",
+            "description": "Start the MCP server for remote access to the AI Database Assistant.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "api",
+            "description": "Start the REST API server for the AI Database Assistant.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "\n            Search for the data based on keyword.\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "retrieve",
+            "description": "\n            Retrieve for the data based on keyword.\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch",
+            "description": "\n            Get user by it's ID\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "query_database",
+            "description": "\n            Query the database with natural language.\n\n            Args:\n                question: Natural language question about the database\n\n            Returns:\n                Dictionary containing the response, SQL query, and results\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "question": {
+                        "type": "string",
+                        "description": "Natural language question about the database"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "question",
+                    "Returns"
+                ]
+            },
+            "file": "app\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "list_tables",
+            "description": "\n            List all tables in the database.\n\n            Returns:\n                Dictionary containing the list of tables\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "get_table_schema",
+            "description": "\n            Get the schema for a specific table.\n\n            Args:\n                table_name: Name of the table\n\n            Returns:\n                Dictionary containing the table schema and foreign keys\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "table_name": {
+                        "type": "string",
+                        "description": "Name of the table"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "table_name",
+                    "Returns"
+                ]
+            },
+            "file": "app\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_sql",
+            "description": "\n            Execute an SQL query directly.\n\n            Args:\n                query: SQL query to execute\n\n            Returns:\n                Dictionary containing the query results\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "SQL query to execute"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "app\\mcp_server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "setUpClass",
+            "description": "Set up test database and client for all tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "tests\\test_api.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "tearDownClass",
+            "description": "Clean up after tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "tests\\test_api.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

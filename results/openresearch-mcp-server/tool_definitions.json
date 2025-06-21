@@ -1,0 +1,148 @@
+{
+    "tools": [
+        {
+            "name": "get_author_papers",
+            "description": "Get author papers tool - Support JSON format",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\tools\\author_tools.py",
+            "decorator": [
+                "handle_tool_error"
+            ]
+        },
+        {
+            "name": "get_citation_network",
+            "description": "Get citation network tool - Support JSON format",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\tools\\network_tools.py",
+            "decorator": [
+                "handle_tool_error"
+            ]
+        },
+        {
+            "name": "get_collaboration_network",
+            "description": "Get collaboration network tool - Support JSON format",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\tools\\network_tools.py",
+            "decorator": [
+                "handle_tool_error"
+            ]
+        },
+        {
+            "name": "search_papers",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\tools\\paper_tools.py",
+            "decorator": [
+                "handle_tool_error"
+            ]
+        },
+        {
+            "name": "get_paper_details",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\tools\\paper_tools.py",
+            "decorator": [
+                "handle_tool_error"
+            ]
+        },
+        {
+            "name": "get_paper_citations",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\tools\\paper_tools.py",
+            "decorator": [
+                "handle_tool_error"
+            ]
+        },
+        {
+            "name": "get_trending_papers",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\tools\\trend_tools.py",
+            "decorator": [
+                "handle_tool_error"
+            ]
+        },
+        {
+            "name": "get_top_keywords",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\tools\\trend_tools.py",
+            "decorator": [
+                "handle_tool_error"
+            ]
+        },
+        {
+            "name": "analyze_domain_trends",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\tools\\trend_tools.py",
+            "decorator": [
+                "handle_tool_error"
+            ]
+        },
+        {
+            "name": "analyze_research_landscape",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\tools\\trend_tools.py",
+            "decorator": [
+                "handle_tool_error"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server\\mcp_server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Call specified tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server\\mcp_server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        }
+    ]
+}

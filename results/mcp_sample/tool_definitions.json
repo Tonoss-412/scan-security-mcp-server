@@ -1,0 +1,52 @@
+{
+    "tools": [
+        {
+            "name": "save_text",
+            "description": "\n    Save text to a file with security and error handling.\n    \n    This tool saves the provided text content to a file on the local filesystem.\n    If no filename is specified, it generates a timestamped filename automatically.\n    \n    Args:\n        text: The text content to save to the file\n        filename: Optional filename. If not provided, will use timestamp\n                 in format: 'year-month-date-hour-minute-second.txt'\n    \n    Returns:\n        A success message with the path to the saved file, or an error message\n        \n    Raises:\n        TextTooLargeError: If the text exceeds the maximum allowed size\n        InvalidFilenameError: If the provided filename is invalid or unsafe\n        IOError: If there's an issue writing to the file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "The text content to save to the file"
+                    },
+                    "filename": {
+                        "type": "string",
+                        "description": "Optional filename. If not provided, will use timestamp"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "TextTooLargeError": {
+                        "type": "string",
+                        "description": "If the text exceeds the maximum allowed size"
+                    },
+                    "InvalidFilenameError": {
+                        "type": "string",
+                        "description": "If the provided filename is invalid or unsafe"
+                    },
+                    "IOError": {
+                        "type": "string",
+                        "description": "If there's an issue writing to the file"
+                    }
+                },
+                "required": [
+                    "text",
+                    "filename",
+                    "Returns",
+                    "Raises",
+                    "TextTooLargeError",
+                    "InvalidFilenameError",
+                    "IOError"
+                ]
+            },
+            "file": "text_saver_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

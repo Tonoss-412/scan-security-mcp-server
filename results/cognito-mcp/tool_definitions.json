@@ -1,0 +1,44 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "List all tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_cognito\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_cognito\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "MCP Cognito Server - Cognito functionality for MCP",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_cognito\\__init__.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        }
+    ]
+}

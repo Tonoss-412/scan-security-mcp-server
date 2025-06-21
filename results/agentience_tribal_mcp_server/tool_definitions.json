@@ -1,0 +1,1009 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "Root endpoint for the API.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_tribal\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint for the API.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_tribal\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "log_requests",
+            "description": "Log all incoming requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "call_next": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "call_next"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\app.py",
+            "decorator": [
+                "app.middleware"
+            ]
+        },
+        {
+            "name": "get_system_instructions",
+            "description": "Provide system instructions to Claude when the MCP server initializes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_tribal\\mcp_app.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "track_error",
+            "description": "\n    Track an error and its solution in the knowledge base.\n\n    Args:\n        error_type: Type of error (e.g., ImportError, TypeError)\n        error_message: The error message\n        language: Programming language (e.g., python, javascript)\n        framework: Framework used (e.g., fastapi, react)\n        code_snippet: The code that caused the error\n        task_description: What the user was trying to accomplish\n        solution_description: Brief description of the solution\n        solution_code_fix: Code that fixes the error\n        solution_explanation: Detailed explanation of why the solution works\n        solution_references: List of reference links\n\n    Returns:\n        The created error record\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_type": {
+                        "type": "string",
+                        "description": "Type of error (e.g., ImportError, TypeError)"
+                    },
+                    "error_message": {
+                        "type": "string",
+                        "description": "The error message"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Programming language (e.g., python, javascript)"
+                    },
+                    "framework": {
+                        "type": "string",
+                        "description": "Framework used (e.g., fastapi, react)"
+                    },
+                    "code_snippet": {
+                        "type": "string",
+                        "description": "The code that caused the error"
+                    },
+                    "task_description": {
+                        "type": "string",
+                        "description": "What the user was trying to accomplish"
+                    },
+                    "solution_description": {
+                        "type": "string",
+                        "description": "Brief description of the solution"
+                    },
+                    "solution_code_fix": {
+                        "type": "string",
+                        "description": "Code that fixes the error"
+                    },
+                    "solution_explanation": {
+                        "type": "string",
+                        "description": "Detailed explanation of why the solution works"
+                    },
+                    "solution_references": {
+                        "type": "string",
+                        "description": "List of reference links"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error_type",
+                    "error_message",
+                    "language",
+                    "framework",
+                    "code_snippet",
+                    "task_description",
+                    "solution_description",
+                    "solution_code_fix",
+                    "solution_explanation",
+                    "solution_references",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\mcp_app.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_similar_errors",
+            "description": "\n    Find errors similar to the given query.\n\n    Args:\n        query: Text to search for in the knowledge base\n        max_results: Maximum number of results to return\n\n    Returns:\n        List of similar error records\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Text to search for in the knowledge base"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\mcp_app.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_errors",
+            "description": "\n    Search for errors in the knowledge base.\n\n    Args:\n        error_type: Type of error to filter by\n        language: Programming language to filter by\n        framework: Framework to filter by\n        error_message: Error message to search for\n        code_snippet: Code snippet to search for\n        task_description: Task description to search for\n        max_results: Maximum number of results to return\n\n    Returns:\n        List of matching error records\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_type": {
+                        "type": "string",
+                        "description": "Type of error to filter by"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Programming language to filter by"
+                    },
+                    "framework": {
+                        "type": "string",
+                        "description": "Framework to filter by"
+                    },
+                    "error_message": {
+                        "type": "string",
+                        "description": "Error message to search for"
+                    },
+                    "code_snippet": {
+                        "type": "string",
+                        "description": "Code snippet to search for"
+                    },
+                    "task_description": {
+                        "type": "string",
+                        "description": "Task description to search for"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error_type",
+                    "language",
+                    "framework",
+                    "error_message",
+                    "code_snippet",
+                    "task_description",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\mcp_app.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_error_by_id",
+            "description": "\n    Get an error record by its ID.\n\n    Args:\n        error_id: UUID of the error record\n\n    Returns:\n        The error record or None if not found\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_id": {
+                        "type": "string",
+                        "description": "UUID of the error record"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\mcp_app.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_error",
+            "description": "\n    Delete an error record.\n\n    Args:\n        error_id: UUID of the error record\n\n    Returns:\n        True if deleted, False if not found\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_id": {
+                        "type": "string",
+                        "description": "UUID of the error record"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\mcp_app.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_api_status",
+            "description": "\n    Check the API status.\n\n    Returns:\n        API status information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_tribal\\mcp_app.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "track_error",
+            "description": "\n    Track an error and its solution in the knowledge base.\n\n    Args:\n        error_type: Type of error (e.g., ImportError, TypeError)\n        error_message: The error message\n        language: Programming language (e.g., python, javascript)\n        framework: Framework used (e.g., fastapi, react)\n        code_snippet: The code that caused the error\n        task_description: What the user was trying to accomplish\n        solution_description: Brief description of the solution\n        solution_code_fix: Code that fixes the error\n        solution_explanation: Detailed explanation of why the solution works\n        solution_references: List of reference links\n\n    Returns:\n        The created error record\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_type": {
+                        "type": "string",
+                        "description": "Type of error (e.g., ImportError, TypeError)"
+                    },
+                    "error_message": {
+                        "type": "string",
+                        "description": "The error message"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Programming language (e.g., python, javascript)"
+                    },
+                    "framework": {
+                        "type": "string",
+                        "description": "Framework used (e.g., fastapi, react)"
+                    },
+                    "code_snippet": {
+                        "type": "string",
+                        "description": "The code that caused the error"
+                    },
+                    "task_description": {
+                        "type": "string",
+                        "description": "What the user was trying to accomplish"
+                    },
+                    "solution_description": {
+                        "type": "string",
+                        "description": "Brief description of the solution"
+                    },
+                    "solution_code_fix": {
+                        "type": "string",
+                        "description": "Code that fixes the error"
+                    },
+                    "solution_explanation": {
+                        "type": "string",
+                        "description": "Detailed explanation of why the solution works"
+                    },
+                    "solution_references": {
+                        "type": "string",
+                        "description": "List of reference links"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error_type",
+                    "error_message",
+                    "language",
+                    "framework",
+                    "code_snippet",
+                    "task_description",
+                    "solution_description",
+                    "solution_code_fix",
+                    "solution_explanation",
+                    "solution_references",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_similar_errors",
+            "description": "\n    Find errors similar to the given query.\n\n    Args:\n        query: Text to search for in the knowledge base\n        max_results: Maximum number of results to return\n\n    Returns:\n        List of similar error records\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Text to search for in the knowledge base"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_errors",
+            "description": "\n    Search for errors in the knowledge base.\n\n    Args:\n        error_type: Type of error to filter by\n        language: Programming language to filter by\n        framework: Framework to filter by\n        error_message: Error message to search for\n        code_snippet: Code snippet to search for\n        task_description: Task description to search for\n        max_results: Maximum number of results to return\n\n    Returns:\n        List of matching error records\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_type": {
+                        "type": "string",
+                        "description": "Type of error to filter by"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Programming language to filter by"
+                    },
+                    "framework": {
+                        "type": "string",
+                        "description": "Framework to filter by"
+                    },
+                    "error_message": {
+                        "type": "string",
+                        "description": "Error message to search for"
+                    },
+                    "code_snippet": {
+                        "type": "string",
+                        "description": "Code snippet to search for"
+                    },
+                    "task_description": {
+                        "type": "string",
+                        "description": "Task description to search for"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error_type",
+                    "language",
+                    "framework",
+                    "error_message",
+                    "code_snippet",
+                    "task_description",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_error_by_id",
+            "description": "\n    Get an error record by its ID.\n\n    Args:\n        error_id: UUID of the error record\n\n    Returns:\n        The error record\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_id": {
+                        "type": "string",
+                        "description": "UUID of the error record"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_api_status",
+            "description": "\n    Check the API status.\n\n    Returns:\n        API status information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_tribal\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "handle_execution",
+            "description": "\n    Handle tool execution.\n\n    Args:\n        tool_name: Name of the tool to execute\n        params: Tool parameters\n\n    Returns:\n        Tool execution result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tool_name": {
+                        "type": "string",
+                        "description": "Name of the tool to execute"
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "Tool parameters"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tool_name",
+                    "params",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\mcp_server.py",
+            "decorator": [
+                "mcp.handle_execution"
+            ]
+        },
+        {
+            "name": "login_for_access_token",
+            "description": "\n        Generate an access token from username and password.\n\n        This endpoint is primarily for development purposes. For production,\n        API key authentication is recommended.\n\n        Args:\n            form_data: OAuth2 password request form\n\n        Returns:\n            A dictionary with the access token and token type\n\n        Raises:\n            HTTPException: If authentication fails\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "form_data": {
+                        "type": "string",
+                        "description": "OAuth2 password request form"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "HTTPException": {
+                        "type": "string",
+                        "description": "If authentication fails"
+                    }
+                },
+                "required": [
+                    "form_data",
+                    "Returns",
+                    "Raises",
+                    "HTTPException"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\api\\auth.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "auth_status",
+            "description": "Return the authentication status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_tribal\\api\\auth.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_error",
+            "description": "\n    Create a new error record.\n\n    Args:\n        error: The error record to create\n        storage: Storage service dependency\n        _: API key authentication dependency\n\n    Returns:\n        The created error record\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "type": "string",
+                        "description": "The error record to create"
+                    },
+                    "storage": {
+                        "type": "string",
+                        "description": "Storage service dependency"
+                    },
+                    "_": {
+                        "type": "string",
+                        "description": "API key authentication dependency"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error",
+                    "storage",
+                    "_",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\api\\errors.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "read_error",
+            "description": "\n    Get an error record by ID.\n\n    Args:\n        error_id: The UUID of the error record\n        storage: Storage service dependency\n        _: API key authentication dependency\n\n    Returns:\n        The error record\n\n    Raises:\n        HTTPException: If the error record is not found\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_id": {
+                        "type": "string",
+                        "description": "The UUID of the error record"
+                    },
+                    "storage": {
+                        "type": "string",
+                        "description": "Storage service dependency"
+                    },
+                    "_": {
+                        "type": "string",
+                        "description": "API key authentication dependency"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "HTTPException": {
+                        "type": "string",
+                        "description": "If the error record is not found"
+                    }
+                },
+                "required": [
+                    "error_id",
+                    "storage",
+                    "_",
+                    "Returns",
+                    "Raises",
+                    "HTTPException"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\api\\errors.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_error",
+            "description": "\n    Update an error record.\n\n    Args:\n        error_id: The UUID of the error record\n        error: The updated error record\n        storage: Storage service dependency\n        _: API key authentication dependency\n\n    Returns:\n        The updated error record\n\n    Raises:\n        HTTPException: If the error record is not found\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_id": {
+                        "type": "string",
+                        "description": "The UUID of the error record"
+                    },
+                    "error": {
+                        "type": "string",
+                        "description": "The updated error record"
+                    },
+                    "storage": {
+                        "type": "string",
+                        "description": "Storage service dependency"
+                    },
+                    "_": {
+                        "type": "string",
+                        "description": "API key authentication dependency"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "HTTPException": {
+                        "type": "string",
+                        "description": "If the error record is not found"
+                    }
+                },
+                "required": [
+                    "error_id",
+                    "error",
+                    "storage",
+                    "_",
+                    "Returns",
+                    "Raises",
+                    "HTTPException"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\api\\errors.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_error",
+            "description": "\n    Delete an error record.\n\n    Args:\n        error_id: The UUID of the error record\n        storage: Storage service dependency\n        _: API key authentication dependency\n\n    Raises:\n        HTTPException: If the error record is not found\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_id": {
+                        "type": "string",
+                        "description": "The UUID of the error record"
+                    },
+                    "storage": {
+                        "type": "string",
+                        "description": "Storage service dependency"
+                    },
+                    "_": {
+                        "type": "string",
+                        "description": "API key authentication dependency"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "HTTPException": {
+                        "type": "string",
+                        "description": "If the error record is not found"
+                    }
+                },
+                "required": [
+                    "error_id",
+                    "storage",
+                    "_",
+                    "Raises",
+                    "HTTPException"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\api\\errors.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "search_errors",
+            "description": "\n    Search for error records.\n\n    Args:\n        error_type: The error type to filter by\n        language: The language to filter by\n        framework: The framework to filter by\n        error_message: The error message to search for\n        code_snippet: The code snippet to search for\n        task_description: The task description to search for\n        max_results: Maximum number of results to return\n        storage: Storage service dependency\n        _: API key authentication dependency\n\n    Returns:\n        A list of matching error records\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_type": {
+                        "type": "string",
+                        "description": "The error type to filter by"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "The language to filter by"
+                    },
+                    "framework": {
+                        "type": "string",
+                        "description": "The framework to filter by"
+                    },
+                    "error_message": {
+                        "type": "string",
+                        "description": "The error message to search for"
+                    },
+                    "code_snippet": {
+                        "type": "string",
+                        "description": "The code snippet to search for"
+                    },
+                    "task_description": {
+                        "type": "string",
+                        "description": "The task description to search for"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "storage": {
+                        "type": "string",
+                        "description": "Storage service dependency"
+                    },
+                    "_": {
+                        "type": "string",
+                        "description": "API key authentication dependency"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error_type",
+                    "language",
+                    "framework",
+                    "error_message",
+                    "code_snippet",
+                    "task_description",
+                    "max_results",
+                    "storage",
+                    "_",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\api\\errors.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "search_similar",
+            "description": "\n    Search for error records with similar text content.\n\n    Args:\n        query: The text to search for\n        max_results: Maximum number of results to return\n        storage: Storage service dependency\n        _: API key authentication dependency\n\n    Returns:\n        A list of similar error records\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The text to search for"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "storage": {
+                        "type": "string",
+                        "description": "Storage service dependency"
+                    },
+                    "_": {
+                        "type": "string",
+                        "description": "API key authentication dependency"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "storage",
+                    "_",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\api\\errors.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "add_error",
+            "description": "\n        Add a new error record to storage.\n\n        Args:\n            error: The error record to add\n\n        Returns:\n            The added error record with any storage-specific fields populated\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "type": "string",
+                        "description": "The error record to add"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\services\\storage_interface.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "get_error",
+            "description": "\n        Retrieve an error record by ID.\n\n        Args:\n            error_id: The UUID of the error record\n\n        Returns:\n            The error record if found, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_id": {
+                        "type": "string",
+                        "description": "The UUID of the error record"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\services\\storage_interface.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "update_error",
+            "description": "\n        Update an existing error record.\n\n        Args:\n            error_id: The UUID of the error record to update\n            error: The updated error record\n\n        Returns:\n            The updated error record if found, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_id": {
+                        "type": "string",
+                        "description": "The UUID of the error record to update"
+                    },
+                    "error": {
+                        "type": "string",
+                        "description": "The updated error record"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error_id",
+                    "error",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\services\\storage_interface.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "delete_error",
+            "description": "\n        Delete an error record by ID.\n\n        Args:\n            error_id: The UUID of the error record to delete\n\n        Returns:\n            True if the error was deleted, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "error_id": {
+                        "type": "string",
+                        "description": "The UUID of the error record to delete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "error_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\services\\storage_interface.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "search_errors",
+            "description": "\n        Search for error records based on the provided query.\n\n        Args:\n            query: Search parameters\n\n        Returns:\n            A list of matching error records\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search parameters"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\services\\storage_interface.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "search_similar",
+            "description": "\n        Search for error records with similar text content.\n\n        Args:\n            text_query: The text to search for\n            max_results: Maximum number of results to return\n\n        Returns:\n            A list of matching error records ordered by similarity\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text_query": {
+                        "type": "string",
+                        "description": "The text to search for"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text_query",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_tribal\\services\\storage_interface.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create a test client for the API with a mock storage.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\test_end_to_end.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_error_records",
+            "description": "Create sample error records for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_end_to_end.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create a test client for the API.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_app.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_initial_migration",
+            "description": "Test the migration manager with an initial migration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_migration.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

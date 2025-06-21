@@ -1,0 +1,782 @@
+{
+    "tools": [
+        {
+            "name": "cli",
+            "description": "Simply pass.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\release.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "update_packages",
+            "description": "Updates the package version with a patch.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\release.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "generate_notes",
+            "description": "Generates detailed release notes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\release.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "generate_version",
+            "description": "Generates a version.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\release.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "generate_matrix",
+            "description": "Outputs JSON for changes in the repository under a path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\release.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "read_documentation",
+            "description": "Fetch and convert an AWS documentation page to markdown format.\n\n    ## Usage\n\n    This tool retrieves the content of an AWS documentation page and converts it to markdown format.\n    For long documents, you can make multiple calls with different start_index values to retrieve\n    the entire content in chunks.\n\n    ## URL Requirements\n\n    - Must be from the docs.aws.amazon.com domain\n    - Must end with .html\n\n    ## Example URLs\n\n    - https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html\n    - https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html\n\n    ## Output Format\n\n    The output is formatted as markdown text with:\n    - Preserved headings and structure\n    - Code blocks for examples\n    - Lists and tables converted to markdown format\n\n    ## Handling Long Documents\n\n    If the response indicates the document was truncated, you have several options:\n\n    1. **Continue Reading**: Make another call with start_index set to the end of the previous response\n    2. **Stop Early**: For very long documents (>30,000 characters), if you've already found the specific information needed, you can stop reading\n\n    Args:\n        ctx: MCP context for logging and error handling\n        url: URL of the AWS documentation page to read\n        max_length: Maximum number of characters to return\n        start_index: On return output starting at this character index\n\n    Returns:\n        Markdown content of the AWS documentation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context for logging and error handling"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL of the AWS documentation page to read"
+                    },
+                    "max_length": {
+                        "type": "string",
+                        "description": "Maximum number of characters to return"
+                    },
+                    "start_index": {
+                        "type": "string",
+                        "description": "On return output starting at this character index"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "max_length",
+                    "start_index",
+                    "Returns"
+                ]
+            },
+            "file": "src\\aws-documentation-mcp-server\\awslabs\\aws_documentation_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_documentation",
+            "description": "Search AWS documentation using the official AWS Documentation Search API.\n\n    ## Usage\n\n    This tool searches across all AWS documentation for pages matching your search phrase.\n    Use it to find relevant documentation when you don't have a specific URL.\n\n    ## Search Tips\n\n    - Use specific technical terms rather than general phrases\n    - Include service names to narrow results (e.g., \"S3 bucket versioning\" instead of just \"versioning\")\n    - Use quotes for exact phrase matching (e.g., \"AWS Lambda function URLs\")\n    - Include abbreviations and alternative terms to improve results\n\n    ## Result Interpretation\n\n    Each result includes:\n    - rank_order: The relevance ranking (lower is more relevant)\n    - url: The documentation page URL\n    - title: The page title\n    - context: A brief excerpt or summary (if available)\n\n    Args:\n        ctx: MCP context for logging and error handling\n        search_phrase: Search phrase to use\n        limit: Maximum number of results to return\n\n    Returns:\n        List of search results with URLs, titles, and context snippets\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context for logging and error handling"
+                    },
+                    "search_phrase": {
+                        "type": "string",
+                        "description": "Search phrase to use"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "search_phrase",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "src\\aws-documentation-mcp-server\\awslabs\\aws_documentation_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "recommend",
+            "description": "Get content recommendations for an AWS documentation page.\n\n    ## Usage\n\n    This tool provides recommendations for related AWS documentation pages based on a given URL.\n    Use it to discover additional relevant content that might not appear in search results.\n\n    ## Recommendation Types\n\n    The recommendations include four categories:\n\n    1. **Highly Rated**: Popular pages within the same AWS service\n    2. **New**: Recently added pages within the same AWS service - useful for finding newly released features\n    3. **Similar**: Pages covering similar topics to the current page\n    4. **Journey**: Pages commonly viewed next by other users\n\n    ## When to Use\n\n    - After reading a documentation page to find related content\n    - When exploring a new AWS service to discover important pages\n    - To find alternative explanations of complex concepts\n    - To discover the most popular pages for a service\n    - To find newly released information by using a service's welcome page URL and checking the **New** recommendations\n\n    ## Finding New Features\n\n    To find newly released information about a service:\n    1. Find any page belong to that service, typically you can try the welcome page\n    2. Call this tool with that URL\n    3. Look specifically at the **New** recommendation type in the results\n\n    ## Result Interpretation\n\n    Each recommendation includes:\n    - url: The documentation page URL\n    - title: The page title\n    - context: A brief description (if available)\n\n    Args:\n        ctx: MCP context for logging and error handling\n        url: URL of the AWS documentation page to get recommendations for\n\n    Returns:\n        List of recommended pages with URLs, titles, and context\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context for logging and error handling"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL of the AWS documentation page to get recommendations for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns"
+                ]
+            },
+            "file": "src\\aws-documentation-mcp-server\\awslabs\\aws_documentation_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_read_documentation_live",
+            "description": "Test that read_documentation can fetch real AWS documentation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aws-documentation-mcp-server\\tests\\test_read_documentation_live.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.live"
+            ]
+        },
+        {
+            "name": "test_read_documentation_pagination_live",
+            "description": "Test that read_documentation pagination works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aws-documentation-mcp-server\\tests\\test_read_documentation_live.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.live"
+            ]
+        },
+        {
+            "name": "test_recommend_live",
+            "description": "Test the recommend tool with a live API call.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aws-documentation-mcp-server\\tests\\test_recommend_live.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.live"
+            ]
+        },
+        {
+            "name": "test_search_documentation_live",
+            "description": "Test the search_documentation tool with a live API call.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aws-documentation-mcp-server\\tests\\test_search_live.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.live"
+            ]
+        },
+        {
+            "name": "test_search_documentation_empty_results",
+            "description": "Test the search_documentation tool with a search phrase that should return few or no results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aws-documentation-mcp-server\\tests\\test_search_live.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.live"
+            ]
+        },
+        {
+            "name": "test_search_documentation_limit",
+            "description": "Test the search_documentation tool with different limit values.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aws-documentation-mcp-server\\tests\\test_search_live.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.live"
+            ]
+        },
+        {
+            "name": "test_read_documentation",
+            "description": "Test reading AWS documentation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aws-documentation-mcp-server\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_documentation_error",
+            "description": "Test reading AWS documentation with an error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aws-documentation-mcp-server\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_documentation",
+            "description": "Test searching AWS documentation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aws-documentation-mcp-server\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_recommend",
+            "description": "Test getting content recommendations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\aws-documentation-mcp-server\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_successful_extraction",
+            "description": "Test successful HTML content extraction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_markdownify": {
+                        "type": "string"
+                    },
+                    "mock_soup": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_markdownify",
+                    "mock_soup"
+                ]
+            },
+            "file": "src\\aws-documentation-mcp-server\\tests\\test_util.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_empty_content",
+            "description": "Test extraction with empty content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_soup": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_soup"
+                ]
+            },
+            "file": "src\\aws-documentation-mcp-server\\tests\\test_util.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "knowledgebases_resource",
+            "description": "List all available Amazon Bedrock Knowledge Bases and their data sources.\n\n    This resource returns a mapping of knowledge base IDs to their details, including:\n    - name: The human-readable name of the knowledge base\n    - data_sources: A list of data sources within the knowledge base, each with:\n      - id: The unique identifier of the data source\n      - name: The human-readable name of the data source\n\n    ## Example response structure:\n    ```json\n    {\n        \"kb-12345\": {\n            \"name\": \"Customer Support KB\",\n            \"data_sources\": [\n                {\"id\": \"ds-abc123\", \"name\": \"Technical Documentation\"},\n                {\"id\": \"ds-def456\", \"name\": \"FAQs\"}\n            ]\n        },\n        \"kb-67890\": {\n            \"name\": \"Product Information KB\",\n            \"data_sources\": [\n                {\"id\": \"ds-ghi789\", \"name\": \"Product Specifications\"}\n            ]\n        }\n    }\n    ```\n\n    ## How to use this information:\n    1. Extract the knowledge base IDs (like \"kb-12345\") for use with the QueryKnowledgeBases tool\n    2. Note the data source IDs if you want to filter queries to specific data sources\n    3. Use the names to determine which knowledge base and data source(s) are most relevant to the user's query\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\bedrock-kb-retrieval-mcp-server\\awslabs\\bedrock_kb_retrieval_mcp_server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "query_knowledge_bases_tool",
+            "description": "Query an Amazon Bedrock Knowledge Base using natural language.\n\n    ## Usage Requirements\n    - You MUST first use the `resource://knowledgebases` resource to get valid knowledge base IDs\n    - You can query different knowledge bases or make multiple queries to the same knowledge base\n\n    ## Query Tips\n    - Use clear, specific natural language queries for best results\n    - You can use this tool MULTIPLE TIMES with different queries to gather comprehensive information\n    - Break complex questions into multiple focused queries\n    - Consider querying for factual information and explanations separately\n\n    ## Tool output format\n    The response contains multiple JSON objects (one per line), each representing a retrieved document with:\n    - content: The text content of the document\n    - location: The source location of the document\n    - score: The relevance score of the document\n\n\n    ## Interpretation Best Practices\n    1. Extract and combine key information from multiple results\n    2. Consider the source and relevance score when evaluating information\n    3. Use follow-up queries to clarify ambiguous or incomplete information\n    4. If the response is not relevant, try a different query, knowledge base, and/or data source\n    5. After a few attempts, ask the user for clarification or a different query.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\bedrock-kb-retrieval-mcp-server\\awslabs\\bedrock_kb_retrieval_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_prompt_understanding",
+            "description": "MCP-CORE Prompt Understanding.\n\n    ALWAYS Use this tool first to understand the user's query and translate it into AWS expert advice.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core-mcp-server\\awslabs\\core_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_mcp_servers",
+            "description": "Update MCP servers.\n\n    This tool updates all MCP servers in the configuration to ensure they are up-to-date.\n    It will add any missing servers and update existing ones with the latest configuration.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core-mcp-server\\awslabs\\core_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "install_repo_mcp_server",
+            "description": "Install an MCP server via uvx.\n\n    Args:\n        name: The package name of the MCP server\n        args: The arguments to pass along\n        env: The environment variables to set, delimited by =\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The package name of the MCP server"
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "The arguments to pass along"
+                    },
+                    "env": {
+                        "type": "string",
+                        "description": "The environment variables to set, delimited by ="
+                    }
+                },
+                "required": [
+                    "name",
+                    "args",
+                    "env"
+                ]
+            },
+            "file": "src\\core-mcp-server\\awslabs\\core_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "parse_pricing_data",
+            "description": "Extract and structure the most relevant pricing information.\n\n        This handles both web-scraped text and API responses, focusing on\n        extracting the core pricing tiers and units.\n\n        Args:\n            pricing_data: Raw pricing data from web scraping or API\n            service_name: Name of the AWS service\n            related_services: List of related services for context-aware defaults\n\n        Returns:\n            Dict: Structured pricing information\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pricing_data": {
+                        "type": "string",
+                        "description": "Raw pricing data from web scraping or API"
+                    },
+                    "service_name": {
+                        "type": "string",
+                        "description": "Name of the AWS service"
+                    },
+                    "related_services": {
+                        "type": "string",
+                        "description": "List of related services for context-aware defaults"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Dict": {
+                        "type": "string",
+                        "description": "Structured pricing information"
+                    }
+                },
+                "required": [
+                    "pricing_data",
+                    "service_name",
+                    "related_services",
+                    "Returns",
+                    "Dict"
+                ]
+            },
+            "file": "src\\cost-analysis-mcp-server\\awslabs\\cost_analysis_mcp_server\\helpers.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "generate_cost_table",
+            "description": "Generate detailed pricing tables for different usage levels.\n\n        Creates markdown tables showing unit pricing details and cost calculations.\n\n        Args:\n            pricing_structure: Structured pricing information\n\n        Returns:\n            Dict: Markdown tables with pricing information\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pricing_structure": {
+                        "type": "string",
+                        "description": "Structured pricing information"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Dict": {
+                        "type": "string",
+                        "description": "Markdown tables with pricing information"
+                    }
+                },
+                "required": [
+                    "pricing_structure",
+                    "Returns",
+                    "Dict"
+                ]
+            },
+            "file": "src\\cost-analysis-mcp-server\\awslabs\\cost_analysis_mcp_server\\helpers.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "generate_well_architected_recommendations",
+            "description": "Generate basic cost optimization recommendations based on AWS Well-Architected framework.\n\n        This is a fallback method that returns minimal recommendations when the\n        more advanced recommendation generation approach is not available.\n\n        Args:\n            services: List of AWS services used in the project\n\n        Returns:\n            Dict: Recommendations organized by categories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "services": {
+                        "type": "string",
+                        "description": "List of AWS services used in the project"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Dict": {
+                        "type": "string",
+                        "description": "Recommendations organized by categories"
+                    }
+                },
+                "required": [
+                    "services",
+                    "Returns",
+                    "Dict"
+                ]
+            },
+            "file": "src\\cost-analysis-mcp-server\\awslabs\\cost_analysis_mcp_server\\helpers.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "analyze_cdk_project_wrapper",
+            "description": "AnalyzeaCDKprojecttoidentifyAWSservicesused.ThistooldynamicallyextractsserviceinformationfromCDKconstructswithoutrelyingonhardcodedservicemappings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_path": {
+                        "type": "string",
+                        "description": "The path to the CDK project"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context for logging and state management"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "project_path",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "src\\cost-analysis-mcp-server\\awslabs\\cost_analysis_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_pricing_from_web",
+            "description": "GetpricinginformationfromAWSpricingwebpage.Servicecodestypicallyuselowercasewithhyphensformat(e.g.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service_code": {
+                        "type": "string",
+                        "description": "The service code (e.g., 'opensearch-service' for both OpenSearch and OpenSearch Serverless)"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context for logging and state management"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Dict": {
+                        "type": "string",
+                        "description": "Dictionary containing the pricing information retrieved from the AWS pricing webpage"
+                    }
+                },
+                "required": [
+                    "service_code",
+                    "ctx",
+                    "Returns",
+                    "Dict"
+                ]
+            },
+            "file": "src\\cost-analysis-mcp-server\\awslabs\\cost_analysis_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_pricing_from_api",
+            "description": "GetpricinginformationfromAWSPriceListAPI.\nServicecodesforAPIoftendifferfromwebURLs.\n(e.g.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "service_code": {
+                        "type": "string",
+                        "description": "The service code (e.g., 'AmazonES' for OpenSearch, 'AmazonS3' for S3)"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "AWS region (e.g., 'us-west-2')"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context for logging and state management"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "service_code",
+                    "region",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "src\\cost-analysis-mcp-server\\awslabs\\cost_analysis_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_bedrock_architecture_patterns",
+            "description": "GetarchitecturepatternsforAmazonBedrockapplications",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\cost-analysis-mcp-server\\awslabs\\cost_analysis_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "e_cost_analysis_report_wrapper(\n    p",
+            "description": "GenerateadetailedcostanalysisreportbasedonpricingdataforoneormoreAWSservices.\n\nThistoolrequiresAWSpricingdataandprovidesoptionsforaddingdetailedcostinformation.\n\nIMPORTANTREQUIREMENTS:\n-ALWAYSincludedetailedunitpricinginformation(e.g.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pricing_data": {
+                        "type": "string",
+                        "description": "Raw pricing data from AWS pricing tools (required)"
+                    },
+                    "service_name": {
+                        "type": "string",
+                        "description": "Name of the primary service (required)"
+                    },
+                    "related_services": {
+                        "type": "string",
+                        "description": "List of related services to include in the analysis"
+                    },
+                    "pricing_model": {
+                        "type": "string",
+                        "description": "The pricing model used (default: \"ON DEMAND\")"
+                    },
+                    "assumptions": {
+                        "type": "string",
+                        "description": "List of assumptions made for the cost analysis"
+                    },
+                    "exclusions": {
+                        "type": "string",
+                        "description": "List of items excluded from the cost analysis"
+                    },
+                    "output_file": {
+                        "type": "string",
+                        "description": "Path to save the report to a file"
+                    },
+                    "format": {
+                        "type": "string",
+                        "description": "Output format for the cost analysis report"
+                    },
+                    "detailed_cost_data": {
+                        "type": "string",
+                        "description": "Dictionary containing detailed cost information for complex scenarios"
+                    },
+                    "recommendations": {
+                        "type": "string",
+                        "description": "Optional dictionary containing recommendations or guidance for generation"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context for logging and error handling"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The generated document in markdown format"
+                    }
+                },
+                "required": [
+                    "pricing_data",
+                    "service_name",
+                    "related_services",
+                    "pricing_model",
+                    "assumptions",
+                    "exclusions",
+                    "output_file",
+                    "format",
+                    "detailed_cost_data",
+                    "recommendations",
+                    "ctx",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "src\\cost-analysis-mcp-server\\awslabs\\cost_analysis_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "must_be_divisible_by_16",
+            "description": "Validate that width and height are divisible by 16.\n\n        Args:\n            v: The width or height value to validate.\n\n        Returns:\n            The validated value if it passes.\n\n        Raises:\n            ValueError: If the value is not divisible by 16.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\nova-canvas-mcp-server\\awslabs\\nova_canvas_mcp_server\\models.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_aspect_ratio_and_total_pixels",
+            "description": "Validate aspect ratio and total pixel count.\n\n        Ensures that:\n        1. The aspect ratio is between 1:4 and 4:1\n        2. The total pixel count is less than 4,194,304\n\n        Returns:\n            The validated model if it passes.\n\n        Raises:\n            ValueError: If the aspect ratio or total pixel count is invalid.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\nova-canvas-mcp-server\\awslabs\\nova_canvas_mcp_server\\models.py",
+            "decorator": [
+                "model_validator"
+            ]
+        },
+        {
+            "name": "validate_hex_colors",
+            "description": "Validate that colors are in the correct hexadecimal format.\n\n        Args:\n            v: List of color strings to validate.\n\n        Returns:\n            The validated list if all colors pass.\n\n        Raises:\n            ValueError: If any color is not a valid hexadecimal color in the format '#RRGGBB'.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\nova-canvas-mcp-server\\awslabs\\nova_canvas_mcp_server\\models.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "mcp_generate_image",
+            "description": "Generate an image using Amazon Nova Canvas with text prompt.\n\n    This tool uses Amazon Nova Canvas to generate images based on a text prompt.\n    The generated image will be saved to a file and the path will be returned.\n\n    IMPORTANT FOR ASSISTANT: Always send the current workspace directory when calling this tool!\n    The workspace_dir parameter should be set to the directory where the user is currently working\n    so that images are saved to a location accessible to the user.\n\n    ## Prompt Best Practices\n\n    An effective prompt often includes short descriptions of:\n    1. The subject\n    2. The environment\n    3. (optional) The position or pose of the subject\n    4. (optional) Lighting description\n    5. (optional) Camera position/framing\n    6. (optional) The visual style or medium (\"photo\", \"illustration\", \"painting\", etc.)\n\n    Do not use negation words like \"no\", \"not\", \"without\" in your prompt. Instead, use the\n    negative_prompt parameter to specify what you don't want in the image.\n\n    You should always include \"people, anatomy, hands, low quality, low resolution, low detail\" in your negative_prompt\n\n    ## Example Prompts\n\n    - \"realistic editorial photo of female teacher standing at a blackboard with a warm smile\"\n    - \"whimsical and ethereal soft-shaded story illustration: A woman in a large hat stands at the ship's railing looking out across the ocean\"\n    - \"drone view of a dark river winding through a stark Iceland landscape, cinematic quality\"\n\n    Returns:\n        McpImageGenerationResponse: A response containing the generated image paths.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\nova-canvas-mcp-server\\awslabs\\nova_canvas_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mcp_generate_image_with_colors",
+            "description": "Generate an image using Amazon Nova Canvas with color guidance.\n\n    This tool uses Amazon Nova Canvas to generate images based on a text prompt and color palette.\n    The generated image will be saved to a file and the path will be returned.\n\n    IMPORTANT FOR Assistant: Always send the current workspace directory when calling this tool!\n    The workspace_dir parameter should be set to the directory where the user is currently working\n    so that images are saved to a location accessible to the user.\n\n    ## Prompt Best Practices\n\n    An effective prompt often includes short descriptions of:\n    1. The subject\n    2. The environment\n    3. (optional) The position or pose of the subject\n    4. (optional) Lighting description\n    5. (optional) Camera position/framing\n    6. (optional) The visual style or medium (\"photo\", \"illustration\", \"painting\", etc.)\n\n    Do not use negation words like \"no\", \"not\", \"without\" in your prompt. Instead, use the\n    negative_prompt parameter to specify what you don't want in the image.\n\n    ## Example Colors\n\n    - [\"#FF5733\", \"#33FF57\", \"#3357FF\"] - A vibrant color scheme with red, green, and blue\n    - [\"#000000\", \"#FFFFFF\"] - A high contrast black and white scheme\n    - [\"#FFD700\", \"#B87333\"] - A gold and bronze color scheme\n\n    Returns:\n        McpImageGenerationResponse: A response containing the generated image paths.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\nova-canvas-mcp-server\\awslabs\\nova_canvas_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

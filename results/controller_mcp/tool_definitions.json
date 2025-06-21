@@ -1,0 +1,216 @@
+{
+    "tools": [
+        {
+            "name": "press_button",
+            "description": "\n    Press a button on the Xbox controller.\n    \n    Args:\n        button: Button name (A, B, X, Y, LB, RB, BACK, START, LS, RS, DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT)\n    \n    Returns:\n        Dict with success status and current button states\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "button": {
+                        "type": "string",
+                        "description": "Button name (A, B, X, Y, LB, RB, BACK, START, LS, RS, DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "button",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "release_button",
+            "description": "\n    Release a button on the Xbox controller.\n    \n    Args:\n        button: Button name (A, B, X, Y, LB, RB, BACK, START, LS, RS, DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT)\n    \n    Returns:\n        Dict with success status and current button states\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "button": {
+                        "type": "string",
+                        "description": "Button name (A, B, X, Y, LB, RB, BACK, START, LS, RS, DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "button",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "tap_button",
+            "description": "\n    Tap a button on the Xbox controller (press and release).\n    \n    Args:\n        button: Button name (A, B, X, Y, LB, RB, BACK, START, LS, RS, DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT)\n        duration: How long to hold the button in seconds (default: 0.1)\n    \n    Returns:\n        Dict with success status and action performed\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "button": {
+                        "type": "string",
+                        "description": "Button name (A, B, X, Y, LB, RB, BACK, START, LS, RS, DPAD_UP, DPAD_DOWN, DPAD_LEFT, DPAD_RIGHT)"
+                    },
+                    "duration": {
+                        "type": "string",
+                        "description": "How long to hold the button in seconds (default: 0.1)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "button",
+                    "duration",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "set_left_stick",
+            "description": "\n    Set the left analog stick position.\n    \n    Args:\n        x: X-axis position (-1.0 to 1.0, left to right)\n        y: Y-axis position (-1.0 to 1.0, down to up)\n    \n    Returns:\n        Dict with success status and current stick position\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "x": {
+                        "type": "string",
+                        "description": "X-axis position (-1.0 to 1.0, left to right)"
+                    },
+                    "y": {
+                        "type": "string",
+                        "description": "Y-axis position (-1.0 to 1.0, down to up)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "x",
+                    "y",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "set_right_stick",
+            "description": "\n    Set the right analog stick position.\n    \n    Args:\n        x: X-axis position (-1.0 to 1.0, left to right)\n        y: Y-axis position (-1.0 to 1.0, down to up)\n    \n    Returns:\n        Dict with success status and current stick position\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "x": {
+                        "type": "string",
+                        "description": "X-axis position (-1.0 to 1.0, left to right)"
+                    },
+                    "y": {
+                        "type": "string",
+                        "description": "Y-axis position (-1.0 to 1.0, down to up)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "x",
+                    "y",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "set_triggers",
+            "description": "\n    Set the trigger values.\n    \n    Args:\n        left: Left trigger value (0.0 to 1.0)\n        right: Right trigger value (0.0 to 1.0)\n    \n    Returns:\n        Dict with success status and current trigger values\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "left": {
+                        "type": "string",
+                        "description": "Left trigger value (0.0 to 1.0)"
+                    },
+                    "right": {
+                        "type": "string",
+                        "description": "Right trigger value (0.0 to 1.0)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "left",
+                    "right",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "reset_controller",
+            "description": "\n    Reset the controller to neutral state (all inputs released).\n    \n    Returns:\n        Dict with success status and reset state\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_controller_state",
+            "description": "\n    Get the current state of the Xbox controller.\n    \n    Returns:\n        Dict with current controller state including sticks, triggers, and buttons\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_available_buttons",
+            "description": "\n    List all available button names that can be used with the controller.\n    \n    Returns:\n        Dict with list of available button names\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_system_info",
+            "description": "\n    Get information about the controller emulation system.\n    \n    Returns:\n        Dict with system information and setup status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+{
+    "tools": [
+        {
+            "name": "http_get_items_endpoint",
+            "description": "FastAPI HTTP endpoint to get items.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server\\mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "mcp0_codearts_get_pipelines",
+            "description": "\n    Get list of CodeArts pipelines for a given project ID.\n    Args:\n        project_id (str): The project ID to query pipelines for.\n    Returns:\n        dict: The pipelines list or error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_id": {
+                        "type": "string",
+                        "description": "The project ID to query pipelines for."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The pipelines list or error message."
+                    }
+                },
+                "required": [
+                    "project_id",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "server\\mcp_server.py",
+            "decorator": [
+                "mcp_instance.tool"
+            ]
+        },
+        {
+            "name": "mcp0_codearts_create_pipeline",
+            "description": "\n    Create a CodeArts pipeline for a given project ID.\n    Args:\n        name (str): The name of the pipeline.\n        project_id (str): The project ID for the pipeline.\n    Returns:\n        dict: The creation status or error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the pipeline."
+                    },
+                    "project_id": {
+                        "type": "string",
+                        "description": "The project ID for the pipeline."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The creation status or error message."
+                    }
+                },
+                "required": [
+                    "name",
+                    "project_id",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "server\\mcp_server.py",
+            "decorator": [
+                "mcp_instance.tool"
+            ]
+        }
+    ]
+}

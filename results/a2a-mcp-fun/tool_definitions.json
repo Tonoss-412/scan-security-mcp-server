@@ -1,0 +1,107 @@
+{
+    "tools": [
+        {
+            "name": "multiply",
+            "description": "Multiply two numbers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "client\\src\\client\\client.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "evaluate",
+            "description": "Evaluates a mathematical expression and returns the result as a string.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "client\\src\\client\\client.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "client\\src\\client\\client.py",
+            "decorator": [
+                "cl.on_message"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "Get the city and the country and return the weather forcast for a week",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "weather-agent\\src\\weather_agent\\a2a_agent_mcp_tool.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "\n    Fetch and display weather data for a city in a readable format.\n\n    Args:\n        city_name (str): Name of the city (e.g., 'London, UK').\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "city_name": {
+                        "type": "string",
+                        "description": "Name of the city (e.g., 'London, UK')."
+                    }
+                },
+                "required": [
+                    "city_name"
+                ]
+            },
+            "file": "weather-agent\\src\\weather_agent\\weather_mcp_server.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "string"
+                    },
+                    "ollama_host": {
+                        "type": "string"
+                    },
+                    "ollama_model": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port",
+                    "ollama_host",
+                    "ollama_model"
+                ]
+            },
+            "file": "weather-agent\\src\\weather_agent\\__init__.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        }
+    ]
+}

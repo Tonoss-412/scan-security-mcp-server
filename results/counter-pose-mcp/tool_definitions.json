@@ -1,0 +1,106 @@
+{
+    "tools": [
+        {
+            "name": "submit_reasoning",
+            "description": "Submit reasoning for Counter-Pose RPT analysis.\n\n    The Counter-Pose tool implements the Reasoning-through-Perspective-Transition (RPT) technique\n    to improve reasoning by examining it from multiple domain-specific perspectives.\n\n    This is step 1 of a 3-step analysis process:\n    1. submit_reasoning - Submit reasoning and get ranked persona pair options\n    2. get_persona_guidance - Get guidance on how to perform critique for selected personas\n    3. submit_critique - Submit critiques from both personas and receive synthesis guidance\n\n    Args:\n        reasoning: The initial reasoning to analyze\n        session_id: Optional custom session ID (will be generated if not provided)\n\n    Returns:\n        A session object with domain detection, ranked persona options, and next step instructions.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "reasoning": {
+                        "type": "string",
+                        "description": "The initial reasoning to analyze"
+                    },
+                    "session_id": {
+                        "type": "string",
+                        "description": "Optional custom session ID (will be generated if not provided)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "reasoning",
+                    "session_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_persona_guidance",
+            "description": "Get guidance for performing critique with selected personas.\n\n    Args:\n        session_id: The session ID from submit_reasoning\n        persona_pair: List of exactly 2 persona names to use for critique\n\n    Returns:\n        Guidance and formatting instructions for performing critiques with the selected personas\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session_id": {
+                        "type": "string",
+                        "description": "The session ID from submit_reasoning"
+                    },
+                    "persona_pair": {
+                        "type": "string",
+                        "description": "List of exactly 2 persona names to use for critique"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "session_id",
+                    "persona_pair",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "submit_critique",
+            "description": "Submit critiques from both selected personas.\n\n    This function expects exactly 2 persona critiques as determined by the get_persona_guidance step.\n    Both personas must match those selected in the previous step.\n\n    Args:\n        session_id: The session ID from submit_reasoning\n        persona1_name: Name of the first persona (e.g., \"Developer\")\n        persona1_critique: Critique content from the first persona's perspective\n        persona2_name: Name of the second persona (e.g., \"Security Expert\")\n        persona2_critique: Critique content from the second persona's perspective\n\n    Returns:\n        Complete analysis with synthesis format guidance for the calling LLM\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "session_id": {
+                        "type": "string",
+                        "description": "The session ID from submit_reasoning"
+                    },
+                    "persona1_name": {
+                        "type": "string",
+                        "description": "Name of the first persona (e.g., \"Developer\")"
+                    },
+                    "persona1_critique": {
+                        "type": "string",
+                        "description": "Critique content from the first persona's perspective"
+                    },
+                    "persona2_name": {
+                        "type": "string",
+                        "description": "Name of the second persona (e.g., \"Security Expert\")"
+                    },
+                    "persona2_critique": {
+                        "type": "string",
+                        "description": "Critique content from the second persona's perspective"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "session_id",
+                    "persona1_name",
+                    "persona1_critique",
+                    "persona2_name",
+                    "persona2_critique",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

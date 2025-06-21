@@ -1,0 +1,1786 @@
+{
+    "tools": [
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "graph_service.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "invoke_agent",
+            "description": "Process a message through the agentic flow and return the complete response.\n\n    The agent streams the response but this API endpoint waits for the full output\n    before returning so it's a synchronous operation for MCP.\n    Another endpoint will be made later to fully stream the response from the API.\n    \n    Args:\n        request: The InvokeRequest containing message and thread info\n        \n    Returns:\n        dict: Contains the complete response from the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The InvokeRequest containing message and thread info"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Contains the complete response from the agent"
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "graph_service.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_repo_info",
+            "description": "Get repository information including size and description using GitHub API.\n\n    Args:\n        ctx: The context.\n        github_url: The GitHub repository URL.\n\n    Returns:\n        str: Repository information as a formatted string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "github_url": {
+                        "type": "string",
+                        "description": "The GitHub repository URL."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Repository information as a formatted string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "github_url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "agent-resources\\examples\\pydantic_github_agent.py",
+            "decorator": [
+                "github_agent.tool"
+            ]
+        },
+        {
+            "name": "get_repo_structure",
+            "description": "Get the directory structure of a GitHub repository.\n\n    Args:\n        ctx: The context.\n        github_url: The GitHub repository URL.\n\n    Returns:\n        str: Directory structure as a formatted string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "github_url": {
+                        "type": "string",
+                        "description": "The GitHub repository URL."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Directory structure as a formatted string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "github_url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "agent-resources\\examples\\pydantic_github_agent.py",
+            "decorator": [
+                "github_agent.tool"
+            ]
+        },
+        {
+            "name": "search_web",
+            "description": "Search the web given a query defined to answer the user's question.\n\n    Args:\n        ctx: The context.\n        web_query: The query for the web search.\n\n    Returns:\n        str: The search results as a formatted string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "web_query": {
+                        "type": "string",
+                        "description": "The query for the web search."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The search results as a formatted string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "web_query",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "agent-resources\\examples\\pydantic_web_search_agent.py",
+            "decorator": [
+                "web_search_agent.tool"
+            ]
+        },
+        {
+            "name": "get_file_content",
+            "description": "Get the content of a specific file from the GitHub repository.\n\n    Args:\n        ctx: The context.\n        github_url: The GitHub repository URL.\n        file_path: Path to the file within the repository.\n\n    Returns:\n        str: File content as a string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "github_url": {
+                        "type": "string",
+                        "description": "The GitHub repository URL."
+                    },
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the file within the repository."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "File content as a string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "github_url",
+                    "file_path",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "agent-resources\\tools\\get_github_file.py",
+            "decorator": [
+                "github_agent.tool"
+            ]
+        },
+        {
+            "name": "get_repo_structure",
+            "description": "Get the directory structure of a GitHub repository.\n\n    Args:\n        ctx: The context.\n        github_url: The GitHub repository URL.\n\n    Returns:\n        str: Directory structure as a formatted string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "github_url": {
+                        "type": "string",
+                        "description": "The GitHub repository URL."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Directory structure as a formatted string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "github_url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "agent-resources\\tools\\get_github_file_structure.py",
+            "decorator": [
+                "github_agent.tool"
+            ]
+        },
+        {
+            "name": "get_repo_info",
+            "description": "Get repository information including size and description using GitHub API.\n\n    Args:\n        ctx: The context.\n        github_url: The GitHub repository URL.\n\n    Returns:\n        str: Repository information as a formatted string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "github_url": {
+                        "type": "string",
+                        "description": "The GitHub repository URL."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Repository information as a formatted string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "github_url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "agent-resources\\tools\\get_github_repo_info.py",
+            "decorator": [
+                "github_agent.tool"
+            ]
+        },
+        {
+            "name": "search_web",
+            "description": "Search the web given a query defined to answer the user's question.\n\n    Args:\n        ctx: The context.\n        web_query: The query for the web search.\n\n    Returns:\n        str: The search results as a formatted string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "web_query": {
+                        "type": "string",
+                        "description": "The query for the web search."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The search results as a formatted string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "web_query",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "agent-resources\\tools\\web_search.py",
+            "decorator": [
+                "web_search_agent.tool"
+            ]
+        },
+        {
+            "name": "add_file_list",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archon\\advisor_agent.py",
+            "decorator": [
+                "advisor_agent.system_prompt"
+            ]
+        },
+        {
+            "name": "get_file_content",
+            "description": "\n    Retrieves the content of a specific file. Use this to get the contents of an example, tool, config for an MCP server\n    \n    Args:\n        file_path: The path to the file\n        \n    Returns:\n        The raw contents of the file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "The path to the file"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "Returns"
+                ]
+            },
+            "file": "archon\\advisor_agent.py",
+            "decorator": [
+                "advisor_agent.tool_plain"
+            ]
+        },
+        {
+            "name": "is_completed",
+            "description": "Return True if the crawling process is completed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archon\\crawl_pydantic_ai_docs.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_successful",
+            "description": "Return True if the crawling process completed successfully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archon\\crawl_pydantic_ai_docs.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "add_reasoner_output",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.system_prompt"
+            ]
+        },
+        {
+            "name": "retrieve_relevant_documentation",
+            "description": "\n    Retrieve relevant documentation chunks based on the query with RAG.\n    \n    Args:\n        ctx: The context including the Supabase client and OpenAI client\n        user_query: The user's question or query\n        \n    Returns:\n        A formatted string containing the top 4 most relevant documentation chunks\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client and OpenAI client"
+                    },
+                    "user_query": {
+                        "type": "string",
+                        "description": "The user's question or query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "user_query",
+                    "Returns"
+                ]
+            },
+            "file": "archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "list_documentation_pages",
+            "description": "\n    Retrieve a list of all available Pydantic AI documentation pages.\n    \n    Returns:\n        List[str]: List of unique URLs for all documentation pages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n    Retrieve the full content of a specific documentation page by combining all its chunks.\n    \n    Args:\n        ctx: The context including the Supabase client\n        url: The URL of the page to retrieve\n        \n    Returns:\n        str: The complete page content with all chunks combined in order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the page to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The complete page content with all chunks combined in order"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "retrieve_relevant_documentation",
+            "description": "\n    Retrieve relevant documentation chunks based on the query with RAG.\n    Make sure your searches always focus on implementing the agent itself.\n    \n    Args:\n        ctx: The context including the Supabase client and OpenAI client\n        query: Your query to retrieve relevant documentation for implementing agents\n        \n    Returns:\n        A formatted string containing the top 4 most relevant documentation chunks\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client and OpenAI client"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Your query to retrieve relevant documentation for implementing agents"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "archon\\refiner_agents\\agent_refiner_agent.py",
+            "decorator": [
+                "agent_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "list_documentation_pages",
+            "description": "\n    Retrieve a list of all available Pydantic AI documentation pages.\n    This will give you all pages available, but focus on the ones related to configuring agents and their dependencies.\n    \n    Returns:\n        List[str]: List of unique URLs for all documentation pages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archon\\refiner_agents\\agent_refiner_agent.py",
+            "decorator": [
+                "agent_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n    Retrieve the full content of a specific documentation page by combining all its chunks.\n    Only use this tool to get pages related to setting up agents with Pydantic AI.\n    \n    Args:\n        ctx: The context including the Supabase client\n        url: The URL of the page to retrieve\n        \n    Returns:\n        str: The complete page content with all chunks combined in order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the page to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The complete page content with all chunks combined in order"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "archon\\refiner_agents\\agent_refiner_agent.py",
+            "decorator": [
+                "agent_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "add_file_list",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.system_prompt"
+            ]
+        },
+        {
+            "name": "retrieve_relevant_documentation",
+            "description": "\n    Retrieve relevant documentation chunks based on the query with RAG.\n    Make sure your searches always focus on implementing tools.\n    \n    Args:\n        ctx: The context including the Supabase client and OpenAI client\n        query: Your query to retrieve relevant documentation for implementing tools\n        \n    Returns:\n        A formatted string containing the top 4 most relevant documentation chunks\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client and OpenAI client"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Your query to retrieve relevant documentation for implementing tools"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "list_documentation_pages",
+            "description": "\n    Retrieve a list of all available Pydantic AI documentation pages.\n    This will give you all pages available, but focus on the ones related to tools.\n    \n    Returns:\n        List[str]: List of unique URLs for all documentation pages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n    Retrieve the full content of a specific documentation page by combining all its chunks.\n    Only use this tool to get pages related to using tools with Pydantic AI.\n    \n    Args:\n        ctx: The context including the Supabase client\n        url: The URL of the page to retrieve\n        \n    Returns:\n        str: The complete page content with all chunks combined in order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the page to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The complete page content with all chunks combined in order"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "get_file_content",
+            "description": "\n    Retrieves the content of a specific file. Use this to get the contents of an example, tool, config for an MCP server\n    \n    Args:\n        file_path: The path to the file\n        \n    Returns:\n        The raw contents of the file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "The path to the file"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "Returns"
+                ]
+            },
+            "file": "archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.tool_plain"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\graph_service.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "invoke_agent",
+            "description": "Process a message through the agentic flow and return the complete response.\n\n    The agent streams the response but this API endpoint waits for the full output\n    before returning so it's a synchronous operation for MCP.\n    Another endpoint will be made later to fully stream the response from the API.\n    \n    Args:\n        request: The InvokeRequest containing message and thread info\n        \n    Returns:\n        dict: Contains the complete response from the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The InvokeRequest containing message and thread info"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Contains the complete response from the agent"
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\graph_service.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "is_completed",
+            "description": "Return True if the crawling process is completed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\archon\\crawl_pydantic_ai_docs.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_successful",
+            "description": "Return True if the crawling process completed successfully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\archon\\crawl_pydantic_ai_docs.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "add_reasoner_output",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.system_prompt"
+            ]
+        },
+        {
+            "name": "retrieve_relevant_documentation",
+            "description": "\n    Retrieve relevant documentation chunks based on the query with RAG.\n    \n    Args:\n        ctx: The context including the Supabase client and OpenAI client\n        user_query: The user's question or query\n        \n    Returns:\n        A formatted string containing the top 4 most relevant documentation chunks\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client and OpenAI client"
+                    },
+                    "user_query": {
+                        "type": "string",
+                        "description": "The user's question or query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "user_query",
+                    "Returns"
+                ]
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "list_documentation_pages",
+            "description": "\n    Retrieve a list of all available Pydantic AI documentation pages.\n    \n    Returns:\n        List[str]: List of unique URLs for all documentation pages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n    Retrieve the full content of a specific documentation page by combining all its chunks.\n    \n    Args:\n        ctx: The context including the Supabase client\n        url: The URL of the page to retrieve\n        \n    Returns:\n        str: The complete page content with all chunks combined in order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the page to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The complete page content with all chunks combined in order"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "retrieve_relevant_documentation",
+            "description": "\n    Retrieve relevant documentation chunks based on the query with RAG.\n    Make sure your searches always focus on implementing the agent itself.\n    \n    Args:\n        ctx: The context including the Supabase client and OpenAI client\n        query: Your query to retrieve relevant documentation for implementing agents\n        \n    Returns:\n        A formatted string containing the top 4 most relevant documentation chunks\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client and OpenAI client"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Your query to retrieve relevant documentation for implementing agents"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\archon\\refiner_agents\\agent_refiner_agent.py",
+            "decorator": [
+                "agent_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "list_documentation_pages",
+            "description": "\n    Retrieve a list of all available Pydantic AI documentation pages.\n    This will give you all pages available, but focus on the ones related to configuring agents and their dependencies.\n    \n    Returns:\n        List[str]: List of unique URLs for all documentation pages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\archon\\refiner_agents\\agent_refiner_agent.py",
+            "decorator": [
+                "agent_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n    Retrieve the full content of a specific documentation page by combining all its chunks.\n    Only use this tool to get pages related to setting up agents with Pydantic AI.\n    \n    Args:\n        ctx: The context including the Supabase client\n        url: The URL of the page to retrieve\n        \n    Returns:\n        str: The complete page content with all chunks combined in order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the page to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The complete page content with all chunks combined in order"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\archon\\refiner_agents\\agent_refiner_agent.py",
+            "decorator": [
+                "agent_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "retrieve_relevant_documentation",
+            "description": "\n    Retrieve relevant documentation chunks based on the query with RAG.\n    Make sure your searches always focus on implementing tools.\n    \n    Args:\n        ctx: The context including the Supabase client and OpenAI client\n        query: Your query to retrieve relevant documentation for implementing tools\n        \n    Returns:\n        A formatted string containing the top 4 most relevant documentation chunks\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client and OpenAI client"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Your query to retrieve relevant documentation for implementing tools"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "list_documentation_pages",
+            "description": "\n    Retrieve a list of all available Pydantic AI documentation pages.\n    This will give you all pages available, but focus on the ones related to tools.\n    \n    Returns:\n        List[str]: List of unique URLs for all documentation pages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n    Retrieve the full content of a specific documentation page by combining all its chunks.\n    Only use this tool to get pages related to using tools with Pydantic AI.\n    \n    Args:\n        ctx: The context including the Supabase client\n        url: The URL of the page to retrieve\n        \n    Returns:\n        str: The complete page content with all chunks combined in order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the page to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The complete page content with all chunks combined in order"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "create_thread",
+            "description": "Create a new conversation thread for Archon.\n    Always call this tool before invoking Archon for the first time in a conversation.\n    (if you don't already have a thread ID)\n    \n    Returns:\n        str: A unique thread ID for the conversation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\mcp\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_agent",
+            "description": "Run the Archon agent with user input.\n    Only use this tool after you have called create_thread in this conversation to get a unique thread ID.\n    If you already created a thread ID in this conversation, do not create another one. Reuse the same ID.\n    After you receive the code from Archon, always implement it into the codebase unless asked not to.\n\n    After using this tool and implementing the code it gave back, ask the user if they want you to refine the agent\n    autonomously (they can just say 'refine') or they can just give feedback and you'll improve the agent that way.\n\n    If they want to refine the agent, just give 'refine' for user_input.\n    \n    Args:\n        thread_id: The conversation thread ID\n        user_input: The user's message to process\n    \n    Returns:\n        str: The agent's response which generally includes the code for the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "thread_id": {
+                        "type": "string",
+                        "description": "The conversation thread ID"
+                    },
+                    "user_input": {
+                        "type": "string",
+                        "description": "The user's message to process"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The agent's response which generally includes the code for the agent"
+                    }
+                },
+                "required": [
+                    "thread_id",
+                    "user_input",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\mcp\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_thread_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\streamlit_pages\\chat.py",
+            "decorator": [
+                "st.cache_resource"
+            ]
+        },
+        {
+            "name": "load_sql_template",
+            "description": "Load the SQL template file and cache it",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\streamlit_pages\\database.py",
+            "decorator": [
+                "st.cache_data"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v5-parallel-specialized-agents\\utils\\utils.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\graph_service.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "invoke_agent",
+            "description": "Process a message through the agentic flow and return the complete response.\n\n    The agent streams the response but this API endpoint waits for the full output\n    before returning so it's a synchronous operation for MCP.\n    Another endpoint will be made later to fully stream the response from the API.\n    \n    Args:\n        request: The InvokeRequest containing message and thread info\n        \n    Returns:\n        dict: Contains the complete response from the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The InvokeRequest containing message and thread info"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Contains the complete response from the agent"
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\graph_service.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_repo_info",
+            "description": "Get repository information including size and description using GitHub API.\n\n    Args:\n        ctx: The context.\n        github_url: The GitHub repository URL.\n\n    Returns:\n        str: Repository information as a formatted string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "github_url": {
+                        "type": "string",
+                        "description": "The GitHub repository URL."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Repository information as a formatted string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "github_url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\agent-resources\\examples\\pydantic_github_agent.py",
+            "decorator": [
+                "github_agent.tool"
+            ]
+        },
+        {
+            "name": "get_repo_structure",
+            "description": "Get the directory structure of a GitHub repository.\n\n    Args:\n        ctx: The context.\n        github_url: The GitHub repository URL.\n\n    Returns:\n        str: Directory structure as a formatted string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "github_url": {
+                        "type": "string",
+                        "description": "The GitHub repository URL."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Directory structure as a formatted string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "github_url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\agent-resources\\examples\\pydantic_github_agent.py",
+            "decorator": [
+                "github_agent.tool"
+            ]
+        },
+        {
+            "name": "search_web",
+            "description": "Search the web given a query defined to answer the user's question.\n\n    Args:\n        ctx: The context.\n        web_query: The query for the web search.\n\n    Returns:\n        str: The search results as a formatted string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "web_query": {
+                        "type": "string",
+                        "description": "The query for the web search."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The search results as a formatted string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "web_query",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\agent-resources\\examples\\pydantic_web_search_agent.py",
+            "decorator": [
+                "web_search_agent.tool"
+            ]
+        },
+        {
+            "name": "get_file_content",
+            "description": "Get the content of a specific file from the GitHub repository.\n\n    Args:\n        ctx: The context.\n        github_url: The GitHub repository URL.\n        file_path: Path to the file within the repository.\n\n    Returns:\n        str: File content as a string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "github_url": {
+                        "type": "string",
+                        "description": "The GitHub repository URL."
+                    },
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the file within the repository."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "File content as a string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "github_url",
+                    "file_path",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\agent-resources\\tools\\get_github_file.py",
+            "decorator": [
+                "github_agent.tool"
+            ]
+        },
+        {
+            "name": "get_repo_structure",
+            "description": "Get the directory structure of a GitHub repository.\n\n    Args:\n        ctx: The context.\n        github_url: The GitHub repository URL.\n\n    Returns:\n        str: Directory structure as a formatted string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "github_url": {
+                        "type": "string",
+                        "description": "The GitHub repository URL."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Directory structure as a formatted string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "github_url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\agent-resources\\tools\\get_github_file_structure.py",
+            "decorator": [
+                "github_agent.tool"
+            ]
+        },
+        {
+            "name": "get_repo_info",
+            "description": "Get repository information including size and description using GitHub API.\n\n    Args:\n        ctx: The context.\n        github_url: The GitHub repository URL.\n\n    Returns:\n        str: Repository information as a formatted string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "github_url": {
+                        "type": "string",
+                        "description": "The GitHub repository URL."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Repository information as a formatted string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "github_url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\agent-resources\\tools\\get_github_repo_info.py",
+            "decorator": [
+                "github_agent.tool"
+            ]
+        },
+        {
+            "name": "search_web",
+            "description": "Search the web given a query defined to answer the user's question.\n\n    Args:\n        ctx: The context.\n        web_query: The query for the web search.\n\n    Returns:\n        str: The search results as a formatted string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context."
+                    },
+                    "web_query": {
+                        "type": "string",
+                        "description": "The query for the web search."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The search results as a formatted string."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "web_query",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\agent-resources\\tools\\web_search.py",
+            "decorator": [
+                "web_search_agent.tool"
+            ]
+        },
+        {
+            "name": "add_file_list",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\advisor_agent.py",
+            "decorator": [
+                "advisor_agent.system_prompt"
+            ]
+        },
+        {
+            "name": "get_file_content",
+            "description": "\n    Retrieves the content of a specific file. Use this to get the contents of an example, tool, config for an MCP server\n    \n    Args:\n        file_path: The path to the file\n        \n    Returns:\n        The raw contents of the file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "The path to the file"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "Returns"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\advisor_agent.py",
+            "decorator": [
+                "advisor_agent.tool_plain"
+            ]
+        },
+        {
+            "name": "is_completed",
+            "description": "Return True if the crawling process is completed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\crawl_pydantic_ai_docs.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_successful",
+            "description": "Return True if the crawling process completed successfully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\crawl_pydantic_ai_docs.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "add_reasoner_output",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.system_prompt"
+            ]
+        },
+        {
+            "name": "retrieve_relevant_documentation",
+            "description": "\n    Retrieve relevant documentation chunks based on the query with RAG.\n    \n    Args:\n        ctx: The context including the Supabase client and OpenAI client\n        user_query: The user's question or query\n        \n    Returns:\n        A formatted string containing the top 4 most relevant documentation chunks\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client and OpenAI client"
+                    },
+                    "user_query": {
+                        "type": "string",
+                        "description": "The user's question or query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "user_query",
+                    "Returns"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "list_documentation_pages",
+            "description": "\n    Retrieve a list of all available Pydantic AI documentation pages.\n    \n    Returns:\n        List[str]: List of unique URLs for all documentation pages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n    Retrieve the full content of a specific documentation page by combining all its chunks.\n    \n    Args:\n        ctx: The context including the Supabase client\n        url: The URL of the page to retrieve\n        \n    Returns:\n        str: The complete page content with all chunks combined in order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the page to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The complete page content with all chunks combined in order"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\pydantic_ai_coder.py",
+            "decorator": [
+                "pydantic_ai_coder.tool"
+            ]
+        },
+        {
+            "name": "retrieve_relevant_documentation",
+            "description": "\n    Retrieve relevant documentation chunks based on the query with RAG.\n    Make sure your searches always focus on implementing the agent itself.\n    \n    Args:\n        ctx: The context including the Supabase client and OpenAI client\n        query: Your query to retrieve relevant documentation for implementing agents\n        \n    Returns:\n        A formatted string containing the top 4 most relevant documentation chunks\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client and OpenAI client"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Your query to retrieve relevant documentation for implementing agents"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\refiner_agents\\agent_refiner_agent.py",
+            "decorator": [
+                "agent_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "list_documentation_pages",
+            "description": "\n    Retrieve a list of all available Pydantic AI documentation pages.\n    This will give you all pages available, but focus on the ones related to configuring agents and their dependencies.\n    \n    Returns:\n        List[str]: List of unique URLs for all documentation pages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\refiner_agents\\agent_refiner_agent.py",
+            "decorator": [
+                "agent_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n    Retrieve the full content of a specific documentation page by combining all its chunks.\n    Only use this tool to get pages related to setting up agents with Pydantic AI.\n    \n    Args:\n        ctx: The context including the Supabase client\n        url: The URL of the page to retrieve\n        \n    Returns:\n        str: The complete page content with all chunks combined in order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the page to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The complete page content with all chunks combined in order"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\refiner_agents\\agent_refiner_agent.py",
+            "decorator": [
+                "agent_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "add_file_list",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.system_prompt"
+            ]
+        },
+        {
+            "name": "retrieve_relevant_documentation",
+            "description": "\n    Retrieve relevant documentation chunks based on the query with RAG.\n    Make sure your searches always focus on implementing tools.\n    \n    Args:\n        ctx: The context including the Supabase client and OpenAI client\n        query: Your query to retrieve relevant documentation for implementing tools\n        \n    Returns:\n        A formatted string containing the top 4 most relevant documentation chunks\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client and OpenAI client"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Your query to retrieve relevant documentation for implementing tools"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "list_documentation_pages",
+            "description": "\n    Retrieve a list of all available Pydantic AI documentation pages.\n    This will give you all pages available, but focus on the ones related to tools.\n    \n    Returns:\n        List[str]: List of unique URLs for all documentation pages\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n    Retrieve the full content of a specific documentation page by combining all its chunks.\n    Only use this tool to get pages related to using tools with Pydantic AI.\n    \n    Args:\n        ctx: The context including the Supabase client\n        url: The URL of the page to retrieve\n        \n    Returns:\n        str: The complete page content with all chunks combined in order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The context including the Supabase client"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the page to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The complete page content with all chunks combined in order"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "url",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.tool"
+            ]
+        },
+        {
+            "name": "get_file_content",
+            "description": "\n    Retrieves the content of a specific file. Use this to get the contents of an example, tool, config for an MCP server\n    \n    Args:\n        file_path: The path to the file\n        \n    Returns:\n        The raw contents of the file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "The path to the file"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "Returns"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\archon\\refiner_agents\\tools_refiner_agent.py",
+            "decorator": [
+                "tools_refiner_agent.tool_plain"
+            ]
+        },
+        {
+            "name": "create_thread",
+            "description": "Create a new conversation thread for Archon.\n    Always call this tool before invoking Archon for the first time in a conversation.\n    (if you don't already have a thread ID)\n    \n    Returns:\n        str: A unique thread ID for the conversation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\mcp\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_agent",
+            "description": "Run the Archon agent with user input.\n    Only use this tool after you have called create_thread in this conversation to get a unique thread ID.\n    If you already created a thread ID in this conversation, do not create another one. Reuse the same ID.\n    After you receive the code from Archon, always implement it into the codebase unless asked not to.\n\n    After using this tool and implementing the code it gave back, ask the user if they want you to refine the agent\n    autonomously (they can just say 'refine') or they can just give feedback and you'll improve the agent that way.\n\n    If they want to refine the agent, just give 'refine' for user_input.\n    \n    Args:\n        thread_id: The conversation thread ID\n        user_input: The user's message to process\n    \n    Returns:\n        str: The agent's response which generally includes the code for the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "thread_id": {
+                        "type": "string",
+                        "description": "The conversation thread ID"
+                    },
+                    "user_input": {
+                        "type": "string",
+                        "description": "The user's message to process"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The agent's response which generally includes the code for the agent"
+                    }
+                },
+                "required": [
+                    "thread_id",
+                    "user_input",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "iterations\\v6-tool-library-integration\\mcp\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_thread_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\streamlit_pages\\chat.py",
+            "decorator": [
+                "st.cache_resource"
+            ]
+        },
+        {
+            "name": "load_sql_template",
+            "description": "Load the SQL template file and cache it",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\streamlit_pages\\database.py",
+            "decorator": [
+                "st.cache_data"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "iterations\\v6-tool-library-integration\\utils\\utils.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "create_thread",
+            "description": "Create a new conversation thread for Archon.\n    Always call this tool before invoking Archon for the first time in a conversation.\n    (if you don't already have a thread ID)\n    \n    Returns:\n        str: A unique thread ID for the conversation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_agent",
+            "description": "Run the Archon agent with user input.\n    Only use this tool after you have called create_thread in this conversation to get a unique thread ID.\n    If you already created a thread ID in this conversation, do not create another one. Reuse the same ID.\n    After you receive the code from Archon, always implement it into the codebase unless asked not to.\n\n    After using this tool and implementing the code it gave back, ask the user if they want you to refine the agent\n    autonomously (they can just say 'refine') or they can just give feedback and you'll improve the agent that way.\n\n    If they want to refine the agent, just give 'refine' for user_input.\n    \n    Args:\n        thread_id: The conversation thread ID\n        user_input: The user's message to process\n    \n    Returns:\n        str: The agent's response which generally includes the code for the agent\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "thread_id": {
+                        "type": "string",
+                        "description": "The conversation thread ID"
+                    },
+                    "user_input": {
+                        "type": "string",
+                        "description": "The user's message to process"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The agent's response which generally includes the code for the agent"
+                    }
+                },
+                "required": [
+                    "thread_id",
+                    "user_input",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_thread_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamlit_pages\\chat.py",
+            "decorator": [
+                "st.cache_resource"
+            ]
+        },
+        {
+            "name": "load_sql_template",
+            "description": "Load the SQL template file and cache it",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "streamlit_pages\\database.py",
+            "decorator": [
+                "st.cache_data"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\utils.py",
+            "decorator": [
+                "wraps"
+            ]
+        }
+    ]
+}

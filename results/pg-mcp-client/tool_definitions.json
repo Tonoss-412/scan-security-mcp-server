@@ -1,0 +1,47 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "app": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "app"
+                ]
+            },
+            "file": "client\\app.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "from_request",
+            "description": "\n        Create an AgentService instance from a Starlette request.\n        \n        Args:\n            request: The Starlette request object\n            \n        Returns:\n            AgentService: An initialized AgentService instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "request": {
+                        "type": "string",
+                        "description": "The Starlette request object"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "request"
+                ]
+            },
+            "file": "client\\services\\agent.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

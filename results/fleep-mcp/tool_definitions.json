@@ -1,0 +1,533 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "Return the list of available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool execution requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "mock_fleep_client",
+            "description": "Create a mock Fleep client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_create_conversation.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "create_conversation_tool",
+            "description": "Create a CreateConversationTool instance with mocked client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_create_conversation.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_execute_with_valid_arguments",
+            "description": "Test successful execution with valid arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_conversation_tool": {
+                        "type": "string"
+                    },
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_conversation_tool",
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_create_conversation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_with_minimal_arguments",
+            "description": "Test execution with only required arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_conversation_tool": {
+                        "type": "string"
+                    },
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_conversation_tool",
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_create_conversation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_with_no_member_emails",
+            "description": "Test execution with no member_emails (should succeed).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_conversation_tool": {
+                        "type": "string"
+                    },
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_conversation_tool",
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_create_conversation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_with_empty_member_emails",
+            "description": "Test execution with empty member_emails string.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_conversation_tool": {
+                        "type": "string"
+                    },
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_conversation_tool",
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_create_conversation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_with_invalid_field_type",
+            "description": "Test execution with invalid field types (should trigger validation error).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_conversation_tool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_conversation_tool"
+                ]
+            },
+            "file": "tests\\test_create_conversation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_with_api_error",
+            "description": "Test execution when API call fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_conversation_tool": {
+                        "type": "string"
+                    },
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_conversation_tool",
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_create_conversation.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_fleep_client",
+            "description": "Create a mock Fleep client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_get_conversation_labels.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "get_labels_tool",
+            "description": "Create a GetConversationLabelsTool instance with mocked client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_get_conversation_labels.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_conversation_labels_success",
+            "description": "Test successful retrieval of conversation labels.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "get_labels_tool": {
+                        "type": "string"
+                    },
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "get_labels_tool",
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_get_conversation_labels.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_conversation_labels_no_labels",
+            "description": "Test retrieval when conversation has no labels.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "get_labels_tool": {
+                        "type": "string"
+                    },
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "get_labels_tool",
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_get_conversation_labels.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_conversation_labels_missing_conversation_id",
+            "description": "Test error handling when conversation_id is missing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "get_labels_tool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "get_labels_tool"
+                ]
+            },
+            "file": "tests\\test_get_conversation_labels.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_conversation_labels_api_error",
+            "description": "Test error handling when API call fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "get_labels_tool": {
+                        "type": "string"
+                    },
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "get_labels_tool",
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_get_conversation_labels.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_successful_message",
+            "description": "Test successful message sending.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_send_message.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_with_attachments",
+            "description": "Test sending message with attachments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_send_message.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_with_multiple_attachments",
+            "description": "Test sending message with multiple attachments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_send_message.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_invalid_arguments",
+            "description": "Test execution with invalid arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_send_message.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_api_error",
+            "description": "Test execution when API call fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_send_message.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_fleep_client",
+            "description": "Create a mock Fleep client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_set_conversation_labels.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "set_labels_tool",
+            "description": "Create a SetConversationLabelsTool instance with mocked client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_set_conversation_labels.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_set_conversation_labels_success",
+            "description": "Test successful setting of conversation labels.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "set_labels_tool": {
+                        "type": "string"
+                    },
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "set_labels_tool",
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_set_conversation_labels.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_set_conversation_labels_empty_list",
+            "description": "Test setting empty labels list (clearing labels).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "set_labels_tool": {
+                        "type": "string"
+                    },
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "set_labels_tool",
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_set_conversation_labels.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_set_conversation_labels_single_label",
+            "description": "Test setting a single label.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "set_labels_tool": {
+                        "type": "string"
+                    },
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "set_labels_tool",
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_set_conversation_labels.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_set_conversation_labels_missing_conversation_id",
+            "description": "Test error handling when conversation_id is missing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "set_labels_tool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "set_labels_tool"
+                ]
+            },
+            "file": "tests\\test_set_conversation_labels.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_set_conversation_labels_missing_labels",
+            "description": "Test error handling when labels are missing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "set_labels_tool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "set_labels_tool"
+                ]
+            },
+            "file": "tests\\test_set_conversation_labels.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_set_conversation_labels_api_error",
+            "description": "Test error handling when API call fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "set_labels_tool": {
+                        "type": "string"
+                    },
+                    "mock_fleep_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "set_labels_tool",
+                    "mock_fleep_client"
+                ]
+            },
+            "file": "tests\\test_set_conversation_labels.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

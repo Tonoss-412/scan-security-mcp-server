@@ -1,0 +1,369 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mcp_server.py",
+            "decorator": [
+                "mcp_server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mcp_server.py",
+            "decorator": [
+                "mcp_server.call_tool"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "Application lifespan context manager.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mcp_server.py",
+            "decorator": [
+                "contextlib.asynccontextmanager"
+            ]
+        },
+        {
+            "name": "completion",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post",
+                "app.post",
+                "app.post"
+            ]
+        },
+        {
+            "name": "text_completion",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post",
+                "app.post"
+            ]
+        },
+        {
+            "name": "invocation",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post",
+                "app.post"
+            ]
+        },
+        {
+            "name": "embeddings",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post",
+                "app.post",
+                "app.post"
+            ]
+        },
+        {
+            "name": "embeddings",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "fine_tuning",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_fine_tuning",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "cancel_fine_tuning",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "openai_files",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "fake_bedrock_endpoint",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "generate_content",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post",
+                "app.post",
+                "app.post",
+                "app.post"
+            ]
+        },
+        {
+            "name": "generate_content_bad",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post",
+                "app.post",
+                "limiter.limit"
+            ]
+        },
+        {
+            "name": "predict",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post",
+                "app.post",
+                "app.post"
+            ]
+        },
+        {
+            "name": "runs",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post",
+                "app.post"
+            ]
+        },
+        {
+            "name": "traces",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "logs",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "slack_endpoint",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_slack_history",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "completion_anthropic",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "mock_ingestion",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "ingestion",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "has_request_id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "bridge\\mocked_llm.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python-server\\main.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python-server\\main.py",
+            "decorator": [
+                "app.call_tool"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python-server\\main.py",
+            "decorator": [
+                "app.list_tools"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "Context manager for session manager.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "python-server\\main.py",
+            "decorator": [
+                "contextlib.asynccontextmanager"
+            ]
+        }
+    ]
+}

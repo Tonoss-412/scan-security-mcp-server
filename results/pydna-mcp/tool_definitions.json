@@ -1,0 +1,452 @@
+{
+    "tools": [
+        {
+            "name": "get_pydna_help",
+            "description": "\n            Get comprehensive help for PyDNA MCP server tools.\n            \n            This resource provides detailed information about:\n            - Available tools and their purposes\n            - Common workflows for DNA cloning simulation\n            - Example usage patterns\n            - Best practices for molecular cloning design\n            \n            Returns:\n                Comprehensive help documentation\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\pydna_mcp\\server.py",
+            "decorator": [
+                "self.resource"
+            ]
+        },
+        {
+            "name": "get_examples",
+            "description": "Get example workflows and use cases.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\pydna_mcp\\server.py",
+            "decorator": [
+                "self.resource"
+            ]
+        },
+        {
+            "name": "event_loop",
+            "description": "Create an event loop for async testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mcp_server",
+            "description": "Create a PyDNA MCP server instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_sequences",
+            "description": "Provide comprehensive sample DNA sequences for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_primers",
+            "description": "Provide sample primer sequences for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "restriction_enzymes",
+            "description": "Provide commonly used restriction enzymes for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "assembly_fragments",
+            "description": "Provide DNA fragments for assembly testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "pcr_reactions",
+            "description": "Provide PCR reaction test data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_files",
+            "description": "Create temporary files for file I/O testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "single_enzyme",
+            "description": "Parametrized fixture for testing with different restriction enzymes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "overlap_lengths",
+            "description": "Parametrized fixture for testing different overlap lengths.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "target_tm_values",
+            "description": "Parametrized fixture for testing different target Tm values.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "file_formats",
+            "description": "Parametrized fixture for testing different file formats.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "large_sequence",
+            "description": "Provide a large sequence for performance testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "many_enzymes",
+            "description": "Provide many restriction enzymes for comprehensive testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "is_valid_dna_sequence",
+            "description": "Check if a sequence contains only valid DNA nucleotides.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "calculate_gc_content",
+            "description": "Calculate GC content of a sequence.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "reverse_complement",
+            "description": "Calculate reverse complement manually for comparison.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "test_utils",
+            "description": "Provide test utilities.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_sequence_info_scaling",
+            "description": "Test sequence info scaling with different sizes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_server": {
+                        "type": "string"
+                    },
+                    "sequence_multiplier": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_server",
+                    "sequence_multiplier"
+                ]
+            },
+            "file": "tests\\test_performance.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_restriction_enzyme_scaling",
+            "description": "Test restriction analysis scaling with enzyme count.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_server": {
+                        "type": "string"
+                    },
+                    "num_enzymes": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_server",
+                    "num_enzymes"
+                ]
+            },
+            "file": "tests\\test_performance.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_assembly_fragment_scaling",
+            "description": "Test assembly scaling with fragment count.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_server": {
+                        "type": "string"
+                    },
+                    "fragment_count": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_server",
+                    "fragment_count"
+                ]
+            },
+            "file": "tests\\test_performance.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "mcp_server",
+            "description": "Create a PyDNA MCP server instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_pydna_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_sequences",
+            "description": "Provide sample DNA sequences for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_pydna_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_primers",
+            "description": "Provide sample primer sequences for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_pydna_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_files",
+            "description": "Create temporary files for file I/O testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_pydna_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_download_genbank_success",
+            "description": "Test successful GenBank download.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse": {
+                        "type": "string"
+                    },
+                    "mock_download": {
+                        "type": "string"
+                    },
+                    "mcp_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse",
+                    "mock_download",
+                    "mcp_server"
+                ]
+            },
+            "file": "tests\\test_pydna_mcp_server.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_download_genbank_failure",
+            "description": "Test GenBank download failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_download": {
+                        "type": "string"
+                    },
+                    "mcp_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_download",
+                    "mcp_server"
+                ]
+            },
+            "file": "tests\\test_pydna_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "event_loop",
+            "description": "Create an event loop for async tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_pydna_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,184 @@
+{
+    "tools": [
+        {
+            "name": "process_query",
+            "description": "Process a natural language query and return a response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "llm-integration\\app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "llm-integration\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "process_intent",
+            "description": "Process an intent by mapping it to the appropriate UMLS API endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server\\mcp_app.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_intents",
+            "description": "List all available intents.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server\\mcp_app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_intent_details",
+            "description": "Get details about a specific intent.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server\\mcp_app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server\\umls_mcp_server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls by routing to appropriate UMLS API endpoints.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server\\umls_mcp_server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "search_terms",
+            "description": "Search for medical terms in UMLS based on ontology.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "umls_api\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_ancestors",
+            "description": " Retrieve all ancestors of a CUI by extracting AUIs from MRHIER.PTR and mapping them to CUIs via MRCONSO. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "umls_api\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_cui_info",
+            "description": "Get details about a given CUI.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "umls_api\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "search_cui",
+            "description": "Search for CUIs matching a given term.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "umls_api\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_depth",
+            "description": "Get the depth of a CUI in the hierarchy.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "umls_api\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "wu_palmer_similarity",
+            "description": "Compute Wu-Palmer similarity between two CUIs using MRHIER and the fetch_depth helper.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "umls_api\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "find_lowest_common_ancestor",
+            "description": "Find the lowest common ancestor (LCA) of two CUIs using the new depth functions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "umls_api\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_hpo_term",
+            "description": "Get the HPO term and code associated with a given CUI.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "umls_api\\app.py",
+            "decorator": [
+                "app.get"
+            ]
+        }
+    ]
+}

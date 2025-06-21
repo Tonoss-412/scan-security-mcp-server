@@ -1,0 +1,124 @@
+{
+    "tools": [
+        {
+            "name": "startup_event",
+            "description": "Initialize services on startup",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "get_tools",
+            "description": "Return agent-specific tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\agents\\base_agent.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_system_prompt",
+            "description": "Return agent-specific system prompt",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\agents\\base_agent.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "Main chat endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_session_history",
+            "description": "Get conversation history for a session",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "clear_session",
+            "description": "Clear session memory and history",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\routes.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "list_agents",
+            "description": "List available agents",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_working_memory",
+            "description": "Get working memory for an agent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_learned_patterns",
+            "description": "Get learned patterns by type",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "websocket_endpoint",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\ws_routes\\websocket_routes.py",
+            "decorator": [
+                "router.websocket"
+            ]
+        }
+    ]
+}

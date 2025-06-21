@@ -1,0 +1,770 @@
+{
+    "tools": [
+        {
+            "name": "get_cards",
+            "description": "\n        Get a list of available cards from the Clash Royale API. This only gets info about the specific cards, not the card's \n        stats such as win rates, usage rates, or any other stats. It only returns the card's basic information such as name, id, elixir cost, rarity, etc.\n        \n        Args:\n            limit: Limit the number of items returned in the response. (optional)\n            \n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n        \n        Returns:\n            Card information including stats, types, etc. The following is some mock data of one of the cards in the response:\n            \n            {\n                \"name\": \"Card\",\n                \"id\": 20000,\n                \"maxLevel\": 14,\n                \"maxEvolutionLevel\": 1,\n                \"elixirCost\": 3,\n                \"iconUrls\": {\n                    \"medium\": \"#link-to-medium-icon\",\n                    \"evolutionMedium\": \"#link-to-medium-evolution-icon\"\n                },\n                \"rarity\": \"common\",\n            },\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\cards.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_challenge_info",
+            "description": "\n        Fetch detailed information about current and upcoming challenges from the Clash Royale API.\n        \n        Returns:\n            Returns the challenge information as a JSON object.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server\\src\\tools\\challenges.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_clans",
+            "description": "\n        Searches for clans based on various parameters. Retrieves info about the clans that match the search criteria. This tool is\n        useful if a user asked about a clan by name, as this tool can be used to search for that clan, retrieve the id and \n        subsequently retrieve the specific clan information using the `get_clan_info` tool.\n        \n        Args:\n            name: Search clans by name. If name is used as part of search query, it needs to be at least three characters long.\n                Name search parameter is interpreted as wild card search, so it may appear anywhere in the clan name. (optional)\n            \n            location_id: Filter by clan location identifier. To get the list of available locations and their ids, use the \n            `get_locations` tool. (optional)\n            \n            min_members: Filter by minimum number of clan members. (optional)\n            \n            max_members: Filter by maximum number of clan members. (optional)\n            \n            min_score: Filter by minimum amount of clan score. (optional)\n            \n            limit: Limit the number of items returned in the response. (optional)\n            \n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n        Returns:\n            Returns the search results as a JSON object.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Search clans by name. If name is used as part of search query, it needs to be at least three characters long."
+                    },
+                    "location_id": {
+                        "type": "string",
+                        "description": "Filter by clan location identifier. To get the list of available locations and their ids, use the"
+                    },
+                    "min_members": {
+                        "type": "string",
+                        "description": "Filter by minimum number of clan members. (optional)"
+                    },
+                    "max_members": {
+                        "type": "string",
+                        "description": "Filter by maximum number of clan members. (optional)"
+                    },
+                    "min_score": {
+                        "type": "string",
+                        "description": "Filter by minimum amount of clan score. (optional)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "location_id",
+                    "min_members",
+                    "max_members",
+                    "min_score",
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\clans.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_clan_river_race_log",
+            "description": "\n        Fetch clan river race log from the Clash Royale API.\n        \n        Args:\n            clan_tag: The clan tag to look up (e.g. #ABCDEF). This should either be provided by the user in the\n            format of a string with a leading '#', or retrieved as a part of a reponse from a different tool.\n            \n            limit: Limit the number of items returned in the response. (optional)\n            \n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n        Returns:\n            Clan river race log containing past river race data.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "clan_tag": {
+                        "type": "string",
+                        "description": "The clan tag to look up (e.g. #ABCDEF). This should either be provided by the user in the"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "clan_tag",
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\clans.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_clan_info",
+            "description": "\n        Fetch detailed information about a specific clan from the Clash Royale API. This should either be provided by the user in the\n            format of a string with a leading '#', or retrieved as a part of a reponse from a different tool.\n        \n        Args:\n            clan_tag: The clan tag to look up (e.g. #ABCDEF)\n            \n        Returns:\n            Detailed information about the specified clan including members, war stats, etc.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "clan_tag": {
+                        "type": "string",
+                        "description": "The clan tag to look up (e.g. #ABCDEF)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "clan_tag",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\clans.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_clan_members",
+            "description": "\n        Fetch the list of members in a clan from the Clash Royale API.\n        \n        Args:\n            clan_tag: The clan tag to look up (e.g. #ABCDEF). This should either be provided by the user in the\n            format of a string with a leading '#', or retrieved as a part of a reponse from a different tool.\n            \n            limit: Limit the number of items returned in the response. (optional)\n            \n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n        Returns:\n            List of clan members with their details including name, role, trophies, donations, etc.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "clan_tag": {
+                        "type": "string",
+                        "description": "The clan tag to look up (e.g. #ABCDEF). This should either be provided by the user in the"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "clan_tag",
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\clans.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_clan_current_river_race",
+            "description": "\n        Fetch information about the clan's current river race from the Clash Royale API. This should either be provided by the user in the\n            format of a string with a leading '#', or retrieved as a part of a reponse from a different tool.\n        \n        Args:\n            clan_tag: The clan tag to look up (e.g. #ABCDEF)\n            \n        Returns:\n            Current river race information for the specified clan including participating clans,\n            battle days, clan participants, and other river race details.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "clan_tag": {
+                        "type": "string",
+                        "description": "The clan tag to look up (e.g. #ABCDEF)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "clan_tag",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\clans.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_specific_leaderboard",
+            "description": "\n        Fetch information about a specific leaderboard from the Clash Royale API. These leaderboards are not the regular ladder or path of legends, these are for any temporary gamemodes such as 2v2 ladder.\n        To get a list of all available leaderboards and their ids, use the `get_leaderboards` tool.\n        \n        Args:\n            leaderboard_id: The unique identifier for the leaderboard\n            \n            limit: Limit the number of items returned in the response. (optional)\n            \n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n        Returns:\n            Specific leaderboard information.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "leaderboard_id": {
+                        "type": "string",
+                        "description": "The unique identifier for the leaderboard"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "leaderboard_id",
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\leaderboards.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_leaderboards",
+            "description": "\n        Fetch all available leaderboards from the Clash Royale API. These leaderboards are not the regular ladder or path of legends, these are for any temporary gamemodes such as 2v2 ladder.\n        \n        Returns:\n            A list of all available leaderboards.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server\\src\\tools\\leaderboards.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_locations",
+            "description": "\n        Fetch a list of all the available locations alongside their ids from the Clash Royale API.\n        \n        Returns:\n            A list of all locations and their information including IDs, names, and region details.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server\\src\\tools\\locations.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_seasons",
+            "description": "\n        Fetch a list of all the available seasons alongside their ids from the Clash Royale API.\n        \n        Returns:\n            A list of all seasons and their identifiers.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server\\src\\tools\\locations.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_location_info",
+            "description": "\n        Fetch information about a specific location from the Clash Royale API.\n        \n        Args:\n            location_id: The location identifier. To get a list of all locations and their ids, use the get_locations tool.\n\n        Returns:\n            Information about the specified location including name, region, and other details.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "location_id": {
+                        "type": "string",
+                        "description": "The location identifier. To get a list of all locations and their ids, use the get_locations tool."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "location_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\locations.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_location_clan_rankings",
+            "description": "\n        Fetch clan rankings for a specific location from the Clash Royale API.\n        \n        Args:\n            location_id: The location identifier. To get a list of all locations and their ids, use the get_locations tool.\n            \n            limit: Limit the number of items returned in the response. (optional)\n            \n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n        Returns:\n            Clan rankings for the specified location.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "location_id": {
+                        "type": "string",
+                        "description": "The location identifier. To get a list of all locations and their ids, use the get_locations tool."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "location_id",
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\locations.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_location_player_rankings",
+            "description": "\n        Fetch player rankings for a specific location from the Clash Royale API.\n        \n        Args:\n            location_id: The location identifier. To get a list of all locations and their ids, use the get_locations tool.\n            \n            limit: Limit the number of items returned in the response. (optional)\n            \n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n        Returns:\n            Player rankings for the specified location.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "location_id": {
+                        "type": "string",
+                        "description": "The location identifier. To get a list of all locations and their ids, use the get_locations tool."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "location_id",
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\locations.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_location_clan_war_rankings",
+            "description": "\n        Fetch clan war rankings for a specific location from the Clash Royale API.\n        \n        Args:\n            location_id: The location identifier. To get a list of all locations and their ids, use the get_locations tool.\n\n            limit: Limit the number of items returned in the response. (optional)\n\n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n        Returns:\n            Clan war rankings for the specified location.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "location_id": {
+                        "type": "string",
+                        "description": "The location identifier. To get a list of all locations and their ids, use the get_locations tool."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "location_id",
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\locations.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_top_path_of_legends_players_rankings",
+            "description": "\n        Fetch global Path of Legends player rankings for a specific season from the Clash Royale API.\n        \n        Args:\n            season_id: The season identifier. To get a list of all seasons and their ids, use the get_seasons tool.\n\n            limit: Limit the number of items returned in the response. (optional)\n\n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n        Returns:\n            Path of Legends player rankings for the specified season.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "season_id": {
+                        "type": "string",
+                        "description": "The season identifier. To get a list of all seasons and their ids, use the get_seasons tool."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "season_id",
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\locations.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_top_player_league_season",
+            "description": "\n        Fetch global data for a specific season from the Clash Royale API.\n        \n        Args:\n            season_id: The season identifier. To get a list of all seasons and their ids, use the get_seasons tool.\n            \n        Returns:\n            Season player rankings for the specified season.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "season_id": {
+                        "type": "string",
+                        "description": "The season identifier. To get a list of all seasons and their ids, use the get_seasons tool."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "season_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\locations.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_season_top_player_rankings",
+            "description": "\n        Fetch top player rankings for a specific season from the Clash Royale API.\n        \n        Args:\n            season_id: The season identifier. To get a list of all seasons and their ids, use the get_seasons tool.\n            \n            limit: Limit the number of items returned in the response. (optional)\n            \n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n        Returns:\n            Top player rankings for the specified season.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "season_id": {
+                        "type": "string",
+                        "description": "The season identifier. To get a list of all seasons and their ids, use the get_seasons tool."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "season_id",
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\locations.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_location_path_of_legends_player_rankings",
+            "description": "\n        Fetch Path of Legends player rankings for a specific location from the Clash Royale API.\n        \n        Args:\n            location_id: The location identifier. To get a list of all locations and their ids, use the get_locations tool.\n            \n            limit: Limit the number of items returned in the response. (optional)\n            \n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n        Returns:\n            Path of Legends player rankings for the specified location.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "location_id": {
+                        "type": "string",
+                        "description": "The location identifier. To get a list of all locations and their ids, use the get_locations tool."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "location_id",
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\locations.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_global_tournament_rankings",
+            "description": "\n        Fetch global tournament rankings for a specific tournament from the Clash Royale API.\n        \n        Args:\n            tournament_tag: The tournament identifer. To get a list of all tournaments and their tags, use the get_global_tournaments tool.\n            \n            limit: Limit the number of items returned in the response. (optional)\n            \n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n        Returns:\n            Global tournament rankings for the specified tournament.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tournament_tag": {
+                        "type": "string",
+                        "description": "The tournament identifer. To get a list of all tournaments and their tags, use the get_global_tournaments tool."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tournament_tag",
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\locations.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_player_info",
+            "description": "\n        Fetch player info from the Clash Royale API.\n        \n        Args:\n            player_tag: The player tag to look up (e.g. #ABCDEF). This should either be provided by the user in the\n            format of a string with a leading '#', or retrieved as a part of a reponse from a different tool.\n            \n        Returns:\n            Player information including stats, cards, etc. The following is some mock data of the first part of a\n            player info response:\n            \n            {\n                \"tag\": \"#ABCDEF\",\n                \"name\": \"Player Name\",\n                \"expLevel\": 50,\n                \"trophies\": 1234,\n                \"bestTrophies\": 1234,\n                \"wins\": 6000,\n                \"losses\": 2000,\n                \"battleCount\": 6000,\n                \"threeCrownWins\": 1000,\n                \"challengeCardsWon\": 1000,\n                \"challengeMaxWins\": 12,\n                \"tournamentCardsWon\": 0,\n                \"tournamentBattleCount\": 543,\n                \"role\": \"member\",\n                \"donations\": 100,\n                \"donationsReceived\": 0,\n                \"totalDonations\": 50000,\n                \"warDayWins\": 7,\n                \"clanCardsCollected\": 13782,\n                \"clan\": {\n                    \"tag\": \"#QWERTY\",\n                    \"name\": \"Clan Name\",\n                    \"badgeId\": 33333\n            },\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "player_tag": {
+                        "type": "string",
+                        "description": "The player tag to look up (e.g. #ABCDEF). This should either be provided by the user in the"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "player_tag",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\players.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_player_upcoming_chests",
+            "description": "\n        Fetch upcoming chests for a player from the Clash Royale API.\n        \n        Args:\n            player_tag: The player tag to look up (e.g. #ABCDEF). This should either be provided by the user in the\n            format of a string with a leading '#', or retrieved as a part of a reponse from a different tool.\n            \n        Returns:\n            Upcoming chests information including the index and name. The following is some mock data of the\n            response:\n            \n            {\n                \"items\": [\n                    {\n                        \"index\": 0,\n                        \"name\": \"Golden Chest\"\n                    },\n                    {\n                        \"index\": 1,\n                        \"name\": \"Tower Troop Chest\"\n                    },\n                    {\n                        \"index\": 2,\n                        \"name\": \"Golden Chest\"\n                    },\n                    {\n                        \"index\": 3,\n                        \"name\": \"Plentiful Gold Crate\"\n                    }\n                ]\n            }\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "player_tag": {
+                        "type": "string",
+                        "description": "The player tag to look up (e.g. #ABCDEF). This should either be provided by the user in the"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "player_tag",
+                    "Returns",
+                    "response"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\players.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_player_battle_log",
+            "description": "\n        Fetch battle log for a player from the Clash Royale API. \n        \n        Args:\n            player_tag: The player tag to look up (e.g. #ABCDEF). This should either be provided by the user in the\n            format of a string with a leading '#', or retrieved as a part of a reponse from a different tool.\n            \n        Returns:\n            Battle log information including the battle details. Details returned include the gamemode, details about the\n            cards in each player's deck and the outcome.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "player_tag": {
+                        "type": "string",
+                        "description": "The player tag to look up (e.g. #ABCDEF). This should either be provided by the user in the"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "player_tag",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\players.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_tournaments",
+            "description": "\n        Search for tournaments based on name. Retrieves info about tournaments that match the search criteria.\n        These are player made tournaments, not official tournaments. This should only be used if a player is specifically\n        searching for a player-created tournament.\n        \n        Args:\n            name: Search tournaments by name. If name is used as part of search query, it needs to be at least three characters long.\n                Name search parameter is interpreted as wild card search, so it may appear anywhere in the tournament name. (optional)\n            \n            limit: Limit the number of items returned in the response. (optional)\n            \n            after: Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n            before: Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property.\n                Note that only after or before can be specified for a request, not both. (optional)\n            \n        Returns:\n            Returns the tournament search results as a JSON object.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Search tournaments by name. If name is used as part of search query, it needs to be at least three characters long."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Limit the number of items returned in the response. (optional)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Return only items that occur after this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Return only items that occur before this marker. Before marker can be found from the response, inside the 'paging' property."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "limit",
+                    "after",
+                    "before",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\tournaments.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_tournament_info",
+            "description": "\n        Fetch detailed information about a specific tournament from the Clash Royale API. These are player made tournaments, \n        not official tournaments. This should only be used if a player is specifically searching for a player-created \n        tournament.\n        \n        Args:\n            tournament_tag: The tournament tag to look up (e.g. #ABCDEF)\n            \n        Returns:\n            Detailed information about the specified tournament.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tournament_tag": {
+                        "type": "string",
+                        "description": "The tournament tag to look up (e.g. #ABCDEF)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tournament_tag",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server\\src\\tools\\tournaments.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

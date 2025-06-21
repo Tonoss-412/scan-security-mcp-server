@@ -1,0 +1,909 @@
+{
+    "tools": [
+        {
+            "name": "get_db_session",
+            "description": "\n    Context manager for Neo4j database sessions.\n\n    Creates a new driver and session, and ensures both are properly closed\n    when the context is exited.\n\n    Usage:\n        with get_db_session() as session:\n            result = session.run(\"MATCH (n) RETURN count(n)\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\base.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "callees",
+            "description": "\n    Find functions called by a specific function.\n\n    Args:\n        fn: Name of the function to find callees for\n\n    Returns:\n        List of functions called by the specified function\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "fn": {
+                        "type": "string",
+                        "description": "Name of the function to find callees for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "fn",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\call_graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "callers",
+            "description": "\n    Find functions that call a specific function.\n\n    Args:\n        fn: Name of the function called by others\n\n    Returns:\n        List of functions that call the specified function\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "fn": {
+                        "type": "string",
+                        "description": "Name of the function called by others"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "fn",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\call_graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unresolved_references",
+            "description": "\n    List unresolved function references in the codebase.\n\n    Returns:\n        List of unresolved function references and where they were first seen\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\call_graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "uncalled_functions",
+            "description": "\n    List all user-defined functions that are not called by any other function.\n\n    Returns:\n        List of functions (name, file, line, end_line) that have no incoming CALLS relationships.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\call_graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "most_called_functions",
+            "description": "\n    List functions with the most callers (fan-in).\n    Args:\n        limit: Maximum number of results to return (default 10)\n    Returns:\n        List of functions with their name, file, and number of callers.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\call_graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "most_calling_functions",
+            "description": "\n    List functions that call the most other functions (fan-out).\n    Args:\n        limit: Maximum number of results to return (default 10)\n    Returns:\n        List of functions with their name, file, and number of callees.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\call_graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "recursive_functions",
+            "description": "\n    List functions that call themselves (direct recursion).\n    Returns:\n        List of recursive functions with their name and file.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\call_graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "functions_calling_references",
+            "description": "\n    List functions that call at least one reference function (potential missing dependencies).\n    Returns:\n        List of function names, files, and the number of reference functions they call.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\call_graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "function_call_arguments",
+            "description": "\n    List all argument lists used in calls to a given function.\n    Args:\n        fn: Name of the function to inspect\n        file: (Optional) File path to disambiguate overloaded or class methods\n    Returns:\n        List of argument lists, with caller name, caller file, and call site line number.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "fn": {
+                        "type": "string",
+                        "description": "Name of the function to inspect"
+                    },
+                    "file": {
+                        "type": "string",
+                        "description": "(Optional) File path to disambiguate overloaded or class methods"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "fn",
+                    "file",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\call_graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "transitive_calls",
+            "description": "\n    Find full relationship chains between two functions (if one call will eventually lead to the other).\n\n    Args:\n        source_fn: Name of the source function\n        target_fn: Name of the target function\n        max_depth: Maximum path length to consider (default: 10)\n\n    Returns:\n        List of paths showing how source_fn eventually calls target_fn\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "source_fn": {
+                        "type": "string",
+                        "description": "Name of the source function"
+                    },
+                    "target_fn": {
+                        "type": "string",
+                        "description": "Name of the target function"
+                    },
+                    "max_depth": {
+                        "type": "string",
+                        "description": "Maximum path length to consider (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "source_fn",
+                    "target_fn",
+                    "max_depth",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\call_graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_function_relations",
+            "description": "\n    Find function relations by function name, with option to search by partial name.\n\n    Args:\n        function_name: Full or partial name of the function to find relations for\n        partial_match: If True, will match functions containing the specified name substring\n        limit: Maximum number of results to return (default: 50)\n\n    Returns:\n        Dictionary with matching functions, their callers, and callees\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "function_name": {
+                        "type": "string",
+                        "description": "Full or partial name of the function to find relations for"
+                    },
+                    "partial_match": {
+                        "type": "string",
+                        "description": "If True, will match functions containing the specified name substring"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 50)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "function_name",
+                    "partial_match",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\call_graph.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "classes_with_no_methods",
+            "description": "\n    List classes that do not contain any methods.\n    Returns:\n        List of class names and files with no outgoing CONTAINS relationships.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\class_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "classes_with_most_methods",
+            "description": "\n    List classes with the most methods.\n    Args:\n        limit: Maximum number of results to return (default 10)\n    Returns:\n        List of class names, files, and method counts.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\class_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_class_relations",
+            "description": "\n    Find class relations by class name, with option to search by partial name.\n\n    Args:\n        class_name: Full or partial name of the class to find relations for\n        partial_match: If True, will match classes containing the specified name substring\n        limit: Maximum number of results to return (default: 50)\n\n    Returns:\n        Dictionary with matching classes, their methods, and containing files\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "class_name": {
+                        "type": "string",
+                        "description": "Full or partial name of the class to find relations for"
+                    },
+                    "partial_match": {
+                        "type": "string",
+                        "description": "If True, will match classes containing the specified name substring"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 50)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "class_name",
+                    "partial_match",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\class_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "repetitive_constants",
+            "description": "\n    List constants with identical values used in multiple places across the codebase.\n\n    Args:\n        limit: Maximum number of results to return (default 10)\n\n    Returns:\n        List of constants with the same value used in multiple places,\n        showing value, type, and locations where they are defined.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\constant_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "repetitive_constant_names",
+            "description": "\n    Find constants with the same name used in multiple places across the codebase,\n    regardless of their values.\n\n    Args:\n        limit: Maximum number of results to return (default 10)\n\n    Returns:\n        List of constant names used in multiple places,\n        showing the locations and values where they are defined.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\constant_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_connection_status_tool",
+            "description": "\n    Get the status of the Neo4j database connection.\n    Returns connection details and success status.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\core.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "graph_summary",
+            "description": "\n    Get a summary of the code graph.\n    Returns counts of functions, classes, and calls.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\core.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "rescan_codebase",
+            "description": "\n    Run scanner.py to re-analyze the codebase and repopulate the Neo4j database.\n    Returns:\n        A dictionary with keys: success (bool), output (str), error (str or None)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\core.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_files",
+            "description": "\n    List all unique file paths present in the code graph.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\file_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "file_contents",
+            "description": "\n    List all classes, functions, and constants contained in a specific file.\n\n    Args:\n        file: Path to the file to list contents from\n\n    Returns:\n        Dict with classes, functions, and constants in the file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file": {
+                        "type": "string",
+                        "description": "Path to the file to list contents from"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\file_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_functions",
+            "description": "\n    List all functions defined in a specific file.\n\n    Args:\n        file: Path to the file to list functions from\n\n    Returns:\n        List of functions with their names and line numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file": {
+                        "type": "string",
+                        "description": "Path to the file to list functions from"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\file_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_classes",
+            "description": "\n    List all classes defined in a specific file.\n\n    Args:\n        file: Path to the file to list classes from\n\n    Returns:\n        List of classes with their names and line numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file": {
+                        "type": "string",
+                        "description": "Path to the file to list classes from"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\file_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_test_functions",
+            "description": "\n    List all test functions.\n\n    Returns:\n        List of test functions with their names, files, and line numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\test_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_example_functions",
+            "description": "\n    List all example functions.\n\n    Returns:\n        List of example functions with their names, files, and line numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\test_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_test_classes",
+            "description": "\n    List all test classes.\n\n    Returns:\n        List of test classes with their names, files, and line numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\test_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_example_classes",
+            "description": "\n    List all example classes.\n\n    Returns:\n        List of example classes with their names, files, and line numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\test_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_test_files",
+            "description": "\n    List all files containing tests.\n\n    Returns:\n        List of file paths containing test components\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\test_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_example_files",
+            "description": "\n    List all files containing examples.\n\n    Returns:\n        List of file paths containing example components\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\test_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_test_detection_config",
+            "description": "\n    Get the current test detection configuration.\n\n    Returns:\n        Dictionary with test detection pattern configuration\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\test_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "untested_functions",
+            "description": "\n    List functions without tests.\n\n    Args:\n        exclude_private: Whether to exclude private functions (starting with _)\n\n    Returns:\n        List of functions that don't have any tests covering them\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "exclude_private": {
+                        "type": "string",
+                        "description": "Whether to exclude private functions (starting with _)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "exclude_private",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\test_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_test_coverage_ratio",
+            "description": "\n    Get test coverage ratio.\n\n    Returns:\n        Overall test coverage ratio and counts\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "codescan_lib\\mcp_tools\\test_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "functions_tested_by",
+            "description": "\n    List functions tested by a specific test file.\n\n    Args:\n        file: Path to the test file\n\n    Returns:\n        List of functions tested by the specified test file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file": {
+                        "type": "string",
+                        "description": "Path to the test file"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\test_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_tests_for_function",
+            "description": "\n    List tests for a specific function.\n\n    Args:\n        name: Name of the function\n        file: Optional file path to disambiguate functions with the same name\n\n    Returns:\n        List of test functions that test the specified function\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the function"
+                    },
+                    "file": {
+                        "type": "string",
+                        "description": "Optional file path to disambiguate functions with the same name"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "file",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\test_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "untested_classes",
+            "description": "\n    List classes without tests.\n\n    Args:\n        exclude_private: Whether to exclude private classes (starting with _)\n\n    Returns:\n        List of classes that don't have any tests covering them\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "exclude_private": {
+                        "type": "string",
+                        "description": "Whether to exclude private classes (starting with _)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "exclude_private",
+                    "Returns"
+                ]
+            },
+            "file": "codescan_lib\\mcp_tools\\test_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_rescan_codebase_runs",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_codescan_mcp_server.py",
+            "decorator": [
+                "pytest.mark.skip"
+            ]
+        },
+        {
+            "name": "neo4j_test_session",
+            "description": "Create a test session for Neo4j.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_constants.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "neo4j_test_session",
+            "description": "Create a test session for Neo4j.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_file_nodes.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "neo4j_test_session",
+            "description": "Create a test session for Neo4j.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_function_length.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "neo4j_test_session",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "neo4j_test_session",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_scanner.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_pyfile",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_scanner.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_untested_functions",
+            "description": "Test the untested_functions tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_q": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_q"
+                ]
+            },
+            "file": "tests\\test_test_coverage_mcp_tools.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_test_coverage_ratio",
+            "description": "Test the test_coverage_ratio tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_q": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_q"
+                ]
+            },
+            "file": "tests\\test_test_coverage_mcp_tools.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_functions_tested_by",
+            "description": "Test the functions_tested_by tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_q": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_q"
+                ]
+            },
+            "file": "tests\\test_test_coverage_mcp_tools.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_tests_for_function",
+            "description": "Test the tests_for_function tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_q": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_q"
+                ]
+            },
+            "file": "tests\\test_test_coverage_mcp_tools.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_list_test_functions",
+            "description": "Test the list_test_functions tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_q": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_q"
+                ]
+            },
+            "file": "tests\\test_test_mcp_tools.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_list_test_classes",
+            "description": "Test the list_test_classes tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_q": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_q"
+                ]
+            },
+            "file": "tests\\test_test_mcp_tools.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_test_files",
+            "description": "Test the get_test_files tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_q": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_q"
+                ]
+            },
+            "file": "tests\\test_test_mcp_tools.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

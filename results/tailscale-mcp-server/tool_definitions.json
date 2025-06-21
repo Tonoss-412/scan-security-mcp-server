@@ -1,0 +1,194 @@
+{
+    "tools": [
+        {
+            "name": "network_check",
+            "description": "\n    Run Tailscale netcheck to diagnose network connectivity.\n    \n    This command checks:\n    - UDP connectivity\n    - Nearest DERP relay latency\n    - IPv4/IPv6 connectivity\n    - NAT type\n    - Port mapping protocols\n    \n    Returns:\n        Network diagnostic information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tailscale-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_ip",
+            "description": "\n    Get Tailscale IP addresses for this device.\n    \n    Returns the Tailscale IPv4 and IPv6 addresses assigned to this machine.\n    \n    Returns:\n        The Tailscale IP addresses\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tailscale-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "dns_status",
+            "description": "\n    Get Tailscale DNS configuration status.\n    \n    Shows the current DNS configuration including:\n    - DNS servers\n    - Search domains\n    - MagicDNS status\n    \n    Returns:\n        DNS configuration information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tailscale-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_status",
+            "description": "\n    Get Tailscale status information.\n    \n    Shows the current state of your Tailscale connection and peers.\n    \n    Args:\n        active: If True, only show peers with active sessions\n        json: If True, output in JSON format\n        \n    Returns:\n        Status information about Tailscale connection and peers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "active": {
+                        "type": "string",
+                        "description": "If True, only show peers with active sessions"
+                    },
+                    "json": {
+                        "type": "string",
+                        "description": "If True, output in JSON format"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "active",
+                    "json",
+                    "Returns"
+                ]
+            },
+            "file": "tailscale-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "network_check",
+            "description": "\n    Check Tailscale network connectivity.\n    \n    Performs a comprehensive network check including:\n    - UDP connectivity\n    - DERP relay latency\n    - IPv4/IPv6 support\n    - NAT type detection\n    \n    Returns:\n        Detailed network connectivity report\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tailscale-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "ping_host",
+            "description": "\n    Ping a Tailscale host.\n    \n    Sends ICMP ping packets to a Tailscale peer to test connectivity.\n    \n    Args:\n        host: The Tailscale hostname or IP address to ping\n        count: Number of pings to send (default: 1)\n        \n    Returns:\n        Ping results including latency statistics\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string",
+                        "description": "The Tailscale hostname or IP address to ping"
+                    },
+                    "count": {
+                        "type": "string",
+                        "description": "Number of pings to send (default: 1)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "count",
+                    "Returns"
+                ]
+            },
+            "file": "tailscale-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_version",
+            "description": "\n    Get Tailscale version information.\n    \n    Shows version information for:\n    - Tailscale daemon\n    - Tailscale CLI\n    - Go version used to build\n    \n    Returns:\n        Version information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tailscale-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_exit_nodes",
+            "description": "\n    List available Tailscale exit nodes.\n    \n    Shows all exit nodes available on your tailnet that can be used\n    to route your internet traffic.\n    \n    Returns:\n        List of available exit nodes with their details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tailscale-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "ip_lookup",
+            "description": "\n    Look up information about a Tailscale IP address.\n    \n    Provides details about which device owns a specific Tailscale IP address.\n    \n    Args:\n        ip: The Tailscale IP address to look up\n        \n    Returns:\n        Information about the device with that IP address\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ip": {
+                        "type": "string",
+                        "description": "The Tailscale IP address to look up"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ip",
+                    "Returns"
+                ]
+            },
+            "file": "tailscale-mcp-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "tailscale_status",
+            "description": "Get current Tailscale status",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tailscale-mcp-server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "tailscale_ip",
+            "description": "Get Tailscale IP addresses",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tailscale-mcp-server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "tailscale_version",
+            "description": "Get Tailscale version information",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tailscale-mcp-server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

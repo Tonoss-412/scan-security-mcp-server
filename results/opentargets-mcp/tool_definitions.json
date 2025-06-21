@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "Returns the list of all available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\opentargets_mcp\\server.py",
+            "decorator": [
+                "self.mcp_server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n            Handles a tool call request from an MCP client.\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\opentargets_mcp\\server.py",
+            "decorator": [
+                "self.mcp_server.call_tool"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "\n    Provides an OpenTargetsClient instance for each test function.\n    Ensures the client session is created in the correct event loop and closed afterwards.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

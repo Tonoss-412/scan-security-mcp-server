@@ -1,0 +1,36 @@
+{
+    "tools": [
+        {
+            "name": "get_alerts",
+            "description": "Get weather alerts for a US state.\n\n    Args:\n        state: Two-letter US state code (e.g. CA, NY)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "Two-letter US state code (e.g. CA, NY)"
+                    }
+                },
+                "required": [
+                    "state"
+                ]
+            },
+            "file": "server\\weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_config",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server\\weather.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

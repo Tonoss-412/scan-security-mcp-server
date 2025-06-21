@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "get_writing_style",
+            "description": "Retrieve the style prompt for a given writing style.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

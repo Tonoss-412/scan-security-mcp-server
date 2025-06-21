@@ -1,0 +1,931 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "Application lifespan manager for startup and shutdown events.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "telemetry_middleware",
+            "description": "Middleware to capture request telemetry.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "call_next": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "call_next"
+                ]
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "app.middleware"
+            ]
+        },
+        {
+            "name": "http_exception_handler",
+            "description": "Global HTTP exception handler.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    },
+                    "exc": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "exc"
+                ]
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "general_exception_handler",
+            "description": "Global exception handler for unexpected errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    },
+                    "exc": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "exc"
+                ]
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "report_update",
+            "description": "Report package updates for a host.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_hosts",
+            "description": "Get list of all hosts that have reported updates.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "host_history",
+            "description": "Get update history for a specific host with optional filters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "last_updates",
+            "description": "Get the last update date for each host.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint with telemetry information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_client",
+            "description": "Get or create HTTP client with proper lifecycle management.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\client.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "Application lifespan manager for startup and shutdown events.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "telemetry_middleware",
+            "description": "Middleware to capture request telemetry.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    },
+                    "call_next": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "call_next"
+                ]
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.middleware"
+            ]
+        },
+        {
+            "name": "global_exception_handler",
+            "description": "Global exception handler for unexpected errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    },
+                    "exc": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "exc"
+                ]
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "mcp_endpoint",
+            "description": "\n    MCP Protocol Endpoint\n    \n    Implements the Model Context Protocol JSON-RPC 2.0 specification.\n    This endpoint allows FastMCP and other MCP clients to connect and use tools.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint with basic information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "\n    Health Check Tool\n    \n    Check the health status of FleetPulse backend and MCP server.\n    Returns comprehensive health information including database connectivity,\n    telemetry status, and backend connection status.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_hosts",
+            "description": "\n    List Hosts Tool\n    \n    List all hosts in the FleetPulse fleet.\n    Returns detailed information about each host including hostname, operating system,\n    last update date, and number of packages that have been updated.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_host_details",
+            "description": "\n    Get Host Details Tool\n    \n    Get detailed information for a specific host.\n    Returns detailed host information including OS, last update date, and package count.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_update_reports",
+            "description": "\n    Get Update Reports Tool\n    \n    Get package update reports from the fleet.\n    Returns list of update reports with package details grouped by host and date.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_host_reports",
+            "description": "\n    Get Host Reports Tool\n    \n    Get update reports for a specific host.\n    Returns list of update reports for the specified host.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_packages",
+            "description": "\n    List Packages Tool\n    \n    List all packages across the FleetPulse fleet.\n    Returns information about each package including current version,\n    list of hosts that have the package, and last update date.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_package_details",
+            "description": "\n    Get Package Details Tool\n    \n    Get detailed information about a specific package.\n    Returns detailed package information including current version, hosts that have it,\n    and last update date.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_fleet_statistics",
+            "description": "\n    Fleet Statistics Tool\n    \n    Get aggregate statistics about the FleetPulse fleet.\n    Returns comprehensive statistics including total hosts, reports, packages,\n    activity metrics, most updated packages, and recent activity.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "\n    Search Tool\n    \n    Search across FleetPulse data including hosts, packages, and reports.\n    Returns search results with relevance scores, grouped by type.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available MCP tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "sse_endpoint",
+            "description": "\n    SSE Endpoint for Claude Desktop integration.\n    Accepts POST requests with JSON specifying the tool and parameters, invokes the tool, and streams the result as SSE.\n    Example request body:\n    {\n        \"tool\": \"list_hosts\",\n        \"params\": {}\n    }\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "mcp_protocol",
+            "description": "\n    MCP Protocol Endpoint\n    \n    Implements the Model Context Protocol (MCP) using JSON-RPC 2.0.\n    Accepts JSON-RPC requests, invokes the corresponding MCP tool,\n    and returns the result as JSON-RPC response.\n    \n    Example request:\n    {\n        \"jsonrpc\": \"2.0\",\n        \"method\": \"list_hosts\",\n        \"params\": {},\n        \"id\": 1\n    }\n    \n    Example response:\n    {\n        \"jsonrpc\": \"2.0\",\n        \"id\": 1,\n        \"result\": [...]\n    }\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "create_custom_span",
+            "description": "Create a custom span with optional attributes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\telemetry.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "set_test_environment",
+            "description": "Configures the test environment before any tests run.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\backend\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_database_initialization_new_database",
+            "description": "Test that database is created properly when it doesn't exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\backend\\test_database_initialization.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_database_initialization_existing_database",
+            "description": "Test that existing database tables are not recreated.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\backend\\test_database_initialization.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_database_initialization_force_recreate",
+            "description": "Test that FORCE_DB_RECREATE environment variable works.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\backend\\test_database_initialization.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_database_initialization_missing_tables",
+            "description": "Test that missing tables are created when database exists but tables are missing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\backend\\test_database_initialization.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "temp_db_file",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\backend\\test_main.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "override_engine",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_db_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_db_file"
+                ]
+            },
+            "file": "tests\\backend\\test_main.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "override_get_session",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "override_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "override_engine"
+                ]
+            },
+            "file": "tests\\backend\\test_main.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "set_dependency_overrides",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "override_engine": {
+                        "type": "string"
+                    },
+                    "override_get_session": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "override_engine",
+                    "override_get_session"
+                ]
+            },
+            "file": "tests\\backend\\test_main.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client_with_db_override",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\backend\\test_main.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "setup_database_for_each_test",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "override_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "override_engine"
+                ]
+            },
+            "file": "tests\\backend\\test_main.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_db_file",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\backend\\test_telemetry.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "override_engine",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_db_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_db_file"
+                ]
+            },
+            "file": "tests\\backend\\test_telemetry.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "override_get_session",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "override_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "override_engine"
+                ]
+            },
+            "file": "tests\\backend\\test_telemetry.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client_with_db_override",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "override_engine": {
+                        "type": "string"
+                    },
+                    "override_get_session": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "override_engine",
+                    "override_get_session"
+                ]
+            },
+            "file": "tests\\backend\\test_telemetry.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_telemetry_stub_functions",
+            "description": "Test that telemetry stub functions work when telemetry is not available.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\backend\\test_telemetry.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create a test client for the MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_backend_client",
+            "description": "Mock backend client for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_health_endpoint",
+            "description": "Test the health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_client": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    },
+                    "mock_backend_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_client",
+                    "client",
+                    "mock_backend_client"
+                ]
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_hosts_endpoint",
+            "description": "Test the hosts listing endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_tools_client": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    },
+                    "mock_backend_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_tools_client",
+                    "client",
+                    "mock_backend_client"
+                ]
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_host_details_endpoint",
+            "description": "Test the host details endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_client": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    },
+                    "mock_backend_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_client",
+                    "client",
+                    "mock_backend_client"
+                ]
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_reports_endpoint",
+            "description": "Test the reports endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_client": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    },
+                    "mock_backend_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_client",
+                    "client",
+                    "mock_backend_client"
+                ]
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_reports_with_hostname_filter",
+            "description": "Test the reports endpoint with hostname filter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_client": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    },
+                    "mock_backend_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_client",
+                    "client",
+                    "mock_backend_client"
+                ]
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_packages_endpoint",
+            "description": "Test the packages endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_client": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    },
+                    "mock_backend_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_client",
+                    "client",
+                    "mock_backend_client"
+                ]
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_package_details_endpoint",
+            "description": "Test the package details endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_client": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    },
+                    "mock_backend_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_client",
+                    "client",
+                    "mock_backend_client"
+                ]
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_statistics_endpoint",
+            "description": "Test the fleet statistics endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_client": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    },
+                    "mock_backend_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_client",
+                    "client",
+                    "mock_backend_client"
+                ]
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_endpoint",
+            "description": "Test the search endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_client": {
+                        "type": "string"
+                    },
+                    "client": {
+                        "type": "string"
+                    },
+                    "mock_backend_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_client",
+                    "client",
+                    "mock_backend_client"
+                ]
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_tools_health_check",
+            "description": "Test the MCP tools health check functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_tools_health_check_backend_down",
+            "description": "Test the MCP tools health check when backend is down.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\mcp\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

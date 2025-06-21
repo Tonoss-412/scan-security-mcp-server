@@ -1,0 +1,87 @@
+{
+    "tools": [
+        {
+            "name": "get_pdf_info",
+            "description": "Get information about a PDF document.\n    \n    Args:\n        pdf_data: Base64 encoded PDF file content\n        \n    Returns:\n        Dictionary containing PDF metadata including page count and dimensions\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pdf_data": {
+                        "type": "string",
+                        "description": "Base64 encoded PDF file content"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "pdf_data",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sign_pdf",
+            "description": "Sign a PDF document by adding a signature image at the specified coordinates.\n    \n    Args:\n        pdf_data: Base64 encoded PDF file content\n        signature_data: Base64 encoded signature image (PNG, JPG)\n        page_number: Page number to sign (1-based indexing, defaults to 1)\n        x: X coordinate from bottom-left corner in PDF units (default: 100)\n        y: Y coordinate from bottom-left corner in PDF units (default: 100)\n        width: Width of the signature in PDF units (default: 125)\n        height: Height of the signature in PDF units (default: 40)\n        add_date: Whether to add current date next to signature (default: False)\n        \n    Returns:\n        Base64 encoded signed PDF content\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pdf_data": {
+                        "type": "string",
+                        "description": "Base64 encoded PDF file content"
+                    },
+                    "signature_data": {
+                        "type": "string",
+                        "description": "Base64 encoded signature image (PNG, JPG)"
+                    },
+                    "page_number": {
+                        "type": "string",
+                        "description": "Page number to sign (1-based indexing, defaults to 1)"
+                    },
+                    "x": {
+                        "type": "string",
+                        "description": "X coordinate from bottom-left corner in PDF units (default: 100)"
+                    },
+                    "y": {
+                        "type": "string",
+                        "description": "Y coordinate from bottom-left corner in PDF units (default: 100)"
+                    },
+                    "width": {
+                        "type": "string",
+                        "description": "Width of the signature in PDF units (default: 125)"
+                    },
+                    "height": {
+                        "type": "string",
+                        "description": "Height of the signature in PDF units (default: 40)"
+                    },
+                    "add_date": {
+                        "type": "string",
+                        "description": "Whether to add current date next to signature (default: False)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "pdf_data",
+                    "signature_data",
+                    "page_number",
+                    "x",
+                    "y",
+                    "width",
+                    "height",
+                    "add_date",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,288 @@
+{
+    "tools": [
+        {
+            "name": "chat_completion",
+            "description": "\n        Create a chat completion with retry logic and error handling.\n\n        Args:\n            messages: List of chat messages\n            model: Model name to use\n            temperature: Sampling temperature\n            max_tokens: Maximum tokens in response\n            **kwargs: Additional parameters\n\n        Returns:\n            Chat completion response\n\n        Raises:\n            AzureOpenAIError: For API errors\n            RetryableError: For retryable errors\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "type": "string",
+                        "description": "List of chat messages"
+                    },
+                    "model": {
+                        "type": "string",
+                        "description": "Model name to use"
+                    },
+                    "temperature": {
+                        "type": "string",
+                        "description": "Sampling temperature"
+                    },
+                    "max_tokens": {
+                        "type": "string",
+                        "description": "Maximum tokens in response"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "AzureOpenAIError": {
+                        "type": "string",
+                        "description": "For API errors"
+                    },
+                    "RetryableError": {
+                        "type": "string",
+                        "description": "For retryable errors"
+                    }
+                },
+                "required": [
+                    "messages",
+                    "model",
+                    "temperature",
+                    "max_tokens",
+                    "Returns",
+                    "Raises",
+                    "AzureOpenAIError",
+                    "RetryableError"
+                ]
+            },
+            "file": "generic_agent\\client.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "from_environment",
+            "description": "Load configuration from environment variables.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "generic_agent\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_port",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "generic_agent\\config.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "validate_name",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "generic_agent\\config.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "validate_temperature",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "generic_agent\\config.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "validate_retries",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "generic_agent\\config.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Check server health status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "generic_agent\\mcp_server.py",
+            "decorator": [
+                "self.app.tool"
+            ]
+        },
+        {
+            "name": "get_metrics",
+            "description": "Get server metrics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "generic_agent\\mcp_server.py",
+            "decorator": [
+                "self.app.tool"
+            ]
+        },
+        {
+            "name": "get_server_info",
+            "description": "Get comprehensive server information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "generic_agent\\mcp_server.py",
+            "decorator": [
+                "self.app.tool"
+            ]
+        },
+        {
+            "name": "resource_tool",
+            "description": "Access resource data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "generic_agent\\mcp_server.py",
+            "decorator": [
+                "self.app.tool"
+            ]
+        },
+        {
+            "name": "is_running",
+            "description": "Check if server is running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "generic_agent\\mcp_server.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "metrics",
+            "description": "Get current server metrics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "generic_agent\\mcp_server.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "test_build_server",
+            "description": "Test building the server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_core.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_from_environment",
+            "description": "Test loading configuration from environment.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_core.py",
+            "decorator": [
+                "patch.dict"
+            ]
+        },
+        {
+            "name": "test_analyze_task_fallback",
+            "description": "Test task analysis fallback when LLM fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_core.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "event_loop",
+            "description": "Create an instance of the default event loop for the test session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_core.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

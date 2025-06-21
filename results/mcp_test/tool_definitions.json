@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "get_greeting",
+            "description": "\n        Get a greeting message for the given name.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\simple_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_categories",
+            "description": "Returns a list of available product categories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\simple_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "add",
+            "description": "\n        Add two integer numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\simple_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "divide",
+            "description": "\n        Divide two integer numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\simple_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "multiply",
+            "description": "\n        Multiply two integer numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\simple_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "subtract",
+            "description": "\n        Subtract two integer numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\simple_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "semantic_search",
+            "description": "\n        Search for documents semantically related to the query using embeddings.\n        \n        Arguments:\n            query (str): The search query.\n            limit (int, optional): Maximum number of results to return (default: 5).\n            \n        Returns:\n            str: A formatted string containing search results with their content and relevance scores.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\rag.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

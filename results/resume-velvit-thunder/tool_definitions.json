@@ -1,0 +1,425 @@
+{
+    "tools": [
+        {
+            "name": "from_db_record",
+            "description": "Create config from database record.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "04-resume-generation.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "04-resume-generation.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "04-resume-generation.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai_providers.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "_initialize_client",
+            "description": "Initialize the provider-specific client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai_providers.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "_make_request",
+            "description": "Make a request to the AI provider.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai_providers.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_available_models",
+            "description": "Get list of available models for this provider.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai_providers.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "validate_api_key",
+            "description": "Validate the API key for this provider.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "ai_providers.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "generate_response",
+            "description": "\n        Generate a response from the AI provider with retry logic.\n        \n        Args:\n            request: Standardized AI request\n            \n        Returns:\n            Standardized AI response\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "Standardized AI request"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns"
+                ]
+            },
+            "file": "ai_providers.py",
+            "decorator": [
+                "retry_on_failure"
+            ]
+        },
+        {
+            "name": "get_connection",
+            "description": "\n        Context manager for database connections with automatic cleanup.\n        \n        Yields:\n            sqlite3.Connection: Database connection\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "database_utils.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "transaction",
+            "description": "\n        Context manager for database transactions with automatic rollback on error.\n        \n        Yields:\n            sqlite3.Connection: Database connection in transaction\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "database_utils.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "test_load_mcp_servers_from_file",
+            "description": "Test loading MCP servers from a config file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_open": {
+                        "type": "string"
+                    },
+                    "mock_exists": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_open",
+                    "mock_exists"
+                ]
+            },
+            "file": "test_mcp_config.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_load_mcp_servers_file_not_found",
+            "description": "Test handling of missing MCP config file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_exists": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_exists"
+                ]
+            },
+            "file": "test_mcp_config.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "get_environment_variables",
+            "description": "\n    Get all environment variables with sensitive data masked\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\admin_endpoints.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_system_status",
+            "description": "\n    Get comprehensive system status information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\admin_endpoints.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "test_database_connection",
+            "description": "\n    Test database connection and basic operations\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\admin_endpoints.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "test_ai_providers",
+            "description": "\n    Test AI provider connections\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\admin_endpoints.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "test_sample_generation",
+            "description": "\n    Test sample resume generation with mock data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\admin_endpoints.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "refresh_admin_data",
+            "description": "\n    Refresh all admin data (useful for development)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\admin_endpoints.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "analyze_job",
+            "description": "\n    Analyze a job description and extract relevant information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\endpoints.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "upload_document",
+            "description": "\n    Upload and process a document (resume, cover letter, etc.)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\endpoints.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "configure_generation",
+            "description": "\n    Configure resume generation parameters\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\endpoints.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "generate_resume",
+            "description": "\n    Generate a tailored resume based on job analysis, documents, and configuration\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\endpoints.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_session",
+            "description": "\n    Get complete session data including all workflow steps\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\endpoints.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_new_session",
+            "description": "\n    Create a new session for the resume generation workflow\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\endpoints.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "test_db",
+            "description": "Create a clean test database and return a session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "apps\\api\\src\\test_database.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "set_sqlite_pragma",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "dbapi_connection": {
+                        "type": "string"
+                    },
+                    "connection_record": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dbapi_connection",
+                    "connection_record"
+                ]
+            },
+            "file": "apps\\api\\src\\database\\database.py",
+            "decorator": [
+                "event.listens_for"
+            ]
+        },
+        {
+            "name": "test_config",
+            "description": "Provide test configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "config_manager",
+            "description": "Create a ConfigManager instance with test configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "db_manager",
+            "description": "Create a DatabaseManager instance with a test database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_client",
+            "description": "Create a test client for the API.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

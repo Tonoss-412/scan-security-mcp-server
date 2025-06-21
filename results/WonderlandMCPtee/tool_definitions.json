@@ -1,0 +1,111 @@
+{
+    "tools": [
+        {
+            "name": "add_execute_code_cell",
+            "description": "Add and execute a code cell in a Jupyter notebook.\n\n    Args:\n        cell_content: Code content\n\n    Returns:\n        str: Cell output\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cell_content": {
+                        "type": "string",
+                        "description": "Code content"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Cell output"
+                    }
+                },
+                "required": [
+                    "cell_content",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "jupyter_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_markdown_cell",
+            "description": "Add a markdown cell in a Jupyter notebook.\n\n    Args:\n        cell_content: Markdown content\n\n    Returns:\n        str: Success message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cell_content": {
+                        "type": "string",
+                        "description": "Markdown content"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Success message"
+                    }
+                },
+                "required": [
+                    "cell_content",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "jupyter_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "download_earth_data_granules",
+            "description": "Add a code cell in a Jupyter notebook to download Earth data granules from NASA Earth Data.\n\n    Args:\n        folder_name: Local folder name to save the data.\n        short_name: Short name of the Earth dataset to download.\n        count: Number of data granules to download.\n        temporal: (Optional) Temporal range in the format (date_from, date_to).\n        bounding_box: (Optional) Bounding box in the format (lower_left_lon, lower_left_lat,\n        upper_right_lon, upper_right_lat).\n\n    Returns:\n        str: Cell output\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "folder_name": {
+                        "type": "string",
+                        "description": "Local folder name to save the data."
+                    },
+                    "short_name": {
+                        "type": "string",
+                        "description": "Short name of the Earth dataset to download."
+                    },
+                    "count": {
+                        "type": "string",
+                        "description": "Number of data granules to download."
+                    },
+                    "temporal": {
+                        "type": "string",
+                        "description": "(Optional) Temporal range in the format (date_from, date_to)."
+                    },
+                    "bounding_box": {
+                        "type": "string",
+                        "description": "(Optional) Bounding box in the format (lower_left_lon, lower_left_lat,"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Cell output"
+                    }
+                },
+                "required": [
+                    "folder_name",
+                    "short_name",
+                    "count",
+                    "temporal",
+                    "bounding_box",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "jupyter_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

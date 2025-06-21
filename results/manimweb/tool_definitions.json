@@ -1,0 +1,320 @@
+{
+    "tools": [
+        {
+            "name": "index",
+            "description": "Render the main page of the application",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "generate_animation",
+            "description": "Generate a Manim animation based on the user prompt",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "check_status",
+            "description": "Check the status of an animation request",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request_id"
+                ]
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "serve_output",
+            "description": "Serve generated animation files",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filename": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "filename"
+                ]
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "debug_status",
+            "description": "API endpoint to get debug information (only available in debug mode)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "debug_requests",
+            "description": "View current request statuses (only available in debug mode)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "list_directory",
+            "description": "\n        List the contents of a directory\n        \n        Args:\n            path: Path to list (defaults to the project root)\n            \n        Returns:\n            JSON string representing the directory contents\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to list (defaults to the project root)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "path",
+                    "Returns"
+                ]
+            },
+            "file": "assistants\\mcp_tools.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "read_file",
+            "description": "\n        Read the contents of a file\n        \n        Args:\n            path: Path to the file to read\n            \n        Returns:\n            JSON string with the file content and metadata\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the file to read"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "path",
+                    "Returns"
+                ]
+            },
+            "file": "assistants\\mcp_tools.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "search_files",
+            "description": "\n        Search for files matching a pattern\n        \n        Args:\n            query: Search query\n            path: Base path to search from (defaults to project root)\n            max_results: Maximum number of results to return\n            \n        Returns:\n            JSON string with the search results\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "Base path to search from (defaults to project root)"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "path",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "assistants\\mcp_tools.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "render_scene",
+            "description": "\n        Render a Manim scene from the provided code.\n        \n        Args:\n            scene_code: The Manim scene code to render\n            scene_name: The name of the scene class\n            quality: The quality of the render (low_quality, medium_quality, high_quality)\n            \n        Returns:\n            A dictionary containing the paths to the rendered files\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "scene_code": {
+                        "type": "string",
+                        "description": "The Manim scene code to render"
+                    },
+                    "scene_name": {
+                        "type": "string",
+                        "description": "The name of the scene class"
+                    },
+                    "quality": {
+                        "type": "string",
+                        "description": "The quality of the render (low_quality, medium_quality, high_quality)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "scene_code",
+                    "scene_name",
+                    "quality",
+                    "Returns"
+                ]
+            },
+            "file": "scenegenerator\\manim_render.py",
+            "decorator": [
+                "track_operation"
+            ]
+        },
+        {
+            "name": "render_manim_scene",
+            "description": "\n    Helper function to render a Manim scene.\n    \n    Args:\n        scene_code: The Manim scene code\n        scene_name: The name of the scene class\n        quality: The quality to render at\n        \n    Returns:\n        Dictionary with render results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "scene_code": {
+                        "type": "string",
+                        "description": "The Manim scene code"
+                    },
+                    "scene_name": {
+                        "type": "string",
+                        "description": "The name of the scene class"
+                    },
+                    "quality": {
+                        "type": "string",
+                        "description": "The quality to render at"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "scene_code",
+                    "scene_name",
+                    "quality",
+                    "Returns"
+                ]
+            },
+            "file": "scenegenerator\\manim_render.py",
+            "decorator": [
+                "track_operation"
+            ]
+        },
+        {
+            "name": "generate_scene",
+            "description": "\n        Generate a Manim scene from the provided code.\n        \n        Args:\n            scene_code: The Manim scene code to render\n            scene_name: The name of the scene class\n            quality: The quality of the render (low_quality, medium_quality, high_quality)\n            \n        Returns:\n            A dictionary containing the paths to the rendered files\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "scene_code": {
+                        "type": "string",
+                        "description": "The Manim scene code to render"
+                    },
+                    "scene_name": {
+                        "type": "string",
+                        "description": "The name of the scene class"
+                    },
+                    "quality": {
+                        "type": "string",
+                        "description": "The quality of the render (low_quality, medium_quality, high_quality)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "scene_code",
+                    "scene_name",
+                    "quality",
+                    "Returns"
+                ]
+            },
+            "file": "scenegenerator\\scene_generator.py",
+            "decorator": [
+                "track_operation"
+            ]
+        },
+        {
+            "name": "render_scene",
+            "description": "\n    Helper function to render a Manim scene.\n    \n    Args:\n        scene_code: The Manim scene code\n        scene_name: The name of the scene class\n        quality: The quality to render at\n        \n    Returns:\n        Dictionary with render results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "scene_code": {
+                        "type": "string",
+                        "description": "The Manim scene code"
+                    },
+                    "scene_name": {
+                        "type": "string",
+                        "description": "The name of the scene class"
+                    },
+                    "quality": {
+                        "type": "string",
+                        "description": "The quality to render at"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "scene_code",
+                    "scene_name",
+                    "quality",
+                    "Returns"
+                ]
+            },
+            "file": "scenegenerator\\scene_generator.py",
+            "decorator": [
+                "track_operation"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\debug_utils.py",
+            "decorator": [
+                "wraps"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,114 @@
+{
+    "tools": [
+        {
+            "name": "common_subdomain_list",
+            "description": "List of common subdomains used for enumeration, loaded from a file",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcpServer.resource"
+            ]
+        },
+        {
+            "name": "common_directories",
+            "description": "List of common directory names used for enumeration, loaded from a file",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcpServer.resource"
+            ]
+        },
+        {
+            "name": "known_vulnerability_patterns",
+            "description": "Common patterns to look for in web applications",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcpServer.resource"
+            ]
+        },
+        {
+            "name": "check_headers",
+            "description": "\n    Check HTTP headers for presence of specified security headers.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\VulnerabilityCheck.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "check_server_info",
+            "description": "\n    Check for server information headers.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\VulnerabilityCheck.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "temp_directory",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\VulnerabilityCheck.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "scrape_url",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url"
+                ]
+            },
+            "file": "tools\\webCrawler_proxyHunter.py",
+            "decorator": [
+                "backoff.on_exception"
+            ]
+        },
+        {
+            "name": "test_proxy",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "proxy": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "proxy"
+                ]
+            },
+            "file": "tools\\webCrawler_proxyHunter.py",
+            "decorator": [
+                "backoff.on_exception"
+            ]
+        }
+    ]
+}

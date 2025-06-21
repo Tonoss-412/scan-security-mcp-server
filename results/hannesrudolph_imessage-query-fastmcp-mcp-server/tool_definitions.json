@@ -1,0 +1,47 @@
+{
+    "tools": [
+        {
+            "name": "get_chat_transcript",
+            "description": "Get chat transcript for a specific phone number within a date range.\n    \n    Args:\n        phone_number: Phone number to get transcript for (E.164 format preferred)\n        start_date: Optional start date in ISO format (YYYY-MM-DD)\n        end_date: Optional end date in ISO format (YYYY-MM-DD)\n    \n    Returns:\n        Dictionary containing the chat transcript data\n    \n    Raises:\n        ValueError: If the phone number is invalid\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "phone_number": {
+                        "type": "string",
+                        "description": "Phone number to get transcript for (E.164 format preferred)"
+                    },
+                    "start_date": {
+                        "type": "string",
+                        "description": "Optional start date in ISO format (YYYY-MM-DD)"
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "Optional end date in ISO format (YYYY-MM-DD)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If the phone number is invalid"
+                    }
+                },
+                "required": [
+                    "phone_number",
+                    "start_date",
+                    "end_date",
+                    "Returns",
+                    "Raises",
+                    "ValueError"
+                ]
+            },
+            "file": "imessage-query-server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

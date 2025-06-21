@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "transcribe_episode_fountain",
+            "description": "Downloads and transcribes a specific podcast episode from a given fountain.fm URL\n    \n    Args:\n        episode_url: URL of the Fountain.fm episode to transcribe\n        \n    Returns:\n        Dictionary containing the transcription results with segments and timestamps\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "episode_url": {
+                        "type": "string",
+                        "description": "URL of the Fountain.fm episode to transcribe"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "episode_url",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

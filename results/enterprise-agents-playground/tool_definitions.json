@@ -1,0 +1,714 @@
+{
+    "tools": [
+        {
+            "name": "get_current_username",
+            "description": "Get the username of the current user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\02-react-agents\\simple-react.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "get_current_location",
+            "description": "Get the current timezone location of the user for a given username.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\02-react-agents\\simple-react.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "get_current_time",
+            "description": "Get the current time in the given location. The pytz is used to get the timezone for that location. Location names should be in a format like America/Seattle, Asia/Bangkok, Europe/London. Anything in Germany should be Europe/Berlin",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\02-react-agents\\simple-react.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "get_version",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-http.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_customer_by_id",
+            "description": "Gets details of a customer by customer id",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-http.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_customer_by_name",
+            "description": "Gets details of a customer by name",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-http.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_all_products",
+            "description": "Gets all products",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-http.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_all_discounts",
+            "description": "Gets all discounts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-http.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_order_by_id",
+            "description": "Gets details of an order by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-http.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "update_order",
+            "description": "Updates an existing order by referencing the order ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-http.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_inventory_by_product_id",
+            "description": "Gets inventory details by product ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-http.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_closest_inventory_location",
+            "description": "Gets the closest inventory location based on customer name",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-http.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_version",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-customers.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_customer_by_id",
+            "description": "Gets details of a customer by customer id",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-customers.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_customer_by_name",
+            "description": "Gets details of a customer by name",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-customers.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_all_products",
+            "description": "Gets all products",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-customers.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_all_discounts",
+            "description": "Gets all discounts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-customers.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_order_by_id",
+            "description": "Gets details of an order by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-customers.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "update_order",
+            "description": "Updates an existing order by referencing the order ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-customers.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_inventory_by_product_id",
+            "description": "Gets inventory details by product ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-customers.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_closest_inventory_location",
+            "description": "Gets the closest inventory location based on customer name",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-customers.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_version",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-time.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_current_user",
+            "description": "Get the username of the current user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-time.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_location",
+            "description": "Get the current timezone location of the user for a given username.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-time.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_time",
+            "description": "Get the current time in the given location. The pytz is used to get the timezone for that location. Location names should be in a format like America/Seattle, Asia/Bangkok, Europe/London. Anything in Germany should be Europe/Berlin",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-time.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "move",
+            "description": "Move the user to a new location. Returns true if the user was moved successfully, false otherwise.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-time.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_user_time",
+            "description": "Find out the current time for a user. This prompt is used to get the current time for a user in their location.\n    Args:\n        username: The username of the user\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "description": "The username of the user"
+                    }
+                },
+                "required": [
+                    "username"
+                ]
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-sse-time.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "get_customer_by_id",
+            "description": "Gets details of a customer by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-stdio-customers.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_customer_by_name",
+            "description": "Gets details of a customer by name",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-stdio-customers.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_all_products",
+            "description": "Gets all products",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-stdio-customers.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_all_discounts",
+            "description": "Gets all discounts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-stdio-customers.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_order_by_id",
+            "description": "Gets details of an order by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-stdio-customers.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_order",
+            "description": "Updates an existing order by referencing the order ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-stdio-customers.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_version",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-stdio-time.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_current_user",
+            "description": "Get the username of the current user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-stdio-time.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_location",
+            "description": "Get the current timezone location of the user for a given username.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-stdio-time.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_time",
+            "description": "Get the current time in the given location. The pytz is used to get the timezone for that location. Location names should be in a format like America/Seattle, Asia/Bangkok, Europe/London. Anything in Germany should be Europe/Berlin",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-stdio-time.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "move",
+            "description": "Move the user to a new location. Returns true if the user was moved successfully, false otherwise.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-stdio-time.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_user_time",
+            "description": "Find out the current time for a user. This prompt is used to get the current time for a user in their location.\n    Args:\n        username: The username of the user\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "description": "The username of the user"
+                    }
+                },
+                "required": [
+                    "username"
+                ]
+            },
+            "file": "src\\03-mcp-servers\\server-mcp-stdio-time.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "get_customer_by_id",
+            "description": "Get customer by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-openapi.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_customer_by_name",
+            "description": "Get customer by name",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-openapi.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_all_products",
+            "description": "Get all products",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-openapi.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_all_discounts",
+            "description": "Get all discounts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-openapi.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_order_by_id",
+            "description": "Get order by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-openapi.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "update_order",
+            "description": "Update existing order",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-openapi.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_closest_inventory_location",
+            "description": "Get closest inventory location based on customer name",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-openapi.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_inventory_by_product_id",
+            "description": "Get available inventory by product ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\03-mcp-servers\\server-openapi.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "generate_python_code",
+            "description": "\n        Generates Python code based on the given task description\n        \n        Args:\n            task_description: A description of what the code should do\n            \n        Returns:\n            The generated Python code as a string\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_description": {
+                        "type": "string",
+                        "description": "A description of what the code should do"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "task_description",
+                    "Returns"
+                ]
+            },
+            "file": "src\\06-reasoning-agents\\reasoning-coder.py",
+            "decorator": [
+                "kernel_function"
+            ]
+        },
+        {
+            "name": "generate_python_code",
+            "description": "\n        Generates Python code based on the given task description\n        \n        Args:\n            task_description: A description of what the code should do\n            \n        Returns:\n            The generated Python code as a string\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_description": {
+                        "type": "string",
+                        "description": "A description of what the code should do"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "task_description",
+                    "Returns"
+                ]
+            },
+            "file": "src\\06-reasoning-agents\\reasoning-multi-agents.py",
+            "decorator": [
+                "kernel_function"
+            ]
+        },
+        {
+            "name": "review_code",
+            "description": "\n        Reviews Python code and provides feedback based on best practices\n        \n        Args:\n            code: The Python code to review\n            \n        Returns:\n            Feedback on the code as a string\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "The Python code to review"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "code",
+                    "Returns"
+                ]
+            },
+            "file": "src\\06-reasoning-agents\\reasoning-multi-agents.py",
+            "decorator": [
+                "kernel_function"
+            ]
+        },
+        {
+            "name": "improve_code",
+            "description": "\n        Improves Python code based on review feedback\n        \n        Args:\n            code: The original Python code\n            feedback: Feedback from the code review\n            \n        Returns:\n            Improved Python code as a string\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "The original Python code"
+                    },
+                    "feedback": {
+                        "type": "string",
+                        "description": "Feedback from the code review"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "code",
+                    "feedback",
+                    "Returns"
+                ]
+            },
+            "file": "src\\06-reasoning-agents\\reasoning-multi-agents.py",
+            "decorator": [
+                "kernel_function"
+            ]
+        },
+        {
+            "name": "evaluate_code",
+            "description": "\n        Evaluates and compares original and improved code versions\n        \n        Args:\n            original_code: The original Python code\n            improved_code: The improved Python code\n            \n        Returns:\n            Evaluation and comparison of both code versions\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "original_code": {
+                        "type": "string",
+                        "description": "The original Python code"
+                    },
+                    "improved_code": {
+                        "type": "string",
+                        "description": "The improved Python code"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "original_code",
+                    "improved_code",
+                    "Returns"
+                ]
+            },
+            "file": "src\\06-reasoning-agents\\reasoning-multi-agents.py",
+            "decorator": [
+                "kernel_function"
+            ]
+        }
+    ]
+}

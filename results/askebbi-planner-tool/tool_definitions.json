@@ -1,0 +1,544 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "Application lifespan management",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Gateway health check",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "login",
+            "description": "User login",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "logout",
+            "description": "User logout",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_profile",
+            "description": "Get user profile",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "search_knowledge",
+            "description": "Search knowledge base",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_precedents",
+            "description": "Get planning precedents",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "upload_document",
+            "description": "Upload document for analysis",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_document_analysis",
+            "description": "Get document analysis results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "generate_template",
+            "description": "Generate document template",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_latest_digest",
+            "description": "Get latest intelligence digest",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "xmode_analyze",
+            "description": "Perform X-Mode analysis",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_trends",
+            "description": "Get planning trends",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_metrics",
+            "description": "Get system metrics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_stats",
+            "description": "Get aggregated statistics from all services",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-gateway\\gateway.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "startup_event",
+            "description": "Initialize the document analysis service",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\document-analysis\\api.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\document-analysis\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "upload_document",
+            "description": "Upload and analyze a document",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\document-analysis\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_document_analysis",
+            "description": "Get analysis results for a document",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\document-analysis\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "generate_template",
+            "description": "Generate a document template based on style profile",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\document-analysis\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_style_profile",
+            "description": "Get style profile for a planner",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\document-analysis\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_documents",
+            "description": "List documents with optional filtering",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\document-analysis\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_style_profiles",
+            "description": "List all style profiles",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\document-analysis\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "analyze_style",
+            "description": "Analyze style of a specific document",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\document-analysis\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_stats",
+            "description": "Get document analysis statistics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\document-analysis\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "startup_event",
+            "description": "Initialize the knowledge base with sample data",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\knowledge-base\\api.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\knowledge-base\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "search_legislation",
+            "description": "Search planning legislation by query and region",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\knowledge-base\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_precedents",
+            "description": "Get planning precedents by case type and location",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\knowledge-base\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_local_policies",
+            "description": "Get local planning policies for specific authority",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\knowledge-base\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_stats",
+            "description": "Get knowledge base statistics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\knowledge-base\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_documents",
+            "description": "List all documents with optional filtering",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\knowledge-base\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "startup_event",
+            "description": "Initialize the planning intelligence service",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_latest_digest",
+            "description": "Get the latest intelligence digest",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "create_digest",
+            "description": "Create a new intelligence digest",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "xmode_analyze",
+            "description": "Perform X-Mode analysis on document content",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_trends",
+            "description": "Get planning trends over the specified period",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "monitor_sources",
+            "description": "Manually trigger news source monitoring",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_monitoring_status",
+            "description": "Get news monitoring status",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_news_sources",
+            "description": "List all configured news sources",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_news_items",
+            "description": "List news items with optional filtering",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_digests",
+            "description": "List intelligence digests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_xmode_analyses",
+            "description": "List X-Mode analyses",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_stats",
+            "description": "Get planning intelligence statistics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\planning-intelligence\\api.py",
+            "decorator": [
+                "app.get"
+            ]
+        }
+    ]
+}

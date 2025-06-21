@@ -1,0 +1,2264 @@
+{
+    "tools": [
+        {
+            "name": "categorize_servers_with_llms",
+            "description": "Categorize a server based on name and description.\n\n        Args:\n            name: Server name\n            description: Server description\n\n        Returns:\n            Category string\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Server name"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Server description"
+                    }
+                },
+                "required": [
+                    "name",
+                    "description"
+                ]
+            },
+            "file": "scripts\\get_manifest.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "run_server_and_extract_capabilities",
+            "description": "Run server and extract its capabilities.\n\n        Args:\n            manifest: Server manifest with installation instructions\n\n        Returns:\n            Dictionary with extracted capabilities\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "manifest": {
+                        "type": "string",
+                        "description": "Server manifest with installation instructions"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "manifest",
+                    "Returns"
+                ]
+            },
+            "file": "scripts\\get_manifest.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "filter_and_sort_installations",
+            "description": "Filter and sort installation methods by priority.\n\n        Args:\n            installations: Dictionary of installation methods\n\n        Returns:\n            Sorted dictionary of installation methods\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "installations": {
+                        "type": "string",
+                        "description": "Dictionary of installation methods"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "installations",
+                    "Returns"
+                ]
+            },
+            "file": "scripts\\get_manifest.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_servers",
+            "description": "Get all MCP servers configured for this client\n\n        Returns:\n            Dict of server configurations by name\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "get_server",
+            "description": "Get a server configuration\n\n        Args:\n            server_name: Name of the server\n\n        Returns:\n            ServerConfig object if found, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string",
+                        "description": "Name of the server"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "add_server",
+            "description": "Add or update a server in the client config\n\n        Args:\n            server_config: ServerConfig object\n\n        Returns:\n            bool: Success or failure\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_config": {
+                        "type": "string",
+                        "description": "ServerConfig object"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "bool": {
+                        "type": "string",
+                        "description": "Success or failure"
+                    }
+                },
+                "required": [
+                    "server_config",
+                    "Returns",
+                    "bool"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "to_client_format",
+            "description": "Convert ServerConfig to client-specific format\n\n        Args:\n            server_config: ServerConfig object\n\n        Returns:\n            Dict containing client-specific configuration\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_config": {
+                        "type": "string",
+                        "description": "ServerConfig object"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_config",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "from_client_format",
+            "description": "Convert client format to ServerConfig\n\n        Args:\n            server_name: Name of the server\n            client_config: Client-specific configuration\n\n        Returns:\n            ServerConfig object\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string",
+                        "description": "Name of the server"
+                    },
+                    "client_config": {
+                        "type": "string",
+                        "description": "Client-specific configuration"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_name",
+                    "client_config",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "list_servers",
+            "description": "List all MCP servers in client config\n\n        Returns:\n            List of server names\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "remove_server",
+            "description": "Remove an MCP server from client config\n\n        Args:\n            server_name: Name of the server to remove\n\n        Returns:\n            bool: Success or failure\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string",
+                        "description": "Name of the server to remove"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "bool": {
+                        "type": "string",
+                        "description": "Success or failure"
+                    }
+                },
+                "required": [
+                    "server_name",
+                    "Returns",
+                    "bool"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "get_client_info",
+            "description": "Get information about this client\n\n        Returns:\n            Dict: Information about the client including display name, download URL, and config path\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "is_client_installed",
+            "description": "Check if this client is installed\n\n        Returns:\n            bool: True if client is installed, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "activate_profile",
+            "description": "\n        Activate a profile in the client config\n\n        Args:\n            profile_name: Name of the profile\n            router_config: Router configuration\n            alias_name: Alias name for the router in client config\n\n        Returns:\n            bool: Success or failure\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "profile_name": {
+                        "type": "string",
+                        "description": "Name of the profile"
+                    },
+                    "router_config": {
+                        "type": "string",
+                        "description": "Router configuration"
+                    },
+                    "alias_name": {
+                        "type": "string",
+                        "description": "Alias name for the router in client config"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "bool": {
+                        "type": "string",
+                        "description": "Success or failure"
+                    }
+                },
+                "required": [
+                    "profile_name",
+                    "router_config",
+                    "alias_name",
+                    "Returns",
+                    "bool"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "deactivate_profile",
+            "description": "\n        Deactivate a profile in the client config\n\n        Args:\n            profile_name: Name of the profile\n\n        Returns:\n            bool: Success or failure\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "profile_name": {
+                        "type": "string",
+                        "description": "Name of the profile"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "bool": {
+                        "type": "string",
+                        "description": "Success or failure"
+                    }
+                },
+                "required": [
+                    "profile_name",
+                    "Returns",
+                    "bool"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "from_client_format",
+            "description": "Convert client format to ServerConfig\n\n        This is a helper method used by subclasses to convert from client-specific format to ServerConfig.\n\n        Args:\n            server_name: Name of the server\n            client_config: Client-specific configuration\n\n        Returns:\n            ServerConfig object\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "_get_empty_config",
+            "description": "Get an empty configuration structure for this client\n\n        Returns:\n            Dict containing the empty configuration structure\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "_get_server_config",
+            "description": "Get a server configuration from the config by name\n\n        Args:\n            config: The loaded configuration\n            server_name: Name of the server to find\n\n        Returns:\n            Server configuration if found, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "The loaded configuration"
+                    },
+                    "server_name": {
+                        "type": "string",
+                        "description": "Name of the server to find"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config",
+                    "server_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "_get_all_server_names",
+            "description": "Get all server names from the configuration\n\n        Args:\n            config: The loaded configuration\n\n        Returns:\n            List of server names\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "The loaded configuration"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "_add_server_to_config",
+            "description": "Add or update a server in the config\n\n        Args:\n            config: The loaded configuration\n            server_name: Name of the server to add or update\n            server_config: Server configuration to add or update\n\n        Returns:\n            Updated configuration\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "The loaded configuration"
+                    },
+                    "server_name": {
+                        "type": "string",
+                        "description": "Name of the server to add or update"
+                    },
+                    "server_config": {
+                        "type": "string",
+                        "description": "Server configuration to add or update"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config",
+                    "server_name",
+                    "server_config",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "_remove_server_from_config",
+            "description": "Remove a server from the config\n\n        Args:\n            config: The loaded configuration\n            server_name: Name of the server to remove\n\n        Returns:\n            Updated configuration\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "The loaded configuration"
+                    },
+                    "server_name": {
+                        "type": "string",
+                        "description": "Name of the server to remove"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config",
+                    "server_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "get_client_manager",
+            "description": "\n        Get the client manager for a given client name\n\n        Args:\n            client_name: Name of the client\n\n        Returns:\n            BaseClientManager: Client manager instance or None if not found\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\client_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_all_client_managers",
+            "description": "\n        Get all client managers\n\n        Returns:\n            Dict[str, BaseClientManager]: Dictionary mapping client names to manager instances\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\client_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "detect_installed_clients",
+            "description": "\n        Detect which MCP-compatible clients are installed on the system\n\n        Returns:\n            Dict[str, bool]: Dictionary mapping client names to installed status\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\client_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_client_info",
+            "description": "\n        Get client display information\n\n        Args:\n            client_name: Name of the client\n\n        Returns:\n            Dict containing display name, download URL, and config path\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\client_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_all_client_info",
+            "description": "\n        Get display information for all supported clients\n\n        Returns:\n            Dict[str, Dict[str, str]]: Dictionary mapping client names to display information\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\client_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_active_client",
+            "description": "\n        Get the active client name from the config manager\n\n        Returns:\n            str | None: Name of the active client or None if not set\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\client_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_active_client_manager",
+            "description": "\n        Get the client manager for the active client\n\n        Returns:\n            BaseClientManager: Client manager instance for the active client, or None if not found\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\client_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_recommended_client",
+            "description": "\n        Get the recommended client based on installation status\n\n        Returns:\n            str: Name of the recommended client\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\client_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_supported_clients",
+            "description": "\n        Get a list of supported client names\n\n        Returns:\n            List[str]: List of supported client names\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\client_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_active_profile",
+            "description": "\n        Get the active profile from the config manager\n\n        Returns:\n            str | None: Name of the active profile, or None if not set\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\client_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_active_target",
+            "description": "\n        Get the active target (client or profile) from the config manager\n\n        Returns:\n            str | None: Name of the active client or profile, or None if not set\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\client_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "set_active_target",
+            "description": "\n        Set the active target (client or profile) in the config manager\n\n        Args:\n            target: Name of the client or profile\n\n        Returns:\n            bool: Success or failure\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\client_registry.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_client_format",
+            "description": "Convert client format to ServerConfig\n\n        Args:\n            server_name: Name of the server\n            client_config: Client-specific configuration\n\n        Returns:\n            ServerConfig object\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\clients\\managers\\fiveire.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Manage MCP clients.\n\n        Commands for listing, setting the active client, and editing client configurations.\n\n    Examples:\n\n    \\b\n        mcpm client ls              # List all supported MCP clients and their status\n        mcpm client edit            # Open active client MCP settings in external editor\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\client.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "list_clients",
+            "description": "List all supported MCP clients and their status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\client.py",
+            "decorator": [
+                "client.command"
+            ]
+        },
+        {
+            "name": "edit_client",
+            "description": "Open the active client's MCP settings in external editor.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\client.py",
+            "decorator": [
+                "client.command"
+            ]
+        },
+        {
+            "name": "config",
+            "description": "Manage MCPM configuration.\n\n    Commands for managing MCPM configuration and cache.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\config.py",
+            "decorator": [
+                "click.group",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "clear_cache",
+            "description": "Clear the local repository cache.\n\n    Removes the cached server information, forcing a fresh download on next search.\n\n    Examples:\n        mcpm config clear-cache    # Clear the local repository cache\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\config.py",
+            "decorator": [
+                "config.command",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "info",
+            "description": "Display detailed information about a specific MCP server.\n\n    Provides comprehensive details about a single MCP server, including installation instructions,\n    dependencies, environment variables, and examples.\n\n    Examples:\n\n    \\b\n        mcpm info github            # Show details for the GitHub server\n        mcpm info pinecone          # Show details for the Pinecone server\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_name"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\info.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "inspector",
+            "description": "Launch the MCPM Inspector UI to examine servers.\n\n    EXAMPLES:\n\n    Launch the Inspector UI with no arguments:\n        mcpm inspector\n\n    Launch the Inspector with custom arguments:\n        mcpm inspector npx my-server --port 3000\n\n    Use with NPM packages:\n        mcpm inspector npx server-postgres\n\n    Use with Python packages:\n        mcpm inspector uvx mcp-server-git\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "args": {
+                        "type": "string"
+                    },
+                    "yes": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "args",
+                    "yes"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\inspector.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "list",
+            "description": "List all installed MCP servers.\n\n    Examples:\n\n    \\b\n        mcpm ls\n        mcpm ls -t @cursor\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\list.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "profile",
+            "description": "Manage MCPM profiles.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\profile.py",
+            "decorator": [
+                "click.group",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "list",
+            "description": "List all MCPM profiles.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\profile.py",
+            "decorator": [
+                "profile.command",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "add",
+            "description": "Add a new MCPM profile.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "profile": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "profile"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\profile.py",
+            "decorator": [
+                "profile.command",
+                "click.argument",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "remove",
+            "description": "Delete an MCPM profile.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "profile_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "profile_name"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\profile.py",
+            "decorator": [
+                "profile.command",
+                "click.argument",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "rename",
+            "description": "Rename an MCPM profile.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "profile_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "profile_name"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\profile.py",
+            "decorator": [
+                "profile.command",
+                "click.argument",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "router",
+            "description": "Manage MCP router service.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\router.py",
+            "decorator": [
+                "click.group",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "start_router",
+            "description": "Start MCPRouter as a daemon process.\n\n    Example:\n\n    \\b\n        mcpm router on\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sse": {
+                        "type": "string"
+                    },
+                    "verbose": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sse",
+                    "verbose"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\router.py",
+            "decorator": [
+                "router.command",
+                "click.help_option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "set_router_config",
+            "description": "Set MCPRouter global configuration.\n\n    Example:\n        mcpm router set -H localhost -p 8888\n        mcpm router set --host 127.0.0.1 --port 9000\n        mcpm router set --no-auth  # disable authentication\n        mcpm router set --auth  # enable authentication\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "auth": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port",
+                    "address",
+                    "auth"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\router.py",
+            "decorator": [
+                "router.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "stop_router",
+            "description": "Stop the running MCPRouter daemon process.\n\n    Example:\n\n    \\b\n        mcpm router off\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\router.py",
+            "decorator": [
+                "router.command",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "router_status",
+            "description": "Check the status of the MCPRouter daemon process.\n\n    Example:\n\n    \\b\n        mcpm router status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\router.py",
+            "decorator": [
+                "router.command",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "share",
+            "description": "Create a share link for the MCPRouter daemon process.\n\n    Example:\n\n    \\b\n        mcpm router share --address example.com:8877\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "type": "string"
+                    },
+                    "profile": {
+                        "type": "string"
+                    },
+                    "http": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "address",
+                    "profile",
+                    "http"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\router.py",
+            "decorator": [
+                "router.command",
+                "click.help_option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "stop_share",
+            "description": "Stop the share link for the MCPRouter daemon process.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\router.py",
+            "decorator": [
+                "router.command",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "Search available MCP servers.\n\n    Searches the MCP registry for available servers. Without arguments, lists all available servers.\n    By default, only shows server names. Use --table for more details.\n\n    Examples:\n\n    \\b\n        mcpm search                  # List all available servers (names only)\n        mcpm search github           # Search for github server\n        mcpm search --table          # Show results in a table with descriptions\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\search.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "share",
+            "description": "Share an MCP server through a tunnel.\n\n    This command uses mcp-proxy to expose a stdio MCP server as an SSE server,\n    then creates a tunnel to make it accessible remotely.\n\n    COMMAND is the shell command to run the MCP server.\n\n    Examples:\n\n    \\b\n        mcpm share \"uvx mcp-server-fetch\"\n        mcpm share \"npx mcp-server\" --port 5000\n        mcpm share \"uv run my-mcp-server\" --address myserver.com:7000\n        mcpm share \"npx -y @modelcontextprotocol/server-everything\" --retry 3\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "command": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "http": {
+                        "type": "string"
+                    },
+                    "timeout": {
+                        "type": "string"
+                    },
+                    "retry": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "command",
+                    "port",
+                    "address",
+                    "http",
+                    "timeout",
+                    "retry"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\share.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "target",
+            "description": "Manage MCPM working target.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\target.py",
+            "decorator": [
+                "click.group",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "set_target",
+            "description": "Set the active MCPM working target.\n\n    TARGET is the name of the client or profile to set as active.\n    Examples:\n\n    \\b\n        mcpm target set @windsurf\n        mcpm target set %profile_dev\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "target"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\target.py",
+            "decorator": [
+                "target.command",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "add",
+            "description": "Add an MCP server to a client configuration.\n\n    Examples:\n\n    \\b\n        mcpm add time\n        mcpm add everything --force\n        mcpm add youtube --alias yt\n        mcpm add youtube --target %myprofile\n        mcpm add %profile --target @windsurf\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_name"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\target_operations\\add.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "import_server",
+            "description": "Add server definitions manually.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\target_operations\\custom.py",
+            "decorator": [
+                "click.group",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "stdio",
+            "description": "Add a server by specifying command, args, and env variables.\n    Examples:\n\n    \\b\n        mcpm import stdio <server_name> --command <command> --args <arg1> --args <arg2> --env <var1>=<value1> --env <var2>=<value2>\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string"
+                    },
+                    "command": {
+                        "type": "string"
+                    },
+                    "args": {
+                        "type": "string"
+                    },
+                    "env": {
+                        "type": "string"
+                    },
+                    "target": {
+                        "type": "string"
+                    },
+                    "force": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_name",
+                    "command",
+                    "args",
+                    "env",
+                    "target",
+                    "force"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\target_operations\\custom.py",
+            "decorator": [
+                "import_server.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "remote",
+            "description": "Add a server by specifying a URL and headers.\n    Examples:\n\n    \\b\n        mcpm import remote <server_name> --url <url> --header <key1>=<value1> --header <key2>=<value2>\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "header": {
+                        "type": "string"
+                    },
+                    "target": {
+                        "type": "string"
+                    },
+                    "force": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_name",
+                    "url",
+                    "header",
+                    "target",
+                    "force"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\target_operations\\custom.py",
+            "decorator": [
+                "import_server.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "interact",
+            "description": "Add a server by manually configuring it interactively.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\commands\\target_operations\\custom.py",
+            "decorator": [
+                "import_server.command",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "pop",
+            "description": "Restore a previously stashed server configuration.\n\n    This command re-enables a previously stashed (disabled) server,\n    restoring it to active status.\n\n    Examples:\n\n    \\b\n        mcpm pop memory\n        mcpm pop %profile/memory\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_name"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\target_operations\\pop.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "remove",
+            "description": "Remove an installed MCP server.\n\n    Examples:\n\n    \\b\n        mcpm rm filesystem\n        mcpm rm @cursor/filesystem\n        mcpm rm %profile/filesystem\n        mcpm rm filesystem --force\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string"
+                    },
+                    "force": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_name",
+                    "force"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\target_operations\\remove.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "stash",
+            "description": "Temporarily store a server configuration aside.\n\n    This command disables an active server without removing it, storing its\n    configuration for later use. You can restore it with the 'pop' command.\n\n    Examples:\n\n    \\b\n        mcpm stash memory\n        mcpm stash @cursor/memory\n        mcpm stash %profile/memory\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_name"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\target_operations\\stash.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "copy",
+            "description": "\n    Copy a server configuration from one client/profile to another.\n\n    Examples:\n\n    \\b\n        mcpm cp memory memory2\n        mcpm cp @cursor/memory @windsurf/memory\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "source": {
+                        "type": "string"
+                    },
+                    "destination": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "source",
+                    "destination"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\target_operations\\transfer.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.argument",
+                "click.help_option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "move",
+            "description": "\n    Move a server configuration from one client/profile to another.\n\n    Examples:\n\n    \\b\n        mcpm mv memory memory2\n        mcpm mv @cursor/memory @windsurf/memory\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "source": {
+                        "type": "string"
+                    },
+                    "destination": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "source",
+                    "destination"
+                ]
+            },
+            "file": "src\\mcpm\\commands\\target_operations\\transfer.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.argument",
+                "click.option",
+                "click.help_option"
+            ]
+        },
+        {
+            "name": "track_event",
+            "description": "\n        Track an MCP access event\n\n        Args:\n            event_type: Type of access event (tool, resource, or prompt)\n            server_id: ID of the MCP server\n            resource_id: ID of the specific resource/tool/prompt\n            client_id: ID of the client (if available)\n            timestamp: When the event occurred (defaults to now if None)\n            duration_ms: Duration of the operation in milliseconds\n            request_size: Size of the request in bytes\n            response_size: Size of the response in bytes\n            success: Whether the operation succeeded\n            error_message: Error message if operation failed\n            metadata: Additional metadata about the event\n            raw_request: Raw request data as JSON object or string\n            raw_response: Raw response data as JSON object or string\n\n        Returns:\n            bool: True if event was successfully tracked, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "event_type": {
+                        "type": "string",
+                        "description": "Type of access event (tool, resource, or prompt)"
+                    },
+                    "server_id": {
+                        "type": "string",
+                        "description": "ID of the MCP server"
+                    },
+                    "resource_id": {
+                        "type": "string",
+                        "description": "ID of the specific resource/tool/prompt"
+                    },
+                    "client_id": {
+                        "type": "string",
+                        "description": "ID of the client (if available)"
+                    },
+                    "timestamp": {
+                        "type": "string",
+                        "description": "When the event occurred (defaults to now if None)"
+                    },
+                    "duration_ms": {
+                        "type": "string",
+                        "description": "Duration of the operation in milliseconds"
+                    },
+                    "request_size": {
+                        "type": "string",
+                        "description": "Size of the request in bytes"
+                    },
+                    "response_size": {
+                        "type": "string",
+                        "description": "Size of the response in bytes"
+                    },
+                    "success": {
+                        "type": "string",
+                        "description": "Whether the operation succeeded"
+                    },
+                    "error_message": {
+                        "type": "string",
+                        "description": "Error message if operation failed"
+                    },
+                    "metadata": {
+                        "type": "string",
+                        "description": "Additional metadata about the event"
+                    },
+                    "raw_request": {
+                        "type": "string",
+                        "description": "Raw request data as JSON object or string"
+                    },
+                    "raw_response": {
+                        "type": "string",
+                        "description": "Raw response data as JSON object or string"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "bool": {
+                        "type": "string",
+                        "description": "True if event was successfully tracked, False otherwise"
+                    }
+                },
+                "required": [
+                    "event_type",
+                    "server_id",
+                    "resource_id",
+                    "client_id",
+                    "timestamp",
+                    "duration_ms",
+                    "request_size",
+                    "response_size",
+                    "success",
+                    "error_message",
+                    "metadata",
+                    "raw_request",
+                    "raw_response",
+                    "Returns",
+                    "bool"
+                ]
+            },
+            "file": "src\\mcpm\\monitor\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "initialize_storage",
+            "description": "\n        Initialize the storage backend for tracking events\n\n        Returns:\n            True if initialization succeeded, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\monitor\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "close",
+            "description": "\n        Close any open connections to the storage backend\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\monitor\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "query_events",
+            "description": "\n        Query events from the storage backend\n\n        Args:\n            offset: Time offset for the query\n            page: Page number\n            limit: Number of events per page\n            event_type: Type of events to query (optional)\n\n        Returns:\n            QueryEventResponse: List of events matching the query\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "offset": {
+                        "type": "string",
+                        "description": "Time offset for the query"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "Page number"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Number of events per page"
+                    },
+                    "event_type": {
+                        "type": "string",
+                        "description": "Type of events to query (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "QueryEventResponse": {
+                        "type": "string",
+                        "description": "List of events matching the query"
+                    }
+                },
+                "required": [
+                    "offset",
+                    "page",
+                    "limit",
+                    "event_type",
+                    "Returns",
+                    "QueryEventResponse"
+                ]
+            },
+            "file": "src\\mcpm\\monitor\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\monitor\\event.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "get_prompt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\router\\router.py",
+            "decorator": [
+                "trace_event"
+            ]
+        },
+        {
+            "name": "read_resource",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\router\\router.py",
+            "decorator": [
+                "trace_event"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\router\\router.py",
+            "decorator": [
+                "trace_event"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\router\\router.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_sse_server_app",
+            "description": "\n        Get the SSE server app.\n\n        Args:\n            allow_origins: List of allowed origins for CORS\n            include_lifespan: Whether to include the router's lifespan manager in the app.\n\n        Returns:\n            An SSE server app\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "allow_origins": {
+                        "type": "string",
+                        "description": "List of allowed origins for CORS"
+                    },
+                    "include_lifespan": {
+                        "type": "string",
+                        "description": "Whether to include the router's lifespan manager in the app."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "allow_origins",
+                    "include_lifespan",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcpm\\router\\router.py",
+            "decorator": [
+                "deprecated"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\router\\router.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "start_sse_server",
+            "description": "\n        Start an SSE server that exposes the aggregated MCP server.\n\n        Args:\n            host: The host to bind to\n            port: The port to bind to\n            allow_origins: List of allowed origins for CORS\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string",
+                        "description": "The host to bind to"
+                    },
+                    "port": {
+                        "type": "string",
+                        "description": "The port to bind to"
+                    },
+                    "allow_origins": {
+                        "type": "string",
+                        "description": "List of allowed origins for CORS"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port",
+                    "allow_origins"
+                ]
+            },
+            "file": "src\\mcpm\\router\\router.py",
+            "decorator": [
+                "deprecated"
+            ]
+        },
+        {
+            "name": "check_api_key",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    },
+                    "info": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v",
+                    "info"
+                ]
+            },
+            "file": "src\\mcpm\\router\\router_config.py",
+            "decorator": [
+                "field_validator"
+            ]
+        },
+        {
+            "name": "download_binary",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\router\\share.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "app": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "app"
+                ]
+            },
+            "file": "src\\mcpm\\router\\sse_app.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "connect_sse",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\router\\transport.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "set_display_name_default",
+            "description": "Set default display_name to name if not provided",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcpm\\schemas\\full_server_config.py",
+            "decorator": [
+                "model_validator"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "Create a FullServerConfig from a dictionary\n\n        Args:\n            data: Dictionary containing server configuration\n\n        Returns:\n            FullServerConfig object\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mcpm\\schemas\\full_server_config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "temp_config_file",
+            "description": "Create a temporary Windsurf config file for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "config_manager",
+            "description": "Create a ClientConfigManager with a temp config for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "windsurf_manager",
+            "description": "Create a WindsurfManager instance using the temp config file",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_config_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_config_file"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "empty_windsurf_manager",
+            "description": "Create a WindsurfManager instance with an empty config",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "empty_config_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "empty_config_file"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "claude_desktop_manager",
+            "description": "Create a ClaudeDesktopManager instance with the temp config",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_config_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_config_file"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_db_path",
+            "description": "Create a temporary database path for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_access_monitor.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_initialize_storage",
+            "description": "Test that the storage can be initialized",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_db_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_db_path"
+                ]
+            },
+            "file": "tests\\test_access_monitor.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_track_event",
+            "description": "Test tracking an event",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_db_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_db_path"
+                ]
+            },
+            "file": "tests\\test_access_monitor.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_multiple_events",
+            "description": "Test tracking multiple events",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_db_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_db_path"
+                ]
+            },
+            "file": "tests\\test_access_monitor.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_monitor_utility",
+            "description": "Test the get_monitor utility function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_access_monitor.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_raw_request_response",
+            "description": "Test tracking events with raw request and response data",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_db_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_db_path"
+                ]
+            },
+            "file": "tests\\test_access_monitor.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_backward_compatibility",
+            "description": "Test that the backward compatibility view works",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_db_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_db_path"
+                ]
+            },
+            "file": "tests\\test_access_monitor.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "temp_profile_file",
+            "description": "Create a temporary profile config file for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_profile.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "profile_manager",
+            "description": "Create a ProfileConfigManager with a temp config for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_profile_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_profile_file"
+                ]
+            },
+            "file": "tests\\test_profile.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_server_connection",
+            "description": "Create a mock server connection for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_router.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_router_init",
+            "description": "Test initializing the router",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_router.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_add_server",
+            "description": "Test adding a server to the router",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server_connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server_connection"
+                ]
+            },
+            "file": "tests\\test_router.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_add_server_unhealthy",
+            "description": "Test adding an unhealthy server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_router.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_remove_server",
+            "description": "Test removing a server from the router",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_router.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_update_servers",
+            "description": "Test updating servers based on configuration",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_server_connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_server_connection"
+                ]
+            },
+            "file": "tests\\test_router.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_update_servers_error_handling",
+            "description": "Test error handling during server updates",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_router.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_router_sse_transport_no_api_key",
+            "description": "Test RouterSseTransport with no API key (authentication disabled)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_router.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_router_sse_transport_with_api_key",
+            "description": "Test RouterSseTransport with API key (authentication enabled)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_router.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_sse_server_app_with_api_key",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_router.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_sse_server_app_without_api_key",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_router.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_terminate_process_needs_sigkill",
+            "description": "Test termination of a process that needs SIGKILL",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\test_share.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "empty_config_file",
+            "description": "Create an empty temporary Windsurf config file for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_windsurf.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_server_config",
+            "description": "Create a sample ServerConfig for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_windsurf.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "config_manager",
+            "description": "Create a ClientConfigManager with a temp config for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_windsurf.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

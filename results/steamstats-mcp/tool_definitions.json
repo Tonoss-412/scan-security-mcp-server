@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "steam_api_exception_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "network_exception_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "generic_exception_handler",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "mcp_sse_endpoint",
+            "description": "Handles Server-Sent Events (SSE) connection requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_server_info",
+            "description": "Provides basic server information and capabilities.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_tools",
+            "description": "Returns the list of available tools and their schemas.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "mcp_message",
+            "description": "Handles incoming JSON-RPC messages for tool calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        }
+    ]
+}

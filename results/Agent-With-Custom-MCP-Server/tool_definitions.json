@@ -1,0 +1,52 @@
+{
+    "tools": [
+        {
+            "name": "check_ip_reputation",
+            "description": "Check the abuse reputation of a single IP address.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "abuseipdb_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_ip_block",
+            "description": "Check if any IPs in a block are abusive.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "abuseipdb_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_weather",
+            "description": "Get the current weather at given coordinates.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "weather_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_forecast",
+            "description": "Get 5-day weather forecast for a city.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "weather_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

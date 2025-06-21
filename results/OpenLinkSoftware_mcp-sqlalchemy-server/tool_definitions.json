@@ -1,0 +1,500 @@
+{
+    "tools": [
+        {
+            "name": "podbc_get_schemas",
+            "description": "Retrieveandreturnalistofallschemanamesfromtheconnecteddatabase.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user": {
+                        "type": "string",
+                        "description": "Optional username."
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Optional password."
+                    },
+                    "dsn": {
+                        "type": "string",
+                        "description": "Optional dsn name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A list of schema names."
+                    }
+                },
+                "required": [
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_sqlalchemy_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "podbc_get_tables",
+            "description": "Retrieveandreturnalistcontaininginformationabouttablesinspecifiedschema",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "schema": {
+                        "type": "string",
+                        "description": "The name of the schema to retrieve tables for. If None, retrieves tables for all schemas."
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "Optional username."
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Optional password."
+                    },
+                    "dsn": {
+                        "type": "string",
+                        "description": "Optional dsn name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A list containing information about tables."
+                    }
+                },
+                "required": [
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_sqlalchemy_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "podbc_describe_table",
+            "description": "Retrieveandreturnadictionarycontainingthedefinitionofatable",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "schema": {
+                        "type": "string",
+                        "description": "The name of the schema to retrieve the table definition for. If None, retrieves the table definition for all schemas."
+                    },
+                    "table": {
+                        "type": "string",
+                        "description": "The name of the table to retrieve the definition for."
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "Optional username."
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Optional password."
+                    },
+                    "dsn": {
+                        "type": "string",
+                        "description": "Optional dsn name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A dictionary containing the table definition, including column names, data types, nullable, autoincrement, primary key, and foreign keys."
+                    }
+                },
+                "required": [
+                    "schema",
+                    "table",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_sqlalchemy_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "podbc_filter_table_names",
+            "description": "Retrieveandreturnalistcontaininginformationabouttableswhosenamescontainthesubstring'q'.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "q": {
+                        "type": "string",
+                        "description": "The substring to filter table names by."
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "Optional username."
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Optional password."
+                    },
+                    "dsn": {
+                        "type": "string",
+                        "description": "Optional dsn name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A list containing information about tables whose names contain the substring 'q'."
+                    }
+                },
+                "required": [
+                    "q",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_sqlalchemy_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "podbc_execute_query",
+            "description": "ExecuteaSQLqueryandreturnresultsinJSONLformat.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The SQL query to execute."
+                    },
+                    "max_rows": {
+                        "type": "integer",
+                        "description": "Maximum number of rows to return. Default is 100."
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "Optional dictionary of parameters to pass to the query."
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "Optional username."
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Optional password."
+                    },
+                    "dsn": {
+                        "type": "string",
+                        "description": "Optional dsn name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Results in JSONL format."
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_rows",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_sqlalchemy_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "podbc_execute_query_md",
+            "description": "ExecuteaSQLqueryandreturnresultsinMarkdowntableformat.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The SQL query to execute."
+                    },
+                    "max_rows": {
+                        "type": "integer",
+                        "description": "Maximum number of rows to return. Default is 100."
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "Optional dictionary of parameters to pass to the query."
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "Optional username."
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Optional password."
+                    },
+                    "dsn": {
+                        "type": "string",
+                        "description": "Optional dsn name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Results in Markdown table format."
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_rows",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_sqlalchemy_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "podbc_query_database",
+            "description": "ExecuteaSQLqueryandreturnresultsinJSONLformat.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The SQL query to execute."
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "Optional username."
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Optional password."
+                    },
+                    "dsn": {
+                        "type": "string",
+                        "description": "Optional dsn name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Results in JSONL format."
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_sqlalchemy_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "podbc_spasql_query",
+            "description": "ExecuteaSPASQLqueryandreturnresults.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The SPASQL query to execute."
+                    },
+                    "max_rows": {
+                        "type": "integer",
+                        "description": "Maximum number of rows to return. Default is 100."
+                    },
+                    "timeout": {
+                        "type": "integer",
+                        "description": "Query timeout. Default is 30000ms."
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "Optional username."
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Optional password."
+                    },
+                    "dsn": {
+                        "type": "string",
+                        "description": "Optional dsn name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Results in requested format as string."
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_rows",
+                    "timeout",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_sqlalchemy_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "podbc_sparql_query",
+            "description": "ExecuteaSPARQLqueryandreturnresults.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The SPARQL query to execute."
+                    },
+                    "format": {
+                        "type": "string",
+                        "description": "Maximum number of rows to return. Default is \"json\"."
+                    },
+                    "timeout": {
+                        "type": "integer",
+                        "description": "Query timeout. Default is 300000ms."
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "Optional username."
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Optional password."
+                    },
+                    "dsn": {
+                        "type": "string",
+                        "description": "Optional dsn name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Results in requested format as string."
+                    }
+                },
+                "required": [
+                    "query",
+                    "format",
+                    "timeout",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_sqlalchemy_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "podbc_virtuoso_support_ai",
+            "description": "TooltousetheVirtuosoAIsupportfunction\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": "AI prompt text (required)."
+                    },
+                    "api_key": {
+                        "type": "string",
+                        "description": "API key for AI service (optional)."
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "Optional username."
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Optional password."
+                    },
+                    "dsn": {
+                        "type": "string",
+                        "description": "Optional dsn name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Results data in JSON."
+                    }
+                },
+                "required": [
+                    "prompt",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_sqlalchemy_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "podbc_sparql_func",
+            "description": "TooltousetheSPARQLAIsupportfunction\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": "The prompt."
+                    },
+                    "api_key": {
+                        "type": "string",
+                        "description": "optional."
+                    },
+                    "user": {
+                        "type": "string",
+                        "description": "Optional username."
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Optional password."
+                    },
+                    "dsn": {
+                        "type": "string",
+                        "description": "Optional dsn name."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Results data in JSON."
+                    }
+                },
+                "required": [
+                    "prompt",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_sqlalchemy_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,386 @@
+{
+    "tools": [
+        {
+            "name": "from_dict",
+            "description": "\n        Create a message from dictionary.\n        \n        Args:\n            data: Dictionary containing message data\n            \n        Returns:\n            A new Message instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "conversation_manager.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "\n        Create a conversation from dictionary.\n        \n        Args:\n            data: Dictionary containing conversation data\n            \n        Returns:\n            A new Conversation instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "conversation_manager.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "generic_exception_handler",
+            "description": "\n    Handle all uncaught exceptions.\n    Provides a consistent error response format for any unhandled exceptions.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "startup_event",
+            "description": "\n    Start the file monitor and background tasks on server startup.\n    Initializes all necessary components and background tasks.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "shutdown_event",
+            "description": "\n    Stop the file monitor on server shutdown.\n    Ensures all components are properly shut down and data is saved.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "\n    Root endpoint.\n    Provides basic information about the server status.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "\n    Health check endpoint.\n    Used by monitoring systems to check if the server is operational.\n    Returns 200 OK if healthy, 503 Service Unavailable if not.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_metrics",
+            "description": "\n    Get server metrics.\n    Returns metrics about server performance, file changes, and queries.\n    Protected by API key authentication if enabled.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_files",
+            "description": "\n    Get list of monitored files.\n    Returns a list of all files being monitored by the system.\n    Protected by API key authentication if enabled.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_file_info",
+            "description": "\n    Get information about a specific file.\n    Returns history and details about a specific monitored file.\n    Protected by API key authentication if enabled.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_conversations",
+            "description": "\n    Get all conversations.\n    Returns a list of all active conversations in the system.\n    Protected by API key authentication if enabled.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_conversation",
+            "description": "\n    Get conversation for a specific file.\n    Returns the conversation history for a specific file.\n    Protected by API key authentication if enabled.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "query_file",
+            "description": "\n    Query about a specific file.\n    This is the main endpoint for getting AI-powered insights about file changes.\n    It sends the query to the appropriate AI provider via the conversation manager.\n    Protected by API key authentication if enabled.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "notify_change",
+            "description": "\n    Notify about a file change.\n    Allows external systems to notify the MCP server about file changes.\n    This is useful when the file monitor cannot detect changes directly.\n    Protected by API key authentication if enabled.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "clear_conversation",
+            "description": "\n    Clear conversation for a specific file.\n    Resets the conversation history for a file while keeping the system messages.\n    Protected by API key authentication if enabled.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.delete"
+            ]
+        },
+        {
+            "name": "cleanup_conversations",
+            "description": "\n    Clean up inactive conversations.\n    Removes conversations that have been inactive for a specified number of days.\n    Protected by API key authentication if enabled.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_config",
+            "description": "\n    Get server configuration.\n    Returns the current server configuration settings.\n    Protected by API key authentication if enabled.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "format_response",
+            "description": "\n        Format a response according to a format specification.\n        \n        This method ensures that the response contains all required fields\n        according to the format specification. If no format specification is\n        provided, the default from the configuration is used.\n        \n        Args:\n            data: The response data to format\n            format_spec: The format specification to use (default: from config)\n            \n        Returns:\n            The formatted response\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "string",
+                        "description": "The response data to format"
+                    },
+                    "format_spec": {
+                        "type": "string",
+                        "description": "The format specification to use (default: from config)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "format_spec",
+                    "Returns"
+                ]
+            },
+            "file": "response_handler.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "validate_response",
+            "description": "\n        Validate a response against a schema.\n        \n        This method checks that the response contains all required fields\n        and that the fields have the correct types according to the schema.\n        If no schema is provided, the default from the configuration is used.\n        \n        Args:\n            response: The response to validate\n            schema: The schema to validate against (default: from config)\n            \n        Returns:\n            True if the response is valid, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "type": "string",
+                        "description": "The response to validate"
+                    },
+                    "schema": {
+                        "type": "string",
+                        "description": "The schema to validate against (default: from config)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "response",
+                    "schema",
+                    "Returns"
+                ]
+            },
+            "file": "response_handler.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "standardize_response",
+            "description": "\n        Standardize a response to ensure it meets the expected format.\n        \n        This method adds default values for missing fields and ensures that\n        the response has a consistent structure. It preserves all existing\n        fields and adds any required fields that are missing.\n        \n        Args:\n            raw_response: The raw response from the AI provider\n            \n        Returns:\n            The standardized response\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "raw_response": {
+                        "type": "string",
+                        "description": "The raw response from the AI provider"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "raw_response",
+                    "Returns"
+                ]
+            },
+            "file": "response_handler.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "enhance_response",
+            "description": "\n        Enhance a response with additional data.\n        \n        This method adds additional data to the response, such as query\n        information, file paths, and metadata.\n        \n        Args:\n            response: The response to enhance\n            additional_data: Additional data to add to the response\n            \n        Returns:\n            The enhanced response\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "type": "string",
+                        "description": "The response to enhance"
+                    },
+                    "additional_data": {
+                        "type": "string",
+                        "description": "Additional data to add to the response"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "response",
+                    "additional_data",
+                    "Returns"
+                ]
+            },
+            "file": "response_handler.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "serialize_response",
+            "description": "\n        Serialize a response to JSON string.\n        \n        Args:\n            response: The response to serialize\n            \n        Returns:\n            The serialized response as a JSON string\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "response": {
+                        "type": "string",
+                        "description": "The response to serialize"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "response",
+                    "Returns"
+                ]
+            },
+            "file": "response_handler.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "error_response",
+            "description": "\n        Create an error response.\n        \n        This method creates a standardized error response that can be\n        returned to the client.\n        \n        Args:\n            message: The error message\n            file_path: The file path related to the error\n            \n        Returns:\n            The error response\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "The error message"
+                    },
+                    "file_path": {
+                        "type": "string",
+                        "description": "The file path related to the error"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "message",
+                    "file_path",
+                    "Returns"
+                ]
+            },
+            "file": "response_handler.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

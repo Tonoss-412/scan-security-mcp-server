@@ -1,0 +1,236 @@
+{
+    "tools": [
+        {
+            "name": "main",
+            "description": "MCP OAuth Bridge - Local OAuth bridge for MCP servers supporting OpenAI and Anthropic APIs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_oauth_bridge\\cli.py",
+            "decorator": [
+                "click.group",
+                "click.version_option"
+            ]
+        },
+        {
+            "name": "init",
+            "description": "Initialize MCP OAuth Bridge configuration",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_oauth_bridge\\cli.py",
+            "decorator": [
+                "main.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "\n    tr",
+            "description": " os.path.exists(config.config_file):\n ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_oauth_bridge\\cli.py",
+            "decorator": [
+                "click.option"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "Create from discovery response",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp_oauth_bridge\\discovery.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "Create from discovery response",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp_oauth_bridge\\discovery.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_oauth_bridge\\proxy.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "proxy_mcp_request",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_oauth_bridge\\proxy.py",
+            "decorator": [
+                "self.app.api_route"
+            ]
+        },
+        {
+            "name": "openai_responses",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_oauth_bridge\\proxy.py",
+            "decorator": [
+                "self.app.post"
+            ]
+        },
+        {
+            "name": "anthropic_messages",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_oauth_bridge\\proxy.py",
+            "decorator": [
+                "self.app.post"
+            ]
+        },
+        {
+            "name": "approval_ui",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_oauth_bridge\\proxy.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "approve_request",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_oauth_bridge\\proxy.py",
+            "decorator": [
+                "self.app.post"
+            ]
+        },
+        {
+            "name": "deny_request",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_oauth_bridge\\proxy.py",
+            "decorator": [
+                "self.app.post"
+            ]
+        },
+        {
+            "name": "list_servers",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_oauth_bridge\\proxy.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "get_server_config",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_oauth_bridge\\proxy.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint with OAuth discovery headers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\mock_oauth_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "oauth_metadata",
+            "description": "OAuth 2.0 Authorization Server Metadata (RFC 8414)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\mock_oauth_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "register_client",
+            "description": "Dynamic Client Registration (RFC 7591)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\mock_oauth_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "authorize",
+            "description": "OAuth Authorization Endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\mock_oauth_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        }
+    ]
+}

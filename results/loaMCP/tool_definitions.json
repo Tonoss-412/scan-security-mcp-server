@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "search_books",
+            "description": "Search for books with the given search_term. Returns a list of books and their data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_book",
+            "description": "Get a book with the given book_id (in uuidv4 format)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_user",
+            "description": "Search users by their Roblox username.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "report_lost",
+            "description": "\n    Log a lost item to lost.txt.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "tools": [
+        {
+            "name": "apply",
+            "description": "\n        Apply the MCP configuration to the Claude Desktop Config.\n\n        This method should be overridden by subclasses to define Mcp Enumerations.\n\n        :param wanted_mcps: A set of MCPs that should be enabled.\n        :param cdc: An instance of ClaudeDesktopConfig to read and write the configuration.\n\n        :return: True if the configuration was changed, False if it was unchanged.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "claude_desktop_config\\impl.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "temp_cwd",
+            "description": "\n    Temporarily set the current working directory (CWD) and automatically\n    switch back when it's done.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_desktop_config\\vendor\\pytest_cov_helper.py",
+            "decorator": [
+                "contextlib.contextmanager"
+            ]
+        }
+    ]
+}

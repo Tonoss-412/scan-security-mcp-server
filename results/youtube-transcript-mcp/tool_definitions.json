@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "get_transcript",
+            "description": "Get transcript for a video ID and format it as readable text.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\youtube_transcript_mcp\\youtube_transcript_mcp.py",
+            "decorator": [
+                "server.tool"
+            ]
+        }
+    ]
+}

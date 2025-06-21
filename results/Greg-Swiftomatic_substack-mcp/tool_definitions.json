@@ -1,0 +1,176 @@
+{
+    "tools": [
+        {
+            "name": "get_newsletter_posts",
+            "description": "\n    Get recent posts from a Substack newsletter.\n    \n    Args:\n        newsletter_url: URL of the Substack newsletter (e.g., https://example.substack.com)\n        limit: Maximum number of posts to retrieve (default: 5)\n        sorting: How to sort posts, either \"new\" or \"top\" (default: \"new\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "newsletter_url": {
+                        "type": "string",
+                        "description": "URL of the Substack newsletter (e.g., https://example.substack.com)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of posts to retrieve (default: 5)"
+                    },
+                    "sorting": {
+                        "type": "string",
+                        "description": "How to sort posts, either \"new\" or \"top\" (default: \"new\")"
+                    }
+                },
+                "required": [
+                    "newsletter_url",
+                    "limit",
+                    "sorting"
+                ]
+            },
+            "file": "substack_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_post_content",
+            "description": "\n    Get the content of a Substack post.\n    \n    Args:\n        post_url: URL of the Substack post (e.g., https://example.substack.com/p/post-slug)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "post_url": {
+                        "type": "string",
+                        "description": "URL of the Substack post (e.g., https://example.substack.com/p/post-slug)"
+                    }
+                },
+                "required": [
+                    "post_url"
+                ]
+            },
+            "file": "substack_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_newsletter",
+            "description": "\n    Search for posts within a Substack newsletter.\n    \n    Args:\n        newsletter_url: URL of the Substack newsletter\n        search_query: The search term to look for\n        limit: Maximum number of results to return (default: 5)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "newsletter_url": {
+                        "type": "string",
+                        "description": "URL of the Substack newsletter"
+                    },
+                    "search_query": {
+                        "type": "string",
+                        "description": "The search term to look for"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 5)"
+                    }
+                },
+                "required": [
+                    "newsletter_url",
+                    "search_query",
+                    "limit"
+                ]
+            },
+            "file": "substack_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_author_info",
+            "description": "\n    Get information about a Substack author.\n    \n    Args:\n        author_username: The username of the Substack author\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "author_username": {
+                        "type": "string",
+                        "description": "The username of the Substack author"
+                    }
+                },
+                "required": [
+                    "author_username"
+                ]
+            },
+            "file": "substack_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_newsletter_recommendations",
+            "description": "\n    Get recommended newsletters for a Substack publication.\n    \n    Args:\n        newsletter_url: URL of the Substack newsletter\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "newsletter_url": {
+                        "type": "string",
+                        "description": "URL of the Substack newsletter"
+                    }
+                },
+                "required": [
+                    "newsletter_url"
+                ]
+            },
+            "file": "substack_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_newsletter_authors",
+            "description": "\n    Get authors of a Substack newsletter.\n    \n    Args:\n        newsletter_url: URL of the Substack newsletter\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "newsletter_url": {
+                        "type": "string",
+                        "description": "URL of the Substack newsletter"
+                    }
+                },
+                "required": [
+                    "newsletter_url"
+                ]
+            },
+            "file": "substack_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_post_content_resource",
+            "description": "\n    Get the content of a Substack post as a resource.\n    \n    Args:\n        post_url: URL of the Substack post\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "post_url": {
+                        "type": "string",
+                        "description": "URL of the Substack post"
+                    }
+                },
+                "required": [
+                    "post_url"
+                ]
+            },
+            "file": "substack_mcp.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "newsletter_summary_prompt",
+            "description": "Create a summary of a Substack newsletter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "substack_mcp.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

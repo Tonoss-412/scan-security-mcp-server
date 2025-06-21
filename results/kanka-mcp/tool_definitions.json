@@ -1,0 +1,316 @@
+{
+    "tools": [
+        {
+            "name": "show_campaigns",
+            "description": "List all campaigns the user has access to.\n    You may need to run this tool before running other tools to get the campaign ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_characters",
+            "description": "List all characters in a campaign.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_character",
+            "description": "Get a single character by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_character",
+            "description": "Create a new character in a campaign.\n    Fields:\n        campaign_id: The ID of the campaign to add the character to\n        name: The name of the character (required)\n        title: The character's title (optional)\n        type: The type or class of the character (optional)\n        age: The age of the character (optional)\n        sex: The sex/gender of the character (optional)\n        pronouns: The pronouns of the character (optional)\n        race_id: The ID of the race entity (optional)\n        family_id: The ID of the family entity (optional)\n        is_dead: Whether the character is dead (optional)\n        image: URL or path to the character's image (optional)\n        tags: Comma-separated list of tags (optional)\n        entry: The character's entry/description (optional, must be HTML. If not HTML, it will be wrapped in <p> tags.)\n        is_private: If the character is only visible to admin members (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_character",
+            "description": "Update an existing character.\n    Fields:\n        campaign_id: The ID of the campaign\n        character_id: The ID of the character to update\n        name: The name of the character (optional)\n        title: The character's title (optional)\n        type: The type or class of the character (optional)\n        age: The age of the character (optional)\n        sex: The sex/gender of the character (optional)\n        pronouns: The pronouns of the character (optional)\n        race_id: The ID of the race entity (optional)\n        family_id: The ID of the family entity (optional)\n        is_dead: Whether the character is dead (optional)\n        image: URL or path to the character's image (optional)\n        tags: Comma-separated list of tags (optional)\n        entry: The character's entry/description (optional, must be HTML. If not HTML, it will be wrapped in <p> tags.)\n        is_private: If the character is only visible to admin members (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_character",
+            "description": "Delete a character by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_locations",
+            "description": "List all locations in a campaign.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_location",
+            "description": "Get a single location by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_location",
+            "description": "Create a new location in a campaign.\n    Fields:\n        campaign_id: The ID of the campaign to add the location to\n        name: The name of the location (required)\n        entry: The location's entry/description (optional, must be HTML. If not HTML, it will be wrapped in <p> tags.)\n        type: Type of location (optional)\n        location_id: The parent location id (optional)\n        tags: Array of tag ids (optional)\n        is_destroyed: If the location is destroyed (optional)\n        is_private: If the location is only visible to admin members (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_location",
+            "description": "Update an existing location.\n    Fields:\n        campaign_id: The ID of the campaign\n        location_id: The ID of the location to update\n        name: The name of the location (optional)\n        entry: The location's entry/description (optional, must be HTML. If not HTML, it will be wrapped in <p> tags.)\n        type: Type of location (optional)\n        new_parent_location_id: The parent location id (optional)\n        tags: Array of tag ids (optional)\n        is_destroyed: If the location is destroyed (optional)\n        is_private: If the location is only visible to admin members (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_location",
+            "description": "Delete a location by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_posts",
+            "description": "List all posts for a given entity in a campaign. Note: entity_id is the ID of the entity, not the post object ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_post",
+            "description": "Get a single post by ID for a given entity. Note: entity_id is the ID of the entity, not the post object ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_post",
+            "description": "Create a new post for an entity in a campaign.\n    Fields:\n        campaign_id: The ID of the campaign\n        entity_id: The ID of the entity this post belongs to (Required)\n        name: The name/title of the post (required)\n        entry: The post content (optional, must be HTML. If not HTML, it will be wrapped in <p> tags.)\n        position: The position/order of the post for ordering pinned posts (optional)\n        visibility_id: The visibility: 1 for all, 2 self, 3 admin, 4 self-admin or 5 members (optional)\n        is_pinned: Whether the post is pinned (optional)\n        settings: Settings object. E.g. {'collapsed': 1} if pinned post should be collapsed on load (optional)\n        tags: Array of tag ids (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_post",
+            "description": "Update a post for an entity in a campaign.\n    Fields:\n        campaign_id: The ID of the campaign\n        entity_id: The ID of the entity this post belongs to\n        post_id: The ID of the post to update\n        name: The name/title of the post (optional)\n        entry: The post content (optional, must be HTML. If not HTML, it will be wrapped in <p> tags.)\n        position: The position/order of the post for ordering pinned posts (optional)\n        visibility_id: The visibility: 1 for all, 2 self, 3 admin, 4 self-admin or 5 members (optional)\n        is_pinned: Whether the post is pinned (optional)\n        settings: Settings object. E.g. {'collapsed': 1} if pinned post should be collapsed on load (optional)\n        tags: Array of tag ids (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_post",
+            "description": "Delete a post by ID for a given entity. Note: entity_id is the ID of the entity, not the post object ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_notes",
+            "description": "List all notes in a campaign.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_note",
+            "description": "Get a single note by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_note",
+            "description": "Create a new note in a campaign.\n    Fields:\n        campaign_id: The ID of the campaign to add the note to\n        name: The name of the note (required)\n        entry: The note's entry/description (optional, must be HTML. If not HTML, it will be wrapped in <p> tags.)\n        type: The note's type (optional)\n        note_id: The parent note id (optional)\n        tags: Array of tag ids (optional)\n        entity_image_uuid: Gallery image UUID for the entity image (optional)\n        entity_header_uuid: Gallery image UUID for the entity header (limited to premium campaigns) (optional)\n        is_private: If the note is only visible to admin members (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_note",
+            "description": "Update an existing note.\n    Fields:\n        campaign_id: The ID of the campaign\n        note_id: The ID of the note to update\n        name: The name of the note (optional)\n        entry: The note's entry/description (optional, must be HTML. If not HTML, it will be wrapped in <p> tags.)\n        type: The note's type (optional)\n        parent_note_id: The parent note id (optional)\n        tags: Array of tag ids (optional)\n        entity_image_uuid: Gallery image UUID for the entity image (optional)\n        entity_header_uuid: Gallery image UUID for the entity header (limited to premium campaigns) (optional)\n        is_private: If the note is only visible to admin members (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_note",
+            "description": "Delete a note by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_journals",
+            "description": "List all journals in a campaign.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_journal",
+            "description": "Get a single journal by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_journal",
+            "description": "Create a new journal in a campaign.\n    Fields:\n        campaign_id: The ID of the campaign to add the journal to\n        name: The name of the journal (required)\n        entry: The journal's entry/description (optional, must be HTML. If not HTML, it will be wrapped in <p> tags.)\n        type: The journal's type (optional)\n        date: The date of the session (optional)\n        journal_id: The ID of the journal's parent journal (optional)\n        author_id: The \"author\" of the journal (entity id) (optional)\n        tags: Array of tag ids (optional)\n        entity_image_uuid: Gallery image UUID for the entity image (optional)\n        entity_header_uuid: Gallery image UUID for the entity header (premium campaigns) (optional)\n        is_private: If the journal is only visible to admin members (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_journal",
+            "description": "Update an existing journal.\n    Fields:\n        campaign_id: The ID of the campaign\n        journal_id: The ID of the journal to update\n        name: The name of the journal (optional)\n        entry: The journal's entry/description (optional, must be HTML. If not HTML, it will be wrapped in <p> tags.)\n        type: The journal's type (optional)\n        date: The date of the session (optional)\n        parent_journal_id: The ID of the journal's parent journal (optional)\n        author_id: The \"author\" of the journal (entity id) (optional)\n        tags: Array of tag ids (optional)\n        entity_image_uuid: Gallery image UUID for the entity image (optional)\n        entity_header_uuid: Gallery image UUID for the entity header (premium campaigns) (optional)\n        is_private: If the journal is only visible to admin members (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_journal",
+            "description": "Delete a journal by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kanka_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

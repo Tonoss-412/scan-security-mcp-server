@@ -1,0 +1,146 @@
+{
+    "tools": [
+        {
+            "name": "app_lifespan",
+            "description": "Manage application lifecycle with type-safe context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "move_forward",
+            "description": "Command Bittle to move forward.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "ensure_connected",
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "move_backward",
+            "description": "Command Bittle to move backward.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "ensure_connected",
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "turn_left",
+            "description": "Command Bittle to turn left.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "ensure_connected",
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "turn_right",
+            "description": "Command Bittle to turn right.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "ensure_connected",
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "stop",
+            "description": "Command Bittle to stop all movement.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "ensure_connected",
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sit",
+            "description": "Command Bittle to sit.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "ensure_connected",
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "balance",
+            "description": "Command Bittle to balance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "ensure_connected",
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "stretch",
+            "description": "Command Bittle to stretch.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "ensure_connected",
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "backflip",
+            "description": "Command Bittle to perform a backflip.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "ensure_connected",
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "rest",
+            "description": "Command Bittle to rest.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "ensure_connected",
+                "mcp.tool"
+            ]
+        }
+    ]
+}

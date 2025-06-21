@@ -1,0 +1,52 @@
+{
+    "tools": [
+        {
+            "name": "get_info",
+            "description": "Get information from Wikipedia for the search term.\n\n    Args:\n        searchterm: The term to search for on Wikipedia\n\n    Returns:\n        Information about the search term from Wikipedia\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "searchterm": {
+                        "type": "string",
+                        "description": "The term to search for on Wikipedia"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "searchterm",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_research_paper",
+            "description": "Get research paper information from Arxiv.\n\n    Args:\n        searchterm: Title or paper ID to search for on Arxiv\n\n    Returns:\n        Information about the requested research paper\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "searchterm": {
+                        "type": "string",
+                        "description": "Title or paper ID to search for on Arxiv"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "searchterm",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

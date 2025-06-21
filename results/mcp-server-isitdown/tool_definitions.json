@@ -1,0 +1,74 @@
+{
+    "tools": [
+        {
+            "name": "get_website_status",
+            "description": "\n    Check the status of a website.\n\n    This function takes a root domain as input and checks whether the website is up or down\n    by making a request to isitdownrightnow.com\n\n    Args:\n        root_domain (str): The root domain of the website to check.\n\n    Returns:\n        str: A message indicating whether the website is up or down, or if the status could not be determined.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "root_domain": {
+                        "type": "string",
+                        "description": "The root domain of the website to check."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A message indicating whether the website is up or down, or if the status could not be determined."
+                    }
+                },
+                "required": [
+                    "root_domain",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "src\\mcp_server_isitdown\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "echo_prompt",
+            "description": "Check the status of a website.\n    \n    Args:\n        website (str): The website to check.\n    Returns:\n        str: A message indicating the status of the website.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "website": {
+                        "type": "string",
+                        "description": "The website to check."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A message indicating the status of the website."
+                    }
+                },
+                "required": [
+                    "website",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "src\\mcp_server_isitdown\\server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "informal_prompt",
+            "description": "Check the status of Facebook using informal language.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_isitdown\\server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

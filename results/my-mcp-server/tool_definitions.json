@@ -1,0 +1,64 @@
+{
+    "tools": [
+        {
+            "name": "web_search",
+            "description": "Search the web for information about the given query",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "roll_dice",
+            "description": "Roll the dice with the given notation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_qr_code",
+            "description": "Generate a QR code for the given text and return it as a base64 encoded image",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "convert_units",
+            "description": "Convert between different units (e.g., temperature, length, weight, volume)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "shorten_url",
+            "description": "Shorten a URL using various services (tinyurl, is.gd)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

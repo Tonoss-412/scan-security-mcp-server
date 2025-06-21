@@ -1,0 +1,41 @@
+{
+    "tools": [
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\needle_mcp\\server.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available tools for interacting with Needle.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\needle_mcp\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls for Needle operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\needle_mcp\\server.py",
+            "decorator": [
+                "server.call_tool",
+                "rate_limit"
+            ]
+        }
+    ]
+}

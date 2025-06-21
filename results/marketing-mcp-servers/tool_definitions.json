@@ -1,0 +1,660 @@
+{
+    "tools": [
+        {
+            "name": "create_post",
+            "description": "Create a post on the platform.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\src\\social_media_mcp\\platforms.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_analytics",
+            "description": "Get analytics data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\src\\social_media_mcp\\platforms.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_trending",
+            "description": "Get trending topics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\src\\social_media_mcp\\platforms.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "create_post",
+            "description": "Create a post on the platform.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\src\\social_media_mcp\\platforms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_analytics",
+            "description": "Get analytics data from the platform.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\src\\social_media_mcp\\platforms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_trending",
+            "description": "Get trending topics and hashtags.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\src\\social_media_mcp\\platforms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "schedule_post",
+            "description": "Schedule a post for future publishing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\src\\social_media_mcp\\platforms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "delete_post",
+            "description": "Delete a post from the platform.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\src\\social_media_mcp\\platforms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_post",
+            "description": "Get details about a specific post.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\src\\social_media_mcp\\platforms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "event_loop",
+            "description": "Create an event loop for async tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "setup_test_env",
+            "description": "Set up test environment variables if not present.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_media_dir",
+            "description": "Create a temporary directory for media files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create a real server instance with actual credentials.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_image",
+            "description": "Create a real test image for upload.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_real_twitter_post",
+            "description": "Test creating a real Twitter post.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "test_image": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "test_image"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_real_twitter_analytics",
+            "description": "Test getting real analytics from Twitter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_real_twitter_trending",
+            "description": "Test getting real trending topics from Twitter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_real_post_deletion",
+            "description": "Test deleting a real post.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_real_linkedin_post",
+            "description": "Test creating a real LinkedIn post.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_image_optimization_quality",
+            "description": "Test that image optimization maintains quality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_video_optimization_real",
+            "description": "Test real video optimization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_optimal_timing_algorithm",
+            "description": "Test the optimal posting time algorithm with real data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_content_calendar_scheduling",
+            "description": "Test scheduling algorithm for content calendar.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\test_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create a server instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_image",
+            "description": "Create a real test image.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_video",
+            "description": "Create a real test video.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_server_initialization",
+            "description": "Test that server initializes correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_tools",
+            "description": "Test that all tools are properly registered.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_post_validation",
+            "description": "Test post creation with validation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_generate_hashtags_real",
+            "description": "Test real hashtag generation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_optimize_image_real",
+            "description": "Test real image optimization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "sample_image": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "sample_image"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_schedule_posts_with_spacing",
+            "description": "Test scheduling multiple posts with optimized spacing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_manage_calendar_operations",
+            "description": "Test calendar management operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_content_validation",
+            "description": "Test content validation for different platforms.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_media_format_validation",
+            "description": "Test that unsupported media formats are rejected.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server",
+                    "tmp_path"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_analytics_aggregation",
+            "description": "Test analytics aggregation across platforms.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_trending_topics_structure",
+            "description": "Test trending topics response structure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_twitter_client_structure",
+            "description": "Test Twitter client has required methods.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_post_model_validation",
+            "description": "Test Post model validation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_hashtag_analysis",
+            "description": "Test hashtag performance analysis.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_optimal_posting_time",
+            "description": "Test optimal posting time calculation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "social-media-mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

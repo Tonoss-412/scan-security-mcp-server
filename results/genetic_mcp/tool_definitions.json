@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "vehicle_routing_problem",
+            "description": "\n    A tool to solve the vehicle routing problem using a genetic algorithm.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "genetic-mcp-server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "knapsack_problem",
+            "description": "Solveaknapsackproblemusingageneticalgorithm.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "genetic-mcp-server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "greeting",
+            "description": "\n    A simple greeting resource that returns a greeting message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "genetic-mcp-server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "generate_gene",
+            "description": "\n        Generate a gene based on the fitness function's requirements.\n\n        :param Optional[float] value: An optional value for the gene.\n        :return: A Gene object representing the generated gene.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "genetic-mcp-server\\genetic_algorithm\\fitness_function.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "generate_chromosome",
+            "description": "\n        Generate a chromosome based on the fitness function's requirements.\n        \n        :return: A Chromosome object representing the generated chromosome.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "genetic-mcp-server\\genetic_algorithm\\fitness_function.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "calculate_fitness",
+            "description": "\n        Calculate the fitness of a given chromosome.\n        \n        :param chromosome: The chromosome for which to calculate fitness.\n        :return: The fitness value of the chromosome.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "genetic-mcp-server\\genetic_algorithm\\fitness_function.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "generate_population",
+            "description": "\n        Generate a population of chromosomes based on the fitness function's requirements.\n        \n        :param size: The number of chromosomes in the population.\n        :param chromosome_size: The size of each chromosome.\n        :return: A list of chromosomes.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "genetic-mcp-server\\genetic_algorithm\\fitness_function.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        }
+    ]
+}

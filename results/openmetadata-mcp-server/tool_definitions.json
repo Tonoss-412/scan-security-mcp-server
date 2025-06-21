@@ -1,0 +1,73 @@
+{
+    "tools": [
+        {
+            "name": "from_env",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "app.list_resources"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "app.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "app.call_tool"
+            ]
+        }
+    ]
+}

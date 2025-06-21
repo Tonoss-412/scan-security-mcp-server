@@ -1,0 +1,74 @@
+{
+    "tools": [
+        {
+            "name": "search_openSearch",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            },
+            "file": "src\\mcp-server-opensearch\\demo.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_greeting",
+            "description": "Get a personalized greeting",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp-server-opensearch\\demo.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n        Return the list of tools that the server provides. By default, there are two\n        tools: one to store documents and another to find them. \n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp-server-opensearch\\server.py",
+            "decorator": [
+                "serverAPP.list_tools"
+            ]
+        },
+        {
+            "name": "handle_tool_call",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp-server-opensearch\\server.py",
+            "decorator": [
+                "serverAPP.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp-server-opensearch\\server.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        }
+    ]
+}

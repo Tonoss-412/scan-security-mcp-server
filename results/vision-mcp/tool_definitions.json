@@ -1,0 +1,82 @@
+{
+    "tools": [
+        {
+            "name": "gen_text_overlay",
+            "description": "\n    Overlay text on an image using Segmind API.\n    Args:\n        blend_mode (str): The blend mode to use for the overlay.\n        image_url (str): The URL of the image to overlay text on.\n        text (str): The text to overlay on the image.\n        out_dir (str): The output directory for the processed image.\n    Returns:\n        str: The message from the text_overlay function.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "blend_mode": {
+                        "type": "string",
+                        "description": "The blend mode to use for the overlay."
+                    },
+                    "image_url": {
+                        "type": "string",
+                        "description": "The URL of the image to overlay text on."
+                    },
+                    "text": {
+                        "type": "string",
+                        "description": "The text to overlay on the image."
+                    },
+                    "out_dir": {
+                        "type": "string",
+                        "description": "The output directory for the processed image."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The message from the text_overlay function."
+                    }
+                },
+                "required": [
+                    "blend_mode",
+                    "image_url",
+                    "text",
+                    "out_dir",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "src\\mcp_text_overlay.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "gen_image",
+            "description": "\n    Generates an image from a prompt using Stable Diffusion 3.5 and returns pre-signed URL\n\n    Args:\n        prompt (str): The prompt for the image generation.\n        steps (int): Number of inference steps (default: 10)\n\n    Returns:\n        str: Returns image_url to the generated image.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": "The prompt for the image generation."
+                    },
+                    "steps": {
+                        "type": "integer",
+                        "description": "Number of inference steps (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Returns image_url to the generated image."
+                    }
+                },
+                "required": [
+                    "prompt",
+                    "steps",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "src\\mcp_text_overlay.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

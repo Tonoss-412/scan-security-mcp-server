@@ -1,0 +1,473 @@
+{
+    "tools": [
+        {
+            "name": "passed",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ai-docs\\@tasks\\active\\enhanced_blueprint_validator.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "warnings",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ai-docs\\@tasks\\active\\enhanced_blueprint_validator.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "failures",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ai-docs\\@tasks\\active\\enhanced_blueprint_validator.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "overall_score",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ai-docs\\@tasks\\active\\enhanced_blueprint_validator.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "overall_score",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": ".ai-docs\\@tasks\\archive\\blueprint_task_executor.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "get_all_blueprints",
+            "description": "Get all available blueprints",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\blueprints_router.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_blueprint",
+            "description": "Get a specific blueprint by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\blueprints_router.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_blueprint",
+            "description": "Create a new blueprint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\blueprints_router.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_blueprint",
+            "description": "Update an existing blueprint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\blueprints_router.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_blueprint",
+            "description": "Delete a blueprint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\blueprints_router.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "generate_code_from_blueprint",
+            "description": "Generate code from a blueprint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\blueprints_router.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "upload_blueprint",
+            "description": "Upload a blueprint JSON file",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\blueprints_router.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "extract_code_example",
+            "description": "Extract code example from Smart Blueprint embedded template",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\blueprints_router.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint - returns dashboard template",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "not_found_handler",
+            "description": "Handle 404 errors",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\main.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "server_error_handler",
+            "description": "Handle 500 errors",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\main.py",
+            "decorator": [
+                "app.exception_handler"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend-mcp\\routes\\system_routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "list_users",
+            "description": "List users with pagination",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "proof-of-concept\\generated_user_routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_user",
+            "description": "Get user by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "proof-of-concept\\generated_user_routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_user",
+            "description": "Create new user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "proof-of-concept\\generated_user_routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_user",
+            "description": "Update user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "proof-of-concept\\generated_user_routes.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_user",
+            "description": "Delete user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "proof-of-concept\\generated_user_routes.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "list_users",
+            "description": "List users with pagination",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "proof-of-concept\\proof-of-concept\\generated_user_routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_user",
+            "description": "Get user by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "proof-of-concept\\proof-of-concept\\generated_user_routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_user",
+            "description": "Create new user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "proof-of-concept\\proof-of-concept\\generated_user_routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_user",
+            "description": "Update user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "proof-of-concept\\proof-of-concept\\generated_user_routes.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_user",
+            "description": "Delete user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "proof-of-concept\\proof-of-concept\\generated_user_routes.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "event_loop",
+            "description": "Create an instance of the default event loop for the test session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_db",
+            "description": "Create test database tables and clean up after test.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create test client with database override.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_user_data",
+            "description": "Sample user data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "authenticated_user",
+            "description": "Create and authenticate a test user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    },
+                    "sample_user_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client",
+                    "sample_user_data"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "auth_headers",
+            "description": "Get authentication headers for requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "authenticated_user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "authenticated_user"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "performance_config",
+            "description": "Configuration for performance tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "security_test_data",
+            "description": "Test data for security testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "load_test_config",
+            "description": "Configuration for load testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,162 @@
+{
+    "tools": [
+        {
+            "name": "load_docker_file",
+            "description": "\n    Load a Docker file from the templates directory.\n\n    Args:\n        file_path: The path to the Docker file, relative to the Docker files directory.\n\n    Returns:\n        str: The Docker file content.\n\n    Raises:\n        FileNotFoundError: If the Docker file does not exist.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "The path to the Docker file, relative to the Docker files directory."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The Docker file content."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "FileNotFoundError": {
+                        "type": "string",
+                        "description": "If the Docker file does not exist."
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "Returns",
+                    "str",
+                    "Raises",
+                    "FileNotFoundError"
+                ]
+            },
+            "file": "mcp_hitchcode\\templates\\docker_file_loader.py",
+            "decorator": [
+                "functools.lru_cache"
+            ]
+        },
+        {
+            "name": "get_template_env",
+            "description": "\n    Get the Jinja2 environment for rendering templates.\n\n    Returns:\n        Environment: The Jinja2 environment.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_hitchcode\\templates\\template_loader.py",
+            "decorator": [
+                "functools.lru_cache"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_fix",
+            "description": "Test that the apply_prompt_fix tool works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_initial",
+            "description": "Test that the apply_prompt_initial tool works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_initial_version",
+            "description": "Test that the apply_prompt_initial tool works with version parameter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_proceed",
+            "description": "Test that the apply_prompt_proceed tool works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_proceed_version",
+            "description": "Test that the apply_prompt_proceed tool works with version parameter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_change",
+            "description": "Test that the apply_prompt_change tool works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_apply_prompt_change_version",
+            "description": "Test that the apply_prompt_change tool works with version parameter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_prompt_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_server_tools",
+            "description": "Test that we can connect to the server and list available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_stdio.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_server_mood",
+            "description": "Test that the mood tool works correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_stdio.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

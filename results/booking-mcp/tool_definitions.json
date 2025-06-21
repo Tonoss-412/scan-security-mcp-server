@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "one_way_taxi",
+            "description": "This tool is used to get the one way taxi details from booking.com",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "round_trip_taxi",
+            "description": "This tool is used to get the round trip taxi details from booking.com",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

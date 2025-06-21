@@ -1,0 +1,354 @@
+{
+    "tools": [
+        {
+            "name": "get_schema",
+            "description": "Udost\u0119pnienie schematu bazy danych jako zas\u00f3b\"\"\"\n ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "1\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "assemble_db_connection",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp\\config.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "assemble_list",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "mcp\\config.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "get_settings",
+            "description": "Get settings with caching.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\config.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\__init__.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "handle_request",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\__init__.py",
+            "decorator": [
+                "self.app.api_route"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\__init__.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\core\\registry.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "list_containers",
+            "description": "List containers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\docker\\__init__.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "run_container",
+            "description": "Run a container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\docker\\__init__.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "list_images",
+            "description": "List Docker images.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\docker\\__init__.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "pull_image",
+            "description": "Pull a Docker image.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\docker\\__init__.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "send_email",
+            "description": "Send an email.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\email\\__init__.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "verify_connection",
+            "description": "Verify the email server connection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\email\\__init__.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "launch_browser",
+            "description": "Launch a new browser instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "close_browser",
+            "description": "Close a browser instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "new_page",
+            "description": "Create a new page in a browser.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "close_page",
+            "description": "Close a page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "navigate",
+            "description": "Navigate to a URL.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "screenshot",
+            "description": "Take a screenshot of a page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "evaluate",
+            "description": "Evaluate an expression on a page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "click",
+            "description": "Click on an element.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "type_text",
+            "description": "Type text into an element.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "wait_for_selector",
+            "description": "Wait for an element matching the selector.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "get_content",
+            "description": "Get the HTML content of a page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "get_title",
+            "description": "Get the title of a page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "get_url",
+            "description": "Get the URL of a page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "resource"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\servers\\puppeteer\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        }
+    ]
+}

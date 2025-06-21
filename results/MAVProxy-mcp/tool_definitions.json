@@ -1,0 +1,112 @@
+{
+    "tools": [
+        {
+            "name": "get_status",
+            "description": "Get MAVProxy connection status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mavproxy_mcp\\server.py",
+            "decorator": [
+                "self.server.tool"
+            ]
+        },
+        {
+            "name": "ping",
+            "description": "Ping the MAVProxy MCP server to check connectivity.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mavproxy_mcp\\server.py",
+            "decorator": [
+                "self.server.tool"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create a server instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_ping_tool",
+            "description": "Test ping tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_status_tool",
+            "description": "Test get_status tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_tools_list_request",
+            "description": "Test tools list request handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_tools_call_request",
+            "description": "Test tools call request handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_unknown_tool_request",
+            "description": "Test unknown tool request handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_server_stop",
+            "description": "Test server stop functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

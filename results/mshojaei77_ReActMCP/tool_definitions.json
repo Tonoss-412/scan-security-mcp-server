@@ -1,0 +1,232 @@
+{
+    "tools": [
+        {
+            "name": "search_web",
+            "description": "Search the web using Exa API and return results as markdown formatted text.\n    \n    Args:\n        query: The search query\n        num_results: Optional number of results to return (overrides config)\n    \n    Returns:\n        Search results formatted in markdown\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query"
+                    },
+                    "num_results": {
+                        "type": "string",
+                        "description": "Optional number of results to return (overrides config)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "num_results",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\exa_web_search.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "advanced_search_web",
+            "description": "Advanced web search using Exa API with additional filtering options.\n    \n    Args:\n        query: The search query\n        num_results: Optional number of results to return (overrides config)\n        include_domains: List of domains to include in search results\n        include_text: Text that must be included in the search results\n        max_age_days: Maximum age of results in days\n        \n    Returns:\n        Search results formatted in markdown\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query"
+                    },
+                    "num_results": {
+                        "type": "string",
+                        "description": "Optional number of results to return (overrides config)"
+                    },
+                    "include_domains": {
+                        "type": "string",
+                        "description": "List of domains to include in search results"
+                    },
+                    "include_text": {
+                        "type": "string",
+                        "description": "Text that must be included in the search results"
+                    },
+                    "max_age_days": {
+                        "type": "string",
+                        "description": "Maximum age of results in days"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "num_results",
+                    "include_domains",
+                    "include_text",
+                    "max_age_days",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\exa_web_search.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "scrape_url",
+            "description": "Scrape a single web page and return its content.\n    \n    Args:\n        url: The URL of the web page to scrape\n        formats: List of formats to return (default: [\"markdown\"])\n    \n    Returns:\n        The scraped content in markdown format with metadata\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the web page to scrape"
+                    },
+                    "formats": {
+                        "type": "string",
+                        "description": "List of formats to return (default: [\"markdown\"])"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "formats",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\fire_crawl.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "crawl_website",
+            "description": "Start a crawl job on a website.\n    \n    Args:\n        url: The starting URL for the crawl\n        limit: Maximum number of pages to crawl\n        max_depth: Maximum depth to crawl\n        formats: List of formats to return (default: [\"markdown\"])\n    \n    Returns:\n        A job ID and instructions for checking the crawl status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The starting URL for the crawl"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of pages to crawl"
+                    },
+                    "max_depth": {
+                        "type": "string",
+                        "description": "Maximum depth to crawl"
+                    },
+                    "formats": {
+                        "type": "string",
+                        "description": "List of formats to return (default: [\"markdown\"])"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "limit",
+                    "max_depth",
+                    "formats",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\fire_crawl.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_crawl_status",
+            "description": "Check the status of a crawl job.\n    \n    Args:\n        job_id: The ID of the crawl job to check\n    \n    Returns:\n        The current status of the crawl job\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "job_id": {
+                        "type": "string",
+                        "description": "The ID of the crawl job to check"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "job_id",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\fire_crawl.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "map_website",
+            "description": "Map a website to discover all accessible links.\n    \n    Args:\n        url: The URL of the website to map\n        include_subdomains: Whether to include subdomains in the mapping\n    \n    Returns:\n        A list of all discovered links on the website\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the website to map"
+                    },
+                    "include_subdomains": {
+                        "type": "string",
+                        "description": "Whether to include subdomains in the mapping"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "include_subdomains",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\fire_crawl.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "extract_structured_data",
+            "description": "Extract structured data from web pages based on a schema.\n    \n    Args:\n        urls: List of URLs to extract data from\n        prompt: A prompt describing what data to extract\n        schema: JSON schema defining the structure of data to extract\n    \n    Returns:\n        The extracted structured data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "urls": {
+                        "type": "string",
+                        "description": "List of URLs to extract data from"
+                    },
+                    "prompt": {
+                        "type": "string",
+                        "description": "A prompt describing what data to extract"
+                    },
+                    "schema": {
+                        "type": "string",
+                        "description": "JSON schema defining the structure of data to extract"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "urls",
+                    "prompt",
+                    "schema",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\fire_crawl.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

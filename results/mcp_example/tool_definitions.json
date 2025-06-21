@@ -1,0 +1,97 @@
+{
+    "tools": [
+        {
+            "name": "summarize_csv_file",
+            "description": "\n    Summarize a CSV file by reporting its number of rows and columns.\n    Args:\n        filename: Name of the CSV file in the /data directory (e.g., 'sample.csv')\n    Returns:\n        A string describing the file's dimensions.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filename": {
+                        "type": "string",
+                        "description": "Name of the CSV file in the /data directory (e.g., 'sample.csv')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "filename",
+                    "Returns"
+                ]
+            },
+            "file": "local_mcp_local_resource_example\\tools\\csv_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "summarize_parquet_file",
+            "description": "\n    Summarize a Parquet file by reporting its number of rows and columns.\n    Args:\n        filename: Name of the Parquet file in the /data directory (e.g., 'sample.parquet')\n    Returns:\n        A string describing the file's dimensions.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filename": {
+                        "type": "string",
+                        "description": "Name of the Parquet file in the /data directory (e.g., 'sample.parquet')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "filename",
+                    "Returns"
+                ]
+            },
+            "file": "local_mcp_local_resource_example\\tools\\parquet_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_alerts",
+            "description": "Get weather alerts for a US state.\n\n    Args:\n        state: Two-letter US state code (e.g. CA, NY)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "Two-letter US state code (e.g. CA, NY)"
+                    }
+                },
+                "required": [
+                    "state"
+                ]
+            },
+            "file": "local_mcp_remote_resource_example\\tools\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_forecast",
+            "description": "Get weather forecast for a location.\n\n    Args:\n        latitude: Latitude of the location\n        longitude: Longitude of the location\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "type": "string",
+                        "description": "Latitude of the location"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "description": "Longitude of the location"
+                    }
+                },
+                "required": [
+                    "latitude",
+                    "longitude"
+                ]
+            },
+            "file": "local_mcp_remote_resource_example\\tools\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

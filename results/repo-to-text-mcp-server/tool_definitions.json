@@ -1,0 +1,102 @@
+{
+    "tools": [
+        {
+            "name": "estimate_tokens",
+            "description": "Estimate token count for given text and provider",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "repo_to_text_mcp_server.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_context_limits",
+            "description": "Return context limits for different providers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "repo_to_text_mcp_server.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "detect_project_type",
+            "description": "Detect project type and suggest optimal exclusions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "repo_to_text_mcp_server.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_get_exclusions_for_type",
+            "description": "Get recommended exclusions based on project type",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "repo_to_text_mcp_server.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_task_prompt",
+            "description": "Create prompt for Gemini to generate implementation tasks",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "repo_to_text_mcp_server.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "parse_gemini_response",
+            "description": "Parse Gemini's response into structured tasks",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "repo_to_text_mcp_server.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "format_for_cursor",
+            "description": "Format tasks as Cursor/Windsurf directives",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "repo_to_text_mcp_server.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "tools": [
+        {
+            "name": "ask_about_topic",
+            "description": "Generates a user message asking for an explanation of a topic.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "my_mcp_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "greet",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "my_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "roll_dice",
+            "description": "Rolln_dice6-sideddiceandreturnresults",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "my_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_lottery_numbers",
+            "description": "GeneratelotterynumbersforMarkSixinHongKong.Generate6uniquerandomnumbersbetween1and49",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "my_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

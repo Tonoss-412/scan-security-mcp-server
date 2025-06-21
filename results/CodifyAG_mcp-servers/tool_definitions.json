@@ -1,0 +1,161 @@
+{
+    "tools": [
+        {
+            "name": "list_time_entries",
+            "description": "\n    Retrieves a list of time entries with optional filters.\n\n    Args:\n        user_id: Only return time entries belonging to the user with the given ID.\n        client_id: Only return time entries belonging to the client with the given ID.\n        project_id: Only return time entries belonging to the project with the given ID.\n        task_id: Only return time entries belonging to the task with the given ID.\n        external_reference_id: Only return time entries with the given external_reference ID.\n        is_billed: Pass true to only return time entries that have been invoiced and false to return time entries that have not been invoiced.\n        is_running: Pass true to only return running time entries and false to return non-running time entries.\n        updated_since: Only return time entries that have been updated since the given date and time (ISO 8601 format).\n        from_date: Only return time entries with a spent_date on or after the given date.\n        to_date: Only return time entries with a spent_date on or before the given date.\n        page: The page number to use in pagination.\n        per_page: The number of records to return per page. Can range between 1 and 2000.\n\n    Returns:\n        A dictionary containing the list of time entries, pagination information, or an error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "Only return time entries belonging to the user with the given ID."
+                    },
+                    "client_id": {
+                        "type": "string",
+                        "description": "Only return time entries belonging to the client with the given ID."
+                    },
+                    "project_id": {
+                        "type": "string",
+                        "description": "Only return time entries belonging to the project with the given ID."
+                    },
+                    "task_id": {
+                        "type": "string",
+                        "description": "Only return time entries belonging to the task with the given ID."
+                    },
+                    "external_reference_id": {
+                        "type": "string",
+                        "description": "Only return time entries with the given external_reference ID."
+                    },
+                    "is_billed": {
+                        "type": "string",
+                        "description": "Pass true to only return time entries that have been invoiced and false to return time entries that have not been invoiced."
+                    },
+                    "is_running": {
+                        "type": "string",
+                        "description": "Pass true to only return running time entries and false to return non-running time entries."
+                    },
+                    "updated_since": {
+                        "type": "string",
+                        "description": "Only return time entries that have been updated since the given date and time (ISO 8601 format)."
+                    },
+                    "from_date": {
+                        "type": "string",
+                        "description": "Only return time entries with a spent_date on or after the given date."
+                    },
+                    "to_date": {
+                        "type": "string",
+                        "description": "Only return time entries with a spent_date on or before the given date."
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "The page number to use in pagination."
+                    },
+                    "per_page": {
+                        "type": "string",
+                        "description": "The number of records to return per page. Can range between 1 and 2000."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "client_id",
+                    "project_id",
+                    "task_id",
+                    "external_reference_id",
+                    "is_billed",
+                    "is_running",
+                    "updated_since",
+                    "from_date",
+                    "to_date",
+                    "page",
+                    "per_page",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\harvest\\src\\__main__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_time_entry",
+            "description": "\n    Retrieves a specific time entry by its ID.\n\n    Args:\n        time_entry_id: The ID of the time entry to retrieve.\n\n    Returns:\n        A dictionary containing the time entry data, or an error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "time_entry_id": {
+                        "type": "string",
+                        "description": "The ID of the time entry to retrieve."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "time_entry_id",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\harvest\\src\\__main__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_time_entry_duration",
+            "description": "\n    Creates a new time entry using duration.\n\n    Args:\n        user_id: The ID of the user to associate with the time entry. Defaults to the currently authenticated user\u2019s ID.\n        project_id: The ID of the project to associate with the time entry.\n        task_id: The ID of the task to associate with the time entry.\n        spent_date: The ISO 8601 formatted date the time entry was spent.\n        hours: The current amount of time tracked. If provided, the time entry will be created with the specified hours and is_running will be set to false. If not provided, hours will be set to 0.0 and is_running will be set to true.\n        notes: Any notes to be associated with the time entry.\n        external_reference: An object containing the id, group_id, account_id, and permalink of the external reference.\n\n    Returns:\n        A dictionary containing the created time entry data, or an error message.\n    \"\"\"\n ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "The ID of the user to associate with the time entry. Defaults to the currently authenticated user\u2019s ID."
+                    },
+                    "project_id": {
+                        "type": "string",
+                        "description": "The ID of the project to associate with the time entry."
+                    },
+                    "task_id": {
+                        "type": "string",
+                        "description": "The ID of the task to associate with the time entry."
+                    },
+                    "spent_date": {
+                        "type": "string",
+                        "description": "The ISO 8601 formatted date the time entry was spent."
+                    },
+                    "hours": {
+                        "type": "string",
+                        "description": "The current amount of time tracked. If provided, the time entry will be created with the specified hours and is_running will be set to false. If not provided, hours will be set to 0.0 and is_running will be set to true."
+                    },
+                    "notes": {
+                        "type": "string",
+                        "description": "Any notes to be associated with the time entry."
+                    },
+                    "external_reference": {
+                        "type": "string",
+                        "description": "An object containing the id, group_id, account_id, and permalink of the external reference."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "project_id",
+                    "task_id",
+                    "spent_date",
+                    "hours",
+                    "notes",
+                    "external_reference",
+                    "Returns"
+                ]
+            },
+            "file": "servers\\harvest\\src\\__main__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

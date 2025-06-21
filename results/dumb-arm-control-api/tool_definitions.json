@@ -1,0 +1,129 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "Root endpoint returning API information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "start_servo",
+            "description": "Start a servo in the specified direction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "set_servo_speed",
+            "description": "\n    Set the speed of a specific servo.\n    \n    Args:\n        servo_id: ID of the servo to control\n        speed_request: Speed control parameters\n        \n    Returns:\n        ServoSpeedResponse with operation result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "servo_id": {
+                        "type": "string",
+                        "description": "ID of the servo to control"
+                    },
+                    "speed_request": {
+                        "type": "string",
+                        "description": "Speed control parameters"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "servo_id",
+                    "speed_request",
+                    "Returns"
+                ]
+            },
+            "file": "src\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "stop_servo",
+            "description": "\n    Stop a specific servo.\n    \n    Args:\n        servo_id: ID of the servo to stop\n        \n    Returns:\n        ServoSpeedResponse with operation result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "servo_id": {
+                        "type": "string",
+                        "description": "ID of the servo to stop"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "servo_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "emergency_stop",
+            "description": "\n    Activate emergency stop - immediately stop all servos.\n    \n    Returns:\n        ServoSpeedResponse with operation result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_system_status",
+            "description": "Get the current system status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_servo_list",
+            "description": "Get a list of all servos and their current status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "initialize_servos",
+            "description": "\n    Initialize all configured servos.\n    \n    Returns:\n        ServoSpeedResponse with operation result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        }
+    ]
+}

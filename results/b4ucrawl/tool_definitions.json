@@ -1,0 +1,908 @@
+{
+    "tools": [
+        {
+            "name": "cli",
+            "description": "B4UCrawl - Crawl4ai Reference Application\n\n    This application demonstrates the core functionality of Crawl4ai,\n    an open-source LLM-friendly web crawler and scraper.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "crawl_cmd",
+            "description": "Crawl a website and display its content",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "output": {
+                        "type": "string"
+                    },
+                    "headless": {
+                        "type": "string"
+                    },
+                    "verbose": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "output",
+                    "headless",
+                    "verbose"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "extract_cmd",
+            "description": "Extract structured data from a website using LLM",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "instruction": {
+                        "type": "string"
+                    },
+                    "provider": {
+                        "type": "string"
+                    },
+                    "token": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "instruction",
+                    "provider",
+                    "token"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.argument",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "tables_cmd",
+            "description": "Extract tables from a website",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "export": {
+                        "type": "string"
+                    },
+                    "output_dir": {
+                        "type": "string"
+                    },
+                    "threshold": {
+                        "type": "string"
+                    },
+                    "headless": {
+                        "type": "string"
+                    },
+                    "verbose": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "export",
+                    "output_dir",
+                    "threshold",
+                    "headless",
+                    "verbose"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "pandas_cmd",
+            "description": "Extract tables and convert to pandas DataFrame",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "threshold": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "threshold"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "mcp_start_cmd",
+            "description": "Start the Crawl4ai MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "port": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "port"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "mcp_test_cmd",
+            "description": "Test crawling a URL using the MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "port"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "mcp_tools_cmd",
+            "description": "List all available MCP tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "mcp_crawl_cmd",
+            "description": "Crawl a website using the MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "host": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "string"
+                    },
+                    "output": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "host",
+                    "port",
+                    "output"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "js_cmd",
+            "description": "Execute JavaScript code on a webpage",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "js_code": {
+                        "type": "string"
+                    },
+                    "wait_for": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "js_code",
+                    "wait_for"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "click_cmd",
+            "description": "Click an element and show the resulting content",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "selector": {
+                        "type": "string"
+                    },
+                    "wait_for": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "selector",
+                    "wait_for"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "css_extract_cmd",
+            "description": "Extract data using CSS selectors",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "schema"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "regex_extract_cmd",
+            "description": "Extract data using regular expressions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "patterns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "patterns"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "filter_cmd",
+            "description": "Apply content filtering to webpage",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "type"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "screenshot_cmd",
+            "description": "Capture a screenshot of a webpage",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "width": {
+                        "type": "string"
+                    },
+                    "height": {
+                        "type": "string"
+                    },
+                    "output_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "width",
+                    "height",
+                    "output_dir"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "pdf_cmd",
+            "description": "Generate a PDF of a webpage",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "output_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "output_dir"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "deep_crawl_cmd",
+            "description": "Perform deep crawling with BFS/DFS/Best-First strategies",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "start_url": {
+                        "type": "string"
+                    },
+                    "strategy": {
+                        "type": "string"
+                    },
+                    "max_depth": {
+                        "type": "string"
+                    },
+                    "max_pages": {
+                        "type": "string"
+                    },
+                    "keywords": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "start_url",
+                    "strategy",
+                    "max_depth",
+                    "max_pages",
+                    "keywords"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "batch_crawl_cmd",
+            "description": "Batch process multiple URLs with different strategies",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "urls": {
+                        "type": "string"
+                    },
+                    "strategy": {
+                        "type": "string"
+                    },
+                    "max_concurrent": {
+                        "type": "string"
+                    },
+                    "rate": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "urls",
+                    "strategy",
+                    "max_concurrent",
+                    "rate"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "proxy_crawl_cmd",
+            "description": "Crawl using proxy rotation or failover strategies",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "proxy_file": {
+                        "type": "string"
+                    },
+                    "strategy": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "proxy_file",
+                    "strategy"
+                ]
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "about_cmd",
+            "description": "Show information about Crawl4ai",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "b4ucrawl.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Crawl4ai Reference Application - Batch Processing Demo",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "batch_processing_demo.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "simple_cmd",
+            "description": "Simple batch processing with basic concurrency",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "batch_processing_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "domain_cmd",
+            "description": "Domain-based batch processing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "batch_processing_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "rate_limited_cmd",
+            "description": "Rate-limited batch processing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "batch_processing_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "compare_cmd",
+            "description": "Compare different batch processing strategies",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "batch_processing_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "info_cmd",
+            "description": "Show information about batch processing capabilities",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "batch_processing_demo.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Crawl4ai Reference Application - Basic Crawling Demo",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "crawl_demo.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "crawl_cmd",
+            "description": "Crawl a website and display its content",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "crawl_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "extract_cmd",
+            "description": "Extract structured data from a website using LLM",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "crawl_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.argument",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Crawl4ai Reference Application - JavaScript Interaction Demo",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "javascript_demo.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "click_cmd",
+            "description": "Click an element and show the resulting content",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "javascript_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "scroll_cmd",
+            "description": "Perform infinite scrolling to load more content",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "javascript_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "form_cmd",
+            "description": "Fill and submit a form",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "javascript_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "js_cmd",
+            "description": "Execute custom JavaScript code",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "javascript_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "multi_step_cmd",
+            "description": "Demonstrate multi-step interaction with session management",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "javascript_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Crawl4ai Reference Application - MCP Client Demo",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_client_demo.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "list_cmd",
+            "description": "List all available MCP tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_client_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "crawl_cmd",
+            "description": "Crawl a website using the MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_client_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "extract_cmd",
+            "description": "Extract structured data from a website using the MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_client_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.argument",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Crawl4ai Reference Application - MCP Server Demo",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_demo.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "start_cmd",
+            "description": "Start the Crawl4ai MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "test_cmd",
+            "description": "Test crawling a URL using the MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Crawl4ai Reference Application - Table Extraction Demo",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "table_extraction_demo.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "extract_cmd",
+            "description": "Extract tables from a website",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "table_extraction_demo.py",
+            "decorator": [
+                "cli.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        }
+    ]
+}

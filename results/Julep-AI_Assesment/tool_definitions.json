@@ -1,0 +1,105 @@
+{
+    "tools": [
+        {
+            "name": "get_weather_data",
+            "description": "\n    Get current weather data for a specific city.\n    \n    Args:\n        city: Name of the city to get weather for\n        \n    Returns:\n        Dictionary containing weather information including temperature,\n        humidity, description, wind speed, and more\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "city": {
+                        "type": "string",
+                        "description": "Name of the city to get weather for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "city",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_dining_recommendation",
+            "description": "\n    Get weather-based dining recommendation for a city.\n    \n    Args:\n        city: Name of the city\n        \n    Returns:\n        Dictionary containing dining recommendation based on current weather\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "city": {
+                        "type": "string",
+                        "description": "Name of the city"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "city",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "chat_with_agent",
+            "description": "\n    Chat with a specific Julep AI agent.\n    \n    Args:\n        agent_type: Type of agent ('weather', 'culinary', 'restaurant', 'tour', 'coordinator')\n        message: Message to send to the agent\n        \n    Returns:\n        Dictionary containing the agent's response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "agent_type": {
+                        "type": "string",
+                        "description": "Type of agent ('weather', 'culinary', 'restaurant', 'tour', 'coordinator')"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Message to send to the agent"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "agent_type",
+                    "message",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_complete_foodie_tour",
+            "description": "\n    Create a complete foodie tour for a city using all AI agents.\n    This is the main function that orchestrates weather analysis,\n    culinary expertise, restaurant recommendations, and tour narrative.\n    \n    Args:\n        city: Name of the city to create tour for\n        \n    Returns:\n        Dictionary containing complete foodie tour information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "city": {
+                        "type": "string",
+                        "description": "Name of the city to create tour for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "city",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

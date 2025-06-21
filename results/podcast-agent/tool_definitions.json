@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "can_handle",
+            "description": "Determine if this event can be handled",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\event\\event_handler.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "_process",
+            "description": "Specific processing logic",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\event\\event_handler.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        }
+    ]
+}

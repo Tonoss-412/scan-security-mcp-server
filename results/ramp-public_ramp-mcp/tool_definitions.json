@@ -1,0 +1,270 @@
+{
+    "tools": [
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "wraps",
+                "handle_response"
+            ]
+        },
+        {
+            "name": "clear_table",
+            "description": "\n    Clear a table\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_response"
+            ]
+        },
+        {
+            "name": "process_data",
+            "description": "\n    Process data into a table\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_response"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "f\"\"\"\n    Execute a SQL query on a table and return results as a list of objects\n    Use sqlite syntax and use window functions whenever possible.\n    {AMOUNT_DESCRIPTION}\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_response"
+            ]
+        },
+        {
+            "name": "get_ramp_categories",
+            "description": "\n    Get Ramp transaction categories\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_response"
+            ]
+        },
+        {
+            "name": "get_currencies",
+            "description": "\n    Get currencies\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_response"
+            ]
+        },
+        {
+            "name": "load_transactions",
+            "description": "f\"\"\"\n    Transactions are sorted by amount in descending order and only represent card transactions.\n    {AMOUNT_DESCRIPTION}\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_spend_export",
+            "description": "\n    Spend export is a list of all spend events (transactions, reimbursements, bills etc.) for a user.\n    Always use this over load_transactions, load_reimbursements, load_bills, etc. when possible\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_receipts",
+            "description": "f\"\"\"\n    Get receipts\n    {AMOUNT_DESCRIPTION}\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_reimbursements",
+            "description": "f\"\"\"\n    Get reimbursements for user\n    {AMOUNT_DESCRIPTION}\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_bills",
+            "description": "f\"\"\"\n    Get bills for user\n    {AMOUNT_DESCRIPTION}\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_locations",
+            "description": "\n    Get locations for entity\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_departments",
+            "description": "\n    Get departments\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_bank_accounts",
+            "description": "\n    Get bank accounts for own business/entities.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_vendors",
+            "description": "\n    Get vendors for user\n\n    Usually search for only active vendors.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_vendor_bank_accounts",
+            "description": "\n    Get bank accounts for vendors\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_entities",
+            "description": "\n    Get entities for user\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_spend_limits",
+            "description": "\n    Get limits for user\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_spend_programs",
+            "description": "\n    Get spend programs\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "load_users",
+            "description": "\n    Get users from Ramp\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\tools.py",
+            "decorator": [
+                "handle_load_response"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ramp_mcp\\__init__.py",
+            "decorator": [
+                "click.command",
+                "click.option"
+            ]
+        }
+    ]
+}

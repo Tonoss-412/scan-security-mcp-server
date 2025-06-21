@@ -1,0 +1,343 @@
+{
+    "tools": [
+        {
+            "name": "get_snake_rod_params",
+            "description": "\n        Get the parameters of the snake rod.\n\n        Returns:\n            dict[str, Any]: The parameters of the snake rod.\n                start_position: The starting position of the snake rod.\n                direction: The direction of the snake rod.\n                normal: The normal vector of the snake rod.\n                base_length: The length of the snake rod.\n                base_radius: The radius of the snake rod.\n                End-position is defined as start_position + direction * base_length.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "elastica_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_material",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "elastica_mcp_server\\material\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "step_skip",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "elastica_mcp_server\\simulation\\manager.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "finalize",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "elastica_mcp_server\\simulation\\manager.py",
+            "decorator": [
+                "only_allow_once"
+            ]
+        },
+        {
+            "name": "mimic_snake_motion",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "elastica_mcp_server\\simulation\\manager.py",
+            "decorator": [
+                "only_allow_once"
+            ]
+        },
+        {
+            "name": "create_simulator",
+            "description": "\n        Create a new simulation with the given simulator_tag.\n        If a simulation with the same tag already exists, it will throw an error.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "elastica_mcp_server\\simulation\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_simulator",
+            "description": "\n        Delete the simulation with the given simulator_tag.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "elastica_mcp_server\\simulation\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "finalize_simulator",
+            "description": "\n        Finalize the simulation with the given simulator_tag.\n        Simulation must be finalized before running it.\n        Any changes to the simulation after this point will not be reflected in the results.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "elastica_mcp_server\\simulation\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_rod",
+            "description": "\n        Create a straight rod with the given parameters.\n\n        Args:\n            simulator_tag: The tag of the simulator.\n            rod_tag: The tag of the rod.\n            rod_params: The parameters of the rod.\n                start_position: The starting position of the rod.\n                direction: The direction of the rod.\n                normal: The normal vector of the rod.\n                base_length: The length of the rod.\n                base_radius: The radius of the rod.\n            material: The material of the rod.\n                density: The density of the rod.\n                youngs_modulus: The Young's modulus of the rod.\n                poisson_ratio: The Poisson's ratio of the rod. (default: 0.5)\n\n        Returns:\n            The response of the create rod operation.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "simulator_tag": {
+                        "type": "string",
+                        "description": "The tag of the simulator."
+                    },
+                    "rod_tag": {
+                        "type": "string",
+                        "description": "The tag of the rod."
+                    },
+                    "rod_params": {
+                        "type": "string",
+                        "description": "The parameters of the rod."
+                    },
+                    "start_position": {
+                        "type": "string",
+                        "description": "The starting position of the rod."
+                    },
+                    "direction": {
+                        "type": "string",
+                        "description": "The direction of the rod."
+                    },
+                    "normal": {
+                        "type": "string",
+                        "description": "The normal vector of the rod."
+                    },
+                    "base_length": {
+                        "type": "string",
+                        "description": "The length of the rod."
+                    },
+                    "base_radius": {
+                        "type": "string",
+                        "description": "The radius of the rod."
+                    },
+                    "material": {
+                        "type": "string",
+                        "description": "The material of the rod."
+                    },
+                    "density": {
+                        "type": "string",
+                        "description": "The density of the rod."
+                    },
+                    "youngs_modulus": {
+                        "type": "string",
+                        "description": "The Young's modulus of the rod."
+                    },
+                    "poisson_ratio": {
+                        "type": "string",
+                        "description": "The Poisson's ratio of the rod. (default: 0.5)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "simulator_tag",
+                    "rod_tag",
+                    "rod_params",
+                    "start_position",
+                    "direction",
+                    "normal",
+                    "base_length",
+                    "base_radius",
+                    "material",
+                    "density",
+                    "youngs_modulus",
+                    "poisson_ratio",
+                    "Returns"
+                ]
+            },
+            "file": "elastica_mcp_server\\simulation\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_position",
+            "description": "\n        Get the current position of the rod.\n\n        Args:\n            simulator_tag: The tag of the simulator.\n            rod_tag: The tag of the rod.\n\n        Returns:\n            The current position of the rod.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "simulator_tag": {
+                        "type": "string",
+                        "description": "The tag of the simulator."
+                    },
+                    "rod_tag": {
+                        "type": "string",
+                        "description": "The tag of the rod."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "simulator_tag",
+                    "rod_tag",
+                    "Returns"
+                ]
+            },
+            "file": "elastica_mcp_server\\simulation\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_simulation",
+            "description": "\n        Run the simulation with the given run_time.\n\n        Args:\n            simulator_tag: The tag of the simulator.\n            run_time: The time to run the simulation.\n\n        Returns:\n            The response of the run simulation operation.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "simulator_tag": {
+                        "type": "string",
+                        "description": "The tag of the simulator."
+                    },
+                    "run_time": {
+                        "type": "string",
+                        "description": "The time to run the simulation."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "simulator_tag",
+                    "run_time",
+                    "Returns"
+                ]
+            },
+            "file": "elastica_mcp_server\\simulation\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "apply_snake_boundary_conditions",
+            "description": "\n        Setup boundary condition for snake motion. This should be used to set xy plane and friction condition.\n\n        Args:\n            simulator_tag: The tag of the simulator.\n            rod_tag: The tag of the rod.\n            rod_params: The parameters of the rod.\n                start_position: The starting position of the rod.\n                direction: The direction of the rod.\n                normal: The normal vector of the rod.\n                base_length: The length of the rod.\n                base_radius: The radius of the rod.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "simulator_tag": {
+                        "type": "string",
+                        "description": "The tag of the simulator."
+                    },
+                    "rod_tag": {
+                        "type": "string",
+                        "description": "The tag of the rod."
+                    },
+                    "rod_params": {
+                        "type": "string",
+                        "description": "The parameters of the rod."
+                    },
+                    "start_position": {
+                        "type": "string",
+                        "description": "The starting position of the rod."
+                    },
+                    "direction": {
+                        "type": "string",
+                        "description": "The direction of the rod."
+                    },
+                    "normal": {
+                        "type": "string",
+                        "description": "The normal vector of the rod."
+                    },
+                    "base_length": {
+                        "type": "string",
+                        "description": "The length of the rod."
+                    },
+                    "base_radius": {
+                        "type": "string",
+                        "description": "The radius of the rod."
+                    }
+                },
+                "required": [
+                    "simulator_tag",
+                    "rod_tag",
+                    "rod_params",
+                    "start_position",
+                    "direction",
+                    "normal",
+                    "base_length",
+                    "base_radius"
+                ]
+            },
+            "file": "elastica_mcp_server\\simulation\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_velocity",
+            "description": "\n        Get the velocity of the rod.\n\n        Args:\n            simulator_tag: The tag of the simulator.\n            rod_tag: The tag of the rod.\n\n        Returns:\n            The velocity of the rod.\n                average_forward_velocity: The average forward velocity of the rod.\n                average_lateral_velocity: The average lateral velocity of the rod.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "simulator_tag": {
+                        "type": "string",
+                        "description": "The tag of the simulator."
+                    },
+                    "rod_tag": {
+                        "type": "string",
+                        "description": "The tag of the rod."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "average_forward_velocity": {
+                        "type": "string",
+                        "description": "The average forward velocity of the rod."
+                    },
+                    "average_lateral_velocity": {
+                        "type": "string",
+                        "description": "The average lateral velocity of the rod."
+                    }
+                },
+                "required": [
+                    "simulator_tag",
+                    "rod_tag",
+                    "Returns",
+                    "average_forward_velocity",
+                    "average_lateral_velocity"
+                ]
+            },
+            "file": "elastica_mcp_server\\simulation\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mcp_server",
+            "description": "\n    Create a server instance for testing.\n\n    This fixture instantiates the server but doesn't start it,\n    as we just want to test the instantiation and configuration.\n\n    Returns:\n        Generator[FastMCP, None, None]: Server instance for testing.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\core\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

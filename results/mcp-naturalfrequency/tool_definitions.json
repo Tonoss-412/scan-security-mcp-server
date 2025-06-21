@@ -1,0 +1,79 @@
+{
+    "tools": [
+        {
+            "name": "simple_beam_frequency",
+            "description": "Calcuate the natural angular frequency of a beam.\n\n    Args:\n        beamtype (str): Type of beams: \n            - \"cantilever\" for cantilever beam\n            - \"simply_supported\" for simply supported beam\n            - \"popped_cantilever\" for popped cantilever beam\n            - \"fixed\" for fixed beam\n        rhoA (float): Mass per unit length.\n        EI (float): Bending stiffness.\n        length (float): Length of beam.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "beamtype": {
+                        "type": "string",
+                        "description": "Type of beams:"
+                    },
+                    "rhoA": {
+                        "type": "number",
+                        "description": "Mass per unit length."
+                    },
+                    "EI": {
+                        "type": "number",
+                        "description": "Bending stiffness."
+                    },
+                    "length": {
+                        "type": "number",
+                        "description": "Length of beam."
+                    }
+                },
+                "required": [
+                    "beamtype",
+                    "rhoA",
+                    "EI",
+                    "length"
+                ]
+            },
+            "file": "mcp-naturalfrequency.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "beam_frequency",
+            "description": "Calcuate the natural angular frequency of a beam,\n    with linear and torsional springs at the beginning and end of the beam.\n\n    Args:\n        rhoA (float): Mass per unit length.\n        EI (float): Bending stiffness.\n        length (float): Length of beam.\n        linearsprings (tuple[float,float]): Linear springs at the beginning and end of the beam.\n            - 0 for no spring (free)\n            - inf for fixed end\n        Torsionalsprings (tuple[float,float]): Torsional springs at the beginning and end of the beam.\n            - 0 for no spring (free)\n            - inf for fixed end\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "rhoA": {
+                        "type": "number",
+                        "description": "Mass per unit length."
+                    },
+                    "EI": {
+                        "type": "number",
+                        "description": "Bending stiffness."
+                    },
+                    "length": {
+                        "type": "number",
+                        "description": "Length of beam."
+                    },
+                    "linearsprings": {
+                        "type": "string",
+                        "description": "Linear springs at the beginning and end of the beam."
+                    },
+                    "Torsionalsprings": {
+                        "type": "string",
+                        "description": "Torsional springs at the beginning and end of the beam."
+                    }
+                },
+                "required": [
+                    "rhoA",
+                    "EI",
+                    "length",
+                    "linearsprings",
+                    "Torsionalsprings"
+                ]
+            },
+            "file": "mcp-naturalfrequency.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

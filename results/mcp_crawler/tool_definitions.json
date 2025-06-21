@@ -1,0 +1,373 @@
+{
+    "tools": [
+        {
+            "name": "add_server_endpoint",
+            "description": "\n    Add a new MCP server endpoint to the crawler's known endpoints.\n    \n    Args:\n        url: The URL of the MCP server\n        source: Where this endpoint was discovered (e.g., 'manual', 'registry', 'discovery')\n    \n    Returns:\n        A dictionary with status and message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The URL of the MCP server"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "Where this endpoint was discovered (e.g., 'manual', 'registry', 'discovery')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "source",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "discover_servers_from_registry",
+            "description": "\n    Discover MCP servers from a registry service.\n    \n    Args:\n        registry_url: URL of the MCP server registry\n    \n    Returns:\n        A dictionary with discovered servers count and status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "registry_url": {
+                        "type": "string",
+                        "description": "URL of the MCP server registry"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "registry_url",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "crawl_server",
+            "description": "\n    Crawl and index a specific MCP server.\n    \n    Args:\n        server_url: The URL of the MCP server to crawl\n    \n    Returns:\n        A dictionary with crawl results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_url": {
+                        "type": "string",
+                        "description": "The URL of the MCP server to crawl"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_url",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "crawl_all_known_servers",
+            "description": "\n    Crawl and index all known MCP servers.\n    \n    Returns:\n        A dictionary with crawl results summary\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_servers",
+            "description": "\n    Search indexed servers by name, description, or capability.\n    \n    Args:\n        query: Search query string\n        capability_type: Filter by capability type (tool, resource, prompt)\n    \n    Returns:\n        A dictionary with search results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query string"
+                    },
+                    "capability_type": {
+                        "type": "string",
+                        "description": "Filter by capability type (tool, resource, prompt)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "capability_type",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_server_details",
+            "description": "\n    Get detailed information about an indexed server.\n    \n    Args:\n        server_id: The ID of the server in the index\n    \n    Returns:\n        A dictionary with server details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_id": {
+                        "type": "string",
+                        "description": "The ID of the server in the index"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_id",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_all_servers",
+            "description": "Get a list of all indexed servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_server",
+            "description": "Get information about a specific server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_server_components",
+            "description": "Get components of a specific type from a server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_all_capabilities",
+            "description": "Get a list of all indexed capabilities across servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "discover_servers_prompt",
+            "description": "Generate a prompt for discovering MCP servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "server_details_prompt",
+            "description": "Generate a prompt for viewing server details.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "setUpClass",
+            "description": "Set up test environment",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "test_server.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "tearDownClass",
+            "description": "Clean up test environment",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "test_server.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "test_crawl_server",
+            "description": "Test crawling a server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "index",
+            "description": "Display the main dashboard",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "web_interface.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "get_servers",
+            "description": "API endpoint to get all servers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "web_interface.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "add_server",
+            "description": "Add a new server endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "web_interface.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "crawl_all",
+            "description": "Trigger crawling of all known servers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "web_interface.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "server_details",
+            "description": "Display details for a specific server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_id"
+                ]
+            },
+            "file": "web_interface.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "refresh",
+            "description": "Refresh the dashboard",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "web_interface.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "crawl_server",
+            "description": "Crawl a specific server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_id"
+                ]
+            },
+            "file": "web_interface.py",
+            "decorator": [
+                "app.route"
+            ]
+        }
+    ]
+}

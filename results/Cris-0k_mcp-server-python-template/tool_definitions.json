@@ -1,0 +1,110 @@
+{
+    "tools": [
+        {
+            "name": "get_alerts",
+            "description": "Get weather alerts for a US state.\n    \n    Fetches active weather alerts from the NWS API for a specified US state.\n    \n    Args:\n        state: Two-letter US state code (e.g. CA, NY)\n        \n    Returns:\n        A formatted string containing all active alerts for the state,\n        or a message indicating no alerts or an error\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "Two-letter US state code (e.g. CA, NY)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "state",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_forecast",
+            "description": "Get weather forecast for a location.\n    \n    Fetches the weather forecast from the NWS API for a specified location\n    using latitude and longitude coordinates.\n    \n    Args:\n        latitude: Latitude of the location\n        longitude: Longitude of the location\n        \n    Returns:\n        A formatted string containing the forecast for the next 5 periods,\n        or an error message if the forecast couldn't be retrieved\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "type": "string",
+                        "description": "Latitude of the location"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "description": "Longitude of the location"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "latitude",
+                    "longitude",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_alerts",
+            "description": "Get weather alerts for a US state.\n    \n    Fetches active weather alerts from the NWS API for a specified US state.\n    \n    Args:\n        state: Two-letter US state code (e.g. CA, NY)\n        \n    Returns:\n        A formatted string containing all active alerts for the state,\n        or a message indicating no alerts or an error\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "Two-letter US state code (e.g. CA, NY)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "state",
+                    "Returns"
+                ]
+            },
+            "file": "protocals\\example_weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_forecast",
+            "description": "Get weather forecast for a location.\n    \n    Fetches the weather forecast from the NWS API for a specified location\n    using latitude and longitude coordinates.\n    \n    Args:\n        latitude: Latitude of the location\n        longitude: Longitude of the location\n        \n    Returns:\n        A formatted string containing the forecast for the next 5 periods,\n        or an error message if the forecast couldn't be retrieved\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "type": "string",
+                        "description": "Latitude of the location"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "description": "Longitude of the location"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "latitude",
+                    "longitude",
+                    "Returns"
+                ]
+            },
+            "file": "protocals\\example_weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

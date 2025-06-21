@@ -1,0 +1,1170 @@
+{
+    "tools": [
+        {
+            "name": "system_instructions_resource",
+            "description": "Provide system instructions from the current project.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\mcp_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "validate_branch_name",
+            "description": "Validateabranchnameagainsttheconfiguredbranchingstrategy\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\branch_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_branch",
+            "description": "Createanewbranchfollowingthebranchingconvention\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\branch_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_branch_info",
+            "description": "Getinformationaboutabranchbasedonitsname\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\branch_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "set_working_directory",
+            "description": "\n        Set the current working directory for practices tools.\n        \n        This tool:\n        1. Configures file logging in the .practices directory\n        2. Ensures system_instructions.md exists (creates from template if needed)\n        3. Returns configuration information for the project\n        \n        Args:\n            directory_path: Path to set as the current working directory\n            \n        Returns:\n            Dict with configuration info\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "directory_path": {
+                        "type": "string",
+                        "description": "Path to set as the current working directory"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "directory_path",
+                    "Returns"
+                ]
+            },
+            "file": "src\\mcp_server_practices\\tools\\directory_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_repo_info",
+            "description": "GetinformationaboutaGitHubrepository\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\github_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_github_branch_tool",
+            "description": "CreateanewbranchinaGitHubrepository\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\github_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_github_pr_tool",
+            "description": "CreateapullrequestinaGitHubrepository\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\github_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_github_file",
+            "description": "GetthecontentsofafilefromaGitHubrepository\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\github_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_github_file",
+            "description": "UpdateafileinaGitHubrepository\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\github_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "install_pre_commit_hooks",
+            "description": "Installpre-commithooksinaGitrepository\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\git_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_git_repo_initialized",
+            "description": "CheckifaGitrepositorywasrecentlyinitialized\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\git_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_pre_commit_hooks",
+            "description": "Updatepre-commithooksinaGitrepository\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\git_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_license_headers_tool",
+            "description": "Addlicenseheaderstosourcefilesinadirectory\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\license_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_license_headers_tool",
+            "description": "Checkformissinglicenseheadersinsourcefiles\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\license_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_pr_description",
+            "description": "GenerateaPRdescriptionbasedonbranchandconfiguration\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\pr_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_pull_request",
+            "description": "CreateapullrequestonGitHubwithgenerateddescription\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\pr_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "prepare_pr",
+            "description": "Prepareapullrequestforthecurrentorspecifiedbranch\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\pr_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "validate_version",
+            "description": "Validateversionconsistencyacrossfiles\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_practices\\tools\\version_tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "setup_mocks",
+            "description": "Setup mocks for all tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_jira_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_jira_response",
+            "description": "Create a mock Jira issue response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_jira_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_mcp",
+            "description": "Create a mock MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_directory_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_project_dir",
+            "description": "Create a temporary directory to simulate a project root.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_directory_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_set_working_directory",
+            "description": "Test setting the working directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_mcp": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_mcp",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\unit\\test_directory_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create a temporary directory for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_file_logging.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_repository_info",
+            "description": "Test get_repository_info method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_call_tool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_call_tool"
+                ]
+            },
+            "file": "tests\\unit\\test_github_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_branch",
+            "description": "Test create_branch method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_call_tool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_call_tool"
+                ]
+            },
+            "file": "tests\\unit\\test_github_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_pull_request",
+            "description": "Test create_pull_request method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_call_tool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_call_tool"
+                ]
+            },
+            "file": "tests\\unit\\test_github_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_file_contents",
+            "description": "Test get_file_contents method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_call_tool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_call_tool"
+                ]
+            },
+            "file": "tests\\unit\\test_github_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_update_file",
+            "description": "Test update_file method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_call_tool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_call_tool"
+                ]
+            },
+            "file": "tests\\unit\\test_github_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_workflow_status",
+            "description": "Test get_workflow_status method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_call_tool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_call_tool"
+                ]
+            },
+            "file": "tests\\unit\\test_github_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_repository_info_function",
+            "description": "Test the get_repository_info standalone function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_adapter_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_adapter_class"
+                ]
+            },
+            "file": "tests\\unit\\test_github_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_branch_function",
+            "description": "Test the create_branch standalone function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_adapter_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_adapter_class"
+                ]
+            },
+            "file": "tests\\unit\\test_github_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_add_license_header_file_not_found",
+            "description": "Test adding a license header to a non-existent file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_open": {
+                        "type": "string"
+                    },
+                    "mock_exists": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_open",
+                    "mock_exists"
+                ]
+            },
+            "file": "tests\\unit\\test_headers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_add_license_header_already_has_header",
+            "description": "Test adding a license header to a file that already has one.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_open": {
+                        "type": "string"
+                    },
+                    "mock_verify": {
+                        "type": "string"
+                    },
+                    "mock_exists": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_open",
+                    "mock_verify",
+                    "mock_exists"
+                ]
+            },
+            "file": "tests\\unit\\test_headers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_add_license_header_standard_position",
+            "description": "Test adding a license header to a standard position (top of file).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_open": {
+                        "type": "string"
+                    },
+                    "mock_get_position": {
+                        "type": "string"
+                    },
+                    "mock_get_template": {
+                        "type": "string"
+                    },
+                    "mock_verify": {
+                        "type": "string"
+                    },
+                    "mock_exists": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_open",
+                    "mock_get_position",
+                    "mock_get_template",
+                    "mock_verify",
+                    "mock_exists"
+                ]
+            },
+            "file": "tests\\unit\\test_headers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_add_license_header_special_position",
+            "description": "Test adding a license header after a special line (e.g., shebang).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_open": {
+                        "type": "string"
+                    },
+                    "mock_get_position": {
+                        "type": "string"
+                    },
+                    "mock_get_template": {
+                        "type": "string"
+                    },
+                    "mock_verify": {
+                        "type": "string"
+                    },
+                    "mock_exists": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_open",
+                    "mock_get_position",
+                    "mock_get_template",
+                    "mock_verify",
+                    "mock_exists"
+                ]
+            },
+            "file": "tests\\unit\\test_headers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_verify_license_header_file_not_found",
+            "description": "Test verifying a license header in a non-existent file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_exists": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_exists"
+                ]
+            },
+            "file": "tests\\unit\\test_headers.py",
+            "decorator": [
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_verify_license_header_with_header",
+            "description": "Test verifying a file that has a license header.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_style": {
+                        "type": "string"
+                    },
+                    "mock_open": {
+                        "type": "string"
+                    },
+                    "mock_exists": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_style",
+                    "mock_open",
+                    "mock_exists"
+                ]
+            },
+            "file": "tests\\unit\\test_headers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_verify_license_header_without_header",
+            "description": "Test verifying a file that doesn't have a license header.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_style": {
+                        "type": "string"
+                    },
+                    "mock_open": {
+                        "type": "string"
+                    },
+                    "mock_exists": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_style",
+                    "mock_open",
+                    "mock_exists"
+                ]
+            },
+            "file": "tests\\unit\\test_headers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_process_files_batch_directory_not_found",
+            "description": "Test processing files in a non-existent directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_isdir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_isdir"
+                ]
+            },
+            "file": "tests\\unit\\test_headers.py",
+            "decorator": [
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_process_files_batch_check_only",
+            "description": "Test processing files in check-only mode.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_glob": {
+                        "type": "string"
+                    },
+                    "mock_isdir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_glob",
+                    "mock_isdir"
+                ]
+            },
+            "file": "tests\\unit\\test_headers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_process_files_batch_add_headers",
+            "description": "Test processing files to add missing headers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_glob": {
+                        "type": "string"
+                    },
+                    "mock_isdir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_glob",
+                    "mock_isdir"
+                ]
+            },
+            "file": "tests\\unit\\test_headers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_check_git_repo_init_not_a_repo",
+            "description": "Test checking a non-git repository.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_isdir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_isdir"
+                ]
+            },
+            "file": "tests\\unit\\test_hooks.py",
+            "decorator": [
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_check_git_repo_init_newly_initialized",
+            "description": "Test checking a newly initialized git repository.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    },
+                    "mock_time": {
+                        "type": "string"
+                    },
+                    "mock_getctime": {
+                        "type": "string"
+                    },
+                    "mock_isdir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run",
+                    "mock_time",
+                    "mock_getctime",
+                    "mock_isdir"
+                ]
+            },
+            "file": "tests\\unit\\test_hooks.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_check_git_repo_init_existing_repo",
+            "description": "Test checking an existing git repository.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    },
+                    "mock_time": {
+                        "type": "string"
+                    },
+                    "mock_getctime": {
+                        "type": "string"
+                    },
+                    "mock_isdir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run",
+                    "mock_time",
+                    "mock_getctime",
+                    "mock_isdir"
+                ]
+            },
+            "file": "tests\\unit\\test_hooks.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_install_hooks_success",
+            "description": "Test successful installation of pre-commit hooks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_open": {
+                        "type": "string"
+                    },
+                    "mock_exists": {
+                        "type": "string"
+                    },
+                    "mock_run": {
+                        "type": "string"
+                    },
+                    "mock_check_git_repo_init": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_open",
+                    "mock_exists",
+                    "mock_run",
+                    "mock_check_git_repo_init"
+                ]
+            },
+            "file": "tests\\unit\\test_hooks.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_install_hooks_not_a_repo",
+            "description": "Test installing hooks in a non-git repository.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_check_git_repo_init": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_check_git_repo_init"
+                ]
+            },
+            "file": "tests\\unit\\test_hooks.py",
+            "decorator": [
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_update_hooks_success",
+            "description": "Test successful update of pre-commit hooks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    },
+                    "mock_exists": {
+                        "type": "string"
+                    },
+                    "mock_check_git_repo_init": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run",
+                    "mock_exists",
+                    "mock_check_git_repo_init"
+                ]
+            },
+            "file": "tests\\unit\\test_hooks.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_update_hooks_no_config",
+            "description": "Test updating hooks when no config file exists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_exists": {
+                        "type": "string"
+                    },
+                    "mock_check_git_repo_init": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_exists",
+                    "mock_check_git_repo_init"
+                ]
+            },
+            "file": "tests\\unit\\test_hooks.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_generate_description_feature",
+            "description": "Test generating a PR description for a feature branch.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_template": {
+                        "type": "string"
+                    },
+                    "mock_validate": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_template",
+                    "mock_validate"
+                ]
+            },
+            "file": "tests\\unit\\test_pr_functionality.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_description_invalid_branch",
+            "description": "Test generating a PR description for an invalid branch.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_validate": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_validate"
+                ]
+            },
+            "file": "tests\\unit\\test_pr_functionality.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_description_with_jira",
+            "description": "Test generating a PR description with Jira information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_issue": {
+                        "type": "string"
+                    },
+                    "mock_get_template": {
+                        "type": "string"
+                    },
+                    "mock_validate": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_issue",
+                    "mock_get_template",
+                    "mock_validate"
+                ]
+            },
+            "file": "tests\\unit\\test_pr_functionality.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_prepare_pr_successful",
+            "description": "Test preparing a PR successfully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run_tests": {
+                        "type": "string"
+                    },
+                    "mock_readiness": {
+                        "type": "string"
+                    },
+                    "mock_generate": {
+                        "type": "string"
+                    },
+                    "mock_uncommitted": {
+                        "type": "string"
+                    },
+                    "mock_branch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run_tests",
+                    "mock_readiness",
+                    "mock_generate",
+                    "mock_uncommitted",
+                    "mock_branch"
+                ]
+            },
+            "file": "tests\\unit\\test_pr_functionality.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_prepare_pr_uncommitted_changes",
+            "description": "Test preparing a PR with uncommitted changes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_uncommitted": {
+                        "type": "string"
+                    },
+                    "mock_branch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_uncommitted",
+                    "mock_branch"
+                ]
+            },
+            "file": "tests\\unit\\test_pr_functionality.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_current_branch",
+            "description": "Test getting the current branch.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_subprocess": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_subprocess"
+                ]
+            },
+            "file": "tests\\unit\\test_pr_functionality.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "temp_project_dir",
+            "description": "Create a temporary directory to simulate a project root.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_system_instructions.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_system_instructions_creates_default_file",
+            "description": "Test that get_system_instructions creates the default file if it doesn't exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\unit\\test_system_instructions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_system_instructions_uses_existing_file",
+            "description": "Test that get_system_instructions uses an existing file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\unit\\test_system_instructions.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_bump_with_bumpversion",
+            "description": "Test bumping version with bump2version tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\unit\\test_version_management.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,178 @@
+{
+    "tools": [
+        {
+            "name": "startup_event",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "MCP-compliant health check method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "hoh_parser\\api\\jsonrpc.py",
+            "decorator": [
+                "register_jsonrpc_method"
+            ]
+        },
+        {
+            "name": "get_capabilities",
+            "description": "MCP-compliant capability negotiation method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "hoh_parser\\api\\jsonrpc.py",
+            "decorator": [
+                "register_jsonrpc_method"
+            ]
+        },
+        {
+            "name": "parse_file",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "hoh_parser\\api\\jsonrpc.py",
+            "decorator": [
+                "register_jsonrpc_method"
+            ]
+        },
+        {
+            "name": "symbol_table",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "hoh_parser\\api\\jsonrpc.py",
+            "decorator": [
+                "register_jsonrpc_method"
+            ]
+        },
+        {
+            "name": "test_app",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\test_jsonrpc.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "async_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_app": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_app"
+                ]
+            },
+            "file": "tests\\test_jsonrpc.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_health_check",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_client"
+                ]
+            },
+            "file": "tests\\test_jsonrpc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_capabilities",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_client"
+                ]
+            },
+            "file": "tests\\test_jsonrpc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_parse_file",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_client"
+                ]
+            },
+            "file": "tests\\test_jsonrpc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_symbol_table",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_client"
+                ]
+            },
+            "file": "tests\\test_jsonrpc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

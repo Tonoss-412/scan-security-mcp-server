@@ -1,0 +1,124 @@
+{
+    "tools": [
+        {
+            "name": "transcribe_video_with_whisper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "modal_whisper_app.py",
+            "decorator": [
+                "app.function"
+            ]
+        },
+        {
+            "name": "generate_captions_with_spacetimegpt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "modal_whisper_app.py",
+            "decorator": [
+                "app.function"
+            ]
+        },
+        {
+            "name": "generate_action_labels",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "modal_whisper_app.py",
+            "decorator": [
+                "app.function"
+            ]
+        },
+        {
+            "name": "generate_object_detection",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "modal_whisper_app.py",
+            "decorator": [
+                "app.function"
+            ]
+        },
+        {
+            "name": "analyze_video_comprehensive",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "modal_whisper_app.py",
+            "decorator": [
+                "app.function"
+            ]
+        },
+        {
+            "name": "process_video_for_analysis",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "modal_whisper_app.py",
+            "decorator": [
+                "fastapi_app.post"
+            ]
+        },
+        {
+            "name": "analyze_topic_endpoint",
+            "description": "Endpoint to find videos for a topic, analyze them, and return aggregated results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "modal_whisper_app.py",
+            "decorator": [
+                "fastapi_app.post"
+            ]
+        },
+        {
+            "name": "find_video_urls_for_topic",
+            "description": "Finds video URLs (YouTube, direct links) for a given topic using web search.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "modal_whisper_app.py",
+            "decorator": [
+                "app.function"
+            ]
+        },
+        {
+            "name": "_download_and_analyze_one_video",
+            "description": "Helper to download and analyze a single video. Returns result or error dict.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "modal_whisper_app.py",
+            "decorator": [
+                "app.function"
+            ]
+        },
+        {
+            "name": "main_asgi",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "modal_whisper_app.py",
+            "decorator": [
+                "modal.asgi_app"
+            ]
+        }
+    ]
+}

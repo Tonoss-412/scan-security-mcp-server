@@ -1,0 +1,172 @@
+{
+    "tools": [
+        {
+            "name": "test_tool_registration_integration",
+            "description": "Test complete tool registration process integration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_import": {
+                        "type": "string"
+                    },
+                    "mock_iter": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_import",
+                    "mock_iter"
+                ]
+            },
+            "file": "tests\\test_e2e.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_send_email_success",
+            "description": "Test successful email sending with mocked SMTP.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_email_utils.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_email_no_valid_recipients",
+            "description": "Test send_email fails when no valid recipients provided.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_email_utils.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_email_only_invalid_recipients",
+            "description": "Test send_email fails when only invalid recipients provided.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_email_utils.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_email_smtp_failure",
+            "description": "Test send_email handles SMTP failures gracefully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_email_utils.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_email_filters_invalid_addresses",
+            "description": "Test send_email filters out invalid addresses but continues with valid ones.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_email_utils.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_register_tools_discovers_send_email_action",
+            "description": "Test register_tools discovers and registers send_email_action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_import": {
+                        "type": "string"
+                    },
+                    "mock_iter": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_import",
+                    "mock_iter"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_register_tools_handles_module_load_failure",
+            "description": "Test register_tools handles module loading failures gracefully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_import": {
+                        "type": "string"
+                    },
+                    "mock_iter": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_import",
+                    "mock_iter"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_send_email_action_delegates_correctly",
+            "description": "Test that send_email_action properly delegates to email_utils.send_email.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_send_email_action.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_email_action_propagates_exceptions",
+            "description": "Test that send_email_action propagates exceptions from email_utils.send_email.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_send_email_action.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_send_email_action_extracts_kwargs",
+            "description": "Test that send_email_action correctly extracts api_key and from_email from kwargs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_send_email_action.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "build_msbuild_project",
+            "description": "\n    Build an MSBuild project or solution (.sln, .csproj, .vcxproj) file using MSBuild.\n\n    This tool dynamically locates the MSBuild executable using the vswhere Python package.\n    It supports flexible build configurations, including verbosity, platform, and additional arguments.\n\n    Parameters:\n    - project_path: Path to the project or solution file to build.\n    - configuration: Build configuration (e.g., Debug, Release).\n    - platform: Target platform (e.g., x86, x64).\n    - verbosity: MSBuild output verbosity (quiet, minimal, normal, detailed, diagnostic).\n    - max_cpu_count: Maximum number of CPUs for parallel build (None for default).\n    - restore: Whether to perform NuGet restore before build.\n    - additional_args: Additional MSBuild command-line arguments.\n\n    Returns:\n    - A string indicating the build result, including success or filtered error messages.\n\n    Use this tool to automate the build process for MSBuild projects, ensuring compatibility with various configurations and environments.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\msbuild_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

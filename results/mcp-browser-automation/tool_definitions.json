@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "browser_use_tool",
+            "description": "Use a browser to complete a task",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "browser_use_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "echo_resource",
+            "description": "Echo a message as a resource",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "echo_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "echo_tool",
+            "description": "Echo a message as a tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "echo_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

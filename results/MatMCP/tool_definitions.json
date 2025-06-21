@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "handle_mcp_request",
+            "description": "Handle MCP requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint returning basic server information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        }
+    ]
+}

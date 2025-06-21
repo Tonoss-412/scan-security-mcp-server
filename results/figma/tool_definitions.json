@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "app_instance",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_app.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

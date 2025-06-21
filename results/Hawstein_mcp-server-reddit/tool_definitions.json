@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "List available Reddit tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_reddit\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls for Reddit API.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_reddit\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        }
+    ]
+}

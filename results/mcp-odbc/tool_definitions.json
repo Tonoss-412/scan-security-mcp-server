@@ -1,0 +1,78 @@
+{
+    "tools": [
+        {
+            "name": "empty_str_to_none",
+            "description": "Convert empty strings to None.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "src\\odbc_mcp\\config.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "check_default_connection",
+            "description": "Ensure default_connection references a valid connection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    },
+                    "values": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v",
+                    "values"
+                ]
+            },
+            "file": "src\\odbc_mcp\\config.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available tools for the MCP client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\odbc_mcp\\server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool execution requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\odbc_mcp\\server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        }
+    ]
+}

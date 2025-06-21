@@ -1,0 +1,62 @@
+{
+    "tools": [
+        {
+            "name": "search_and_fetch",
+            "description": "\n    Search the web using DuckDuckGo and return results.\n\n    Args:\n        query: The search query string\n        limit: Maximum number of results to return (default: 3, maximum 10)\n\n    Returns:\n        List of dictionaries containing \n        - title\n        - url\n        - snippet \n        - summary markdown (empty if not available)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query string"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 3, maximum 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch",
+            "description": "\n    scrape the html content and return the markdown format using jina api.\n\n    Args:\n        url: The search query string\n\n    Returns:\n        text : html in markdown format \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The search query string"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string",
+                        "description": "html in markdown format"
+                    }
+                },
+                "required": [
+                    "url",
+                    "Returns",
+                    "text"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

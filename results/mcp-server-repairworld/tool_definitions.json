@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "create_repair_request",
+            "description": "Create a new repair request (only for customers).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_repairworld\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "view_all_requests",
+            "description": "Fetch all repair requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_repairworld\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "view_request_by_id",
+            "description": "View details of a specific repair request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_repairworld\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

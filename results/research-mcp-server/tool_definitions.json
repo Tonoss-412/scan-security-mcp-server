@@ -1,0 +1,101 @@
+{
+    "tools": [
+        {
+            "name": "search_papers",
+            "description": "\n    Search for papers on arXiv based on a topic and store their information.\n    \n    Args:\n        topic: The topic to search for\n        max_results: Maximum number of results to retrieve (default: 5)\n        \n    Returns:\n        List of paper IDs found in the search\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string",
+                        "description": "The topic to search for"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to retrieve (default: 5)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "topic",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "research_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "extract_info",
+            "description": "\n    Search for information about a specific paper across all topic directories.\n    \n    Args:\n        paper_id: The ID of the paper to look for\n        \n    Returns:\n        JSON string with paper information if found, error message if not found\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "paper_id": {
+                        "type": "string",
+                        "description": "The ID of the paper to look for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "paper_id",
+                    "Returns"
+                ]
+            },
+            "file": "research_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_available_folders",
+            "description": "\n    List all available topic folders in the papers directory.\n    \n    This resource provides a simple list of all available topic folders.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "research_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_topic_papers",
+            "description": "\n    Get detailed information about papers on a specific topic.\n    \n    Args:\n        topic: The research topic to retrieve papers for\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string",
+                        "description": "The research topic to retrieve papers for"
+                    }
+                },
+                "required": [
+                    "topic"
+                ]
+            },
+            "file": "research_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "generate_search_prompt",
+            "description": "Generate a prompt for Claude to find and discuss academic papers on a specific topic.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "research_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

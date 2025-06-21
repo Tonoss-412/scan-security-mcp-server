@@ -1,0 +1,98 @@
+{
+    "tools": [
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "start_supabase_realtime_listener",
+            "description": "\n    Initialize Supabase client and set up realtime event listener.\n    \n    This function is called when the FastAPI application starts up.\n    It initializes the Supabase client and sets up a realtime event listener\n    to forward database events to connected SSE clients.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\sse.py",
+            "decorator": [
+                "router.on_event"
+            ]
+        },
+        {
+            "name": "sse_stream",
+            "description": "\n    SSE endpoint for streaming database events to clients.\n    \n    Args:\n        request (Request): The FastAPI request object.\n    \n    Returns:\n        StreamingResponse: An SSE stream that sends database events to the client.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The FastAPI request object."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "StreamingResponse": {
+                        "type": "string",
+                        "description": "An SSE stream that sends database events to the client."
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns",
+                    "StreamingResponse"
+                ]
+            },
+            "file": "src\\sse.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "post_message",
+            "description": "\n    Send a message to all connected SSE clients.\n    \n    Args:\n        request (Request): The FastAPI request object containing the message.\n    \n    Returns:\n        dict: A response indicating that the message was sent.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The FastAPI request object containing the message."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "A response indicating that the message was sent."
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "src\\sse.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "supabase_client",
+            "description": "Get Supabase client for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

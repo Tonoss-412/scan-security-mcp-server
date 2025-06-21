@@ -1,0 +1,69 @@
+{
+    "tools": [
+        {
+            "name": "add_note",
+            "description": "\n    Append a new note to the sticky note file.\n\n    Args:\n        message (str): The note content to be added.\n\n    Returns:\n        str: Confirmation message indicating the note was saved.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "The note content to be added."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Confirmation message indicating the note was saved."
+                    }
+                },
+                "required": [
+                    "message",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "read_notes",
+            "description": "\n    Read and return all notes from the sticky note file.\n\n    Returns:\n        str: All notes as a single string separated by line breaks.\n             If no notes exist, a default message is returned.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_latest_note",
+            "description": "\n    Get the most recently added note from the sticky note file.\n\n    Returns:\n        str: The last note entry. If no notes exist, a default message is returned.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "note_summary_prompt",
+            "description": "\n    Generate a prompt asking the AI to summarize all current notes.\n\n    Returns:\n        str: A prompt string that includes all notes and asks for a summary.\n             If no notes exist, a message will be shown indicating that.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

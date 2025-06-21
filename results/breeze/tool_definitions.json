@@ -1,0 +1,2061 @@
+{
+    "tools": [
+        {
+            "name": "index",
+            "description": "Index code directories for semantic search.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\cli.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "embedding_model",
+            "description": "Get the cached embedding model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\core\\embeddings.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "get_embedding_model",
+            "description": "Get the cached sentence-transformers model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\core\\embeddings.py",
+            "decorator": [
+                "weak_lru"
+            ]
+        },
+        {
+            "name": "_get_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\core\\embeddings.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "acquire",
+            "description": "Acquire tokens for the duration of an operation.\n        \n        This context manager ensures tokens are held for the entire\n        duration of the operation and properly released afterward.\n        \n        Args:\n            tokens: Number of tokens to acquire\n            timeout: Maximum time to wait for tokens\n            \n        Yields:\n            None when tokens are acquired\n            \n        Raises:\n            TimeoutError: If timeout expires before acquiring tokens\n            ValueError: If requesting more tokens than capacity\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tokens": {
+                        "type": "string",
+                        "description": "Number of tokens to acquire"
+                    },
+                    "timeout": {
+                        "type": "string",
+                        "description": "Maximum time to wait for tokens"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "TimeoutError": {
+                        "type": "string",
+                        "description": "If timeout expires before acquiring tokens"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If requesting more tokens than capacity"
+                    }
+                },
+                "required": [
+                    "tokens",
+                    "timeout",
+                    "Yields",
+                    "Raises",
+                    "TimeoutError",
+                    "ValueError"
+                ]
+            },
+            "file": "breeze\\core\\rate_limiter.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "acquire",
+            "description": "Acquire both a request slot and tokens for an operation.\n        \n        Args:\n            tokens: Number of tokens needed for this request\n            timeout: Maximum time to wait\n            \n        Yields:\n            None when resources are acquired\n            \n        Raises:\n            TimeoutError: If timeout expires\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tokens": {
+                        "type": "string",
+                        "description": "Number of tokens needed for this request"
+                    },
+                    "timeout": {
+                        "type": "string",
+                        "description": "Maximum time to wait"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "TimeoutError": {
+                        "type": "string",
+                        "description": "If timeout expires"
+                    }
+                },
+                "required": [
+                    "tokens",
+                    "timeout",
+                    "Yields",
+                    "Raises",
+                    "TimeoutError"
+                ]
+            },
+            "file": "breeze\\core\\rate_limiter.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "total_tokens",
+            "description": "Total estimated tokens across all chunks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\core\\text_chunker.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "chunk",
+            "description": "Chunk the given text.\n        \n        Args:\n            text: Text to chunk\n            language: Language of the text (for semantic chunking)\n            config: Chunking configuration\n            \n        Returns:\n            List of text chunks\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "Text to chunk"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language of the text (for semantic chunking)"
+                    },
+                    "config": {
+                        "type": "string",
+                        "description": "Chunking configuration"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "language",
+                    "config",
+                    "Returns"
+                ]
+            },
+            "file": "breeze\\core\\text_chunker.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "index_repository",
+            "description": "\n    Index code files from specified directories into the semantic search database.\n\n    This tool queues an indexing task that scans the specified directories for code files\n    and indexes their content using advanced embedding models for high-quality semantic search.\n    The task runs asynchronously in the background and returns immediately with a task ID.\n\n    Args:\n        directories: List of absolute paths to directories to index\n        force_reindex: If true, will reindex all files even if they already exist in the index\n\n    Returns:\n        Task information including task_id and queue position\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "directories": {
+                        "type": "string",
+                        "description": "List of absolute paths to directories to index"
+                    },
+                    "force_reindex": {
+                        "type": "string",
+                        "description": "If true, will reindex all files even if they already exist in the index"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "directories",
+                    "force_reindex",
+                    "Returns"
+                ]
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_code",
+            "description": "\n    Search for code snippets semantically similar to the query.\n\n    This performs semantic search over previously indexed code files using\n    state-of-the-art code embedding models. Results are ranked by relevance.\n\n    Args:\n        query: Search query describing what you're looking for\n        limit: Maximum number of results to return (default: 10)\n        min_relevance: Minimum relevance score threshold (0.0 to 1.0)\n\n    Returns:\n        Search results with relevant code snippets and metadata\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query describing what you're looking for"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 10)"
+                    },
+                    "min_relevance": {
+                        "type": "string",
+                        "description": "Minimum relevance score threshold (0.0 to 1.0)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "limit",
+                    "min_relevance",
+                    "Returns"
+                ]
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_index_stats",
+            "description": "\n    Get comprehensive statistics about the code index and indexing queue.\n\n    Returns information about:\n    - Number of indexed documents\n    - Embedding model being used\n    - Database location\n    - Failed batch statistics\n    - Indexing queue status (queue size, current task, queued tasks)\n\n    Returns:\n        Dictionary containing index and queue statistics\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_directory",
+            "description": "\n    List the contents of a directory to help identify what to index.\n\n    Args:\n        directory_path: Path to the directory to list\n\n    Returns:\n        Directory contents with file types and sizes\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "directory_path": {
+                        "type": "string",
+                        "description": "Path to the directory to list"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "directory_path",
+                    "Returns"
+                ]
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "register_project",
+            "description": "\n    Register a new project and start watching it for changes.\n\n    This will:\n    1. Register the project in the database\n    2. Optionally perform initial indexing\n    3. Start watching for file changes\n\n    The system automatically detects code files using content analysis rather than\n    file extensions, ensuring all relevant code is indexed.\n\n    Args:\n        name: Name of the project\n        paths: List of directory paths to track\n        auto_index: Whether to perform initial indexing (default: True)\n\n    Returns:\n        Project registration details including project ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    },
+                    "paths": {
+                        "type": "string",
+                        "description": "List of directory paths to track"
+                    },
+                    "auto_index": {
+                        "type": "string",
+                        "description": "Whether to perform initial indexing (default: True)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "paths",
+                    "auto_index",
+                    "Returns"
+                ]
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "unregister_project",
+            "description": "\n    Unregister a project, stop watching it, and remove it from tracking.\n\n    This will stop file watching and remove the project from the database.\n    The indexed code will remain searchable.\n\n    Args:\n        project_id: ID of the project to unregister\n\n    Returns:\n        Confirmation of project removal\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_id": {
+                        "type": "string",
+                        "description": "ID of the project to unregister"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "project_id",
+                    "Returns"
+                ]
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_projects",
+            "description": "\n    List all registered projects with their current status.\n\n    Returns:\n        List of all projects with their details including watch status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_all_indexing_tasks",
+            "description": "Get all indexing tasks with their current status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_indexing_task",
+            "description": "Get details for a specific indexing task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_all_projects_resource",
+            "description": "Get all registered projects as a resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_project_resource",
+            "description": "Get details for a specific project.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_project_files",
+            "description": "Get list of files tracked for a specific project.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "combined_lifespan",
+            "description": "Combined lifespan that initializes both MCP apps.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "app": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "app"
+                ]
+            },
+            "file": "breeze\\mcp\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "fast_embedder_768",
+            "description": "Fast 768-dimensional embedder for tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "fast_embedder_384",
+            "description": "Fast 384-dimensional embedder for tests (all-MiniLM-L6-v2 compatible).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "fast_embedder_1024",
+            "description": "Fast 1024-dimensional embedder for tests (voyage compatible).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "clean_engine_shutdown",
+            "description": "Ensure engines are properly shut down after tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request"
+                ]
+            },
+            "file": "breeze\\tests\\conftest.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "auto_cleanup_pending_tasks",
+            "description": "Automatically cleanup any pending asyncio tasks after each test.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\conftest.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "fast_engine",
+            "description": "Create a BreezeEngine with fast test embedder for general tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    },
+                    "clean_engine_shutdown": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path",
+                    "clean_engine_shutdown"
+                ]
+            },
+            "file": "breeze\\tests\\conftest.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "fast_engine_voyage",
+            "description": "Create a BreezeEngine with fast test embedder for voyage tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    },
+                    "clean_engine_shutdown": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path",
+                    "clean_engine_shutdown"
+                ]
+            },
+            "file": "breeze\\tests\\conftest.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "mock_voyage_embedder",
+            "description": "Mock Voyage embedder for rate limit testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_voyage_embedder_async",
+            "description": "Async mock Voyage embedder for rate limit testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_local_embedder",
+            "description": "Mock local embedder for fast testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "name",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\mock_embedders.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "name",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\mock_embedders.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "test_file_watcher_content_detection",
+            "description": "Test that file watcher uses content detection instead of file extensions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_content_detection.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_direct_indexing_content_detection",
+            "description": "Test that direct indexing uses content detection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_content_detection.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create a temporary directory for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_gitignore_filtering.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "file_discovery",
+            "description": "Create a FileDiscovery instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_gitignore_filtering.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_indexing_continues_with_rate_limits",
+            "description": "Test that indexing continues processing files even when some batches hit rate limits.\n    \n    This test verifies that:\n    1. The engine correctly uses get_voyage_embeddings_with_limits for Voyage models\n    2. When some embedding batches fail due to rate limits, the successful batches are still indexed\n    3. Failed batches are stored for later retry\n    4. The indexing process continues and doesn't fail completely due to partial failures\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_indexing_with_rate_limits.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_langchain_language_aware_splitting",
+            "description": "Test that language-aware splitting is used for known languages.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_langchain_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_langchain_splitter_behavior_matches_expected",
+            "description": "Test that LangChain splitter behavior matches what we expect.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_langchain_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_unsupported_language_falls_back",
+            "description": "Test that unsupported languages fall back to generic splitting.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_langchain_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_langchain_preserves_code_structure",
+            "description": "Test that LangChain preserves code structure better than naive splitting.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_langchain_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_local_embedder_chunks_long_text_properly",
+            "description": "Test that long texts are chunked and combined properly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_local_embedder_chunking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_multiple_files_chunked_independently",
+            "description": "Test that multiple files are chunked independently.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_local_embedder_chunking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_short_text_not_chunked",
+            "description": "Test that short texts are not unnecessarily chunked.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_local_embedder_chunking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_no_truncation_occurs",
+            "description": "Test that text is never truncated, only chunked.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_local_embedder_chunking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "temp_data_dir",
+            "description": "Create a temporary directory for test data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_code_dir",
+            "description": "Create test code files in a temporary directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_data_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_data_dir"
+                ]
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_engine",
+            "description": "Create a test engine with a temporary database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_data_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_data_dir"
+                ]
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_app",
+            "description": "Create a test app instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_client",
+            "description": "Create a test client for the app.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_app": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_app"
+                ]
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_index_repository_tool",
+            "description": "Test the index_repository tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    },
+                    "test_code_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine",
+                    "test_code_dir"
+                ]
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_code_tool",
+            "description": "Test the search_code tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    },
+                    "test_code_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine",
+                    "test_code_dir"
+                ]
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_index_stats_tool",
+            "description": "Test the get_index_stats tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    },
+                    "test_code_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine",
+                    "test_code_dir"
+                ]
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_directory_tool",
+            "description": "Test the list_directory tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_code_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_code_dir"
+                ]
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_project_management_tools",
+            "description": "Test project registration, listing, and unregistration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    },
+                    "test_code_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine",
+                    "test_code_dir"
+                ]
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_directory_indexing",
+            "description": "Test indexing with invalid directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_without_index",
+            "description": "Test searching when no documents are indexed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_nonexistent_directory",
+            "description": "Test listing a non-existent directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_project_table_initialization",
+            "description": "Test that project table is created correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_project_management.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_add_project",
+            "description": "Test adding a new project.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_project_management.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_add_project_invalid_path",
+            "description": "Test adding a project with invalid paths.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_project_management.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_add_project_duplicate_path",
+            "description": "Test that duplicate paths across projects are prevented.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_project_management.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_projects",
+            "description": "Test listing all projects.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_project_management.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_project",
+            "description": "Test getting a project by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_project_management.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_remove_project",
+            "description": "Test removing a project.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_project_management.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_update_project_indexed_time",
+            "description": "Test updating project's last indexed time.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_project_management.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_file_watching_lifecycle",
+            "description": "Test starting and stopping file watching for a project.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_project_management.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_watching_projects",
+            "description": "Test getting all projects currently being watched.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_project_management.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_project_with_file_watching_and_remove",
+            "description": "Test that removing a project stops its file watching.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_project_management.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_project_default_values",
+            "description": "Test that projects get sensible default values.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_project_management.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_engine",
+            "description": "Create a test engine with mock embedding model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_queue.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_queue_add_task",
+            "description": "Test adding a task to the queue.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_processing",
+            "description": "Test that queued tasks are processed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_fifo_order",
+            "description": "Test that tasks are processed in FIFO order.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_error_handling",
+            "description": "Test that errors are properly handled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_progress_tracking",
+            "description": "Test that progress is tracked during indexing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_startup_recovery",
+            "description": "Test that interrupted tasks are recovered on startup.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_concurrent_safety",
+            "description": "Test that only one task processes at a time.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_shutdown_graceful",
+            "description": "Test graceful shutdown waits for current task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_engine",
+            "description": "Create a mock engine with necessary methods.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "queue",
+            "description": "Create an IndexingQueue with mock engine.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_queue_initialization",
+            "description": "Test queue initializes correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_start_stop",
+            "description": "Test starting and stopping the queue.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_add_task",
+            "description": "Test adding a task to the queue.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "queue": {
+                        "type": "string"
+                    },
+                    "mock_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "queue",
+                    "mock_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_add_multiple_tasks",
+            "description": "Test adding multiple tasks maintains FIFO order.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "queue": {
+                        "type": "string"
+                    },
+                    "mock_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "queue",
+                    "mock_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_queue_status",
+            "description": "Test getting queue status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "queue": {
+                        "type": "string"
+                    },
+                    "mock_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "queue",
+                    "mock_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_process_task_success",
+            "description": "Test successful task processing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_process_task_failure",
+            "description": "Test task processing with failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_progress_callback_integration",
+            "description": "Test progress callback is called during indexing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_update_queue_positions",
+            "description": "Test updating queue positions after task completion.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "queue": {
+                        "type": "string"
+                    },
+                    "mock_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "queue",
+                    "mock_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_worker_processes_tasks_sequentially",
+            "description": "Test worker processes tasks one at a time in FIFO order.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_shutdown_waits_for_current_task",
+            "description": "Test queue shutdown waits for current task to complete.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_concurrent_task_additions",
+            "description": "Test adding tasks concurrently maintains queue integrity.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "queue": {
+                        "type": "string"
+                    },
+                    "mock_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "queue",
+                    "mock_engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_queue_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_basic_functionality",
+            "description": "Test basic queue functionality without mocks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_queue_simple.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_token_bucket_context_manager",
+            "description": "Test token bucket with context manager.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_rate_limiter.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_tokenizer",
+            "description": "Create a mock tokenizer.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_rate_limiting.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_model",
+            "description": "Create a mock embedding model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_rate_limiting.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_rate_limit_calculation_accuracy",
+            "description": "Test that rate limit calculations are accurate.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_tokenizer": {
+                        "type": "string"
+                    },
+                    "mock_model": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_tokenizer",
+                    "mock_model"
+                ]
+            },
+            "file": "breeze\\tests\\test_rate_limiting.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_resume_after_rate_limit",
+            "description": "Test that processing resumes correctly after rate limit.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_tokenizer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_tokenizer"
+                ]
+            },
+            "file": "breeze\\tests\\test_rate_limiting.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_global_rate_limit_coordination",
+            "description": "Test that global rate limit affects all concurrent batches.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_tokenizer": {
+                        "type": "string"
+                    },
+                    "mock_model": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_tokenizer",
+                    "mock_model"
+                ]
+            },
+            "file": "breeze\\tests\\test_rate_limiting.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_already_embedded_skip",
+            "description": "Test that already embedded files are skipped.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_rate_limiting.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_failed_batch_handling",
+            "description": "Test that failed batches are properly tracked.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_tokenizer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_tokenizer"
+                ]
+            },
+            "file": "breeze\\tests\\test_rate_limiting.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_token_counting_accuracy",
+            "description": "Test that token counting matches actual API usage.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_tokenizer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_tokenizer"
+                ]
+            },
+            "file": "breeze\\tests\\test_rate_limiting.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create a temporary directory for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "engine",
+            "description": "Create a BreezeEngine instance with test configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_dir"
+                ]
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "mock_search_results",
+            "description": "Create mock search results for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_reranking_disabled",
+            "description": "Test that search works without reranking.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_voyage_reranking_mock",
+            "description": "Test Voyage reranking logic with mocked API.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    },
+                    "mock_search_results": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engine",
+                    "mock_search_results"
+                ]
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_gemini_reranking_mock",
+            "description": "Test Gemini reranking logic with mocked API.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    },
+                    "mock_search_results": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engine",
+                    "mock_search_results"
+                ]
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_local_reranking_mock",
+            "description": "Test local cross-encoder reranking with mocked model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    },
+                    "mock_search_results": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engine",
+                    "mock_search_results"
+                ]
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_reranking_error_handling",
+            "description": "Test that reranking failures fall back gracefully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    },
+                    "mock_search_results": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engine",
+                    "mock_search_results"
+                ]
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_reranking_with_tokenizer",
+            "description": "Test local reranking handles long content correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_reranking_empty_results",
+            "description": "Test reranking with empty results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_reranking_integration",
+            "description": "Test reranking integration in search method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_with_reranker_config",
+            "description": "Test that search respects reranker configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engine"
+                ]
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_reranking_preserves_metadata",
+            "description": "Test that reranking preserves all result metadata.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    },
+                    "mock_search_results": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engine",
+                    "mock_search_results"
+                ]
+            },
+            "file": "breeze\\tests\\test_reranking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "extractor",
+            "description": "Create a snippet extractor instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_snippets.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_voyage_chunks_long_text_properly",
+            "description": "Test that long texts are chunked using TextChunker with 16k token chunks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_voyage_chunking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_voyage_respects_rate_limits",
+            "description": "Test that Voyage respects configured rate limits for different tiers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_voyage_chunking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_voyage_batching_respects_limits",
+            "description": "Test that Voyage batching respects 120k token and 128 text limits.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_voyage_chunking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_voyage_chunking_combines_embeddings",
+            "description": "Test that chunk embeddings are properly combined.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "breeze\\tests\\test_voyage_chunking.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

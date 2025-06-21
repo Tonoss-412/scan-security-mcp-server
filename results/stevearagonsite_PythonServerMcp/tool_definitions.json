@@ -1,0 +1,238 @@
+{
+    "tools": [
+        {
+            "name": "get_app_settings",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "list",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\core\\utils\\extended_enum.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "list_of_dict",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\core\\utils\\extended_enum.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "auto_num",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\core\\utils\\extended_enum.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "field",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\utils\\query_utils.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "by",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\utils\\query_utils.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "parse",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\utils\\query_utils.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "parse",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\utils\\query_utils.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\core\\utils\\redis.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "set",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\core\\utils\\redis.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "cache",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\core\\utils\\redis.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\utils\\redis.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "get_file_docs",
+            "description": "resourcetemplate",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources\\coinmarketcap_resource.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "get_coinmarketcap_http_resource",
+            "description": "Get cryptocurrency data.\n\n        Returns:\n            Formatted cryptocurrency data\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\resources\\coinmarketcap_resource.py",
+            "decorator": [
+                "server.resource"
+            ]
+        },
+        {
+            "name": "get_crypto_price",
+            "description": "\n        Get the current price of a cryptocurrency using CoinMarketCap API.\n\n        Args:\n            symbol: The symbol of the cryptocurrency (e.g., BTC, ETH)\n\n        Returns:\n            JSON string with cryptocurrency data or error message\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "symbol": {
+                        "type": "string",
+                        "description": "The symbol of the cryptocurrency (e.g., BTC, ETH)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "symbol",
+                    "Returns"
+                ]
+            },
+            "file": "src\\tools\\prices.py",
+            "decorator": [
+                "server.tool"
+            ]
+        }
+    ]
+}

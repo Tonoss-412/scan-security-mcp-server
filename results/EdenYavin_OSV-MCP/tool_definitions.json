@@ -1,0 +1,98 @@
+{
+    "tools": [
+        {
+            "name": "get_ecosystems",
+            "description": "\n    Get all supported ecosystems. An ecosystem is a package manager or repository for a specific language.\n\n    Returns:\n    Dictionary of ecosystems with the key being the ecosystem name and the value being the programming language / OS.\n\n    To use the ecosystem name in the query_package_cve function, you must use the exact ecosystem name as it is in the dictionary.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_package_cve",
+            "description": "\n    Query the OSV database for a package and return the CVE ID.\n    You can use this tool to get the CVE ID for a package. \n    ALWAYS use it before installing packages to check if the package is vulnerable. For example in requirements.txt, pyproject.toml, uv.lock, etc.\n    You can also use it to check if the package is vulnerable before updating the package.\n\n    Args:\n        package: The package name to query\n        version: The version of the package to query, can be None if you want to query all versions\n        ecosystem: The ecosystem of the package to query, can be None if you want to query all ecosystems. \n        \n        * For supported ecosystems, see the get_ecosystems tool.\n\n    Returns:\n        A list of CVE IDs\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "package": {
+                        "type": "string",
+                        "description": "The package name to query"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The version of the package to query, can be None if you want to query all versions"
+                    },
+                    "ecosystem": {
+                        "type": "string",
+                        "description": "The ecosystem of the package to query, can be None if you want to query all ecosystems."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "package",
+                    "version",
+                    "ecosystem",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_for_cve_affected",
+            "description": "\n    Query the OSV database for a CVE and return the affected versions.\n\n    Args:\n        cve: The CVE ID to query\n\n    Returns:\n        A list of affected versions\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cve": {
+                        "type": "string",
+                        "description": "The CVE ID to query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cve",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_for_cve_fix_versions",
+            "description": "\n    Query the OSV database for a CVE and return the fix versions.\n\n    Args:\n        cve: The CVE ID to query\n\n    Returns:\n        A list of fix versions\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cve": {
+                        "type": "string",
+                        "description": "The CVE ID to query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cve",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

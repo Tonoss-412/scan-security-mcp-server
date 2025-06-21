@@ -1,0 +1,113 @@
+{
+    "tools": [
+        {
+            "name": "calculate",
+            "description": "Perform basic arithmetic calculations (OAuth2 protected)\n    \n    Args:\n        expression: Mathematical expression to evaluate (e.g., '2 + 3 * 4')\n        ctx: Security context containing user information\n    \n    Returns:\n        str: The result of the calculation with user info\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "expression": {
+                        "type": "string",
+                        "description": "Mathematical expression to evaluate (e.g., '2 + 3 * 4')"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "Security context containing user information"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The result of the calculation with user info"
+                    }
+                },
+                "required": [
+                    "expression",
+                    "ctx",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "server\\oauth2_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_time",
+            "description": "Get the current date and time (OAuth2 protected)\n    \n    Args:\n        ctx: Security context containing user information\n    \n    Returns:\n        str: The current timestamp with user info\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "Security context containing user information"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The current timestamp with user info"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "server\\oauth2_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "echo",
+            "description": "Echo back the provided message (OAuth2 protected)\n    \n    Args:\n        message: Message to echo back\n        ctx: Security context containing user information\n    \n    Returns:\n        str: The echoed message with user info\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "Message to echo back"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "Security context containing user information"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The echoed message with user info"
+                    }
+                },
+                "required": [
+                    "message",
+                    "ctx",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "server\\oauth2_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "Health check endpoint (no authentication required)\n    \n    Returns:\n        str: Simple health status message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server\\oauth2_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

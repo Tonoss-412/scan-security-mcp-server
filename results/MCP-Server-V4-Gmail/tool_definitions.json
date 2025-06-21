@@ -1,0 +1,340 @@
+{
+    "tools": [
+        {
+            "name": "show_reasoning",
+            "description": "Show the step-by-step reasoning process",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "verify_calculation",
+            "description": "Verify if a calculation is correct",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "verify_consistency",
+            "description": "Check if calculation steps are consistent with each other",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add",
+            "description": "Add two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_list",
+            "description": "Add all numbers in a list",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "subtract",
+            "description": "Subtract two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "multiply",
+            "description": "Multiply two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "divide",
+            "description": "Divide two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "power",
+            "description": "Power of two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sqrt",
+            "description": "Square root of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cbrt",
+            "description": "Cube root of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "factorial",
+            "description": "Factorial of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "log",
+            "description": "Log of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "remainder",
+            "description": "Remainder of two numbers division",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sin",
+            "description": "Sine of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cos",
+            "description": "Cosine of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "tan",
+            "description": "Tangent of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mine",
+            "description": "Special mining tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "strings_to_chars_to_int",
+            "description": "Return the ASCII values of the characters in a word",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "int_list_to_exponential_sum",
+            "description": "Return sum of exponentials of numbers in a list",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fibonacci_numbers",
+            "description": "Return the first n Fibonacci Numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_greeting",
+            "description": "Get a personalized greeting",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "review_code",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "debug_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "calculator-mcp-server\\math-mcp-server\\mcp_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "list_prompts",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gmail-mcp-server\\src\\gmail\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "get_prompt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gmail-mcp-server\\src\\gmail\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gmail-mcp-server\\src\\gmail\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gmail-mcp-server\\src\\gmail\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        }
+    ]
+}

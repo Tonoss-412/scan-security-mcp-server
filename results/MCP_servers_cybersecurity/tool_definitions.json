@@ -1,0 +1,1068 @@
+{
+    "tools": [
+        {
+            "name": "nmap_scan_top_ports",
+            "description": "\n    Scan the top ports of the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target hostname or IP address.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The scan results in JSON format.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target hostname or IP address."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The scan results in JSON format."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_dns_brute_force",
+            "description": "\n    Perform DNS brute-force to discover subdomains of the specified target.\n\n    Args:\n        target (str): The target domain to scan.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The DNS brute-force scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target domain to scan."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The DNS brute-force scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_list_scan",
+            "description": "\n    Perform a list scan on the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target IP address or hostname.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The list scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or hostname."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The list scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_os_detection",
+            "description": "\n    Perform OS detection on the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target IP address or hostname.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The OS detection results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or hostname."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The OS detection results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_version_detection",
+            "description": "\n    Detect service versions on the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target IP address or hostname.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The version detection results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or hostname."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The version detection results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_fin_scan",
+            "description": "\n    Perform a FIN scan on the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target IP address or hostname.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The FIN scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or hostname."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The FIN scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_idle_scan",
+            "description": "\n    Perform an idle scan on the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target IP address or hostname.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The idle scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or hostname."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The idle scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_ping_scan",
+            "description": "\n    Perform a ping scan on the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target IP address or hostname.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The ping scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or hostname."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The ping scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_syn_scan",
+            "description": "\n    Perform a SYN scan on the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target IP address or hostname.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The SYN scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or hostname."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The SYN scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_tcp_scan",
+            "description": "\n    Perform a TCP connect scan on the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target IP address or hostname.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The TCP scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or hostname."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The TCP scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_udp_scan",
+            "description": "\n    Perform a UDP scan on the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target IP address or hostname.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The UDP scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or hostname."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The UDP scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_portscan_only",
+            "description": "\n    Perform a port scan only on the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target IP address or hostname.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The port scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or hostname."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The port scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_no_portscan",
+            "description": "\n    Perform host discovery without port scanning on the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target IP address or hostname.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The host discovery results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or hostname."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The host discovery results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_arp_discovery",
+            "description": "\n    Perform ARP discovery on the specified target with optional custom arguments.\n\n    Args:\n        target (str): The target IP address or subnet (e.g., '192.168.1.0/24').\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The ARP discovery results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or subnet (e.g., '192.168.1.0/24')."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The ARP discovery results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nmap_disable_dns_resolution",
+            "description": "\n    Perform a scan on the specified target with DNS resolution disabled and optional custom arguments.\n\n    Args:\n        target (str): The target IP address or hostname.\n        args (str): Additional Nmap command-line arguments.\n\n    Returns:\n        dict: The scan results with DNS resolution disabled.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target IP address or hostname."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The scan results with DNS resolution disabled."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\network\\nmap\\nmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "commix_basic_scan",
+            "description": "\n    Basic command injection scan.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\commix\\commix_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "commix_technique_scan",
+            "description": "\n    Scan with specific techniques.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\commix\\commix_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "commix_os_shell",
+            "description": "\n    Automated exploitation with OS shell.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\commix\\commix_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "dirb_basic_scan",
+            "description": "\n    Basic directory scan.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\dirb\\dirb_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "dirb_recursive_scan",
+            "description": "\n    Recursive scan.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\dirb\\dirb_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "dirb_custom_wordlist_scan",
+            "description": "\n    Scan with custom wordlist and extensions.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\dirb\\dirb_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "gobuster_dir_scan",
+            "description": "\n    Directory brute-forcing.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\gobuster\\gobuster_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "gobuster_dns_scan",
+            "description": "\n    DNS subdomain enumeration.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\gobuster\\gobuster_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "gobuster_vhost_scan",
+            "description": "\n    Virtual host brute-forcing.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\gobuster\\gobuster_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nikto_basic_scan",
+            "description": "\n    Perform a basic Nikto scan on the specified target.\n\n    Args:\n        target (str): The target URL or IP.\n        args (str): Additional Nikto command-line arguments.\n\n    Returns:\n        dict: The scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target URL or IP."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nikto command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\web\\nikto\\nikto_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nikto_ssl_scan",
+            "description": "\n    Perform an SSL-specific Nikto scan.\n\n    Args:\n        target (str): The target URL or IP.\n        args (str): Additional Nikto command-line arguments.\n\n    Returns:\n        dict: The scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target URL or IP."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nikto command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\web\\nikto\\nikto_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nikto_scan_with_plugins",
+            "description": "\n    Run Nikto scan with specified plugins.\n\n    Args:\n        target (str): The target URL or IP.\n        plugins (str): Comma-separated list of plugins.\n        args (str): Additional Nikto command-line arguments.\n\n    Returns:\n        dict: The scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target URL or IP."
+                    },
+                    "plugins": {
+                        "type": "string",
+                        "description": "Comma-separated list of plugins."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional Nikto command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "plugins",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\web\\nikto\\nikto_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nuclei_basic_scan",
+            "description": "\n    Basic scan with templates.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\nuclei\\nuclei_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nuclei_severity_scan",
+            "description": "\n    Scan with severity filtering.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\nuclei\\nuclei_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nuclei_headless_scan",
+            "description": "\n    Headless mode scan with custom headers.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\nuclei\\nuclei_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sqlmap_basic_scan",
+            "description": "\n    Perform a basic SQL injection scan on the specified target.\n\n    Args:\n        target (str): The target URL.\n        args (str): Additional sqlmap command-line arguments.\n\n    Returns:\n        dict: The scan results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target URL."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional sqlmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The scan results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\web\\sqlmap\\sqlmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sqlmap_get_databases",
+            "description": "\n    Enumerate databases on the specified target.\n\n    Args:\n        target (str): The target URL.\n        args (str): Additional sqlmap command-line arguments.\n\n    Returns:\n        dict: The enumeration results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target URL."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional sqlmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The enumeration results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\web\\sqlmap\\sqlmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sqlmap_get_tables",
+            "description": "\n    Enumerate tables in a specific database on the specified target.\n\n    Args:\n        target (str): The target URL.\n        database (str): The database name.\n        args (str): Additional sqlmap command-line arguments.\n\n    Returns:\n        dict: The enumeration results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target URL."
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database name."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional sqlmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The enumeration results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "database",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\web\\sqlmap\\sqlmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sqlmap_get_columns",
+            "description": "\n    Enumerate columns in a specific table on the specified target.\n\n    Args:\n        target (str): The target URL.\n        database (str): The database name.\n        table (str): The table name.\n        args (str): Additional sqlmap command-line arguments.\n\n    Returns:\n        dict: The enumeration results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target URL."
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database name."
+                    },
+                    "table": {
+                        "type": "string",
+                        "description": "The table name."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional sqlmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The enumeration results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "database",
+                    "table",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\web\\sqlmap\\sqlmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sqlmap_dump_data",
+            "description": "\n    Dump data from a specific table on the specified target.\n\n    Args:\n        target (str): The target URL.\n        database (str): The database name.\n        table (str): The table name.\n        args (str): Additional sqlmap command-line arguments.\n\n    Returns:\n        dict: The dump results.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "The target URL."
+                    },
+                    "database": {
+                        "type": "string",
+                        "description": "The database name."
+                    },
+                    "table": {
+                        "type": "string",
+                        "description": "The table name."
+                    },
+                    "args": {
+                        "type": "string",
+                        "description": "Additional sqlmap command-line arguments."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "The dump results."
+                    }
+                },
+                "required": [
+                    "target",
+                    "database",
+                    "table",
+                    "args",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "mcp_servers\\web\\sqlmap\\sqlmap_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wfuzz_basic_fuzz",
+            "description": "\n    Basic fuzzing.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\wfuzz\\wfuzz_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wfuzz_multi_injection",
+            "description": "\n    Fuzzing with multiple injection points.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\wfuzz\\wfuzz_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wfuzz_custom_headers",
+            "description": "\n    Fuzzing with custom headers and authentication.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\wfuzz\\wfuzz_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wpscan_basic_scan",
+            "description": "\n    Perform a basic WPScan scan on the specified target.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\wpscan\\wpscan_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wpscan_vuln_scan",
+            "description": "\n    Scan with vulnerability detection using API token.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\wpscan\\wpscan_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wpscan_enumerate",
+            "description": "\n    Enumerate users, plugins, and themes.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\wpscan\\wpscan_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "xsser_basic_scan",
+            "description": "\n    Basic XSS scan.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\xsser\\xsser_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "xsser_payload_scan",
+            "description": "\n    Scan with specific payloads.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\xsser\\xsser_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "xsser_auto_scan",
+            "description": "\n    Auto-inject vectors and use bypass techniques.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\web\\xsser\\xsser_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

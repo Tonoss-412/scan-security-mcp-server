@@ -1,0 +1,2533 @@
+{
+    "tools": [
+        {
+            "name": "validate_config",
+            "description": "Validate configuration consistency.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "values": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "values"
+                ]
+            },
+            "file": "src\\config\\schema.py",
+            "decorator": [
+                "model_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate",
+            "description": "Validate a configuration value.\n\n        Returns:\n            Tuple of (is_valid, error_message)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\config\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "on_config_changed",
+            "description": "Called when configuration changes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\config\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "APP_NAME",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "APP_VERSION",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "DEBUG",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "DATA_DIR",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "LOG_DIR",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "DEFAULT_PROVIDER",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "DEFAULT_MODEL",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "OLLAMA_HOST",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "OPENAI_API_KEY",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "OPENAI_BASE_URL",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "LMSTUDIO_HOST",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "MEMORY_PERSIST_DIR",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "MEMORY_SHORT_TERM_HOURS",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "MEMORY_IMPORTANCE_THRESHOLD",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "MCP_SERVERS",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "THEME_STYLE",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "PRIMARY_PALETTE",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "ACCENT_PALETTE",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "WINDOW_WIDTH",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "WINDOW_HEIGHT",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "full_name",
+            "description": "Get full model name with provider prefix.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\model_manager.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_available",
+            "description": "Check if model is currently available.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\model_manager.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "size_human",
+            "description": "Human-readable size.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\model_manager.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_healthy",
+            "description": "Check if provider is healthy.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\model_manager.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "id",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\session_manager.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "title",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\session_manager.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "create_session",
+            "description": "Create a new conversation session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\session_manager.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "load_session",
+            "description": "Load an existing conversation session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\core\\session_manager.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "apply_theme",
+            "description": "Apply comprehensive professional theme to the application.\n\n        This method configures the KivyMD theme system with:\n\n        Material Design Configuration:\n            - Material Design 3 style implementation\n            - Dark theme for reduced eye strain and modern aesthetics\n            - Professional color palette with semantic meaning\n            - Proper hue selection for optimal color relationships\n\n        Color System Setup:\n            - Primary palette based on blue for trust and professionalism\n            - Accent palette using cyan for secondary actions\n            - Specific hue values optimized for dark backgrounds\n            - Color relationships following Material Design guidelines\n\n        Visual Consistency:\n            - Centralized theme application prevents inconsistencies\n            - Standard Material Design component styling\n            - Professional appearance across all UI elements\n            - Consistent color usage throughout the application\n\n        Accessibility Features:\n            - High contrast ratios for excellent readability\n            - Color choices that work for color-blind users\n            - Professional appearance suitable for business environments\n            - Clear visual hierarchy through color and elevation\n\n        Args:\n            app: The MDApp instance to apply theming to\n\n        The theme creates a cohesive, professional appearance while\n        maintaining excellent usability and accessibility standards.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "app": {
+                        "type": "string",
+                        "description": "The MDApp instance to apply theming to"
+                    }
+                },
+                "required": [
+                    "app"
+                ]
+            },
+            "file": "src\\gui\\theme.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "show_error_dialog",
+            "description": "Show an error dialog to the user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\gui\\utils\\error_handling.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "safe_execute",
+            "description": "Execute a function safely with error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\gui\\utils\\error_handling.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\gui\\utils\\error_handling.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "safe_widget_access",
+            "description": "Safely access widget attributes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "widget": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "widget"
+                ]
+            },
+            "file": "src\\gui\\utils\\error_handling.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "safe_widget_method",
+            "description": "Safely call widget methods.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "widget": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "widget"
+                ]
+            },
+            "file": "src\\gui\\utils\\error_handling.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "safe_dialog_creation",
+            "description": "Safely create dialog widgets.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "dialog_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dialog_class"
+                ]
+            },
+            "file": "src\\gui\\utils\\error_handling.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "safe_button_creation",
+            "description": "Safely create button widgets.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "button_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "button_class"
+                ]
+            },
+            "file": "src\\gui\\utils\\error_handling.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "show",
+            "description": "Show a toast notification.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\gui\\utils\\notifications.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "success",
+            "description": "Show success notification.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\gui\\utils\\notifications.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "error",
+            "description": "Show error notification.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\gui\\utils\\notifications.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "info",
+            "description": "Show info notification.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\gui\\utils\\notifications.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "warning",
+            "description": "Show warning notification.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\gui\\utils\\notifications.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "connect",
+            "description": "Connect to the MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "disconnect",
+            "description": "Disconnect from the MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available tools from the server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "execute_tool",
+            "description": "Execute a tool on the server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Check if the server is healthy.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "store",
+            "description": "Store a memory and return its ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\memory\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "retrieve",
+            "description": "Retrieve a memory by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\memory\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "Search memories by semantic similarity.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\memory\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "update",
+            "description": "Update an existing memory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\memory\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "delete",
+            "description": "Delete a memory by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\memory\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "clear",
+            "description": "Clear memories, optionally filtered by type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\memory\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "complete",
+            "description": "\n        Generate a complete response from a list of messages.\n\n        This method performs a full completion request and returns the entire\n        response at once. Use this for shorter interactions where streaming\n        is not required.\n\n        Args:\n            messages: Conversation history as a list of Message objects\n                     Order matters - messages should be chronologically ordered\n                     System messages typically come first\n            model: Model identifier (provider-specific format)\n                  Examples: \"gpt-4\", \"llama2:7b\", \"claude-3-sonnet\"\n            temperature: Randomness control (0.0-2.0, typically 0.0-1.0)\n                        0.0 = deterministic, 1.0 = very creative\n            max_tokens: Maximum tokens to generate (None = provider default)\n                       Consider context window limits and cost implications\n            **kwargs: Provider-specific parameters\n                     Examples: top_p, frequency_penalty, presence_penalty\n\n        Returns:\n            CompletionResponse with the generated content and metadata\n\n        Raises:\n            ConnectionError: Network or service unavailable\n            AuthenticationError: Invalid credentials or expired tokens\n            RateLimitError: API quota exceeded or rate limited\n            ValidationError: Invalid parameters or model not found\n            ModelError: Model-specific errors (context too long, etc.)\n\n        Implementation Notes:\n            - Validate all parameters before making API calls\n            - Convert internal Message format to provider's expected format\n            - Handle provider-specific parameter mapping\n            - Implement exponential backoff for retryable errors\n            - Log request/response for debugging (excluding sensitive data)\n            - Clean up resources even if exceptions occur\n\n        Example Usage:\n            ```python\n            messages = [\n                Message(role=\"system\", content=\"You are a helpful assistant\"),\n                Message(role=\"user\", content=\"What is 2+2?\")\n            ]\n            response = await provider.complete(messages, \"gpt-4\", temperature=0.1)\n            print(response.content)  # \"2+2 equals 4.\"\n            ```\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "type": "string",
+                        "description": "Conversation history as a list of Message objects"
+                    },
+                    "model": {
+                        "type": "string",
+                        "description": "Model identifier (provider-specific format)"
+                    },
+                    "Examples": {
+                        "type": "string",
+                        "description": "top_p, frequency_penalty, presence_penalty"
+                    },
+                    "temperature": {
+                        "type": "string",
+                        "description": "Randomness control (0.0-2.0, typically 0.0-1.0)"
+                    },
+                    "max_tokens": {
+                        "type": "string",
+                        "description": "Maximum tokens to generate (None = provider default)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ConnectionError": {
+                        "type": "string",
+                        "description": "Network or service unavailable"
+                    },
+                    "AuthenticationError": {
+                        "type": "string",
+                        "description": "Invalid credentials or expired tokens"
+                    },
+                    "RateLimitError": {
+                        "type": "string",
+                        "description": "API quota exceeded or rate limited"
+                    },
+                    "ValidationError": {
+                        "type": "string",
+                        "description": "Invalid parameters or model not found"
+                    },
+                    "ModelError": {
+                        "type": "string",
+                        "description": "Model-specific errors (context too long, etc.)"
+                    }
+                },
+                "required": [
+                    "messages",
+                    "model",
+                    "Examples",
+                    "temperature",
+                    "max_tokens",
+                    "Returns",
+                    "Raises",
+                    "ConnectionError",
+                    "AuthenticationError",
+                    "RateLimitError",
+                    "ValidationError",
+                    "ModelError"
+                ]
+            },
+            "file": "src\\providers\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "stream_complete",
+            "description": "\n        Generate a streaming response from a list of messages.\n\n        This method returns an async iterator that yields content chunks as they\n        become available. Use this for longer responses to provide real-time\n        feedback to users and reduce perceived latency.\n\n        Args:\n            messages: Conversation history (same as complete())\n            model: Model identifier (same as complete())\n            temperature: Randomness control (same as complete())\n            max_tokens: Maximum tokens to generate (same as complete())\n            **kwargs: Provider-specific parameters (same as complete())\n\n        Yields:\n            str: Individual content chunks as they're generated\n                 Chunks may be words, phrases, or even single characters\n                 Empty chunks should be filtered out by the provider\n                 Final chunk may be empty to signal completion\n\n        Raises:\n            Same exceptions as complete(), plus:\n            StreamingError: Stream-specific errors (connection dropped, etc.)\n\n        Implementation Notes:\n            - Yield chunks as soon as they're available\n            - Handle connection drops gracefully\n            - Support stream cancellation via asyncio cancellation\n            - Buffer chunks if necessary but prioritize low latency\n            - Clean up streaming connections in finally blocks\n            - Consider implementing stream heartbeats for long delays\n\n        Stream Management:\n            - Streams should be cancellable via asyncio task cancellation\n            - Always clean up network connections when stream ends\n            - Handle partial responses gracefully\n            - Log stream statistics (chunks, duration) for monitoring\n\n        Example Usage:\n            ```python\n            async for chunk in provider.stream_complete(messages, \"gpt-4\"):\n                print(chunk, end=\"\", flush=True)  # Real-time output\n            print()  # New line when complete\n            ```\n\n        Error Recovery:\n            - Implement retry logic for transient network errors\n            - Provide fallback to complete() if streaming fails\n            - Cache partial responses for replay if connection drops\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "type": "string",
+                        "description": "Conversation history (same as complete())"
+                    },
+                    "model": {
+                        "type": "string",
+                        "description": "Model identifier (same as complete())"
+                    },
+                    "temperature": {
+                        "type": "string",
+                        "description": "Randomness control (same as complete())"
+                    },
+                    "max_tokens": {
+                        "type": "string",
+                        "description": "Maximum tokens to generate (same as complete())"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Individual content chunks as they're generated"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "StreamingError": {
+                        "type": "string",
+                        "description": "Stream-specific errors (connection dropped, etc.)"
+                    }
+                },
+                "required": [
+                    "messages",
+                    "model",
+                    "temperature",
+                    "max_tokens",
+                    "Yields",
+                    "str",
+                    "Raises",
+                    "StreamingError"
+                ]
+            },
+            "file": "src\\providers\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "list_models",
+            "description": "\n        Retrieve a list of available models from the provider.\n\n        This method should return all models that can be used with the\n        complete() and stream_complete() methods. The list should be\n        filtered to only include compatible models.\n\n        Returns:\n            list[str]: Model identifiers in provider-specific format\n                      Should be sorted by relevance or alphabetically\n                      Empty list if no models available or service down\n\n        Raises:\n            ConnectionError: Cannot reach the provider service\n            AuthenticationError: Invalid credentials (for cloud providers)\n\n        Implementation Notes:\n            - Cache results for a reasonable time (5-15 minutes)\n            - Filter out incompatible or deprecated models\n            - Handle service unavailability gracefully\n            - Sort models by capability or popularity when possible\n            - Include only models that support chat completion\n\n        Provider-Specific Behavior:\n            - OpenAI: Filter to chat models (gpt-*, not davinci-*)\n            - Ollama: Return locally downloaded models\n            - LM Studio: Return currently loaded models\n            - Anthropic: Return available Claude variants\n\n        Example Usage:\n            ```python\n            models = await provider.list_models()\n            if \"gpt-4\" in models:\n                # Use GPT-4 for complex tasks\n                pass\n            ```\n\n        Caching Strategy:\n            - Implement time-based cache expiration\n            - Cache should be instance-specific, not global\n            - Invalidate cache on authentication changes\n            - Consider cache warming during provider initialization\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\providers\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "\n        Perform a health check to verify provider availability and functionality.\n\n        This method should quickly verify that the provider is operational\n        and can handle requests. It's used by the system for monitoring,\n        provider selection, and error recovery.\n\n        Returns:\n            bool: True if provider is healthy and operational\n                 False if provider is unavailable or malfunctioning\n\n        Implementation Strategy:\n            - Implement as a lightweight operation (< 5 seconds timeout)\n            - Test core functionality without expensive operations\n            - Don't make actual completion requests unless necessary\n            - Cache results briefly to avoid excessive health checks\n\n        Health Check Criteria:\n            - Service is reachable and responding\n            - Authentication is valid (for cloud providers)\n            - At least one model is available\n            - Core API endpoints are functional\n\n        Example Implementations:\n            - OpenAI: Call models.list() endpoint\n            - Ollama: Check /api/tags endpoint\n            - LM Studio: Verify server is running and has loaded models\n\n        Error Handling:\n            - Never raise exceptions from health checks\n            - Log health check failures for debugging\n            - Return False for any error condition\n            - Implement request timeout to prevent hanging\n\n        Usage in System:\n            ```python\n            if await provider.health_check():\n                response = await provider.complete(messages, model)\n            else:\n                # Fall back to alternative provider\n                pass\n            ```\n\n        Monitoring Integration:\n            - Health check results can be exposed to monitoring systems\n            - Track success rates and response times\n            - Alert on sustained health check failures\n            - Use for automatic provider failover\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\providers\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "model",
+            "description": "Lazy load the model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\utils\\embeddings.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_onnx_model",
+            "description": "Check if a model uses ONNX runtime (may show context leaks).\n\n        Args:\n            model_name: Name of the model\n\n        Returns:\n            True if model likely uses ONNX\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "model_name": {
+                        "type": "string",
+                        "description": "Name of the model"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "model_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\utils\\embeddings.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_context_leak_info",
+            "description": "Get information about context leak messages.\n\n        Returns:\n            Explanation of context leak messages\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\utils\\embeddings.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "event_loop",
+            "description": "Create an instance of the default event loop for the test session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create a temporary directory for test files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_config",
+            "description": "Mock configuration manager with test settings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_memory_manager",
+            "description": "Mock memory manager for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_mcp_manager",
+            "description": "Mock MCP manager for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_llm_provider",
+            "description": "Mock LLM provider for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "chat_manager",
+            "description": "Create a chat manager instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_config": {
+                        "type": "string"
+                    },
+                    "mock_memory_manager": {
+                        "type": "string"
+                    },
+                    "mock_mcp_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_config",
+                    "mock_memory_manager",
+                    "mock_mcp_manager"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_messages",
+            "description": "Sample messages for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_memory_data",
+            "description": "Sample memory data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_mcp_tools",
+            "description": "Sample MCP tools for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_rag_enhanced_conversation",
+            "description": "Test RAG-enhanced conversation flow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    },
+                    "sample_memory_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager",
+                    "sample_memory_data"
+                ]
+            },
+            "file": "tests\\integration\\test_chat_memory_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conversation_memory_storage",
+            "description": "Test that conversations are properly stored in memory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager"
+                ]
+            },
+            "file": "tests\\integration\\test_chat_memory_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_memory_enhanced_context_building",
+            "description": "Test that memory enhances context building.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager"
+                ]
+            },
+            "file": "tests\\integration\\test_chat_memory_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_importance_based_storage_filtering",
+            "description": "Test that only important content gets stored in memory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager"
+                ]
+            },
+            "file": "tests\\integration\\test_chat_memory_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_memory_type_classification",
+            "description": "Test that different content gets classified into appropriate memory types.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager"
+                ]
+            },
+            "file": "tests\\integration\\test_chat_memory_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_memory_retrieval_enhances_responses",
+            "description": "Test that retrieved memories enhance response generation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager"
+                ]
+            },
+            "file": "tests\\integration\\test_chat_memory_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "chat_manager_with_config",
+            "description": "Create chat manager with temporary config.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_dir"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_config_persistence.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_websocket_server_persistence",
+            "description": "Test that WebSocket MCP servers are saved to config.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_config"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_config_persistence.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_subprocess_server_persistence",
+            "description": "Test that subprocess MCP servers are saved to config.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_config"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_config_persistence.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_server_removal_persistence",
+            "description": "Test that removing MCP servers updates config.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_config"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_config_persistence.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_multiple_servers_persistence",
+            "description": "Test that multiple MCP servers can be saved.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_config"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_config_persistence.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_config_loading_on_startup",
+            "description": "Test that MCP servers are loaded from config on startup.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_config"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_config_persistence.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_config_persistence_across_restarts",
+            "description": "Test that config persists across application restarts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_dir"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_config_persistence.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling_in_config_save",
+            "description": "Test error handling when config save fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_config"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_config_persistence.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "chat_manager_with_tools",
+            "description": "Chat manager with mock MCP tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_tool_calling.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_tool_call_parsing",
+            "description": "Test parsing tool calls from AI response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_tools"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_tool_calling.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_multiple_tool_calls",
+            "description": "Test handling multiple tool calls in one response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_tools"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_tool_calling.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_tool_call_error_handling",
+            "description": "Test handling of tool execution errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_tools"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_tool_calling.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_tool_call_format",
+            "description": "Test handling of malformed tool calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_tools"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_tool_calling.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_tool_calls_in_streaming",
+            "description": "Test tool calling in streaming responses.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_tools"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_tool_calling.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_no_tool_calls_in_response",
+            "description": "Test that normal responses without tool calls are unchanged.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_tools"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_tool_calling.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_tool_list_in_system_prompt",
+            "description": "Test that available tools are included in system prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_tools"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_tool_calling.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_tool_parameters_validation",
+            "description": "Test that tool parameters are properly passed through.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager_with_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager_with_tools"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_tool_calling.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_session_creation",
+            "description": "Test session creation and management.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_chat_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_system_prompt_update",
+            "description": "Test system prompt configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_chat_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_memory_operations",
+            "description": "Test memory-related operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    },
+                    "mock_memory_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager",
+                    "mock_memory_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_chat_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conversation_storage",
+            "description": "Test conversation memory storage.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_chat_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mcp_operations",
+            "description": "Test MCP-related operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    },
+                    "mock_mcp_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager",
+                    "mock_mcp_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_chat_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_build_context_messages",
+            "description": "Test context message building.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_manager": {
+                        "type": "string"
+                    },
+                    "sample_messages": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "chat_manager",
+                    "sample_messages"
+                ]
+            },
+            "file": "tests\\unit\\test_chat_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mcp_screen",
+            "description": "Create MCP management screen for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_gui_components.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_refresh_servers",
+            "description": "Test server refresh functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_loop": {
+                        "type": "string"
+                    },
+                    "mock_thread": {
+                        "type": "string"
+                    },
+                    "mcp_screen": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_loop",
+                    "mock_thread",
+                    "mcp_screen"
+                ]
+            },
+            "file": "tests\\unit\\test_gui_components.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_add_websocket_server",
+            "description": "Test adding WebSocket server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_loop": {
+                        "type": "string"
+                    },
+                    "mock_thread": {
+                        "type": "string"
+                    },
+                    "mcp_screen": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_loop",
+                    "mock_thread",
+                    "mcp_screen"
+                ]
+            },
+            "file": "tests\\unit\\test_gui_components.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_add_subprocess_server",
+            "description": "Test adding subprocess server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_loop": {
+                        "type": "string"
+                    },
+                    "mock_thread": {
+                        "type": "string"
+                    },
+                    "mcp_screen": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_loop",
+                    "mock_thread",
+                    "mcp_screen"
+                ]
+            },
+            "file": "tests\\unit\\test_gui_components.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "mcp_manager",
+            "description": "Create MCP manager for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_add_websocket_server",
+            "description": "Test adding a WebSocket MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_add_subprocess_server",
+            "description": "Test adding a subprocess MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_add_server_failure",
+            "description": "Test handling server connection failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_remove_server",
+            "description": "Test removing an MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_servers",
+            "description": "Test listing all servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_tool",
+            "description": "Test executing an MCP tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_tool_invalid_format",
+            "description": "Test executing tool with invalid name format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_health_check_all",
+            "description": "Test health checking all servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_reconnect_failed",
+            "description": "Test reconnecting failed servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mcp_client",
+            "description": "Create MCP client for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_url_conversion",
+            "description": "Test HTTP to WebSocket URL conversion.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_client"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_connect_success",
+            "description": "Test successful connection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_client"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_connect_failure",
+            "description": "Test connection failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_client"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_tool",
+            "description": "Test tool execution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_client"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_health_check",
+            "description": "Test health check.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mcp_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mcp_client"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "subprocess_client",
+            "description": "Create MCP subprocess client for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_connect_success",
+            "description": "Test successful subprocess connection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "subprocess_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "subprocess_client"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_tool",
+            "description": "Test tool execution via subprocess.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "subprocess_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "subprocess_client"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_disconnect",
+            "description": "Test subprocess disconnection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "subprocess_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "subprocess_client"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_health_check",
+            "description": "Test subprocess health check.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "subprocess_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "subprocess_client"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "memory_manager",
+            "description": "Create a memory manager for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_memory_manager.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_remember",
+            "description": "Test storing memories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memory_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memory_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_memory_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_recall",
+            "description": "Test retrieving memories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memory_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memory_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_memory_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_recall_with_filters",
+            "description": "Test retrieving memories with filters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memory_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memory_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_memory_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_forget",
+            "description": "Test forgetting memories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memory_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memory_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_memory_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search",
+            "description": "Test searching memories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memory_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memory_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_memory_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_clear_all",
+            "description": "Test clearing all memories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memory_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memory_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_memory_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_stats",
+            "description": "Test getting memory statistics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memory_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memory_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_memory_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_consolidate_memories",
+            "description": "Test memory consolidation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memory_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memory_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_memory_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_export_memories",
+            "description": "Test exporting memories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memory_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memory_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_memory_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_import_memories",
+            "description": "Test importing memories.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memory_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memory_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_memory_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "Test error handling in memory operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memory_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memory_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_memory_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "ollama_provider",
+            "description": "Create Ollama provider for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_list_models",
+            "description": "Test listing available models.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ollama_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ollama_provider"
+                ]
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_complete",
+            "description": "Test text completion.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ollama_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ollama_provider"
+                ]
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_stream_complete",
+            "description": "Test streaming completion.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ollama_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ollama_provider"
+                ]
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_health_check",
+            "description": "Test health check.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ollama_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ollama_provider"
+                ]
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "openai_provider",
+            "description": "Create OpenAI provider for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_list_models",
+            "description": "Test listing available models.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "openai_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "openai_provider"
+                ]
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_complete",
+            "description": "Test text completion.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "openai_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "openai_provider"
+                ]
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_stream_complete",
+            "description": "Test streaming completion.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "openai_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "openai_provider"
+                ]
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "lmstudio_provider",
+            "description": "Create LM Studio provider for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_list_models",
+            "description": "Test listing available models.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "lmstudio_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "lmstudio_provider"
+                ]
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_complete",
+            "description": "Test text completion.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "lmstudio_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "lmstudio_provider"
+                ]
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_health_check",
+            "description": "Test health check.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "lmstudio_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "lmstudio_provider"
+                ]
+            },
+            "file": "tests\\unit\\test_providers.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

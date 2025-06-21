@@ -1,0 +1,232 @@
+{
+    "tools": [
+        {
+            "name": "url",
+            "description": "Generate InfluxDB URL from host, port, and SSL settings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "token_must_not_be_empty",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "src\\influxdb_mcp\\config.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "org_must_not_be_empty",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "src\\influxdb_mcp\\config.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "healthcheck",
+            "description": "Simple healthcheck endpoint for Docker health monitoring.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.custom_route"
+            ]
+        },
+        {
+            "name": "test_connection",
+            "description": "Test the connection to InfluxDB and return detailed status information including server version and health.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_buckets",
+            "description": "List all available buckets in the InfluxDB instance with their retention policies and organization details.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_measurements",
+            "description": "List all available measurements (time series) in the specified InfluxDB bucket along with their fields and tags.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_flux_query",
+            "description": "Execute a custom Flux query against the InfluxDB database. Supports aggregations, filtering, transformations, and analytics operations. Returns structured time-series data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_buckets_resource",
+            "description": "LivelistofallavailablebucketsintheInfluxDBinstancewithmetadata",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_measurements_resource",
+            "description": "Livelistofmeasurementsavailableinthespecifiedbucket",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_status_resource",
+            "description": "Currentconnectionstatusandserverinformation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_daily_hourly_average_query",
+            "description": "Fluxquerytemplateforhourlyaveragesoverthelastday",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_weekly_daily_summary_query",
+            "description": "Fluxquerytemplateforweeklydatawithdailysummaries(min",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_recent_data_query",
+            "description": "Fluxquerytemplateforretrievingrecentdatawithconfigurabletimerange",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_threshold_alert_query",
+            "description": "Fluxquerytemplateformonitoringvaluesthatexceedaspecificthreshold",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_anomaly_detection_query",
+            "description": "Fluxquerytemplatetodetectstatisticalanomaliesusingstandarddeviation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_correlation_analysis_query",
+            "description": "Fluxquerytemplatetoanalyzecorrelationbetweentwomeasurements",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\influxdb_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

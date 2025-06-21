@@ -1,0 +1,2380 @@
+{
+    "tools": [
+        {
+            "name": "generate",
+            "description": "Generate a response using Ollama, yielding results incrementally (streaming).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\agent.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint for health check.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_code_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "analyze_code",
+            "description": "Analyze code and return issues found.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_code_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "format_code",
+            "description": "Format code and return the formatted version.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_code_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "fix_code",
+            "description": "Analyze code, attempt to fix issues, and return the fixed code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_code_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "store_snippet",
+            "description": "Store a code snippet and return its ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_code_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_snippet",
+            "description": "Retrieve a stored code snippet by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_code_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_snippets",
+            "description": "List all stored code snippet IDs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_code_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_code_server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "Manages database connection for the application lifespan.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_test_server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "read_root",
+            "description": "Simple root endpoint to confirm server is running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_test_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_test_result",
+            "description": "Get the result of a previous test run",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_test_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_test_results",
+            "description": "List all test results, returning full ResultData objects.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_test_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_last_failed_tests",
+            "description": "Get the list of last failed tests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_test_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "run_tests_endpoint",
+            "description": "Endpoint to trigger test execution (local or docker).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "agents\\mcp_test_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "analyze_code_with_mcp",
+            "description": "\n    Analyze code using the MCP Code Server (with retry)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\code_analysis_plugin.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "store_snippet_with_mcp",
+            "description": "\n    Store a code snippet in the MCP Code Server (with retry)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\code_analysis_plugin.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "run_tests_with_mcp",
+            "description": "\n    Runs tests using the MCP Test Server, yielding output lines.\n    Handles both streaming (local, docker) and potential errors.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\test_runner_plugin.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "get_last_failed_tests_with_mcp",
+            "description": "\n    Get the list of last failed tests (with retry)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\test_runner_plugin.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "get_test_result_with_mcp",
+            "description": "\n    Get a specific test result (with retry)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\test_runner_plugin.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "read_root",
+            "description": "Root endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_context",
+            "description": "Get the full context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_system_context",
+            "description": "Get system context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "add_document",
+            "description": "Add a document to context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "delete_document",
+            "description": "Delete a document from context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "app.delete"
+            ]
+        },
+        {
+            "name": "add_message",
+            "description": "Add a message to conversation history",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "clear_conversation",
+            "description": "Clear conversation history",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server.py",
+            "decorator": [
+                "app.delete"
+            ]
+        },
+        {
+            "name": "initialize_test_database",
+            "description": "Fixture to ensure a clean database schema for the test session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_project_path",
+            "description": "Fixture to create a temporary sample project directory with dummy test files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path_factory": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path_factory"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "code_server_process",
+            "description": "Starts the MCP Code Server on a fixed port (8083) for integration tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_server_process",
+            "description": "Starts the MCP Test Server as a background process, ensuring it's ready.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mcp_agent",
+            "description": "Provides an initialized MCPEnhancedAgent instance configured for the running test servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "code_server_process": {
+                        "type": "string"
+                    },
+                    "test_server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "code_server_process",
+                    "test_server_process"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "db_manager",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\test_database.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_database_operations",
+            "description": "Test core database operations: storing and retrieving results and snippets.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_database.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "sample_test_project_for_agent",
+            "description": "Creates a temporary directory with sample test files for agent tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path_factory": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path_factory"
+                ]
+            },
+            "file": "tests\\integration\\test_agent_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_agent_analyze_code",
+            "description": "Test agent analyzing code using the code server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_test_project_for_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_test_project_for_agent"
+                ]
+            },
+            "file": "tests\\integration\\test_agent_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_agent_format_code",
+            "description": "Test agent formatting code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_test_project_for_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_test_project_for_agent"
+                ]
+            },
+            "file": "tests\\integration\\test_agent_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_agent_fix_code",
+            "description": "Test agent fixing code (removing unused import).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_test_project_for_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_test_project_for_agent"
+                ]
+            },
+            "file": "tests\\integration\\test_agent_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_agent_run_tests_success",
+            "description": "Test agent running successful tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_test_project_for_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_test_project_for_agent"
+                ]
+            },
+            "file": "tests\\integration\\test_agent_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_agent_run_tests_failure",
+            "description": "Test agent running failing tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_test_project_for_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_test_project_for_agent"
+                ]
+            },
+            "file": "tests\\integration\\test_agent_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_agent_run_tests_nose2",
+            "description": "Test agent running tests with failures using nose2 runner.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_test_project_for_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_test_project_for_agent"
+                ]
+            },
+            "file": "tests\\integration\\test_agent_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_agent_run_tests_unittest",
+            "description": "Test agent running tests with failures using unittest runner.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_test_project_for_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_test_project_for_agent"
+                ]
+            },
+            "file": "tests\\integration\\test_agent_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_agent_snippet_operations",
+            "description": "Test agent storing and retrieving snippets.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_agent_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_agent_get_nonexistent_snippet",
+            "description": "Test agent handling getting a non-existent snippet.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_agent_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_agent_format_invalid_syntax",
+            "description": "Test agent handling format request for invalid syntax.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_agent_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "wait_for_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "code_server_process",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "http_client",
+            "description": "Provides an httpx AsyncClient scoped to the function, dependent on the server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "code_server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "code_server_process"
+                ]
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_root_endpoint",
+            "description": "Test the root endpoint returns 200 OK.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_analyze_python_code",
+            "description": "Test the /analyze endpoint with simple Python code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_analyze_python_with_issues",
+            "description": "Test analyzing Python code known to have issues (unused import).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_format_python_code",
+            "description": "Test the /format endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_fix_python_code",
+            "description": "Test the /fix endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_snippet_storage_retrieval",
+            "description": "Test storing and retrieving a code snippet.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_nonexistent_snippet",
+            "description": "Test retrieving a snippet that doesn't exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_analyze_invalid_syntax",
+            "description": "Test analyzing code with syntax errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_format_invalid_syntax",
+            "description": "Test formatting code with syntax errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_unauthorized_access",
+            "description": "Test accessing endpoints without a valid API key.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "code_server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "code_server_process"
+                ]
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_analyze_unsupported_language",
+            "description": "Test the /analyze endpoint with an unsupported language.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_analyze_large_input",
+            "description": "Test the /analyze endpoint with a large code input.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_analyze_concurrency",
+            "description": "Test basic concurrency by sending multiple /analyze requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_code_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_agent",
+            "description": "Create a mock agent for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_register_mcps.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_setup_agent",
+            "description": "Test that the setup_agent function properly initializes the agent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_register_test": {
+                        "type": "string"
+                    },
+                    "mock_register_code": {
+                        "type": "string"
+                    },
+                    "mock_ollama_agent": {
+                        "type": "string"
+                    },
+                    "mock_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_register_test",
+                    "mock_register_code",
+                    "mock_ollama_agent",
+                    "mock_agent"
+                ]
+            },
+            "file": "tests\\integration\\test_register_mcps.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_main_function",
+            "description": "Test the main function to ensure it initializes the agent and checks servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_print": {
+                        "type": "string"
+                    },
+                    "mock_requests_get": {
+                        "type": "string"
+                    },
+                    "mock_setup_agent": {
+                        "type": "string"
+                    },
+                    "mock_agent": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_print",
+                    "mock_requests_get",
+                    "mock_setup_agent",
+                    "mock_agent"
+                ]
+            },
+            "file": "tests\\integration\\test_register_mcps.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_root_endpoint",
+            "description": "Test the root endpoint of the test server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server_process"
+                ]
+            },
+            "file": "tests\\integration\\test_test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_local_success",
+            "description": "Test running tests locally that succeed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server_process": {
+                        "type": "string"
+                    },
+                    "sample_project_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server_process",
+                    "sample_project_path"
+                ]
+            },
+            "file": "tests\\integration\\test_test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_local_failure",
+            "description": "Test running tests locally that fail.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server_process": {
+                        "type": "string"
+                    },
+                    "sample_project_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server_process",
+                    "sample_project_path"
+                ]
+            },
+            "file": "tests\\integration\\test_test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_list_results",
+            "description": "Test listing test results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server_process"
+                ]
+            },
+            "file": "tests\\integration\\test_test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_last_failed",
+            "description": "Test getting the last failed test result.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server_process": {
+                        "type": "string"
+                    },
+                    "sample_project_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server_process",
+                    "sample_project_path"
+                ]
+            },
+            "file": "tests\\integration\\test_test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_docker_mode_success_and_verify_db",
+            "description": "Test running tests in Docker mode that succeed and verify DB record.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server_process": {
+                        "type": "string"
+                    },
+                    "sample_project_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server_process",
+                    "sample_project_path"
+                ]
+            },
+            "file": "tests\\integration\\test_test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_docker_success",
+            "description": "Placeholder for testing successful Docker test runs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server_process": {
+                        "type": "string"
+                    },
+                    "sample_project_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server_process",
+                    "sample_project_path"
+                ]
+            },
+            "file": "tests\\integration\\test_test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.skip"
+            ]
+        },
+        {
+            "name": "test_run_docker_failure",
+            "description": "Placeholder for testing failing Docker test runs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server_process": {
+                        "type": "string"
+                    },
+                    "sample_project_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server_process",
+                    "sample_project_path"
+                ]
+            },
+            "file": "tests\\integration\\test_test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.skip"
+            ]
+        },
+        {
+            "name": "test_failing",
+            "description": "A test that fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_sample\\test_simple.py",
+            "decorator": [
+                "pytest.mark.xfail"
+            ]
+        },
+        {
+            "name": "test_error",
+            "description": "A test that raises an error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_sample\\test_simple.py",
+            "decorator": [
+                "pytest.mark.xfail"
+            ]
+        },
+        {
+            "name": "mock_agent_no_mcp",
+            "description": "Fixture to create an agent instance without enabling MCP.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_agent_with_mcp",
+            "description": "Fixture to create an agent instance with MCP enabled (mocked).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_generate_streaming_success",
+            "description": "Test successful streaming generation from Ollama.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    },
+                    "mock_agent_no_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post",
+                    "mock_agent_no_mcp"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_streaming_request_error",
+            "description": "Test handling of requests.RequestException during streaming.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    },
+                    "mock_agent_no_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post",
+                    "mock_agent_no_mcp"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_streaming_http_error",
+            "description": "Test handling of HTTPError (e.g., 404 Not Found).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    },
+                    "mock_agent_no_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post",
+                    "mock_agent_no_mcp"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_streaming_json_decode_error",
+            "description": "Test handling of JSONDecodeError during stream processing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    },
+                    "mock_agent_no_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post",
+                    "mock_agent_no_mcp"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_streaming_ollama_internal_error_chunk",
+            "description": "Test handling of error messages within the Ollama stream.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    },
+                    "mock_agent_no_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post",
+                    "mock_agent_no_mcp"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_tool_file_read_success",
+            "description": "Test successful file reading using the _tool_file_read method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_open_builtin": {
+                        "type": "string"
+                    },
+                    "mock_exists": {
+                        "type": "string"
+                    },
+                    "mock_agent_no_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_open_builtin",
+                    "mock_exists",
+                    "mock_agent_no_mcp"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_tool_file_read_not_found",
+            "description": "Test file reading when the file does not exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_exists": {
+                        "type": "string"
+                    },
+                    "mock_agent_no_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_exists",
+                    "mock_agent_no_mcp"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_tool_file_read_os_error",
+            "description": "Test file reading when an OS error occurs (e.g., permission denied).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_open_builtin": {
+                        "type": "string"
+                    },
+                    "mock_exists": {
+                        "type": "string"
+                    },
+                    "mock_agent_no_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_open_builtin",
+                    "mock_exists",
+                    "mock_agent_no_mcp"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_tool_file_write_success",
+            "description": "Test successful file writing using the _tool_file_write method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_open_builtin": {
+                        "type": "string"
+                    },
+                    "mock_makedirs": {
+                        "type": "string"
+                    },
+                    "mock_agent_no_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_open_builtin",
+                    "mock_makedirs",
+                    "mock_agent_no_mcp"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_tool_file_write_os_error_on_mkdir",
+            "description": "Test file writing when os.makedirs raises an OS error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_open_builtin": {
+                        "type": "string"
+                    },
+                    "mock_makedirs": {
+                        "type": "string"
+                    },
+                    "mock_agent_no_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_open_builtin",
+                    "mock_makedirs",
+                    "mock_agent_no_mcp"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_tool_file_write_os_error_on_open",
+            "description": "Test file writing when builtins.open raises an OS error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_open_builtin": {
+                        "type": "string"
+                    },
+                    "mock_makedirs": {
+                        "type": "string"
+                    },
+                    "mock_agent_no_mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_open_builtin",
+                    "mock_makedirs",
+                    "mock_agent_no_mcp"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "mock_agent",
+            "description": "Create a mock agent for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_code_analysis_plugin.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_analyze_code_success",
+            "description": "Test analyze_code_with_mcp successful call.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post"
+                ]
+            },
+            "file": "tests\\unit\\test_code_analysis_plugin.py",
+            "decorator": [
+                "patch.dict",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_analyze_code_no_api_key",
+            "description": "Test analyze_code_with_mcp without API key header.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post"
+                ]
+            },
+            "file": "tests\\unit\\test_code_analysis_plugin.py",
+            "decorator": [
+                "patch",
+                "patch.dict"
+            ]
+        },
+        {
+            "name": "test_format_code_success",
+            "description": "Test successful code formatting",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_analyze": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_analyze"
+                ]
+            },
+            "file": "tests\\unit\\test_code_analysis_plugin.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_format_code_error",
+            "description": "Test code formatting when analysis fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_analyze": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_analyze"
+                ]
+            },
+            "file": "tests\\unit\\test_code_analysis_plugin.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_store_snippet_success",
+            "description": "Test successful snippet storage",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_uuid": {
+                        "type": "string"
+                    },
+                    "mock_post": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_uuid",
+                    "mock_post"
+                ]
+            },
+            "file": "tests\\unit\\test_code_analysis_plugin.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_store_snippet_error",
+            "description": "Test snippet storage with a connection error",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post"
+                ]
+            },
+            "file": "tests\\unit\\test_code_analysis_plugin.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "client_sync",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client_async",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "mock_db_manager",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "override_get_db_dependency",
+            "description": "Overrides the get_request_db_manager dependency for all tests in this module.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "override_verify_api_key_dependency",
+            "description": "Override the verify_api_key dependency for most tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_store_and_get_snippet",
+            "description": "Test storing and retrieving a code snippet.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client_async": {
+                        "type": "string"
+                    },
+                    "mock_db_manager": {
+                        "type": "string"
+                    },
+                    "override_verify_api_key_dependency": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_async",
+                    "mock_db_manager",
+                    "override_verify_api_key_dependency"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_snippet_not_found",
+            "description": "Test retrieving a non-existent snippet.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client_async": {
+                        "type": "string"
+                    },
+                    "mock_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_async",
+                    "mock_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_store_snippet_db_error",
+            "description": "Test storing snippet when DB fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client_async": {
+                        "type": "string"
+                    },
+                    "mock_db_manager": {
+                        "type": "string"
+                    },
+                    "override_verify_api_key_dependency": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_async",
+                    "mock_db_manager",
+                    "override_verify_api_key_dependency"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_snippet_db_error",
+            "description": "Test retrieving snippet when DB fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client_async": {
+                        "type": "string"
+                    },
+                    "mock_db_manager": {
+                        "type": "string"
+                    },
+                    "override_verify_api_key_dependency": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_async",
+                    "mock_db_manager",
+                    "override_verify_api_key_dependency"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_all_snippets",
+            "description": "Test retrieving all stored snippets",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client_async": {
+                        "type": "string"
+                    },
+                    "mock_db_manager": {
+                        "type": "string"
+                    },
+                    "override_verify_api_key_dependency": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_async",
+                    "mock_db_manager",
+                    "override_verify_api_key_dependency"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_api_key",
+            "description": "Test endpoint access with an invalid API key.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client_sync": {
+                        "type": "string"
+                    },
+                    "mock_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_sync",
+                    "mock_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_async_missing_api_key",
+            "description": "Test async request without API key header fails with 401.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_async_invalid_api_key",
+            "description": "Test async endpoint access with an invalid API key.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client_async": {
+                        "type": "string"
+                    },
+                    "mock_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_async",
+                    "mock_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_code_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mcp_client",
+            "description": "Provides a standard MCPIntegration instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_analyze_code",
+            "description": "Test the analyze_code method with patching.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_session_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_session_cls"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_format_code",
+            "description": "Test the format_code method with patching.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_session_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_session_cls"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_tests",
+            "description": "Test the run_tests method with patching.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_session_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_session_cls"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_test_result",
+            "description": "Test the get_test_result method with patching.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_session_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_session_cls"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_test_result_not_found",
+            "description": "Test handling a 404 error with patching.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_session_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_session_cls"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_analyze_code_server_error",
+            "description": "Test handling a 500 error with patching.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_session_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_session_cls"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "fixture_client_sync",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client_async",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "mock_process",
+            "description": "Create a mock for asyncio.subprocess.Process to simulate test runs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "status",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "mock_docker_client",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_docker_container_fail",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_docker_container_pass",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_run_tests_endpoint",
+            "description": "Test the /run-tests endpoint in Docker mode.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client_async": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_async"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_tests_local",
+            "description": "Test the run_tests_local function directly for Config Error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_create_subprocess": {
+                        "type": "string"
+                    },
+                    "mock_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_create_subprocess",
+                    "mock_process"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_tests_docker",
+            "description": "Test the run_tests_docker function directly, mocking Docker client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_client": {
+                        "type": "string"
+                    },
+                    "mock_docker_container_fail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_client",
+                    "mock_docker_container_fail"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_db_manager",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "override_get_db_manager",
+            "description": "Fixture to manage overriding the DB manager dependency.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_result_endpoint",
+            "description": "Test GET /results/{result_id} endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db_manager": {
+                        "type": "string"
+                    },
+                    "api_key_override": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db_manager",
+                    "api_key_override"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_result_endpoint_not_found",
+            "description": "Test GET /results/{result_id} when result not found.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db_manager": {
+                        "type": "string"
+                    },
+                    "api_key_override": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db_manager",
+                    "api_key_override"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_results_endpoint",
+            "description": "Test GET /results endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db_manager": {
+                        "type": "string"
+                    },
+                    "api_key_override": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db_manager",
+                    "api_key_override"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_last_failed_endpoint",
+            "description": "Test GET /last-failed endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db_manager": {
+                        "type": "string"
+                    },
+                    "api_key_override": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db_manager",
+                    "api_key_override"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_last_failed_endpoint_missing_param",
+            "description": "Test GET /last-failed endpoint without required parameter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "api_key_override": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_key_override"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_run_tests_streaming_local",
+            "description": "Test the /run-tests endpoint with local mode for streaming response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client_async": {
+                        "type": "string"
+                    },
+                    "mock_db_manager": {
+                        "type": "string"
+                    },
+                    "sample_project_path": {
+                        "type": "string"
+                    },
+                    "api_key_override": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_async",
+                    "mock_db_manager",
+                    "sample_project_path",
+                    "api_key_override"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_async_missing_api_key",
+            "description": "Test async request without API key header fails with 401.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_async_invalid_api_key",
+            "description": "Test async endpoint access with an invalid API key.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client_async": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_async"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "temp_db_override",
+            "description": "Fixture to temporarily override DB dependencies with a specific mock.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_list_results_auth",
+            "description": "Test authentication for the /results endpoint using a real DB.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_db_override": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_db_override"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "sample_project_path",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path_factory": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path_factory"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "api_key_override",
+            "description": "Provides an override function for verify_api_key.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_run_tests_streaming_local",
+            "description": "Test the /run-tests endpoint with local mode for streaming response.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client_async": {
+                        "type": "string"
+                    },
+                    "mock_db_manager": {
+                        "type": "string"
+                    },
+                    "sample_project_path": {
+                        "type": "string"
+                    },
+                    "api_key_override": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_async",
+                    "mock_db_manager",
+                    "sample_project_path",
+                    "api_key_override"
+                ]
+            },
+            "file": "tests\\unit\\test_mcp_test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

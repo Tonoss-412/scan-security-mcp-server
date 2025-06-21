@@ -1,0 +1,29 @@
+{
+    "tools": [
+        {
+            "name": "extract_file",
+            "description": "Extract content and metadata from a file using Tika.\n\n    Args:\n        file_path: Path to the file.\n        tika_url: URL of the running Tika server.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the file."
+                    },
+                    "tika_url": {
+                        "type": "string",
+                        "description": "URL of the running Tika server."
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "tika_url"
+                ]
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,239 @@
+{
+    "tools": [
+        {
+            "name": "cli",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\release.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "update_packages",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\release.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "generate_notes",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\release.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "generate_version",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\release.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "generate_matrix",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\release.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\git\\src\\mcp_server_git\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\git\\src\\mcp_server_git\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "MCP Git Server - Git functionality for MCP",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\git\\src\\mcp_server_git\\__init__.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "test_repository",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\git\\tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available time tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\time\\src\\mcp_server_time\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls for time queries.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\time\\src\\mcp_server_time\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "test_get_current_time",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_time": {
+                        "type": "string"
+                    },
+                    "timezone": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_time",
+                    "timezone",
+                    "expected"
+                ]
+            },
+            "file": "src\\time\\test\\time_server_test.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_convert_time_errors",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "source_tz": {
+                        "type": "string"
+                    },
+                    "time_str": {
+                        "type": "string"
+                    },
+                    "target_tz": {
+                        "type": "string"
+                    },
+                    "expected_error": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "source_tz",
+                    "time_str",
+                    "target_tz",
+                    "expected_error"
+                ]
+            },
+            "file": "src\\time\\test\\time_server_test.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_convert_time",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_time": {
+                        "type": "string"
+                    },
+                    "source_tz": {
+                        "type": "string"
+                    },
+                    "time_str": {
+                        "type": "string"
+                    },
+                    "target_tz": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_time",
+                    "source_tz",
+                    "time_str",
+                    "target_tz",
+                    "expected"
+                ]
+            },
+            "file": "src\\time\\test\\time_server_test.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        }
+    ]
+}

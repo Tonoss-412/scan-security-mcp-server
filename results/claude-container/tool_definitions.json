@@ -1,0 +1,4869 @@
+{
+    "tools": [
+        {
+            "name": "hello",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude-test-project\\src\\main.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Claude Container - Run Claude Code in isolated Docker environments",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "build",
+            "description": "Build Docker container for the current project",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "dockerfile": {
+                        "type": "string"
+                    },
+                    "force_rebuild": {
+                        "type": "string"
+                    },
+                    "claude_code_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dockerfile",
+                    "force_rebuild",
+                    "claude_code_path"
+                ]
+            },
+            "file": "claude_container\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "Run command in the container with Claude Code mounted",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "command": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "command"
+                ]
+            },
+            "file": "claude_container\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "start",
+            "description": "Start a new Claude Code task with a description prompt",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "continue_session": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "continue_session"
+                ]
+            },
+            "file": "claude_container\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "sessions",
+            "description": "List all Claude Code sessions for this project",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli.py",
+            "decorator": [
+                "cli.command"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Claude Container - Run Claude Code in isolated Docker environments",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli\\main.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "accept_permissions",
+            "description": "Accept Claude permissions for container usage.\n    \n    This command runs Claude in an interactive session to accept the\n    --dangerously-skip-permissions flag, which is required for running\n    tasks non-interactively.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli\\commands\\accept_permissions.py",
+            "decorator": [
+                "click.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "adapt",
+            "description": "Adapt an existing Docker image or docker-compose service for Claude Code.\n    \n    This command takes an existing Docker image or builds from a docker-compose file,\n    then allows you to install Claude Code and make necessary modifications.\n    \n    Examples:\n        claude-container adapt --image ubuntu:22.04\n        claude-container adapt --compose-file docker-compose.yml --service web\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli\\commands\\adapt.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "build",
+            "description": "Build Docker container for the project.\n    \n    By default, builds a container with your project code included.\n    Use --minimal to build an empty container without code.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "force_rebuild": {
+                        "type": "string"
+                    },
+                    "no_cache": {
+                        "type": "string"
+                    },
+                    "tag": {
+                        "type": "string"
+                    },
+                    "minimal": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "force_rebuild",
+                    "no_cache",
+                    "tag",
+                    "minimal"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\build.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "check_permissions",
+            "description": "Check if Claude permissions are already accepted.\n    \n    This command runs a test Claude command with the --dangerously-skip-permissions\n    flag to verify if permissions have been accepted.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli\\commands\\check_permissions.py",
+            "decorator": [
+                "click.command"
+            ]
+        },
+        {
+            "name": "clean",
+            "description": "Clean up container data, images, and optionally task containers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "containers": {
+                        "type": "string"
+                    },
+                    "force": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "containers",
+                    "force"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\clean.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "config",
+            "description": "Manage container configuration",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli\\commands\\config.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "env",
+            "description": "Set environment variable for container",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "key",
+                    "value"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\config.py",
+            "decorator": [
+                "config.command",
+                "click.argument",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "runtime",
+            "description": "Set runtime version for container",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "version": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "version"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\config.py",
+            "decorator": [
+                "config.command",
+                "click.argument",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "add_command",
+            "description": "Add custom command to run during container build",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "command": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "command"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\config.py",
+            "decorator": [
+                "config.command",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "show",
+            "description": "Display current container configuration",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli\\commands\\config.py",
+            "decorator": [
+                "config.command"
+            ]
+        },
+        {
+            "name": "reset",
+            "description": "Reset container configuration to defaults",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli\\commands\\config.py",
+            "decorator": [
+                "config.command"
+            ]
+        },
+        {
+            "name": "copy",
+            "description": "Copy files or directories into the container.\n    \n    Examples:\n        claude-container copy ./src /workspace/src\n        claude-container copy package.json /workspace/\n        claude-container copy . /workspace/\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "source": {
+                        "type": "string"
+                    },
+                    "destination": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "source",
+                    "destination"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\copy.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "customize",
+            "description": "Customize the container environment interactively.\n    \n    This command allows you to:\n    - Enter the container with a shell\n    - Install packages, dependencies, tools\n    - Configure the environment\n    - Exit and automatically save changes as a new image\n    \n    Perfect for non-Node.js projects or custom setups.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "base_image": {
+                        "type": "string"
+                    },
+                    "tag": {
+                        "type": "string"
+                    },
+                    "no_commit": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "base_image",
+                    "tag",
+                    "no_commit"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\customize.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "login",
+            "description": "Start a container and open a bash shell for Claude authentication.\n    \n    Since authentication is shared with the host, logging in will\n    authenticate Claude globally.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli\\commands\\login.py",
+            "decorator": [
+                "click.command"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "Run command in the container with Claude Code mounted",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "command": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "command"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\run.py",
+            "decorator": [
+                "click.command",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "add_server",
+            "description": "Add or update an MCP server configuration.\n    \n    NAME: Server name (e.g., 'context7', 'telemetry')\n    CONFIG: JSON configuration string or @file.json\n    \n    Examples:\n        # Add stdio server\n        claude-container mcp add context7 '{\"type\": \"stdio\", \"command\": \"npx\", \"args\": [\"-y\", \"@upstash/context7-mcp\"]}'\n        \n        # Add http server\n        claude-container mcp add telemetry '{\"type\": \"http\", \"url\": \"https://mcp.example.com\"}'\n        \n        # Load from file\n        claude-container mcp add myserver @server-config.json\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\mcp\\add_server.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.argument",
+                "click.pass_context"
+            ]
+        },
+        {
+            "name": "list_servers",
+            "description": "List all registered MCP servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\mcp\\list_servers.py",
+            "decorator": [
+                "click.command",
+                "click.pass_context"
+            ]
+        },
+        {
+            "name": "remove_server",
+            "description": "Remove an MCP server configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\mcp\\remove_server.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.option",
+                "click.pass_context"
+            ]
+        },
+        {
+            "name": "mcp",
+            "description": "Manage MCP (Model Context Protocol) servers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli\\commands\\mcp\\__init__.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "cleanup",
+            "description": "Remove all hanging task containers for this project",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "force": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "force"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\task\\cleanup.py",
+            "decorator": [
+                "click.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "continue_task",
+            "description": "Continue an existing task with additional feedback",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_identifier": {
+                        "type": "string"
+                    },
+                    "feedback": {
+                        "type": "string"
+                    },
+                    "feedback_file": {
+                        "type": "string"
+                    },
+                    "mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "task_identifier",
+                    "feedback",
+                    "feedback_file",
+                    "mcp"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\task\\continue_task.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "Create a new task and run it to completion",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "branch": {
+                        "type": "string"
+                    },
+                    "description_file": {
+                        "type": "string"
+                    },
+                    "mcp": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "branch",
+                    "description_file",
+                    "mcp"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\task\\create.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "debug_settings",
+            "description": "Debug command to verify settings setup (deprecated)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli\\commands\\task\\debug_settings.py",
+            "decorator": [
+                "click.command"
+            ]
+        },
+        {
+            "name": "delete",
+            "description": "Delete a task and all associated data",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "task_id"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\task\\delete.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.confirmation_option"
+            ]
+        },
+        {
+            "name": "history",
+            "description": "Show task execution history",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string"
+                    },
+                    "branch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "branch"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\task\\history.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "list",
+            "description": "List all tasks (both stored and running containers)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "status"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\task\\list_tasks.py",
+            "decorator": [
+                "click.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "logs",
+            "description": "View task execution logs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_id": {
+                        "type": "string"
+                    },
+                    "follow": {
+                        "type": "string"
+                    },
+                    "feedback": {
+                        "type": "string"
+                    },
+                    "log_type": {
+                        "type": "string"
+                    },
+                    "continuation": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "task_id",
+                    "follow",
+                    "feedback",
+                    "log_type",
+                    "continuation"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\task\\logs.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "Search tasks by description",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\task\\search.py",
+            "decorator": [
+                "click.command",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "show",
+            "description": "Show detailed information about a task",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_id": {
+                        "type": "string"
+                    },
+                    "feedback_history": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "task_id",
+                    "feedback_history"
+                ]
+            },
+            "file": "claude_container\\cli\\commands\\task\\show.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.option"
+            ]
+        },
+        {
+            "name": "start",
+            "description": "(Deprecated) Use 'task create' instead",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli\\commands\\task\\start.py",
+            "decorator": [
+                "click.command"
+            ]
+        },
+        {
+            "name": "task",
+            "description": "Manage Claude tasks",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\cli\\commands\\task\\__init__.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "Create from dictionary.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "claude_container\\models\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "find_claude_code",
+            "description": "Try to find Claude Code executable.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\utils\\path_finder.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "detect_project_type",
+            "description": "Detect the type of project based on files present.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\utils\\path_finder.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "check_git_ssh_origin",
+            "description": "Check if Git remote origin uses SSH.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_container\\utils\\path_finder.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "cli_runner",
+            "description": "Provides a Click CLI runner for testing commands.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_docker_client",
+            "description": "Provides a mocked Docker client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_project_dir",
+            "description": "Creates a temporary project directory with basic structure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_config",
+            "description": "Provides a mock configuration object.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_session",
+            "description": "Provides a mock session object.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_claude_executable",
+            "description": "Mock the Claude executable path for all tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "isolated_cli_runner",
+            "description": "Provides a CLI runner with isolated filesystem.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_adapt_with_image",
+            "description": "Test adapting an existing Docker image.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_project_context": {
+                        "type": "string"
+                    },
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "mock_home": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_project_context",
+                    "mock_get_docker_client",
+                    "mock_home"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_adapt.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_adapt_with_compose_file",
+            "description": "Test adapting from docker-compose file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_project_context": {
+                        "type": "string"
+                    },
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "mock_home": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_project_context",
+                    "mock_get_docker_client",
+                    "mock_home",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_adapt.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_adapt_pull_image_if_not_exists",
+            "description": "Test that adapt pulls image if it doesn't exist locally.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_project_context": {
+                        "type": "string"
+                    },
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "mock_home": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_project_context",
+                    "mock_get_docker_client",
+                    "mock_home"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_adapt.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_adapt_custom_tag",
+            "description": "Test adapt with custom tag.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_project_context": {
+                        "type": "string"
+                    },
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "mock_home": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_project_context",
+                    "mock_get_docker_client",
+                    "mock_home"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_adapt.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_adapt_compose_build_failure",
+            "description": "Test handling of docker-compose build failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_project_context": {
+                        "type": "string"
+                    },
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "mock_home": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_project_context",
+                    "mock_get_docker_client",
+                    "mock_home",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_adapt.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_adapt_invalid_compose_file",
+            "description": "Test handling of invalid docker-compose file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_project_context": {
+                        "type": "string"
+                    },
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "mock_home": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_project_context",
+                    "mock_get_docker_client",
+                    "mock_home",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_adapt.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_adapt_no_cache_option",
+            "description": "Test adapt with --no-cache option.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_project_context": {
+                        "type": "string"
+                    },
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "mock_home": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_project_context",
+                    "mock_get_docker_client",
+                    "mock_home",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_adapt.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "cli_runner",
+            "description": "Create a CLI runner.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\cli\\commands\\test_auth_check.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_auth_check_command_image_not_exists",
+            "description": "Test auth_check when image doesn't exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_runner_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_runner_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_auth_check.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_auth_check_command_authenticated",
+            "description": "Test auth_check when authenticated.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_runner_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_runner_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_auth_check.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_auth_check_command_not_authenticated",
+            "description": "Test auth_check when not authenticated.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_runner_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_runner_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_auth_check.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_check_claude_auth_function_success",
+            "description": "Test check_claude_auth function returns True when authenticated.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_context": {
+                        "type": "string"
+                    },
+                    "mock_runner_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_context",
+                    "mock_runner_class"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_auth_check.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_check_claude_auth_function_failure",
+            "description": "Test check_claude_auth function returns False when not authenticated.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_context": {
+                        "type": "string"
+                    },
+                    "mock_runner_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_context",
+                    "mock_runner_class"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_auth_check.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_build_command_success",
+            "description": "Test successful build command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_generator_class": {
+                        "type": "string"
+                    },
+                    "mock_config_manager_class": {
+                        "type": "string"
+                    },
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "mock_subprocess": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_generator_class",
+                    "mock_config_manager_class",
+                    "mock_get_docker_client",
+                    "mock_subprocess",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_build.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_build_command_docker_not_running",
+            "description": "Test build command when Docker is not running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_docker_client",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_build.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_build_command_image_exists",
+            "description": "Test build command when image already exists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_docker_client",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_build.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_build_command_force_rebuild",
+            "description": "Test build command with --force-rebuild flag.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_generator_class": {
+                        "type": "string"
+                    },
+                    "mock_config_manager_class": {
+                        "type": "string"
+                    },
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "mock_subprocess": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_generator_class",
+                    "mock_config_manager_class",
+                    "mock_get_docker_client",
+                    "mock_subprocess",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_build.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_build_command_no_git_config",
+            "description": "Test build command when git config is not set.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "mock_subprocess": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_docker_client",
+                    "mock_subprocess",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_build.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_build_command_moves_dockerignore",
+            "description": "Test that build command temporarily moves .dockerignore file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_generator_class": {
+                        "type": "string"
+                    },
+                    "mock_config_manager_class": {
+                        "type": "string"
+                    },
+                    "mock_get_docker_client": {
+                        "type": "string"
+                    },
+                    "mock_subprocess": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_generator_class",
+                    "mock_config_manager_class",
+                    "mock_get_docker_client",
+                    "mock_subprocess",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_build.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_clean_command_success",
+            "description": "Test successful clean command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "mock_rmtree": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "mock_rmtree"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_clean.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_clean_command_docker_not_running",
+            "description": "Test clean command when Docker is not running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_clean.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_clean_command_image_not_exists",
+            "description": "Test clean command when Docker image doesn't exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "mock_rmtree": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "mock_rmtree"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_clean.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_clean_command_with_containers",
+            "description": "Test clean command with --containers flag.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "mock_rmtree": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "mock_rmtree"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_clean.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_clean_command_with_containers_none_found",
+            "description": "Test clean command with --containers flag when no containers found.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "mock_rmtree": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "mock_rmtree"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_clean.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_clean_command_with_force",
+            "description": "Test clean command with --force flag.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "mock_rmtree": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "mock_rmtree"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_clean.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_config_env_command",
+            "description": "Test setting environment variable.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_config_manager_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_config_manager_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_config.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_config_runtime_command",
+            "description": "Test setting runtime version.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_config_manager_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_config_manager_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_config.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_config_show_command",
+            "description": "Test showing configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_config_manager_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_config_manager_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_config.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_config_show_no_config",
+            "description": "Test showing configuration when none exists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_config_manager_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_config_manager_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_config.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_config_reset_command",
+            "description": "Test resetting configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_config_manager_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_config_manager_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_config.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "cli_runner",
+            "description": "Create a CLI runner.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\cli\\commands\\test_login.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_login_command_image_not_exists",
+            "description": "Test login when image doesn't exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_runner_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_runner_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_login.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_login_command_success",
+            "description": "Test successful login.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_runner_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_runner_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_login.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_success",
+            "description": "Test successful run command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_client_class": {
+                        "type": "string"
+                    },
+                    "mock_runner_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_client_class",
+                    "mock_runner_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_run.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_docker_not_running",
+            "description": "Test run command when Docker is not running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_client_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_client_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_run.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_with_complex_args",
+            "description": "Test run command with complex arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_client_class": {
+                        "type": "string"
+                    },
+                    "mock_runner_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_client_class",
+                    "mock_runner_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_run.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_no_args",
+            "description": "Test run command with no arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_client_class": {
+                        "type": "string"
+                    },
+                    "mock_runner_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_client_class",
+                    "mock_runner_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_run.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "cli_runner",
+            "description": "Create a CLI runner.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_task",
+            "description": "Create a mock task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_create_no_auth",
+            "description": "Test task create when authentication fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_auth": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_auth",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_no_container",
+            "description": "Test task create when no container exists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_storage_runner": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_storage_runner",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_success",
+            "description": "Test successful task create.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_auth": {
+                        "type": "string"
+                    },
+                    "mock_get_storage_runner": {
+                        "type": "string"
+                    },
+                    "mock_subprocess": {
+                        "type": "string"
+                    },
+                    "mock_mcp_manager_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_auth",
+                    "mock_get_storage_runner",
+                    "mock_subprocess",
+                    "mock_mcp_manager_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_branch_exists",
+            "description": "Test task create when branch already exists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_auth": {
+                        "type": "string"
+                    },
+                    "mock_get_storage_runner": {
+                        "type": "string"
+                    },
+                    "mock_subprocess": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_auth",
+                    "mock_get_storage_runner",
+                    "mock_subprocess",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_continue_no_auth",
+            "description": "Test task continue when authentication fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_auth": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_auth",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_continue_success",
+            "description": "Test successful task continue.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_auth": {
+                        "type": "string"
+                    },
+                    "mock_runner_class": {
+                        "type": "string"
+                    },
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "mock_mcp_manager_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_auth",
+                    "mock_runner_class",
+                    "mock_storage_class",
+                    "mock_mcp_manager_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_continue_no_commit",
+            "description": "Test task continue when Claude doesn't make a commit.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_auth": {
+                        "type": "string"
+                    },
+                    "mock_runner_class": {
+                        "type": "string"
+                    },
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "mock_mcp_manager_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_auth",
+                    "mock_runner_class",
+                    "mock_storage_class",
+                    "mock_mcp_manager_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_list_with_tasks",
+            "description": "Test list command with stored tasks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_client_class": {
+                        "type": "string"
+                    },
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_client_class",
+                    "mock_storage_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_list_filter_by_status",
+            "description": "Test list command with status filter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_show_task",
+            "description": "Test show command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_show_task_not_found",
+            "description": "Test show command when task not found.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_delete_task",
+            "description": "Test delete command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_delete_task_cancelled",
+            "description": "Test delete command when cancelled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_short_id_support",
+            "description": "Test that short IDs work for various commands.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_continue_by_pr_url",
+            "description": "Test continuing a task by PR URL.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_auth": {
+                        "type": "string"
+                    },
+                    "mock_runner_class": {
+                        "type": "string"
+                    },
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_auth",
+                    "mock_runner_class",
+                    "mock_storage_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_with_error_after_task_created",
+            "description": "Test task create when an error occurs after task is created.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_auth": {
+                        "type": "string"
+                    },
+                    "mock_get_storage_runner": {
+                        "type": "string"
+                    },
+                    "mock_subprocess": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_auth",
+                    "mock_get_storage_runner",
+                    "mock_subprocess",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_logs_command",
+            "description": "Test task logs command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner",
+                    "mock_task",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_logs_command_with_feedback",
+            "description": "Test task logs command with --feedback flag.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_logs_command_no_logs",
+            "description": "Test task logs command when no logs exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_command_with_results",
+            "description": "Test task search command with matching results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_command_no_results",
+            "description": "Test task search command with no matching results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_command_multiple_results",
+            "description": "Test task search command with multiple matching results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_history_command_default",
+            "description": "Test task history command with default options.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_history_command_with_limit",
+            "description": "Test task history command with custom limit.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_history_command_with_branch",
+            "description": "Test task history command filtered by branch.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    },
+                    "mock_task": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner",
+                    "mock_task"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_history_command_no_results",
+            "description": "Test task history command with no results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_history_command_with_status_breakdown",
+            "description": "Test task history command shows status breakdown when multiple statuses.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_storage_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_storage_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_cleanup_command_with_containers",
+            "description": "Test cleanup command with containers to remove.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_cleanup_command_no_containers",
+            "description": "Test cleanup command when no containers exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_cleanup_command_cancelled",
+            "description": "Test cleanup command when user cancels.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_cleanup_command_with_failures",
+            "description": "Test cleanup command when some containers fail to remove.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "cli_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "cli_runner"
+                ]
+            },
+            "file": "tests\\cli\\commands\\test_task.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "runner",
+            "description": "Create a Click test runner.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\cli\\commands\\mcp\\test_mcp_commands.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_project",
+            "description": "Create a temporary project directory and change to it.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    },
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path",
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\cli\\commands\\mcp\\test_mcp_commands.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_authenticated_succeeds",
+            "description": "Test that authenticated user passes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_check_auth": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_check_auth"
+                ]
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_unauthenticated_exits",
+            "description": "Test that unauthenticated user exits.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_check_auth": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_check_auth"
+                ]
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_uses_custom_working_directory",
+            "description": "Test with mocked working directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_cwd": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_cwd"
+                ]
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_success_case",
+            "description": "Test successful initialization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    },
+                    "mock_storage_cls": {
+                        "type": "string"
+                    },
+                    "mock_runner_cls": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context",
+                    "mock_storage_cls",
+                    "mock_runner_cls",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_exits_if_container_not_built",
+            "description": "Test that it exits if container not built.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_success_case",
+            "description": "Test successful Docker client creation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_cls"
+                ]
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_exits_on_error",
+            "description": "Test that it exits on Docker error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_cls"
+                ]
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_returns_existing_config",
+            "description": "Test that it returns existing config.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    },
+                    "mock_config_cls": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context",
+                    "mock_config_cls",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_creates_new_config",
+            "description": "Test that it creates new config if none exists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    },
+                    "mock_config_cls": {
+                        "type": "string"
+                    },
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context",
+                    "mock_config_cls",
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "cmd",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "click.command"
+            ]
+        },
+        {
+            "name": "test_successful_edit",
+            "description": "Test successful editor operation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env_get": {
+                        "type": "string"
+                    },
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env_get",
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_editor_failure",
+            "description": "Test editor failure returns empty string.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env_get": {
+                        "type": "string"
+                    },
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env_get",
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "mock.patch",
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "test_no_editor_configured",
+            "description": "Test fallback when no editor configured.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_env_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_env_get"
+                ]
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "mock.patch"
+            ]
+        },
+        {
+            "name": "cmd",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "click.command"
+            ]
+        },
+        {
+            "name": "cmd",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "click.command"
+            ]
+        },
+        {
+            "name": "cmd",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\cli\\helpers\\test_helpers.py",
+            "decorator": [
+                "click.command"
+            ]
+        },
+        {
+            "name": "test_container_runner_initialization",
+            "description": "Test that ContainerRunner initializes correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_image_not_exists",
+            "description": "Test running command when image doesn't exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    },
+                    "capsys": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir",
+                    "capsys"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_success",
+            "description": "Test successful command run.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_persistent_container",
+            "description": "Test creating a persistent container for tasks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_volumes",
+            "description": "Test getting volume mappings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_path_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_path_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_interactive_container",
+            "description": "Test running interactive container with subprocess.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_subprocess_run": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_subprocess_run",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_no_command",
+            "description": "Test running command with no arguments (interactive shell).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_claude_interactive",
+            "description": "Test running interactive claude command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_claude_non_interactive_success",
+            "description": "Test running non-interactive claude command successfully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    },
+                    "capsys": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir",
+                    "capsys"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_claude_non_interactive_failure",
+            "description": "Test running non-interactive claude command that fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    },
+                    "capsys": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir",
+                    "capsys"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_shell_syntax",
+            "description": "Test running command with shell syntax.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_command_container_error",
+            "description": "Test handling container errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    },
+                    "capsys": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir",
+                    "capsys"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_persistent_container_failure",
+            "description": "Test handling failure when creating persistent container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_write_file_success",
+            "description": "Test successfully writing a file to container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_write_file_with_quotes",
+            "description": "Test writing file content with quotes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_write_file_failure",
+            "description": "Test handling write file failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_write_file_exception",
+            "description": "Test handling exception during file write.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_exec_in_container_as_user_with_multiline_args",
+            "description": "Test executing command with multi-line arguments properly escapes them.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_service_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_service_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_container_runner.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_with_claude",
+            "description": "Test generating Dockerfile with Claude.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_generate_dockerfile": {
+                        "type": "string"
+                    },
+                    "mock_config_manager_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_generate_dockerfile",
+                    "mock_config_manager_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_dockerfile_generator.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_cached",
+            "description": "Test generating cached Dockerfile.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_generate_dockerfile": {
+                        "type": "string"
+                    },
+                    "mock_config_manager_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_generate_dockerfile",
+                    "mock_config_manager_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_dockerfile_generator.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_with_claude_no_config",
+            "description": "Test generating Dockerfile with Claude when no config exists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_generate_dockerfile": {
+                        "type": "string"
+                    },
+                    "mock_config_manager_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_generate_dockerfile",
+                    "mock_config_manager_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_dockerfile_generator.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_cached_no_config",
+            "description": "Test generating cached Dockerfile when no config exists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_generate_dockerfile": {
+                        "type": "string"
+                    },
+                    "mock_config_manager_class": {
+                        "type": "string"
+                    },
+                    "temp_project_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_generate_dockerfile",
+                    "mock_config_manager_class",
+                    "temp_project_dir"
+                ]
+            },
+            "file": "tests\\core\\test_dockerfile_generator.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_docker_client_initialization_success",
+            "description": "Test that DockerClient initializes correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_docker_client_initialization_daemon_not_running",
+            "description": "Test initialization when Docker daemon is not running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_image_exists_true",
+            "description": "Test checking if image exists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_image_exists_false",
+            "description": "Test checking if image doesn't exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_build_image",
+            "description": "Test building a Docker image.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_list_task_containers",
+            "description": "Test listing task containers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_cleanup_task_containers",
+            "description": "Test cleaning up task containers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_docker_client_initialization_generic_docker_error",
+            "description": "Test initialization with generic Docker error.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_client",
+            "description": "Test getting the underlying Docker client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_remove_image_success",
+            "description": "Test removing an image successfully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_remove_image_failure",
+            "description": "Test removing an image that doesn't exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_print": {
+                        "type": "string"
+                    },
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_print",
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_container",
+            "description": "Test running a container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_copy_to_container",
+            "description": "Test copying a file to a container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_cleanup_task_containers_with_exceptions",
+            "description": "Test cleanup handling exceptions gracefully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_docker_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_docker_from_env"
+                ]
+            },
+            "file": "tests\\core\\test_docker_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "temp_storage_dir",
+            "description": "Create a temporary storage directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\core\\test_task_storage.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "storage_manager",
+            "description": "Create a TaskStorageManager instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_storage_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_storage_dir"
+                ]
+            },
+            "file": "tests\\core\\test_task_storage.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_init_success",
+            "description": "Test successful initialization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_init_docker_not_running",
+            "description": "Test initialization when Docker is not running.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_init_other_error",
+            "description": "Test initialization with other Docker errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_build_image_success",
+            "description": "Test successful image build.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_build_image_failure",
+            "description": "Test image build failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_container_success",
+            "description": "Test successful container creation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_container_image_not_found",
+            "description": "Test container creation with non-existent image.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_exec_in_container_success",
+            "description": "Test successful command execution in container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_remove_container_success",
+            "description": "Test successful container removal.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_remove_container_not_found",
+            "description": "Test removing non-existent container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_image_exists_true",
+            "description": "Test image_exists returns True when image exists.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_image_exists_false",
+            "description": "Test image_exists returns False when image doesn't exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_remove_image_success",
+            "description": "Test successful image removal.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_remove_image_not_found",
+            "description": "Test removing non-existent image.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_list_containers_success",
+            "description": "Test successful container listing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_container_success",
+            "description": "Test successful container retrieval.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_container_not_found",
+            "description": "Test getting non-existent container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_container_success",
+            "description": "Test successful container run.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_container_image_not_found",
+            "description": "Test running container with non-existent image.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_copy_to_container_success",
+            "description": "Test successful file copy to container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_bytesio": {
+                        "type": "string"
+                    },
+                    "mock_tarfile": {
+                        "type": "string"
+                    },
+                    "mock_from_env": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_bytesio",
+                    "mock_tarfile",
+                    "mock_from_env"
+                ]
+            },
+            "file": "tests\\services\\test_docker_service.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_init_success",
+            "description": "Test successful initialization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_is_git_repo": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_is_git_repo"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_init_not_git_repo",
+            "description": "Test initialization in non-git directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_is_git_repo": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_is_git_repo"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_git_command_success",
+            "description": "Test successful git command execution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_git_command_failure",
+            "description": "Test git command failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_checkout_branch_success",
+            "description": "Test successful branch checkout.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_checkout_branch_create",
+            "description": "Test creating and checking out new branch.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_push_branch_success",
+            "description": "Test successful branch push.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_commit_all_changes_success",
+            "description": "Test successful commit of all changes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_commit_all_changes_no_changes",
+            "description": "Test commit when no changes exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_branch_exists_local_true",
+            "description": "Test checking if branch exists locally (true case).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_branch_exists_local_false",
+            "description": "Test checking if branch exists locally (false case).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_branch_exists_remote_true",
+            "description": "Test checking if branch exists on remote (true case).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_branch_exists_remote_false",
+            "description": "Test checking if branch exists on remote (false case).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_current_branch_success",
+            "description": "Test getting current branch name.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_current_branch_failure",
+            "description": "Test failure to get current branch.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_remote_url_success",
+            "description": "Test getting remote URL.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_tag_simple",
+            "description": "Test creating simple tag.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_tag_annotated",
+            "description": "Test creating annotated tag.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_delete_branch_success",
+            "description": "Test successful branch deletion.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_delete_branch_force",
+            "description": "Test force branch deletion.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_commit_hash_success",
+            "description": "Test getting commit hash.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_uncommitted_changes",
+            "description": "Test getting list of uncommitted changes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_uncommitted_changes_empty",
+            "description": "Test getting uncommitted changes when none exist.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_stash_changes_success",
+            "description": "Test stashing changes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_stash_pop_success",
+            "description": "Test popping stash.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_run": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_run"
+                ]
+            },
+            "file": "tests\\services\\test_git_service.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "temp_project",
+            "description": "Create a temporary project directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\utils\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mcp_manager",
+            "description": "Create an MCP manager instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_project": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_project"
+                ]
+            },
+            "file": "tests\\utils\\test_mcp_manager.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

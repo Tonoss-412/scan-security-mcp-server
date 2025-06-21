@@ -1,0 +1,1298 @@
+{
+    "tools": [
+        {
+            "name": "load_server_config",
+            "description": "Load MCP server configuration from JSON file",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "app\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "_get_config_path",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\config.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "llm",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "sandbox",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "browser_config",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "search_config",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "mcp_config",
+            "description": "Get the MCP configuration",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "workspace_root",
+            "description": "Get the workspace root directory",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "root_path",
+            "description": "Get the root path of the application",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "format_messages",
+            "description": "\n        Format messages for LLM by converting them to OpenAI message format.\n\n        Args:\n            messages: List of messages that can be either dict or Message objects\n            supports_images: Flag indicating if the target model supports image inputs\n\n        Returns:\n            List[dict]: List of formatted messages in OpenAI format\n\n        Raises:\n            ValueError: If messages are invalid or missing required fields\n            TypeError: If unsupported message types are provided\n\n        Examples:\n            >>> msgs = [\n            ...     Message.system_message(\"You are a helpful assistant\"),\n            ...     {\"role\": \"user\", \"content\": \"Hello\"},\n            ...     Message.user_message(\"How are you?\")\n            ... ]\n            >>> formatted = LLM.format_messages(msgs)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "type": "string",
+                        "description": "List of messages that can be either dict or Message objects"
+                    },
+                    "supports_images": {
+                        "type": "string",
+                        "description": "Flag indicating if the target model supports image inputs"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If messages are invalid or missing required fields"
+                    },
+                    "TypeError": {
+                        "type": "string",
+                        "description": "If unsupported message types are provided"
+                    },
+                    "Examples": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "messages",
+                    "supports_images",
+                    "Returns",
+                    "Raises",
+                    "ValueError",
+                    "TypeError",
+                    "Examples"
+                ]
+            },
+            "file": "app\\llm.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "ask",
+            "description": "\n        Send a prompt to the LLM and get the response.\n\n        Args:\n            messages: List of conversation messages\n            system_msgs: Optional system messages to prepend\n            stream (bool): Whether to stream the response\n            temperature (float): Sampling temperature for the response\n\n        Returns:\n            str: The generated response\n\n        Raises:\n            TokenLimitExceeded: If token limits are exceeded\n            ValueError: If messages are invalid or response is empty\n            OpenAIError: If API call fails after retries\n            Exception: For unexpected errors\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "type": "string",
+                        "description": "List of conversation messages"
+                    },
+                    "system_msgs": {
+                        "type": "string",
+                        "description": "Optional system messages to prepend"
+                    },
+                    "stream": {
+                        "type": "boolean",
+                        "description": "Whether to stream the response"
+                    },
+                    "temperature": {
+                        "type": "number",
+                        "description": "Sampling temperature for the response"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The generated response"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "TokenLimitExceeded": {
+                        "type": "string",
+                        "description": "If token limits are exceeded"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If messages are invalid or response is empty"
+                    },
+                    "OpenAIError": {
+                        "type": "string",
+                        "description": "If API call fails after retries"
+                    },
+                    "Exception": {
+                        "type": "string",
+                        "description": "For unexpected errors"
+                    }
+                },
+                "required": [
+                    "messages",
+                    "system_msgs",
+                    "stream",
+                    "temperature",
+                    "Returns",
+                    "str",
+                    "Raises",
+                    "TokenLimitExceeded",
+                    "ValueError",
+                    "OpenAIError",
+                    "Exception"
+                ]
+            },
+            "file": "app\\llm.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "ask_with_images",
+            "description": "\n        Send a prompt with images to the LLM and get the response.\n\n        Args:\n            messages: List of conversation messages\n            images: List of image URLs or image data dictionaries\n            system_msgs: Optional system messages to prepend\n            stream (bool): Whether to stream the response\n            temperature (float): Sampling temperature for the response\n\n        Returns:\n            str: The generated response\n\n        Raises:\n            TokenLimitExceeded: If token limits are exceeded\n            ValueError: If messages are invalid or response is empty\n            OpenAIError: If API call fails after retries\n            Exception: For unexpected errors\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "type": "string",
+                        "description": "List of conversation messages"
+                    },
+                    "images": {
+                        "type": "string",
+                        "description": "List of image URLs or image data dictionaries"
+                    },
+                    "system_msgs": {
+                        "type": "string",
+                        "description": "Optional system messages to prepend"
+                    },
+                    "stream": {
+                        "type": "boolean",
+                        "description": "Whether to stream the response"
+                    },
+                    "temperature": {
+                        "type": "number",
+                        "description": "Sampling temperature for the response"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The generated response"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "TokenLimitExceeded": {
+                        "type": "string",
+                        "description": "If token limits are exceeded"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If messages are invalid or response is empty"
+                    },
+                    "OpenAIError": {
+                        "type": "string",
+                        "description": "If API call fails after retries"
+                    },
+                    "Exception": {
+                        "type": "string",
+                        "description": "For unexpected errors"
+                    }
+                },
+                "required": [
+                    "messages",
+                    "images",
+                    "system_msgs",
+                    "stream",
+                    "temperature",
+                    "Returns",
+                    "str",
+                    "Raises",
+                    "TokenLimitExceeded",
+                    "ValueError",
+                    "OpenAIError",
+                    "Exception"
+                ]
+            },
+            "file": "app\\llm.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "ask_tool",
+            "description": "\n        Ask LLM using functions/tools and return the response.\n\n        Args:\n            messages: List of conversation messages\n            system_msgs: Optional system messages to prepend\n            timeout: Request timeout in seconds\n            tools: List of tools to use\n            tool_choice: Tool choice strategy\n            temperature: Sampling temperature for the response\n            **kwargs: Additional completion arguments\n\n        Returns:\n            ChatCompletionMessage: The model's response\n\n        Raises:\n            TokenLimitExceeded: If token limits are exceeded\n            ValueError: If tools, tool_choice, or messages are invalid\n            OpenAIError: If API call fails after retries\n            Exception: For unexpected errors\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "messages": {
+                        "type": "string",
+                        "description": "List of conversation messages"
+                    },
+                    "system_msgs": {
+                        "type": "string",
+                        "description": "Optional system messages to prepend"
+                    },
+                    "timeout": {
+                        "type": "string",
+                        "description": "Request timeout in seconds"
+                    },
+                    "tools": {
+                        "type": "string",
+                        "description": "List of tools to use"
+                    },
+                    "tool_choice": {
+                        "type": "string",
+                        "description": "Tool choice strategy"
+                    },
+                    "temperature": {
+                        "type": "string",
+                        "description": "Sampling temperature for the response"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "ChatCompletionMessage": {
+                        "type": "string",
+                        "description": "The model's response"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "TokenLimitExceeded": {
+                        "type": "string",
+                        "description": "If token limits are exceeded"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If tools, tool_choice, or messages are invalid"
+                    },
+                    "OpenAIError": {
+                        "type": "string",
+                        "description": "If API call fails after retries"
+                    },
+                    "Exception": {
+                        "type": "string",
+                        "description": "For unexpected errors"
+                    }
+                },
+                "required": [
+                    "messages",
+                    "system_msgs",
+                    "timeout",
+                    "tools",
+                    "tool_choice",
+                    "temperature",
+                    "Returns",
+                    "ChatCompletionMessage",
+                    "Raises",
+                    "TokenLimitExceeded",
+                    "ValueError",
+                    "OpenAIError",
+                    "Exception"
+                ]
+            },
+            "file": "app\\llm.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "initialize_agent",
+            "description": "Initialize agent with default settings if not provided.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\agent\\base.py",
+            "decorator": [
+                "model_validator"
+            ]
+        },
+        {
+            "name": "state_context",
+            "description": "Context manager for safe agent state transitions.\n\n        Args:\n            new_state: The state to transition to during the context.\n\n        Yields:\n            None: Allows execution within the new state.\n\n        Raises:\n            ValueError: If the new_state is invalid.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "new_state": {
+                        "type": "string",
+                        "description": "The state to transition to during the context."
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "None": {
+                        "type": "string",
+                        "description": "Allows execution within the new state."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If the new_state is invalid."
+                    }
+                },
+                "required": [
+                    "new_state",
+                    "Yields",
+                    "None",
+                    "Raises",
+                    "ValueError"
+                ]
+            },
+            "file": "app\\agent\\base.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "step",
+            "description": "Execute a single step in the agent's workflow.\n\n        Must be implemented by subclasses to define specific behavior.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\agent\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "messages",
+            "description": "Retrieve a list of messages from the agent's memory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\agent\\base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "messages",
+            "description": "Set the list of messages in the agent's memory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\agent\\base.py",
+            "decorator": [
+                "messages.setter"
+            ]
+        },
+        {
+            "name": "initialize_helper",
+            "description": "Initialize basic components synchronously.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\agent\\manus.py",
+            "decorator": [
+                "model_validator"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "Factory method to create and properly initialize a Manus instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "app\\agent\\manus.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "think",
+            "description": "Process current state and decide next action",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\agent\\react.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "act",
+            "description": "Execute decided actions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\agent\\react.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "Creates sandbox.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\sandbox\\client.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "run_command",
+            "description": "Executes command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\sandbox\\client.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "copy_from",
+            "description": "Copies file from container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\sandbox\\client.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "copy_to",
+            "description": "Copies file to container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\sandbox\\client.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "read_file",
+            "description": "Reads file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\sandbox\\client.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "write_file",
+            "description": "Writes file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\sandbox\\client.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "cleanup",
+            "description": "Cleans up resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\sandbox\\client.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "sandbox_operation",
+            "description": "Context manager for sandbox operations.\n\n        Provides concurrency control and usage time updates.\n\n        Args:\n            sandbox_id: Sandbox ID.\n\n        Raises:\n            KeyError: If sandbox not found.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sandbox_id": {
+                        "type": "string",
+                        "description": "Sandbox ID."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "KeyError": {
+                        "type": "string",
+                        "description": "If sandbox not found."
+                    }
+                },
+                "required": [
+                    "sandbox_id",
+                    "Raises",
+                    "KeyError"
+                ]
+            },
+            "file": "app\\sandbox\\core\\manager.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "_ensure_host_dir",
+            "description": "Ensures directory exists on the host.\n\n        Args:\n            path: Directory path.\n\n        Returns:\n            Actual path on the host.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Directory path."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "path",
+                    "Returns"
+                ]
+            },
+            "file": "app\\sandbox\\core\\sandbox.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_create_tar_stream",
+            "description": "Creates a tar file stream.\n\n        Args:\n            name: Filename.\n            content: File content.\n\n        Returns:\n            Tar file stream.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Filename."
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "File content."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "content",
+                    "Returns"
+                ]
+            },
+            "file": "app\\sandbox\\core\\sandbox.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_read_from_tar",
+            "description": "Reads file content from a tar stream.\n\n        Args:\n            tar_stream: Tar file stream.\n\n        Returns:\n            File content.\n\n        Raises:\n            RuntimeError: If read operation fails.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tar_stream": {
+                        "type": "string",
+                        "description": "Tar file stream."
+                    }
+                },
+                "required": [
+                    "tar_stream"
+                ]
+            },
+            "file": "app\\sandbox\\core\\sandbox.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "execute",
+            "description": "Execute the tool with given parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\tool\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "_view_directory",
+            "description": "Display directory contents.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\tool\\str_replace_editor.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "local_client",
+            "description": "Creates a local sandbox client for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\sandbox\\test_client.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Creates a temporary directory for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\sandbox\\test_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_sandbox_creation",
+            "description": "Tests sandbox creation with specific configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\sandbox\\test_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_local_command_execution",
+            "description": "Tests command execution in local sandbox.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\sandbox\\test_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_local_file_operations",
+            "description": "Tests file operations in local sandbox.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\sandbox\\test_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_local_volume_binding",
+            "description": "Tests volume binding in local sandbox.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\sandbox\\test_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_local_error_handling",
+            "description": "Tests error handling in local sandbox.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\sandbox\\test_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "docker_client",
+            "description": "Fixture providing a Docker client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\sandbox\\test_docker_terminal.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "docker_container",
+            "description": "Fixture providing a test Docker container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "docker_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "docker_client"
+                ]
+            },
+            "file": "tests\\sandbox\\test_docker_terminal.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "terminal",
+            "description": "Fixture providing an initialized AsyncDockerizedTerminal instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "docker_container": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "docker_container"
+                ]
+            },
+            "file": "tests\\sandbox\\test_docker_terminal.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_basic_command_execution",
+            "description": "Test basic command execution functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "terminal": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "terminal"
+                ]
+            },
+            "file": "tests\\sandbox\\test_docker_terminal.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_environment_variables",
+            "description": "Test environment variable setting and access.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "terminal": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "terminal"
+                ]
+            },
+            "file": "tests\\sandbox\\test_docker_terminal.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_working_directory",
+            "description": "Test working directory setup.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "terminal": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "terminal"
+                ]
+            },
+            "file": "tests\\sandbox\\test_docker_terminal.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_command_timeout",
+            "description": "Test command timeout functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "docker_container": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "docker_container"
+                ]
+            },
+            "file": "tests\\sandbox\\test_docker_terminal.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_multiple_commands",
+            "description": "Test execution of multiple commands in sequence.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "terminal": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "terminal"
+                ]
+            },
+            "file": "tests\\sandbox\\test_docker_terminal.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_session_cleanup",
+            "description": "Test proper cleanup of resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "docker_container": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "docker_container"
+                ]
+            },
+            "file": "tests\\sandbox\\test_docker_terminal.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "sandbox_config",
+            "description": "Creates sandbox configuration for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\sandbox\\test_sandbox.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sandbox",
+            "description": "Creates and manages a test sandbox instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sandbox_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sandbox_config"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_sandbox_working_directory",
+            "description": "Tests sandbox working directory configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sandbox": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sandbox"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sandbox_file_operations",
+            "description": "Tests sandbox file read/write operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sandbox": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sandbox"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sandbox_python_execution",
+            "description": "Tests Python code execution in sandbox.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sandbox": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sandbox"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sandbox_file_persistence",
+            "description": "Tests file persistence in sandbox.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sandbox": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sandbox"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sandbox_python_environment",
+            "description": "Tests Python environment configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sandbox": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sandbox"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sandbox_network_access",
+            "description": "Tests sandbox network access.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sandbox": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sandbox"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sandbox_cleanup",
+            "description": "Tests sandbox cleanup process.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sandbox_config": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sandbox_config"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sandbox_error_handling",
+            "description": "Tests error handling with invalid configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\sandbox\\test_sandbox.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "manager",
+            "description": "Creates a sandbox manager instance.\n\n    Uses function scope to ensure each test case has its own manager instance.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\sandbox\\test_sandbox_manager.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "temp_file",
+            "description": "Creates a temporary test file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\sandbox\\test_sandbox_manager.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_create_sandbox",
+            "description": "Tests sandbox creation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "manager"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_max_sandboxes_limit",
+            "description": "Tests maximum sandbox limit enforcement.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "manager"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_nonexistent_sandbox",
+            "description": "Tests retrieving a non-existent sandbox.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "manager"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sandbox_cleanup",
+            "description": "Tests sandbox cleanup functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "manager"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_idle_sandbox_cleanup",
+            "description": "Tests automatic cleanup of idle sandboxes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "manager"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_manager_cleanup",
+            "description": "Tests manager cleanup functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "manager"
+                ]
+            },
+            "file": "tests\\sandbox\\test_sandbox_manager.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

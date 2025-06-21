@@ -1,0 +1,213 @@
+{
+    "tools": [
+        {
+            "name": "welcome",
+            "description": "Get started with the Learning Resource Generator.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "learning_resource_generator.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "read_file",
+            "description": "Read a file from the data directory.\n\n    Args:\n        path: The path to the file, relative to the data directory\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "The path to the file, relative to the data directory"
+                    }
+                },
+                "required": [
+                    "path"
+                ]
+            },
+            "file": "learning_resource_generator.py",
+            "decorator": [
+                "app.resource"
+            ]
+        },
+        {
+            "name": "list_directory",
+            "description": "List files in the data directory.\n\n    Args:\n        path: The directory path to list, relative to the data directory\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "The directory path to list, relative to the data directory"
+                    }
+                },
+                "required": [
+                    "path"
+                ]
+            },
+            "file": "learning_resource_generator.py",
+            "decorator": [
+                "app.resource"
+            ]
+        },
+        {
+            "name": "update_system_prompt",
+            "description": "Update the system_prompt.txt file with new content.\n\n    Args:\n        content: The new system prompt content\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "The new system prompt content"
+                    }
+                },
+                "required": [
+                    "content"
+                ]
+            },
+            "file": "learning_resource_generator.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "update_template",
+            "description": "Update the template.txt file with new content.\n\n    Args:\n        content: The new template content\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "The new template content"
+                    }
+                },
+                "required": [
+                    "content"
+                ]
+            },
+            "file": "learning_resource_generator.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "create_variables_csv",
+            "description": "Create a variables.csv file with a title and list of topics.\n\n    Args:\n        title: The main title for the learning resource\n        topics: List of topics to include\n        descriptions: Optional list of descriptions for each topic\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "The main title for the learning resource"
+                    },
+                    "topics": {
+                        "type": "string",
+                        "description": "List of topics to include"
+                    },
+                    "descriptions": {
+                        "type": "string",
+                        "description": "Optional list of descriptions for each topic"
+                    }
+                },
+                "required": [
+                    "title",
+                    "topics",
+                    "descriptions"
+                ]
+            },
+            "file": "learning_resource_generator.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "run_batch_processing",
+            "description": "Run the batch.py script to start Claude batch processing.\n\n    This will execute the batch.py script with the necessary arguments.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "learning_resource_generator.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "check_batch_results",
+            "description": "Check the results of a batch processing job.\n\n    Args:\n        batch_id: The ID of the batch to check\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "batch_id": {
+                        "type": "string",
+                        "description": "The ID of the batch to check"
+                    }
+                },
+                "required": [
+                    "batch_id"
+                ]
+            },
+            "file": "learning_resource_generator.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "create_learning_resource_structure",
+            "description": "Create a structured learning resource with main topics and subtopics.\n\n    Args:\n        subject: The main subject of the learning resource\n        main_topics: List of main topics to cover\n        subtopics: Dictionary mapping main topics to lists of subtopics\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "subject": {
+                        "type": "string",
+                        "description": "The main subject of the learning resource"
+                    },
+                    "main_topics": {
+                        "type": "string",
+                        "description": "List of main topics to cover"
+                    },
+                    "subtopics": {
+                        "type": "string",
+                        "description": "Dictionary mapping main topics to lists of subtopics"
+                    }
+                },
+                "required": [
+                    "subject",
+                    "main_topics",
+                    "subtopics"
+                ]
+            },
+            "file": "learning_resource_generator.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "generate_system_prompt_template",
+            "description": "Generate a system prompt template for learning resources.\n\n    Args:\n        subject: The subject area for the learning resource\n        format_style: The desired format style (markdown, xml, etc.)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "subject": {
+                        "type": "string",
+                        "description": "The subject area for the learning resource"
+                    },
+                    "format_style": {
+                        "type": "string",
+                        "description": "The desired format style (markdown, xml, etc.)"
+                    }
+                },
+                "required": [
+                    "subject",
+                    "format_style"
+                ]
+            },
+            "file": "learning_resource_generator.py",
+            "decorator": [
+                "app.tool"
+            ]
+        }
+    ]
+}

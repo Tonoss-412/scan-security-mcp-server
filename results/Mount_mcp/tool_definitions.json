@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "health_check",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "TimeTool",
+            "description": "Returns the current time for the given timezone.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_time.py",
+            "decorator": [
+                "mcp_time.tool"
+            ]
+        },
+        {
+            "name": "weather_tool",
+            "description": "Provides weather information for a given location",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_weather.py",
+            "decorator": [
+                "mcp_weather.tool"
+            ]
+        }
+    ]
+}

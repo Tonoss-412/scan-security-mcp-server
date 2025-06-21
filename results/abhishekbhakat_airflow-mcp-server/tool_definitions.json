@@ -1,0 +1,374 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\server_safe.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "list_resources",
+            "description": "List available resources (returns empty list).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\server_safe.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "list_resource_templates",
+            "description": "List available resource templates (returns empty list).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\server_safe.py",
+            "decorator": [
+                "server.list_resource_templates"
+            ]
+        },
+        {
+            "name": "list_prompts",
+            "description": "List available prompts (returns empty list).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\server_safe.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\server_safe.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\server_unsafe.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "list_resources",
+            "description": "List available resources (returns empty list).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\server_unsafe.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "list_resource_templates",
+            "description": "List available resource templates (returns empty list).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\server_unsafe.py",
+            "decorator": [
+                "server.list_resource_templates"
+            ]
+        },
+        {
+            "name": "list_prompts",
+            "description": "List available prompts (returns empty list).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\server_unsafe.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\server_unsafe.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "MCP server for Airflow",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\__init__.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "__init__",
+            "description": "Initialize the tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\tools\\base_tools.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "run",
+            "description": "Execute the tool's main functionality.\n\n        Returns:\n            Any: The result of the tool execution\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\airflow_mcp_server\\tools\\base_tools.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "mock_spec_file",
+            "description": "Mock OpenAPI spec file for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_async_multiple_clients_concurrent",
+            "description": "Test initializing two AirflowClients concurrently to verify async power.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\client\\test_airflow_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_async_client_initialization",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\client\\test_airflow_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "parser",
+            "description": "Create OperationParser instance from tests/parser/openapi.json.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\parser\\test_operation_parser.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_client",
+            "description": "Create mock Airflow client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocker": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocker"
+                ]
+            },
+            "file": "tests\\tools\\test_airflow_tool.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "operation_details",
+            "description": "Create test operation details.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\tools\\test_airflow_tool.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "airflow_tool",
+            "description": "Create AirflowTool instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client": {
+                        "type": "string"
+                    },
+                    "operation_details": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client",
+                    "operation_details"
+                ]
+            },
+            "file": "tests\\tools\\test_airflow_tool.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_successful_execution",
+            "description": "Test successful operation execution with valid parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "airflow_tool": {
+                        "type": "string"
+                    },
+                    "mock_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "airflow_tool",
+                    "mock_client"
+                ]
+            },
+            "file": "tests\\tools\\test_airflow_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_path_parameter",
+            "description": "Test validation error for invalid path parameter type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "airflow_tool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "airflow_tool"
+                ]
+            },
+            "file": "tests\\tools\\test_airflow_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_request_body",
+            "description": "Test validation error for invalid request body.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "airflow_tool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "airflow_tool"
+                ]
+            },
+            "file": "tests\\tools\\test_airflow_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_response_format",
+            "description": "Test error handling for invalid response format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "airflow_tool": {
+                        "type": "string"
+                    },
+                    "mock_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "airflow_tool",
+                    "mock_client"
+                ]
+            },
+            "file": "tests\\tools\\test_airflow_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_client_error",
+            "description": "Test error handling for client execution failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "airflow_tool": {
+                        "type": "string"
+                    },
+                    "mock_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "airflow_tool",
+                    "mock_client"
+                ]
+            },
+            "file": "tests\\tools\\test_airflow_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

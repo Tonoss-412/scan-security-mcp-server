@@ -1,0 +1,33 @@
+{
+    "tools": [
+        {
+            "name": "query_vulnerabilities",
+            "description": "\n    Get vulnerabilities for a package from an ecosystem.\n\n    Args:\n        package_name (str): Name of the package\n        ecosystem (str): Package ecosystem (PyPI, npm, etc.)\n        version (str, optional): Specific version to check\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "package_name": {
+                        "type": "string",
+                        "description": "Name of the package"
+                    },
+                    "ecosystem": {
+                        "type": "string",
+                        "description": "Package ecosystem (PyPI, npm, etc.)"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "Specific version to check"
+                    }
+                },
+                "required": [
+                    "package_name",
+                    "ecosystem"
+                ]
+            },
+            "file": "vulns.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

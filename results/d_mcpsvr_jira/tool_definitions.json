@@ -1,0 +1,152 @@
+{
+    "tools": [
+        {
+            "name": "echo",
+            "description": "Echo tool that returns the input message as is",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "JIRA search by Vector Search\n    Args:\n        project (str): Project name\n        prompt (str): prompt string\n        conditions (str): SQL-like conditions for filtering\n        top_n (int): Number of top results to return\n        resp_format (str): Response format: 'json', 'readable'\n    Returns:\n        str: Result of the prompt search\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project": {
+                        "type": "string",
+                        "description": "Project name"
+                    },
+                    "prompt": {
+                        "type": "string",
+                        "description": "prompt string"
+                    },
+                    "conditions": {
+                        "type": "string",
+                        "description": "SQL-like conditions for filtering"
+                    },
+                    "top_n": {
+                        "type": "integer",
+                        "description": "Number of top results to return"
+                    },
+                    "resp_format": {
+                        "type": "string",
+                        "description": "Response format: 'json', 'readable'"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Result of the prompt search"
+                    }
+                },
+                "required": [
+                    "project",
+                    "prompt",
+                    "conditions",
+                    "top_n",
+                    "resp_format",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "init_project",
+            "description": "Initialize a SQLite database for a given project name\n    Args:\n        project_name (str): Name of the project\n    Returns:\n        str: Success message or error\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Success message or error"
+                    }
+                },
+                "required": [
+                    "project_name",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "load_tickets",
+            "description": "Load tickets from JIRA using a JQL query\n    Args:\n        jql (str): JQL query string\n    Returns:\n        str: Result of the JQL query\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "jql": {
+                        "type": "string",
+                        "description": "JQL query string"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Result of the JQL query"
+                    }
+                },
+                "required": [
+                    "jql",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "del_project",
+            "description": "Delete a SQLite database for a given project name\n    Args:\n        project_name (str): Name of the project\n    Returns:\n        str: Success message or error\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Success message or error"
+                    }
+                },
+                "required": [
+                    "project_name",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

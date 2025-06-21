@@ -1,0 +1,297 @@
+{
+    "tools": [
+        {
+            "name": "get_chapter",
+            "description": "\n    Get a full chapter from the Bible.\n    \n    Args:\n        translation: Translation ID (e.g., \"web\", \"kjv\")\n        book: Book ID (e.g., \"JHN\", \"GEN\")\n        chapter: Chapter number\n        \n    Returns:\n        String containing the chapter text\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "translation": {
+                        "type": "string",
+                        "description": "Translation ID (e.g., \"web\", \"kjv\")"
+                    },
+                    "book": {
+                        "type": "string",
+                        "description": "Book ID (e.g., \"JHN\", \"GEN\")"
+                    },
+                    "chapter": {
+                        "type": "string",
+                        "description": "Chapter number"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "translation",
+                    "book",
+                    "chapter",
+                    "Returns"
+                ]
+            },
+            "file": "bible_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_verse",
+            "description": "\n    Get a specific verse from the Bible.\n    \n    Args:\n        translation: Translation ID (e.g., \"web\", \"kjv\")\n        book: Book ID (e.g., \"JHN\", \"GEN\")\n        chapter: Chapter number\n        verse: Verse number\n        \n    Returns:\n        String containing the verse text\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "translation": {
+                        "type": "string",
+                        "description": "Translation ID (e.g., \"web\", \"kjv\")"
+                    },
+                    "book": {
+                        "type": "string",
+                        "description": "Book ID (e.g., \"JHN\", \"GEN\")"
+                    },
+                    "chapter": {
+                        "type": "string",
+                        "description": "Chapter number"
+                    },
+                    "verse": {
+                        "type": "string",
+                        "description": "Verse number"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "translation",
+                    "book",
+                    "chapter",
+                    "verse",
+                    "Returns"
+                ]
+            },
+            "file": "bible_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_random_verse",
+            "description": "\n    Get a random verse from the Bible.\n    \n    Args:\n        translation: Translation ID (e.g., \"web\", \"kjv\")\n        \n    Returns:\n        String containing a random verse\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "translation": {
+                        "type": "string",
+                        "description": "Translation ID (e.g., \"web\", \"kjv\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "translation",
+                    "Returns"
+                ]
+            },
+            "file": "bible_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_verse_by_reference",
+            "description": "\n    Get verse(s) by reference string.\n    \n    Args:\n        reference: Bible reference (e.g., \"John 3:16\", \"Matthew 5:1-10\")\n        translation: Translation ID (default: \"web\")\n        \n    Returns:\n        Formatted string containing the verse(s)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "reference": {
+                        "type": "string",
+                        "description": "Bible reference (e.g., \"John 3:16\", \"Matthew 5:1-10\")"
+                    },
+                    "translation": {
+                        "type": "string",
+                        "description": "Translation ID (default: \"web\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "reference",
+                    "translation",
+                    "Returns"
+                ]
+            },
+            "file": "bible_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_random_verse_tool",
+            "description": "\n    Get a random verse from the Bible.\n    \n    Args:\n        translation: Translation ID (default: \"web\")\n        testament: Optional filter for \"OT\" (Old Testament) or \"NT\" (New Testament)\n        \n    Returns:\n        Formatted string containing a random verse\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "translation": {
+                        "type": "string",
+                        "description": "Translation ID (default: \"web\")"
+                    },
+                    "testament": {
+                        "type": "string",
+                        "description": "Optional filter for \"OT\" (Old Testament) or \"NT\" (New Testament)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "translation",
+                    "testament",
+                    "Returns"
+                ]
+            },
+            "file": "bible_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_available_translations",
+            "description": "\n    List all available Bible translations.\n    \n    Args:\n        \n    Returns:\n        Formatted string containing translation information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "Returns"
+                ]
+            },
+            "file": "bible_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "analyze_verse_prompt",
+            "description": "\n    Create a prompt to analyze a Bible verse.\n    \n    Args:\n        reference: Bible verse reference (e.g., \"John 3:16\")\n        \n    Returns:\n        A prompt string for analyzing the verse\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "reference": {
+                        "type": "string",
+                        "description": "Bible verse reference (e.g., \"John 3:16\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "reference",
+                    "Returns"
+                ]
+            },
+            "file": "bible_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "find_verses_on_topic_prompt",
+            "description": "\n    Create a prompt to find Bible verses on a specific topic.\n    \n    Args:\n        topic: The topic to search for\n        \n    Returns:\n        A prompt string for finding relevant verses\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string",
+                        "description": "The topic to search for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "topic",
+                    "Returns"
+                ]
+            },
+            "file": "bible_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "test_get_verse_by_reference",
+            "description": "Test getting verses by reference.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_bible_api.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_by_book_chapter_verse",
+            "description": "Test getting verses using book, chapter, verse format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_bible_api.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_random_verse",
+            "description": "Test getting random verses.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_random_reference": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_random_reference"
+                ]
+            },
+            "file": "tests\\test_bible_api.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_list_translations",
+            "description": "Test listing available translations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_bible_api.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "patch_bible_client",
+            "description": "Patch the BibleAPIClient with our mock for all tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_bible_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available daily utility tools.\n    Each tool specifies its arguments using JSON Schema validation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\all_in_mcp\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handle tool execution requests.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\all_in_mcp\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "Search for papers based on query",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\all_in_mcp\\academic_platforms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "download_pdf",
+            "description": "Download PDF of a paper",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\all_in_mcp\\academic_platforms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "read_paper",
+            "description": "Read and extract text content from a paper",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\all_in_mcp\\academic_platforms\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "get_connection",
+            "description": "Context manager for database connections.\n        \n        Yields:\n            mysql.connector.connection: Database connection object\n            \n        Raises:\n            Error: If connection to the database fails\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\sql_tools.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        }
+    ]
+}

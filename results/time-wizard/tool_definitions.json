@@ -1,0 +1,121 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "List available time tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\timezone_wizard\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls for time queries.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\timezone_wizard\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "test_get_current_time",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_time": {
+                        "type": "string"
+                    },
+                    "timezone": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_time",
+                    "timezone",
+                    "expected"
+                ]
+            },
+            "file": "test\\time_server_test.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_convert_time_errors",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "source_tz": {
+                        "type": "string"
+                    },
+                    "time_str": {
+                        "type": "string"
+                    },
+                    "target_tz": {
+                        "type": "string"
+                    },
+                    "expected_error": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "source_tz",
+                    "time_str",
+                    "target_tz",
+                    "expected_error"
+                ]
+            },
+            "file": "test\\time_server_test.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_convert_time",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_time": {
+                        "type": "string"
+                    },
+                    "source_tz": {
+                        "type": "string"
+                    },
+                    "time_str": {
+                        "type": "string"
+                    },
+                    "target_tz": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_time",
+                    "source_tz",
+                    "time_str",
+                    "target_tz",
+                    "expected"
+                ]
+            },
+            "file": "test\\time_server_test.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        }
+    ]
+}

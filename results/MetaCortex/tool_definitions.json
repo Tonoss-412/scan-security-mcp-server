@@ -1,0 +1,434 @@
+{
+    "tools": [
+        {
+            "name": "execute_task",
+            "description": "Use this tool to execute a task by sending it to the MetaCortex API",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "livekit-voice-ai\\real-time.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "end_conversation",
+            "description": "Use this tool to end the conversation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "livekit-voice-ai\\real-time.py",
+            "decorator": [
+                "function_tool"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "meta_cortex\\api_server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "create_task",
+            "description": "\n    Create a new task for the agent to process.\n    \n    Args:\n        task_request: The task request containing the query\n        background_tasks: FastAPI background tasks\n    \n    Returns:\n        Task response with task ID and initial status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_request": {
+                        "type": "string",
+                        "description": "The task request containing the query"
+                    },
+                    "background_tasks": {
+                        "type": "string",
+                        "description": "FastAPI background tasks"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "task_request",
+                    "background_tasks",
+                    "Returns"
+                ]
+            },
+            "file": "meta_cortex\\api_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_task",
+            "description": "\n    Get the status and result of a task.\n    \n    Args:\n        task_id: The ID of the task to retrieve\n    \n    Returns:\n        Task response with current status and result\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_id": {
+                        "type": "string",
+                        "description": "The ID of the task to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "task_id",
+                    "Returns"
+                ]
+            },
+            "file": "meta_cortex\\api_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_tasks",
+            "description": "\n    List all tasks and their statuses.\n    \n    Returns:\n        List of task responses\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "meta_cortex\\api_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_thought_process",
+            "description": "\n    Get the thought process logs for a specific task.\n    \n    Args:\n        task_id: The ID of the task to retrieve thought process for\n    \n    Returns:\n        Plain text content of the thought process file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_id": {
+                        "type": "string",
+                        "description": "The ID of the task to retrieve thought process for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "task_id",
+                    "Returns"
+                ]
+            },
+            "file": "meta_cortex\\api_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_nearby_restaurants",
+            "description": "Fetches a list of restaurants near the given latitude and longitude using the Wolt API.\n\n    Args:\n        lat: Latitude coordinate.\n        lon: Longitude coordinate.\n        category: Optional. Restaurant category (e.g., 'italian', 'sushi').\n        auth_token: Optional. Wolt authentication token.\n        session_id: Optional. Wolt session ID for authentication.\n        language: Language code for localization (default: 'en').\n\n    Returns:\n        A string containing a formatted list of nearby restaurants or an error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "lat": {
+                        "type": "string",
+                        "description": "Latitude coordinate."
+                    },
+                    "lon": {
+                        "type": "string",
+                        "description": "Longitude coordinate."
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "Optional. Restaurant category (e.g., 'italian', 'sushi')."
+                    },
+                    "auth_token": {
+                        "type": "string",
+                        "description": "Optional. Wolt authentication token."
+                    },
+                    "session_id": {
+                        "type": "string",
+                        "description": "Optional. Wolt session ID for authentication."
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code for localization (default: 'en')."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "lat",
+                    "lon",
+                    "category",
+                    "auth_token",
+                    "session_id",
+                    "language",
+                    "Returns"
+                ]
+            },
+            "file": "wolt\\wolt.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wolt_venue_list",
+            "description": "List venues that deliver to a location code. Returns a dictionary containing a list of venues\n       with their ID, name, rating, and preview menu items, or an error dictionary.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "wolt\\wolt.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wolt_venue_menu",
+            "description": "Get full menu (categories + items) for a venue.\n    \n    Args:\n        slug: Venue slug (from URL, e.g., 'mcdonalds-blaha')\n        language: Language code for localization (default: 'en')\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "slug": {
+                        "type": "string",
+                        "description": "Venue slug (from URL, e.g., 'mcdonalds-blaha')"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code for localization (default: 'en')"
+                    }
+                },
+                "required": [
+                    "slug",
+                    "language"
+                ]
+            },
+            "file": "wolt\\wolt.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wolt_menu_items",
+            "description": "Fetch one or more specific menu items by ID for a venue.\n    \n    Args:\n        slug: Venue slug (from URL, e.g., 'mcdonalds-blaha')\n        item_ids: List of item IDs to fetch\n        language: Language code for localization (default: 'en')\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "slug": {
+                        "type": "string",
+                        "description": "Venue slug (from URL, e.g., 'mcdonalds-blaha')"
+                    },
+                    "item_ids": {
+                        "type": "string",
+                        "description": "List of item IDs to fetch"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code for localization (default: 'en')"
+                    }
+                },
+                "required": [
+                    "slug",
+                    "item_ids",
+                    "language"
+                ]
+            },
+            "file": "wolt\\wolt.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wolt_create_basket",
+            "description": "Create a new basket for a venue and initial items.\n    \n    Args:\n        venue_id: ID of the venue (not the slug) corresponding to the item\n        item_id: ID of the item to add\n        currency: Optional currency code\n        language: Language code for localization (default: 'en')\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "venue_id": {
+                        "type": "string",
+                        "description": "ID of the venue (not the slug) corresponding to the item"
+                    },
+                    "item_id": {
+                        "type": "string",
+                        "description": "ID of the item to add"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "Optional currency code"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code for localization (default: 'en')"
+                    }
+                },
+                "required": [
+                    "venue_id",
+                    "item_id",
+                    "currency",
+                    "language"
+                ]
+            },
+            "file": "wolt\\wolt.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wolt_checkout",
+            "description": "Finalise checkout and place the order.\n    WARNING: This function should NOT be run during development or testing!\n    \n    Args:\n        purchase_plan: Order details\n        auth_token: Wolt authentication token (required for this operation)\n        language: Language code for localization (default: 'en')\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "purchase_plan": {
+                        "type": "string",
+                        "description": "Order details"
+                    },
+                    "auth_token": {
+                        "type": "string",
+                        "description": "Wolt authentication token (required for this operation)"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code for localization (default: 'en')"
+                    }
+                },
+                "required": [
+                    "purchase_plan",
+                    "auth_token",
+                    "language"
+                ]
+            },
+            "file": "wolt\\wolt.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wolt_past_orders",
+            "description": "List the user's past orders (paginated, newest first).\n    \n    Args:\n        cursor: Pagination cursor for fetching next page of results\n        auth_token: Wolt authentication token (required for this operation)\n        language: Language code for localization (default: 'en')\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cursor": {
+                        "type": "string",
+                        "description": "Pagination cursor for fetching next page of results"
+                    },
+                    "auth_token": {
+                        "type": "string",
+                        "description": "Wolt authentication token (required for this operation)"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code for localization (default: 'en')"
+                    }
+                },
+                "required": [
+                    "cursor",
+                    "auth_token",
+                    "language"
+                ]
+            },
+            "file": "wolt\\wolt.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wolt_geocode_address",
+            "description": "Resolve Google Place ID to street address.\n    \n    Args:\n        place_id: Google Place ID to resolve\n        auth_token: Optional Wolt authentication token\n        language: Language code for localization (default: 'en')\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "place_id": {
+                        "type": "string",
+                        "description": "Google Place ID to resolve"
+                    },
+                    "auth_token": {
+                        "type": "string",
+                        "description": "Optional Wolt authentication token"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code for localization (default: 'en')"
+                    }
+                },
+                "required": [
+                    "place_id",
+                    "auth_token",
+                    "language"
+                ]
+            },
+            "file": "wolt\\wolt.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wolt_order_tracking",
+            "description": "Get live tracking data for an order.\n    \n    Args:\n        order_id: ID of the order to track\n        auth_token: Wolt authentication token (required for this operation)\n        language: Language code for localization (default: 'en')\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "order_id": {
+                        "type": "string",
+                        "description": "ID of the order to track"
+                    },
+                    "auth_token": {
+                        "type": "string",
+                        "description": "Wolt authentication token (required for this operation)"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code for localization (default: 'en')"
+                    }
+                },
+                "required": [
+                    "order_id",
+                    "auth_token",
+                    "language"
+                ]
+            },
+            "file": "wolt\\wolt.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wolt_bulk_delete_baskets",
+            "description": "Delete multiple baskets in one call.\n    \n    Args:\n        ids: List of basket IDs to delete\n        auth_token: Wolt authentication token (required for this operation)\n        language: Language code for localization (default: 'en')\n    \n    Returns:\n        API response as a dict\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ids": {
+                        "type": "string",
+                        "description": "List of basket IDs to delete"
+                    },
+                    "auth_token": {
+                        "type": "string",
+                        "description": "Wolt authentication token (required for this operation)"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code for localization (default: 'en')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ids",
+                    "auth_token",
+                    "language",
+                    "Returns"
+                ]
+            },
+            "file": "wolt\\wolt.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

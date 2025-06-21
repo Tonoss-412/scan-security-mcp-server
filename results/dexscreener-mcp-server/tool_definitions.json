@@ -1,0 +1,208 @@
+{
+    "tools": [
+        {
+            "name": "_make_request",
+            "description": "Make HTTP request with retry logic and rate limiting.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "dexscreener_mcp\\client.py",
+            "decorator": [
+                "retry"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available DexScreener tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "dexscreener_mcp\\server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls with comprehensive error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "dexscreener_mcp\\server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "parse_timestamp",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "dexscreener_mcp\\types.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create test client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_client_initialization",
+            "description": "Test client initialization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_cache_key_generation",
+            "description": "Test cache key generation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_cache_functionality",
+            "description": "Test caching functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_token_info_success",
+            "description": "Test successful token info retrieval.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_api_error_handling",
+            "description": "Test API error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_with_limit",
+            "description": "Test search functionality with limit.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_rate_limit_info",
+            "description": "Test rate limit info retrieval.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client"
+                ]
+            },
+            "file": "tests\\test_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

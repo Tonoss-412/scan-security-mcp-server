@@ -1,0 +1,3389 @@
+{
+    "tools": [
+        {
+            "name": "create",
+            "description": "Create a status indicator",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gui\\components.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "Create a metrics card",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gui\\components.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "Create HTML for a project card",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gui\\components.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "Create HTML for a search result",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gui\\components.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_ready",
+            "description": "Create ready state visualizer",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "gui\\components.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "Application lifespan manager",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_status",
+            "description": "Get detailed server status",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "login_endpoint",
+            "description": "User login endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "refresh_token",
+            "description": "Refresh JWT token",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "agent_query",
+            "description": "Query the AI agent",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "agent_stream",
+            "description": "Stream AI agent response",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "memory_search",
+            "description": "Search memory/conversation history",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "memory_save",
+            "description": "Save message to memory",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "projects_list",
+            "description": "List projects",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "create_project",
+            "description": "Create a new project",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "websocket_endpoint",
+            "description": "WebSocket endpoint for real-time interactions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.websocket"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List all available external tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "execute_tool",
+            "description": "Execute an external tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "web_search",
+            "description": "Web search using Brave Search API",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "Get weather information",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_conversation_messages",
+            "description": "Get messages for a conversation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_conversations",
+            "description": "List conversations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "create_conversation",
+            "description": "Create a new conversation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "validate_temperature",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "mcp_server\\models.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "calculate",
+            "description": "Safely evaluate mathematical expressions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\tools.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_connection",
+            "description": "Get a connection from the pool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\db_manager.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "_get_connection",
+            "description": "Get a database connection with proper settings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\migrations.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "validate_conversation_id",
+            "description": "Validate conversation ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\models.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_role",
+            "description": "Validate message role.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\models.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_content",
+            "description": "Validate message content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\models.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_title",
+            "description": "Validate knowledge title.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\models.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_content",
+            "description": "Validate knowledge content.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\models.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_tags",
+            "description": "Validate and normalize tags.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\models.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_project_id",
+            "description": "Validate project ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\models.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_name",
+            "description": "Validate project name.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\models.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_status",
+            "description": "Validate project status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\models.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_entity_type",
+            "description": "Validate entity type.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\models.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_embedding",
+            "description": "Validate embedding vector.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "memory\\models.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "event_loop",
+            "description": "Create an event loop for the entire test session",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_db_path",
+            "description": "Create a temporary database file path",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_db_manager",
+            "description": "Create a test database manager with isolated database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_db_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_db_path"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "populated_db_manager",
+            "description": "Create a database manager with test data",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_vector_store",
+            "description": "Create a test vector store",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_ollama_client",
+            "description": "Create a mock Ollama client",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_whisper_model",
+            "description": "Create a mock Whisper model",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_tts_engine",
+            "description": "Create a mock TTS engine",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_httpx_client",
+            "description": "Create a mock HTTP client for API testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_assistant_config",
+            "description": "Create a test configuration for the assistant",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_assistant",
+            "description": "Create a test assistant with mocked components",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant_config": {
+                        "type": "string"
+                    },
+                    "mock_ollama_client": {
+                        "type": "string"
+                    },
+                    "mock_whisper_model": {
+                        "type": "string"
+                    },
+                    "mock_tts_engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant_config",
+                    "mock_ollama_client",
+                    "mock_whisper_model",
+                    "mock_tts_engine"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_audio_data",
+            "description": "Create sample audio data for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_wav_file",
+            "description": "Create a sample WAV file for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_audio_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_audio_data"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_http_client",
+            "description": "Create a test HTTP client",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_api_responses",
+            "description": "Create mock API responses for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_conversation_data",
+            "description": "Create sample conversation data for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_project_data",
+            "description": "Create sample project data for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_knowledge_data",
+            "description": "Create sample knowledge data for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "performance_timer",
+            "description": "Create a performance timer for benchmarking",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "elapsed",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "memory_profiler",
+            "description": "Create a memory profiler for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "memory_increase",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "temp_directory",
+            "description": "Create a temporary directory for test files",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "cleanup_temp_files",
+            "description": "Automatically cleanup temporary files after tests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "async_mock_context",
+            "description": "Create an async context for mocking async operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_basic_conversation_flow",
+            "description": "Test basic conversation flow",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_multi_mode_conversation",
+            "description": "Test conversation with mode switching",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conversation_with_context",
+            "description": "Test conversation with context awareness",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conversation_memory_search",
+            "description": "Test conversation memory and search functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_long_conversation_summarization",
+            "description": "Test conversation summarization for long conversations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_concurrent_conversations",
+            "description": "Test handling multiple concurrent conversations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_voice_conversation_flow",
+            "description": "Test complete voice conversation flow",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    },
+                    "sample_audio_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant",
+                    "sample_audio_data"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.audio",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_mixed_voice_text_conversation",
+            "description": "Test conversation mixing voice and text inputs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    },
+                    "sample_audio_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant",
+                    "sample_audio_data"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.audio",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_project_planning_workflow",
+            "description": "Test complete project planning workflow",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_learning_session_workflow",
+            "description": "Test learning session workflow",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conversation_with_errors",
+            "description": "Test conversation flow with simulated errors",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_database_recovery",
+            "description": "Test recovery from database issues",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conversation_response_times",
+            "description": "Test response times in realistic conversations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_memory_usage_in_long_conversation",
+            "description": "Test memory usage during long conversations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    },
+                    "memory_profiler": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant",
+                    "memory_profiler"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_thread_switching",
+            "description": "Test switching between conversation threads",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conversation_metadata_tracking",
+            "description": "Test conversation metadata and tracking",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\e2e\\test_conversations.py",
+            "decorator": [
+                "pytest.mark.e2e",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_app",
+            "description": "Create test FastAPI app",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_client",
+            "description": "Create test client",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_app": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_app"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "auth_headers",
+            "description": "Create authentication headers for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_health_check",
+            "description": "Test health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_status_endpoint",
+            "description": "Test status endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_status_unauthorized",
+            "description": "Test status endpoint without authentication",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_login_with_api_key",
+            "description": "Test login with API key",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_login_invalid_api_key",
+            "description": "Test login with invalid API key",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_refresh_token",
+            "description": "Test token refresh",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_agent_query",
+            "description": "Test agent query endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db": {
+                        "type": "string"
+                    },
+                    "mock_ollama": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db",
+                    "mock_ollama",
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_agent_query_unauthorized",
+            "description": "Test agent query without authentication",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_ollama": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_ollama",
+                    "test_client"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_agent_stream",
+            "description": "Test agent streaming endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_ollama": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_ollama",
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_memory_search",
+            "description": "Test memory search endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db",
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_memory_save",
+            "description": "Test memory save endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db",
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_memory_search_semantic",
+            "description": "Test semantic memory search",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_vector": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_vector",
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_projects_list",
+            "description": "Test projects list endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db",
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_project",
+            "description": "Test project creation endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db",
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_conversation_messages",
+            "description": "Test get conversation messages endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db",
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_list_conversations",
+            "description": "Test list conversations endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db",
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_conversation",
+            "description": "Test create conversation endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db",
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_websocket_connection",
+            "description": "Test WebSocket connection",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_websocket_query",
+            "description": "Test WebSocket query functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db": {
+                        "type": "string"
+                    },
+                    "mock_ollama": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db",
+                    "mock_ollama",
+                    "test_client"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_invalid_endpoint",
+            "description": "Test invalid endpoint returns 404",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_invalid_json",
+            "description": "Test invalid JSON in request",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_missing_required_fields",
+            "description": "Test missing required fields in request",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_service_unavailable",
+            "description": "Test handling of service unavailability",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_ollama": {
+                        "type": "string"
+                    },
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_ollama",
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_concurrent_requests",
+            "description": "Test handling of concurrent requests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "pytest.mark.performance"
+            ]
+        },
+        {
+            "name": "test_large_request_handling",
+            "description": "Test handling of large requests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    },
+                    "auth_headers": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client",
+                    "auth_headers"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.integration",
+                "pytest.mark.performance"
+            ]
+        },
+        {
+            "name": "test_message_insertion_performance",
+            "description": "Benchmark message insertion performance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    },
+                    "performance_timer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager",
+                    "performance_timer"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_performance",
+            "description": "Benchmark search performance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "populated_db_manager": {
+                        "type": "string"
+                    },
+                    "performance_timer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "populated_db_manager",
+                    "performance_timer"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_concurrent_database_operations",
+            "description": "Benchmark concurrent database operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_memory_usage_growth",
+            "description": "Test memory usage growth with large datasets",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    },
+                    "memory_profiler": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager",
+                    "memory_profiler"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_embedding_storage_performance",
+            "description": "Benchmark embedding storage performance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_vector_store": {
+                        "type": "string"
+                    },
+                    "performance_timer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_vector_store",
+                    "performance_timer"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_similarity_search_performance",
+            "description": "Benchmark similarity search performance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_vector_store": {
+                        "type": "string"
+                    },
+                    "performance_timer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_vector_store",
+                    "performance_timer"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_batch_operations_performance",
+            "description": "Benchmark batch embedding operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_vector_store": {
+                        "type": "string"
+                    },
+                    "performance_timer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_vector_store",
+                    "performance_timer"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_message_processing_performance",
+            "description": "Benchmark message processing performance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    },
+                    "performance_timer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant",
+                    "performance_timer"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_concurrent_conversations",
+            "description": "Benchmark concurrent conversation handling",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_memory_search_performance",
+            "description": "Benchmark memory search performance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    },
+                    "performance_timer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant",
+                    "performance_timer"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_cpu_utilization",
+            "description": "Monitor CPU utilization during operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance"
+            ]
+        },
+        {
+            "name": "test_memory_efficiency",
+            "description": "Test memory efficiency of operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "memory_profiler": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "memory_profiler"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance"
+            ]
+        },
+        {
+            "name": "test_async_efficiency",
+            "description": "Test efficiency of async operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "performance_timer": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "performance_timer"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_database_scalability",
+            "description": "Test database performance with increasing data sizes",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_long_running_stability",
+            "description": "Test stability over extended operation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\performance\\test_benchmarks.py",
+            "decorator": [
+                "pytest.mark.performance",
+                "pytest.mark.slow",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sample_audio_generation",
+            "description": "Test that sample audio data is generated correctly",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_audio_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_audio_data"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_wav_file_creation",
+            "description": "Test WAV file creation and reading",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_wav_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_wav_file"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_audio_data_conversion",
+            "description": "Test audio data format conversions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_audio_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_audio_data"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_audio_amplitude_analysis",
+            "description": "Test audio amplitude and frequency analysis",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_audio_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_audio_data"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_whisper_transcription_mock",
+            "description": "Test Whisper transcription with mocked model",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    },
+                    "sample_wav_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant",
+                    "sample_wav_file"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_audio_transcription_pipeline",
+            "description": "Test complete audio transcription pipeline",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    },
+                    "sample_audio_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant",
+                    "sample_audio_data"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_transcription_error_handling",
+            "description": "Test error handling in transcription",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_empty_audio_handling",
+            "description": "Test handling of empty or silent audio",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_whisper_model_loading",
+            "description": "Test Whisper model loading configuration",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_real_whisper_transcription",
+            "description": "Test with real Whisper model (slow test)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_wav_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_wav_file"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio",
+                "pytest.mark.slow",
+                "pytest.mark.skipif"
+            ]
+        },
+        {
+            "name": "test_tts_synthesis_mock",
+            "description": "Test TTS synthesis with mocked engine",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_tts_empty_text",
+            "description": "Test TTS with empty text",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_tts_long_text",
+            "description": "Test TTS with very long text",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_tts_special_characters",
+            "description": "Test TTS with special characters and unicode",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\unit\\test_audio.py",
+            "decorator": [
+                "pytest.mark.audio"
+            ]
+        },
+        {
+            "name": "test_initialization",
+            "description": "Test database initialization",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conversation_creation",
+            "description": "Test conversation creation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conversation_auto_id",
+            "description": "Test conversation creation with auto-generated ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_message_operations",
+            "description": "Test message creation and retrieval",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_message_search",
+            "description": "Test full-text search functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "populated_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "populated_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conversation_context",
+            "description": "Test conversation context retrieval",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "populated_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "populated_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_knowledge_operations",
+            "description": "Test knowledge base operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_project_operations",
+            "description": "Test project management operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_statistics",
+            "description": "Test database statistics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "populated_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "populated_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conversation_archiving",
+            "description": "Test conversation archiving functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "populated_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "populated_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_database_health_check",
+            "description": "Test database health check",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_operations",
+            "description": "Test error handling for invalid operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_message_filtering",
+            "description": "Test message filtering by date and other criteria",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "populated_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "populated_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_bulk_operations",
+            "description": "Test bulk database operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_db_manager": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_db_manager"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_vector_store_initialization",
+            "description": "Test vector store initialization",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_vector_store": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_vector_store"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_embedding_storage",
+            "description": "Test storing and retrieving embeddings",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_vector_store": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_vector_store"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_similarity_search",
+            "description": "Test similarity search functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_vector_store": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_vector_store"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_search_similar_text",
+            "description": "Test text-based similarity search",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_vector_store": {
+                        "type": "string"
+                    },
+                    "mock_ollama_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_vector_store",
+                    "mock_ollama_client"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_batch_embedding_operations",
+            "description": "Test batch operations for embeddings",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_vector_store": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_vector_store"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_embedding_cache",
+            "description": "Test embedding cache functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_vector_store": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_vector_store"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_duplicate_detection",
+            "description": "Test duplicate embedding detection",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_vector_store": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_vector_store"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_embedding_deletion",
+            "description": "Test embedding deletion",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_vector_store": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_vector_store"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_vector_statistics",
+            "description": "Test vector store statistics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_vector_store": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_vector_store"
+                ]
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conversation_model",
+            "description": "Test Conversation model",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_message_model",
+            "description": "Test Message model",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_knowledge_model",
+            "description": "Test Knowledge model",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_project_model",
+            "description": "Test Project model",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_database.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "mock_httpx_client",
+            "description": "Create a mock HTTP client",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mocked_ollama_client",
+            "description": "Create OllamaClient with mocked HTTP client",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_health_check_success",
+            "description": "Test successful health check",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocked_ollama_client": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocked_ollama_client",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_health_check_failure",
+            "description": "Test failed health check",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocked_ollama_client": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocked_ollama_client",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_refresh_models",
+            "description": "Test model list refresh",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocked_ollama_client": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocked_ollama_client",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_generate_success",
+            "description": "Test successful text generation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocked_ollama_client": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocked_ollama_client",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_generate_with_context",
+            "description": "Test generation with conversation context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocked_ollama_client": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocked_ollama_client",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_generate_stream",
+            "description": "Test streaming text generation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocked_ollama_client": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocked_ollama_client",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_embed_text",
+            "description": "Test text embedding generation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocked_ollama_client": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocked_ollama_client",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_model_not_available",
+            "description": "Test handling of unavailable model",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocked_ollama_client": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocked_ollama_client",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "Test error handling in LLM operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocked_ollama_client": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocked_ollama_client",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_request_timeout",
+            "description": "Test request timeout handling",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocked_ollama_client": {
+                        "type": "string"
+                    },
+                    "mock_httpx_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocked_ollama_client",
+                    "mock_httpx_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_assistant_with_mocked_llm",
+            "description": "Test assistant functionality with mocked LLM",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_conversation_with_context",
+            "description": "Test conversation with context using mocks",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_voice_processing_mocks",
+            "description": "Test voice processing with mocked components",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    },
+                    "sample_audio_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant",
+                    "sample_audio_data"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_embedding_generation_mock",
+            "description": "Test embedding generation with mocked LLM",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_streaming_response_mock",
+            "description": "Test streaming response with mocked LLM",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_error_handling_mocks",
+            "description": "Test error handling with mocked failures",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_retry_logic_with_mocks",
+            "description": "Test retry logic with mocked failures and recovery",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_assistant": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_assistant"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_empty_response",
+            "description": "Test handling of empty LLM response",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_ollama_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_ollama_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_long_response",
+            "description": "Test handling of very long LLM response",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_ollama_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_ollama_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_special_characters_response",
+            "description": "Test handling of response with special characters",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_ollama_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_ollama_client"
+                ]
+            },
+            "file": "tests\\unit\\test_llm_mocks.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,566 @@
+{
+    "tools": [
+        {
+            "name": "connect_to_postgres",
+            "description": "\n    Connect to a PostgreSQL database using a connection string.\n    Example connection string: \"postgresql://user:password@host:port/dbname\"\n    \n    Args:\n        connection_string: PostgreSQL connection string.\n        db_name: A unique name to identify this database connection.\n        \n    Returns:\n        Dictionary with connection result, including list of tables in 'public' schema.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "connection_string": {
+                        "type": "string",
+                        "description": "PostgreSQL connection string."
+                    },
+                    "db_name": {
+                        "type": "string",
+                        "description": "A unique name to identify this database connection."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "connection_string",
+                    "db_name",
+                    "Returns"
+                ]
+            },
+            "file": "postgres_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "disconnect_postgres",
+            "description": "\n    Disconnect from a PostgreSQL database.\n    \n    Args:\n        db_name: Name of the database connection to disconnect.\n        \n    Returns:\n        Dictionary with disconnection result.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "Name of the database connection to disconnect."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "Returns"
+                ]
+            },
+            "file": "postgres_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_postgres_connections",
+            "description": "\n    List all active PostgreSQL database connections.\n    \n    Returns:\n        Dictionary with list of active database connections.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_postgres_query",
+            "description": "\n    Execute SQL query on a PostgreSQL database.\n    \n    Args:\n        db_name: Name of the database connection.\n        query: SQL query to execute.\n        params: Optional list of parameters for the query (using %s placeholders).\n        row_limit: Maximum number of rows to return for SELECT queries (default 100).\n        \n    Returns:\n        Dictionary with query results or error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "Name of the database connection."
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "SQL query to execute."
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "Optional list of parameters for the query (using %s placeholders)."
+                    },
+                    "row_limit": {
+                        "type": "string",
+                        "description": "Maximum number of rows to return for SELECT queries (default 100)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "query",
+                    "params",
+                    "row_limit",
+                    "Returns"
+                ]
+            },
+            "file": "postgres_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_postgres_table_info",
+            "description": "\n    Get detailed column information for a specific table in a PostgreSQL database.\n    \n    Args:\n        db_name: Name of the database connection.\n        table_name: Name of the table.\n        schema_name: Name of the schema (default 'public').\n        \n    Returns:\n        Dictionary with table column information and sample data.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "Name of the database connection."
+                    },
+                    "table_name": {
+                        "type": "string",
+                        "description": "Name of the table."
+                    },
+                    "schema_name": {
+                        "type": "string",
+                        "description": "Name of the schema (default 'public')."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "table_name",
+                    "schema_name",
+                    "Returns"
+                ]
+            },
+            "file": "postgres_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_postgres_table_data",
+            "description": "\n    Get data from a specific table in a PostgreSQL database.\n    \n    Args:\n        db_name: Name of the database connection.\n        table_name: Name of the table.\n        schema_name: Name of the schema (default 'public').\n        limit: Maximum number of rows to return (default 100).\n        \n    Returns:\n        Dictionary with table data.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "Name of the database connection."
+                    },
+                    "table_name": {
+                        "type": "string",
+                        "description": "Name of the table."
+                    },
+                    "schema_name": {
+                        "type": "string",
+                        "description": "Name of the schema (default 'public')."
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of rows to return (default 100)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "table_name",
+                    "schema_name",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "postgres_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_postgres_schema_resource",
+            "description": "\n    Get PostgreSQL database schema information (table DDLs) for a specific schema.\n    \n    Args:\n        db_name: Name of the database connection.\n        schema_name: Name of the schema to retrieve DDLs for.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "Name of the database connection."
+                    },
+                    "schema_name": {
+                        "type": "string",
+                        "description": "Name of the schema to retrieve DDLs for."
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "schema_name"
+                ]
+            },
+            "file": "postgres_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_postgres_table_resource",
+            "description": "\n    Get PostgreSQL table information (columns and sample data).\n    \n    Args:\n        db_name: Name of the database connection.\n        schema_name: Name of the schema.\n        table_name: Name of the table.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "Name of the database connection."
+                    },
+                    "schema_name": {
+                        "type": "string",
+                        "description": "Name of the schema."
+                    },
+                    "table_name": {
+                        "type": "string",
+                        "description": "Name of the table."
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "schema_name",
+                    "table_name"
+                ]
+            },
+            "file": "postgres_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_postgres_connections_resource",
+            "description": "Get list of active PostgreSQL database connections.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "connect_to_postgres",
+            "description": "\n    Connect to a PostgreSQL database, fetch schema and sample data for all tables,\n    and save it to a Markdown file in the specified folder.\n    Example connection string: \"postgresql://user:password@host:port/dbname\"\n    \n    Args:\n        connection_string: PostgreSQL connection string.\n        db_name: A unique name to identify this database connection.\n        schema_folder_path: The full path to the folder where the schema dump file should be saved.\n        \n    Returns:\n        Dictionary with connection result, including path to the schema and data dump file.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "connection_string": {
+                        "type": "string",
+                        "description": "PostgreSQL connection string."
+                    },
+                    "db_name": {
+                        "type": "string",
+                        "description": "A unique name to identify this database connection."
+                    },
+                    "schema_folder_path": {
+                        "type": "string",
+                        "description": "The full path to the folder where the schema dump file should be saved."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "connection_string",
+                    "db_name",
+                    "schema_folder_path",
+                    "Returns"
+                ]
+            },
+            "file": "postgres_server_version_simplest.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "initialize_db_summary",
+            "description": "\n    Reads and returns the content of the pre-generated schema and data dump Markdown file\n    using a provided full path.\n    \n    Args:\n        db_name: The name of the database connection (for context in return value).\n        summary_file_path_str: The full path to the schema and data dump file.\n        \n    Returns:\n        Dictionary with the dump content or an error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "The name of the database connection (for context in return value)."
+                    },
+                    "summary_file_path_str": {
+                        "type": "string",
+                        "description": "The full path to the schema and data dump file."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "summary_file_path_str",
+                    "Returns"
+                ]
+            },
+            "file": "postgres_server_version_simplest.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "disconnect_postgres",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_simplest.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_postgres_connections",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_simplest.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_postgres_query",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_simplest.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_postgres_table_info",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_simplest.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_postgres_table_data",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_simplest.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_postgres_schema_resource",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_simplest.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_postgres_table_resource",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_simplest.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_postgres_connections_resource",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_simplest.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "connect_to_postgres",
+            "description": "\n    Connect to a PostgreSQL database, generate and save an AI summary of its schema using Gemini\n    into the specified folder.\n    The Gemini API key is expected to be in the GEMINI_API_KEY environment variable.\n    Example connection string: \"postgresql://user:password@host:port/dbname\"\n    \n    Args:\n        connection_string: PostgreSQL connection string.\n        db_name: A unique name to identify this database connection.\n        summary_folder_path: The full path to the folder where the schema summary file should be saved.\n        \n    Returns:\n        Dictionary with connection result, including path to the schema summary file.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "connection_string": {
+                        "type": "string",
+                        "description": "PostgreSQL connection string."
+                    },
+                    "db_name": {
+                        "type": "string",
+                        "description": "A unique name to identify this database connection."
+                    },
+                    "summary_folder_path": {
+                        "type": "string",
+                        "description": "The full path to the folder where the schema summary file should be saved."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "connection_string",
+                    "db_name",
+                    "summary_folder_path",
+                    "Returns"
+                ]
+            },
+            "file": "postgres_server_version_summarized.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "initialize_db_summary",
+            "description": "\n    Reads and returns the content of the pre-generated database schema summary file\n    using a provided full path.\n    \n    Args:\n        db_name: The name of the database connection (for context in return value).\n        summary_file_path_str: The full path to the summary file.\n        \n    Returns:\n        Dictionary with the summary content or an error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_name": {
+                        "type": "string",
+                        "description": "The name of the database connection (for context in return value)."
+                    },
+                    "summary_file_path_str": {
+                        "type": "string",
+                        "description": "The full path to the summary file."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_name",
+                    "summary_file_path_str",
+                    "Returns"
+                ]
+            },
+            "file": "postgres_server_version_summarized.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "disconnect_postgres",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_summarized.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_postgres_connections",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_summarized.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_postgres_query",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_summarized.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_postgres_table_info",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_summarized.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_postgres_table_data",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_summarized.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_postgres_schema_resource",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_summarized.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_postgres_table_resource",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_summarized.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_postgres_connections_resource",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "postgres_server_version_summarized.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

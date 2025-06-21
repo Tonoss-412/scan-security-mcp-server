@@ -1,0 +1,180 @@
+{
+    "tools": [
+        {
+            "name": "hello",
+            "description": "Greet the user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base_server_template.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "random_quote",
+            "description": "Get a random motivational quote",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\01_motivational_quotes\\01_motivational_quotes_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "funny_quote",
+            "description": "Turns a motivational quote into a funny motivational quote",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\01_motivational_quotes\\01_motivational_quotes_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "earnings",
+            "description": "Get the earnings for a stock",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\02_dummy_finance_tools\\02_finance_tools_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "latest_NVIDIA_earnings",
+            "description": "Get the latest earnings for NVIDIA",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\02_dummy_finance_tools\\02_finance_tools_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "earnings_summary",
+            "description": "Summarize the earnings for a stock",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\02_dummy_finance_tools\\02_finance_tools_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "calculate_cagr",
+            "description": "Calculate the CAGR for a stock",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\02_dummy_finance_tools\\02_finance_tools_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "latest_incidents",
+            "description": "Get the 10 latest police incidents",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\03_public_api_server\\03_public_api_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "incidents_by_municipality",
+            "description": "Get the latest police incidents for a specific municipality.\n    \n    Args:\n        municipality: The municipality to fetch incidents for.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "municipality": {
+                        "type": "string",
+                        "description": "The municipality to fetch incidents for."
+                    }
+                },
+                "required": [
+                    "municipality"
+                ]
+            },
+            "file": "examples\\03_public_api_server\\03_public_api_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "ticker_search",
+            "description": "Get the ticker for a company\n    \n    Args:\n        company_name: The name of the company to search for\n\n    Returns:\n        The ticker for the company\n    \n    Example:\n            ticker_search(\"Apple\") -> \"AAPL\"\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "company_name": {
+                        "type": "string",
+                        "description": "The name of the company to search for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "company_name",
+                    "Returns",
+                    "Example"
+                ]
+            },
+            "file": "examples\\04_apikey_auth\\04_apikey_auth_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_knowledge_base",
+            "description": "Search the AWS Bedrock knowledge base for the most relevant information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\05_aws_knowledge_base\\05_aws_knowledge_base_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_local_rag_knowledge_base",
+            "description": "Search the knowledge base\n    \n    Args:\n        query: The query to search the knowledge base with\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The query to search the knowledge base with"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            },
+            "file": "examples\\06_local_rag\\06_local_rag_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,302 @@
+{
+    "tools": [
+        {
+            "name": "index",
+            "description": "\n    Index Python files in a directory.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\cli.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "\n    Search for code in indexed projects.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\cli.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "view",
+            "description": "\n    View a file's content with syntax highlighting.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\cli.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "projects",
+            "description": "\n    List all indexed projects.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\cli.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "serve",
+            "description": "\n    Run the MCP server for Claude Desktop integration.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\cli.py",
+            "decorator": [
+                "app.command"
+            ]
+        },
+        {
+            "name": "index_directory",
+            "description": "\n            Index Python files in a directory.\n\n            Args:\n                directory: Path to the directory to index\n                project_name: Optional name for the project (defaults to directory name)\n\n            Returns:\n                Dictionary with project_id and file_count\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "directory": {
+                        "type": "string",
+                        "description": "Path to the directory to index"
+                    },
+                    "project_name": {
+                        "type": "string",
+                        "description": "Optional name for the project (defaults to directory name)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "directory",
+                    "project_name",
+                    "Returns"
+                ]
+            },
+            "file": "pycodex\\server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "search_code",
+            "description": "\n            Search for code in indexed projects.\n\n            Args:\n                query: Search query\n                project_id: Optional project ID to restrict search\n\n            Returns:\n                Dictionary with search results\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    },
+                    "project_id": {
+                        "type": "string",
+                        "description": "Optional project ID to restrict search"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "project_id",
+                    "Returns"
+                ]
+            },
+            "file": "pycodex\\server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "get_file_content",
+            "description": "\n            Get the content of a file.\n\n            Args:\n                path: Path to the file\n\n            Returns:\n                Dictionary with file content and information\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the file"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "path",
+                    "Returns"
+                ]
+            },
+            "file": "pycodex\\server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "get_projects",
+            "description": "\n            Get all indexed projects.\n\n            Returns:\n                Dictionary with project information\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\server.py",
+            "decorator": [
+                "self.mcp.resource"
+            ]
+        },
+        {
+            "name": "get_project",
+            "description": "\n            Get information about a specific project.\n\n            Args:\n                project_id: ID of the project\n\n            Returns:\n                Project information\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_id": {
+                        "type": "string",
+                        "description": "ID of the project"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "project_id",
+                    "Returns"
+                ]
+            },
+            "file": "pycodex\\server.py",
+            "decorator": [
+                "self.mcp.resource"
+            ]
+        },
+        {
+            "name": "module_name",
+            "description": "Get the module name from the path.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\core\\parser.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "parse_file",
+            "description": "\n        Parse a Python file and extract information.\n\n        Args:\n            file_path: Path to the Python file\n\n        Returns:\n            ModuleInfo object containing file information\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the Python file"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "Returns"
+                ]
+            },
+            "file": "pycodex\\core\\parser.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_parse_imports",
+            "description": "Parse imports from a module.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\core\\parser.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_parse_functions",
+            "description": "Parse functions from a module.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\core\\parser.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_function_to_info",
+            "description": "Convert a function node to FunctionInfo.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\core\\parser.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_parse_classes",
+            "description": "Parse classes from a module.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\core\\parser.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_parse_variables",
+            "description": "Parse variables from a module.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\core\\parser.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_basic_parse",
+            "description": "Basic parsing fallback using the stdlib ast module.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\core\\parser.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_truncate_text",
+            "description": "Truncate text to maximum length.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "pycodex\\core\\search.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,293 @@
+{
+    "tools": [
+        {
+            "name": "find_itineraries",
+            "description": "\n    Find travel itineraries based on the number of nights.\n    \n    Args:\n        nights: Optional number of nights to filter by (2-8)\n    \n    Returns:\n        A list of matching itineraries with basic info\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "nights": {
+                        "type": "string",
+                        "description": "Optional number of nights to filter by (2-8)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "nights",
+                    "Returns"
+                ]
+            },
+            "file": "claude_mcp_integration.py",
+            "decorator": [
+                "claude_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_itinerary_details",
+            "description": "\n    Get detailed information about a specific itinerary.\n    \n    Args:\n        itinerary_id: The ID of the itinerary to retrieve\n    \n    Returns:\n        Detailed itinerary information including daily plans\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "itinerary_id": {
+                        "type": "string",
+                        "description": "The ID of the itinerary to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "itinerary_id",
+                    "Returns"
+                ]
+            },
+            "file": "claude_mcp_integration.py",
+            "decorator": [
+                "claude_mcp.tool"
+            ]
+        },
+        {
+            "name": "create_itinerary_recommendation",
+            "description": "Create a prompt for generating an itinerary recommendation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_mcp_integration.py",
+            "decorator": [
+                "claude_mcp.prompt"
+            ]
+        },
+        {
+            "name": "find_itineraries",
+            "description": "\n    Find available travel itineraries based on number of nights.\n    \n    Args:\n        nights: Optional number of nights to filter by (2-8)\n    \n    Returns:\n        A list of matching itineraries with details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "nights": {
+                        "type": "string",
+                        "description": "Optional number of nights to filter by (2-8)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "nights",
+                    "Returns"
+                ]
+            },
+            "file": "claude_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_itinerary_details",
+            "description": "\n    Get detailed information about a specific itinerary.\n    \n    Args:\n        itinerary_id: The ID of the itinerary to retrieve\n    \n    Returns:\n        Detailed itinerary information including daily plans\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "itinerary_id": {
+                        "type": "string",
+                        "description": "The ID of the itinerary to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "itinerary_id",
+                    "Returns"
+                ]
+            },
+            "file": "claude_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_available_locations",
+            "description": "\n    Get list of all available locations in Thailand.\n    \n    Returns:\n        List of locations with region information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "claude_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "recommend_thai_itinerary",
+            "description": "\n    Create a prompt for recommending an itinerary based on interests.\n    \n    Args:\n        nights: Number of nights for the trip (2-8)\n        interests: Comma-separated list of travel interests\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "nights": {
+                        "type": "string",
+                        "description": "Number of nights for the trip (2-8)"
+                    },
+                    "interests": {
+                        "type": "string",
+                        "description": "Comma-separated list of travel interests"
+                    }
+                },
+                "required": [
+                    "nights",
+                    "interests"
+                ]
+            },
+            "file": "claude_mcp_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "create_itinerary",
+            "description": "\n    Create a new travel itinerary with daily plans.\n    \n    Example request body:\n    ```json\n    {\n      \"name\": \"Phuket Paradise\",\n      \"description\": \"Experience the best of Phuket beaches and attractions\",\n      \"nights\": 5,\n      \"daily_plans\": [\n        {\n          \"day_number\": 1,\n          \"hotel_id\": 1,\n          \"transfer_id\": 3,\n          \"activity_ids\": [1, 5],\n          \"notes\": \"Arrival day with beach time\"\n        },\n        {\n          \"day_number\": 2,\n          \"hotel_id\": 1,\n          \"activity_ids\": [2, 3],\n          \"notes\": \"Island hopping tour\"\n        }\n      ]\n    }\n    ``` \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\routes.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_itineraries",
+            "description": "\n    Retrieve travel itineraries with optional filtering by number of nights.\n    \n    Parameters:\n    - nights: Filter by the exact number of nights\n    - recommended_only: If true, return only recommended itineraries\n    - skip: Number of records to skip (for pagination)\n    - limit: Maximum number of records to return\n    \n    Example response:\n    ```json\n    [\n      {\n        \"id\": 1,\n        \"name\": \"Phuket Paradise\",\n        \"description\": \"Experience the best of Phuket beaches\",\n        \"nights\": 5,\n        \"total_price\": 1250.5,\n        \"is_recommended\": true,\n        \"daily_plans\": [...]\n      }\n    ]\n    ``` \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_itinerary",
+            "description": "\n    Retrieve a specific itinerary by its ID.\n    \n    Parameters:\n    - itinerary_id: The ID of the itinerary to retrieve\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_locations",
+            "description": "\n    Retrieve locations with optional filtering by region.\n    \n    Parameters:\n    - region: Filter locations by region (e.g., \"Phuket\" or \"Krabi\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "app_lifespan",
+            "description": "Initialize database connection for MCP server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_recommended_itinerary",
+            "description": "\n    Get a recommended itinerary for the specified number of nights.\n    \n    Args:\n        nights: Number of nights for the trip (2-8)\n    \n    Returns:\n        A recommended itinerary with daily plans.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "nights": {
+                        "type": "string",
+                        "description": "Number of nights for the trip (2-8)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "nights",
+                    "Returns"
+                ]
+            },
+            "file": "app\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_available_durations",
+            "description": "\n    List all available durations (nights) for recommended itineraries.\n    \n    Returns:\n        A list of available night durations for recommended itineraries.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_recommended_itinerary_resource",
+            "description": "\n    Get details about recommended itineraries for the specified number of nights.\n    \n    Args:\n        nights: Number of nights for the itinerary\n    \n    Returns:\n        A text description of recommended itineraries\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "nights": {
+                        "type": "string",
+                        "description": "Number of nights for the itinerary"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "nights",
+                    "Returns"
+                ]
+            },
+            "file": "app\\mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "recommend_itinerary",
+            "description": "Create a prompt for recommending an itinerary for the specified number of nights",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\mcp\\server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

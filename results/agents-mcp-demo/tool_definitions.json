@@ -1,0 +1,173 @@
+{
+    "tools": [
+        {
+            "name": "db_lifespan",
+            "description": "\n    Manages the lifecycle of the SimpleDatabaseManager instance.\n\n    Args:\n        server (FastMCP): The FastMCP server instance.\n\n    Yields:\n        SqlDatabaseContext: The context containing the connection pool.\n\n    Raises:\n        ValueError: If the DB_URL environment variable is not set.\n        Exception: Propagates database connection errors.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string",
+                        "description": "The FastMCP server instance."
+                    },
+                    "Yields": {
+                        "type": "string"
+                    },
+                    "SqlDatabaseContext": {
+                        "type": "string",
+                        "description": "The context containing the connection pool."
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If the DB_URL environment variable is not set."
+                    },
+                    "Exception": {
+                        "type": "string",
+                        "description": "Propagates database connection errors."
+                    }
+                },
+                "required": [
+                    "server",
+                    "Yields",
+                    "SqlDatabaseContext",
+                    "Raises",
+                    "ValueError",
+                    "Exception"
+                ]
+            },
+            "file": "sqlmcp\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "add_user",
+            "description": "\n    Adds a new user to the 'users' table.\n\n    Args:\n        ctx (Context): The MCP context containing request details.\n        name (str): The name of the user to add.\n        email (str): The unique email address of the user to add.\n\n    Returns:\n        str: A success message or an error string starting with \"error:\".\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context containing request details."
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the user to add."
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "The unique email address of the user to add."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A success message or an error string starting with \"error:\"."
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "name",
+                    "email",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "sqlmcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_all_users",
+            "description": "\n    Retrieves all users from the 'users' table.\n\n    Args:\n        ctx (Context): The MCP context.\n\n    Returns:\n        Union[List[Dict[str, Any]], str]: A list of user dictionaries\n        (each containing 'id', 'name', 'email') or an error string.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "sqlmcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_user_by_email",
+            "description": "\n    Finds a user by their email address in the 'users' table.\n\n    Args:\n        ctx (Context): The MCP context.\n        email (str): The email address to search for.\n\n    Returns:\n        Union[Dict[str, Any], str]: The user dictionary if found,\n        \"error: User not found.\" if not found, or another error string\n        if a database issue occurs.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context."
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "The email address to search for."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "email",
+                    "Returns"
+                ]
+            },
+            "file": "sqlmcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_user_by_email",
+            "description": "\n    Deletes a user by their email address from the 'users' table.\n\n    Args:\n        ctx (Context): The MCP context.\n        email (str): The email address of the user to delete.\n\n    Returns:\n        str: A success message if deletion was successful or indicates user\n             not found, or an error string if a database issue occurs.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string",
+                        "description": "The MCP context."
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "The email address of the user to delete."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A success message if deletion was successful or indicates user"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "email",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "sqlmcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

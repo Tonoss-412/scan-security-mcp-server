@@ -1,0 +1,350 @@
+{
+    "tools": [
+        {
+            "name": "get_instance",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\fdl_fast_mcp.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "list_all_projects",
+            "description": "\n    List the names of all projects in the organisation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\fdl_fast_mcp.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "list_models_in_project",
+            "description": "\n    List out all model names associated with a project\n\n    Args:\n        project_name: Name of the project\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    }
+                },
+                "required": [
+                    "project_name"
+                ]
+            },
+            "file": "src\\fdl_fast_mcp.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "get_model_schema",
+            "description": "Get the schema for a given model\n\n    Args:\n        project_name: Name of the project\n        model_name: Name of the model\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    },
+                    "model_name": {
+                        "type": "string",
+                        "description": "Name of the model"
+                    }
+                },
+                "required": [
+                    "project_name",
+                    "model_name"
+                ]
+            },
+            "file": "src\\fdl_fast_mcp.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "get_model_spec",
+            "description": "Get model specs given a project name and model name\n    Model Specs tell Fiddler what features/columns are inputs, outputs, targets/labels and metadata\n\n    Args:\n        project_name: Name of the project\n        model_name: Name of the model\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    },
+                    "model_name": {
+                        "type": "string",
+                        "description": "Name of the model"
+                    }
+                },
+                "required": [
+                    "project_name",
+                    "model_name"
+                ]
+            },
+            "file": "src\\fdl_fast_mcp.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "list_alertrules_for_model",
+            "description": "Get Alert Rules for a given project and model\n    An alert rule is used to setup checks and notification rules on a model's health and performance, over time.\n\n    Args:\n        project_name: Name of the project\n        model_name: Name of the model\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    },
+                    "model_name": {
+                        "type": "string",
+                        "description": "Name of the model"
+                    }
+                },
+                "required": [
+                    "project_name",
+                    "model_name"
+                ]
+            },
+            "file": "src\\fdl_fast_mcp.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "list_triggered_alerts_for_rule",
+            "description": "Get triggered alerts for a given model in the past X days\n\n    Args:\n        project_name: Name of the project\n        model_name: Name of the model\n        alert_rule_id: ID of the alert rule\n        days: Number of days to look back (default 1)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    },
+                    "model_name": {
+                        "type": "string",
+                        "description": "Name of the model"
+                    },
+                    "alert_rule_id": {
+                        "type": "string",
+                        "description": "ID of the alert rule"
+                    },
+                    "days": {
+                        "type": "string",
+                        "description": "Number of days to look back (default 1)"
+                    }
+                },
+                "required": [
+                    "project_name",
+                    "model_name",
+                    "alert_rule_id",
+                    "days"
+                ]
+            },
+            "file": "src\\fdl_fast_mcp.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "list_all_model_custom_metrics",
+            "description": "List all custom metrics for a given model\n    Custom metrics are metrics that are not part of the model's schema, but are calculated by the model.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\fdl_fast_mcp.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "list_all_projects",
+            "description": "\n    List the names of all projects in the organisation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\fdl_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_models_in_project",
+            "description": "\n    List out all model names associated with a project\n\n    Args:\n        project_name: Name of the project\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    }
+                },
+                "required": [
+                    "project_name"
+                ]
+            },
+            "file": "src\\fdl_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_model_schema",
+            "description": "Get the schema for a given model\n\n    Args:\n        project_name: Name of the project\n        model_name: Name of the model\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    },
+                    "model_name": {
+                        "type": "string",
+                        "description": "Name of the model"
+                    }
+                },
+                "required": [
+                    "project_name",
+                    "model_name"
+                ]
+            },
+            "file": "src\\fdl_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_model_spec",
+            "description": "Get model specs given a project name and model name\n    Model Specs tell Fiddler what features/columns are inputs, outputs, targets/labels and metadata\n\n    Args:\n        project_name: Name of the project\n        model_name: Name of the model\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    },
+                    "model_name": {
+                        "type": "string",
+                        "description": "Name of the model"
+                    }
+                },
+                "required": [
+                    "project_name",
+                    "model_name"
+                ]
+            },
+            "file": "src\\fdl_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_alertrules_for_model",
+            "description": "Get Alert Rules for a given project and model\n    An alert rule is used to setup checks and notification rules on a model's health and performance, over time.\n\n    Args:\n        project_name: Name of the project\n        model_name: Name of the model\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    },
+                    "model_name": {
+                        "type": "string",
+                        "description": "Name of the model"
+                    }
+                },
+                "required": [
+                    "project_name",
+                    "model_name"
+                ]
+            },
+            "file": "src\\fdl_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_triggered_alerts_for_rule",
+            "description": "Get triggered alerts for a given model in the past X days\n\n    Args:\n        project_name: Name of the project\n        model_name: Name of the model\n        alert_rule_id: ID of the alert rule\n        days: Number of days to look back (default 1)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_name": {
+                        "type": "string",
+                        "description": "Name of the project"
+                    },
+                    "model_name": {
+                        "type": "string",
+                        "description": "Name of the model"
+                    },
+                    "alert_rule_id": {
+                        "type": "string",
+                        "description": "ID of the alert rule"
+                    },
+                    "days": {
+                        "type": "string",
+                        "description": "Number of days to look back (default 1)"
+                    }
+                },
+                "required": [
+                    "project_name",
+                    "model_name",
+                    "alert_rule_id",
+                    "days"
+                ]
+            },
+            "file": "src\\fdl_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_all_model_custom_metrics",
+            "description": "List all custom metrics for a given model\n    Custom metrics are metrics that are not part of the model's schema, but are calculated by the model.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\fdl_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_instance",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\fdl_tracer.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

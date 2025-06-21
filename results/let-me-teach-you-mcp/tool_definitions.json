@@ -1,0 +1,100 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools for Hartford Claims processing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "hartford_claims_mcp.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool calls for Hartford Claims operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "hartford_claims_mcp.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools for Hartford Customer Service operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "hartford_customer_service_mcp.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool calls for Hartford Customer Service operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "hartford_customer_service_mcp.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools for Hartford Underwriting operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "hartford_underwriting_mcp.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool calls for Hartford Underwriting operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "hartford_underwriting_mcp.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "list_mcp_tools",
+            "description": "MCP handler to list tools this server exposes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local_mcp\\server.py",
+            "decorator": [
+                "app.list_tools"
+            ]
+        },
+        {
+            "name": "call_mcp_tool",
+            "description": "MCP handler to execute a tool call requested by an MCP client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local_mcp\\server.py",
+            "decorator": [
+                "app.call_tool"
+            ]
+        }
+    ]
+}

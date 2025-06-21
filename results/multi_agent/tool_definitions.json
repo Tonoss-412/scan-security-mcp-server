@@ -1,0 +1,83 @@
+{
+    "tools": [
+        {
+            "name": "_load_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agents\\confluence\\confluence.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_load_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agents\\jira\\jira.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_load_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agents\\qa\\qa.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "test_write",
+            "description": "Ghi d\u1eef li\u1ec7u v\u00e0o h\u1ec7 th\u1ed1ng.\"\"\"\n    retu",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "str": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "str"
+                ]
+            },
+            "file": "src\\agents\\test_agent\\test.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "create_unit_test",
+            "description": "CREATE_UNIT_TEST_DESC",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\services\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_unit_test",
+            "description": "(\n\"CallsQodoCovertogenerateunittestsforagivenPythonsourcefileusingtestcoverageanalysis.\\n\\n\"\n\"Args:\\n\"\n\"source_file_path(str):Pathtothefileneedingtest.\\n\"\n\"Returns:\\n\"\n\"str:JSONorYAML-formattedresultoftestgeneration",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\services\\qodo_cover_tool.py",
+            "decorator": [
+                "tool"
+            ]
+        }
+    ]
+}

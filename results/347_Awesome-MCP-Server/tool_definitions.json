@@ -1,0 +1,98 @@
+{
+    "tools": [
+        {
+            "name": "get_profile",
+            "description": "Get LinkedIn profile data for a given profile URL.\n\n    Args:\n        linkedin_url: The LinkedIn profile URL.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "linkedin_url": {
+                        "type": "string",
+                        "description": "The LinkedIn profile URL."
+                    }
+                },
+                "required": [
+                    "linkedin_url"
+                ]
+            },
+            "file": "linkedin-profile-mcp\\linkedin.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_pubmed",
+            "description": "\n    Search PubMed for articles matching the query.\n\n    Args:\n        query: The search term for PubMed.\n        max_results: Maximum number of articles to retrieve.\n\n    Returns:\n        A string containing the abstracts of found articles, separated by two newlines.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search term for PubMed."
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of articles to retrieve."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "pubmed-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_alerts",
+            "description": "Get weather alerts for a US state.\n\n    Args:\n        state: Two-letter US state code (e.g. CA, NY)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "Two-letter US state code (e.g. CA, NY)"
+                    }
+                },
+                "required": [
+                    "state"
+                ]
+            },
+            "file": "weather\\weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_forecast",
+            "description": "Get weather forecast for a location.\n\n    Args:\n        latitude: Latitude of the location\n        longitude: Longitude of the location\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "type": "string",
+                        "description": "Latitude of the location"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "description": "Longitude of the location"
+                    }
+                },
+                "required": [
+                    "latitude",
+                    "longitude"
+                ]
+            },
+            "file": "weather\\weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

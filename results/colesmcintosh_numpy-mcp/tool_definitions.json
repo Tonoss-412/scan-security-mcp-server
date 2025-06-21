@@ -1,0 +1,166 @@
+{
+    "tools": [
+        {
+            "name": "add",
+            "description": "Add two numbers.\n    \n    Args:\n        a (int): First number to add\n        b (int): Second number to add\n        \n    Returns:\n        int: Sum of the two numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "a": {
+                        "type": "integer",
+                        "description": "First number to add"
+                    },
+                    "b": {
+                        "type": "integer",
+                        "description": "Second number to add"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "int": {
+                        "type": "string",
+                        "description": "Sum of the two numbers"
+                    }
+                },
+                "required": [
+                    "a",
+                    "b",
+                    "Returns",
+                    "int"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "matrix_multiply",
+            "description": "Multiply two matrices using NumPy.\n    \n    Args:\n        matrix_a (List[List[float]]): First input matrix\n        matrix_b (List[List[float]]): Second input matrix\n        \n    Returns:\n        List[List[float]]: Result of matrix multiplication\n        \n    Raises:\n        ValueError: If matrices have incompatible dimensions\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "matrix_a": {
+                        "type": "string",
+                        "description": "First input matrix"
+                    },
+                    "matrix_b": {
+                        "type": "string",
+                        "description": "Second input matrix"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If matrices have incompatible dimensions"
+                    }
+                },
+                "required": [
+                    "matrix_a",
+                    "matrix_b",
+                    "Returns",
+                    "Raises",
+                    "ValueError"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "statistical_analysis",
+            "description": "Perform statistical analysis on a dataset.\n    \n    Args:\n        data (List[float]): Input data for analysis\n        \n    Returns:\n        dict[str, float]: Dictionary containing statistical measures\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "string",
+                        "description": "Input data for analysis"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "data",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "eigen_decomposition",
+            "description": "Compute eigenvalues and eigenvectors of a square matrix.\n    \n    Args:\n        matrix (List[List[float]]): Input square matrix\n        \n    Returns:\n        Tuple[List[float], List[List[float]]]: Eigenvalues and eigenvectors\n        \n    Raises:\n        ValueError: If matrix is not square or computation fails\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "matrix": {
+                        "type": "string",
+                        "description": "Input square matrix"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If matrix is not square or computation fails"
+                    }
+                },
+                "required": [
+                    "matrix",
+                    "Returns",
+                    "Raises",
+                    "ValueError"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "polynomial_fit",
+            "description": "Fit a polynomial to the given data points.\n    \n    Args:\n        x (List[float]): X coordinates\n        y (List[float]): Y coordinates\n        degree (int, optional): Degree of polynomial. Defaults to 2.\n        \n    Returns:\n        List[float]: Coefficients of the fitted polynomial\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "x": {
+                        "type": "string",
+                        "description": "X coordinates"
+                    },
+                    "y": {
+                        "type": "string",
+                        "description": "Y coordinates"
+                    },
+                    "degree": {
+                        "type": "integer",
+                        "description": "Degree of polynomial. Defaults to 2."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "x",
+                    "y",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

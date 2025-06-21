@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "read_wikipedia_article",
+            "description": "\n    Fetch a Wikipedia article at the provided URL, parse its main content,\n    convert it to Markdown, and return the resulting text.\n\n    Usage:\n        read_wikipedia_article(\"https://en.wikipedia.org/wiki/Python_(programming_language)\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "create_scraper",
+            "description": "Create a scraper for the specified store.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "grocery_search_mcp\\scraper.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "grocery_search_mcp\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "grocery_search_mcp\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        }
+    ]
+}

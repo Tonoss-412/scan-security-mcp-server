@@ -1,0 +1,102 @@
+{
+    "tools": [
+        {
+            "name": "analyze",
+            "description": "\n    Analyze a comic panel image.\n    \n    Request body:\n        {\n            \"image_data\": \"base64 encoded image or path\",\n            \"is_path\": boolean,\n            \"panel_num\": integer\n        }\n    \n    Returns:\n        {\n            \"figures\": integer,\n            \"motion\": \"action\" or \"static\",\n            \"objects\": \"sparks\" or \"none\"\n        }\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "describe",
+            "description": "\n    Generate a description for a comic panel.\n    \n    Request body:\n        {\n            \"image_data\": {\n                \"figures\": integer,\n                \"motion\": \"action\" or \"static\",\n                \"objects\": \"sparks\" or \"none\"\n            },\n            \"panel_num\": integer\n        }\n    \n    Returns:\n        {\n            \"description\": string\n        }\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "feedback",
+            "description": "\n    Submit feedback on a description.\n    \n    Request body:\n        {\n            \"rating\": string,\n            \"issue_type\": string,\n            \"original_description\": string,\n            \"edited_description\": string,\n            \"comments\": string\n        }\n    \n    Returns:\n        {\n            \"success\": boolean,\n            \"message\": string\n        }\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "index",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "too_large",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "e": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "e"
+                ]
+            },
+            "file": "app\\app.py",
+            "decorator": [
+                "app.errorhandler"
+            ]
+        },
+        {
+            "name": "server_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "e": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "e"
+                ]
+            },
+            "file": "app\\app.py",
+            "decorator": [
+                "app.errorhandler"
+            ]
+        }
+    ]
+}

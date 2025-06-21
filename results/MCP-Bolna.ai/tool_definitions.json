@@ -1,0 +1,156 @@
+{
+    "tools": [
+        {
+            "name": "create_agent",
+            "description": "Create a new voice AI agent with only the required fields.\n    \n    Args:\n        agent_name: The name of the agent.\n        agent_type: The type of the agent (e.g., \"other\").\n        agent_welcome_message: The welcome message for the agent.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "agent_name": {
+                        "type": "string",
+                        "description": "The name of the agent."
+                    },
+                    "agent_type": {
+                        "type": "string",
+                        "description": "The type of the agent (e.g., \"other\")."
+                    },
+                    "agent_welcome_message": {
+                        "type": "string",
+                        "description": "The welcome message for the agent."
+                    }
+                },
+                "required": [
+                    "agent_name",
+                    "agent_type",
+                    "agent_welcome_message"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_agents",
+            "description": "Retrieve all voice AI agents.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_agent",
+            "description": "Retrieve a specific voice AI agent by ID.\n    \n    Args:\n        agent_id: The ID of the agent to fetch.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "agent_id": {
+                        "type": "string",
+                        "description": "The ID of the agent to fetch."
+                    }
+                },
+                "required": [
+                    "agent_id"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_agent",
+            "description": "Update an existing voice AI agent.\n    \n    Args:\n        agent_id: The ID of the agent to update.\n        agent_config: The updated configuration for the agent.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "agent_id": {
+                        "type": "string",
+                        "description": "The ID of the agent to update."
+                    },
+                    "agent_config": {
+                        "type": "string",
+                        "description": "The updated configuration for the agent."
+                    }
+                },
+                "required": [
+                    "agent_id",
+                    "agent_config"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_agent",
+            "description": "Delete a voice AI agent.\n    \n    Args:\n        agent_id: The ID of the agent to delete.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "agent_id": {
+                        "type": "string",
+                        "description": "The ID of the agent to delete."
+                    }
+                },
+                "required": [
+                    "agent_id"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_agent",
+            "description": "Execute a voice AI agent.\n    \n    Args:\n        agent_id: The ID of the agent to execute.\n        execution_data: The data to execute the agent with.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "agent_id": {
+                        "type": "string",
+                        "description": "The ID of the agent to execute."
+                    },
+                    "execution_data": {
+                        "type": "string",
+                        "description": "The data to execute the agent with."
+                    }
+                },
+                "required": [
+                    "agent_id",
+                    "execution_data"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_execution_status",
+            "description": "Retrieve the status of a specific execution.\n    \n    Args:\n        execution_id: The ID of the execution to check the status of.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "execution_id": {
+                        "type": "string",
+                        "description": "The ID of the execution to check the status of."
+                    }
+                },
+                "required": [
+                    "execution_id"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

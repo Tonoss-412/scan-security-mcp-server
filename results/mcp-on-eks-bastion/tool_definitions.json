@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "start_chat",
+            "description": "Initialize the chat session",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "chainlit_app.py",
+            "decorator": [
+                "cl.on_chat_start"
+            ]
+        }
+    ]
+}

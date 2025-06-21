@@ -1,0 +1,24 @@
+{
+    "tools": [
+        {
+            "name": "main",
+            "description": "Simple CLI that greets NAME.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_description": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "project_description"
+                ]
+            },
+            "file": "src\\strands_agents_example\\cli.py",
+            "decorator": [
+                "click.command",
+                "click.option"
+            ]
+        }
+    ]
+}

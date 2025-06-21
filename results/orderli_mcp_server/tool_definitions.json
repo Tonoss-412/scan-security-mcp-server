@@ -1,0 +1,4128 @@
+{
+    "tools": [
+        {
+            "name": "from_json_data",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\postgres_mcp\\artifacts.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "_format_plan_node",
+            "description": "Recursively format a plan node and its children.\n\n        Args:\n            node: The plan node to format\n            level: The current indentation level\n\n        Returns:\n            str: A formatted string representation of the node and its children\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "node": {
+                        "type": "string",
+                        "description": "The plan node to format"
+                    },
+                    "level": {
+                        "type": "string",
+                        "description": "The current indentation level"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "A formatted string representation of the node and its children"
+                    }
+                },
+                "required": [
+                    "node",
+                    "level",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "src\\postgres_mcp\\artifacts.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "list_schemas",
+            "description": "Listallschemasinthedatabase",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_objects",
+            "description": "Listobjectsinaschema",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_object_details",
+            "description": "Showdetailedinformationaboutadatabaseobject",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "explain_query",
+            "description": "ExplainstheexecutionplanforaSQLquery",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sql": {
+                        "type": "string",
+                        "description": "The SQL query to explain"
+                    },
+                    "analyze": {
+                        "type": "string",
+                        "description": "When True, actually runs the query for real statistics"
+                    },
+                    "hypothetical_indexes": {
+                        "type": "string",
+                        "description": "Optional list of indexes to simulate"
+                    }
+                },
+                "required": [
+                    "sql",
+                    "analyze",
+                    "hypothetical_indexes"
+                ]
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "analyze_workload_indexes",
+            "description": "Analyzefrequentlyexecutedqueriesinthedatabaseandrecommendoptimalindexes",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool",
+                "validate_call"
+            ]
+        },
+        {
+            "name": "analyze_query_indexes",
+            "description": "Analyzealistof(upto10)SQLqueriesandrecommendoptimalindexes",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool",
+                "validate_call"
+            ]
+        },
+        {
+            "name": "analyze_db_health",
+            "description": "Analyzesdatabasehealth.Herearetheavailablehealthchecks:\\n\"\n\"-index-checksforinvalid",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "health_type": {
+                        "type": "string",
+                        "description": "Comma-separated list of health check types to perform."
+                    }
+                },
+                "required": [
+                    "health_type"
+                ]
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_top_queries",
+            "description": "f\"Reportstheslowestormostresource-intensivequeriesusingdatafromthe'{PG_STAT_STATEMENTS}'extension.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "lookup_error_info",
+            "description": "LookupinformationaboutknownOrderlidatabaseerrorsandtheirsolutionsforaspecificPOSsystem.Supportsoptionalkeywordsearchtoreturnthetop~5mostrelevantresults.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pos_system": {
+                        "type": "string",
+                        "description": "The POS system to filter errors by (e.g., 'unTill', 'Lightspeed K Series')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "pos_system",
+                    "Returns"
+                ]
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_restaurant_pos",
+            "description": "GettherestaurantnameandconfiguredPOSintegrationforagivenrestaurantid",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "restaurant_id": {
+                        "type": "string",
+                        "description": "Primary key of the restaurants table"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "restaurant_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_order_errors",
+            "description": "Searchrecentorder_http_requestsjoinedwithorder_groupsforarestaurantandoptionalLIKEfilteronrequest/responsetext.Handlesbothexactdatesandrelativetimeslike'2hoursago'.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_menu_pos_mismatches",
+            "description": "Findmenu/POSinconsistenciesthatmaybecausingerrors.ComparesmenuitemswithPOSconfigurationtoidentifyoptionrequirementmismatches.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_by_error_text",
+            "description": "Searchforaspecificerrorpatternacrossallrestaurantsandawiderdaterange(upto30days).Usethiswhenstandardsearchisn'tfindinganerror.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "analyze_order_error",
+            "description": "Debugandanalyzeanordererrorbyexaminingboththeorderandpotentialmenu-POSmismatchesinonequery.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_common_pos_errors",
+            "description": "SearchrecentordererrorsforaspecificrestaurantmatchingcommonPOSerrorpatterns.Supportsrelativetimeexpressionslike'2hoursago'.\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_restaurant",
+            "description": "Fuzzysearchrestaurantsbyname(case-insensitivesubstringmatch)andreturnid",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "is_healthy",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\database_health\\connection_health_calc.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "percent_used",
+            "description": "Calculate what percentage of the sequence has been used.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\database_health\\sequence_health_calc.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "_generate_recommendations",
+            "description": "Generate index recommendations using a hybrid 'seed + greedy' approach with a time cutoff.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\dta_calc.py",
+            "decorator": [
+                "override"
+            ]
+        },
+        {
+            "name": "index_definition",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "definition",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "name",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "columns",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "table",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "using",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "table",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "columns",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "using",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "progressive_improvement_multiple",
+            "description": "Calculate the progressive percentage improvement from this recommendation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "potential_problematic_reason",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "estimated_size_bytes",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "individual_improvement_multiple",
+            "description": "Calculate the individual percentage improvement from this recommendation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "extract_cost_from_json_plan",
+            "description": "Extract total cost from JSON EXPLAIN plan data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_generate_recommendations",
+            "description": "Generate index tuning queries.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\index_opt_base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "_generate_recommendations",
+            "description": "Generate index tuning queries using optimization by LLM.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\index\\llm_opt.py",
+            "decorator": [
+                "override"
+            ]
+        },
+        {
+            "name": "definition",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\sql\\index.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "name",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\sql\\index.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "sql_to_query",
+            "description": "Convert a SQL string to a query string.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\sql\\safe_sql.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "param_sql_to_query",
+            "description": "Convert a SQL string to a query string.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\sql\\safe_sql.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "execute_param_query",
+            "description": "Execute a query after validating it is safe",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\sql\\safe_sql.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "is_valid",
+            "description": "Check if the connection pool is valid.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\sql\\sql_driver.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "last_error",
+            "description": "Get the last error message.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\postgres_mcp\\sql\\sql_driver.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "event_loop_policy",
+            "description": "Create and return a custom event loop policy for tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_postgres_connection_string",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "reset_pg_version_cache",
+            "description": "Reset the PostgreSQL version cache before each test.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "local_sql_driver",
+            "description": "Create a SQL driver connected to a real PostgreSQL database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_postgres_connection_string": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_postgres_connection_string"
+                ]
+            },
+            "file": "tests\\integration\\test_top_queries_integration.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_get_top_queries_integration",
+            "description": "\n    Integration test for get_top_queries with a real database.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "local_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "local_sql_driver"
+                ]
+            },
+            "file": "tests\\integration\\test_top_queries_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_extension_not_available",
+            "description": "Test behavior when pg_stat_statements extension is not available.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "local_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "local_sql_driver"
+                ]
+            },
+            "file": "tests\\integration\\test_top_queries_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\dta\\test_dta_calc_integration.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "db_connection",
+            "description": "Create a connection to the test database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_postgres_connection_string": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_postgres_connection_string"
+                ]
+            },
+            "file": "tests\\integration\\dta\\test_dta_calc_integration.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "setup_test_tables",
+            "description": "Set up test tables with sample data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_connection"
+                ]
+            },
+            "file": "tests\\integration\\dta\\test_dta_calc_integration.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "create_dta",
+            "description": "Create DatabaseTuningAdvisor instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_connection"
+                ]
+            },
+            "file": "tests\\integration\\dta\\test_dta_calc_integration.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_join_order_benchmark",
+            "description": "Test DTA performance on JOIN ORDER BENCHMARK (JOB) style queries.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_connection": {
+                        "type": "string"
+                    },
+                    "setup_test_tables": {
+                        "type": "string"
+                    },
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_connection",
+                    "setup_test_tables",
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\integration\\dta\\test_dta_calc_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "retry"
+            ]
+        },
+        {
+            "name": "test_multi_column_indexes",
+            "description": "Test that DTA can recommend multi-column indexes when appropriate.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_connection": {
+                        "type": "string"
+                    },
+                    "setup_test_tables": {
+                        "type": "string"
+                    },
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_connection",
+                    "setup_test_tables",
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\integration\\dta\\test_dta_calc_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.skip"
+            ]
+        },
+        {
+            "name": "test_diminishing_returns",
+            "description": "Test that the DTA correctly implements the diminishing returns behavior.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_connection": {
+                        "type": "string"
+                    },
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_connection",
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\integration\\dta\\test_dta_calc_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "retry"
+            ]
+        },
+        {
+            "name": "test_pareto_optimization_basic",
+            "description": "Basic test for Pareto optimal index selection with diminishing returns.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_connection": {
+                        "type": "string"
+                    },
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_connection",
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\integration\\dta\\test_dta_calc_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "retry"
+            ]
+        },
+        {
+            "name": "test_storage_cost_tradeoff",
+            "description": "Test that the DTA correctly balances performance gains against storage costs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_connection": {
+                        "type": "string"
+                    },
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_connection",
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\integration\\dta\\test_dta_calc_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.skip"
+            ]
+        },
+        {
+            "name": "test_pareto_optimal_index_selection",
+            "description": "Test that the DTA correctly implements Pareto optimal index selection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db_connection": {
+                        "type": "string"
+                    },
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db_connection",
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\integration\\dta\\test_dta_calc_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.skip"
+            ]
+        },
+        {
+            "name": "mock_db_connection",
+            "description": "Mock database connection pool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_access_mode.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_sql_driver_returns_correct_driver",
+            "description": "Test that get_sql_driver returns the correct driver type based on access mode.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "access_mode": {
+                        "type": "string"
+                    },
+                    "expected_driver_type": {
+                        "type": "string"
+                    },
+                    "mock_db_connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "access_mode",
+                    "expected_driver_type",
+                    "mock_db_connection"
+                ]
+            },
+            "file": "tests\\unit\\test_access_mode.py",
+            "decorator": [
+                "pytest.mark.parametrize",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_sql_driver_sets_timeout_in_restricted_mode",
+            "description": "Test that get_sql_driver sets the timeout in restricted mode.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db_connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db_connection"
+                ]
+            },
+            "file": "tests\\unit\\test_access_mode.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_sql_driver_in_unrestricted_mode_no_timeout",
+            "description": "Test that get_sql_driver in unrestricted mode is a regular SqlDriver.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db_connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db_connection"
+                ]
+            },
+            "file": "tests\\unit\\test_access_mode.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_command_line_parsing",
+            "description": "Test that command-line arguments correctly set the access mode.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_access_mode.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "local_sql_driver",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_postgres_connection_string": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_postgres_connection_string"
+                ]
+            },
+            "file": "tests\\unit\\database_health\\test_database_health_tool.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_database_health_all",
+            "description": "Test that the database health tool runs without errors when performing all health checks.\n    This test only verifies that the tool executes successfully and returns results in the expected format.\n    It does not validate whether the health check results are correct.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "local_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "local_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\database_health\\test_database_health_tool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_sql_driver",
+            "description": "Create a mock SQL driver for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_explain_plan_tool_initialization",
+            "description": "Test initialization of ExplainPlanTool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_has_bind_variables",
+            "description": "Test the _has_bind_variables method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_has_like_expressions",
+            "description": "Test the _has_like_expressions method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_success",
+            "description": "Test successful execution of explain.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_with_bind_variables",
+            "description": "Test explain with bind variables.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_with_bind_variables_pg15",
+            "description": "Test explain with bind variables on PostgreSQL < 16.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    },
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver",
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_analyze_with_bind_variables",
+            "description": "Test explain analyze with bind variables uses parameter replacement.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    },
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver",
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_analyze_success",
+            "description": "Test successful execution of explain analyze.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_with_error",
+            "description": "Test handling of error in explain.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_with_invalid_response",
+            "description": "Test handling of invalid response format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_with_empty_result",
+            "description": "Test handling of empty result set.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_with_empty_plan_data",
+            "description": "Test handling of empty plan data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_with_like_and_bind_variables_pg16",
+            "description": "Test explain with LIKE and bind variables on PostgreSQL 16.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    },
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver",
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_with_functional_hypothetical_indexes",
+            "description": "Test explain with functional expressions in hypothetical indexes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "local_sql_driver",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_postgres_connection_string": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_postgres_connection_string"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan_real_db.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_explain_with_real_db",
+            "description": "Test explain with a real database connection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "local_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "local_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan_real_db.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_analyze_with_real_db",
+            "description": "Test explain analyze with a real database connection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "local_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "local_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan_real_db.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_join_query_with_real_db",
+            "description": "Test explain with a join query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "local_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "local_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan_real_db.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_with_bind_variables_real_db",
+            "description": "Test explain with bind variables on a real database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "local_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "local_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan_real_db.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_with_like_expressions_real_db",
+            "description": "Test explain with LIKE expressions on a real database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "local_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "local_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan_real_db.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_with_like_and_bind_variables_real_db",
+            "description": "Test explain with both LIKE and bind variables on a real database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "local_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "local_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan_real_db.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_invalid_query_with_real_db",
+            "description": "Test explain with an invalid query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "local_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "local_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\explain\\test_explain_plan_real_db.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_db_connection",
+            "description": "Create a mock DB connection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_server_tools_registered",
+            "description": "Test that the explain tools are properly registered in the server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_query_basic",
+            "description": "Test explain_query with basic parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_query_analyze",
+            "description": "Test explain_query with analyze=True.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_query_hypothetical_indexes",
+            "description": "Test explain_query with hypothetical indexes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_query_error_handling",
+            "description": "Test explain_query error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_safe_sql_driver",
+            "description": "Create a mock SafeSqlDriver for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server_integration.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "mock_explain_plan_tool",
+            "description": "Create a mock ExplainPlanTool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_explain_query_integration",
+            "description": "Test the entire explain_query tool end-to-end.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_query_with_analyze_integration",
+            "description": "Test the explain_query tool with analyze=True.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_query_with_hypothetical_indexes_integration",
+            "description": "Test the explain_query tool with hypothetical indexes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_query_missing_hypopg_integration",
+            "description": "Test the explain_query tool when hypopg extension is missing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_query_error_handling_integration",
+            "description": "Test the explain_query tool's error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\explain\\test_server_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "async_sql_driver",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "create_dta",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_extract_columns_empty_query",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_extract_columns_invalid_sql",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_extract_columns_subquery",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_index_initialization",
+            "description": "Test Index class initialization and properties.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_index_equality",
+            "description": "Test Index equality comparison.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_extract_columns_from_simple_query",
+            "description": "Test column extraction from a simple SELECT query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_extract_columns_from_join_query",
+            "description": "Test column extraction from a query with JOINs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_generate_candidates",
+            "description": "Test index candidate generation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    },
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver",
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_analyze_workload",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    },
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver",
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "Test error handling in critical methods.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    },
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver",
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_index_exists",
+            "description": "Test the robust index comparison functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_ndistinct_handling",
+            "description": "Test handling of ndistinct values in row estimation calculations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_filter_long_text_columns",
+            "description": "Test filtering of long text columns from index candidates.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    },
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver",
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_basic_workload_analysis",
+            "description": "Test basic workload analysis functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_replace_parameters_basic",
+            "description": "Test basic parameter replacement functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_replace_parameters_numeric",
+            "description": "Test parameter replacement for numeric columns.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_replace_parameters_date",
+            "description": "Test parameter replacement for date columns.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_replace_parameters_like",
+            "description": "Test parameter replacement for LIKE patterns.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_replace_parameters_multiple",
+            "description": "Test replacement of multiple parameters in a complex query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_replace_parameters_fallback",
+            "description": "Test fallback behavior when column information is not available.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_extract_columns",
+            "description": "Test extracting table and column information from queries.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_identify_parameter_column",
+            "description": "Test identifying which column a parameter belongs to.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_replacement_value",
+            "description": "Test generating replacement values based on statistics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_condition_column_collector_simple",
+            "description": "Test basic functionality of ConditionColumnCollector.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_condition_column_collector_join",
+            "description": "Test condition column collection with JOIN conditions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_condition_column_collector_with_alias",
+            "description": "Test condition column collection with column aliases in conditions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_complex_query_with_alias_in_conditions",
+            "description": "Test complex query with aliases used in multiple conditions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_filter_candidates_by_query_conditions",
+            "description": "Test filtering index candidates based on query conditions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    },
+                    "create_dta": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver",
+                    "create_dta"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_extract_condition_columns",
+            "description": "Test the _extract_condition_columns method directly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_condition_collector_with_order_by",
+            "description": "Test that columns used in ORDER BY are collected for indexing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_condition_collector_with_order_by_alias",
+            "description": "Test that columns in aliased expressions in ORDER BY are collected.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_enumerate_greedy_pareto_cost_benefit",
+            "description": "Test the Pareto optimal implementation with the specified cost/benefit analysis.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "async_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "async_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\index\\test_dta_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_pool",
+            "description": "Create a mock for AsyncConnectionPool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\sql\\test_db_conn_pool.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_pool_connect_success",
+            "description": "Test successful connection to the database pool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pool"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_db_conn_pool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_pool_connect_with_retry",
+            "description": "Test pool connection with retry on failure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pool"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_db_conn_pool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_pool_connect_all_retries_fail",
+            "description": "Test pool connection when all retry attempts fail.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pool"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_db_conn_pool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_close_pool",
+            "description": "Test closing the connection pool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pool"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_db_conn_pool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_close_handles_errors",
+            "description": "Test that close() handles exceptions gracefully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pool"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_db_conn_pool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_pool_connect_initialized",
+            "description": "Test pool_connect when pool is already initialized.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pool"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_db_conn_pool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_pool_connect_not_initialized",
+            "description": "Test pool_connect when pool is not yet initialized.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pool"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_db_conn_pool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_connection_url_property",
+            "description": "Test connection_url property.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\sql\\test_db_conn_pool.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_force_readonly_enforcement",
+            "description": "\n    Test that force_readonly is properly enforced based on access mode:\n    - In RESTRICTED mode: force_readonly is always True regardless of what's passed\n    - In UNRESTRICTED mode: force_readonly respects the passed value (default False)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\sql\\test_readonly_enforcement.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_sql_driver",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "safe_driver",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest_asyncio.fixture"
+            ]
+        },
+        {
+            "name": "test_select_statement",
+            "description": "Test that simple SELECT statements are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_update_statement",
+            "description": "Test that UPDATE statements are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_select_with_join",
+            "description": "Test that SELECT with JOIN is allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_show_variable",
+            "description": "Test that SHOW statements are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_set_variable",
+            "description": "Test that SET statements are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_select_with_arithmetic",
+            "description": "Test that SELECT with arithmetic expressions is allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_select_current_user",
+            "description": "Test that SELECT current_user is allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_drop_table",
+            "description": "Test that DROP TABLE statements are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_from_table",
+            "description": "Test that DELETE FROM statements are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_select_with_subquery",
+            "description": "Test that SELECT with subqueries is allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_select_with_malicious_comment",
+            "description": "Test that SQL injection via comments is blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_select_with_union",
+            "description": "Test that UNION queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_select_into",
+            "description": "Test that SELECT INTO statements are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_select_for_update",
+            "description": "Test that SELECT FOR UPDATE statements are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_select_with_locking_clause",
+            "description": "Test that SELECT with explicit locking clauses is blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_select_with_commit",
+            "description": "Test that statements containing COMMIT are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_plan",
+            "description": "Test that EXPLAIN (without ANALYZE) works with bind variables",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_analyze_blocked",
+            "description": "Test that EXPLAIN ANALYZE is blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_begin_transaction_blocked",
+            "description": "Test that transaction blocks are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_sql_syntax",
+            "description": "Test that queries with invalid SQL syntax are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_index_blocked",
+            "description": "Test that CREATE INDEX statements are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_drop_index_blocked",
+            "description": "Test that DROP INDEX statements are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_table_blocked",
+            "description": "Test that CREATE TABLE statements are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_table_as_blocked",
+            "description": "Test that CREATE TABLE AS statements are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_extension_blocked",
+            "description": "Test that CREATE EXTENSION statements are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_drop_extension_blocked",
+            "description": "Test that DROP EXTENSION statements are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_complex_index_metadata_select",
+            "description": "Test that complex SELECT queries for index metadata are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_allowed_functions",
+            "description": "Tests that allow functions (especially the ones that are newly added)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_disallowed_functions",
+            "description": "Test that disallowed functions are blocked",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_session_info_functions",
+            "description": "Test that session info functions are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_blocking_pids_functions",
+            "description": "Test that blocking pids functions are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_logfile_functions",
+            "description": "Test that logfile functions are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_complex_session_info_queries",
+            "description": "Test that complex session info queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_security_privilege_functions",
+            "description": "Test that security privilege functions are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_complex_security_privilege_queries",
+            "description": "Test more complex queries using security privilege functions",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_security_privilege_functions_with_subqueries",
+            "description": "Test security privilege functions used within subqueries",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_like_patterns",
+            "description": "Test that LIKE/ILIKE patterns are only allowed if they start or end with %, but not both or in middle",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    },
+                    "operator": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver",
+                    "operator"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.parametrize",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_datetime_functions",
+            "description": "Test that date/time functions are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_type_conversion_functions",
+            "description": "Test that type conversion functions are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_regexp_functions",
+            "description": "Test that regexp functions are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_complex_type_conversion_queries",
+            "description": "Test that complex type conversion queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_network_functions",
+            "description": "Test that network functions are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_network_functions_in_complex_queries",
+            "description": "Test that network functions in complex queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_notification_and_server_functions",
+            "description": "Test that notification and server functions are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_minmax_expressions",
+            "description": "Test that minmax expressions are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_row_expressions",
+            "description": "Test that row expressions are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_extension_check_query",
+            "description": "Test that extension check queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_extension_query",
+            "description": "Test that CREATE EXTENSION queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_hypopg_create_index_query",
+            "description": "Test that hypopg create index queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_hypopg_reset_query",
+            "description": "Test that hypopg reset queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_hypopg_list_indexes_query",
+            "description": "Test that hypopg list indexes queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_pg_stat_statements_query",
+            "description": "Test that pg_stat_statements queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_pg_indexes_query",
+            "description": "Test that pg_indexes queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_pg_stats_query",
+            "description": "Test that pg_stats queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_explain_query",
+            "description": "Test that explain queries are allowed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sql_driver_parameter_format",
+            "description": "Test query with SQL parameters through the DatabaseTuningAdvisor.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_multiple_queries",
+            "description": "Test that multiple queries are handled correctly",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_query_with_comments",
+            "description": "Test that queries with comments are handled correctly",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_query_with_whitespace",
+            "description": "Test that queries with whitespace are handled correctly",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "safe_driver": {
+                        "type": "string"
+                    },
+                    "mock_sql_driver": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "safe_driver",
+                    "mock_sql_driver"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_safe_sql.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_connection",
+            "description": "Create a mock for the database connection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\sql\\test_sql_driver.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_db_pool",
+            "description": "Create a mock for DbConnPool with a mock connection.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\sql\\test_sql_driver.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_execute_query_readonly_transaction",
+            "description": "Test execute_query with read-only transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_connection"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_sql_driver.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_query_writeable_transaction",
+            "description": "Test execute_query with writeable transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_connection"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_sql_driver.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_query_error_handling",
+            "description": "Test execute_query error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_connection"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_sql_driver.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_query_no_results",
+            "description": "Test execute_query with no results returned.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_connection"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_sql_driver.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_query_with_params",
+            "description": "Test execute_query with parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_connection"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_sql_driver.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_query_from_pool",
+            "description": "Test execute_query using a connection from a pool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db_pool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db_pool"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_sql_driver.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_connection_error_marks_pool_invalid",
+            "description": "Test that connection errors mark the pool as invalid.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_db_pool": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_db_pool"
+                ]
+            },
+            "file": "tests\\unit\\sql\\test_sql_driver.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_engine_url_connection",
+            "description": "Test connecting with engine_url instead of connection object.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\sql\\test_sql_driver.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_pg12_driver",
+            "description": "Create a mock for SqlDriver that simulates PostgreSQL 12.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\top_queries\\test_top_queries_calc.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_pg13_driver",
+            "description": "Create a mock for SqlDriver that simulates PostgreSQL 13.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\top_queries\\test_top_queries_calc.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_extension_installed",
+            "description": "Mock check_extension to report extension is installed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\top_queries\\test_top_queries_calc.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_extension_not_installed",
+            "description": "Mock check_extension to report extension is not installed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\top_queries\\test_top_queries_calc.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_top_queries_pg12_total_sort",
+            "description": "Test top queries calculation on PostgreSQL 12 sorted by total execution time.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pg12_driver": {
+                        "type": "string"
+                    },
+                    "mock_extension_installed": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pg12_driver",
+                    "mock_extension_installed"
+                ]
+            },
+            "file": "tests\\unit\\top_queries\\test_top_queries_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_top_queries_pg12_mean_sort",
+            "description": "Test top queries calculation on PostgreSQL 12 sorted by mean execution time.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pg12_driver": {
+                        "type": "string"
+                    },
+                    "mock_extension_installed": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pg12_driver",
+                    "mock_extension_installed"
+                ]
+            },
+            "file": "tests\\unit\\top_queries\\test_top_queries_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_top_queries_pg13_total_sort",
+            "description": "Test top queries calculation on PostgreSQL 13 sorted by total execution time.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pg13_driver": {
+                        "type": "string"
+                    },
+                    "mock_extension_installed": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pg13_driver",
+                    "mock_extension_installed"
+                ]
+            },
+            "file": "tests\\unit\\top_queries\\test_top_queries_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_top_queries_pg13_mean_sort",
+            "description": "Test top queries calculation on PostgreSQL 13 sorted by mean execution time.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pg13_driver": {
+                        "type": "string"
+                    },
+                    "mock_extension_installed": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pg13_driver",
+                    "mock_extension_installed"
+                ]
+            },
+            "file": "tests\\unit\\top_queries\\test_top_queries_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_extension_not_installed",
+            "description": "Test behavior when pg_stat_statements extension is not installed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pg13_driver": {
+                        "type": "string"
+                    },
+                    "mock_extension_not_installed": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pg13_driver",
+                    "mock_extension_not_installed"
+                ]
+            },
+            "file": "tests\\unit\\top_queries\\test_top_queries_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "Test error handling in the TopQueriesCalc class.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_pg13_driver": {
+                        "type": "string"
+                    },
+                    "mock_extension_installed": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_pg13_driver",
+                    "mock_extension_installed"
+                ]
+            },
+            "file": "tests\\unit\\top_queries\\test_top_queries_calc.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

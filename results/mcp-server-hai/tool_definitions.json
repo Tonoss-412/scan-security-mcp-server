@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "hai_introduction",
+            "description": "\u5173\u4e8e\u817e\u8baf\u4e91HAI\u7684\u4ecb\u7ecd\"\"\"\n    intro = ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_hai\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

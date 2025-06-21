@@ -1,0 +1,323 @@
+{
+    "tools": [
+        {
+            "name": "app_lifespan",
+            "description": "Manage application lifecycle",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "browser_create",
+            "description": "\n    Create a new browser instance\n    \n    Args:\n        browser_type: Type of browser to create (chromium, firefox, or webkit)\n        \n    Returns:\n        Browser ID that can be used in other tools\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "browser_type": {
+                        "type": "string",
+                        "description": "Type of browser to create (chromium, firefox, or webkit)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "browser_type",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "browser_close",
+            "description": "\n    Close a browser instance\n    \n    Args:\n        browser_id: ID of the browser to close\n        \n    Returns:\n        True if browser was closed successfully, False otherwise\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "browser_id": {
+                        "type": "string",
+                        "description": "ID of the browser to close"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "browser_id",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "browser_navigate",
+            "description": "\n    Navigate browser to a URL\n    \n    Args:\n        browser_id: ID of the browser to use\n        url: URL to navigate to\n        wait_until: Navigation wait condition (load, domcontentloaded, networkidle)\n        ctx: MCP context\n        \n    Returns:\n        Result message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "browser_id": {
+                        "type": "string",
+                        "description": "ID of the browser to use"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL to navigate to"
+                    },
+                    "wait_until": {
+                        "type": "string",
+                        "description": "Navigation wait condition (load, domcontentloaded, networkidle)"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "browser_id",
+                    "url",
+                    "wait_until",
+                    "ctx",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "browser_execute_js",
+            "description": "\n    Execute JavaScript in the browser context\n    \n    Args:\n        browser_id: ID of the browser to use\n        script: JavaScript code to execute\n        arg: Optional argument to pass to the script\n        \n    Returns:\n        Result of JavaScript execution as a string\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "browser_id": {
+                        "type": "string",
+                        "description": "ID of the browser to use"
+                    },
+                    "script": {
+                        "type": "string",
+                        "description": "JavaScript code to execute"
+                    },
+                    "arg": {
+                        "type": "string",
+                        "description": "Optional argument to pass to the script"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "browser_id",
+                    "script",
+                    "arg",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "browser_screenshot",
+            "description": "\n    Take a screenshot of the current page or a specific element\n    \n    Args:\n        browser_id: ID of the browser to use\n        selector: CSS selector of element to screenshot (optional)\n        full_page: Whether to take a full page screenshot\n        \n    Returns:\n        Screenshot as an Image object\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "browser_id": {
+                        "type": "string",
+                        "description": "ID of the browser to use"
+                    },
+                    "selector": {
+                        "type": "string",
+                        "description": "CSS selector of element to screenshot (optional)"
+                    },
+                    "full_page": {
+                        "type": "string",
+                        "description": "Whether to take a full page screenshot"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "browser_id",
+                    "selector",
+                    "full_page",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "browser_get_console_logs",
+            "description": "\n    Get console logs from the browser\n    \n    Args:\n        browser_id: ID of the browser to use\n        since_timestamp: Only return logs after this timestamp (ISO format)\n        limit: Maximum number of logs to return\n        \n    Returns:\n        Console logs as a JSON string\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "browser_id": {
+                        "type": "string",
+                        "description": "ID of the browser to use"
+                    },
+                    "since_timestamp": {
+                        "type": "string",
+                        "description": "Only return logs after this timestamp (ISO format)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of logs to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "browser_id",
+                    "since_timestamp",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "browser_performance_test",
+            "description": "\n    Run a performance test on a URL\n    \n    Args:\n        browser_id: ID of the browser to use\n        url: URL to test\n        runs: Number of test runs\n        \n    Returns:\n        Performance test results as a JSON string\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "browser_id": {
+                        "type": "string",
+                        "description": "ID of the browser to use"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL to test"
+                    },
+                    "runs": {
+                        "type": "string",
+                        "description": "Number of test runs"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "browser_id",
+                    "url",
+                    "runs",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_page_html",
+            "description": "Get the HTML content of the current page",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_page_url",
+            "description": "Get the current page URL",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_page_title",
+            "description": "Get the current page title",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_console_resource",
+            "description": "Get console logs from the browser",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_network_logs",
+            "description": "Get network logs from the browser",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_performance_logs",
+            "description": "Get performance logs from the browser",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

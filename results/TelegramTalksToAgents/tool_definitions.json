@@ -1,0 +1,1007 @@
+{
+    "tools": [
+        {
+            "name": "send_welcome",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "message"
+                ]
+            },
+            "file": "telegram_bot.py",
+            "decorator": [
+                "bot.message_handler"
+            ]
+        },
+        {
+            "name": "send_welcome",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "message"
+                ]
+            },
+            "file": "test.py",
+            "decorator": [
+                "bot.message_handler"
+            ]
+        },
+        {
+            "name": "echo_all",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "message"
+                ]
+            },
+            "file": "test.py",
+            "decorator": [
+                "bot.message_handler"
+            ]
+        },
+        {
+            "name": "add",
+            "description": "Add two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_list",
+            "description": "Add all numbers in a list",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "subtract",
+            "description": "Subtract two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "multiply",
+            "description": "Multiply two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "divide",
+            "description": "Divide two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "power",
+            "description": "Power of two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sqrt",
+            "description": "Square root of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cbrt",
+            "description": "Cube root of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "factorial",
+            "description": "Factorial of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "log",
+            "description": "Log of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "remainder",
+            "description": "Remainder of two numbers division",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sin",
+            "description": "Sin of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cos",
+            "description": "Cos of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "tan",
+            "description": "Tan of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mine",
+            "description": "Special mining tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "show_reasoning",
+            "description": "Show the step-by-step reasoning process",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_thumbnail",
+            "description": "Create a thumbnail from an image",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "strings_to_chars_to_int",
+            "description": "Return the ASCII values of the characters in a word",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "int_list_to_exponential_sum",
+            "description": "Return sum of exponentials of numbers in a list",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fibonacci_numbers",
+            "description": "Return the first n Fibonacci Numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "open_keynote",
+            "description": "Opens the keynote app and creates a new document in the macbook. Returns True if successful, False otherwise.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "draw_rectangle_in_keynote",
+            "description": "Draws a rectangle in keynote app of the provided size. Returns True if rectangle is drawn successfully, False otherwise.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_text_to_keynote_shape",
+            "description": "Adds a text to the shape drawn in keynote. Return True if text was added successfully, False otherwise.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_python_sandbox",
+            "description": "Run math code in Python sandbox. Usage: run_python_sandbox|input={\"code\": \"result = math.sqrt(49)\"}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_shell_command",
+            "description": "Run a safe shell command. Usage: run_shell_command|input={\"command\": \"ls\"}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_sql_query",
+            "description": "Run safe SELECT-only SQL query. Usage: run_sql_query|input={\"code\": \"SELECT * FROM users LIMIT 5\"}",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_greeting",
+            "description": "Get a personalized greeting",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "review_code",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "debug_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "read_root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_capabilites",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\calculator_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "spreadsheet_lifespan",
+            "description": "Manage Google Spreadsheet API connection lifecycle",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_sheet_data",
+            "description": "\n    Get data from a specific sheet in a Google Spreadsheet.\n    \n    Args:\n        spreadsheet_id: The ID of the spreadsheet (found in the URL)\n        sheet: The name of the sheet\n        range: Optional cell range in A1 notation (e.g., 'A1:C10'). If not provided, gets all data.\n    \n    Returns:\n        A 2D array of the sheet data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spreadsheet_id": {
+                        "type": "string",
+                        "description": "The ID of the spreadsheet (found in the URL)"
+                    },
+                    "sheet": {
+                        "type": "string",
+                        "description": "The name of the sheet"
+                    },
+                    "range": {
+                        "type": "string",
+                        "description": "Optional cell range in A1 notation (e.g., 'A1:C10'). If not provided, gets all data."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "spreadsheet_id",
+                    "sheet",
+                    "range",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_cells",
+            "description": "\n    Update cells in a Google Spreadsheet.\n    \n    Args:\n        spreadsheet_id: The ID of the spreadsheet (found in the URL)\n        sheet: The name of the sheet\n        range: Cell range in A1 notation (e.g., 'A1:C3')\n        data: 2D array of values to update (e.g., [[1, 2, 3], [4, 5, 6]])\n    \n    Returns:\n        Result of the update operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spreadsheet_id": {
+                        "type": "string",
+                        "description": "The ID of the spreadsheet (found in the URL)"
+                    },
+                    "sheet": {
+                        "type": "string",
+                        "description": "The name of the sheet"
+                    },
+                    "range": {
+                        "type": "string",
+                        "description": "Cell range in A1 notation (e.g., 'A1:C3')"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "2D array of values to update (e.g., [[1, 2, 3], [4, 5, 6]])"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "spreadsheet_id",
+                    "sheet",
+                    "range",
+                    "data",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_data_to_spreadsheet",
+            "description": "\n    add data in a Google Spreadsheet.\n    \n    Args:\n        spreadsheet_id: The ID of the spreadsheet (found in the URL)\n        sheet: The name of the sheet\n        range: Cell range in A1 notation (e.g., 'A1:C3')\n        data: 2D array of values to update (e.g., [[1, 2, 3], [4, 5, 6]])\n    \n    Returns:\n        Result of the update operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spreadsheet_id": {
+                        "type": "string",
+                        "description": "The ID of the spreadsheet (found in the URL)"
+                    },
+                    "sheet": {
+                        "type": "string",
+                        "description": "The name of the sheet"
+                    },
+                    "range": {
+                        "type": "string",
+                        "description": "Cell range in A1 notation (e.g., 'A1:C3')"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "2D array of values to update (e.g., [[1, 2, 3], [4, 5, 6]])"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "spreadsheet_id",
+                    "sheet",
+                    "range",
+                    "data",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "batch_update_cells",
+            "description": "\n    Batch update multiple ranges in a Google Spreadsheet.\n    \n    Args:\n        spreadsheet_id: The ID of the spreadsheet (found in the URL)\n        sheet: The name of the sheet\n        ranges: Dictionary mapping range strings to 2D arrays of values\n               e.g., {'A1:B2': [[1, 2], [3, 4]], 'D1:E2': [['a', 'b'], ['c', 'd']]}\n    \n    Returns:\n        Result of the batch update operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spreadsheet_id": {
+                        "type": "string",
+                        "description": "The ID of the spreadsheet (found in the URL)"
+                    },
+                    "sheet": {
+                        "type": "string",
+                        "description": "The name of the sheet"
+                    },
+                    "ranges": {
+                        "type": "string",
+                        "description": "Dictionary mapping range strings to 2D arrays of values"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "spreadsheet_id",
+                    "sheet",
+                    "ranges",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_rows",
+            "description": "\n    Add rows to a sheet in a Google Spreadsheet.\n    \n    Args:\n        spreadsheet_id: The ID of the spreadsheet (found in the URL)\n        sheet: The name of the sheet\n        count: Number of rows to add\n        start_row: 0-based row index to start adding. If not provided, adds at the end.\n    \n    Returns:\n        Result of the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spreadsheet_id": {
+                        "type": "string",
+                        "description": "The ID of the spreadsheet (found in the URL)"
+                    },
+                    "sheet": {
+                        "type": "string",
+                        "description": "The name of the sheet"
+                    },
+                    "count": {
+                        "type": "string",
+                        "description": "Number of rows to add"
+                    },
+                    "start_row": {
+                        "type": "string",
+                        "description": "0-based row index to start adding. If not provided, adds at the end."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "spreadsheet_id",
+                    "sheet",
+                    "count",
+                    "start_row",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_columns",
+            "description": "\n    Add columns to a sheet in a Google Spreadsheet.\n    \n    Args:\n        spreadsheet_id: The ID of the spreadsheet (found in the URL)\n        sheet: The name of the sheet\n        count: Number of columns to add\n        start_column: 0-based column index to start adding. If not provided, adds at the end.\n    \n    Returns:\n        Result of the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spreadsheet_id": {
+                        "type": "string",
+                        "description": "The ID of the spreadsheet (found in the URL)"
+                    },
+                    "sheet": {
+                        "type": "string",
+                        "description": "The name of the sheet"
+                    },
+                    "count": {
+                        "type": "string",
+                        "description": "Number of columns to add"
+                    },
+                    "start_column": {
+                        "type": "string",
+                        "description": "0-based column index to start adding. If not provided, adds at the end."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "spreadsheet_id",
+                    "sheet",
+                    "count",
+                    "start_column",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_sheets",
+            "description": "\n    List all sheets in a Google Spreadsheet.\n    \n    Args:\n        spreadsheet_id: The ID of the spreadsheet (found in the URL)\n    \n    Returns:\n        List of sheet names\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spreadsheet_id": {
+                        "type": "string",
+                        "description": "The ID of the spreadsheet (found in the URL)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "spreadsheet_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "copy_sheet",
+            "description": "\n    Copy a sheet from one spreadsheet to another.\n    \n    Args:\n        src_spreadsheet: Source spreadsheet ID\n        src_sheet: Source sheet name\n        dst_spreadsheet: Destination spreadsheet ID\n        dst_sheet: Destination sheet name\n    \n    Returns:\n        Result of the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "src_spreadsheet": {
+                        "type": "string",
+                        "description": "Source spreadsheet ID"
+                    },
+                    "src_sheet": {
+                        "type": "string",
+                        "description": "Source sheet name"
+                    },
+                    "dst_spreadsheet": {
+                        "type": "string",
+                        "description": "Destination spreadsheet ID"
+                    },
+                    "dst_sheet": {
+                        "type": "string",
+                        "description": "Destination sheet name"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "src_spreadsheet",
+                    "src_sheet",
+                    "dst_spreadsheet",
+                    "dst_sheet",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "rename_sheet",
+            "description": "\n    Rename a sheet in a Google Spreadsheet.\n    \n    Args:\n        spreadsheet: Spreadsheet ID\n        sheet: Current sheet name\n        new_name: New sheet name\n    \n    Returns:\n        Result of the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spreadsheet": {
+                        "type": "string",
+                        "description": "Spreadsheet ID"
+                    },
+                    "sheet": {
+                        "type": "string",
+                        "description": "Current sheet name"
+                    },
+                    "new_name": {
+                        "type": "string",
+                        "description": "New sheet name"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "spreadsheet",
+                    "sheet",
+                    "new_name",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_multiple_sheet_data",
+            "description": "\n    Get data from multiple specific ranges in Google Spreadsheets.\n    \n    Args:\n        queries: A list of dictionaries, each specifying a query. \n                 Each dictionary should have 'spreadsheet_id', 'sheet', and 'range' keys.\n                 Example: [{'spreadsheet_id': 'abc', 'sheet': 'Sheet1', 'range': 'A1:B5'}, \n                           {'spreadsheet_id': 'xyz', 'sheet': 'Data', 'range': 'C1:C10'}]\n    \n    Returns:\n        A list of dictionaries, each containing the original query parameters \n        and the fetched 'data' or an 'error'.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "queries": {
+                        "type": "string",
+                        "description": "A list of dictionaries, each specifying a query."
+                    },
+                    "Example": {
+                        "type": "string",
+                        "description": "[{'spreadsheet_id': 'abc', 'sheet': 'Sheet1', 'range': 'A1:B5'},"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "queries",
+                    "Example",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_multiple_spreadsheet_summary",
+            "description": "\n    Get a summary of multiple Google Spreadsheets, including sheet names, \n    headers, and the first few rows of data for each sheet.\n    \n    Args:\n        spreadsheet_ids: A list of spreadsheet IDs to summarize.\n        rows_to_fetch: The number of rows (including header) to fetch for the summary (default: 5).\n    \n    Returns:\n        A list of dictionaries, each representing a spreadsheet summary. \n        Includes spreadsheet title, sheet summaries (title, headers, first rows), or an error.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spreadsheet_ids": {
+                        "type": "string",
+                        "description": "A list of spreadsheet IDs to summarize."
+                    },
+                    "rows_to_fetch": {
+                        "type": "string",
+                        "description": "The number of rows (including header) to fetch for the summary (default: 5)."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "spreadsheet_ids",
+                    "rows_to_fetch",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_spreadsheet_info",
+            "description": "\n    Get basic information about a Google Spreadsheet.\n    \n    Args:\n        spreadsheet_id: The ID of the spreadsheet\n    \n    Returns:\n        JSON string with spreadsheet information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spreadsheet_id": {
+                        "type": "string",
+                        "description": "The ID of the spreadsheet"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "spreadsheet_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "create_spreadsheet",
+            "description": "\n    Create a new Google Spreadsheet.\n    \n    Args:\n        title: The title of the new spreadsheet\n    \n    Returns:\n        Information about the newly created spreadsheet including its ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "The title of the new spreadsheet"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_sheet",
+            "description": "\n    Create a new sheet tab in an existing Google Spreadsheet.\n    \n    Args:\n        spreadsheet_id: The ID of the spreadsheet\n        title: The title for the new sheet\n    \n    Returns:\n        Information about the newly created sheet\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spreadsheet_id": {
+                        "type": "string",
+                        "description": "The ID of the spreadsheet"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "The title for the new sheet"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "spreadsheet_id",
+                    "title",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_spreadsheets",
+            "description": "\n    List all spreadsheets in the configured Google Drive folder.\n    If no folder is configured, lists spreadsheets from 'My Drive'.\n    \n    Returns:\n        List of spreadsheets with their ID and title\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "share_spreadsheet",
+            "description": "\n    Share a Google Spreadsheet with multiple users via email, assigning specific roles.\n    \n    Args:\n        spreadsheet_id: The ID of the spreadsheet to share.\n        recipients: A list of dictionaries, each containing 'email_address' and 'role'.\n                    The role should be one of: 'reader', 'commenter', 'writer'.\n                    Example: [\n                        {'email_address': 'user1@example.com', 'role': 'writer'},\n                        {'email_address': 'user2@example.com', 'role': 'reader'}\n                    ]\n        send_notification: Whether to send a notification email to the users. Defaults to True.\n\n    Returns:\n        A dictionary containing lists of 'successes' and 'failures'. \n        Each item in the lists includes the email address and the outcome.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "spreadsheet_id": {
+                        "type": "string",
+                        "description": "The ID of the spreadsheet to share."
+                    },
+                    "recipients": {
+                        "type": "string",
+                        "description": "A list of dictionaries, each containing 'email_address' and 'role'."
+                    },
+                    "Example": {
+                        "type": "string",
+                        "description": "["
+                    },
+                    "send_notification": {
+                        "type": "string",
+                        "description": "Whether to send a notification email to the users. Defaults to True."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "spreadsheet_id",
+                    "recipients",
+                    "Example",
+                    "send_notification",
+                    "Returns"
+                ]
+            },
+            "file": "mcp\\gsheet_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_web",
+            "description": "\n    Search web usning DuckDuckGo and return formatted results.\n\n    Args:\n        query: The search query string\n        max_results: Maximum number of results to return (default: 10)\n        ctx: MCP context for logging\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query string"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 10)"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context for logging"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "ctx"
+                ]
+            },
+            "file": "mcp\\web_search_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_content",
+            "description": "\n    Fetch and parse content from a webpage URL.\n\n    Args:\n        url: The webpage URL to fetch content from\n        ctx: MCP context for logging\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The webpage URL to fetch content from"
+                    },
+                    "ctx": {
+                        "type": "string",
+                        "description": "MCP context for logging"
+                    }
+                },
+                "required": [
+                    "url",
+                    "ctx"
+                ]
+            },
+            "file": "mcp\\web_search_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

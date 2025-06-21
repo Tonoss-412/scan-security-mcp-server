@@ -1,0 +1,220 @@
+{
+    "tools": [
+        {
+            "name": "get_latest_posts",
+            "description": "Get the latest posts from the Solana forum.\n    \n    Args:\n        category: Optional category to filter posts by\n        limit: Maximum number of posts to return (default: 5)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "description": "Optional category to filter posts by"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of posts to return (default: 5)"
+                    }
+                },
+                "required": [
+                    "category",
+                    "limit"
+                ]
+            },
+            "file": "solana_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_most_viewed_posts",
+            "description": "Get the most viewed posts from the Solana forum.\n    \n    Args:\n        category: Optional category to filter posts by\n        limit: Maximum number of posts to return (default: 5)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "description": "Optional category to filter posts by"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of posts to return (default: 5)"
+                    }
+                },
+                "required": [
+                    "category",
+                    "limit"
+                ]
+            },
+            "file": "solana_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_most_commented_posts",
+            "description": "Get the most commented posts from the Solana forum.\n    \n    Args:\n        limit: Maximum number of posts to return (default: 5)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of posts to return (default: 5)"
+                    }
+                },
+                "required": [
+                    "limit"
+                ]
+            },
+            "file": "solana_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_forum_statistics",
+            "description": "Get general statistics about the Solana forum.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "solana_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "semantic_search",
+            "description": "Search for posts semantically related to the query.\n    \n    Args:\n        query_text: The search query text\n        limit: Maximum number of posts to return (default: 5)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query_text": {
+                        "type": "string",
+                        "description": "The search query text"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of posts to return (default: 5)"
+                    }
+                },
+                "required": [
+                    "query_text",
+                    "limit"
+                ]
+            },
+            "file": "solana_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_posts_by_category",
+            "description": "Get posts from a specific category.\n    \n    Args:\n        category: The category name to filter by\n        limit: Maximum number of posts to return (default: 20)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "description": "The category name to filter by"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of posts to return (default: 20)"
+                    }
+                },
+                "required": [
+                    "category",
+                    "limit"
+                ]
+            },
+            "file": "solana_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "evaluate_post",
+            "description": "Evaluate a specific post for sentiment, quality, and relevance.\n    \n    Args:\n        post_id: The ID of the post to evaluate\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "post_id": {
+                        "type": "string",
+                        "description": "The ID of the post to evaluate"
+                    }
+                },
+                "required": [
+                    "post_id"
+                ]
+            },
+            "file": "solana_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "universal_query",
+            "description": "Process any type of query about Solana forum data.\n    \n    This tool analyzes the query and routes it to the appropriate specialized function.\n    \n    Args:\n        query_text: The query text to process\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query_text": {
+                        "type": "string",
+                        "description": "The query text to process"
+                    }
+                },
+                "required": [
+                    "query_text"
+                ]
+            },
+            "file": "solana_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_post_evaluation",
+            "description": "Process natural language queries about post evaluations.\n    \n    Args:\n        query_text: The query text about post evaluation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query_text": {
+                        "type": "string",
+                        "description": "The query text about post evaluation"
+                    }
+                },
+                "required": [
+                    "query_text"
+                ]
+            },
+            "file": "solana_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query",
+            "description": "\n    Universal endpoint that processes all types of queries.\n    \n    This endpoint analyzes the query content and invokes the appropriate function.\n    \n    For POST requests:\n    {\n        \"query\": \"What is the most viewed post on Solana?\"\n    }\n    \n    For GET requests, use query parameters:\n    - q: The query text\n    - type: Optional query type (latest, most-viewed, most-commented, stats, search, category, evaluate)\n    - category: Optional category name\n    - post_id: Optional post ID for evaluation\n    - limit: Maximum number of posts to return (default varies by query type)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "index",
+            "description": "\n    Root endpoint that provides API documentation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api_server.py",
+            "decorator": [
+                "app.route"
+            ]
+        }
+    ]
+}

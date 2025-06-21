@@ -1,0 +1,429 @@
+{
+    "tools": [
+        {
+            "name": "search_salesforce_objects",
+            "description": "\n    Search for Salesforce standard and custom objects by name pattern.\n\n    This tool allows you to quickly find Salesforce objects (standard or custom) by\n    searching for patterns in their names. It's useful when you're not sure about\n    the exact name of an object or want to discover related objects.\n\n    Examples:\n    - \"Search for Account related objects\"\n    - \"Find all objects with 'Order' in their name\"\n    - \"Look for custom objects related to Billing\"\n\n    Args:\n        pattern: The search pattern to match object names (e.g., 'Account', 'Order')\n        sandbox: Whether to connect to sandbox (True) or production (False)\n\n    Returns:\n        A formatted list of matching Salesforce objects\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pattern": {
+                        "type": "string",
+                        "description": "The search pattern to match object names (e.g., 'Account', 'Order')"
+                    },
+                    "sandbox": {
+                        "type": "string",
+                        "description": "Whether to connect to sandbox (True) or production (False)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "pattern",
+                    "sandbox",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "describe_salesforce_object",
+            "description": "\n    Get detailed schema metadata including all fields, relationships, and field properties of any Salesforce object.\n\n    This tool provides a comprehensive view of an object's structure including:\n    - Field names and types\n    - Required/optional status\n    - Lookup and master-detail relationships\n    - Custom field attributes\n    - Field-level help text and descriptions\n\n    Examples:\n    - 'Account' shows all Account fields including custom fields\n    - 'Case' shows all Case fields including relationships to Account, Contact etc.\n    - 'Custom_Object__c' shows the structure of a custom object\n    - 'Describe the OpportunityLineItem object structure'\n    - 'What fields are on the Campaign object?'\n\n    Args:\n        object_name: API name of the object (e.g., 'Account', 'Contact', 'Custom_Object__c')\n\n    Returns:\n        Detailed schema information for the object\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "object_name": {
+                        "type": "string",
+                        "description": "API name of the object (e.g., 'Account', 'Contact', 'Custom_Object__c')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "object_name",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "describe_salesforce_object_raw_json",
+            "description": "\n    Get the complete Salesforce object schema as raw JSON.\n    This returns the unfiltered API response directly from Salesforce.\n\n    This tool is useful when you need the complete, detailed metadata for advanced\n    analysis or when you need to access specific metadata properties not included\n    in the standard describe format.\n\n    Examples:\n    - Get raw JSON schema for Lead\n    - Show complete API response for Account object\n    - Return full JSON metadata for Custom_Object__c\n    - \"I need the complete metadata schema for Opportunity in JSON format\"\n    - \"Show me all the technical metadata details for Account\"\n\n    Args:\n        object_name: API name of the object (e.g., 'Account', 'Contact', 'Custom_Object__c')\n\n    Returns:\n        Complete raw JSON schema from Salesforce API\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "object_name": {
+                        "type": "string",
+                        "description": "API name of the object (e.g., 'Account', 'Contact', 'Custom_Object__c')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "object_name",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_salesforce_picklist_values",
+            "description": "\n    Get all values from a picklist field.\n\n    This tool returns all available options for a dropdown/picklist field, including:\n    - Value labels\n    - API names\n    - Default value indicator\n    - Active/inactive status\n    - Controlling field dependencies (if any)\n\n    Examples:\n    - Get all Case Status values\n    - Show picklist values for Lead.Source\n    - List all values for Account.Type\n    - \"What are the available Industry options for Account?\"\n    - \"Show me all the possible values for Opportunity Stage\"\n    - \"What picklist values can I use for Case Priority?\"\n\n    Args:\n        object_name: API name of the object (e.g., 'Case', 'Lead')\n        field_name: API name of the picklist field (e.g., 'Status', 'Source')\n\n    Returns:\n        List of picklist values with their properties\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "object_name": {
+                        "type": "string",
+                        "description": "API name of the object (e.g., 'Case', 'Lead')"
+                    },
+                    "field_name": {
+                        "type": "string",
+                        "description": "API name of the picklist field (e.g., 'Status', 'Source')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "object_name",
+                    "field_name",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "describe_salesforce_relationship_fields",
+            "description": "\n    Show all relationship fields (lookups, master-detail) for a Salesforce object.\n\n    This tool identifies all relationship fields, showing:\n    - Parent and child relationships\n    - Lookup vs master-detail relationship types\n    - Related object names\n    - Cascade delete behavior\n    - Required relationship status\n\n    This is useful for understanding dependencies and connections between objects.\n\n    Examples:\n    - List all related objects for Opportunity\n    - Show relationships in Contact object\n    - Describe references in Case object\n    - \"What objects are related to Account?\"\n    - \"Show me all the lookup relationships on the Contact object\"\n    - \"What are the parent-child relationships for Opportunity?\"\n\n    Args:\n        object_name: API name of the object (e.g., 'Opportunity', 'Contact')\n\n    Returns:\n        Detailed information about relationship fields\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "object_name": {
+                        "type": "string",
+                        "description": "API name of the object (e.g., 'Opportunity', 'Contact')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "object_name",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_salesforce_fields_by_type",
+            "description": "\n    Get fields of a specific type for a Salesforce object.\n    If no type is specified, returns all fields.\n\n    This tool allows you to filter fields by their data type, which is useful when\n    you're looking for specific kinds of fields such as:\n    - Text fields (string)\n    - Number fields (double, integer)\n    - Date/time fields\n    - Picklist fields\n    - Reference/lookup fields\n    - Formula fields\n    - And more\n\n    Examples:\n    - Show all picklist fields in Lead\n    - Get all reference fields in Account\n    - List all text fields in Contact\n    - Get all fields in Opportunity\n    - \"Find all datetime fields on the Event object\"\n    - \"What currency fields exist in the Opportunity object?\"\n    - \"Show me all formula fields on the Account object\"\n\n    Args:\n        object_name: API name of the object (e.g., 'Lead', 'Account')\n        field_type: Optional type to filter fields by (e.g., 'picklist', 'reference', 'string')\n\n    Returns:\n        Table of fields with their properties\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "object_name": {
+                        "type": "string",
+                        "description": "API name of the object (e.g., 'Lead', 'Account')"
+                    },
+                    "field_type": {
+                        "type": "string",
+                        "description": "Optional type to filter fields by (e.g., 'picklist', 'reference', 'string')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "object_name",
+                    "field_type",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_salesforce_records",
+            "description": "\n    Query Salesforce records using SOQL with filtering, sorting, and limiting options.\n\n    This tool enables you to retrieve records from any Salesforce object with:\n    - Specific field selection\n    - Optional WHERE filtering conditions\n    - Optional sorting (ORDER BY)\n    - Limit on number of records returned\n\n    Results are returned in a well-formatted table for easy reading.\n\n    Examples:\n    - Get all Accounts created this month\n    - Find Opportunities over $100,000\n    - Show high-priority Cases with their Contacts\n    - \"Show me the last 5 Accounts created\"\n    - \"Find all Opportunities worth more than $50,000 closing this month\"\n    - \"List Contacts with the title 'CEO' sorted by company name\"\n\n    Args:\n        object_name: API name of the object to query (e.g., 'Account', 'Opportunity')\n        fields: List of fields to retrieve\n        where_clause: Optional filtering criteria\n        order_by: Optional sorting criteria\n        limit: Maximum number of records to return (default: 10)\n\n    Returns:\n        Query results in a formatted table\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "object_name": {
+                        "type": "string",
+                        "description": "API name of the object to query (e.g., 'Account', 'Opportunity')"
+                    },
+                    "fields": {
+                        "type": "string",
+                        "description": "List of fields to retrieve"
+                    },
+                    "where_clause": {
+                        "type": "string",
+                        "description": "Optional filtering criteria"
+                    },
+                    "order_by": {
+                        "type": "string",
+                        "description": "Optional sorting criteria"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of records to return (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "object_name",
+                    "fields",
+                    "where_clause",
+                    "order_by",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_salesforce_validation_rules",
+            "description": "\n    Get validation rules for a specific Salesforce object.\n\n    This tool retrieves all validation rules for an object, including:\n    - Rule name and status (active/inactive)\n    - Error messages shown to users\n    - Fields where errors display\n    - Rule descriptions\n\n    Validation rules enforce data quality by preventing records from being saved\n    if they don't meet specific criteria.\n\n    Examples:\n    - Get all validation rules for the Lead object\n    - Show validation rules for Opportunity\n    - List active validations for Account\n    - \"What validation rules are enforced on the Contact object?\"\n    - \"Show me all the data quality rules for Opportunity\"\n    - \"List the validation conditions for Account records\"\n\n    Args:\n        object_name: API name of the object (e.g., 'Account', 'Lead', 'Opportunity')\n\n    Returns:\n        List of validation rules with their details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "object_name": {
+                        "type": "string",
+                        "description": "API name of the object (e.g., 'Account', 'Lead', 'Opportunity')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "object_name",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "manage_salesforce_debug_logs",
+            "description": "\n    Manage debug logs for Salesforce users - enable, disable, or retrieve logs.\n\n    This tool helps with troubleshooting by managing debug logging for specific users.\n    You can:\n    - Enable logging to capture debug information\n    - Disable logging when finished troubleshooting\n    - Retrieve and view logs to analyze issues\n    - Configure the level of detail in logs\n\n    Debug logs are crucial for troubleshooting code execution, integrations,\n    automations, and other Salesforce functionality.\n\n    Examples:\n    - Enable debug logs for a user: provide 'enable' operation, username, and log level\n    - Disable debug logs for a user: provide 'disable' operation and username\n    - Retrieve debug logs for a user: provide 'retrieve' operation and username\n    - Retrieve a specific log with full content: provide 'retrieve' operation, username, log_id, and include_body=True\n    - \"Enable debug logs for admin@example.com at FINEST level\"\n    - \"Disable debug logging for user.name@company.com\"\n    - \"Get recent debug logs for the system administrator\"\n    - \"Show me the debug log content for log ID 07L000000...\"\n\n    Args:\n        operation: Operation to perform - 'enable', 'disable', or 'retrieve'\n        username: Username of the Salesforce user\n        log_level: Log level for debug logs (required for 'enable' operation)\n                   Valid options: NONE, ERROR, WARN, INFO, DEBUG, FINE, FINER, FINEST\n        expiration_time: Minutes until the debug log configuration expires (optional, defaults to 30)\n        limit: Maximum number of logs to retrieve (optional, defaults to 10)\n        log_id: ID of a specific log to retrieve (optional)\n        include_body: Whether to include the full log content (optional, defaults to False)\n\n    Returns:\n        Formatted string with the result of the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "operation": {
+                        "type": "string",
+                        "description": "Operation to perform - 'enable', 'disable', or 'retrieve'"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "Username of the Salesforce user"
+                    },
+                    "log_level": {
+                        "type": "string",
+                        "description": "Log level for debug logs (required for 'enable' operation)"
+                    },
+                    "expiration_time": {
+                        "type": "string",
+                        "description": "Minutes until the debug log configuration expires (optional, defaults to 30)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of logs to retrieve (optional, defaults to 10)"
+                    },
+                    "log_id": {
+                        "type": "string",
+                        "description": "ID of a specific log to retrieve (optional)"
+                    },
+                    "include_body": {
+                        "type": "string",
+                        "description": "Whether to include the full log content (optional, defaults to False)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "operation",
+                    "username",
+                    "log_level",
+                    "expiration_time",
+                    "limit",
+                    "log_id",
+                    "include_body",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_object_schema_resource",
+            "description": "\n    Get schema for a Salesforce object\n\n    This resource provides direct access to Salesforce object schemas\n    through a URI format. It returns detailed field information for\n    the specified object.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_picklist_resource",
+            "description": "\n    Get picklist values for a specific field\n\n    This resource provides direct access to Salesforce picklist values\n    through a URI format. It returns all available picklist values\n    for the specified object field.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "search_objects_prompt",
+            "description": "Create a prompt for searching Salesforce objects",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "query_records_prompt",
+            "description": "Create a prompt for querying Salesforce records",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "describe_object_prompt",
+            "description": "Create a prompt for describing Salesforce objects",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "picklist_values_prompt",
+            "description": "Create a prompt for retrieving picklist values",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "relationship_fields_prompt",
+            "description": "Create a prompt for exploring relationship fields",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "validation_rules_prompt",
+            "description": "Create a prompt for exploring validation rules",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "cross_object_search_prompt",
+            "description": "Create a prompt for searching across multiple objects",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "field_type_exploration_prompt",
+            "description": "Create a prompt for exploring fields by their type",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "debug_logs_prompt",
+            "description": "Create a prompt for managing debug logs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "check_salesforce_connection",
+            "description": "\n    Check the connection to Salesforce and return basic org information.\n\n    This tool validates that your Salesforce connection is working properly\n    and returns basic information about the connected org including:\n    - Connection status\n    - Username\n    - Instance URL\n    - Environment type (production/sandbox)\n    - Number of available objects\n\n    Use this as a first step to diagnose connection issues.\n\n    Examples:\n    - \"Check if Salesforce connection is working\"\n    - \"Verify Salesforce API connectivity\"\n    - \"Test connection to Salesforce org\"\n    - \"Show Salesforce connection status\"\n\n    Returns:\n        Status of the Salesforce connection and basic org details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

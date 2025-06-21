@@ -1,0 +1,111 @@
+{
+    "tools": [
+        {
+            "name": "list_database_servers",
+            "description": "List all available database servers configured in the JDBCX server.\n\n    Args:\n        query_timeout_seconds (int, optional): Maximum time to wait for the request in seconds.\n            Defaults to DEFAULT_QUERY_TIMEOUT_SECONDS.\n\n    Returns:\n        str: JSON string containing the list of database servers along with their corresponding descriptions\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query_timeout_seconds": {
+                        "type": "integer",
+                        "description": "Maximum time to wait for the request in seconds."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "JSON string containing the list of database servers along with their corresponding descriptions"
+                    }
+                },
+                "required": [
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "pydbcx_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "inspect_database_server",
+            "description": "Get structural metadata for a specific database server, including its catalogs, schemas, and tables. May take minutes for large servers.\n\n    Args:\n        database_server (str): The name of the database server to inspect\n        query_timeout_seconds (int, optional): Maximum time to wait for the request in seconds.\n            Defaults to DEFAULT_QUERY_TIMEOUT_SECONDS.\n\n    Returns:\n        str: JSON string containing the structural metadata of the specified database server, including its catalogs, schemas, and tables\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "database_server": {
+                        "type": "string",
+                        "description": "The name of the database server to inspect"
+                    },
+                    "query_timeout_seconds": {
+                        "type": "integer",
+                        "description": "Maximum time to wait for the request in seconds."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "JSON string containing the structural metadata of the specified database server, including its catalogs, schemas, and tables"
+                    }
+                },
+                "required": [
+                    "database_server",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "pydbcx_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_database",
+            "description": "Execute a SQL query against a specified database server and return formatted results. Maybe slow for complex queries.\n\n    Args:\n        database_server (str): The name of the database server to query (must be registered)\n        sql_query (str): The SQL query to execute (will be wrapped in a SELECT statement)\n        query_timeout_seconds (int, optional): Maximum time in seconds to wait for query execution.\n            Defaults to DEFAULT_QUERY_TIMEOUT_SECONDS.\n        data_format (str, optional): Output format for results. Options:\n            \"md\" - Markdown table format\n            \"jsonl\" - JSON Lines format (one JSON object per row)\n            \"csv\" - Comma-separated values with header row\n            Defaults to DEFAULT_DATA_FORMAT.\n        rows_limit (int, optional): Maximum number of rows to return. Defaults to DEFAULT_ROWS_LIMIT.\n\n    Returns:\n        str: Query results as a string in the specified format\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "database_server": {
+                        "type": "string",
+                        "description": "The name of the database server to query (must be registered)"
+                    },
+                    "sql_query": {
+                        "type": "string",
+                        "description": "The SQL query to execute (will be wrapped in a SELECT statement)"
+                    },
+                    "query_timeout_seconds": {
+                        "type": "integer",
+                        "description": "Maximum time in seconds to wait for query execution."
+                    },
+                    "data_format": {
+                        "type": "string",
+                        "description": "Output format for results. Options:"
+                    },
+                    "rows_limit": {
+                        "type": "integer",
+                        "description": "Maximum number of rows to return. Defaults to DEFAULT_ROWS_LIMIT."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Query results as a string in the specified format"
+                    }
+                },
+                "required": [
+                    "database_server",
+                    "sql_query",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "pydbcx_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

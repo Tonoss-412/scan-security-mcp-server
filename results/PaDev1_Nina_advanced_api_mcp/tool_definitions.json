@@ -1,0 +1,267 @@
+{
+    "tools": [
+        {
+            "name": "nina_connect_filterwheel",
+            "description": "Connect to a filter wheel device in NINA astronomy software.\n    \n    Args:\n        input: FilterWheelConnectInput containing:\n            device_id: Optional device ID to connect to. If not provided, will use default device.\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the connection\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "type": "string",
+                        "description": "FilterWheelConnectInput containing:"
+                    },
+                    "device_id": {
+                        "type": "string",
+                        "description": "Optional device ID to connect to. If not provided, will use default device."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "input",
+                    "device_id",
+                    "Returns"
+                ]
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nina_disconnect_filterwheel",
+            "description": "Disconnect the filter wheel from NINA astronomy software.\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the disconnection\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nina_list_filterwheel_devices",
+            "description": "List available filter wheel devices in NINA astronomy software.\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the operation\n        - List of available filter wheel devices\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nina_rescan_filterwheel_devices",
+            "description": "Rescan for filter wheel devices in NINA astronomy software.\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the operation\n        - List of available filter wheel devices\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nina_get_filterwheel_info",
+            "description": "Get filter wheel information from NINA astronomy software.\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the operation\n        - Filter wheel information\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nina_change_filter",
+            "description": "Change to a specific filter using the NINA astronomy software filter wheel.\n    \n    Args:\n        input: FilterChangeInput containing:\n            filter_id: ID of the filter to change to\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the operation\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "type": "string",
+                        "description": "FilterChangeInput containing:"
+                    },
+                    "filter_id": {
+                        "type": "string",
+                        "description": "ID of the filter to change to"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "input",
+                    "filter_id",
+                    "Returns"
+                ]
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nina_get_filter_info",
+            "description": "Get information about a specific filter in the NINA astronomy software filter wheel.\n    \n    Args:\n        input: FilterInfoInput containing:\n            filter_id: ID of the filter to get information about\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the operation\n        - Filter information\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "type": "string",
+                        "description": "FilterInfoInput containing:"
+                    },
+                    "filter_id": {
+                        "type": "string",
+                        "description": "ID of the filter to get information about"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "input",
+                    "filter_id",
+                    "Returns"
+                ]
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nina_connect_camera",
+            "description": "Connect to a camera device in NINA astronomy software.\n    \n    Args:\n        input: CameraConnectInput containing:\n            device_id: Optional device ID to connect to. If not provided, will use default device.\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the connection\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "type": "string",
+                        "description": "CameraConnectInput containing:"
+                    },
+                    "device_id": {
+                        "type": "string",
+                        "description": "Optional device ID to connect to. If not provided, will use default device."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "input",
+                    "device_id",
+                    "Returns"
+                ]
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nina_disconnect_camera",
+            "description": "Disconnect the camera from NINA astronomy software.\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the disconnection\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nina_list_camera_devices",
+            "description": "List available camera devices in NINA astronomy software.\n    This will also trigger a rescan of available devices.\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the operation\n        - List of available camera devices\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nina_get_camera_info",
+            "description": "Get camera information from NINA astronomy software.\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the operation\n        - Camera information\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nina_set_readout_mode",
+            "description": "Set the readout mode for the camera in NINA astronomy software.\n    \n    Args:\n        input: CameraReadoutModeInput containing:\n            mode: The readout mode to set\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the operation\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "type": "string",
+                        "description": "CameraReadoutModeInput containing:"
+                    },
+                    "mode": {
+                        "type": "string",
+                        "description": "The readout mode to set"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "input",
+                    "mode",
+                    "Returns"
+                ]
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "nina_start_cooling",
+            "description": "Start cooling the camera in NINA astronomy software.\n    \n    Args:\n        input: CameraCoolingInput containing:\n            temperature: Target temperature in Celsius\n            duration: Optional duration in minutes (not seconds)\n    \n    Returns:\n        Dict containing:\n        - Success status\n        - Message about the operation\n        - Type of response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "input": {
+                        "type": "string",
+                        "description": "CameraCoolingInput containing:"
+                    },
+                    "temperature": {
+                        "type": "string",
+                        "description": "Target temperature in Celsius"
+                    },
+                    "duration": {
+                        "type": "string",
+                        "description": "Optional duration in minutes (not seconds)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "input",
+                    "temperature",
+                    "duration",
+                    "Returns"
+                ]
+            },
+            "file": "nina_advanced_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

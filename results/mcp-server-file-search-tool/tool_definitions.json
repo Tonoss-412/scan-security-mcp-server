@@ -1,0 +1,166 @@
+{
+    "tools": [
+        {
+            "name": "get_allowed_paths",
+            "description": "\n    Retrieve the list of allowed root directories that this server is permitted to access.\n\n    This is useful for understanding the scope of directories that can be browsed,\n    searched, or read by the file tools. Each returned path is masked for privacy\n    if path masking is enabled.\n\n    Returns:\n        Dict: A dictionary with the following keys:\n            - results (list[str]): List of allowed directory paths (masked if configured).\n            - success (bool): True if the operation was successful.\n            - response_message (str): A human-readable description of the result.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_path_type",
+            "description": "\n    Get the type of the given path.\n\n    Args:\n        paths (list[str]): List of paths or a single path to get the type of.\n\n    Returns:\n        Dict: A dictionary with the following keys:\n            - results (list[tuple[str, str]]): List of tuples of (path, type).\n            - success (bool): True if the operation was successful\n            - response_message (str): A message indicating the result of the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "paths": {
+                        "type": "string",
+                        "description": "List of paths or a single path to get the type of."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Dict": {
+                        "type": "string",
+                        "description": "A dictionary with the following keys:"
+                    }
+                },
+                "required": [
+                    "paths",
+                    "Returns",
+                    "Dict"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_file_paths",
+            "description": "\n    List file paths in the given directory, including directories and symbolic links. Equivalent to `ls`.\n\n    Args:\n        base_dir (str): Base directory to start the search from.\n        show_hidden (bool): Include hidden files (those starting with '.'). Can be overridden by the user.\n        limit (int): Maximum number of files to return. Set to -1 for no limit.\n        time_limit (Optional[float]): Seconds after which to abort (-1 = no limit, None = default).\n        max_nested_level (int): Depth to recurse: 0 = only root, 1 = root+its subdirs, -1 = unlimited.\n        search_mode (str): Search mode: \"bfs\" (recommended) or \"dfs\".\n        start_from (int): Starting index of files to return.\n        abs_path (bool): If true, return absolute paths.\n        file_only (bool): If true, only return files.\n\n    Returns:\n        Dict: A dictionary with the following keys:\n            - results (list[str]): List of files. Sorted alphabetically.\n            - time_elapsed (float): Time elapsed in seconds.\n            - response_message (str): A message indicating the result of the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "base_dir": {
+                        "type": "string",
+                        "description": "Base directory to start the search from."
+                    },
+                    "show_hidden": {
+                        "type": "boolean",
+                        "description": "Include hidden files (those starting with '.'). Can be overridden by the user."
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "description": "Maximum number of files to return. Set to -1 for no limit."
+                    },
+                    "time_limit": {
+                        "type": "string",
+                        "description": "Seconds after which to abort (-1 = no limit, None = default)."
+                    },
+                    "max_nested_level": {
+                        "type": "integer",
+                        "description": "Depth to recurse: 0 = only root, 1 = root+its subdirs, -1 = unlimited."
+                    },
+                    "search_mode": {
+                        "type": "string",
+                        "description": "Search mode: \"bfs\" (recommended) or \"dfs\"."
+                    },
+                    "start_from": {
+                        "type": "integer",
+                        "description": "Starting index of files to return."
+                    },
+                    "abs_path": {
+                        "type": "boolean",
+                        "description": "If true, return absolute paths."
+                    },
+                    "file_only": {
+                        "type": "boolean",
+                        "description": "If true, only return files."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Dict": {
+                        "type": "string",
+                        "description": "A dictionary with the following keys:"
+                    }
+                },
+                "required": [
+                    "base_dir",
+                    "show_hidden",
+                    "limit",
+                    "max_nested_level",
+                    "search_mode",
+                    "start_from",
+                    "abs_path",
+                    "file_only",
+                    "Returns",
+                    "Dict"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_file_name",
+            "description": "\n    Search for files whose **path** match the given regex, level\u2011by\u2011level.\n\n    Args:\n        regex_pattern (list[str]): A list of **regex** pattern to match against filenames. Be sure to escape special characters.\n        exclude_regex_patterns (list[str]): a list of **regex** patterns to exclude.\n        base_path (str): Directory to start from (defaults to base_dir).\n        time_limit (Optional[float]): Seconds after which to abort (-1 = no limit, None = default).\n        max_nested_level (int): Depth to recurse: 0 = only root, 1 = root+its subdirs, -1 = unlimited.\n        search_mode (str): Search mode: \"bfs\" (recommended) or \"dfs\".\n\n    Returns:\n        Dict: A dictionary with the following keys:\n            - 'results': List of files matching regex. Sorted alphabetically.\n            - 'success': True if the operation was successful\n            - 'time_elapsed': Time elapsed in seconds.\n            - 'response_message': A message indicating the result of the operation\n    \"\"\"\n   ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "regex_pattern": {
+                        "type": "string",
+                        "description": "A list of **regex** pattern to match against filenames. Be sure to escape special characters."
+                    },
+                    "exclude_regex_patterns": {
+                        "type": "string",
+                        "description": "a list of **regex** patterns to exclude."
+                    },
+                    "base_path": {
+                        "type": "string",
+                        "description": "Directory to start from (defaults to base_dir)."
+                    },
+                    "time_limit": {
+                        "type": "string",
+                        "description": "Seconds after which to abort (-1 = no limit, None = default)."
+                    },
+                    "max_nested_level": {
+                        "type": "integer",
+                        "description": "Depth to recurse: 0 = only root, 1 = root+its subdirs, -1 = unlimited."
+                    },
+                    "search_mode": {
+                        "type": "string",
+                        "description": "Search mode: \"bfs\" (recommended) or \"dfs\"."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Dict": {
+                        "type": "string",
+                        "description": "A dictionary with the following keys:"
+                    }
+                },
+                "required": [
+                    "regex_pattern",
+                    "exclude_regex_patterns",
+                    "base_path",
+                    "max_nested_level",
+                    "search_mode",
+                    "Returns",
+                    "Dict"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

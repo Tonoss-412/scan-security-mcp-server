@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "handle_mcp_request",
+            "description": "Handle MCP protocol requests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "trusted_advisor_mcp_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        }
+    ]
+}

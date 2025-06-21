@@ -1,0 +1,103 @@
+{
+    "tools": [
+        {
+            "name": "get_greeting",
+            "description": "A simple greeting resource.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_precise.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "find_tools_by_pattern",
+            "description": "\n        Find tools that match a pattern in name or description.\n        \n        Args:\n            tools: List of tools to search\n            pattern: Pattern to search for (case-insensitive)\n            search_description: Whether to search in descriptions too\n            \n        Returns:\n            List of matching tools\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tools": {
+                        "type": "string",
+                        "description": "List of tools to search"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "Pattern to search for (case-insensitive)"
+                    },
+                    "search_description": {
+                        "type": "string",
+                        "description": "Whether to search in descriptions too"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tools",
+                    "pattern",
+                    "search_description",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_utils.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "categorize_tools",
+            "description": "\n        Categorize tools based on common patterns in names and descriptions.\n        \n        Returns:\n            Dictionary mapping categories to lists of tools\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_utils.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "generate_parameters",
+            "description": "\n        Generate intelligent parameter defaults for a tool.\n        \n        Args:\n            tool: The tool to generate parameters for\n            custom_params: Custom parameters to override defaults\n            \n        Returns:\n            Dictionary of parameters ready for tool calling\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tool": {
+                        "type": "string",
+                        "description": "The tool to generate parameters for"
+                    },
+                    "custom_params": {
+                        "type": "string",
+                        "description": "Custom parameters to override defaults"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tool",
+                    "custom_params",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_utils.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_generate_default_value",
+            "description": "Generate a default value for a parameter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_utils.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

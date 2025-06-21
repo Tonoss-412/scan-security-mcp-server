@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\arkham_horror_mcp\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        }
+    ]
+}

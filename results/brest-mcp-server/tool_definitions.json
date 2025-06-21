@@ -1,0 +1,29 @@
+{
+    "tools": [
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "host": {
+                        "type": "string"
+                    },
+                    "port": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "host",
+                    "port"
+                ]
+            },
+            "file": "agent\\__main__.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        }
+    ]
+}

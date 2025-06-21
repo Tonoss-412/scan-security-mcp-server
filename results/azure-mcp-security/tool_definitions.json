@@ -1,0 +1,293 @@
+{
+    "tools": [
+        {
+            "name": "read_root",
+            "description": "Render the demo interface.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "security_agent_demo.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "execute_action",
+            "description": "Execute a security agent action.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "security_agent_demo.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_chat_interface",
+            "description": "Render the chat interface with session support.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "security_dashboard.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_conversation_history",
+            "description": "Get the conversation history for the current session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "security_dashboard.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "Handle chat requests with session support.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "security_dashboard.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_capability",
+            "description": "Return the agent's capabilities.\n        \n        Returns:\n            AgentCapability: The capabilities of this agent\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "agents\\base_agent.py",
+            "decorator": [
+                "classmethod",
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "execute",
+            "description": "Execute a task with the given parameters.\n        \n        Args:\n            task: Dictionary containing task parameters\n            \n        Returns:\n            Dictionary with task results\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task": {
+                        "type": "string",
+                        "description": "Dictionary containing task parameters"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "task",
+                    "Returns"
+                ]
+            },
+            "file": "agents\\base_agent.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_capability",
+            "description": "Return the agent's capabilities.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "agents\\__init__.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_capability",
+            "description": "Return the agent's capabilities.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "agents\\security_agent\\security_agent.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "parse_cors_origins",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "mcp_server\\config.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "create_task",
+            "description": "Create a new task for processing by agents.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_task",
+            "description": "Get the status of a specific task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_agent_capabilities",
+            "description": "List all available agent capabilities.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "test_scan_nsg_rules_no_risky_rules",
+            "description": "Test scan_nsg_rules with no risky rules.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_network_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_network_client"
+                ]
+            },
+            "file": "tests\\test_security_agent.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_scan_nsg_rules_with_risky_rules",
+            "description": "Test scan_nsg_rules with risky rules.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_network_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_network_client"
+                ]
+            },
+            "file": "tests\\test_security_agent.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_scan_nsg_rules_no_risky_rules",
+            "description": "Test scan_nsg_rules with no risky rules.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_network_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_network_client"
+                ]
+            },
+            "file": "tests\\test_security_agent_direct.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_scan_nsg_rules_with_risky_rules",
+            "description": "Test scan_nsg_rules with risky rules.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_network_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_network_client"
+                ]
+            },
+            "file": "tests\\test_security_agent_direct.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

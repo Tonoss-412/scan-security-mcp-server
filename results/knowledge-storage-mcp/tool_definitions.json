@@ -1,0 +1,505 @@
+{
+    "tools": [
+        {
+            "name": "get_settings",
+            "description": "\n    Get application settings.\n    \n    Returns:\n        Settings object with configuration values\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "knowledge_storage_mcp\\config.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "handle_create_entity",
+            "description": "\n    Create a new entity in the knowledge graph.\n    \n    Args:\n        entity_type: Type of entity (e.g., 'Document', 'Concept', 'Algorithm', 'Symbol')\n        properties: Entity properties following the schema for the entity type\n        provenance: Optional source information and creation metadata\n        \n    Returns:\n        Dict containing the created entity information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity_type": {
+                        "type": "string",
+                        "description": "Type of entity (e.g., 'Document', 'Concept', 'Algorithm', 'Symbol')"
+                    },
+                    "properties": {
+                        "type": "string",
+                        "description": "Entity properties following the schema for the entity type"
+                    },
+                    "provenance": {
+                        "type": "string",
+                        "description": "Optional source information and creation metadata"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity_type",
+                    "properties",
+                    "provenance",
+                    "Returns"
+                ]
+            },
+            "file": "knowledge_storage_mcp\\server.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "handle_create_relationship",
+            "description": "\n    Create a relationship between two entities in the knowledge graph.\n    \n    Args:\n        from_entity_id: Source entity identifier\n        relationship_type: Type of relationship (e.g., 'CONTAINS', 'IMPLEMENTS', 'REFERENCES')\n        to_entity_id: Target entity identifier\n        properties: Optional relationship properties\n        \n    Returns:\n        Dict containing the created relationship information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "from_entity_id": {
+                        "type": "string",
+                        "description": "Source entity identifier"
+                    },
+                    "relationship_type": {
+                        "type": "string",
+                        "description": "Type of relationship (e.g., 'CONTAINS', 'IMPLEMENTS', 'REFERENCES')"
+                    },
+                    "to_entity_id": {
+                        "type": "string",
+                        "description": "Target entity identifier"
+                    },
+                    "properties": {
+                        "type": "string",
+                        "description": "Optional relationship properties"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "from_entity_id",
+                    "relationship_type",
+                    "to_entity_id",
+                    "properties",
+                    "Returns"
+                ]
+            },
+            "file": "knowledge_storage_mcp\\server.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "handle_query_knowledge_graph",
+            "description": "\n    Query the knowledge graph based on parameters.\n    \n    Args:\n        query_params: Query parameters including entity_types, properties, relationships, etc.\n        output_format: Optional desired output format (e.g., 'json', 'cypher', 'xml')\n        \n    Returns:\n        Dict containing the query results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query_params": {
+                        "type": "string",
+                        "description": "Query parameters including entity_types, properties, relationships, etc."
+                    },
+                    "output_format": {
+                        "type": "string",
+                        "description": "Optional desired output format (e.g., 'json', 'cypher', 'xml')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query_params",
+                    "output_format",
+                    "Returns"
+                ]
+            },
+            "file": "knowledge_storage_mcp\\server.py",
+            "decorator": [
+                "mcp_server.register_tool"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "knowledge_storage_mcp\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "Health check endpoint with database connectivity test.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "knowledge_storage_mcp\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "create_entity",
+            "description": "\n        Create a new entity in the knowledge graph.\n        \n        Args:\n            entity_type (str): Type of entity (e.g., 'Concept', 'Symbol')\n            properties (Dict[str, Any]): Entity properties\n            provenance (Optional[Dict[str, Any]]): Source information and creation metadata\n        \n        Returns:\n            Dict[str, Any]: Created entity information\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity_type": {
+                        "type": "string",
+                        "description": "Type of entity (e.g., 'Concept', 'Symbol')"
+                    },
+                    "properties": {
+                        "type": "string",
+                        "description": "Entity properties"
+                    },
+                    "provenance": {
+                        "type": "string",
+                        "description": "Source information and creation metadata"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity_type",
+                    "properties",
+                    "Returns"
+                ]
+            },
+            "file": "knowledge_storage_mcp\\api\\entities.py",
+            "decorator": [
+                "server.register_function"
+            ]
+        },
+        {
+            "name": "get_entity",
+            "description": "\n        Retrieve an entity by ID.\n        \n        Args:\n            entity_id (str): Entity identifier\n        \n        Returns:\n            Dict[str, Any]: Entity details or error message\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity_id": {
+                        "type": "string",
+                        "description": "Entity identifier"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity_id",
+                    "Returns"
+                ]
+            },
+            "file": "knowledge_storage_mcp\\api\\entities.py",
+            "decorator": [
+                "server.register_function"
+            ]
+        },
+        {
+            "name": "update_entity",
+            "description": "\n        Update an existing entity with new properties.\n        \n        Args:\n            entity_id (str): Entity identifier\n            properties (Dict[str, Any]): Updated entity properties\n        \n        Returns:\n            Dict[str, Any]: Updated entity information or error message\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity_id": {
+                        "type": "string",
+                        "description": "Entity identifier"
+                    },
+                    "properties": {
+                        "type": "string",
+                        "description": "Updated entity properties"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity_id",
+                    "properties",
+                    "Returns"
+                ]
+            },
+            "file": "knowledge_storage_mcp\\api\\entities.py",
+            "decorator": [
+                "server.register_function"
+            ]
+        },
+        {
+            "name": "delete_entity",
+            "description": "\n        Delete an entity from the knowledge graph.\n        \n        Args:\n            entity_id (str): Entity identifier\n            delete_relationships (bool): Whether to delete all relationships to this entity\n        \n        Returns:\n            Dict[str, Any]: Deletion result or error message\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity_id": {
+                        "type": "string",
+                        "description": "Entity identifier"
+                    },
+                    "delete_relationships": {
+                        "type": "boolean",
+                        "description": "Whether to delete all relationships to this entity"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity_id",
+                    "delete_relationships",
+                    "Returns"
+                ]
+            },
+            "file": "knowledge_storage_mcp\\api\\entities.py",
+            "decorator": [
+                "server.register_function"
+            ]
+        },
+        {
+            "name": "list_entities",
+            "description": "\n        List entities from the knowledge graph with filtering and pagination.\n        \n        Args:\n            entity_type (Optional[str]): Filter by entity type\n            properties (Optional[Dict[str, Any]]): Filter by property values\n            page (Optional[int]): Page number (0-based)\n            page_size (Optional[int]): Number of results per page\n        \n        Returns:\n            Dict[str, Any]: List of entities matching the filters\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity_type": {
+                        "type": "string",
+                        "description": "Filter by entity type"
+                    },
+                    "properties": {
+                        "type": "string",
+                        "description": "Filter by property values"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "Page number (0-based)"
+                    },
+                    "page_size": {
+                        "type": "string",
+                        "description": "Number of results per page"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "Returns"
+                ]
+            },
+            "file": "knowledge_storage_mcp\\api\\entities.py",
+            "decorator": [
+                "server.register_function"
+            ]
+        },
+        {
+            "name": "get_entity_by_properties",
+            "description": "\n        Find an entity by matching property values.\n        \n        Args:\n            properties (Dict[str, Any]): Property values to match\n            entity_type (Optional[str]): Entity type to filter by\n        \n        Returns:\n            Dict[str, Any]: Entity details or error message\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "properties": {
+                        "type": "string",
+                        "description": "Property values to match"
+                    },
+                    "entity_type": {
+                        "type": "string",
+                        "description": "Entity type to filter by"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "properties",
+                    "Returns"
+                ]
+            },
+            "file": "knowledge_storage_mcp\\api\\entities.py",
+            "decorator": [
+                "server.register_function"
+            ]
+        },
+        {
+            "name": "transaction",
+            "description": "\n    Transaction context manager for Neo4j operations.\n    \n    This context manager provides a transaction object that can be used\n    for atomic operations, with automatic commit/rollback handling.\n    \n    Args:\n        driver: Neo4j driver instance\n        access_mode: Transaction access mode ('READ' or 'WRITE')\n    \n    Yields:\n        Neo4j transaction object\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "driver": {
+                        "type": "string",
+                        "description": "Neo4j driver instance"
+                    },
+                    "access_mode": {
+                        "type": "string",
+                        "description": "Transaction access mode ('READ' or 'WRITE')"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "driver",
+                    "access_mode",
+                    "Yields"
+                ]
+            },
+            "file": "knowledge_storage_mcp\\db\\constraints.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "check_confidence",
+            "description": "Validate confidence is between 0 and 1.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "knowledge_storage_mcp\\schema\\relationship_types.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "setUpClass",
+            "description": "Set up Neo4j client for all tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "tearDownClass",
+            "description": "Close Neo4j client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "_clean_database",
+            "description": "Remove all test data from database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "tests\\test_integration.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "setUpClass",
+            "description": "Set up a Neo4j container for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "tests\\test_neo4j_client_integration.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "tearDownClass",
+            "description": "Tear down the Neo4j container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "tests\\test_neo4j_client_integration.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "setUpClass",
+            "description": "Set up the test class by starting a Neo4j container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "tests\\test_neo4j_integration.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "tearDownClass",
+            "description": "Tear down the test class by stopping the Neo4j container.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "tests\\test_neo4j_integration.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

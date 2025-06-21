@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools.\n    Each tool specifies its arguments using JSON Schema validation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dify_mcp_server\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\dify_mcp_server\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        }
+    ]
+}

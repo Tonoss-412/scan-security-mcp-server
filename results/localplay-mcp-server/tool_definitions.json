@@ -1,0 +1,23 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "app": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "app"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        }
+    ]
+}

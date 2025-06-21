@@ -1,0 +1,300 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_delivery_tasks",
+            "description": "Get all delivery tasks with optional status filter",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\delivery.py",
+            "decorator": [
+                "router.get",
+                "cache"
+            ]
+        },
+        {
+            "name": "get_delivery_task",
+            "description": "Get specific delivery task",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\delivery.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_delivery_status",
+            "description": "Update delivery task status and notify customer",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\delivery.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_order_delivery_task",
+            "description": "Get delivery task for specific order",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\delivery.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_delivery_statistics",
+            "description": "Get delivery time statistics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\delivery.py",
+            "decorator": [
+                "router.get",
+                "cache"
+            ]
+        },
+        {
+            "name": "get_menu",
+            "description": "Get current menu grouped by category",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\menu.py",
+            "decorator": [
+                "router.get",
+                "cache"
+            ]
+        },
+        {
+            "name": "get_menu_items",
+            "description": "Get menu items with optional category filter",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\menu.py",
+            "decorator": [
+                "router.get",
+                "cache"
+            ]
+        },
+        {
+            "name": "get_menu_item",
+            "description": "Get specific menu item by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\menu.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_menu_item",
+            "description": "Create new menu item",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\menu.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_menu_item",
+            "description": "Update existing menu item",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\menu.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_menu_item",
+            "description": "Delete menu item",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\menu.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "upload_item_image",
+            "description": "Upload image for menu item",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\menu.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_categories",
+            "description": "Get list of all menu categories",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\menu.py",
+            "decorator": [
+                "router.get",
+                "cache"
+            ]
+        },
+        {
+            "name": "list_orders",
+            "description": "Get list of orders with optional filters",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\orders.py",
+            "decorator": [
+                "router.get",
+                "cache"
+            ]
+        },
+        {
+            "name": "get_active_orders",
+            "description": "Get all active orders",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\orders.py",
+            "decorator": [
+                "router.get",
+                "cache"
+            ]
+        },
+        {
+            "name": "get_order",
+            "description": "Get specific order by ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\orders.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_order_status",
+            "description": "Update order status and notify customer",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\orders.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "cancel_order",
+            "description": "Cancel an order",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\orders.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_customer_orders",
+            "description": "Get customer's order history",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\orders.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_daily_stats",
+            "description": "Get daily order statistics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\orders.py",
+            "decorator": [
+                "router.get",
+                "cache"
+            ]
+        },
+        {
+            "name": "whatsapp_webhook",
+            "description": "Handle incoming WhatsApp webhook events",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\whatsapp.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "verify_webhook",
+            "description": "Handle WhatsApp webhook verification (for Meta Business API verification)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\whatsapp.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "send_whatsapp_message",
+            "description": "Send WhatsApp message to a specific number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\routers\\whatsapp.py",
+            "decorator": [
+                "router.post"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,180 @@
+{
+    "tools": [
+        {
+            "name": "execute_query",
+            "description": "\n    Execute an instant PromQL query.\n    Returns the resultType and result array.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_range_query",
+            "description": "\n    Execute a PromQL range query.\n    Returns the resultType and result array.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_metrics",
+            "description": "\n    List all metric names.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_metric_metadata",
+            "description": "\n    Retrieve metadata for a given metric name.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_targets",
+            "description": "\n    Retrieve active and dropped scrape targets.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "ExecuteaPromQLinstantqueryagainstPrometheus",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "PromQL query string"
+                    },
+                    "time": {
+                        "type": "string",
+                        "description": "Optional RFC3339 or Unix timestamp (default: current time)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "time",
+                    "Returns"
+                ]
+            },
+            "file": "prometheus_mcp\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_range_query",
+            "description": "ExecuteaPromQLrangequerywithstarttime",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "PromQL query string"
+                    },
+                    "start": {
+                        "type": "string",
+                        "description": "Start time as RFC3339 or Unix timestamp"
+                    },
+                    "end": {
+                        "type": "string",
+                        "description": "End time as RFC3339 or Unix timestamp"
+                    },
+                    "step": {
+                        "type": "string",
+                        "description": "Query resolution step width (e.g., '15s', '1m', '1h')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "start",
+                    "end",
+                    "step",
+                    "Returns"
+                ]
+            },
+            "file": "prometheus_mcp\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_metrics",
+            "description": "ListallavailablemetricsinPrometheus",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "prometheus_mcp\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_metric_metadata",
+            "description": "Getmetadataforaspecificmetric",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "metric": {
+                        "type": "string",
+                        "description": "The name of the metric to retrieve metadata for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "metric",
+                    "Returns"
+                ]
+            },
+            "file": "prometheus_mcp\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_targets",
+            "description": "Getinformationaboutallscrapetargets",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "prometheus_mcp\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,572 @@
+{
+    "tools": [
+        {
+            "name": "debug_paths",
+            "description": "Debug tool to show current paths and file existence for troubleshooting.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_unread_emails",
+            "description": "Get unread emails from Gmail inbox.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_important_missed_emails",
+            "description": "Get important emails that might have been missed in the last N days.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_email_summary_by_sender",
+            "description": "Get a summary of emails grouped by sender for the last N days.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_emails",
+            "description": "Search emails using Gmail search syntax.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_weekly_email_insights",
+            "description": "Get comprehensive weekly email insights.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "setup_instructions",
+            "description": "Instructions for setting up Gmail and Calendar API credentials.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "list_calendars",
+            "description": "Get list of user's calendars.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_upcoming_events",
+            "description": "Get upcoming events from a calendar.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_calendar_event",
+            "description": "Create a new calendar event. \n    \n    Args:\n        calendar_id: Calendar to create event in (use 'primary' for main calendar)\n        title: Event title/summary\n        description: Event description\n        start_datetime: Start time in ISO format (e.g., '2024-01-15T14:00:00')\n        end_datetime: End time in ISO format (e.g., '2024-01-15T15:00:00')\n        attendees: List of email addresses to invite\n        location: Event location\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "calendar_id": {
+                        "type": "string",
+                        "description": "Calendar to create event in (use 'primary' for main calendar)"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Event title/summary"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Event description"
+                    },
+                    "start_datetime": {
+                        "type": "string",
+                        "description": "Start time in ISO format (e.g., '2024-01-15T14:00:00')"
+                    },
+                    "end_datetime": {
+                        "type": "string",
+                        "description": "End time in ISO format (e.g., '2024-01-15T15:00:00')"
+                    },
+                    "attendees": {
+                        "type": "string",
+                        "description": "List of email addresses to invite"
+                    },
+                    "location": {
+                        "type": "string",
+                        "description": "Event location"
+                    }
+                },
+                "required": [
+                    "calendar_id",
+                    "title",
+                    "description",
+                    "start_datetime",
+                    "end_datetime",
+                    "attendees",
+                    "location"
+                ]
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_calendar_event",
+            "description": "Update an existing calendar event.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_calendar_event",
+            "description": "Delete a calendar event.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_calendar_events",
+            "description": "Search for calendar events by title, description, or location.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_availability",
+            "description": "Check availability across multiple calendars for a time period.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_today_agenda",
+            "description": "Get today's agenda from a calendar.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_weekly_calendar_summary",
+            "description": "Get a summary of the upcoming week's calendar events.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_notion_pages",
+            "description": "Get all pages from Notion workspace.\n    \n    Args:\n        top_level_only: If True, only return top-level pages (default: False)\n        max_results: Maximum number of pages to return (default: 100)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "top_level_only": {
+                        "type": "string",
+                        "description": "If True, only return top-level pages (default: False)"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of pages to return (default: 100)"
+                    }
+                },
+                "required": [
+                    "top_level_only",
+                    "max_results"
+                ]
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_notion_page",
+            "description": "Create a new page in Notion.\n    \n    Args:\n        title: Page title (defaults to \"New Page\" if not provided)\n        parent_page_title: Title of parent page (creates top-level page if not provided or not found)\n        body_content: Page body content (blank if not provided, supports multiple paragraphs separated by double newlines)\n            When Adding body text, use the following Markdown rules Notion uses as appropriate to style the text:\n\n                Type ** on both sides of your text to bold.\n                Type * on both sides of your text to italicize.\n                Type ` on both sides of your text to create inline code.\n                Type ~ on both sides of your text to strikethrough.\n\n                Type *, -, or + followed by space to create a bulleted list.\n                Type [] to create a to-do checkbox, followed by space. (There's no space in between.)\n                Type 1., a., or i. followed by space to create a numbered list.\n                Type # followed by space to create an H1 heading.\n                Type ## followed by space to create an H2 sub-heading.\n                Type ### followed by space to create an H3 sub-heading.\n                Type > followed by space to create a toggle list.\n                Type \" followed by space to create a quote block.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Page title (defaults to \"New Page\" if not provided)"
+                    },
+                    "parent_page_title": {
+                        "type": "string",
+                        "description": "Title of parent page (creates top-level page if not provided or not found)"
+                    },
+                    "body_content": {
+                        "type": "string",
+                        "description": "Page body content (blank if not provided, supports multiple paragraphs separated by double newlines)"
+                    }
+                },
+                "required": [
+                    "title",
+                    "parent_page_title",
+                    "body_content"
+                ]
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_notion_page",
+            "description": "Update an existing page in Notion.\n    \n    Args:\n        page_id: Page ID to update (e.g., \"12345678-1234-1234-1234-123456789012\") If you are not given the page id (user gives title of page to update), you need to find the page id first.\n        new_title: New title for the page (optional)\n        new_content: New content for the page (optional, supports multiple paragraphs separated by double newlines)\n        append_content: If True, append new content to existing; if False, replace all content (default: False)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "page_id": {
+                        "type": "string",
+                        "description": "Page ID to update (e.g., \"12345678-1234-1234-1234-123456789012\") If you are not given the page id (user gives title of page to update), you need to find the page id first."
+                    },
+                    "new_title": {
+                        "type": "string",
+                        "description": "New title for the page (optional)"
+                    },
+                    "new_content": {
+                        "type": "string",
+                        "description": "New content for the page (optional, supports multiple paragraphs separated by double newlines)"
+                    },
+                    "append_content": {
+                        "type": "string",
+                        "description": "If True, append new content to existing; if False, replace all content (default: False)"
+                    }
+                },
+                "required": [
+                    "page_id",
+                    "new_title",
+                    "new_content",
+                    "append_content"
+                ]
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_notion_pages_content",
+            "description": "Get content of multiple Notion pages by their IDs.\n    \n    Args:\n        page_ids: List of 1 or more page IDs to fetch content for. If you are not given the page id (user gives title of page to update), you need to find the page id first.\n        \n    Returns:\n        Dictionary containing page contents with their titles and URLs\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "page_ids": {
+                        "type": "string",
+                        "description": "List of 1 or more page IDs to fetch content for. If you are not given the page id (user gives title of page to update), you need to find the page id first."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "page_ids",
+                    "Returns"
+                ]
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_drive_files",
+            "description": "List files in Google Drive.\n    \n    Args:\n        query: Optional search query (e.g., \"name contains 'report'\")\n        max_results: Maximum number of files to return\n        \n    Returns:\n        Dict containing:\n        - total_files (int): Total number of files found\n        - files (List[Dict]): List of file objects, each containing:\n            - id (str): Unique file identifier\n            - name (str): File name\n            - type (str): MIME type of the file\n            - size (str): File size in bytes\n            - created_time (str): ISO timestamp of creation\n            - modified_time (str): ISO timestamp of last modification\n            - owners (List[str]): List of owner email addresses\n            - shared (bool): Whether the file is shared\n            - url (str): Web view URL for the file\n            - last_modified_by (str): Email of last user to modify\n            - editors (List[str]): List of all users who have edited the file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Optional search query (e.g., \"name contains 'report'\")"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of files to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_drive_files",
+            "description": "Search for files in Google Drive.\n    \n    Args:\n        query: Search query (e.g., \"report\" or \"meeting notes\")\n        max_results: Maximum number of files to return\n        \n    Returns:\n        Dict containing:\n        - query (str): The search query used\n        - total_files (int): Total number of matching files\n        - files (List[Dict]): List of matching file objects, each containing:\n            - id (str): Unique file identifier\n            - name (str): File name\n            - type (str): MIME type of the file\n            - size (str): File size in bytes\n            - created_time (str): ISO timestamp of creation\n            - modified_time (str): ISO timestamp of last modification\n            - owners (List[str]): List of owner email addresses\n            - shared (bool): Whether the file is shared\n            - url (str): Web view URL for the file\n            - last_modified_by (str): Email of last user to modify\n            - editors (List[str]): List of all users who have edited the file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query (e.g., \"report\" or \"meeting notes\")"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of files to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "download_drive_file",
+            "description": "Download a file from Google Drive.\n    \n    Args:\n        file_id: ID of the file to download\n        output_path: Path where the file should be saved\n        \n    Returns:\n        Dict containing file information:\n        - id (str): Unique file identifier\n        - name (str): File name\n        - type (str): MIME type of the file\n        - size (str): File size in bytes\n        - saved_to (str): Local path where file was saved\n        - last_modified_by (str): Email of last user to modify\n        - editors (List[str]): List of all users who have edited the file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_id": {
+                        "type": "string",
+                        "description": "ID of the file to download"
+                    },
+                    "output_path": {
+                        "type": "string",
+                        "description": "Path where the file should be saved"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_id",
+                    "output_path",
+                    "Returns"
+                ]
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_drive_file_metadata",
+            "description": "Get detailed metadata for a specific file in Google Drive.\n    \n    Args:\n        file_id: ID of the file to get metadata for\n        \n    Returns:\n        Dict containing detailed file information:\n        - id (str): Unique file identifier\n        - name (str): File name\n        - type (str): MIME type of the file\n        - size (str): File size in bytes\n        - created_time (str): ISO timestamp of creation\n        - modified_time (str): ISO timestamp of last modification\n        - owners (List[str]): List of owner email addresses\n        - shared (bool): Whether the file is shared\n        - url (str): Web view URL for the file\n        - description (str): File description if available\n        - capabilities (Dict): Available operations on the file\n        - last_modified_by (str): Email of last user to modify\n        - editors (List[str]): List of all users who have edited the file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_id": {
+                        "type": "string",
+                        "description": "ID of the file to get metadata for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_id",
+                    "Returns"
+                ]
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_shared_drive_files",
+            "description": "List files that have been shared with the user in Google Drive.\n    \n    Args:\n        max_results: Maximum number of files to return\n        \n    Returns:\n        Dict containing:\n        - total_files (int): Total number of shared files\n        - files (List[Dict]): List of shared file objects, each containing:\n            - id (str): Unique file identifier\n            - name (str): File name\n            - type (str): MIME type of the file\n            - size (str): File size in bytes\n            - created_time (str): ISO timestamp of creation\n            - modified_time (str): ISO timestamp of last modification\n            - owners (List[str]): List of owner email addresses\n            - shared (bool): Whether the file is shared\n            - url (str): Web view URL for the file\n            - last_modified_by (str): Email of last user to modify\n            - editors (List[str]): List of all users who have edited the file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of files to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_drive_file_activity",
+            "description": "Get activity history for a specific file in Google Drive.\n    \n    Args:\n        file_id: ID of the file to get activity for\n        max_results: Maximum number of activities to return\n        \n    Returns:\n        Dict containing:\n        - file (Dict): File information:\n            - id (str): Unique file identifier\n            - name (str): File name\n            - created_time (str): ISO timestamp of creation\n            - modified_time (str): ISO timestamp of last modification\n            - owners (List[str]): List of owner email addresses\n            - last_modified_by (str): Email of last user to modify\n            - editors (List[str]): List of all users who have edited the file\n        - total_activities (int): Total number of activities found\n        - activities (List[Dict]): List of activity objects, each containing:\n            - type (str): Activity type ('created' or 'modified')\n            - time (str): ISO timestamp of the activity\n            - user (str): Email of user who performed the activity\n            - details (str): Description of the activity\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_id": {
+                        "type": "string",
+                        "description": "ID of the file to get activity for"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of activities to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_id",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_recent_drive_activity",
+            "description": "Get recent activity across all accessible files in Google Drive.\n    \n    Args:\n        max_results: Maximum number of activities to return\n        \n    Returns:\n        Dict containing:\n        - total_activities (int): Total number of activities found\n        - activities (List[Dict]): List of activity objects, each containing:\n            - type (str): Activity type ('modified')\n            - time (str): ISO timestamp of the activity\n            - user (str): Email of user who performed the activity\n            - file (Dict): Information about the affected file:\n                - id (str): Unique file identifier\n                - name (str): File name\n                - type (str): MIME type of the file\n                - editors (List[str]): List of all users who have edited the file\n            - details (str): Description of the activity\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of activities to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "mp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "index",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "clients\\notion_client.py",
+            "decorator": [
+                "self.app.route"
+            ]
+        },
+        {
+            "name": "authorize",
+            "description": "Redirect the user to Notion's consent screen.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "clients\\notion_client.py",
+            "decorator": [
+                "self.app.route"
+            ]
+        },
+        {
+            "name": "oauth_callback",
+            "description": "Handle Notion redirect \u2192 exchange `code` for `access_token`.\"\"\"\n ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "clients\\notion_client.py",
+            "decorator": [
+                "self.app.route"
+            ]
+        }
+    ]
+}

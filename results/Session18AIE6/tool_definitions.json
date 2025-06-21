@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "web_search",
+            "description": "Search the web for information about the given query",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "roll_dice",
+            "description": "Roll the dice with the given notation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "calculate",
+            "description": "Perform basic arithmetic calculations. Supports +, -, *, /, ** (power), and parentheses.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

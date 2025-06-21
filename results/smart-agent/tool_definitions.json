@@ -1,0 +1,733 @@
+{
+    "tools": [
+        {
+            "name": "add_numbers",
+            "description": "Add two numbers together",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\streamable_http_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_random_fact",
+            "description": "Get a random interesting fact",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\streamable_http_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_weather_info",
+            "description": "Get weather information for a city using a simple weather API",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\streamable_http_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "calculate_fibonacci",
+            "description": "Calculate the nth Fibonacci number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "examples\\streamable_http_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_system_prompt",
+            "description": "Generate a system prompt with current date and time.\n\n        This method generates a system prompt that includes the current date and time,\n        formatted according to the user's locale settings if possible. It provides\n        guidelines for the assistant's behavior and can include custom instructions\n        if provided.\n\n        Args:\n            custom_instructions: Optional custom instructions to include\n\n        Returns:\n            A formatted system prompt\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "custom_instructions": {
+                        "type": "string",
+                        "description": "Optional custom instructions to include"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "custom_instructions",
+                    "Returns"
+                ]
+            },
+            "file": "smart_agent\\agent.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Smart Agent CLI.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "smart_agent\\cli.py",
+            "decorator": [
+                "click.group",
+                "click.version_option"
+            ]
+        },
+        {
+            "name": "chainlit_ui",
+            "description": "Start Chainlit web interface.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "port": {
+                        "type": "string"
+                    },
+                    "host": {
+                        "type": "string"
+                    },
+                    "debug": {
+                        "type": "string"
+                    },
+                    "no_stream_batching": {
+                        "type": "string"
+                    },
+                    "batch_size": {
+                        "type": "string"
+                    },
+                    "flush_interval": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "port",
+                    "host",
+                    "debug",
+                    "no_stream_batching",
+                    "batch_size",
+                    "flush_interval"
+                ]
+            },
+            "file": "smart_agent\\cli.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "chainlit_ui_placeholder",
+            "description": "Start Chainlit web interface (requires chainlit).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "smart_agent\\cli.py",
+            "decorator": [
+                "click.command"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "\n    Start a chat session with the agent.\n\n    Args:\n        config: Path to configuration file\n        debug: Enable debug logging\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "Path to configuration file"
+                    },
+                    "debug": {
+                        "type": "string",
+                        "description": "Enable debug logging"
+                    }
+                },
+                "required": [
+                    "config",
+                    "debug"
+                ]
+            },
+            "file": "smart_agent\\commands\\chat.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "init",
+            "description": "\n    Initialize configuration file.\n\n    Args:\n        config: Path to configuration file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "Path to configuration file"
+                    }
+                },
+                "required": [
+                    "config"
+                ]
+            },
+            "file": "smart_agent\\commands\\init.py",
+            "decorator": [
+                "click.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "start",
+            "description": "\n    Start all tool services.\n\n    Args:\n        config: Path to configuration file\n        background: Whether to run in background\n        debug: Enable debug mode for verbose logging\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "Path to configuration file"
+                    },
+                    "background": {
+                        "type": "string",
+                        "description": "Whether to run in background"
+                    },
+                    "debug": {
+                        "type": "string",
+                        "description": "Enable debug mode for verbose logging"
+                    }
+                },
+                "required": [
+                    "config",
+                    "background",
+                    "debug"
+                ]
+            },
+            "file": "smart_agent\\commands\\start.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "status",
+            "description": "\n    Show the status of all services.\n\n    Args:\n        config: Path to configuration file\n        json: Output in JSON format\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "Path to configuration file"
+                    },
+                    "json": {
+                        "type": "string",
+                        "description": "Output in JSON format"
+                    },
+                    "debug": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config",
+                    "json",
+                    "debug"
+                ]
+            },
+            "file": "smart_agent\\commands\\status.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "stop",
+            "description": "\n    Stop all tool services.\n\n    Args:\n        config: Path to configuration file\n        all: Stop all processes, including those not in the configuration\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "Path to configuration file"
+                    },
+                    "all": {
+                        "type": "string",
+                        "description": "Stop all processes, including those not in the configuration"
+                    },
+                    "debug": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config",
+                    "all",
+                    "debug"
+                ]
+            },
+            "file": "smart_agent\\commands\\stop.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "process_query",
+            "description": "\n        Process a query using the OpenAI agent with MCP tools.\n        \n        This is an abstract method that must be implemented by subclasses.\n        Each implementation should handle the processing of queries in a way\n        appropriate for its specific interface (CLI, web, etc.).\n\n        Args:\n            query: The user's query\n            history: Optional conversation history\n            agent: The Agent instance to use for processing the query\n\n        Returns:\n            The agent's response\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The user's query"
+                    },
+                    "history": {
+                        "type": "string",
+                        "description": "Optional conversation history"
+                    },
+                    "agent": {
+                        "type": "string",
+                        "description": "The Agent instance to use for processing the query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "history",
+                    "agent",
+                    "Returns"
+                ]
+            },
+            "file": "smart_agent\\core\\agent.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "name",
+            "description": "A readable name for the server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "smart_agent\\core\\mcp_server.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "name",
+            "description": "A readable name for the server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "smart_agent\\core\\mcp_server.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "name",
+            "description": "A readable name for the server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "smart_agent\\core\\mcp_server.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "handle_settings_update",
+            "description": "Handle settings updates from the UI.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "settings": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "settings"
+                ]
+            },
+            "file": "smart_agent\\web\\chainlit_app.py",
+            "decorator": [
+                "cl.on_settings_update"
+            ]
+        },
+        {
+            "name": "on_chat_start",
+            "description": "Initialize the chat session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "smart_agent\\web\\chainlit_app.py",
+            "decorator": [
+                "cl.on_chat_start"
+            ]
+        },
+        {
+            "name": "on_message",
+            "description": "Handle user messages.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "smart_agent\\web\\chainlit_app.py",
+            "decorator": [
+                "cl.on_message"
+            ]
+        },
+        {
+            "name": "on_chat_end",
+            "description": "Handle chat end event with robust cleanup.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "smart_agent\\web\\chainlit_app.py",
+            "decorator": [
+                "cl.on_chat_end"
+            ]
+        },
+        {
+            "name": "temp_dir",
+            "description": "Create a temporary directory for test files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_config_dir",
+            "description": "Create a mock configuration directory with example configs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_dir"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_config",
+            "description": "Create a mock ConfigManager object with test configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_config_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_config_dir"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_process",
+            "description": "Mock subprocess for tool processes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_tool_process",
+            "description": "Mock tool process management.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_process"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_docker",
+            "description": "Mock Docker CLI commands.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_chat_session_with_tools",
+            "description": "Test a complete chat session with tool usage.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_launch_proxy": {
+                        "type": "string"
+                    },
+                    "mock_launch_tools": {
+                        "type": "string"
+                    },
+                    "mock_model": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_launch_proxy",
+                    "mock_launch_tools",
+                    "mock_model"
+                ]
+            },
+            "file": "tests\\functional\\test_smart_agent_e2e.py",
+            "decorator": [
+                "pytest.mark.skip",
+                "pytest.mark.asyncio",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_tool_launch_and_agent_integration",
+            "description": "Test launching tools and using them with the agent.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_model": {
+                        "type": "string"
+                    },
+                    "mock_popen": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_model",
+                    "mock_popen"
+                ]
+            },
+            "file": "tests\\integration\\test_tool_management.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_agent_without_initialization",
+            "description": "Test agent creation with minimal configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai_client"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_initialize_agent",
+            "description": "Test the _initialize_agent method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_model_class": {
+                        "type": "string"
+                    },
+                    "mock_agent_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_model_class",
+                    "mock_agent_class"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_process_message",
+            "description": "Test the process_message method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_runner": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_runner"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_process_message_without_agent",
+            "description": "Test that BaseSmartAgent has an abstract method process_query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai_client"
+                ]
+            },
+            "file": "tests\\unit\\test_agent.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_start_cmd_functionality",
+            "description": "Test the functionality of start command without calling the Click command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_start_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_start_tools"
+                ]
+            },
+            "file": "tests\\unit\\test_cli.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_stop_cmd_functionality",
+            "description": "Test the functionality of stop command without calling the Click command.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_stop_all": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_stop_all"
+                ]
+            },
+            "file": "tests\\unit\\test_cli.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_launch_tools_functionality",
+            "description": "Test the functionality of launch_tools without directly calling it.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_environ": {
+                        "type": "string"
+                    },
+                    "mock_popen": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_environ",
+                    "mock_popen"
+                ]
+            },
+            "file": "tests\\unit\\test_cli.py",
+            "decorator": [
+                "pytest.mark.skip",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_proxy_manager_launch_litellm_proxy",
+            "description": "Test ProxyManager.launch_litellm_proxy function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_exists": {
+                        "type": "string"
+                    },
+                    "mock_popen": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_exists",
+                    "mock_popen"
+                ]
+            },
+            "file": "tests\\unit\\test_cli.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        }
+    ]
+}

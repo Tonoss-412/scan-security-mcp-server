@@ -1,0 +1,49 @@
+{
+    "tools": [
+        {
+            "name": "get_alerts",
+            "description": "Get weather alerts for a US state\n\n    Args:\n        state (str): A US state, eg. TN, KY, CA\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "A US state, eg. TN, KY, CA"
+                    }
+                },
+                "required": [
+                    "state"
+                ]
+            },
+            "file": "src\\weather_agent\\weather_mcp_server\\weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_forecast",
+            "description": "Get weather forecast for a given latitude and longitude for the next 5 periods\n\n    Args:\n        latitude (float): latitde of the location\n        longitude (float): longitude of the location\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "type": "number",
+                        "description": "latitde of the location"
+                    },
+                    "longitude": {
+                        "type": "number",
+                        "description": "longitude of the location"
+                    }
+                },
+                "required": [
+                    "latitude",
+                    "longitude"
+                ]
+            },
+            "file": "src\\weather_agent\\weather_mcp_server\\weather.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

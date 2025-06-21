@@ -1,0 +1,169 @@
+{
+    "tools": [
+        {
+            "name": "get_meta_info",
+            "description": "Get meta information about the Flight Radar API.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "flight_radar_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_flights",
+            "description": "\n    Get a list of all current flights.\n    \n    Returns an array of flight objects with:\n    - id: Unique flight identifier\n    - icao24: ICAO 24-Bit hex address  \n    - cls: callsign\n    - lstCntct: time of last contact\n    - firstCntct: time of first contact\n    \n    Example response:\n    [\n      {\n        \"id\": \"683f570bd570101935e7ff63\",\n        \"icao24\": \"394a03\", \n        \"cls\": \"AFR990\",\n        \"lstCntct\": \"2025-06-03T20:12:03.615000Z\",\n        \"firstCntct\": \"2025-06-03T20:11:55.542000Z\"\n      }\n    ]\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "flight_radar_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_military_flights",
+            "description": "Get a list of current military flights only.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "flight_radar_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_aircraft_positions",
+            "description": "\n    Get the current position of all aircraft currently tracked by the Flight Radar API.\n    \n    Returns a map with ICAO24 hex address as key and arrays of [lat, lon, alt] coordinates as values.\n    \n    Example response:\n    {\n      \"300781\": [\n        [47.669632, 11.054512, 28200],\n        [47.655716, 11.048882, 28475]\n      ]\n    }\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "flight_radar_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_flight_by_id",
+            "description": "\n    Get detailed information about a specific flight.\n    \n    Args:\n        flight_id: The unique identifier of the flight\n    \n    Example response:\n    {\n      \"id\": \"683f570bd570101935e7ff63\",\n      \"icao24\": \"394a03\",\n      \"cls\": \"AFR990\", \n      \"lstCntct\": \"2025-06-03T20:14:19.571000Z\",\n      \"firstCntct\": \"2025-06-03T20:11:55.542000Z\"\n    }\n    \n    Fields:\n    - icao24: ICAO 24-Bit hex address\n    - cls: callsign\n    - lstCntct: time of last contact\n    - firstCntct: time of first contact\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "flight_id": {
+                        "type": "string",
+                        "description": "The unique identifier of the flight"
+                    },
+                    "Fields": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "flight_id",
+                    "Fields"
+                ]
+            },
+            "file": "flight_radar_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_flight_positions",
+            "description": "\n    Get position data for a specific flight.\n    \n    Args:\n        flight_id: The unique identifier of the flight\n    \n    Returns an array of [lat, lon, alt] coordinates:\n    [\n      [47.520152, 7.920509, 32025],\n      [47.655716, 11.048882, 28475]\n    ]\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "flight_id": {
+                        "type": "string",
+                        "description": "The unique identifier of the flight"
+                    }
+                },
+                "required": [
+                    "flight_id"
+                ]
+            },
+            "file": "flight_radar_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_aircraft_info",
+            "description": "\n    Get aircraft information by ICAO 24-bit address.\n    \n    Args:\n        icao24addr: The ICAO 24-bit address of the aircraft (e.g., 'a1b2c3')\n    \n    Example response:\n    {\n      \"icao24\": \"345314\",\n      \"reg\": \"EC-MOO\",\n      \"icaoType\": \"A321\", \n      \"type\": \"Airbus A321 231SL\",\n      \"op\": \"Vueling Airlines\"\n    }\n    \n    Fields:\n    - icao24: ICAO 24-bit hex address\n    - reg: Registration\n    - icaoType: ICAO aircraft type code\n    - type: Full aircraft type description\n    - op: Operator/Airline name\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "icao24addr": {
+                        "type": "string",
+                        "description": "The ICAO 24-bit address of the aircraft (e.g., 'a1b2c3')"
+                    },
+                    "Fields": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "icao24addr",
+                    "Fields"
+                ]
+            },
+            "file": "flight_radar_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_flights",
+            "description": "\n    Search flights with optional filtering and limiting.\n    \n    Args:\n        filter_type: Filter flights (e.g. 'mil' for military only)\n        limit: Maximum number of flights to return\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filter_type": {
+                        "type": "string",
+                        "description": "Filter flights (e.g. 'mil' for military only)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of flights to return"
+                    }
+                },
+                "required": [
+                    "filter_type",
+                    "limit"
+                ]
+            },
+            "file": "flight_radar_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_flight_route",
+            "description": "\n    Get the route (departure and destination airports) for a flight by callsign.\n    \n    Args:\n        callsign: The flight callsign (e.g., 'SWR282', 'AFR990')\n    \n    Example response:\n    {\n      \"flight\": \"SWR282\",\n      \"route\": \"ZRH-JNB\",\n      \"updatetime\": 1747593022\n    }\n    \n    Fields:\n    - flight: The flight callsign\n    - route: Departure airport and destination airport separated by dash (IATA codes)\n    - updatetime: Unix timestamp of last update\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "callsign": {
+                        "type": "string",
+                        "description": "The flight callsign (e.g., 'SWR282', 'AFR990')"
+                    },
+                    "Fields": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "callsign",
+                    "Fields"
+                ]
+            },
+            "file": "flight_radar_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

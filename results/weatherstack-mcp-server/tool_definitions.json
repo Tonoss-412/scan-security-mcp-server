@@ -1,0 +1,76 @@
+{
+    "tools": [
+        {
+            "name": "app_lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "config.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "query_current_weather",
+            "description": "\n    Gets the current weather for a specified location using the Weatherstack API.\n\n    Parameters:\n        query (str): The location to retrieve weather data for.\n            Supported formats:\n            - City name (e.g. \"New York\")\n            - ZIP code (UK, Canada, US) (e.g. \"99501\")\n            - Latitude,Longitude coordinates (e.g. \"40.7831,-73.9712\")\n            - IP address (e.g. \"153.65.8.20\")\n            - Special keyword \"fetch:ip\" to auto-detect requester IP\n        units (str, optional): The unit system to use. Defaults to \"m\".\n            - \"m\" for Metric\n            - \"s\" for Scientific\n            - \"f\" for Fahrenheit\n\n    Returns:\n        Union[dict, CallToolResult]: A dictionary containing the current weather data,\n        or a CallToolResult with an error message if the request fails.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_daily_historical_weather",
+            "description": "\n    Gets daily historical weather data for a specified location and list of dates using the Weatherstack API.\n\n    Parameters:\n        query (str): The location to retrieve weather data for.\n            Supported formats:\n            - City name (e.g. \"New York\")\n            - ZIP code (UK, Canada, US) (e.g. \"99501\")\n            - Latitude,Longitude coordinates (e.g. \"40.7831,-73.9712\")\n            - IP address (e.g. \"153.65.8.20\")\n            - Special keyword \"fetch:ip\" to auto-detect requester IP\n        historical_dates (list[str]): A list of historical dates in 'YYYY-MM-DD' format.\n        units (str, optional): The unit system to use. Defaults to \"m\".\n            - \"m\" for Metric\n            - \"s\" for Scientific\n            - \"f\" for Fahrenheit\n\n    Returns:\n        Union[dict, CallToolResult]: A dictionary containing the historical weather data,\n        or a CallToolResult with an error message if the request fails.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_hourly_historical_weather",
+            "description": "\n    Gets hourly historical weather data for a specified location and list of dates using the Weatherstack API.\n\n    Parameters:\n        query (str): The location to retrieve weather data for.\n            Supported formats:\n            - City name (e.g. \"New York\")\n            - ZIP code (UK, Canada, US) (e.g. \"99501\")\n            - Latitude,Longitude coordinates (e.g. \"40.7831,-73.9712\")\n            - IP address (e.g. \"153.65.8.20\")\n            - Special keyword \"fetch:ip\" to auto-detect requester IP\n        historical_dates (list[str]): A list of historical dates in 'YYYY-MM-DD' format.\n        units (str, optional): The unit system to use. Defaults to \"m\".\n            - \"m\" for Metric\n            - \"s\" for Scientific\n            - \"f\" for Fahrenheit\n        interval (int, optional): The interval for hourly data aggregation. Defaults to 3.\n            Supported values:\n            - 1 for hourly\n            - 3 for 3-hourly (default)\n            - 6 for 6-hourly\n            - 12 for 12-hourly (day/night)\n            - 24 for daily average\n\n\n    Returns:\n        Union[dict, CallToolResult]: A dictionary containing the historical weather data,\n        or a CallToolResult with an error message if the request fails.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_forecast",
+            "description": "\n    Gets weather forecast data for a specified location and number of days using the Weatherstack API.\n\n    Parameters:\n        query (str): The location to retrieve forecast data for.\n            Supported formats:\n            - City name (e.g. \"New York\")\n            - ZIP code (UK, Canada, US) (e.g. \"99501\")\n            - Latitude,Longitude coordinates (e.g. \"40.7831,-73.9712\")\n            - IP address (e.g. \"153.65.8.20\")\n            - Special keyword \"fetch:ip\" to auto-detect requester IP\n        forecast_days (int): The number of days to retrieve forecast data for.\n            Maximum allowed is 21.\n\n    Returns:\n        Union[dict, CallToolResult]: A dictionary containing the forecast weather data,\n        or a CallToolResult with an error message if the request fails.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_marine_weather",
+            "description": "\n    Gets live marine/sailing weather data and up to 7 days of forecast for a specified location \n    (by latitude and longitude) using the Weatherstack API.\n\n    This tool accesses today's live marine weather forecast as well as forecasts for up to 7 days \n    into the future for the given coordinates. It is useful for sailing, fishing, boating, and \n    coastal activity planning.\n\n    Parameters:\n        lat (float): The latitude of the location to retrieve marine weather data for.\n        lon (float): The longitude of the location to retrieve marine weather data for.\n        units (str, optional): The unit system to use. Defaults to \"m\".\n            - \"m\" for Metric\n            - \"s\" for Scientific\n            - \"f\" for Fahrenheit\n        interval (int, optional): Optional interval for forecast data granularity, if supported by the API.\n\n    Returns:\n        Union[dict, CallToolResult]: A dictionary containing the marine weather data,\n        or a CallToolResult with an error message if the request fails.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

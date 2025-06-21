@@ -1,0 +1,100 @@
+{
+    "tools": [
+        {
+            "name": "rossum_get_queues",
+            "description": "Get all queues from the Rossum organization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "rossum_get_schema",
+            "description": "Get a specific schema by its ID.\n    \n    Args:\n        schema_id: The ID of the schema to retrieve\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "schema_id": {
+                        "type": "string",
+                        "description": "The ID of the schema to retrieve"
+                    }
+                },
+                "required": [
+                    "schema_id"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "rossum_get_hooks",
+            "description": "Get all serverless function hooks from the Rossum organization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "rossum_get_hook",
+            "description": "Get a specific serverless function hook by its ID, including its source code.\n    \n    Args:\n        hook_id: The ID of the hook to retrieve\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "hook_id": {
+                        "type": "string",
+                        "description": "The ID of the hook to retrieve"
+                    }
+                },
+                "required": [
+                    "hook_id"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "rossum_get_workspaces",
+            "description": "Get all workspaces from the Rossum organization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "rossum_get_workspace",
+            "description": "Get a specific workspace by its ID.\n    \n    Args:\n        workspace_id: The ID of the workspace to retrieve\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "workspace_id": {
+                        "type": "string",
+                        "description": "The ID of the workspace to retrieve"
+                    }
+                },
+                "required": [
+                    "workspace_id"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,122 @@
+{
+    "tools": [
+        {
+            "name": "execute_junos_command",
+            "description": "Execute a Junos command on the router router_name\n\n    Args:\n        router_name(str): The name of the router.\n        command(str): The command to execute on the router.\n\n    Returns:\n        The command output from router named router_name.\n\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "router_name": {
+                        "type": "string",
+                        "description": "The name of the router."
+                    },
+                    "command": {
+                        "type": "string",
+                        "description": "The command to execute on the router."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "router_name",
+                    "command",
+                    "Returns"
+                ]
+            },
+            "file": "jmcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_junos_config",
+            "description": "Get the configuration of the router router_name\n    \n    Args:\n        router_name(str): The name of the router on which to get the configuration.                \n\n    Returns:\n        The configuration of the router named router_name.\n    \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "router_name": {
+                        "type": "string",
+                        "description": "The name of the router on which to get the configuration."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "router_name",
+                    "Returns"
+                ]
+            },
+            "file": "jmcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "junos_config_diff",
+            "description": "Get the configuration diff or delta or patch or changes of a Junos router.\n       Use this function to compare current running config against a particular version of the config.\n       Its compares configuration changes with prior version of the configuration. You can specify \n       which version to compare as argument. Please use value between 1 and 49.\n    \n    Args:\n        router_name(str): The name of the router on which to get the configuration diff.  \n        version(int): Compare config against the said version. If you are not sure which \n                      version to compare against, please use value 1. This gives the config\n                      diff from last commit.             \n\n    Returns:\n        The configuration diff (output of show | compare) of the router named router_name.\n    \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "router_name": {
+                        "type": "string",
+                        "description": "The name of the router on which to get the configuration diff."
+                    },
+                    "version": {
+                        "type": "integer",
+                        "description": "Compare config against the said version. If you are not sure which"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "router_name",
+                    "version",
+                    "Returns"
+                ]
+            },
+            "file": "jmcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "gather_device_facts",
+            "description": "Gather Junos device facts from the router router_name\n        \n    Args:\n        router_name(str): The name of the router from which the facts need to be collected.  \n\n    Returns:\n        The gathered facts from Junos device using Junos PyEZ.\n        \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "router_name": {
+                        "type": "string",
+                        "description": "The name of the router from which the facts need to be collected."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "router_name",
+                    "Returns"
+                ]
+            },
+            "file": "jmcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_router_list",
+            "description": "Use this function to get list of Junos routers or Junos devices.\n        \n    Returns:\n        The list of Junos routers or Junos devices.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "jmcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

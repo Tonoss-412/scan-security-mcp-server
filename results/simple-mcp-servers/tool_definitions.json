@@ -1,0 +1,352 @@
+{
+    "tools": [
+        {
+            "name": "convert_deer_to_bsky",
+            "description": "\n    Convert a deer.social URL to formats compatible with Bluesky tools.\n\n    Args:\n        url: A deer.social URL (e.g., https://deer.social/profile/did:plc:xyz/post/123)\n\n    Returns:\n        A dictionary containing converted formats for use with Bluesky tools\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "A deer.social URL (e.g., https://deer.social/profile/did:plc:xyz/post/123)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "Returns"
+                ]
+            },
+            "file": "deer_to_bsky.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "repo_list_directory",
+            "description": "List contents of a directory in a GitHub repository.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "github_repo_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "repo_tree_view",
+            "description": "Get recursive directory tree view.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "github_repo_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "repo_file_info",
+            "description": "Get metadata about a file without reading its contents.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "github_repo_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "repo_read_file",
+            "description": "Read file contents with intelligent token-based safety limits.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "github_repo_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_file_stats",
+            "description": "\n    Get metadata about a file without reading its contents.\n\n    Args:\n        path: Path to the file to analyze\n\n    Returns:\n        Dictionary containing file statistics including size, line count, and encoding\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the file to analyze"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "path",
+                    "Returns"
+                ]
+            },
+            "file": "large_file_reader_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "read_file_lines",
+            "description": "\n    Read specific line range from a file.\n\n    Args:\n        path: Path to the file to read\n        start_line: Starting line number (1-indexed)\n        end_line: Ending line number (1-indexed)\n\n    Returns:\n        Dictionary containing the requested lines and metadata\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the file to read"
+                    },
+                    "start_line": {
+                        "type": "string",
+                        "description": "Starting line number (1-indexed)"
+                    },
+                    "end_line": {
+                        "type": "string",
+                        "description": "Ending line number (1-indexed)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "path",
+                    "start_line",
+                    "end_line",
+                    "Returns"
+                ]
+            },
+            "file": "large_file_reader_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "read_file_head",
+            "description": "\n    Read first N lines from a file.\n\n    Args:\n        path: Path to the file to read\n        lines: Number of lines to read from the beginning (default: 50)\n\n    Returns:\n        Dictionary containing the first N lines and metadata\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the file to read"
+                    },
+                    "lines": {
+                        "type": "string",
+                        "description": "Number of lines to read from the beginning (default: 50)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "path",
+                    "lines",
+                    "Returns"
+                ]
+            },
+            "file": "large_file_reader_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "read_file_tail",
+            "description": "\n    Read last N lines from a file.\n\n    Args:\n        path: Path to the file to read\n        lines: Number of lines to read from the end (default: 50)\n\n    Returns:\n        Dictionary containing the last N lines and metadata\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the file to read"
+                    },
+                    "lines": {
+                        "type": "string",
+                        "description": "Number of lines to read from the end (default: 50)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "path",
+                    "lines",
+                    "Returns"
+                ]
+            },
+            "file": "large_file_reader_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "read_file_bytes",
+            "description": "\n    Read specific byte range from a file.\n\n    Args:\n        path: Path to the file to read\n        start_byte: Starting byte position (0-indexed)\n        length: Number of bytes to read\n\n    Returns:\n        Dictionary containing the requested bytes as text and metadata\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the file to read"
+                    },
+                    "start_byte": {
+                        "type": "string",
+                        "description": "Starting byte position (0-indexed)"
+                    },
+                    "length": {
+                        "type": "string",
+                        "description": "Number of bytes to read"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "path",
+                    "start_byte",
+                    "length",
+                    "Returns"
+                ]
+            },
+            "file": "large_file_reader_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_file_lines",
+            "description": "\n    Search for pattern in file and return matches with surrounding context.\n\n    Args:\n        path: Path to the file to search\n        pattern: Regular expression pattern to search for\n        context_lines: Number of context lines to include around matches (default: 5)\n        max_matches: Maximum number of matches to return (default: 10)\n\n    Returns:\n        Dictionary containing matches with line numbers and context\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the file to search"
+                    },
+                    "pattern": {
+                        "type": "string",
+                        "description": "Regular expression pattern to search for"
+                    },
+                    "context_lines": {
+                        "type": "string",
+                        "description": "Number of context lines to include around matches (default: 5)"
+                    },
+                    "max_matches": {
+                        "type": "string",
+                        "description": "Maximum number of matches to return (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "path",
+                    "pattern",
+                    "context_lines",
+                    "max_matches",
+                    "Returns"
+                ]
+            },
+            "file": "large_file_reader_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "read_file_chunk",
+            "description": "\n    Read file in chunks for processing very large files incrementally.\n\n    Args:\n        path: Path to the file to read\n        chunk_size: Number of lines per chunk (default: 1000)\n        chunk_index: Zero-indexed chunk number to read (default: 0)\n\n    Returns:\n        Dictionary containing the requested chunk and navigation info\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the file to read"
+                    },
+                    "chunk_size": {
+                        "type": "string",
+                        "description": "Number of lines per chunk (default: 1000)"
+                    },
+                    "chunk_index": {
+                        "type": "string",
+                        "description": "Zero-indexed chunk number to read (default: 0)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "path",
+                    "chunk_size",
+                    "chunk_index",
+                    "Returns"
+                ]
+            },
+            "file": "large_file_reader_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "ask_time_god_word_validity",
+            "description": "\n    Ask the Time God if they would accept a particular English word.\n    \n    Args:\n        word: The word to validate\n        \n    Returns:\n        Dictionary with validation result and explanation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "word": {
+                        "type": "string",
+                        "description": "The word to validate"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "word",
+                    "Returns"
+                ]
+            },
+            "file": "time_god_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "ask_time_god_word_distinctness",
+            "description": "\n    Ask the Time God if they consider two words to be distinct.\n    \n    Args:\n        word1: First word to compare\n        word2: Second word to compare\n        \n    Returns:\n        Dictionary with distinctness result and explanation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "word1": {
+                        "type": "string",
+                        "description": "First word to compare"
+                    },
+                    "word2": {
+                        "type": "string",
+                        "description": "Second word to compare"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "word1",
+                    "word2",
+                    "Returns"
+                ]
+            },
+            "file": "time_god_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

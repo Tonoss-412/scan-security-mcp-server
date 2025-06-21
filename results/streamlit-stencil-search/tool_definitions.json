@@ -1,0 +1,553 @@
+{
+    "tools": [
+        {
+            "name": "test_parse_search_query",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string"
+                    },
+                    "expected": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "expected"
+                ]
+            },
+            "file": "test_advanced_search.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "dummy_db",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "test_advanced_search.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_search_stencils_db",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string"
+                    },
+                    "expected_names": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "expected_names"
+                ]
+            },
+            "file": "test_advanced_search.py",
+            "decorator": [
+                "pytest.mark.usefixtures",
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "visio",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test_error_paths.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mem_log",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test_error_paths.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "tmp_path",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path_factory": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path_factory"
+                ]
+            },
+            "file": "test_preferences.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "clear_session_state",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test_search_modes.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\core\\error_utils.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "defaults",
+            "description": "Expose a copy of the default preferences.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\core\\preferences.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "read_root",
+            "description": " Basic health check endpoint. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "search_shapes_api",
+            "description": " Searches for shapes using FTS5 or LIKE query. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_stencils_api",
+            "description": " Retrieves a summary list of all cached stencils. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_stencil_detail_api",
+            "description": " Retrieves detailed information for a specific stencil by its path. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_shape_detail_api",
+            "description": " Retrieves detailed information for a single shape by its ID. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_favorites_api",
+            "description": " Retrieves the list of favorited stencils and shapes. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "add_favorite_api",
+            "description": " Adds a stencil or a specific shape to favorites. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "remove_favorite_api",
+            "description": " Removes an item from favorites by its favorite ID. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.delete"
+            ]
+        },
+        {
+            "name": "get_collections_api",
+            "description": " Retrieves a list of all collections (names and basic info). ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "create_collection_api",
+            "description": " Creates a new, empty collection. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_collection_details_api",
+            "description": " Retrieves details for a specific collection, including its shapes. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "update_collection_api",
+            "description": " Updates a collection's name and/or adds/removes shapes. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.put"
+            ]
+        },
+        {
+            "name": "delete_collection_api",
+            "description": " Deletes a collection and its shape associations. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.delete"
+            ]
+        },
+        {
+            "name": "get_directories_api",
+            "description": " Retrieves all configured directory paths for stencil scanning. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_active_directory_api",
+            "description": " Retrieves the currently active directory for stencil scanning. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "add_directory_api",
+            "description": " Adds a new directory path for stencil scanning. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "set_active_directory_api",
+            "description": " Sets a directory as the active directory for stencil scanning. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.put"
+            ]
+        },
+        {
+            "name": "remove_directory_api",
+            "description": " Removes a directory path from the configured directories. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.delete"
+            ]
+        },
+        {
+            "name": "get_health_status",
+            "description": " Checks the health of the API and its database connection. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_integration_status",
+            "description": " Checks the status of the connection to the Visio application. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "execute_backend_command",
+            "description": " Executes backend commands like triggering a stencil scan. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "import_content",
+            "description": " Receives content (text or image) from the Chrome extension and passes it to the Visio integration module. ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "local-api-server\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "import_text_to_visio",
+            "description": "Import text content into Visio.\n\n    This tool sends text to the local Visio instance, which will create a new shape\n    with the text content.\n\n    Args:\n        text_content: The text to import into Visio\n        metadata: Optional metadata about the text (source, formatting, etc.)\n\n    Returns:\n        A confirmation message with details about the imported content\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text_content": {
+                        "type": "string",
+                        "description": "The text to import into Visio"
+                    },
+                    "metadata": {
+                        "type": "string",
+                        "description": "Optional metadata about the text (source, formatting, etc.)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text_content",
+                    "metadata",
+                    "Returns"
+                ]
+            },
+            "file": "mcp-server\\visio_bridge_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "import_image_to_visio",
+            "description": "Import an image into Visio.\n\n    This tool sends a base64-encoded image to the local Visio instance, which will\n    create a new shape with the image.\n\n    Args:\n        image_data: Base64-encoded image data (can include data URI prefix)\n        metadata: Optional metadata about the image (source, dimensions, etc.)\n\n    Returns:\n        A confirmation message with details about the imported content\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "image_data": {
+                        "type": "string",
+                        "description": "Base64-encoded image data (can include data URI prefix)"
+                    },
+                    "metadata": {
+                        "type": "string",
+                        "description": "Optional metadata about the image (source, dimensions, etc.)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "image_data",
+                    "metadata",
+                    "Returns"
+                ]
+            },
+            "file": "mcp-server\\visio_bridge_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_shapes",
+            "description": "Search for shapes in the stencil database.\n\n    This tool searches the local stencil database for shapes matching the query.\n\n    Args:\n        query: The search term to look for in shape names and metadata\n        page: Page number for pagination (starting at 1)\n        size: Number of results per page (max 100)\n\n    Returns:\n        A formatted list of matching shapes with their details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search term to look for in shape names and metadata"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "Page number for pagination (starting at 1)"
+                    },
+                    "size": {
+                        "type": "string",
+                        "description": "Number of results per page (max 100)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "page",
+                    "size",
+                    "Returns"
+                ]
+            },
+            "file": "mcp-server\\visio_bridge_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_shape_details",
+            "description": "Get detailed information about a specific shape.\n\n    This tool retrieves detailed information about a shape by its ID.\n\n    Args:\n        shape_id: The unique identifier of the shape\n\n    Returns:\n        Detailed information about the shape\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "shape_id": {
+                        "type": "string",
+                        "description": "The unique identifier of the shape"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "shape_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp-server\\visio_bridge_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_stencil_list",
+            "description": "Get a list of all available stencils.\n\n    This tool retrieves a list of all stencils in the database.\n\n    Returns:\n        A formatted list of stencils with their details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server\\visio_bridge_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_visio_connection",
+            "description": "Check if the local Visio instance is connected and ready.\n\n    This tool checks the connection status of the local Visio instance.\n\n    Returns:\n        A status message indicating whether Visio is connected\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server\\visio_bridge_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

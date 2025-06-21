@@ -1,0 +1,426 @@
+{
+    "tools": [
+        {
+            "name": "generate_prd",
+            "description": "\n        Generate a PRD or high-level design document based on codebase analysis and task description.\n\n        Args:\n            task_description (str): Detailed description of the programming task\n            codebase_path (str): Path to the local codebase directory\n\n        Returns:\n            str: The generated PRD or design document\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_description": {
+                        "type": "string",
+                        "description": "Detailed description of the programming task"
+                    },
+                    "codebase_path": {
+                        "type": "string",
+                        "description": "Path to the local codebase directory"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "The generated PRD or design document"
+                    }
+                },
+                "required": [
+                    "task_description",
+                    "codebase_path",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_server_architect\\__main__.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "think",
+            "description": "\n        Provide deep reasoning assistance for a project-related question or issue.\n\n        Args:\n            request (str): Detailed description of the coding task/issue and relevant code snippets\n            codebase_path (str): Path to the local codebase directory\n\n        Returns:\n            str: Reasoning guidance and potential solutions\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "Detailed description of the coding task/issue and relevant code snippets"
+                    },
+                    "codebase_path": {
+                        "type": "string",
+                        "description": "Path to the local codebase directory"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Reasoning guidance and potential solutions"
+                    }
+                },
+                "required": [
+                    "request",
+                    "codebase_path",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "mcp_server_architect\\__main__.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "llm",
+            "description": "\n        Execute a prompt against a specialized LLM model directly.\n\n        Args:\n            prompt: The text prompt to send to the LLM\n            model: Optional model identifier (gpt4o, gemini-2.5-pro, claude-3.7-sonnet, deepseek-v3)\n            temperature: Optional temperature setting (0.0-1.0)\n\n        Returns:\n            The text response from the selected LLM\n\n        Available models:\n        - gpt4o (DEFAULT): OpenAI's GPT-4o - Excellent for reasoning, coding, and creative tasks\n        - gemini-2.5-pro: Google's Gemini 2.5 Pro - Great for technical content and structured reasoning\n        - claude-3.7-sonnet: Anthropic's Claude - Superior for detailed analysis and careful reasoning\n        - deepseek-v3: DeepSeek - Specialized for coding and technical problem-solving\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": "The text prompt to send to the LLM"
+                    },
+                    "model": {
+                        "type": "string",
+                        "description": "Optional model identifier (gpt4o, gemini-2.5-pro, claude-3.7-sonnet, deepseek-v3)"
+                    },
+                    "temperature": {
+                        "type": "string",
+                        "description": "Optional temperature setting (0.0-1.0)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "prompt",
+                    "model",
+                    "temperature",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server_architect\\__main__.py",
+            "decorator": [
+                "server.tool"
+            ]
+        },
+        {
+            "name": "test_create_agent_with_multiple_tools",
+            "description": "Test creating an agent with GPT-4o.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\agents\\test_executor.py",
+            "decorator": [
+                "pytest.mark.skipif"
+            ]
+        },
+        {
+            "name": "test_all_tools_initialization",
+            "description": "Test that all tools are correctly initialized.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\agents\\test_executor.py",
+            "decorator": [
+                "pytest.mark.skipif"
+            ]
+        },
+        {
+            "name": "test_nested_event_loop",
+            "description": "Test that our fix for the nested event loop issue works.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\agents\\test_executor.py",
+            "decorator": [
+                "pytest.mark.skipif",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_agent_instrumentation_called",
+            "description": "Test that Agent.instrument_all is called for instrumentation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_instrument_all": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_instrument_all"
+                ]
+            },
+            "file": "tests\\agents\\test_logfire.py",
+            "decorator": [
+                "unittest.mock.patch"
+            ]
+        },
+        {
+            "name": "setup_test_environment",
+            "description": "Setup test environment with test codebase.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_core.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_generate_prd",
+            "description": "Test the generate_prd function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_core.py",
+            "decorator": [
+                "pytest.mark.vcr",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_think",
+            "description": "Test the think function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_core.py",
+            "decorator": [
+                "pytest.mark.vcr",
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_data_path",
+            "description": "Return the path to the test data directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\tools\\test_code_reader.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "ctx",
+            "description": "Create a real RunContext for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_data_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_data_path"
+                ]
+            },
+            "file": "tests\\tools\\test_code_reader.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_code_reader_tool",
+            "description": "Test the code_reader tool function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_data_path": {
+                        "type": "string"
+                    },
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_data_path",
+                    "ctx"
+                ]
+            },
+            "file": "tests\\tools\\test_code_reader.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_code_reader_error_handling",
+            "description": "Test error handling in the code_reader tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_data_path": {
+                        "type": "string"
+                    },
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_data_path",
+                    "ctx"
+                ]
+            },
+            "file": "tests\\tools\\test_code_reader.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "ctx",
+            "description": "Create a real RunContext for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\tools\\test_llm.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_llm_tool_gpt4o",
+            "description": "Test the LLM tool with GPT-4o model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "tests\\tools\\test_llm.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.vcr"
+            ]
+        },
+        {
+            "name": "test_llm_tool_gemini",
+            "description": "Test the LLM tool with Gemini model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "tests\\tools\\test_llm.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.vcr"
+            ]
+        },
+        {
+            "name": "test_llm_tool_claude",
+            "description": "Test the LLM tool with Claude 3.7 Sonnet model with thinking enabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "tests\\tools\\test_llm.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.vcr"
+            ]
+        },
+        {
+            "name": "test_llm_tool_deepseek",
+            "description": "Test the LLM tool with DeepSeek model via OpenRouter.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "tests\\tools\\test_llm.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.vcr"
+            ]
+        },
+        {
+            "name": "test_llm_tool_error_handling",
+            "description": "Test error handling in the LLM tool with an invalid model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx"
+                ]
+            },
+            "file": "tests\\tools\\test_llm.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.vcr"
+            ]
+        },
+        {
+            "name": "test_core_llm_function",
+            "description": "Test the core LLM function that will be used by the MCP tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\tools\\test_llm.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.vcr"
+            ]
+        },
+        {
+            "name": "test_web_search_basic",
+            "description": "Test basic web search functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\tools\\test_web_search.py",
+            "decorator": [
+                "pytest.mark.vcr"
+            ]
+        },
+        {
+            "name": "test_web_search_technical",
+            "description": "Test web search with technical query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\tools\\test_web_search.py",
+            "decorator": [
+                "pytest.mark.vcr"
+            ]
+        }
+    ]
+}

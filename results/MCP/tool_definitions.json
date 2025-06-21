@@ -1,0 +1,136 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_resources",
+            "description": "\n    List available note resources.\n    Each note is exposed as a resource with a custom note:// URI scheme.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-test\\src\\mcp_server_test\\server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "\n    Read a specific note's content by its URI.\n    The note name is extracted from the URI host component.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-test\\src\\mcp_server_test\\server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "\n    List available prompts.\n    Each prompt can have optional arguments to customize its behavior.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-test\\src\\mcp_server_test\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "\n    Generate a prompt by combining arguments with server state.\n    The prompt includes all current notes and can be customized via arguments.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-test\\src\\mcp_server_test\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools.\n    Each tool specifies its arguments using JSON Schema validation.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-test\\src\\mcp_server_test\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handle tool execution requests.\n    Tools can modify server state and notify clients of changes.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-server-test\\src\\mcp_server_test\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "add_a_memo",
+            "description": "ajoute un memo avec un titre et un contenu",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp2-server-test\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_memos",
+            "description": "retourne tous les memos\u00b2\"\"\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp2-server-test\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_a_recette",
+            "description": "ajoute un recette avec un titre et un contenu",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp3-serverhttp-test\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_recettes",
+            "description": "retourne tous les recettes",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp3-serverhttp-test\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "genere_une_photo_pour_la_recette",
+            "description": "retourne une url d'image g\u00e9n\u00e9r\u00e9e pour la recette 'name' \"\"\"\n  ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp3-serverhttp-test\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

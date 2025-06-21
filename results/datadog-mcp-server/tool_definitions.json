@@ -1,0 +1,258 @@
+{
+    "tools": [
+        {
+            "name": "configure_datadog",
+            "description": "\n    Configure Datadog integration with the provided credentials\n\n    Args:\n        api_key: Datadog API key\n        app_key: Optional Datadog application key\n        site: Optional Datadog site (default: datadoghq.com)\n\n    Returns:\n        Status information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "api_key": {
+                        "type": "string",
+                        "description": "Datadog API key"
+                    },
+                    "app_key": {
+                        "type": "string",
+                        "description": "Optional Datadog application key"
+                    },
+                    "site": {
+                        "type": "string",
+                        "description": "Optional Datadog site (default: datadoghq.com)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "api_key",
+                    "app_key",
+                    "site",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_context",
+            "description": "\n    Create a new model context with the specified parameters\n\n    Args:\n        context_id: Unique identifier for the context\n        model_name: Name of the model associated with this context\n        data: Context data dictionary\n        tags: Optional list of tags for categorization\n\n    Returns:\n        Status information including the context ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "context_id": {
+                        "type": "string",
+                        "description": "Unique identifier for the context"
+                    },
+                    "model_name": {
+                        "type": "string",
+                        "description": "Name of the model associated with this context"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "Context data dictionary"
+                    },
+                    "tags": {
+                        "type": "string",
+                        "description": "Optional list of tags for categorization"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "context_id",
+                    "model_name",
+                    "data",
+                    "tags",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_context",
+            "description": "\n    Retrieve a specific context by its ID\n\n    Args:\n        context_id: ID of the context to retrieve\n\n    Returns:\n        The complete context object\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "context_id": {
+                        "type": "string",
+                        "description": "ID of the context to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "context_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_context",
+            "description": "\n    Update an existing context with new values\n\n    Args:\n        context_id: ID of the context to update\n        model_name: New model name\n        data: New context data\n        tags: New list of tags\n\n    Returns:\n        Status information including the context ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "context_id": {
+                        "type": "string",
+                        "description": "ID of the context to update"
+                    },
+                    "model_name": {
+                        "type": "string",
+                        "description": "New model name"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "New context data"
+                    },
+                    "tags": {
+                        "type": "string",
+                        "description": "New list of tags"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "context_id",
+                    "model_name",
+                    "data",
+                    "tags",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_context",
+            "description": "\n    Delete a context by its ID\n\n    Args:\n        context_id: ID of the context to delete\n\n    Returns:\n        Status information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "context_id": {
+                        "type": "string",
+                        "description": "ID of the context to delete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "context_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_contexts",
+            "description": "\n    List all contexts with optional filtering by model name or tag\n\n    Args:\n        model_name: Filter contexts by model name\n        tag: Filter contexts by tag\n\n    Returns:\n        List of context objects matching the filters\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "model_name": {
+                        "type": "string",
+                        "description": "Filter contexts by model name"
+                    },
+                    "tag": {
+                        "type": "string",
+                        "description": "Filter contexts by tag"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "model_name",
+                    "tag",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_model",
+            "description": "\n    Execute a query against a specific context\n\n    Args:\n        context_id: ID of the context to query\n        query_data: Query parameters\n\n    Returns:\n        Query results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "context_id": {
+                        "type": "string",
+                        "description": "ID of the context to query"
+                    },
+                    "query_data": {
+                        "type": "string",
+                        "description": "Query parameters"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "context_id",
+                    "query_data",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "\n    Check the health status of the server\n\n    Returns:\n        Health status information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "startup",
+            "description": "Initialize server resources on startup",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.on_startup"
+            ]
+        },
+        {
+            "name": "shutdown",
+            "description": "Clean up resources on shutdown",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.on_shutdown"
+            ]
+        }
+    ]
+}

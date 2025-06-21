@@ -1,0 +1,251 @@
+{
+    "tools": [
+        {
+            "name": "app_lifespan",
+            "description": "Manage application lifecycle with Latentsense client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "latentsense_server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "get_project_runs",
+            "description": "Get all past cog runs in a project with optional filtering and sorting.\n\n    Args:\n        filter_cog_name: Only show results from the selected Cog (deidentification, relationships, ai_authorship_detection, knowledge_graph)\n        filter_user_id: Only return runs created by the user with the given ID\n        filter_api_key_id: Only return runs created by the given API key\n        page: The page number of results to return\n        rows_per_page: The number of runs to return per page\n        sort_by: How to sort the runs (time, cost)\n        descending: Whether to sort results in descending order\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filter_cog_name": {
+                        "type": "string",
+                        "description": "Only show results from the selected Cog (deidentification, relationships, ai_authorship_detection, knowledge_graph)"
+                    },
+                    "filter_user_id": {
+                        "type": "string",
+                        "description": "Only return runs created by the user with the given ID"
+                    },
+                    "filter_api_key_id": {
+                        "type": "string",
+                        "description": "Only return runs created by the given API key"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "The page number of results to return"
+                    },
+                    "rows_per_page": {
+                        "type": "string",
+                        "description": "The number of runs to return per page"
+                    },
+                    "sort_by": {
+                        "type": "string",
+                        "description": "How to sort the runs (time, cost)"
+                    },
+                    "descending": {
+                        "type": "string",
+                        "description": "Whether to sort results in descending order"
+                    }
+                },
+                "required": [
+                    "filter_cog_name",
+                    "filter_user_id",
+                    "filter_api_key_id",
+                    "page",
+                    "rows_per_page",
+                    "sort_by",
+                    "descending"
+                ]
+            },
+            "file": "latentsense_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_run_results",
+            "description": "Fetch the full results of a past run from its unique ID.\n\n    Args:\n        run_id: The run ID, returned in previous run responses\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "run_id": {
+                        "type": "string",
+                        "description": "The run ID, returned in previous run responses"
+                    }
+                },
+                "required": [
+                    "run_id"
+                ]
+            },
+            "file": "latentsense_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "redact_pii",
+            "description": "Redact PII (Personal Identifiable Information) from documents.\n\n    Args:\n        files: Array of file paths to redact (txt, csv, json, html)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "files": {
+                        "type": "string",
+                        "description": "Array of file paths to redact (txt, csv, json, html)"
+                    }
+                },
+                "required": [
+                    "files"
+                ]
+            },
+            "file": "latentsense_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "redact_relevance",
+            "description": "Remove information from documents that is relevant to a given intent text.\n\n    Args:\n        files: Array of file paths to redact (txt, csv, json, html)\n        relevance_term_file: Path to txt file with the subject to redact from the main text\n        cutoff: Number between 0 and 1. Lower numbers result in more redaction\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "files": {
+                        "type": "string",
+                        "description": "Array of file paths to redact (txt, csv, json, html)"
+                    },
+                    "relevance_term_file": {
+                        "type": "string",
+                        "description": "Path to txt file with the subject to redact from the main text"
+                    },
+                    "cutoff": {
+                        "type": "string",
+                        "description": "Number between 0 and 1. Lower numbers result in more redaction"
+                    }
+                },
+                "required": [
+                    "files",
+                    "relevance_term_file",
+                    "cutoff"
+                ]
+            },
+            "file": "latentsense_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "extract_relationships",
+            "description": "List relationship propositions in documents that are salient and relevant to intent text.\n\n    Args:\n        files: Array of file paths to analyze (txt, csv, json, html)\n        claim_concepts_file: Path to txt file with a subject of interest\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "files": {
+                        "type": "string",
+                        "description": "Array of file paths to analyze (txt, csv, json, html)"
+                    },
+                    "claim_concepts_file": {
+                        "type": "string",
+                        "description": "Path to txt file with a subject of interest"
+                    }
+                },
+                "required": [
+                    "files",
+                    "claim_concepts_file"
+                ]
+            },
+            "file": "latentsense_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_knowledge_graph",
+            "description": "Create a knowledge map where nodes are concepts and edges are relationships.\n\n    Args:\n        files: Array of file paths to map relationships from (txt, csv, json, html)\n        files2: Additional set of files for comparison\n        concepts_file: Path to txt file containing comma separated concepts expected to be nodes\n        files1_name: Name for the first set of files\n        files2_name: Name for the second set of files\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "files": {
+                        "type": "string",
+                        "description": "Array of file paths to map relationships from (txt, csv, json, html)"
+                    },
+                    "files2": {
+                        "type": "string",
+                        "description": "Additional set of files for comparison"
+                    },
+                    "concepts_file": {
+                        "type": "string",
+                        "description": "Path to txt file containing comma separated concepts expected to be nodes"
+                    },
+                    "files1_name": {
+                        "type": "string",
+                        "description": "Name for the first set of files"
+                    },
+                    "files2_name": {
+                        "type": "string",
+                        "description": "Name for the second set of files"
+                    }
+                },
+                "required": [
+                    "files",
+                    "files2",
+                    "concepts_file",
+                    "files1_name",
+                    "files2_name"
+                ]
+            },
+            "file": "latentsense_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_rex_message",
+            "description": "Get Rex chat message history for a specific run.\n\n    Args:\n        run_id: The ReasonerX run ID to get messages for\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "run_id": {
+                        "type": "string",
+                        "description": "The ReasonerX run ID to get messages for"
+                    }
+                },
+                "required": [
+                    "run_id"
+                ]
+            },
+            "file": "latentsense_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "send_rex_message",
+            "description": "Send a message to Rex (reasoning agent) based on a knowledge graph.\n\n    Args:\n        message: The message to send to Rex\n        run_id: The ReasonerX run ID to reason under\n        graph: Optional modified graph for the next message with nodes and edges\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "The message to send to Rex"
+                    },
+                    "run_id": {
+                        "type": "string",
+                        "description": "The ReasonerX run ID to reason under"
+                    },
+                    "graph": {
+                        "type": "string",
+                        "description": "Optional modified graph for the next message with nodes and edges"
+                    }
+                },
+                "required": [
+                    "message",
+                    "run_id",
+                    "graph"
+                ]
+            },
+            "file": "latentsense_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

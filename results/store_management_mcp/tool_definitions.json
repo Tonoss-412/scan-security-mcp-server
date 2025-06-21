@@ -1,0 +1,184 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "\n    Lists available tools for the aggregation agent.\n    Add new tools here for new analytics or reporting tasks.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\google_business_analytics\\aggregation_agent\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handles tool calls from MCP clients (or LLMs).\n    This is the main entry point for executing a tool (function) by name.\n    Add new tool handlers here as you add new tools in list_tools.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\google_business_analytics\\aggregation_agent\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "\n    Lists available resources (data endpoints) for MCP clients.\n    Add more resources here as needed.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\google_business_analytics\\aggregation_agent\\server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "\n    Reads resource content by URI.\n    Used by MCP clients to fetch data files.\n    Add more URI patterns as you add more resources.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\google_business_analytics\\aggregation_agent\\server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    Lists available tools for the collection agent.\n    These are the main entry points for MCP clients (or LLMs) to call this agent.\n    Add new tools here for new data collection or enrichment tasks.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\google_business_analytics\\collection_agent\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handles tool calls from MCP clients (or LLMs).\n    This is the main entry point for executing a tool (function) by name.\n    Add new tool handlers here as you add new tools in list_tools.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\google_business_analytics\\collection_agent\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "\n    Lists available resources (data endpoints) for MCP clients.\n    You can add more resources here (e.g., for raw data, logs, etc).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\google_business_analytics\\collection_agent\\server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "\n    Reads resource content by URI.\n    Used by MCP clients to fetch data files.\n    Add more URI patterns as you add more resources.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\google_business_analytics\\collection_agent\\server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "validate_total",
+            "description": "Ensure percentages don't exceed 100% total.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\google_business_analytics\\shared\\schemas.py",
+            "decorator": [
+                "model_validator"
+            ]
+        },
+        {
+            "name": "temp_config_dir",
+            "description": "Create a temporary directory with test configuration files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_data_dir",
+            "description": "Create a temporary directory with test data files.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_store_insights",
+            "description": "Sample store insights data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_executive_snapshot",
+            "description": "Sample executive snapshot data for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_create_executive_snapshot_empty",
+            "description": "Test creating executive snapshot with empty store insights.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_aggregator.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_process_store_data",
+            "description": "Test processing of complete store data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_data_processor.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

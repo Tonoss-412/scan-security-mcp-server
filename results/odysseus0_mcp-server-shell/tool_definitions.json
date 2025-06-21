@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "List available shell tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_shell\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls for shell command execution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_shell\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        }
+    ]
+}

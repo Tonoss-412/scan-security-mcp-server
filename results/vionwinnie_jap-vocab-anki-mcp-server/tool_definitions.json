@@ -1,0 +1,195 @@
+{
+    "tools": [
+        {
+            "name": "list_decks",
+            "description": "List all available Anki decks",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.resource"
+            ]
+        },
+        {
+            "name": "list_deck_cards",
+            "description": "List all cards in a specific deck",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.resource"
+            ]
+        },
+        {
+            "name": "list_recently_reviewed",
+            "description": "List cards reviewed in the last 24 hours",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.resource"
+            ]
+        },
+        {
+            "name": "list_recently_learned",
+            "description": "List cards learned (graduated from new) in the last 24 hours",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.resource"
+            ]
+        },
+        {
+            "name": "import_japanese_vocab",
+            "description": "Import Japanese vocabulary from a CSV file into a specific deck.\n            \n            The CSV file should have the following columns:\n            - Expression (Japanese word)\n            - Reading (Furigana)\n            - Meaning (English meaning)\n            - Tags (optional, semicolon-separated)\n            \n            Args:\n                csv_path: Path to CSV file containing vocabulary\n                deck_name: Name of the deck to import into\n                tags: Additional tags to add to all notes (comma-separated)\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "csv_path": {
+                        "type": "string",
+                        "description": "Path to CSV file containing vocabulary"
+                    },
+                    "deck_name": {
+                        "type": "string",
+                        "description": "Name of the deck to import into"
+                    },
+                    "tags": {
+                        "type": "string",
+                        "description": "Additional tags to add to all notes (comma-separated)"
+                    }
+                },
+                "required": [
+                    "csv_path",
+                    "deck_name",
+                    "tags"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "add_card",
+            "description": "Add a new card to a specified deck",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "review_card",
+            "description": "Review a card with a specific ease (1-4)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "get_card_history",
+            "description": "Get the review history of a specific card",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "get_deck_review_history",
+            "description": "Get review history for all cards in a specific deck within the past 24 hours",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "update_notes_with_sentences",
+            "description": "Update existing Japanese notes with sample sentences.\n            \n            Args:\n                vocab_sentences: Dictionary mapping vocabulary (expression) to list of sample sentences\n                deck_name: Name of the deck to search in (defaults to \"Try! N3 Vocab\")\n            \n            Returns:\n                Summary of Updates made\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "vocab_sentences": {
+                        "type": "string",
+                        "description": "Dictionary mapping vocabulary (expression) to list of sample sentences"
+                    },
+                    "deck_name": {
+                        "type": "string",
+                        "description": "Name of the deck to search in (defaults to \"Try! N3 Vocab\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "vocab_sentences",
+                    "deck_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.tool"
+            ]
+        },
+        {
+            "name": "create_deck_prompt",
+            "description": "Create a new deck prompt",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.prompt"
+            ]
+        },
+        {
+            "name": "review_history_prompt",
+            "description": "Get help analyzing review history",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.prompt"
+            ]
+        },
+        {
+            "name": "study_japanese_vocab_prompt",
+            "description": "Get help analyzing study history",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "self.mcp.prompt"
+            ]
+        }
+    ]
+}

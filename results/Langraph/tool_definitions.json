@@ -1,0 +1,181 @@
+{
+    "tools": [
+        {
+            "name": "test_run_ec2_instance_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_ec2_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_ec2_client"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_run_ec2_instance_error",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_ec2_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_ec2_client"
+                ]
+            },
+            "file": "test_main.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "create_ec2_instance_tool",
+            "description": "Creates an AWS EC2 instance based on the provided parameters. This tool is used to provision virtual servers in AWS cloud.\n    If the user specifies an 'instance name', 'server name', or 'name for the instance', interpret this as a request to set a tag with the key 'Name' and the value as the specified name. For example, if the user says 'name it MyWebApp', you should ensure this is part of the 'tags' argument as `tags={'Name': 'MyWebApp'}`. If other tags are also specified, merge this Name tag with them.\n    Always ensure 'image_id', 'min_count', and 'max_count' are provided or inferred before calling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "devops_tools\\ec2_tools.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "Health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "orchestrator\\app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "list_agents",
+            "description": "List all available agents",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "orchestrator\\app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "process_request",
+            "description": "Process a user request",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "orchestrator\\app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "list_plans",
+            "description": "List active plans",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "orchestrator\\app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "get_plan",
+            "description": "Get a specific plan",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "plan_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "plan_id"
+                ]
+            },
+            "file": "orchestrator\\app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "list_resources",
+            "description": "List all resources in the knowledge base",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "orchestrator\\app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "list_deployments",
+            "description": "List all deployments in the knowledge base",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "orchestrator\\app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "analyze_request",
+            "description": "Analyze a request to determine which agents would handle it",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "orchestrator\\app.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "duration",
+            "description": "Return task duration in seconds, or None if not completed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "orchestrator\\multi_agent_orchestrator.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "duration",
+            "description": "Return plan duration in seconds, or None if not completed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "orchestrator\\multi_agent_orchestrator.py",
+            "decorator": [
+                "property"
+            ]
+        }
+    ]
+}

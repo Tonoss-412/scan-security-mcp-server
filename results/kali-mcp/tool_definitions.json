@@ -1,0 +1,175 @@
+{
+    "tools": [
+        {
+            "name": "handle_tool_request",
+            "description": "\n    Handle MCP tool requests by routing to the appropriate handler.\n    \n    Args:\n        name: The name of the tool being called\n        arguments: Dictionary of arguments for the tool\n        \n    Returns:\n        Sequence of content items returned by the tool\n        \n    Raises:\n        ValueError: If the tool name is unknown or required arguments are missing\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the tool being called"
+                    },
+                    "arguments": {
+                        "type": "string",
+                        "description": "Dictionary of arguments for the tool"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If the tool name is unknown or required arguments are missing"
+                    }
+                },
+                "required": [
+                    "name",
+                    "arguments",
+                    "Returns",
+                    "Raises",
+                    "ValueError"
+                ]
+            },
+            "file": "kali_mcp_server\\server.py",
+            "decorator": [
+                "kali_server.call_tool"
+            ]
+        },
+        {
+            "name": "list_available_tools",
+            "description": "\n    Register and list all available MCP tools.\n    \n    Returns:\n        List of available Tool objects\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kali_mcp_server\\server.py",
+            "decorator": [
+                "kali_server.list_tools"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "\n    Start the Kali MCP Server with the specified transport.\n    \n    Args:\n        port: Port number to listen on when using SSE transport\n        transport: Transport type (stdio or SSE)\n        debug: Enable debug mode\n        \n    Returns:\n        Exit code (0 for success)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "port": {
+                        "type": "string",
+                        "description": "Port number to listen on when using SSE transport"
+                    },
+                    "transport": {
+                        "type": "string",
+                        "description": "Transport type (stdio or SSE)"
+                    },
+                    "debug": {
+                        "type": "string",
+                        "description": "Enable debug mode"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "port",
+                    "transport",
+                    "debug",
+                    "Returns"
+                ]
+            },
+            "file": "kali_mcp_server\\server.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "test_handle_tool_request_unknown_tool",
+            "description": "Test handling of unknown tool calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_tool_request_missing_arguments",
+            "description": "Test handling of tool calls with missing arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_fetch_tool",
+            "description": "Test handling of fetch tool calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_run_tool",
+            "description": "Test handling of run tool calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_handle_resources_tool",
+            "description": "Test handling of resources tool calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_fetch_website_validation",
+            "description": "Test URL validation in fetch_website.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_fetch_website_mock",
+            "description": "Test fetch_website with mocked httpx client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

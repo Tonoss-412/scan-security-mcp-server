@@ -1,0 +1,205 @@
+{
+    "tools": [
+        {
+            "name": "on_mcp_connect",
+            "description": "\n    Handle MCP server connection and integration with Semantic Kernel.\n    \n    This function:\n    1. Lists available tools from the MCP server\n    2. Stores tool information in user session\n    3. Creates and connects MCPSsePlugin to Semantic Kernel\n    4. Handles connection errors gracefully\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "connection": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "connection"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "cl.on_mcp_connect"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "\n    Execute a tool call through the appropriate MCP server.\n    \n    This function:\n    1. Identifies which MCP server provides the requested tool\n    2. Retrieves the MCP session for that server\n    3. Executes the tool with provided input\n    4. Returns the result or error message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tool_use": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tool_use"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "cl.step"
+            ]
+        },
+        {
+            "name": "start_chat",
+            "description": "\n    Initialize chat session with required session variables.\n    \n    Sets up:\n    - Empty chat history\n    - MCP plugins tracking\n    - Other session state management\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "cl.on_chat_start"
+            ]
+        },
+        {
+            "name": "on_message",
+            "description": "\n    Handle incoming chat messages and generate AI responses.\n    \n    This function:\n    1. Adds user message to chat history\n    2. Processes message through Semantic Kernel with function calling\n    3. Displays thinking process and logs\n    4. Returns AI response to user\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "cl.on_message"
+            ]
+        },
+        {
+            "name": "on_mcp_disconnect",
+            "description": "\n    Handle MCP server disconnection and cleanup.\n    \n    This function:\n    1. Removes tools from session storage\n    2. Disconnects and removes MCP plugin from Semantic Kernel\n    3. Cleans up session state\n    4. Notifies user of disconnection status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "cl.on_mcp_disconnect"
+            ]
+        },
+        {
+            "name": "post_question_to_ia",
+            "description": "Retrieve answer from internal knowledge base.\n    \n    This function sends a query to the Information Assistant service and returns the response.\n    \n    Args:\n        query: The user's question to be answered by the knowledge base\n        folder: The specific knowledge folder to search in (defaults to 'All' if not provided)\n        model_name: The language model to be used for the query (defaults to 'gpt-4.1' if not provided)\n        top_k: The number of top results to return (defaults to 5 if not provided)\n        \n    Returns:\n        A JSON string containing the response from the IA service, including the answer and references\n    \n    Raises:\n        RequestException: If there's an issue with the HTTP request\n        ValueError: If required parameters are missing or invalid\n        json.JSONDecodeError: If there's an issue parsing the response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The user's question to be answered by the knowledge base"
+                    },
+                    "folder": {
+                        "type": "string",
+                        "description": "The specific knowledge folder to search in (defaults to 'All' if not provided)"
+                    },
+                    "model_name": {
+                        "type": "string",
+                        "description": "The language model to be used for the query (defaults to 'gpt-4.1' if not provided)"
+                    },
+                    "top_k": {
+                        "type": "string",
+                        "description": "The number of top results to return (defaults to 5 if not provided)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "RequestException": {
+                        "type": "string",
+                        "description": "If there's an issue with the HTTP request"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If required parameters are missing or invalid"
+                    }
+                },
+                "required": [
+                    "query",
+                    "folder",
+                    "model_name",
+                    "top_k",
+                    "Returns",
+                    "Raises",
+                    "RequestException",
+                    "ValueError"
+                ]
+            },
+            "file": "rag-mcp\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_reference",
+            "description": "Retrieve the content for a given source.\n    \n    This function fetches the reference information and content for a specific source.\n    \n    Args:\n        source: The source identifier for which to retrieve the reference\n        \n    Returns:\n        A JSON string containing the file URI, page number, and content\n        \n    Raises:\n        RequestException: If there's an issue with the HTTP request\n        ValueError: If required parameters are missing or invalid\n        json.JSONDecodeError: If there's an issue parsing the response\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "source": {
+                        "type": "string",
+                        "description": "The source identifier for which to retrieve the reference"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "RequestException": {
+                        "type": "string",
+                        "description": "If there's an issue with the HTTP request"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If required parameters are missing or invalid"
+                    }
+                },
+                "required": [
+                    "source",
+                    "Returns",
+                    "Raises",
+                    "RequestException",
+                    "ValueError"
+                ]
+            },
+            "file": "rag-mcp\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_table_schema",
+            "description": "\n    Get all the tables and their schema from the azure sql database.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "sql-mcp\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "\n    Execute a T-SQL query to Azure SQL Database and return the results.\n    \n    Args:\n        query: The SQL query to be executed\n    Returns:\n        A string containing the results of the query in JSON format\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The SQL query to be executed"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "sql-mcp\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

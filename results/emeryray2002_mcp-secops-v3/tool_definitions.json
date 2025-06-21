@@ -1,0 +1,224 @@
+{
+    "tools": [
+        {
+            "name": "search_security_events",
+            "description": "Search for security events in Chronicle using natural language.\n    \n    This function allows you to search for events using everyday language instead of requiring\n    UDM query syntax. The natural language query will be automatically translated into a \n    Chronicle UDM query for execution.\n    \n    Examples of natural language queries:\n    - \"Show me network connections from yesterday for the domain google.com\"\n    - \"Display connections to IP address 192.168.1.100\"\n    \n    Args:\n        text: Natural language description of the events you want to find\n        project_id: Google Cloud project ID (defaults to config)\n        customer_id: Chronicle customer ID (defaults to config)\n        hours_back: How many hours to look back (default: 24)\n        max_events: Maximum number of events to return (default: 100)\n        region: Chronicle region (defaults to config)\n        \n    Returns:\n        Dictionary containing the UDM query and search results, including events and metadata.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "Natural language description of the events you want to find"
+                    },
+                    "project_id": {
+                        "type": "string",
+                        "description": "Google Cloud project ID (defaults to config)"
+                    },
+                    "customer_id": {
+                        "type": "string",
+                        "description": "Chronicle customer ID (defaults to config)"
+                    },
+                    "hours_back": {
+                        "type": "string",
+                        "description": "How many hours to look back (default: 24)"
+                    },
+                    "max_events": {
+                        "type": "string",
+                        "description": "Maximum number of events to return (default: 100)"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Chronicle region (defaults to config)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "project_id",
+                    "customer_id",
+                    "hours_back",
+                    "max_events",
+                    "region",
+                    "Returns"
+                ]
+            },
+            "file": "secops_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_security_alerts",
+            "description": "Get security alerts from Chronicle.\n    \n    Args:\n        project_id: Google Cloud project ID (defaults to config)\n        customer_id: Chronicle customer ID (defaults to config)\n        hours_back: How many hours to look back (default: 24)\n        max_alerts: Maximum number of alerts to return (default: 10)\n        status_filter: Query string to filter alerts by status (default: exclude closed)\n        region: Chronicle region (defaults to config)\n        \n    Returns:\n        Formatted string with security alerts\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_id": {
+                        "type": "string",
+                        "description": "Google Cloud project ID (defaults to config)"
+                    },
+                    "customer_id": {
+                        "type": "string",
+                        "description": "Chronicle customer ID (defaults to config)"
+                    },
+                    "hours_back": {
+                        "type": "string",
+                        "description": "How many hours to look back (default: 24)"
+                    },
+                    "max_alerts": {
+                        "type": "string",
+                        "description": "Maximum number of alerts to return (default: 10)"
+                    },
+                    "status_filter": {
+                        "type": "string",
+                        "description": "Query string to filter alerts by status (default: exclude closed)"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Chronicle region (defaults to config)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "project_id",
+                    "customer_id",
+                    "hours_back",
+                    "max_alerts",
+                    "status_filter",
+                    "region",
+                    "Returns"
+                ]
+            },
+            "file": "secops_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "lookup_entity",
+            "description": "Look up an entity (IP, domain, hash, etc.) in Chronicle.\n    \n    Args:\n        entity_value: Value to look up (IP, domain, hash, etc.)\n        project_id: Google Cloud project ID (defaults to config)\n        customer_id: Chronicle customer ID (defaults to config)\n        hours_back: How many hours to look back (default: 24)\n        region: Chronicle region (defaults to config)\n        \n    Returns:\n        Entity summary information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity_value": {
+                        "type": "string",
+                        "description": "Value to look up (IP, domain, hash, etc.)"
+                    },
+                    "project_id": {
+                        "type": "string",
+                        "description": "Google Cloud project ID (defaults to config)"
+                    },
+                    "customer_id": {
+                        "type": "string",
+                        "description": "Chronicle customer ID (defaults to config)"
+                    },
+                    "hours_back": {
+                        "type": "string",
+                        "description": "How many hours to look back (default: 24)"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Chronicle region (defaults to config)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity_value",
+                    "project_id",
+                    "customer_id",
+                    "hours_back",
+                    "region",
+                    "Returns"
+                ]
+            },
+            "file": "secops_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_security_rules",
+            "description": "List security detection rules from Chronicle.\n    \n    Args:\n        project_id: Google Cloud project ID (defaults to config)\n        customer_id: Chronicle customer ID (defaults to config)\n        region: Chronicle region (defaults to config)\n        \n    Returns:\n        Raw response from the Chronicle API containing security detection rules\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_id": {
+                        "type": "string",
+                        "description": "Google Cloud project ID (defaults to config)"
+                    },
+                    "customer_id": {
+                        "type": "string",
+                        "description": "Chronicle customer ID (defaults to config)"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Chronicle region (defaults to config)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "project_id",
+                    "customer_id",
+                    "region",
+                    "Returns"
+                ]
+            },
+            "file": "secops_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_ioc_matches",
+            "description": "Get Indicators of Compromise (IoCs) matches from Chronicle.\n    \n    Args:\n        project_id: Google Cloud project ID (defaults to config)\n        customer_id: Chronicle customer ID (defaults to config)\n        hours_back: How many hours to look back (default: 24)\n        max_matches: Maximum number of matches to return (default: 20)\n        region: Chronicle region (defaults to config)\n        \n    Returns:\n        Formatted string with IoC matches\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_id": {
+                        "type": "string",
+                        "description": "Google Cloud project ID (defaults to config)"
+                    },
+                    "customer_id": {
+                        "type": "string",
+                        "description": "Chronicle customer ID (defaults to config)"
+                    },
+                    "hours_back": {
+                        "type": "string",
+                        "description": "How many hours to look back (default: 24)"
+                    },
+                    "max_matches": {
+                        "type": "string",
+                        "description": "Maximum number of matches to return (default: 20)"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Chronicle region (defaults to config)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "project_id",
+                    "customer_id",
+                    "hours_back",
+                    "max_matches",
+                    "region",
+                    "Returns"
+                ]
+            },
+            "file": "secops_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

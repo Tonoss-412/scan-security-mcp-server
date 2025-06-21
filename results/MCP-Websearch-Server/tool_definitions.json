@@ -1,0 +1,33 @@
+{
+    "tools": [
+        {
+            "name": "get_docs",
+            "description": "\n  Search the latest docs for a given query and library.\n  Supports langchain, openai, and llama-index.\n\n  Args:\n    query: The query to search for (e.g. \"Chroma DB\")\n    library: The library to search in (e.g. \"langchain\")\n\n  Returns:\n    Text from the docs\n  ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The query to search for (e.g. \"Chroma DB\")"
+                    },
+                    "library": {
+                        "type": "string",
+                        "description": "The library to search in (e.g. \"langchain\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "library",
+                    "Returns"
+                ]
+            },
+            "file": "server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

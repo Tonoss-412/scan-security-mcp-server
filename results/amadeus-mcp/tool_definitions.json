@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "search_flights",
+            "description": "Search for flights using the Amadeus API.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

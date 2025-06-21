@@ -1,0 +1,573 @@
+{
+    "tools": [
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "architecture-squad\\utils\\kernel.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "create_kernel",
+            "description": "Creates a Kernel instance with an Azure OpenAI or GitHub Models ChatCompletion service.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "architecture-squad\\utils\\kernel.py",
+            "decorator": [
+                "log_execution_time",
+                "log_execution_time"
+            ]
+        },
+        {
+            "name": "test_server",
+            "description": "Create the diagram generator MCP server for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\base_test.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_generate_clustered_diagram",
+            "description": "Test generating a clustered diagram.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_clustered_diagrams.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_list_available_components",
+            "description": "Test the list_available_components tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_component_listing.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_validate_components_all_valid",
+            "description": "Test validation with all valid components.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_component_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_validate_components_invalid_provider",
+            "description": "Test validation with invalid provider.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_component_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_validate_components_invalid_category",
+            "description": "Test validation with invalid category.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_component_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_validate_components_invalid_component",
+            "description": "Test validation with invalid component name.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_component_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_validate_components_invalid_format",
+            "description": "Test validation with invalid component type format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_component_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_validate_components_mixed_valid_invalid",
+            "description": "Test validation with mix of valid and invalid components.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_component_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_validate_components_empty_list",
+            "description": "Test validation with empty components list.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_component_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_validate_components_missing_fields",
+            "description": "Test validation with components missing required fields.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_component_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_validate_kubernetes_components_comprehensive",
+            "description": "Test validation with comprehensive Kubernetes components.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_component_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_validate_multi_provider_architecture",
+            "description": "Test validation with multi-provider architecture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_component_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_generate_dynamic_diagram_basic",
+            "description": "Test generating a basic dynamic diagram.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_dynamic_diagrams.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_generate_dynamic_diagram_custom_format",
+            "description": "Test generating a dynamic diagram with custom format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_dynamic_diagrams.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_generate_dynamic_diagram_minimal_params",
+            "description": "Test generating a dynamic diagram with minimal parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_dynamic_diagrams.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_error_handling_invalid_component",
+            "description": "Test error handling with invalid component types.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_error_handling.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_missing_required_parameters",
+            "description": "Test handling of missing required parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_error_handling.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_empty_components_list",
+            "description": "Test handling of empty components list.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_error_handling.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_invalid_connection_references",
+            "description": "Test handling of connections that reference non-existent components.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_error_handling.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_server_initialization",
+            "description": "Test that the server initializes correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_server_initialization.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_list_tools",
+            "description": "Test that all expected tools are available.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_server_initialization.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_tool_descriptions",
+            "description": "Test that all tools have proper descriptions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_tool_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_tool_input_schemas",
+            "description": "Test that all tools have proper input schemas.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_tool_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_tool_parameter_validation",
+            "description": "Test that tools properly validate their parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_tool_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_tool_names_consistency",
+            "description": "Test that all expected tools are present with correct names.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_tool_validation.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_component_validation_stress_test",
+            "description": "Test validation with a large number of components.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_validation_edge_cases.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_component_validation_special_characters",
+            "description": "Test validation with special characters in component IDs and labels.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_validation_edge_cases.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        },
+        {
+            "name": "test_component_validation_unicode_characters",
+            "description": "Test validation with Unicode characters in labels.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_server"
+                ]
+            },
+            "file": "mcp-servers\\diagram-generator\\tests\\test_validation_edge_cases.py",
+            "decorator": [
+                "pytest.mark.anyio"
+            ]
+        }
+    ]
+}

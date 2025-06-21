@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "execute_manim_code",
+            "description": "Execute the Manim code",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\manim_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cleanup_manim_temp_dir",
+            "description": "Clean up the specified Manim temporary directory after execution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\manim_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

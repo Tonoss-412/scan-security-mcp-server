@@ -1,0 +1,251 @@
+{
+    "tools": [
+        {
+            "name": "from_json",
+            "description": "Create an MCPMessage from a JSON string.\n\n        Args:\n            json_str: JSON string to parse.\n\n        Returns:\n            Parsed MCPMessage.\n\n        Raises:\n            json.JSONDecodeError: If the JSON string is invalid.\n            ValueError: If the parsed JSON is not a valid MCPMessage.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_tool_call",
+            "description": "Create a tool call message.\n\n        Args:\n            server_name: Name of the server that should receive the message.\n            tool_name: Name of the tool to call.\n            arguments: Arguments to pass to the tool.\n\n        Returns:\n            Tool call message.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_tool_result",
+            "description": "Create a tool result message.\n\n        Args:\n            server_name: Name of the server that sent the message.\n            tool_name: Name of the tool that was called.\n            result: Result of the tool call.\n\n        Returns:\n            Tool result message.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_tool_error",
+            "description": "Create a tool error message.\n\n        Args:\n            server_name: Name of the server that sent the message.\n            tool_name: Name of the tool that was called.\n            error: Error message.\n\n        Returns:\n            Tool error message.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_resource_request",
+            "description": "Create a resource request message.\n\n        Args:\n            server_name: Name of the server that should receive the message.\n            resource_uri: URI of the resource to request.\n\n        Returns:\n            Resource request message.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_resource_response",
+            "description": "Create a resource response message.\n\n        Args:\n            server_name: Name of the server that sent the message.\n            resource_uri: URI of the requested resource.\n            content: Content of the resource.\n\n        Returns:\n            Resource response message.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_resource_error",
+            "description": "Create a resource error message.\n\n        Args:\n            server_name: Name of the server that sent the message.\n            resource_uri: URI of the requested resource.\n            error: Error message.\n\n        Returns:\n            Resource error message.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_debug_info",
+            "description": "Create a debug info message.\n\n        Args:\n            server_name: Name of the server that sent the message.\n            message: Debug message.\n\n        Returns:\n            Debug info message.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_debug_warning",
+            "description": "Create a debug warning message.\n\n        Args:\n            server_name: Name of the server that sent the message.\n            message: Debug message.\n\n        Returns:\n            Debug warning message.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_debug_error",
+            "description": "Create a debug error message.\n\n        Args:\n            server_name: Name of the server that sent the message.\n            message: Debug message.\n\n        Returns:\n            Debug error message.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_server_ready",
+            "description": "Create a server ready message.\n\n        Args:\n            server_name: Name of the server that sent the message.\n\n        Returns:\n            Server ready message.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_server_error",
+            "description": "Create a server error message.\n\n        Args:\n            server_name: Name of the server that sent the message.\n            error: Error message.\n\n        Returns:\n            Server error message.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_server_shutdown",
+            "description": "Create a server shutdown message.\n\n        Args:\n            server_name: Name of the server that sent the message.\n\n        Returns:\n            Server shutdown message.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "brokkoly\\memory_streams\\message.py",
+            "decorator": [
+                "classmethod"
+            ]
+        }
+    ]
+}

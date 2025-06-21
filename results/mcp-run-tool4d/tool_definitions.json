@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "\n    List available tools for running 4D files.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\fourd_runner\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handle tool execution requests for 4D operations.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\fourd_runner\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        }
+    ]
+}

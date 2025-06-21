@@ -1,0 +1,245 @@
+{
+    "tools": [
+        {
+            "name": "before_kickoff",
+            "description": "This method will be called before the crew starts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "inputs": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "inputs"
+                ]
+            },
+            "file": "src\\blog_creator\\crew.py",
+            "decorator": [
+                "before_kickoff"
+            ]
+        },
+        {
+            "name": "after_kickoff",
+            "description": "This method will be called after the crew finishes",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "results": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "results"
+                ]
+            },
+            "file": "src\\blog_creator\\crew.py",
+            "decorator": [
+                "after_kickoff"
+            ]
+        },
+        {
+            "name": "blog_writer",
+            "description": "\n        Agent responsible for writing blog posts.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\blog_creator\\crew.py",
+            "decorator": [
+                "agent"
+            ]
+        },
+        {
+            "name": "title_generator",
+            "description": "\n        Agent responsible for generating a title for a blog post.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\blog_creator\\crew.py",
+            "decorator": [
+                "agent"
+            ]
+        },
+        {
+            "name": "write_content_task",
+            "description": "\n        Task to write a blog post on a given topic.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\blog_creator\\crew.py",
+            "decorator": [
+                "task"
+            ]
+        },
+        {
+            "name": "generate_title_task",
+            "description": "\n        Task to generate a title for a blog post on a given topic.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\blog_creator\\crew.py",
+            "decorator": [
+                "task"
+            ]
+        },
+        {
+            "name": "crew",
+            "description": "\n        Crew that manages the blog writing process.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\blog_creator\\crew.py",
+            "decorator": [
+                "crew"
+            ]
+        },
+        {
+            "name": "before_kickoff",
+            "description": "This method will be called before the crew starts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "inputs": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "inputs"
+                ]
+            },
+            "file": "src\\blog_creator\\json_crew.py",
+            "decorator": [
+                "before_kickoff"
+            ]
+        },
+        {
+            "name": "json_reader",
+            "description": "\n        Agent responsible for reading a JSON file.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\blog_creator\\json_crew.py",
+            "decorator": [
+                "agent"
+            ]
+        },
+        {
+            "name": "generate_summary_task",
+            "description": "\n        Task to generate a summary of the content of the JSON file.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\blog_creator\\json_crew.py",
+            "decorator": [
+                "task"
+            ]
+        },
+        {
+            "name": "crew",
+            "description": "\n        Crew to read a JSON file and return the content.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\blog_creator\\json_crew.py",
+            "decorator": [
+                "crew"
+            ]
+        },
+        {
+            "name": "write_post",
+            "description": "\n    Endpoint to write a blog post on a given topic.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\blog_creator\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "summarize",
+            "description": "\n    Endpoint to summarize a given type.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\blog_creator\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "List available MCP tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\blog_creator\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_alerts",
+            "description": "Get current weather alerts for a specific state\n    \n    Args:\n        state (str): The two-letter state code (e.g., 'CA', 'NY')\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "The two-letter state code (e.g., 'CA', 'NY')"
+                    }
+                },
+                "required": [
+                    "state"
+                ]
+            },
+            "file": "src\\blog_creator\\server\\weather_sse.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_alerts",
+            "description": "Get current weather alerts for a specific state\n    \n    Args:\n        state (str): The two-letter state code (e.g., 'CA', 'NY')\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "description": "The two-letter state code (e.g., 'CA', 'NY')"
+                    }
+                },
+                "required": [
+                    "state"
+                ]
+            },
+            "file": "src\\blog_creator\\server\\weather_streamable_http.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "echo_resource",
+            "description": "Echo message as a resource",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\blog_creator\\server\\weather_streamable_http.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

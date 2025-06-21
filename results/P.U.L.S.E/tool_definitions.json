@@ -1,0 +1,3057 @@
+{
+    "tools": [
+        {
+            "name": "get_repository_info_async",
+            "description": "\n        Get information about a GitHub repository\n\n        Args:\n            repo_url: URL or owner/repo string for the repository\n            max_retries: Maximum number of retries for retryable errors\n\n        Returns:\n            str: Repository information or error message\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "repo_url": {
+                        "type": "string",
+                        "description": "URL or owner/repo string for the repository"
+                    }
+                },
+                "required": [
+                    "repo_url"
+                ]
+            },
+            "file": "skills\\github_skills.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "list_repository_issues_async",
+            "description": "\n        List issues for a GitHub repository\n\n        Args:\n            repo_url: URL or owner/repo string for the repository\n            state: Issue state (open, closed, all)\n            limit: Maximum number of issues to return\n            max_retries: Maximum number of retries for retryable errors\n\n        Returns:\n            dict: Dictionary with issues information or error details\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "repo_url": {
+                        "type": "string",
+                        "description": "URL or owner/repo string for the repository"
+                    }
+                },
+                "required": [
+                    "repo_url"
+                ]
+            },
+            "file": "skills\\github_skills.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "create_repository_async",
+            "description": "\n        Create a new GitHub repository\n\n        Args:\n            name: Name of the new repository\n            description: Optional description\n            private: Whether the repository should be private\n            max_retries: Maximum number of retries for retryable errors\n\n        Returns:\n            dict: Dictionary with repository information or error details\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the new repository"
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "file": "skills\\github_skills.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "generate_commit_message_async",
+            "description": "\n        Generate a commit message for changes in a file\n\n        Args:\n            repo_url: URL or owner/repo string for the repository\n            file_path: Path to the file in the repository\n            model_interface: Optional ModelInterface instance for AI model calls\n            max_retries: Maximum number of retries for retryable errors\n\n        Returns:\n            dict: Dictionary with commit message or error details\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "repo_url": {
+                        "type": "string",
+                        "description": "URL or owner/repo string for the repository"
+                    },
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the file in the repository"
+                    }
+                },
+                "required": [
+                    "repo_url",
+                    "file_path"
+                ]
+            },
+            "file": "skills\\github_skills.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "search_notion_pages_async",
+            "description": "\n        Search Notion pages\n\n        Args:\n            query: Search query\n            max_retries: Maximum number of retries for retryable errors\n\n        Returns:\n            Dictionary with search results or error details\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    },
+                    "max_retries": {
+                        "type": "string",
+                        "description": "Maximum number of retries for retryable errors"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_retries",
+                    "Returns"
+                ]
+            },
+            "file": "skills\\notion_skills.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "create_document_async",
+            "description": "\n        Create a Notion document\n\n        Args:\n            title: Document title\n            content: Document content\n            max_retries: Maximum number of retries for retryable errors\n\n        Returns:\n            Dictionary with document information or error details\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Document title"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Document content"
+                    },
+                    "max_retries": {
+                        "type": "string",
+                        "description": "Maximum number of retries for retryable errors"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "content",
+                    "max_retries",
+                    "Returns"
+                ]
+            },
+            "file": "skills\\notion_skills.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "create_journal_entry_async",
+            "description": "\n        Create a journal entry in Notion\n\n        Args:\n            content: Journal entry content\n            template: Whether to use a template\n            max_retries: Maximum number of retries for retryable errors\n\n        Returns:\n            Dictionary with journal entry information or error details\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "Journal entry content"
+                    },
+                    "template": {
+                        "type": "string",
+                        "description": "Whether to use a template"
+                    },
+                    "max_retries": {
+                        "type": "string",
+                        "description": "Maximum number of retries for retryable errors"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "content",
+                    "template",
+                    "max_retries",
+                    "Returns"
+                ]
+            },
+            "file": "skills\\notion_skills.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "process_input",
+            "description": "\n        Process user input and generate a response\n\n        Args:\n            user_input: User's input text\n\n        Returns:\n            Agent's response\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_input": {
+                        "type": "string",
+                        "description": "User's input text"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_input",
+                    "Returns"
+                ]
+            },
+            "file": "skills\\pulse_agent.py",
+            "decorator": [
+                "memory_guard"
+            ]
+        },
+        {
+            "name": "test_model_orchestrator_initialization",
+            "description": "Test that the model orchestrator initializes correctly with the crew configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai": {
+                        "type": "string"
+                    },
+                    "mock_gemini": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai",
+                    "mock_gemini"
+                ]
+            },
+            "file": "tests\\test_crew.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_call_gemini_with_prompt",
+            "description": "Test that the _call_gemini method uses the Gemini-specific prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai": {
+                        "type": "string"
+                    },
+                    "mock_gemini": {
+                        "type": "string"
+                    },
+                    "mock_to_thread": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai",
+                    "mock_gemini",
+                    "mock_to_thread"
+                ]
+            },
+            "file": "tests\\test_crew.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_call_openrouter_model_with_prompt",
+            "description": "Test that the _call_openrouter_model method uses the role-specific prompt.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_openai": {
+                        "type": "string"
+                    },
+                    "mock_to_thread": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_openai",
+                    "mock_to_thread"
+                ]
+            },
+            "file": "tests\\test_crew.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_call_gemini",
+            "description": "Test calling the Gemini model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_to_thread": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_to_thread"
+                ]
+            },
+            "file": "tests\\test_models.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_call_openrouter_model",
+            "description": "Test calling an OpenRouter model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_to_thread": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_to_thread"
+                ]
+            },
+            "file": "tests\\test_models.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_handle_query_simulation",
+            "description": "Test handling queries in simulation mode",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_classify": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_classify"
+                ]
+            },
+            "file": "tests\\test_model_orchestrator.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_repository_info_async_success",
+            "description": "Test getting repository info successfully",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_github_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_repository_info_async_not_found",
+            "description": "Test getting repository info for non-existent repo",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_github_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_list_repository_issues_async_success",
+            "description": "Test listing repository issues successfully",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_github_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_list_repository_issues_async_not_found",
+            "description": "Test listing issues for non-existent repo",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_github_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_commit_message_async_success",
+            "description": "Test generating commit message successfully",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_github_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_commit_message_async_not_found",
+            "description": "Test generating commit message for non-existent repo",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_github_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_network_error_with_retry",
+            "description": "Test handling a network error with retry",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_github_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_document_async_not_configured",
+            "description": "Test create_document_async when Notion is not configured",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_notion_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_document_async_success",
+            "description": "Test create_document_async success case",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_notion_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_document_async_error",
+            "description": "Test create_document_async error handling",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_notion_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_journal_entry_async",
+            "description": "Test create_journal_entry_async",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_notion_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_create_journal_entry_async_error",
+            "description": "Test create_journal_entry_async error handling",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_notion_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_search_notion_pages_async",
+            "description": "Test search_notion_pages_async",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_notion_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_network_error_with_retry",
+            "description": "Test handling a network error with retry",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sleep": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sleep"
+                ]
+            },
+            "file": "tests\\skills\\test_notion_skills.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_notification",
+            "description": "Test error notification",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_logger": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_logger"
+                ]
+            },
+            "file": "tests\\utils\\test_error_monitoring.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_function",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\utils\\test_integration_error_handler.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "test_async_function",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\utils\\test_integration_error_handler.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "test_memory_guard_below_threshold",
+            "description": "Test that memory_guard doesn't trigger additional GC when below threshold",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_process": {
+                        "type": "string"
+                    },
+                    "mock_gc": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_process",
+                    "mock_gc"
+                ]
+            },
+            "file": "tests\\utils\\test_memory_guard.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_memory_guard_above_threshold",
+            "description": "Test that memory_guard triggers GC when above threshold",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_process": {
+                        "type": "string"
+                    },
+                    "mock_gc": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_process",
+                    "mock_gc"
+                ]
+            },
+            "file": "tests\\utils\\test_memory_guard.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_memory_guard_with_exception",
+            "description": "Test that memory_guard triggers GC when an exception occurs within the context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_process": {
+                        "type": "string"
+                    },
+                    "mock_gc": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_process",
+                    "mock_gc"
+                ]
+            },
+            "file": "tests\\utils\\test_memory_guard.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_function",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "self_param": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "self_param"
+                ]
+            },
+            "file": "tests\\utils\\test_model_error_handler.py",
+            "decorator": [
+                "with_model_error_handling"
+            ]
+        },
+        {
+            "name": "test_async_function",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "self_param": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "self_param"
+                ]
+            },
+            "file": "tests\\utils\\test_model_error_handler.py",
+            "decorator": [
+                "with_model_error_handling"
+            ]
+        },
+        {
+            "name": "sync_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\circuit_breaker.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "async_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\circuit_breaker.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "get_hostname_from_uri",
+            "description": "\n    Extract hostname from URI\n\n    Args:\n        uri: URI to extract hostname from\n\n    Returns:\n        Hostname or None if extraction failed\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "uri": {
+                        "type": "string",
+                        "description": "URI to extract hostname from"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "uri",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\dns_resolver.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "sync_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\error_handler.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "async_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\error_handler.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "async_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\error_handler.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "sync_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\error_handler.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "model_interface",
+            "description": "\n        Lazy-loaded model interface to avoid circular imports\n\n        Returns:\n            ModelInterface instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\execution_flow.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\execution_flow.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "get_logger",
+            "description": "\n    Get a logger instance with the given name\n\n    Args:\n        name: Logger name for component identification\n\n    Returns:\n        structlog.BoundLogger: A configured logger instance\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Logger name for component identification"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\logger.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "format_error",
+            "description": "Format an exception for logging and user display.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "e": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "e"
+                ]
+            },
+            "file": "utils\\logger.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "memory_guard",
+            "description": "\n    Context manager to monitor memory usage and trigger cleanup when necessary\n    \n    Args:\n        threshold_mb: Memory increase threshold in MB to trigger warnings\n        force_gc: Whether to force garbage collection after the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "threshold_mb": {
+                        "type": "string",
+                        "description": "Memory increase threshold in MB to trigger warnings"
+                    },
+                    "force_gc": {
+                        "type": "string",
+                        "description": "Whether to force garbage collection after the operation"
+                    }
+                },
+                "required": [
+                    "threshold_mb",
+                    "force_gc"
+                ]
+            },
+            "file": "utils\\memory_guard.py",
+            "decorator": [
+                "contextlib.contextmanager"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "\n        Call OpenRouter chat API\n        \n        Args:\n            model_id: OpenRouter model ID\n            messages: List of message objects with role and content\n            temperature: Controls randomness (0-1)\n            max_tokens: Maximum tokens to generate\n            stream: Whether to stream the response\n            \n        Returns:\n            dict: Response containing content, model and timestamp\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "model_id": {
+                        "type": "string",
+                        "description": "OpenRouter model ID"
+                    },
+                    "messages": {
+                        "type": "string",
+                        "description": "List of message objects with role and content"
+                    },
+                    "temperature": {
+                        "type": "string",
+                        "description": "Controls randomness (0-1)"
+                    },
+                    "max_tokens": {
+                        "type": "string",
+                        "description": "Maximum tokens to generate"
+                    },
+                    "stream": {
+                        "type": "string",
+                        "description": "Whether to stream the response"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Response containing content, model and timestamp"
+                    }
+                },
+                "required": [
+                    "model_id",
+                    "messages",
+                    "temperature",
+                    "max_tokens",
+                    "stream",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "utils\\openrouter_client.py",
+            "decorator": [
+                "retry_async"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\optimization.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "async_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\retry.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "sync_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\retry.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "sync_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\telemetry.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "async_wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\telemetry.py",
+            "decorator": [
+                "functools.wraps"
+            ]
+        },
+        {
+            "name": "get_logger",
+            "description": "\n    Get a logger instance with the given name\n\n    Args:\n        name: Logger name for component identification\n\n    Returns:\n        UnifiedLogger: A configured logger instance\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Logger name for component identification"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "UnifiedLogger": {
+                        "type": "string",
+                        "description": "A configured logger instance"
+                    }
+                },
+                "required": [
+                    "name",
+                    "Returns",
+                    "UnifiedLogger"
+                ]
+            },
+            "file": "utils\\unified_logger.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "\n        Create entity from dictionary\n        \n        Args:\n            data: Dictionary representation of entity\n            \n        Returns:\n            Entity instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "save",
+            "description": "\n        Save entity to repository\n        \n        Args:\n            entity: Entity to save\n            \n        Returns:\n            Saved entity with ID\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity": {
+                        "type": "string",
+                        "description": "Entity to save"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "find_by_id",
+            "description": "\n        Find entity by ID\n        \n        Args:\n            id: Entity ID\n            \n        Returns:\n            Entity if found, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "find_all",
+            "description": "\n        Find all entities\n        \n        Returns:\n            List of all entities\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "delete",
+            "description": "\n        Delete entity by ID\n        \n        Args:\n            id: Entity ID\n            \n        Returns:\n            True if entity was deleted, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "exists",
+            "description": "\n        Check if entity exists\n        \n        Args:\n            id: Entity ID\n            \n        Returns:\n            True if entity exists, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "count",
+            "description": "\n        Count entities in repository\n        \n        Returns:\n            Number of entities\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "check_health",
+            "description": "\n        Check health of repository\n        \n        Returns:\n            Health check result with status and details\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "begin_transaction",
+            "description": "\n        Begin a transaction\n        \n        Returns:\n            Transaction object\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "commit_transaction",
+            "description": "\n        Commit a transaction\n        \n        Args:\n            transaction: Transaction object\n            \n        Returns:\n            True if transaction was committed, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "transaction": {
+                        "type": "string",
+                        "description": "Transaction object"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "transaction",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "rollback_transaction",
+            "description": "\n        Rollback a transaction\n        \n        Args:\n            transaction: Transaction object\n            \n        Returns:\n            True if transaction was rolled back, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "transaction": {
+                        "type": "string",
+                        "description": "Transaction object"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "transaction",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "save_in_transaction",
+            "description": "\n        Save entity in transaction\n        \n        Args:\n            transaction: Transaction object\n            entity: Entity to save\n            \n        Returns:\n            Saved entity with ID\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "transaction": {
+                        "type": "string",
+                        "description": "Transaction object"
+                    },
+                    "entity": {
+                        "type": "string",
+                        "description": "Entity to save"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "transaction",
+                    "entity",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "delete_in_transaction",
+            "description": "\n        Delete entity in transaction\n        \n        Args:\n            transaction: Transaction object\n            id: Entity ID\n            \n        Returns:\n            True if entity was deleted, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "transaction": {
+                        "type": "string",
+                        "description": "Transaction object"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "transaction",
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "get_from_cache",
+            "description": "\n        Get entity from cache\n        \n        Args:\n            id: Entity ID\n            \n        Returns:\n            Entity if found in cache, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "put_in_cache",
+            "description": "\n        Put entity in cache\n        \n        Args:\n            entity: Entity to cache\n            \n        Returns:\n            True if entity was cached, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity": {
+                        "type": "string",
+                        "description": "Entity to cache"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "remove_from_cache",
+            "description": "\n        Remove entity from cache\n        \n        Args:\n            id: Entity ID\n            \n        Returns:\n            True if entity was removed from cache, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "clear_cache",
+            "description": "\n        Clear cache\n        \n        Returns:\n            True if cache was cleared, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "create_repository",
+            "description": "\n        Create repository for entity type\n        \n        Args:\n            entity_type: Entity type\n            \n        Returns:\n            Repository instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity_type": {
+                        "type": "string",
+                        "description": "Entity type"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity_type",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\base.py",
+            "decorator": [
+                "abc.abstractmethod"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "\n        Create message from dictionary\n        \n        Args:\n            data: Dictionary representation of message\n            \n        Returns:\n            Message instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "utils\\repository\\chat.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "\n        Create conversation from dictionary\n        \n        Args:\n            data: Dictionary representation of conversation\n            \n        Returns:\n            Conversation instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "utils\\repository\\chat.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "\n        Create memory from dictionary\n        \n        Args:\n            data: Dictionary representation of memory\n            \n        Returns:\n            Memory instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "utils\\repository\\chat.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "save",
+            "description": "\n        Save entity to repository\n\n        Args:\n            entity: Entity to save\n\n        Returns:\n            Saved entity with ID\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity": {
+                        "type": "string",
+                        "description": "Entity to save"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_id",
+            "description": "\n        Find entity by ID\n\n        Args:\n            id: Entity ID\n\n        Returns:\n            Entity if found, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_all",
+            "description": "\n        Find all entities\n\n        Returns:\n            List of all entities\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "delete",
+            "description": "\n        Delete entity by ID\n\n        Args:\n            id: Entity ID\n\n        Returns:\n            True if entity was deleted, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "exists",
+            "description": "\n        Check if entity exists\n\n        Args:\n            id: Entity ID\n\n        Returns:\n            True if entity exists, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "count",
+            "description": "\n        Count entities in repository\n\n        Returns:\n            Number of entities\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_conversation_id",
+            "description": "\n        Find messages by conversation ID\n\n        Args:\n            conversation_id: Conversation ID\n\n        Returns:\n            List of messages\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "conversation_id": {
+                        "type": "string",
+                        "description": "Conversation ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "conversation_id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_user_id",
+            "description": "\n        Find messages by user ID\n\n        Args:\n            user_id: User ID\n            limit: Maximum number of messages to return\n\n        Returns:\n            List of messages\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of messages to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_user_id",
+            "description": "\n        Find conversations by user ID\n\n        Args:\n            user_id: User ID\n            limit: Maximum number of conversations to return\n\n        Returns:\n            List of conversations\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of conversations to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_recent",
+            "description": "\n        Find recent conversations\n\n        Args:\n            limit: Maximum number of conversations to return\n\n        Returns:\n            List of conversations\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of conversations to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "add_message",
+            "description": "\n        Add message to conversation\n\n        Args:\n            conversation_id: Conversation ID\n            message: Message to add\n\n        Returns:\n            Added message\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "conversation_id": {
+                        "type": "string",
+                        "description": "Conversation ID"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Message to add"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "conversation_id",
+                    "message",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_user_id",
+            "description": "\n        Find memories by user ID\n\n        Args:\n            user_id: User ID\n            limit: Maximum number of memories to return\n\n        Returns:\n            List of memories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of memories to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_category",
+            "description": "\n        Find memories by category\n\n        Args:\n            category: Memory category\n            limit: Maximum number of memories to return\n\n        Returns:\n            List of memories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "description": "Memory category"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of memories to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "category",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_user_and_category",
+            "description": "\n        Find memories by user ID and category\n\n        Args:\n            user_id: User ID\n            category: Memory category\n            limit: Maximum number of memories to return\n\n        Returns:\n            List of memories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID"
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "Memory category"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of memories to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "category",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "search_similar",
+            "description": "\n        Search for similar memories\n\n        Args:\n            content: Content to search for\n            limit: Maximum number of memories to return\n\n        Returns:\n            List of memories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "Content to search for"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of memories to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "content",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\factory.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "save",
+            "description": "\n        Save entity to MongoDB\n\n        Args:\n            entity: Entity to save\n\n        Returns:\n            Saved entity with ID\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity": {
+                        "type": "string",
+                        "description": "Entity to save"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_id",
+            "description": "\n        Find entity by ID\n\n        Args:\n            id: Entity ID\n\n        Returns:\n            Entity if found, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_all",
+            "description": "\n        Find all entities\n\n        Returns:\n            List of all entities\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "delete",
+            "description": "\n        Delete entity by ID\n\n        Args:\n            id: Entity ID\n\n        Returns:\n            True if entity was deleted, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "exists",
+            "description": "\n        Check if entity exists\n\n        Args:\n            id: Entity ID\n\n        Returns:\n            True if entity exists, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "count",
+            "description": "\n        Count entities in repository\n\n        Returns:\n            Number of entities\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "check_health",
+            "description": "\n        Check health of MongoDB repository\n\n        Returns:\n            Health check result with status and details\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_conversation_id",
+            "description": "\n        Find messages by conversation ID\n\n        Args:\n            conversation_id: Conversation ID\n\n        Returns:\n            List of messages\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "conversation_id": {
+                        "type": "string",
+                        "description": "Conversation ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "conversation_id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_user_id",
+            "description": "\n        Find messages by user ID\n\n        Args:\n            user_id: User ID\n            limit: Maximum number of messages to return\n\n        Returns:\n            List of messages\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of messages to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_user_id",
+            "description": "\n        Find conversations by user ID\n\n        Args:\n            user_id: User ID\n            limit: Maximum number of conversations to return\n\n        Returns:\n            List of conversations\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of conversations to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_recent",
+            "description": "\n        Find recent conversations\n\n        Args:\n            limit: Maximum number of conversations to return\n\n        Returns:\n            List of conversations\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of conversations to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "add_message",
+            "description": "\n        Add message to conversation\n\n        Args:\n            conversation_id: Conversation ID\n            message: Message to add\n\n        Returns:\n            Added message\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "conversation_id": {
+                        "type": "string",
+                        "description": "Conversation ID"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Message to add"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "conversation_id",
+                    "message",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_id",
+            "description": "\n        Find conversation by ID\n\n        Args:\n            id: Conversation ID\n\n        Returns:\n            Conversation if found, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Conversation ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_user_id",
+            "description": "\n        Find memories by user ID\n\n        Args:\n            user_id: User ID\n            limit: Maximum number of memories to return\n\n        Returns:\n            List of memories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of memories to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_category",
+            "description": "\n        Find memories by category\n\n        Args:\n            category: Memory category\n            limit: Maximum number of memories to return\n\n        Returns:\n            List of memories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "description": "Memory category"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of memories to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "category",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_user_and_category",
+            "description": "\n        Find memories by user ID and category\n\n        Args:\n            user_id: User ID\n            category: Memory category\n            limit: Maximum number of memories to return\n\n        Returns:\n            List of memories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID"
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "Memory category"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of memories to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "category",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "search_similar",
+            "description": "\n        Search for similar memories\n\n        Args:\n            content: Content to search for\n            limit: Maximum number of memories to return\n\n        Returns:\n            List of memories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "Content to search for"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of memories to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "content",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\mongodb.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "get",
+            "description": "\n        Get entity from cache\n        \n        Args:\n            id: Entity ID\n            \n        Returns:\n            Entity if found in cache, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\redis.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "set",
+            "description": "\n        Set entity in cache\n        \n        Args:\n            entity: Entity to cache\n            \n        Returns:\n            True if entity was cached, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity": {
+                        "type": "string",
+                        "description": "Entity to cache"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\redis.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "delete",
+            "description": "\n        Delete entity from cache\n        \n        Args:\n            id: Entity ID\n            \n        Returns:\n            True if entity was deleted from cache, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\redis.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "clear",
+            "description": "\n        Clear cache\n        \n        Returns:\n            True if cache was cleared, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\redis.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "check_health",
+            "description": "\n        Check health of Redis cache\n        \n        Returns:\n            Health check result with status and details\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\redis.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "save",
+            "description": "\n        Save entity to SQLite\n        \n        Args:\n            entity: Entity to save\n            \n        Returns:\n            Saved entity with ID\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "entity": {
+                        "type": "string",
+                        "description": "Entity to save"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "entity",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_id",
+            "description": "\n        Find entity by ID\n        \n        Args:\n            id: Entity ID\n            \n        Returns:\n            Entity if found, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_all",
+            "description": "\n        Find all entities\n        \n        Returns:\n            List of all entities\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "delete",
+            "description": "\n        Delete entity by ID\n        \n        Args:\n            id: Entity ID\n            \n        Returns:\n            True if entity was deleted, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "exists",
+            "description": "\n        Check if entity exists\n        \n        Args:\n            id: Entity ID\n            \n        Returns:\n            True if entity exists, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Entity ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "count",
+            "description": "\n        Count entities in repository\n        \n        Returns:\n            Number of entities\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "check_health",
+            "description": "\n        Check health of SQLite repository\n        \n        Returns:\n            Health check result with status and details\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_conversation_id",
+            "description": "\n        Find messages by conversation ID\n        \n        Args:\n            conversation_id: Conversation ID\n            \n        Returns:\n            List of messages\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "conversation_id": {
+                        "type": "string",
+                        "description": "Conversation ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "conversation_id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_user_id",
+            "description": "\n        Find messages by user ID\n        \n        Args:\n            user_id: User ID\n            limit: Maximum number of messages to return\n            \n        Returns:\n            List of messages\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of messages to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_user_id",
+            "description": "\n        Find conversations by user ID\n        \n        Args:\n            user_id: User ID\n            limit: Maximum number of conversations to return\n            \n        Returns:\n            List of conversations\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of conversations to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_recent",
+            "description": "\n        Find recent conversations\n        \n        Args:\n            limit: Maximum number of conversations to return\n            \n        Returns:\n            List of conversations\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of conversations to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "add_message",
+            "description": "\n        Add message to conversation\n        \n        Args:\n            conversation_id: Conversation ID\n            message: Message to add\n            \n        Returns:\n            Added message\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "conversation_id": {
+                        "type": "string",
+                        "description": "Conversation ID"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Message to add"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "conversation_id",
+                    "message",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_id",
+            "description": "\n        Find conversation by ID\n        \n        Args:\n            id: Conversation ID\n            \n        Returns:\n            Conversation if found, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Conversation ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_user_id",
+            "description": "\n        Find memories by user ID\n        \n        Args:\n            user_id: User ID\n            limit: Maximum number of memories to return\n            \n        Returns:\n            List of memories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of memories to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_category",
+            "description": "\n        Find memories by category\n        \n        Args:\n            category: Memory category\n            limit: Maximum number of memories to return\n            \n        Returns:\n            List of memories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "description": "Memory category"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of memories to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "category",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "find_by_user_and_category",
+            "description": "\n        Find memories by user ID and category\n        \n        Args:\n            user_id: User ID\n            category: Memory category\n            limit: Maximum number of memories to return\n            \n        Returns:\n            List of memories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID"
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "Memory category"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of memories to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "category",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "search_similar",
+            "description": "\n        Search for similar memories\n        \n        Args:\n            content: Content to search for\n            limit: Maximum number of memories to return\n            \n        Returns:\n            List of memories\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "Content to search for"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of memories to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "content",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\sqlite.py",
+            "decorator": [
+                "circuit_breaker",
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "\n        Create log entry from dictionary\n        \n        Args:\n            data: Dictionary representation of log entry\n            \n        Returns:\n            Log entry instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "utils\\repository\\transaction.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "\n        Create transaction from dictionary\n        \n        Args:\n            data: Dictionary representation of transaction\n            \n        Returns:\n            Transaction instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "utils\\repository\\transaction.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "begin_transaction",
+            "description": "\n        Begin a new transaction\n        \n        Returns:\n            Transaction object\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\transaction.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "commit_transaction",
+            "description": "\n        Commit a transaction\n        \n        Args:\n            transaction_id: Transaction ID\n            \n        Returns:\n            True if transaction was committed, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "transaction_id": {
+                        "type": "string",
+                        "description": "Transaction ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "transaction_id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\transaction.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "rollback_transaction",
+            "description": "\n        Rollback a transaction\n        \n        Args:\n            transaction_id: Transaction ID\n            \n        Returns:\n            True if transaction was rolled back, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "transaction_id": {
+                        "type": "string",
+                        "description": "Transaction ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "transaction_id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\transaction.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "add_log",
+            "description": "\n        Add log entry to transaction\n        \n        Args:\n            transaction_id: Transaction ID\n            log: Log entry to add\n            \n        Returns:\n            True if log was added, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "transaction_id": {
+                        "type": "string",
+                        "description": "Transaction ID"
+                    },
+                    "log": {
+                        "type": "string",
+                        "description": "Log entry to add"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "transaction_id",
+                    "log",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\transaction.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "get_transaction",
+            "description": "\n        Get transaction by ID\n        \n        Args:\n            transaction_id: Transaction ID\n            \n        Returns:\n            Transaction if found, None otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "transaction_id": {
+                        "type": "string",
+                        "description": "Transaction ID"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "transaction_id",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\transaction.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "get_pending_transactions",
+            "description": "\n        Get all pending transactions\n        \n        Returns:\n            List of pending transactions\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\transaction.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "recover_transactions",
+            "description": "\n        Recover pending transactions\n        \n        Returns:\n            Recovery result with counts\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "utils\\repository\\transaction.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        },
+        {
+            "name": "cleanup_transactions",
+            "description": "\n        Clean up old transactions\n        \n        Args:\n            max_age: Maximum age of transactions to keep (in seconds)\n            \n        Returns:\n            Cleanup result with counts\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "max_age": {
+                        "type": "string",
+                        "description": "Maximum age of transactions to keep (in seconds)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "max_age",
+                    "Returns"
+                ]
+            },
+            "file": "utils\\repository\\transaction.py",
+            "decorator": [
+                "with_error_handling"
+            ]
+        }
+    ]
+}

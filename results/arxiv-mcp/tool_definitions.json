@@ -1,0 +1,282 @@
+{
+    "tools": [
+        {
+            "name": "search_papers",
+            "description": "\n    Search for academic papers on arXiv.\n    \n    Args:\n        query: Search query. Can use arXiv query syntax (e.g., \"ti:machine learning\", \"au:Smith\", \"cat:cs.AI\")\n        max_results: Maximum number of results to return (1-100)\n        sort_by: Sort by 'relevance', 'lastUpdatedDate', or 'submittedDate'\n        sort_order: Sort order 'ascending' or 'descending'\n    \n    Returns:\n        Formatted list of papers matching the search criteria\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query. Can use arXiv query syntax (e.g., \"ti:machine learning\", \"au:Smith\", \"cat:cs.AI\")"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (1-100)"
+                    },
+                    "sort_by": {
+                        "type": "string",
+                        "description": "Sort by 'relevance', 'lastUpdatedDate', or 'submittedDate'"
+                    },
+                    "sort_order": {
+                        "type": "string",
+                        "description": "Sort order 'ascending' or 'descending'"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_results",
+                    "sort_by",
+                    "sort_order",
+                    "Returns"
+                ]
+            },
+            "file": "src\\arxiv_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_paper_details",
+            "description": "\n    Get detailed information about a specific arXiv paper.\n    \n    Args:\n        arxiv_id: The arXiv identifier (e.g., \"2301.00001\" or \"cs.AI/0601001\")\n    \n    Returns:\n        Detailed paper information including abstract, authors, categories, etc.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "arxiv_id": {
+                        "type": "string",
+                        "description": "The arXiv identifier (e.g., \"2301.00001\" or \"cs.AI/0601001\")"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arxiv_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\arxiv_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_by_author",
+            "description": "\n    Search for papers by a specific author.\n    \n    Args:\n        author_name: Name of the author to search for\n        max_results: Maximum number of results to return (1-50)\n    \n    Returns:\n        List of papers by the specified author\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "author_name": {
+                        "type": "string",
+                        "description": "Name of the author to search for"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (1-50)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "author_name",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\arxiv_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_by_category",
+            "description": "\n    Search for recent papers in a specific arXiv category.\n    \n    Args:\n        category: arXiv category (e.g., 'cs.AI', 'physics.gen-ph', 'math.AG')\n        max_results: Maximum number of results to return (1-50)\n    \n    Returns:\n        List of recent papers in the specified category\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "description": "arXiv category (e.g., 'cs.AI', 'physics.gen-ph', 'math.AG')"
+                    },
+                    "max_results": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (1-50)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "category",
+                    "max_results",
+                    "Returns"
+                ]
+            },
+            "file": "src\\arxiv_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "download_paper_pdf",
+            "description": "\n    Download the PDF of an arXiv paper.\n    \n    Args:\n        arxiv_id: The arXiv identifier\n        save_path: Optional path to save the PDF (if not provided, saves to temp directory)\n    \n    Returns:\n        Path to the downloaded PDF file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "arxiv_id": {
+                        "type": "string",
+                        "description": "The arXiv identifier"
+                    },
+                    "save_path": {
+                        "type": "string",
+                        "description": "Optional path to save the PDF (if not provided, saves to temp directory)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "arxiv_id",
+                    "save_path",
+                    "Returns"
+                ]
+            },
+            "file": "src\\arxiv_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_arxiv_categories",
+            "description": "\n    Get a list of available arXiv subject categories.\n    \n    Returns:\n        List of arXiv categories with descriptions\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\arxiv_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "build_advanced_query",
+            "description": "\n    Build an advanced search query using multiple fields.\n    \n    Args:\n        title_keywords: Keywords to search in paper titles\n        author_name: Author name to search for\n        abstract_keywords: Keywords to search in abstracts\n        category: arXiv category to filter by\n        all_fields: Keywords to search across all fields\n    \n    Returns:\n        The constructed query string that can be used with search_papers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title_keywords": {
+                        "type": "string",
+                        "description": "Keywords to search in paper titles"
+                    },
+                    "author_name": {
+                        "type": "string",
+                        "description": "Author name to search for"
+                    },
+                    "abstract_keywords": {
+                        "type": "string",
+                        "description": "Keywords to search in abstracts"
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "arXiv category to filter by"
+                    },
+                    "all_fields": {
+                        "type": "string",
+                        "description": "Keywords to search across all fields"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "title_keywords",
+                    "author_name",
+                    "abstract_keywords",
+                    "category",
+                    "all_fields",
+                    "Returns"
+                ]
+            },
+            "file": "src\\arxiv_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_recent_papers_resource",
+            "description": "\n    Resource providing recent papers in a specific category.\n    \n    Args:\n        category: arXiv category\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "description": "arXiv category"
+                    }
+                },
+                "required": [
+                    "category"
+                ]
+            },
+            "file": "src\\arxiv_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_paper_resource",
+            "description": "\n    Resource providing detailed information about a specific paper.\n    \n    Args:\n        paper_id: arXiv paper identifier\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "paper_id": {
+                        "type": "string",
+                        "description": "arXiv paper identifier"
+                    }
+                },
+                "required": [
+                    "paper_id"
+                ]
+            },
+            "file": "src\\arxiv_mcp\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "summarize_paper",
+            "description": "\n    Generate a prompt for summarizing an arXiv paper.\n    \n    Args:\n        arxiv_id: The arXiv identifier of the paper to summarize\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "arxiv_id": {
+                        "type": "string",
+                        "description": "The arXiv identifier of the paper to summarize"
+                    }
+                },
+                "required": [
+                    "arxiv_id"
+                ]
+            },
+            "file": "src\\arxiv_mcp\\server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "compare_papers",
+            "description": "\n    Generate a prompt for comparing multiple arXiv papers.\n    \n    Args:\n        *arxiv_ids: Multiple arXiv identifiers to compare\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\arxiv_mcp\\server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

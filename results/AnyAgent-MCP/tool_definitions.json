@@ -1,0 +1,288 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test_server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "test_server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\anyagent_mcp\\server.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\anyagent_mcp\\server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\anyagent_mcp\\server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "test_list_frameworks",
+            "description": "Test listing available frameworks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_agent_missing_params",
+            "description": "Test creating agent with missing parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_agent_invalid_framework",
+            "description": "Test creating agent with invalid framework.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_session_management",
+            "description": "Test session creation and retrieval.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "server",
+            "description": "Create a test server instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_tool_registration",
+            "description": "Test that all tools are properly registered.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_frameworks_protocol",
+            "description": "Test list_frameworks follows MCP protocol.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_agent_protocol",
+            "description": "Test create_agent follows MCP protocol.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_session_lifecycle_protocol",
+            "description": "Test complete session lifecycle through MCP protocol.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling_protocol",
+            "description": "Test that errors are handled according to MCP protocol.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_development_tools_protocol",
+            "description": "Test development tools follow MCP protocol.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_tool_call_handler_protocol",
+            "description": "Test the main tool call handler follows MCP protocol.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_response_format_consistency",
+            "description": "Test that all responses follow consistent format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server"
+                ]
+            },
+            "file": "tests\\integration\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_cleanup_task_starts",
+            "description": "Test that session cleanup task starts properly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_mcp_protocol.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

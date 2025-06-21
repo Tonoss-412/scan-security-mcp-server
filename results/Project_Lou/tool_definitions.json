@@ -1,0 +1,124 @@
+{
+    "tools": [
+        {
+            "name": "find_email",
+            "description": "\n        Find email associated with a LinkedIn profile.\n\n        Args:\n            linkedin_url (str): The LinkedIn URL of the person's profile\n\n        Returns:\n            Dict[str, Any]: Email information and validation status\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "linkedin_url": {
+                        "type": "string",
+                        "description": "The LinkedIn URL of the person's profile"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "linkedin_url",
+                    "Returns"
+                ]
+            },
+            "file": "email-finder\\email_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-gsuite\\src\\mcp_gsuite\\server.py",
+            "decorator": [
+                "app.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-gsuite\\src\\mcp_gsuite\\server.py",
+            "decorator": [
+                "app.call_tool"
+            ]
+        },
+        {
+            "name": "get_person_profile",
+            "description": "\n        Get a person's LinkedIn profile data.\n\n        Args:\n            linkedin_url (str): The LinkedIn URL of the person's profile\n\n        Returns:\n            Dict[str, Any]: Structured data from the person's profile\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "linkedin_url": {
+                        "type": "string",
+                        "description": "The LinkedIn URL of the person's profile"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "linkedin_url",
+                    "Returns"
+                ]
+            },
+            "file": "rapidapi_mcp_server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "search_mcp\\main.py",
+            "decorator": [
+                "app.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "search_mcp\\main.py",
+            "decorator": [
+                "app.call_tool"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tracker_mcp\\main.py",
+            "decorator": [
+                "app.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tracker_mcp\\main.py",
+            "decorator": [
+                "app.call_tool"
+            ]
+        }
+    ]
+}

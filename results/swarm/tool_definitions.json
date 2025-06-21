@@ -1,0 +1,530 @@
+{
+    "tools": [
+        {
+            "name": "from_env",
+            "description": "Create configuration from environment variables.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "swarm\\core\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "initialize",
+            "description": "Initialize the service container with configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "swarm\\core\\services.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_browser",
+            "description": "Get the browser service.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "swarm\\core\\services.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_search",
+            "description": "Get the search service.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "swarm\\core\\services.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_llm",
+            "description": "Get the LLM service.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "swarm\\core\\services.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_config",
+            "description": "Get the configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "swarm\\core\\services.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "reset",
+            "description": "Reset the container (useful for testing).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "swarm\\core\\services.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "browser",
+            "description": "Get browser service.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\core\\services.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "Get search service.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\core\\services.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "llm",
+            "description": "Get LLM service.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\core\\services.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "config",
+            "description": "Get configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\core\\services.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "generate",
+            "description": "\n        Generate text using the LLM.\n\n        Args:\n            prompt: User prompt\n            system_prompt: Optional system prompt\n\n        Returns:\n            Generated text response\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": "User prompt"
+                    },
+                    "system_prompt": {
+                        "type": "string",
+                        "description": "Optional system prompt"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "prompt",
+                    "system_prompt",
+                    "Returns"
+                ]
+            },
+            "file": "swarm\\llm\\client.py",
+            "decorator": [
+                "handle_llm_exceptions"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\utils\\exception_handler.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\utils\\exception_handler.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\utils\\exception_handler.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\utils\\exception_handler.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\utils\\exception_handler.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\utils\\exception_handler.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\utils\\exception_handler.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "streaming_display",
+            "description": "\n    Context manager for streaming LLM output display.\n    \n    Args:\n        title: Title for the streaming panel\n        console: Rich console for display\n        border_style: Border style for the panel\n        show_completion: Whether to show completion message\n        clear_after: Whether to clear display after completion\n        \n    Yields:\n        Tuple of (update_function, get_text_function)\n    \"\"\"\n  ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Title for the streaming panel"
+                    },
+                    "console": {
+                        "type": "string",
+                        "description": "Rich console for display"
+                    },
+                    "border_style": {
+                        "type": "string",
+                        "description": "Border style for the panel"
+                    },
+                    "show_completion": {
+                        "type": "string",
+                        "description": "Whether to show completion message"
+                    },
+                    "clear_after": {
+                        "type": "string",
+                        "description": "Whether to clear display after completion"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "console",
+                    "border_style",
+                    "show_completion",
+                    "clear_after",
+                    "Yields"
+                ]
+            },
+            "file": "swarm\\utils\\streaming.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "\n        Search the web for a query.\n\n        Args:\n            query: Search query\n\n        Returns:\n            List of search results\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns"
+                ]
+            },
+            "file": "swarm\\web\\search.py",
+            "decorator": [
+                "handle_web_exceptions"
+            ]
+        },
+        {
+            "name": "get_page_content",
+            "description": "\n        Get content from a web page.\n\n        Args:\n            url: URL to fetch\n\n        Returns:\n            Dictionary containing page content\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "URL to fetch"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "Returns"
+                ]
+            },
+            "file": "swarm\\web\\search.py",
+            "decorator": [
+                "handle_web_exceptions"
+            ]
+        },
+        {
+            "name": "is_active",
+            "description": "Check if browser session is active.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\web\\browser\\browser.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "page",
+            "description": "Get current page reference.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\web\\browser\\browser.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "extract_page_content",
+            "description": "\n        Extract page content with enhanced filtering and processing.\n\n        Args:\n            query: Optional search query to filter content\n            max_length: Maximum content length\n\n        Returns:\n            Extracted content information\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Optional search query to filter content"
+                    },
+                    "max_length": {
+                        "type": "string",
+                        "description": "Maximum content length"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "max_length",
+                    "Returns"
+                ]
+            },
+            "file": "swarm\\web\\browser\\extractor.py",
+            "decorator": [
+                "handle_async_browser_exceptions"
+            ]
+        },
+        {
+            "name": "click_element_by_text",
+            "description": "\n        Click element by text with enhanced reliability and multiple strategies.\n\n        Args:\n            text: Text to search for and click\n            exact: Whether to match exact text\n            timeout: Timeout for finding element\n\n        Returns:\n            Click result information\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "Text to search for and click"
+                    },
+                    "exact": {
+                        "type": "string",
+                        "description": "Whether to match exact text"
+                    },
+                    "timeout": {
+                        "type": "string",
+                        "description": "Timeout for finding element"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "text",
+                    "exact",
+                    "timeout",
+                    "Returns"
+                ]
+            },
+            "file": "swarm\\web\\browser\\interactor.py",
+            "decorator": [
+                "handle_async_browser_exceptions"
+            ]
+        },
+        {
+            "name": "navigate_to_url",
+            "description": "\n        Navigate to URL with enhanced error handling and validation.\n\n        Args:\n            url: URL to navigate to\n            wait_until: When to consider navigation complete\n\n        Returns:\n            Navigation result with page information\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "URL to navigate to"
+                    },
+                    "wait_until": {
+                        "type": "string",
+                        "description": "When to consider navigation complete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "wait_until",
+                    "Returns"
+                ]
+            },
+            "file": "swarm\\web\\browser\\navigator.py",
+            "decorator": [
+                "handle_async_browser_exceptions"
+            ]
+        },
+        {
+            "name": "is_active",
+            "description": "Check if browser session is active.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\web\\browser\\session.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "start",
+            "description": "\n        Start browser session with optimized configuration.\n\n        Returns:\n            Session status information\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "swarm\\web\\browser\\session.py",
+            "decorator": [
+                "handle_async_browser_exceptions"
+            ]
+        }
+    ]
+}

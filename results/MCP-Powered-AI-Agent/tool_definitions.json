@@ -1,0 +1,435 @@
+{
+    "tools": [
+        {
+            "name": "create_thumbnail",
+            "description": "Create a thumbnail from an image",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\gimp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "open_gimp",
+            "description": "Open GIMP application",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\gimp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_new",
+            "description": "Create a new file in GIMP using mouse clicks instead of keyboard shortcuts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\gimp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "draw_rectangle",
+            "description": "Draw a rectangle in GIMP",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\gimp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_text_in_paint",
+            "description": "Add text in GIMP",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\gimp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "save_file",
+            "description": "Save the current GIMP file",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\gimp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "send_email",
+            "description": "\n    Send an email to a recipient with optional attachments\n    \n    Args:\n        recipient_id: Email address of the recipient\n        subject: Subject of the email\n        message: Body content of the email\n        attachments: List of file paths to attach to the email\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "recipient_id": {
+                        "type": "string",
+                        "description": "Email address of the recipient"
+                    },
+                    "subject": {
+                        "type": "string",
+                        "description": "Subject of the email"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Body content of the email"
+                    },
+                    "attachments": {
+                        "type": "string",
+                        "description": "List of file paths to attach to the email"
+                    }
+                },
+                "required": [
+                    "recipient_id",
+                    "subject",
+                    "message",
+                    "attachments"
+                ]
+            },
+            "file": "mcp_servers\\gmail_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_unread_emails",
+            "description": "Retrieve unread emails from inbox",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\gmail_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "read_email",
+            "description": "Read contents of a specific email",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\gmail_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "trash_email",
+            "description": "Move an email to trash",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\gmail_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "mark_email_as_read",
+            "description": "Mark an email as read",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\gmail_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "open_email",
+            "description": "Open an email in browser",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\gmail_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_image_with_rectangle_and_text_tool",
+            "description": "\n    Create an image with a rectangle and text\n    output_path: str - The path to save the image\n    width: int - The width of the image\n    height: int - The height of the image\n    bg_color: str - The background color of the image\n    rect_x1: int - The x coordinate of the top left corner of the rectangle\n    rect_y1: int - The y coordinate of the top left corner of the rectangle\n    rect_x2: int - The x coordinate of the bottom right corner of the rectangle\n    rect_y2: int - The y coordinate of the bottom right corner of the rectangle\n    rect_color: str - The color of the rectangle\n    text: str - The text to display on the image\n    text_x: int - The x coordinate of the text\n    text_y: int - The y coordinate of the text\n    text_color: str - The color of the text\n    text_size: int - The size of the text\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\image_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_thumbnail",
+            "description": "Create a thumbnail of an image\n    image_path: str - The path to the image file\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\image_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add",
+            "description": "Add two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_list",
+            "description": "Add all numbers in a list",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "subtract",
+            "description": "Subtract two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "multiply",
+            "description": "Multiply two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "divide",
+            "description": "Divide two numbers with validation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "power",
+            "description": "Power of two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sqrt",
+            "description": "Square root of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cbrt",
+            "description": "Cube root of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "factorial",
+            "description": "Factorial of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "log",
+            "description": "Log of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "remainder",
+            "description": "Remainder of two numbers division",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "sin",
+            "description": "Sin of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "cos",
+            "description": "Cos of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "tan",
+            "description": "Tan of a number",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "strings_to_chars_to_int",
+            "description": "Return the ASCII values of the characters in a word",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "int_list_to_exponential_sum",
+            "description": "Return sum of exponentials of numbers in a list",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fibonacci_numbers",
+            "description": "Return the first n Fibonacci Numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_greeting",
+            "description": "Get a personalized greeting",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "review_code",
+            "description": "Review code",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "debug_error",
+            "description": "Debug error messages",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_servers\\math_server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

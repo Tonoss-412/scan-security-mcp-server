@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "get_tools",
+            "description": "Return list of available tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server\\server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "execute_tool",
+            "description": "Execute requested tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server\\server.py",
+            "decorator": [
+                "app.route"
+            ]
+        }
+    ]
+}

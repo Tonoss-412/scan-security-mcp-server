@@ -1,0 +1,445 @@
+{
+    "tools": [
+        {
+            "name": "name",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\calculator.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "description",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\calculator.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "name",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\echo.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "description",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\echo.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "name",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\hello_world.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "description",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\hello_world.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "name",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\random_number.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "description",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\random_number.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "name",
+            "description": "Return the name of the tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\__init__.py",
+            "decorator": [
+                "property",
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "description",
+            "description": "Return the description of the tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\__init__.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "enabled",
+            "description": "Return whether the tool is enabled by default.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools\\__init__.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "execute",
+            "description": "Execute the tool with the given parameters for the client.\n        \n        Args:\n            params (dict): The parameters for the tool\n            client_id (str): The ID of the client calling the tool\n            \n        Returns:\n            dict: The result of the tool execution\n        \n        Raises:\n            Exception: If the tool execution fails\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "params": {
+                        "type": "string",
+                        "description": "The parameters for the tool"
+                    },
+                    "client_id": {
+                        "type": "string",
+                        "description": "The ID of the client calling the tool"
+                    }
+                },
+                "required": [
+                    "params",
+                    "client_id"
+                ]
+            },
+            "file": "src\\tools\\__init__.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "server_process",
+            "description": "Create and start a test MCP stdio server instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "client",
+            "description": "Create and connect a test client to the test server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_process"
+                ]
+            },
+            "file": "tests\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_client_hello_world",
+            "description": "Test the client calling hello_world tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client"
+                ]
+            },
+            "file": "tests\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_client_echo",
+            "description": "Test the client calling echo tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client"
+                ]
+            },
+            "file": "tests\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_client_unknown_tool",
+            "description": "Test the client calling an unknown tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client"
+                ]
+            },
+            "file": "tests\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_client_calculate",
+            "description": "Test the client calling the calculate tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client"
+                ]
+            },
+            "file": "tests\\test_mcp_integration.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "server_process",
+            "description": "Create and start a test MCP stdio server instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_server_starts",
+            "description": "Test that the server starts successfully.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_process"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_hello_world_tool",
+            "description": "Test the hello_world tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_process"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_echo_tool",
+            "description": "Test the echo tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_process"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_unknown_tool",
+            "description": "Test requesting an unknown tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_process"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_request_format",
+            "description": "Test sending an invalid request format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_process"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_invalid_json",
+            "description": "Test sending invalid JSON.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_process"
+                ]
+            },
+            "file": "tests\\test_mcp_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "server_process",
+            "description": "Create and start a test MCP stdio server instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_stdio_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_hello_world_tool",
+            "description": "Test the hello_world tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_process"
+                ]
+            },
+            "file": "tests\\test_stdio_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_tools",
+            "description": "Test the list_tools request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_process": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_process"
+                ]
+            },
+            "file": "tests\\test_stdio_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

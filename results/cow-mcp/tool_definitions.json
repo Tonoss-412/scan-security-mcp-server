@@ -1,0 +1,545 @@
+{
+    "tools": [
+        {
+            "name": "generate_chart_prompt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "list_all_assessment_categories",
+            "description": "\n        Get all assessment categories\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\assessments\\config\\config.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_assessments",
+            "description": "\n        Get all assessments\n        Function accepts category id and category name both as optional parameters. If both are empty it will return all assessments.\n\n        Args:\n        categoryId: assessment category id (Optional)\n        categoryName: assessment category name (Optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "categoryId": {
+                        "type": "string",
+                        "description": "assessment category id (Optional)"
+                    },
+                    "categoryName": {
+                        "type": "string",
+                        "description": "assessment category name (Optional)"
+                    }
+                },
+                "required": [
+                    "categoryId",
+                    "categoryName"
+                ]
+            },
+            "file": "tools\\assessments\\config\\config.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_recent_assessment_runs",
+            "description": "\n        Get recent assessment run for given assessment id\n\n        Args:\n        id: assessment id\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "assessment id"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "file": "tools\\assessments\\run\\run.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_assessment_runs",
+            "description": "\n        Get all assessment run for given assessment id\n        Function accepts page number (page) and page size (pageSize) for pagination. If MCP client host unable to handle large response use page and pageSize, default page is 1\n        If the request times out retry with pagination, increasing pageSize from 5 to 10.\n        use this tool when expected run is got in fetch recent assessment runs tool\n        \n        Args:\n        id: assessment id\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "assessment id"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "file": "tools\\assessments\\run\\run.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_assessment_run_details",
+            "description": "\n        Get assessment run details for given assessment run id. This api will return many contorls, use page to get details pagewise.\n        If output is large store it in a file.\n\n        Args:\n        id: assessment run id\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "assessment run id"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "file": "tools\\assessments\\run\\run.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_assessment_run_leaf_controls",
+            "description": "\n        Get leaf controls for given assessment run id.\n        If output is large store it in a file.\n\n        Args:\n        id: assessment run id\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "assessment run id"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "file": "tools\\assessments\\run\\run.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_run_controls",
+            "description": "\n        use this tool to get all controls matches the given name.\n        Next use fetch control meta data tool if need assessment name, assessment Id, assessment run name, assessment run Id \n        \n        Args:\n        name: control name\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "control name"
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "file": "tools\\assessments\\run\\run.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_run_control_meta_data",
+            "description": "\n        use this tool to get control meta data (assessment & assessment run) for given control id.\n\n        Args:\n        id: control id\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "control id"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "file": "tools\\assessments\\run\\run.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_assessment_run_leaf_control_evidence",
+            "description": "\n        Get leaf control evidence for given assessment run control id.\n\n        Args:\n        id: assessment run control id\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "assessment run control id"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "file": "tools\\assessments\\run\\run.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_evidence_records",
+            "description": "\n        Get evidence record for given evidence id.\n\n        Args:\n        id: evidence id\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "evidence id"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "file": "tools\\assessments\\run\\run.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_available_actions",
+            "description": "\n        Use this tool when the user asks about actions such as create, update or other action-related queries.\n        Based on the input, the tool will determine whether to fetch actions at the assessment level, control level, or evidence level.\n        Get actions available at assessment, control, or evidence level based on provided parameters.\n        Once fetched, ask user to confirm to execute the action, then use 'execute_action' tool with appropriate parameters to execute the action.\n        \n        Usage patterns:\n        - Assessment level: provide only assessment_name\n        - Control level: provide assessment_name, control_number, and control_alias\n        - Evidence level: provide all parameters\n        \n        Args:\n        assessmentName: assessment name (required)\n        controlNumber: control number (optional, required for control/evidence level)\n        controlAlias: control alias (optional, required for control/evidence level)  \n        evidenceName: evidence name (optional, required for evidence level only)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "assessmentName": {
+                        "type": "string",
+                        "description": "assessment name (required)"
+                    },
+                    "controlNumber": {
+                        "type": "string",
+                        "description": "control number (optional, required for control/evidence level)"
+                    },
+                    "controlAlias": {
+                        "type": "string",
+                        "description": "control alias (optional, required for control/evidence level)"
+                    },
+                    "evidenceName": {
+                        "type": "string",
+                        "description": "evidence name (optional, required for evidence level only)"
+                    }
+                },
+                "required": [
+                    "assessmentName",
+                    "controlNumber",
+                    "controlAlias",
+                    "evidenceName"
+                ]
+            },
+            "file": "tools\\assessments\\run\\run.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_action",
+            "description": "\n        use this to trigger action for assessment level or control level or evidence level.\n        Execute or trigger a specific action on an assessment run. use assessment id, assessment run id and action binding id.\n        Execute or trigger a specific action on an control run. use assessment id, assessment run id, action binding id and assessment run control id .\n        Execute or trigger a specific action on an evidence level. use assessment id, assessment run id, action binding id, assessment run control evidence id and evidence record ids.\n        use fetch assessment available actions to get action binding id.\n        Only once action can be triggered at a time, assessment level or control level or evidence level based on user preference.\n\n        Args:\n        assessmentId \n        assessmentRunId\n        actionBindingId\n        assessmentRunControlId - needed for control level action\n        assessmentRunControlEvidenceId - needed for evidence level action\n        evidenceRecordIds - needed for evidence level action\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\assessments\\run\\run.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_assets",
+            "description": "\n        Get all assets\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\assets\\assets.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_assets_summary",
+            "description": "\n        Get assets summary for given assessment id\n\n        Args:\n        id: assessment id\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "assessment id"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "file": "tools\\assets\\assets.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_resource_types",
+            "description": "\n        Get resource types for given asset run id.\n        Use 'fetch_assets_summary' tool to get assets run id\n        Function accepts page number (page) and page size (pageSize) for pagination. If MCP client host unable to handle large response use page and pageSize.\n        If the request times out retry with pagination, increasing pageSize from 50 to 100.\n\n        1. Call fetch_resource_types with page=1, pageSize=50\n        2. Note the totalPages from the response\n        3. Continue calling each page until complete\n        4. Summarize all results together\n\n        Args:\n        id: asset run id\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "asset run id"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "file": "tools\\assets\\assets.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_checks",
+            "description": "\n        Get checks for given assets run id and resource type. Use this function to get all checks for given assets run id and resource type\n        Use 'fetch_assets_summary' tool to get asset run id\n        Use 'fetch_resource_types' tool to get all resource types\n        Function accepts page number (page) and page size (pageSize) for pagination. If MCP client host unable to handle large response use page and pageSize.\n        If the request times out retry with pagination, increasing pageSize from 5 to 10.\n\n        If the check data set is large to fetch efficiently or results in timeouts, \n        it is recommended to use the 'summary tool' instead to get a summarized view of the checks.\n        \n        1. Call fetch_checks with page=1, pageSize=10\n        2. Note the totalPages from the response\n        3. Continue calling each page until complete\n        4. Summarize all results together\n\n        Args:\n        id: asset run id\n        resourceType: resource type\n        complianceStatus\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "asset run id"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "resource type"
+                    }
+                },
+                "required": [
+                    "id",
+                    "resourceType"
+                ]
+            },
+            "file": "tools\\assets\\assets.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_resources",
+            "description": "\n        Get resources for given asset run id and resource type\n        Function accepts page number (page) and page size (pageSize) for pagination. If MCP client host unable to handle large response use page and pageSize, default page is 1\n        If the request times out retry with pagination, increasing pageSize from 5 to 10.\n\n        If the resource data set is large to fetch efficiently or results in timeouts, \n        it is recommended to use the 'summary tool' instead to get a summarized view of the resource.\n    \n        1. Call fetch_resources with page=1, pageSize=10\n        2. Note the totalPages from the response\n        3. Continue calling each page until complete\n        4. Summarize all results together\n   \n        Args:\n        id: asset run id\n        resourceType: resource type\n        complianceStatus\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "asset run id"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "resource type"
+                    }
+                },
+                "required": [
+                    "id",
+                    "resourceType"
+                ]
+            },
+            "file": "tools\\assets\\assets.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_resources_with_this_check",
+            "description": "\n        Get checks for given asset run id, resource type and check\n        Function accepts page number (page) and page size (pageSize) for pagination. If MCP client host unable to handle large response use page and pageSize.\n        If the request times out retry with pagination, increasing pageSize from 10 to 50.\n\n        If the resource data set is large to fetch efficiently or results in timeouts, \n        it is recommended to use the 'summary tool' instead to get a summarized view of the resource.\n        \n        1. Call fetch_resources_for_check with page=1, pageSize=10\n        2. Note the totalPages from the response\n        3. Continue calling each page until complete\n        4. Summarize all results together\n\n        Args:\n        id: asset run id\n        resourceType: resource type\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "asset run id"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "resource type"
+                    }
+                },
+                "required": [
+                    "id",
+                    "resourceType"
+                ]
+            },
+            "file": "tools\\assets\\assets.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_checks_summary",
+            "description": "\n        Use this to get the summary on checks\n        Use this when total items in 'fetch_checks' is high\n        Get checks summary for given asset run id and resource type.\n        Get a summarized view of resources based on\n            - Compliance breakdown for checks\n                - Total Checks available\n                - Total compliant checks\n                - Total non-compliant checks\n\n        Args:\n        id: asset run id\n        resourceType: resource type\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "asset run id"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "resource type"
+                    }
+                },
+                "required": [
+                    "id",
+                    "resourceType"
+                ]
+            },
+            "file": "tools\\assets\\assets.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_resources_summary",
+            "description": "\n        Use this to get the summary on resource \n        Use this when total items in 'fetch_resources' is high\n        Fetch a summary of resources for a given asset run id and resource type.\n        Get a summarized view of resources include\n            - Compliance breakdown for resource\n                - Total Resources available\n                - Total compliant resources\n                - Total non-compliant resources\n\n    Args:\n        id: asset run ID\n        resourceType: resource type\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "asset run ID"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "resource type"
+                    }
+                },
+                "required": [
+                    "id",
+                    "resourceType"
+                ]
+            },
+            "file": "tools\\assets\\assets.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_resources_with_this_check_summary",
+            "description": "\n        Use this to get the summary on check resources \n        Use this when total items in 'fetch_resources_for_check' is high\n        Get check resources summary for given asset run id, resource type and check\n        Paginated data is enough for summary\n        Get a summarized view of check resources based on\n            - Compliance breakdown for resources\n                - Total Resources available\n                - Total compliant resources\n                - Total non-compliant resources\n\n        Args:\n        id: asset run id\n        resourceType: resource type\n\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "asset run id"
+                    },
+                    "resourceType": {
+                        "type": "string",
+                        "description": "resource type"
+                    }
+                },
+                "required": [
+                    "id",
+                    "resourceType"
+                ]
+            },
+            "file": "tools\\assets\\assets.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_dashboard_data",
+            "description": "\n    Function accepts compliance period as 'period'. Period denotes for which quarter of year dashboard data is needed. Format: Q1 2024. \n\n    Dashboard contains summary data of Common Control Framework (CCF). For any related to contorl category, framework, assignment status use this function.\n    This contains details of control status such as 'Completed', 'In Progress', 'Overdue', 'Pending'.\n    The summarization levels are 'overall control status', 'control category wise', 'control framework wise',\n    'overall control status' can be fetched from 'controlStatus'\n    'control category wise' can be fetched from 'controlSummary'\n    'control framework wise' can be fetched from 'frameworks'\n\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\dashboard\\dashboard.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_dashboard_framework_controls",
+            "description": "\n    ### Function Overview: Retrieve Control Details for a Given CCF and Review Period\n\n    This function retrieves detailed control-level data for a specified **Common Control Framework (CCF)** during a specific **review period**. \n\n    #### Parameters\n\n    - **`review_period`**:  \n    The compliance period (typically a quarter) for which the control-level data is requested.  \n    **Format**: `\"Q1 2024\"`\n\n    - **`framework_name`**:  \n    The name of the Common Control Framework to fetch data for.\n\n    #### Purpose\n\n    This function is used to fetch a list of controls and their associated data for a specific CCF and review period.  \n    It does not return an aggregated overview \u2014 instead, it retrieves detailed, item-level data for each control via an API call.\n\n    The results are displayed in the MCP host with **client-side pagination**, allowing users to navigate through the control list efficiently without making repeated API calls.\n\n\n    #### Output Fields\n\n    Each control entry in the output includes the following attributes:\n\n    - **Name** \u2014 from `controlName`\n    - **Assigned To** \u2014 extracted from the email ID in `lastAssignedTo`, if available\n    - **Assignment Status** \u2014 from `status`, if available\n    - **Compliance Status** \u2014 from `complianceStatus`\n    - **Due Date** \u2014 from `dueDate`\n    - **Score** \u2014 from `score`\n    - **Priority** \u2014 from `priority`\n\n\n    \"\"\"\n    try:\n      ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tools\\dashboard\\dashboard.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "fetch_unique_node_data_and_schema",
+            "description": "Fetchuniquenodedataandschema",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "question": {
+                        "type": "string",
+                        "description": "user question"
+                    },
+                    "Results": {
+                        "type": "string"
+                    },
+                    "node_names": {
+                        "type": "string",
+                        "description": "graph node names"
+                    },
+                    "unique_property_values": {
+                        "type": "string",
+                        "description": "unique value of each property of nodes"
+                    },
+                    "neo4j_schema": {
+                        "type": "string",
+                        "description": "graph node schema details"
+                    }
+                },
+                "required": [
+                    "question",
+                    "Results",
+                    "node_names",
+                    "unique_property_values",
+                    "neo4j_schema"
+                ]
+            },
+            "file": "tools\\graphdb\\graphdb.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_cypher_query",
+            "description": "Given a question and query, execute a cypher query and transform result to human readable format.\n\n    Args:\n        query: query to execute in graph DB\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "query to execute in graph DB"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            },
+            "file": "tools\\graphdb\\graphdb.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

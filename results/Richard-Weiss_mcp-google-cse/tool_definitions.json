@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "google_search",
+            "description": "\n    Search the custom search engine using the search term.\n    Regular query arguments can also be used, like appending site:reddit.com or after:2024-04-30.\n    If available and/or requested, the links of the search results should be used\n    in a follow-up request using a different tool to get the full content.\n    Example: \"claude.ai features site:reddit.com after:2024-04-30\"\n    :param search_term: The search term to search for, equaling the q argument in Google's search.\n    :return: Search results containing the title, link and snippet of the search result.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_google_cse\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

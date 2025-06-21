@@ -1,0 +1,59 @@
+{
+    "tools": [
+        {
+            "name": "is_write_operation",
+            "description": "Check if the query type is a write operation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\mysqldb_mcp_server\\server.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "mysql_lifespan",
+            "description": "MySQL connection lifecycle manager",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mysqldb_mcp_server\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "connect_database",
+            "description": "Connect to a specific MySQL database",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mysqldb_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_query",
+            "description": "Execute MySQL queries",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mysqldb_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

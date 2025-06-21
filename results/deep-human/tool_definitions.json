@@ -1,0 +1,268 @@
+{
+    "tools": [
+        {
+            "name": "polina_get_basic_info_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server-2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "polina_get_interests_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server-2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "polina_get_skills_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server-2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "polina_get_goals_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server-2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "polina_converse_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server-2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "polina_schedule_meeting_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server-2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "polina_hire_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server-2.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_profile_basic",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server-2.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_profile_interests",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server-2.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_profile_skills",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server-2.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_profile_goals",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server-2.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "artemiy_get_basic_info_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "artemiy_get_interests_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "artemiy_get_skills_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "artemiy_get_goals_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "artemiy_hire_ios_engineer_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "artemiy_find_job_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "artemiy_converse_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_profile_basic",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_profile_interests",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_profile_skills",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_profile_goals",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "base-human-mcp-server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

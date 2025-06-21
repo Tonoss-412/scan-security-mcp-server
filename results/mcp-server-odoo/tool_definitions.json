@@ -1,0 +1,160 @@
+{
+    "tools": [
+        {
+            "name": "odoo_base_url",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "odoo_username",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "odoo_password",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "odoo_version",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "odoo_database",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "log_level",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "log_format",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "transport_protocol",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "host",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "tools_to_register",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "ext_directories",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "xmlrpc_url",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "app_lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_odoo\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        }
+    ]
+}

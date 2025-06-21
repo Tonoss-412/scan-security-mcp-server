@@ -1,0 +1,64 @@
+{
+    "tools": [
+        {
+            "name": "index",
+            "description": "Enhanced main page with  dashboard",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scraper_modules\\flask_routes.py",
+            "decorator": [
+                "self.app.route"
+            ]
+        },
+        {
+            "name": "monitoring_dashboard",
+            "description": "Real-time monitoring dashboard",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scraper_modules\\flask_routes.py",
+            "decorator": [
+                "self.app.route"
+            ]
+        },
+        {
+            "name": "optimization_dashboard_page",
+            "description": "Enhanced Performance Optimization Dashboard Page",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scraper_modules\\flask_routes.py",
+            "decorator": [
+                "self.app.route"
+            ]
+        },
+        {
+            "name": "optimization_dashboard",
+            "description": "Enhanced Performance Optimization Dashboard",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scraper_modules\\flask_routes.py",
+            "decorator": [
+                "self.app.route"
+            ]
+        },
+        {
+            "name": "scrape",
+            "description": "Enhanced scraping endpoint with  features",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scraper_modules\\flask_routes.py",
+            "decorator": [
+                "self.app.route"
+            ]
+        }
+    ]
+}

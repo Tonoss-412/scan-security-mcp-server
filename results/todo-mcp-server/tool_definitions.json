@@ -1,0 +1,142 @@
+{
+    "tools": [
+        {
+            "name": "get_todo_list",
+            "description": "\n    Get the todo list from the server.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "delete_todo",
+            "description": "\n    Delete a todo\n    \n    Args:\n        todo_id: ID of the todo to delete\n        \n    Returns:\n        True if deletion was successful\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "todo_id": {
+                        "type": "string",
+                        "description": "ID of the todo to delete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "todo_id",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_todo",
+            "description": "\n    Create a new todo\n    \n    Args:\n        title: Title of the todo\n        description: Optional description of the todo\n        deadline: Optional deadline in ISO format (e.g., '2025-05-01T12:00:00Z')\n        \n    Returns:\n        The created todo as a dictionary\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Title of the todo"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Optional description of the todo"
+                    },
+                    "deadline": {
+                        "type": "string",
+                        "description": "Optional deadline in ISO format (e.g., '2025-05-01T12:00:00Z')"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "description",
+                    "deadline",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_todo",
+            "description": "\n    Update an existing todo\n    \n    Args:\n        todo_id: ID of the todo to update\n        title: Optional new title\n        description: Optional new description\n        completed: Optional completion status\n        deadline: Optional new deadline in ISO format\n        \n    Returns:\n        The updated todo as a dictionary\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "todo_id": {
+                        "type": "string",
+                        "description": "ID of the todo to update"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Optional new title"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Optional new description"
+                    },
+                    "completed": {
+                        "type": "string",
+                        "description": "Optional completion status"
+                    },
+                    "deadline": {
+                        "type": "string",
+                        "description": "Optional new deadline in ISO format"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "todo_id",
+                    "title",
+                    "description",
+                    "completed",
+                    "deadline",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "complete_todo",
+            "description": "\n    Mark a todo as completed\n    \n    Args:\n        todo_id: ID of the todo to mark as completed\n        \n    Returns:\n        The updated todo as a dictionary\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "todo_id": {
+                        "type": "string",
+                        "description": "ID of the todo to mark as completed"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "todo_id",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

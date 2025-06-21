@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_bigquery\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool execution requests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_bigquery\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        }
+    ]
+}

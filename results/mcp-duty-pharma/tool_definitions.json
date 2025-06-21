@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "get_nearby_duty_pharmacies",
+            "description": "Get nearby pharmacies on duty today.\n\n    - sorted by distance to the given address.\n    - only ten closest pharmacies are returned.\n    - only pharmacies on duty today are returned.\n\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_duty_pharma\\duty_pharma.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

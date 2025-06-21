@@ -1,0 +1,413 @@
+{
+    "tools": [
+        {
+            "name": "get_audio_provider",
+            "description": "\n        Get an audio provider instance\n        \n        Args:\n            provider_name: Name of the provider (e.g., 'openai', 'groq')\n            api_key: API key for the provider\n            \n        Returns:\n            Instance of BaseAudioProvider\n            \n        Raises:\n            ValueError: If provider_name is not supported\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\api_providers\\provider_factory.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_text_provider",
+            "description": "\n        Get a text provider instance\n        \n        Args:\n            provider_name: Name of the provider (e.g., 'openai', 'groq')\n            api_key: API key for the provider\n            \n        Returns:\n            Instance of BaseTextProvider\n            \n        Raises:\n            ValueError: If provider_name is not supported\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\api_providers\\provider_factory.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "register_audio_provider",
+            "description": "\n        Register a new audio provider\n        \n        Args:\n            name: Name of the provider\n            provider_class: Provider class\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\api_providers\\provider_factory.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "register_text_provider",
+            "description": "\n        Register a new text provider\n        \n        Args:\n            name: Name of the provider\n            provider_class: Provider class\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\api_providers\\provider_factory.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "mock_api_key",
+            "description": "Fixture that provides a mock API key for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_audio_file",
+            "description": "Fixture that provides a path to a test audio file",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_text",
+            "description": "Fixture that provides sample text for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_provider_response",
+            "description": "Fixture that provides a mock API response for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_tool",
+            "description": "Create a mock tool for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_agent.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_mcp_integration",
+            "description": "Create a mock MCP integration for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_agent.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_execute_local_tool",
+            "description": "Test executing a local tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_tool": {
+                        "type": "string"
+                    },
+                    "mock_mcp_integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_tool",
+                    "mock_mcp_integration"
+                ]
+            },
+            "file": "tests\\test_agent.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_execute_mcp_tool",
+            "description": "Test executing an MCP tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_tool": {
+                        "type": "string"
+                    },
+                    "mock_mcp_integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_tool",
+                    "mock_mcp_integration"
+                ]
+            },
+            "file": "tests\\test_agent.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_process_method",
+            "description": "Test the process method with the new implementation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_tool": {
+                        "type": "string"
+                    },
+                    "mock_mcp_integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_tool",
+                    "mock_mcp_integration"
+                ]
+            },
+            "file": "tests\\test_agent.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_process_with_tool_call",
+            "description": "Test the process method with a tool call",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_tool": {
+                        "type": "string"
+                    },
+                    "mock_mcp_integration": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_tool",
+                    "mock_mcp_integration"
+                ]
+            },
+            "file": "tests\\test_agent.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "temp_config_file",
+            "description": "Create a temporary config file for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_connect_to_server",
+            "description": "Test connecting to a server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_config_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_config_file"
+                ]
+            },
+            "file": "tests\\test_mcp_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_servers",
+            "description": "Test listing servers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_config_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_config_file"
+                ]
+            },
+            "file": "tests\\test_mcp_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_tools",
+            "description": "Test listing tools for a server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_config_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_config_file"
+                ]
+            },
+            "file": "tests\\test_mcp_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_call_tool",
+            "description": "Test calling a tool on a server",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_config_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_config_file"
+                ]
+            },
+            "file": "tests\\test_mcp_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_call_tool_server_not_connected",
+            "description": "Test calling a tool on a server that's not connected",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_config_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_config_file"
+                ]
+            },
+            "file": "tests\\test_mcp_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_close",
+            "description": "Test closing all connections",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_config_file": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_config_file"
+                ]
+            },
+            "file": "tests\\test_mcp_client.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_env_vars",
+            "description": "Set up mock environment variables for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\integration\\test_app_flow.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_streamlit",
+            "description": "Mock Streamlit functionality",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_app_flow.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_audio_file",
+            "description": "Create a temporary audio file for testing",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_app_flow.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

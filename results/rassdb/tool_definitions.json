@@ -1,0 +1,392 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "Application lifespan manager.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "example-chat-bot\\src\\rassdb_chat\\api\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Check server health status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "example-chat-bot\\src\\rassdb_chat\\api\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "query",
+            "description": "Execute a query against RASSDB.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "example-chat-bot\\src\\rassdb_chat\\api\\server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "create_session",
+            "description": "Create a new chat session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "example-chat-bot\\src\\rassdb_chat\\api\\server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_session_history",
+            "description": "Get message history for a session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "example-chat-bot\\src\\rassdb_chat\\api\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "clear_session",
+            "description": "Clear a chat session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "example-chat-bot\\src\\rassdb_chat\\api\\server.py",
+            "decorator": [
+                "app.delete"
+            ]
+        },
+        {
+            "name": "index_directory",
+            "description": "Index a directory for RASSDB.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "example-chat-bot\\src\\rassdb_chat\\api\\server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "find_similar_code",
+            "description": "Find similar code snippets.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "example-chat-bot\\src\\rassdb_chat\\api\\server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "ideal_chunk_size",
+            "description": "Return ideal chunk size parameters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rassdb\\embedding_strategies.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "ideal_chunk_size",
+            "description": "Ideal: 150-400 lines or 1,500-4,000 characters.\n\n        Research-based sizing:\n        - Model prefers function-level chunks with substantial docstrings\n        - 256+ token docstrings show best performance\n        - Balance between context and focus\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rassdb\\embedding_strategies.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "ideal_chunk_size",
+            "description": "Ideal: 100-300 lines or 3,000-8,000 characters (including metadata).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rassdb\\embedding_strategies.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "ideal_chunk_size",
+            "description": "Ideal: 100-400 lines or 2,000-10,000 characters.\n\n        Supports 8192 token context, allowing for larger code chunks\n        to capture entire classes or modules for better understanding.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rassdb\\embedding_strategies.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "ideal_chunk_size",
+            "description": "Ideal: 100-300 lines or 2,000-8,000 characters.\n\n        Supports 8192 token context but works best with moderate chunks.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rassdb\\embedding_strategies.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "conn",
+            "description": "Get the database connection, creating it if necessary.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rassdb\\vector_store.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "Get list of changed files with line numbers from git diff.\n\n    Examples:\n        rassdb-get-git-diff-lines                    # All changes in current directory\n        rassdb-get-git-diff-lines file1.py file2.py  # Specific files\n        rassdb-get-git-diff-lines dir1 dir2 file.py  # Multiple directories and files\n        rassdb-get-git-diff-lines -- HEAD^^          # Changes from 2 commits ago\n        rassdb-get-git-diff-lines -- HEAD~3 file.py  # Specific file changes from 3 commits ago\n        rassdb-get-git-diff-lines --cached           # Staged changes\n        rassdb-get-git-diff-lines -- origin/main     # Changes from origin/main\n        rassdb-get-git-diff-lines --with-rassdb-context     # Include RASSDB context\n        rassdb-get-git-diff-lines --rassdb-path db.rassdb --with-rassdb-context  # Specify database path\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ctx": {
+                        "type": "string"
+                    },
+                    "paths": {
+                        "type": "string"
+                    },
+                    "with_rassdb_context": {
+                        "type": "string"
+                    },
+                    "rassdb_path": {
+                        "type": "string"
+                    },
+                    "cached": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ctx",
+                    "paths",
+                    "with_rassdb_context",
+                    "rassdb_path",
+                    "cached"
+                ]
+            },
+            "file": "rassdb\\cli\\get_git_diff_lines.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.pass_context"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "Index a codebase directory into the RASSDB database.\n\n    This command scans a directory for code files, parses them into semantic\n    chunks using Tree-sitter, generates embeddings, and stores them in a\n    SQLite database with vector search capabilities.\n\n    Examples:\n\n        # Index a project\n        rassdb-index ~/my-project\n\n        # Clear existing data and re-index\n        rassdb-index ~/my-project --clear\n\n        # Use a custom database file\n        rassdb-index ~/my-project --db myproject.db\n\n        # Ignore .gitignore rules\n        rassdb-index ~/my-project --no-gitignore\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rassdb\\cli\\index.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "model",
+            "description": "Lazy load the embedding model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rassdb\\cli\\search.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "format_show",
+            "description": "Format results with full code display.\n\n        Args:\n            results: List of search results.\n            search_type: Type of search performed.\n\n        Returns:\n            Formatted string with full results.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "results": {
+                        "type": "string",
+                        "description": "List of search results."
+                    },
+                    "search_type": {
+                        "type": "string",
+                        "description": "Type of search performed."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "results",
+                    "search_type",
+                    "Returns"
+                ]
+            },
+            "file": "rassdb\\cli\\search.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "format_table",
+            "description": "Format results as a table.\n\n        Args:\n            results: List of search results.\n            search_type: Type of search performed.\n\n        Returns:\n            Formatted table string.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "results": {
+                        "type": "string",
+                        "description": "List of search results."
+                    },
+                    "search_type": {
+                        "type": "string",
+                        "description": "Type of search performed."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "results",
+                    "search_type",
+                    "Returns"
+                ]
+            },
+            "file": "rassdb\\cli\\search.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "format_json",
+            "description": "Format results as JSON.\n\n        Args:\n            results: List of search results.\n\n        Returns:\n            JSON string.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "results": {
+                        "type": "string",
+                        "description": "List of search results."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "results",
+                    "Returns"
+                ]
+            },
+            "file": "rassdb\\cli\\search.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "format_simple",
+            "description": "Format results as simple file:line references.\n\n        Args:\n            results: List of search results.\n            search_type: Type of search performed.\n\n        Returns:\n            Simple formatted string.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "results": {
+                        "type": "string",
+                        "description": "List of search results."
+                    },
+                    "search_type": {
+                        "type": "string",
+                        "description": "Type of search performed."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "results",
+                    "search_type",
+                    "Returns"
+                ]
+            },
+            "file": "rassdb\\cli\\search.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "Unified code search tool supporting semantic and lexical search.\n\n    By default, both semantic and lexical search are performed.\n    You can specify search types with --semantic (-s) or --lexical (-l) to use only one.\n    Both can be used together explicitly for comprehensive results.\n\n    Examples:\n\n        # Semantic search for similar concepts\n        rassdb-search -s \"error handling\"\n\n        # Lexical search for exact text\n        rassdb-search -l \".tick\"\n\n        # Both searches combined\n        rassdb-search -s -l \"database connection\"\n\n        # Show full code content\n        rassdb-search -s \"parse function\" --show\n\n        # Filter by language\n        rassdb-search -s \"async function\" --language javascript\n\n        # Regex search\n        rassdb-search -l \"class.*Component\" -E\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rassdb\\cli\\search.py",
+            "decorator": [
+                "click.command",
+                "click.argument",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "Display statistics about the RASSDB database.\n\n    Shows information about the number of indexed code chunks,\n    files, and breakdowns by language and chunk type.\n\n    Examples:\n\n        # Show statistics in table format\n        rassdb-stats\n\n        # Use a custom database\n        rassdb-stats --db myproject.db\n\n        # Output as JSON\n        rassdb-stats --format json\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rassdb\\cli\\stats.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        }
+    ]
+}

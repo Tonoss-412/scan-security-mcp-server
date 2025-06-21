@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "get_home",
+            "description": "Serve a simple HTML interface.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "web_client.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "getdata",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server\\buy.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

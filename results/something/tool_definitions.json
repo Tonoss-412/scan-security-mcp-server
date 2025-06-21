@@ -1,0 +1,283 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "app": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "app"
+                ]
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "serve_ui",
+            "description": "Return the main UI page.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "Handle a chat query with optional EVTX uploads to parse and generate an answer.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_indices",
+            "description": "List all available Elasticsearch indices via MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_mappings",
+            "description": "Get field mappings for a specific Elasticsearch index via MCP server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "es_search",
+            "description": "Perform an Elasticsearch search via MCP server with the provided query DSL.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "es_chat",
+            "description": "Handle a chat query with Elasticsearch MCP server to analyze logs. Returns raw Elasticsearch results to the frontend.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "specialized_query",
+            "description": "Execute a specialized MCP query for specific threat hunting scenarios.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "es_cache_stats",
+            "description": "Get statistics about the MCP cache.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "es_clear_cache",
+            "description": "Clear the MCP cache.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "test_get_indices",
+            "description": "Test the get_indices function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "tests\\test_mcp_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_mappings",
+            "description": "Test the get_mappings function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "tests\\test_mcp_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_execute_mcp_query",
+            "description": "Test the execute_mcp_query function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post"
+                ]
+            },
+            "file": "tests\\test_mcp_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_cache_operations",
+            "description": "Test caching functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_time": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_time"
+                ]
+            },
+            "file": "tests\\test_mcp_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_command_and_control_detection",
+            "description": "Test the C2 detection function with mocked MCP client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logger": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logger"
+                ]
+            },
+            "file": "tests\\test_specialized_queries.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_command_and_control_fallback",
+            "description": "Test the C2 detection fallback when MCP server fails.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logger": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logger"
+                ]
+            },
+            "file": "tests\\test_specialized_queries.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_data_exfiltration_detection",
+            "description": "Test the data exfiltration detection function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logger": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logger"
+                ]
+            },
+            "file": "tests\\test_specialized_queries.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_privilege_escalation_detection",
+            "description": "Test the privilege escalation detection function.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_logger": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_logger"
+                ]
+            },
+            "file": "tests\\test_specialized_queries.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

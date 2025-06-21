@@ -1,0 +1,111 @@
+{
+    "tools": [
+        {
+            "name": "create_note",
+            "description": "\n    Create a new markdown note in Obsidian format with proper frontmatter.\n\n    Args:\n        title: Title of the note\n        content: Content of the note\n        tags: Optional list of tags\n        folder: Optional folder path within the vault\n        vault_path: Path to the Obsidian vault (defaults to current directory)\n\n    Returns:\n        Path to the created note\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Title of the note"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Content of the note"
+                    },
+                    "tags": {
+                        "type": "string",
+                        "description": "Optional list of tags"
+                    },
+                    "folder": {
+                        "type": "string",
+                        "description": "Optional folder path within the vault"
+                    },
+                    "vault_path": {
+                        "type": "string",
+                        "description": "Path to the Obsidian vault (defaults to current directory)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "content",
+                    "tags",
+                    "folder",
+                    "vault_path",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "append_to_note",
+            "description": "\n    Append content to an existing note by title.\n\n    Args:\n        title: Title of the note to append to\n        content: Content to append\n        vault_path: Path to the Obsidian vault\n\n    Returns:\n        Success message or error\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Title of the note to append to"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Content to append"
+                    },
+                    "vault_path": {
+                        "type": "string",
+                        "description": "Path to the Obsidian vault"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "content",
+                    "vault_path",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_daily_note",
+            "description": "\n    Create or append to today's daily note.\n\n    Args:\n        content: Content to add to the daily note\n        vault_path: Path to the Obsidian vault\n\n    Returns:\n        Path to the daily note\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "Content to add to the daily note"
+                    },
+                    "vault_path": {
+                        "type": "string",
+                        "description": "Path to the Obsidian vault"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "content",
+                    "vault_path",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

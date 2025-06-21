@@ -1,0 +1,129 @@
+{
+    "tools": [
+        {
+            "name": "get_table_details",
+            "description": "GettablenamesanddescriptionofOracleDatabaseTables",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "Returns"
+                ]
+            },
+            "file": "oracledb_mcp_server\\__main__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_column_details",
+            "description": "Returnstablenames",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "Returns"
+                ]
+            },
+            "file": "oracledb_mcp_server\\__main__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "execute_sql",
+            "description": "ExecutesanSQLqueryontheOracleDatabase",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sqlString": {
+                        "type": "string",
+                        "description": "The SQL query to execute"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "JSON string containing either query results or error message"
+                    }
+                },
+                "required": [
+                    "sqlString",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "oracledb_mcp_server\\__main__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_comment_db_connection",
+            "description": "ConnecttocommentsOracleDatabasetogetOracleSchemaTableandColumnsComments",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "commentDBConnectionString": {
+                        "type": "string",
+                        "description": "The database connection string for the comments database"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "JSON string containing status message and result"
+                    }
+                },
+                "required": [
+                    "commentDBConnectionString",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "oracledb_mcp_server\\__main__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "connect_to_database",
+            "description": "ConnecttoOracleDatabasetorunSQLQueries",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "devDBConnectionString": {
+                        "type": "string",
+                        "description": "The database connection string for the target database"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Success message if the connection was established"
+                    }
+                },
+                "required": [
+                    "devDBConnectionString",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "oracledb_mcp_server\\__main__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

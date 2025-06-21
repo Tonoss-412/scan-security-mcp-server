@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "manin_executable_code",
+            "description": "\n        This function take the manim_code and then run it in the file named manim_code.py\n        The output will be saved in the media directory and the path to the file will be returned.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\animation_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "clean_manim_media",
+            "description": "\n        This function will clean the media directory.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\animation_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "manim_prompt",
+            "description": "\n        This function will take a prompt and return the manim code.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\animation_mcp.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

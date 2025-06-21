@@ -1,0 +1,72 @@
+{
+    "tools": [
+        {
+            "name": "base_url",
+            "description": "\n        Get the base URL for the Ghost Content API.\n        This is constructed from the integration's credentials.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\universal_mcp_ghost_content\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "base_url",
+            "description": "\n        Set the base URL for the Ghost Content API.\n        This is useful for testing or if the base URL changes.\n\n        Args:\n            base_url: The new base URL to set.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "base_url": {
+                        "type": "string",
+                        "description": "The new base URL to set."
+                    }
+                },
+                "required": [
+                    "base_url"
+                ]
+            },
+            "file": "src\\universal_mcp_ghost_content\\app.py",
+            "decorator": [
+                "base_url.setter"
+            ]
+        },
+        {
+            "name": "_get_api_key",
+            "description": "\n        Retrieves the Ghost Content API key from integration credentials.\n        Caches the key after the first retrieval.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\universal_mcp_ghost_content\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "_get_version",
+            "description": "\n        Retrieves the Ghost Content API version from integration credentials.\n        Caches the version after the first retrieval.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\universal_mcp_ghost_content\\app.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "app_instance",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_app.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

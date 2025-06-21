@@ -1,0 +1,148 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "create_connection",
+            "description": "Create a new Snowflake connection",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "list_connections",
+            "description": "List all connections",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "delete_connection",
+            "description": "Delete a connection",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.delete"
+            ]
+        },
+        {
+            "name": "mcp_sse",
+            "description": "SSE endpoint for MCP protocol - optimized for LibreChat SSE transport",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "test_sse",
+            "description": "Simple SSE test endpoint for debugging",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "mcp_cleanup",
+            "description": "Cleanup endpoint for graceful shutdown",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "mcp_health",
+            "description": "Health check for a specific MCP connection",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "sse_status",
+            "description": "Check status of active SSE connections",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "mcp_messages",
+            "description": "Handle MCP protocol messages - sends responses through SSE stream",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\app\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        }
+    ]
+}

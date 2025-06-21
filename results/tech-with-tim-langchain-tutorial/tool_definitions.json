@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "tool_extraction_user",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\prompts.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "tool_analysis_user",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\prompts.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "recommendations_user",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\prompts.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

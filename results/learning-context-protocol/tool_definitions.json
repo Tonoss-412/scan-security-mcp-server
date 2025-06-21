@@ -1,0 +1,653 @@
+{
+    "tools": [
+        {
+            "name": "index",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "webgazer_js",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "collect_gaze_data",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "update_context",
+            "description": "\n    Allow users to directly update their context/mood\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "provide_feedback",
+            "description": "\n    Allow users to provide feedback on model responses to improve learning\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "api_run_agent",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "set_window_size",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\server.py",
+            "decorator": [
+                "app.route"
+            ]
+        },
+        {
+            "name": "letter_from_the_universe",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\learning\\ai_learning_protocol.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "fixation_checkpoint_prompt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\learning\\ai_learning_protocol.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "as_partial_prompt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\serialization\\ai_response_tokenizer.py",
+            "decorator": [
+                "override"
+            ]
+        },
+        {
+            "name": "as_readable_line",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\serialization\\ai_response_tokenizer.py",
+            "decorator": [
+                "override"
+            ]
+        },
+        {
+            "name": "tokenize_line",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\serialization\\ai_response_tokenizer.py",
+            "decorator": [
+                "override"
+            ]
+        },
+        {
+            "name": "get_name",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\serialization\\ai_response_tokenizer.py",
+            "decorator": [
+                "override"
+            ]
+        },
+        {
+            "name": "get_value",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\serialization\\ai_response_tokenizer.py",
+            "decorator": [
+                "override"
+            ]
+        },
+        {
+            "name": "get_value",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\serialization\\ai_response_tokenizer.py",
+            "decorator": [
+                "override"
+            ]
+        },
+        {
+            "name": "__str__",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\serialization\\ai_response_tokenizer.py",
+            "decorator": [
+                "override"
+            ]
+        },
+        {
+            "name": "get_prompt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\serialization\\ai_response_tokenizer.py",
+            "decorator": [
+                "override"
+            ]
+        },
+        {
+            "name": "_get_sentence_transformer",
+            "description": "Get a sentence transformer model for generating embeddings.\n\n    This is cached so subsequent calls are quick. We use the all-MiniLM-L6-v2\n    model by default, which is a good balance between quality and performance.\n\n    Returns:\n        A sentence transformer model.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\tools\\embeddings.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "plan",
+            "description": "Generate a plan for executing a task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\tools\\reasoning_provider.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "analyze",
+            "description": "Analyze code or text to identify issues or improvements.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\tools\\reasoning_provider.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "evaluate",
+            "description": "Evaluate a solution against requirements.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\tools\\reasoning_provider.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Check if the reasoning provider is healthy.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\tools\\reasoning_provider.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "vector_upsert",
+            "description": "Store a text snippet with its embedding.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\tools\\vector_db_provider.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "vector_query",
+            "description": "Retrieve up to `top_k` snippets most similar to a query string.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\tools\\vector_db_provider.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Check if the vector database is healthy.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\backend\\src\\tools\\vector_db_provider.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "test_initialization",
+            "description": "Test that the provider initializes correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_gpt_model": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_gpt_model"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_neural_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_load_model",
+            "description": "Test that the provider loads a model correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_exists": {
+                        "type": "string"
+                    },
+                    "mock_load": {
+                        "type": "string"
+                    },
+                    "mock_gpt_model": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_exists",
+                    "mock_load",
+                    "mock_gpt_model"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_neural_integration.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate",
+            "description": "Test that the provider generates text correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_multinomial": {
+                        "type": "string"
+                    },
+                    "mock_topk": {
+                        "type": "string"
+                    },
+                    "mock_gpt_model": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_multinomial",
+                    "mock_topk",
+                    "mock_gpt_model"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_neural_integration.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_answer_shell_command",
+            "description": "Test that the provider answers shell commands correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_gpt_model": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_gpt_model"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_neural_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_with_temperature",
+            "description": "Test text generation with temperature-based sampling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_gpt_model": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_gpt_model"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_neural_integration.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_conversation_history",
+            "description": "Test that conversation history is maintained correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_gpt_model": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_gpt_model"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_neural_integration.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_enhance_memory_query",
+            "description": "Test the enhance_memory_query method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_gpt_model": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_gpt_model"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_neural_integration.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_summarize_file_content",
+            "description": "Test the summarize_file_content method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_gpt_model": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_gpt_model"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_neural_integration.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_health",
+            "description": "Test the health method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_reasoning_provider.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_plan",
+            "description": "Test the plan method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_reasoning_provider.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_analyze",
+            "description": "Test the analyze method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_reasoning_provider.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_evaluate",
+            "description": "Test the evaluate method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_reasoning_provider.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_plan_fallback",
+            "description": "Test the plan method with fallback.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_post": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_post"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_reasoning_provider.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_initialization",
+            "description": "Test initialization of the Reasoning Provider.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_class"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_reasoning_provider.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_generate_plan",
+            "description": "Test the generate_plan method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_class"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_reasoning_provider.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_analyze_content",
+            "description": "Test the analyze_content method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_class"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_reasoning_provider.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_evaluate_solution",
+            "description": "Test the evaluate_solution method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client_class": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client_class"
+                ]
+            },
+            "file": "src\\backend\\test\\tools\\test_reasoning_provider.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

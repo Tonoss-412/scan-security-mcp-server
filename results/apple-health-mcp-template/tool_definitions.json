@@ -1,0 +1,95 @@
+{
+    "tools": [
+        {
+            "name": "sample_config",
+            "description": "Sample configuration for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_render.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "temp_template_dir",
+            "description": "Create a temporary template directory with sample templates.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_render.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_expand_env_vars",
+            "description": "Test environment variable expansion.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "temp_template_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "temp_template_dir"
+                ]
+            },
+            "file": "tests\\test_render.py",
+            "decorator": [
+                "patch.dict"
+            ]
+        },
+        {
+            "name": "template_dir",
+            "description": "Get the actual template directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_templates.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "minimal_config",
+            "description": "Minimal valid configuration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_templates.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "complete_config",
+            "description": "Complete configuration with all optional values.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_templates.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "template_dir",
+            "description": "Get the actual template directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_templates.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

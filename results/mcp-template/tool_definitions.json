@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "hello",
+            "description": "\n    Returns a hello message.\n    \n    Parameters:\n    - name: Optional name to greet (string)\n    \n    Returns:\n    - Hello message with optional personalization\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_env_info",
+            "description": "\n    Returns information from environment variables.\n    \n    Returns:\n    - Environment variable information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

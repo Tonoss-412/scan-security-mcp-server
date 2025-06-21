@@ -1,0 +1,805 @@
+{
+    "tools": [
+        {
+            "name": "get_contact_by_id",
+            "description": "\n    Get a HubSpot contact by ID\n\n    Args:\n        contact_id: The HubSpot contact ID. Can be provided as integer or string.\n\n    Returns:\n        The contact information as a dictionary\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "contact_id": {
+                        "type": "string",
+                        "description": "The HubSpot contact ID. Can be provided as integer or string."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "contact_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_contact_by_email",
+            "description": "\n    Get a HubSpot contact by email address\n\n    Args:\n        email: The contact's email address\n\n    Returns:\n        The contact information as a dictionary or an error message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "The contact's email address"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "email",
+                    "Returns"
+                ]
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_contacts",
+            "description": "\n    Search for HubSpot contacts based on property criteria\n\n    Args:\n        property_name: The contact property to search (e.g., firstname, lastname, email)\n        operator: The operator to use for searching (EQ, CONTAINS, NEQ, GT, LT, GTE, LTE)\n        value: The value to search for\n        limit: Maximum number of results to return (default: 10)\n\n    Returns:\n        A dictionary containing matching contacts\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "property_name": {
+                        "type": "string",
+                        "description": "The contact property to search (e.g., firstname, lastname, email)"
+                    },
+                    "operator": {
+                        "type": "string",
+                        "description": "The operator to use for searching (EQ, CONTAINS, NEQ, GT, LT, GTE, LTE)"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The value to search for"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of results to return (default: 10)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "property_name",
+                    "operator",
+                    "value",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_deal_by_id",
+            "description": "\n    Get a HubSpot deal by ID\n\n    Args:\n        deal_id: The HubSpot deal ID. Can be provided as integer or string.\n\n    Returns:\n        The deal information as a dictionary\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "deal_id": {
+                        "type": "string",
+                        "description": "The HubSpot deal ID. Can be provided as integer or string."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "deal_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_contact_deals",
+            "description": "\n    Get all deals associated with a HubSpot contact\n\n    Args:\n        contact_id: The HubSpot contact ID. Can be provided as integer or string.\n\n    Returns:\n        A dictionary containing the deals associated with the contact\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "contact_id": {
+                        "type": "string",
+                        "description": "The HubSpot contact ID. Can be provided as integer or string."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "contact_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_deal_contacts",
+            "description": "\n    Get all contacts associated with a HubSpot deal\n\n    Args:\n        deal_id: The HubSpot deal ID. Can be provided as integer or string.\n\n    Returns:\n        A dictionary containing the contacts associated with the deal\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "deal_id": {
+                        "type": "string",
+                        "description": "The HubSpot deal ID. Can be provided as integer or string."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "deal_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_latest_marketing_campaign",
+            "description": "\n    Get the most recent marketing campaigns\n\n    Args:\n        limit: Number of campaigns to retrieve (default: 1)\n        type: Campaign type (EMAIL, SOCIAL, etc.)\n\n    Returns:\n        Information about the latest marketing campaigns\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Number of campaigns to retrieve (default: 1)"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Campaign type (EMAIL, SOCIAL, etc.)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "type",
+                    "Returns"
+                ]
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_campaign_engagement",
+            "description": "\n    Get contacts who engaged with a specific marketing campaign\n\n    Args:\n        campaign_id: ID of the marketing campaign\n        engagement_type: Type of engagement (OPEN, CLICK, etc.)\n        limit: Maximum number of contacts to return\n\n    Returns:\n        List of contacts with engagement data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "campaign_id": {
+                        "type": "string",
+                        "description": "ID of the marketing campaign"
+                    },
+                    "engagement_type": {
+                        "type": "string",
+                        "description": "Type of engagement (OPEN, CLICK, etc.)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of contacts to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "campaign_id",
+                    "engagement_type",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_page_visits",
+            "description": "\n    Get contacts who visited a specific page in the given time period\n\n    Args:\n        page_path: URL path of the page (e.g., \"/pricing\")\n        days_ago: How many days back to look for visits\n        limit: Maximum number of contacts to return\n\n    Returns:\n        List of contacts with visit data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "page_path": {
+                        "type": "string",
+                        "description": "URL path of the page (e.g., \"/pricing\")"
+                    },
+                    "days_ago": {
+                        "type": "string",
+                        "description": "How many days back to look for visits"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of contacts to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "page_path",
+                    "days_ago",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_contact_analytics",
+            "description": "\n    Get analytics data for a specific contact\n\n    Args:\n        contact_id: ID of the contact\n        metrics: Types of metrics to retrieve (page_views, form_submissions, etc.)\n        timeframe: Time period for data (last_7_days, last_30_days, etc.)\n\n    Returns:\n        Analytics data for the contact\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "contact_id": {
+                        "type": "string",
+                        "description": "ID of the contact"
+                    },
+                    "metrics": {
+                        "type": "string",
+                        "description": "Types of metrics to retrieve (page_views, form_submissions, etc.)"
+                    },
+                    "timeframe": {
+                        "type": "string",
+                        "description": "Time period for data (last_7_days, last_30_days, etc.)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "contact_id",
+                    "metrics",
+                    "timeframe",
+                    "Returns"
+                ]
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_scheduled_meetings",
+            "description": "\n    Get meetings scheduled within a time period\n\n    Args:\n        start_date: Start of time period (first day of current month by default)\n        end_date: End of time period (last day of current month by default)\n        owner_id: Optional filter for meetings with a specific owner\n        limit: Maximum number of meetings to return\n\n    Returns:\n        List of meetings with associated contact information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "start_date": {
+                        "type": "string",
+                        "description": "Start of time period (first day of current month by default)"
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "End of time period (last day of current month by default)"
+                    },
+                    "owner_id": {
+                        "type": "string",
+                        "description": "Optional filter for meetings with a specific owner"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of meetings to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "start_date",
+                    "end_date",
+                    "owner_id",
+                    "limit",
+                    "Returns"
+                ]
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_meeting_details",
+            "description": "\n    Get detailed information about a specific meeting\n\n    Args:\n        meeting_id: ID of the meeting\n\n    Returns:\n        Detailed meeting information including attendees, notes, etc.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "meeting_id": {
+                        "type": "string",
+                        "description": "ID of the meeting"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "meeting_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_contact_schema",
+            "description": "\n    Get the schema information for HubSpot contacts\n\n    Returns:\n        Information about the contact object structure\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_deals_schema",
+            "description": "\n    Get the schema information for HubSpot deals\n\n    Returns:\n        Information about the deal object structure\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\hubspot_mcp_server\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "sample_contact",
+            "description": "Return a sample contact data structure",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_contacts_list",
+            "description": "Return a list of sample contacts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_contact": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_contact"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_response",
+            "description": "Factory for creating mock responses with different status codes and data",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_async_get",
+            "description": "Mock for httpx.AsyncClient.get method",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocker": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocker"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_async_post",
+            "description": "Mock for httpx.AsyncClient.post method",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mocker": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mocker"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "setup_environment",
+            "description": "Set up environment variables for tests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_contact_by_id_url_construction",
+            "description": "Test that the contact by ID URL is correctly constructed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_api_communication.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_contact_by_email_payload_construction",
+            "description": "Test that the contact by email search payload is correctly constructed",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_api_communication.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_api_headers_sent",
+            "description": "Test that the correct headers are sent with the API request",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_api_communication.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "setup_environment",
+            "description": "Set up environment variables for tests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_contacts.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_contact_by_id_string",
+            "description": "Test get_contact_by_id with a string ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_contacts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_contact_by_id_integer",
+            "description": "Test get_contact_by_id with an integer ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_contacts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_contact_by_email",
+            "description": "Test get_contact_by_email function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_contacts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_contact_by_id_not_found",
+            "description": "Test get_contact_by_id returns appropriate error for 404",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_contacts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_contact_by_email_no_results",
+            "description": "Test get_contact_by_email with no results",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_contacts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_api_error_handling",
+            "description": "Test error handling for API errors",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_contacts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_exception_handling",
+            "description": "Test general exception handling",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_contacts.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "setup_environment",
+            "description": "Set up environment variables for tests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_deals.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_deal_by_id",
+            "description": "Test get_deal_by_id function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_deals.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_deal_by_id_integer",
+            "description": "Test get_deal_by_id with an integer ID",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_deals.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_contact_deals",
+            "description": "Test get_contact_deals function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_deals.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_deal_contacts",
+            "description": "Test get_deal_contacts function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_deals.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_deal_by_id_not_found",
+            "description": "Test get_deal_by_id returns appropriate error for 404",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_deals.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "setup_environment",
+            "description": "Set up environment variables for tests",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_engagement.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_search_contacts",
+            "description": "Test search_contacts function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_engagement.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_latest_marketing_campaign",
+            "description": "Test get_latest_marketing_campaign function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_engagement.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_campaign_engagement",
+            "description": "Test get_campaign_engagement function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_engagement.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_page_visits",
+            "description": "Test get_page_visits function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_engagement.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_contact_analytics",
+            "description": "Test get_contact_analytics function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_engagement.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_scheduled_meetings",
+            "description": "Test get_scheduled_meetings function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_engagement.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_meeting_details",
+            "description": "Test get_meeting_details function",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_engagement.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_error_handling",
+            "description": "Test error handling for API errors",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_engagement.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_required_id_validation",
+            "description": "Test validation for required IDs",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_hubspot_engagement.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

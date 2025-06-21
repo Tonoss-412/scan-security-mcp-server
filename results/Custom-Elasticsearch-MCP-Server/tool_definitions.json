@@ -1,0 +1,52 @@
+{
+    "tools": [
+        {
+            "name": "list_indices",
+            "description": "List all available Elasticsearch indices matching the index pattern",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "simple_elasticsearch_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "Perform an Elasticsearch search with the provided query DSL. Highlights are always enabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "simple_elasticsearch_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_mappings",
+            "description": "Get field mappings for a specific Elasticsearch index",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "simple_elasticsearch_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_shards",
+            "description": "Get shard information for all or specific indices",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "simple_elasticsearch_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

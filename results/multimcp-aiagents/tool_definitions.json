@@ -1,0 +1,202 @@
+{
+    "tools": [
+        {
+            "name": "run_kusto_query",
+            "description": "\n    Get data from kusto for a given query\n    Returns:\n        A json containing the results of the query.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "reviews_mcp_server.py",
+            "decorator": [
+                "review_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_reviews",
+            "description": "\n    Retrieve reviews from the database\n    Args:\n        query to get all review\n    Returns:\n        dict: Review data if found, else an error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Review data if found, else an error message."
+                    }
+                },
+                "required": [
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "reviews_mcp_server.py",
+            "decorator": [
+                "review_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_review",
+            "description": "\n    Retrieve a review from the database by its ID or Name.\n    Args:\n        review_id (str): The unique identifier of the review.\n    Returns:\n        dict: Review data if found, else an error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "review_id": {
+                        "type": "string",
+                        "description": "The unique identifier of the review."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "dict": {
+                        "type": "string",
+                        "description": "Review data if found, else an error message."
+                    }
+                },
+                "required": [
+                    "review_id",
+                    "Returns",
+                    "dict"
+                ]
+            },
+            "file": "reviews_mcp_server.py",
+            "decorator": [
+                "review_mcp.tool"
+            ]
+        },
+        {
+            "name": "create_review",
+            "description": "\n    Create a new review in the database.\n    Args:\n        review_name (str): Name of the review.\n        workload_id (str): ID of the workload.\n        workload_name (str): Name of the workload.\n        owner (str): Owner of the review.\n    Returns:\n        str: Success or error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "review_name": {
+                        "type": "string",
+                        "description": "Name of the review."
+                    },
+                    "workload_id": {
+                        "type": "string",
+                        "description": "ID of the workload."
+                    },
+                    "workload_name": {
+                        "type": "string",
+                        "description": "Name of the workload."
+                    },
+                    "owner": {
+                        "type": "string",
+                        "description": "Owner of the review."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Success or error message."
+                    }
+                },
+                "required": [
+                    "review_name",
+                    "workload_id",
+                    "workload_name",
+                    "owner",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "reviews_mcp_server.py",
+            "decorator": [
+                "review_mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_review",
+            "description": "\n    Delete a review from the database.\n    Args:\n        review_id (str): The unique identifier of the review.\n    Returns:\n        str: Success or error message.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "review_id": {
+                        "type": "string",
+                        "description": "The unique identifier of the review."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Success or error message."
+                    }
+                },
+                "required": [
+                    "review_id",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "reviews_mcp_server.py",
+            "decorator": [
+                "review_mcp.tool"
+            ]
+        },
+        {
+            "name": "stock_resource",
+            "description": "\n    Expose stock price data as a resource.\n    Returns a formatted string with the current stock price for the given symbol.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rh_mcp_server.py",
+            "decorator": [
+                "robinhood_mcp.resource"
+            ]
+        },
+        {
+            "name": "get_stock_history",
+            "description": "\n    Retrieve historical data for a stock given a ticker symbol and a period.\n    Returns the historical data as a CSV formatted string.\n    \n    Parameters:\n        symbol: The stock ticker symbol.\n        period: The period over which to retrieve historical data (e.g., '1mo', '3mo', '1y').\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rh_mcp_server.py",
+            "decorator": [
+                "robinhood_mcp.tool"
+            ]
+        },
+        {
+            "name": "compare_stocks",
+            "description": "\n    Compare the current stock prices of two ticker symbols.\n    Returns a formatted message comparing the two stock prices.\n    \n    Parameters:\n        symbol1: The first stock ticker symbol.\n        symbol2: The second stock ticker symbol.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rh_mcp_server.py",
+            "decorator": [
+                "robinhood_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_stock_price",
+            "description": "\n    Retrieve the current stock price for the given ticker symbol.\n    Returns the latest closing price as a float.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rh_mcp_server.py",
+            "decorator": [
+                "robinhood_mcp.tool"
+            ]
+        },
+        {
+            "name": "get_robinhood_portfolio",
+            "description": "\n    Get details of user's Robinhood portfolio.\n    Retrieves the user's open stock positions, including symbol, shares, average buy price, quantity,\n\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "rh_mcp_server.py",
+            "decorator": [
+                "robinhood_mcp.tool"
+            ]
+        }
+    ]
+}

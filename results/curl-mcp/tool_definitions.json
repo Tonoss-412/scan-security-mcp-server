@@ -1,0 +1,182 @@
+{
+    "tools": [
+        {
+            "name": "http_request",
+            "description": "MakeanHTTPrequesttoaspecifiedURL\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The URL to send the request to"
+                    },
+                    "method": {
+                        "type": "string",
+                        "description": "The HTTP method to use (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS)"
+                    },
+                    "headers": {
+                        "type": "string",
+                        "description": "HTTP headers to include in the request"
+                    },
+                    "params": {
+                        "type": "string",
+                        "description": "URL parameters to include in the request"
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "Data to send in the request body"
+                    },
+                    "json": {
+                        "type": "string",
+                        "description": "JSON data to send in the request body"
+                    },
+                    "timeout": {
+                        "type": "string",
+                        "description": "Request timeout in seconds"
+                    },
+                    "client_id": {
+                        "type": "string",
+                        "description": "OAuth2 client ID to use for token lookup (if provided and token exists in cache)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "method",
+                    "headers",
+                    "params",
+                    "data",
+                    "json",
+                    "timeout",
+                    "client_id",
+                    "Returns"
+                ]
+            },
+            "file": "curl.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_readme",
+            "description": "DocumentationfortheHTTPclient\"\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "curl.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "oauth2_authorize_and_fetch_token",
+            "description": "CreateanOAuth2authorizationURL",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "client_id": {
+                        "type": "string",
+                        "description": "OAuth2 client ID"
+                    },
+                    "authorization_url": {
+                        "type": "string",
+                        "description": "Authorization endpoint URL"
+                    },
+                    "token_url": {
+                        "type": "string",
+                        "description": "Token endpoint URL"
+                    },
+                    "redirect_uri": {
+                        "type": "string",
+                        "description": "Redirect URI for the OAuth2 flow"
+                    },
+                    "client_secret": {
+                        "type": "string",
+                        "description": "OAuth2 client secret (optional for public clients)"
+                    },
+                    "scope": {
+                        "type": "string",
+                        "description": "List of scopes to request"
+                    },
+                    "open_browser": {
+                        "type": "string",
+                        "description": "Whether to automatically open the browser"
+                    },
+                    "force": {
+                        "type": "string",
+                        "description": "Whether to reauthorize even if we already have a token"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "client_id",
+                    "authorization_url",
+                    "token_url",
+                    "redirect_uri",
+                    "client_secret",
+                    "scope",
+                    "open_browser",
+                    "force",
+                    "Returns"
+                ]
+            },
+            "file": "curl.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "echo_tool",
+            "description": "Echo the input text",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "echo.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "echo_resource",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "echo.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "echo_template",
+            "description": "Echo the input text",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "echo.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "echo_prompt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "echo.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

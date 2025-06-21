@@ -1,0 +1,576 @@
+{
+    "tools": [
+        {
+            "name": "search_contacts",
+            "description": "Search WhatsApp contacts by name or phone number.\n    \n    Args:\n        query: Search term to match against contact names or phone numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search term to match against contact names or phone numbers"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            },
+            "file": "api-deploy\\whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_messages",
+            "description": "Get WhatsApp messages matching specified criteria with optional context.\n    \n    Args:\n        date_range: Optional tuple of (start_date, end_date) to filter messages by date\n        sender_phone_number: Optional phone number to filter messages by sender\n        chat_jid: Optional chat JID to filter messages by chat\n        query: Optional search term to filter messages by content\n        limit: Maximum number of messages to return (default 20)\n        page: Page number for pagination (default 0)\n        include_context: Whether to include messages before and after matches (default True)\n        context_before: Number of messages to include before each match (default 1)\n        context_after: Number of messages to include after each match (default 1)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "date_range": {
+                        "type": "string",
+                        "description": "Optional tuple of (start_date, end_date) to filter messages by date"
+                    },
+                    "sender_phone_number": {
+                        "type": "string",
+                        "description": "Optional phone number to filter messages by sender"
+                    },
+                    "chat_jid": {
+                        "type": "string",
+                        "description": "Optional chat JID to filter messages by chat"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Optional search term to filter messages by content"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of messages to return (default 20)"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "Page number for pagination (default 0)"
+                    },
+                    "include_context": {
+                        "type": "string",
+                        "description": "Whether to include messages before and after matches (default True)"
+                    },
+                    "context_before": {
+                        "type": "string",
+                        "description": "Number of messages to include before each match (default 1)"
+                    },
+                    "context_after": {
+                        "type": "string",
+                        "description": "Number of messages to include after each match (default 1)"
+                    }
+                },
+                "required": [
+                    "date_range",
+                    "sender_phone_number",
+                    "chat_jid",
+                    "query",
+                    "limit",
+                    "page",
+                    "include_context",
+                    "context_before",
+                    "context_after"
+                ]
+            },
+            "file": "api-deploy\\whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_chats",
+            "description": "Get WhatsApp chats matching specified criteria.\n    \n    Args:\n        query: Optional search term to filter chats by name or JID\n        limit: Maximum number of chats to return (default 20)\n        page: Page number for pagination (default 0)\n        include_last_message: Whether to include the last message in each chat (default True)\n        sort_by: Field to sort results by, either \"last_active\" or \"name\" (default \"last_active\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Optional search term to filter chats by name or JID"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of chats to return (default 20)"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "Page number for pagination (default 0)"
+                    },
+                    "include_last_message": {
+                        "type": "string",
+                        "description": "Whether to include the last message in each chat (default True)"
+                    },
+                    "sort_by": {
+                        "type": "string",
+                        "description": "Field to sort results by, either \"last_active\" or \"name\" (default \"last_active\")"
+                    }
+                },
+                "required": [
+                    "query",
+                    "limit",
+                    "page",
+                    "include_last_message",
+                    "sort_by"
+                ]
+            },
+            "file": "api-deploy\\whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_chat",
+            "description": "Get WhatsApp chat metadata by JID.\n    \n    Args:\n        chat_jid: The JID of the chat to retrieve\n        include_last_message: Whether to include the last message (default True)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_jid": {
+                        "type": "string",
+                        "description": "The JID of the chat to retrieve"
+                    },
+                    "include_last_message": {
+                        "type": "string",
+                        "description": "Whether to include the last message (default True)"
+                    }
+                },
+                "required": [
+                    "chat_jid",
+                    "include_last_message"
+                ]
+            },
+            "file": "api-deploy\\whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_direct_chat_by_contact",
+            "description": "Get WhatsApp chat metadata by sender phone number.\n    \n    Args:\n        sender_phone_number: The phone number to search for\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sender_phone_number": {
+                        "type": "string",
+                        "description": "The phone number to search for"
+                    }
+                },
+                "required": [
+                    "sender_phone_number"
+                ]
+            },
+            "file": "api-deploy\\whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_contact_chats",
+            "description": "Get all WhatsApp chats involving the contact.\n    \n    Args:\n        jid: The contact's JID to search for\n        limit: Maximum number of chats to return (default 20)\n        page: Page number for pagination (default 0)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "jid": {
+                        "type": "string",
+                        "description": "The contact's JID to search for"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of chats to return (default 20)"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "Page number for pagination (default 0)"
+                    }
+                },
+                "required": [
+                    "jid",
+                    "limit",
+                    "page"
+                ]
+            },
+            "file": "api-deploy\\whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_last_interaction",
+            "description": "Get most recent WhatsApp message involving the contact.\n    \n    Args:\n        jid: The JID of the contact to search for\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "jid": {
+                        "type": "string",
+                        "description": "The JID of the contact to search for"
+                    }
+                },
+                "required": [
+                    "jid"
+                ]
+            },
+            "file": "api-deploy\\whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_message_context",
+            "description": "Get context around a specific WhatsApp message.\n    \n    Args:\n        message_id: The ID of the message to get context for\n        before: Number of messages to include before the target message (default 5)\n        after: Number of messages to include after the target message (default 5)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "message_id": {
+                        "type": "string",
+                        "description": "The ID of the message to get context for"
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Number of messages to include before the target message (default 5)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Number of messages to include after the target message (default 5)"
+                    }
+                },
+                "required": [
+                    "message_id",
+                    "before",
+                    "after"
+                ]
+            },
+            "file": "api-deploy\\whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "send_message",
+            "description": "Send a WhatsApp message to a person or group. For group chats use the JID.\n\n    Args:\n        recipient: The recipient - either a phone number with country code but no + or other symbols,\n                 or a JID (e.g., \"123456789@s.whatsapp.net\" or a group JID like \"123456789@g.us\")\n        message: The message text to send\n    \n    Returns:\n        A dictionary containing success status and a status message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "recipient": {
+                        "type": "string",
+                        "description": "The recipient - either a phone number with country code but no + or other symbols,"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "The message text to send"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "recipient",
+                    "message",
+                    "Returns"
+                ]
+            },
+            "file": "api-deploy\\whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "is_group",
+            "description": "Determine if chat is a group based on JID pattern.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api-deploy\\whatsapp-mcp-server\\whatsapp.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "search_contacts",
+            "description": "Search WhatsApp contacts by name or phone number.\n    \n    Args:\n        query: Search term to match against contact names or phone numbers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search term to match against contact names or phone numbers"
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            },
+            "file": "whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_messages",
+            "description": "Get WhatsApp messages matching specified criteria with optional context.\n    \n    Args:\n        date_range: Optional tuple of (start_date, end_date) to filter messages by date\n        sender_phone_number: Optional phone number to filter messages by sender\n        chat_jid: Optional chat JID to filter messages by chat\n        query: Optional search term to filter messages by content\n        limit: Maximum number of messages to return (default 20)\n        page: Page number for pagination (default 0)\n        include_context: Whether to include messages before and after matches (default True)\n        context_before: Number of messages to include before each match (default 1)\n        context_after: Number of messages to include after each match (default 1)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "date_range": {
+                        "type": "string",
+                        "description": "Optional tuple of (start_date, end_date) to filter messages by date"
+                    },
+                    "sender_phone_number": {
+                        "type": "string",
+                        "description": "Optional phone number to filter messages by sender"
+                    },
+                    "chat_jid": {
+                        "type": "string",
+                        "description": "Optional chat JID to filter messages by chat"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Optional search term to filter messages by content"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of messages to return (default 20)"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "Page number for pagination (default 0)"
+                    },
+                    "include_context": {
+                        "type": "string",
+                        "description": "Whether to include messages before and after matches (default True)"
+                    },
+                    "context_before": {
+                        "type": "string",
+                        "description": "Number of messages to include before each match (default 1)"
+                    },
+                    "context_after": {
+                        "type": "string",
+                        "description": "Number of messages to include after each match (default 1)"
+                    }
+                },
+                "required": [
+                    "date_range",
+                    "sender_phone_number",
+                    "chat_jid",
+                    "query",
+                    "limit",
+                    "page",
+                    "include_context",
+                    "context_before",
+                    "context_after"
+                ]
+            },
+            "file": "whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_chats",
+            "description": "Get WhatsApp chats matching specified criteria.\n    \n    Args:\n        query: Optional search term to filter chats by name or JID\n        limit: Maximum number of chats to return (default 20)\n        page: Page number for pagination (default 0)\n        include_last_message: Whether to include the last message in each chat (default True)\n        sort_by: Field to sort results by, either \"last_active\" or \"name\" (default \"last_active\")\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Optional search term to filter chats by name or JID"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of chats to return (default 20)"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "Page number for pagination (default 0)"
+                    },
+                    "include_last_message": {
+                        "type": "string",
+                        "description": "Whether to include the last message in each chat (default True)"
+                    },
+                    "sort_by": {
+                        "type": "string",
+                        "description": "Field to sort results by, either \"last_active\" or \"name\" (default \"last_active\")"
+                    }
+                },
+                "required": [
+                    "query",
+                    "limit",
+                    "page",
+                    "include_last_message",
+                    "sort_by"
+                ]
+            },
+            "file": "whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_chat",
+            "description": "Get WhatsApp chat metadata by JID.\n    \n    Args:\n        chat_jid: The JID of the chat to retrieve\n        include_last_message: Whether to include the last message (default True)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "chat_jid": {
+                        "type": "string",
+                        "description": "The JID of the chat to retrieve"
+                    },
+                    "include_last_message": {
+                        "type": "string",
+                        "description": "Whether to include the last message (default True)"
+                    }
+                },
+                "required": [
+                    "chat_jid",
+                    "include_last_message"
+                ]
+            },
+            "file": "whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_direct_chat_by_contact",
+            "description": "Get WhatsApp chat metadata by sender phone number.\n    \n    Args:\n        sender_phone_number: The phone number to search for\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sender_phone_number": {
+                        "type": "string",
+                        "description": "The phone number to search for"
+                    }
+                },
+                "required": [
+                    "sender_phone_number"
+                ]
+            },
+            "file": "whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_contact_chats",
+            "description": "Get all WhatsApp chats involving the contact.\n    \n    Args:\n        jid: The contact's JID to search for\n        limit: Maximum number of chats to return (default 20)\n        page: Page number for pagination (default 0)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "jid": {
+                        "type": "string",
+                        "description": "The contact's JID to search for"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of chats to return (default 20)"
+                    },
+                    "page": {
+                        "type": "string",
+                        "description": "Page number for pagination (default 0)"
+                    }
+                },
+                "required": [
+                    "jid",
+                    "limit",
+                    "page"
+                ]
+            },
+            "file": "whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_last_interaction",
+            "description": "Get most recent WhatsApp message involving the contact.\n    \n    Args:\n        jid: The JID of the contact to search for\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "jid": {
+                        "type": "string",
+                        "description": "The JID of the contact to search for"
+                    }
+                },
+                "required": [
+                    "jid"
+                ]
+            },
+            "file": "whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_message_context",
+            "description": "Get context around a specific WhatsApp message.\n    \n    Args:\n        message_id: The ID of the message to get context for\n        before: Number of messages to include before the target message (default 5)\n        after: Number of messages to include after the target message (default 5)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "message_id": {
+                        "type": "string",
+                        "description": "The ID of the message to get context for"
+                    },
+                    "before": {
+                        "type": "string",
+                        "description": "Number of messages to include before the target message (default 5)"
+                    },
+                    "after": {
+                        "type": "string",
+                        "description": "Number of messages to include after the target message (default 5)"
+                    }
+                },
+                "required": [
+                    "message_id",
+                    "before",
+                    "after"
+                ]
+            },
+            "file": "whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "send_message",
+            "description": "Send a WhatsApp message to a person or group. For group chats use the JID.\n\n    Args:\n        recipient: The recipient - either a phone number with country code but no + or other symbols,\n                 or a JID (e.g., \"123456789@s.whatsapp.net\" or a group JID like \"123456789@g.us\")\n        message: The message text to send\n    \n    Returns:\n        A dictionary containing success status and a status message\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "recipient": {
+                        "type": "string",
+                        "description": "The recipient - either a phone number with country code but no + or other symbols,"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "The message text to send"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "recipient",
+                    "message",
+                    "Returns"
+                ]
+            },
+            "file": "whatsapp-mcp-server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "is_group",
+            "description": "Determine if chat is a group based on JID pattern.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "whatsapp-mcp-server\\whatsapp.py",
+            "decorator": [
+                "property"
+            ]
+        }
+    ]
+}

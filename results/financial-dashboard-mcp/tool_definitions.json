@@ -1,0 +1,5323 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archive\\old_test_files\\simple_mcp_server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "archive\\old_test_files\\simple_mcp_server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "parse_cors_origins",
+            "description": "Parse CORS origins from string or list.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "backend\\config.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_production_settings",
+            "description": "Validate critical settings for production environment.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\config.py",
+            "decorator": [
+                "model_validator"
+            ]
+        },
+        {
+            "name": "get_settings",
+            "description": "Get cached settings instance with Docker secrets support.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\config.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "get_db_session",
+            "description": "Get database session for context manager usage.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\database.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "Application lifespan manager.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "api_status",
+            "description": "API status endpoint with more detailed information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_assets",
+            "description": "Get assets with optional search and filtering.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\assets.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_asset",
+            "description": "Get a specific asset by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\assets.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_asset_by_ticker",
+            "description": "Get a specific asset by ticker symbol.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\assets.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_asset",
+            "description": "Create a new asset.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\assets.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_asset",
+            "description": "Update an existing asset.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\assets.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_asset",
+            "description": "Delete an asset.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\assets.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "update_asset_price",
+            "description": "Update asset price data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\assets.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "bulk_update_asset_prices",
+            "description": "Bulk update asset prices.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\assets.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_asset_price",
+            "description": "Get current price for a specific asset.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\assets.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "search_asset_tickers",
+            "description": "Search for assets by ticker or name (for autocomplete).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\assets.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "register",
+            "description": "Register a new user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\auth.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "login",
+            "description": "Login and receive an access token.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\auth.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_current_user_info",
+            "description": "Get current user information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\auth.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "list_cash_accounts",
+            "description": "List all cash accounts for a user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\cash_accounts.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_cash_balances",
+            "description": "Get total cash balance for a user in a specific currency.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\cash_accounts.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_primary_cash_account",
+            "description": "Get the primary cash account for a user and currency.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\cash_accounts.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_cash_account",
+            "description": "Create a new cash account.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\cash_accounts.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "process_cash_transaction",
+            "description": "Process a cash deposit or withdrawal.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\cash_accounts.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "transfer_between_accounts",
+            "description": "Transfer money between cash accounts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\cash_accounts.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "set_primary_account",
+            "description": "Set a cash account as primary for its currency.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\cash_accounts.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_cash_account",
+            "description": "Delete a cash account (only if balance is zero).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\cash_accounts.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "validate_isin",
+            "description": "Validate an ISIN code.\n\n    This endpoint validates the format and checksum of an ISIN code\n    and returns detailed information about the ISIN structure.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "resolve_identifier",
+            "description": "Resolve an identifier (ISIN or ticker) to get comprehensive asset information.\n\n    This endpoint can handle both ISIN codes and ticker symbols, automatically\n    detecting the type and providing appropriate resolution.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "lookup_isins",
+            "description": "Bulk lookup of ISIN codes to find their ticker mappings.\n\n    This endpoint allows efficient bulk lookup of multiple ISIN codes\n    and returns all available ticker mappings for each.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "suggest_ticker_formats",
+            "description": "Get suggested ticker formats based on ISIN country information.\n\n    This endpoint provides intelligent ticker format suggestions based on\n    the country information embedded in the ISIN code.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_sync_status",
+            "description": "Get overall sync service status and statistics.\n\n    Returns comprehensive information about the sync service including\n    running jobs, conflicts, and performance metrics.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin_sync.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_sync_job",
+            "description": "Create a new ISIN sync job.\n\n    This endpoint queues a new synchronization job for the specified ISINs.\n    The job will be processed asynchronously in the background.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin_sync.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_job_status",
+            "description": "Get status of a specific sync job.\n\n    Returns detailed information about job progress, results, and any errors.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin_sync.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "list_sync_jobs",
+            "description": "List sync jobs with optional filtering.\n\n    Args:\n        status: Filter by job status (pending, running, completed, failed)\n        limit: Maximum number of jobs to return\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "description": "Filter by job status (pending, running, completed, failed)"
+                    },
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of jobs to return"
+                    }
+                },
+                "required": [
+                    "status",
+                    "limit"
+                ]
+            },
+            "file": "backend\\api\\isin_sync.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_pending_conflicts",
+            "description": "Get pending conflicts that require manual resolution.\n\n    Returns a list of mapping conflicts that couldn't be automatically resolved.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin_sync.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "resolve_conflict",
+            "description": "Manually resolve a mapping conflict.\n\n    This endpoint allows manual resolution of conflicts that couldn't be\n    automatically resolved by the sync service.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin_sync.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "start_bulk_sync",
+            "description": "Start bulk synchronization based on criteria.\n\n    This endpoint allows syncing large numbers of ISINs based on\n    country codes, exchanges, or other criteria.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin_sync.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "start_sync_service",
+            "description": "Start the background sync service.\n\n    This endpoint starts the background synchronization service if it's not already running.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin_sync.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "stop_sync_service",
+            "description": "Stop the background sync service.\n\n    This endpoint stops the background synchronization service and waits for\n    currently running jobs to complete.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin_sync.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "cancel_sync_job",
+            "description": "Cancel a pending or running sync job.\n\n    This endpoint attempts to cancel a sync job. Jobs that are already\n    completed cannot be cancelled.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin_sync.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "sync_service_health",
+            "description": "Get health status of the sync service.\n\n    Returns detailed health information including service status,\n    queue health, and recent performance metrics.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\isin_sync.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_portfolio_summary",
+            "description": "Get comprehensive portfolio summary for a user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\portfolio.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_allocation_breakdown",
+            "description": "Get asset allocation breakdown for a portfolio.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\portfolio.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_performance_metrics",
+            "description": "Calculate portfolio performance metrics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\portfolio.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_diversification_metrics",
+            "description": "Get portfolio diversification metrics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\portfolio.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_portfolio_snapshot",
+            "description": "Create a portfolio snapshot for a specific date.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\portfolio.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_performance_comparison",
+            "description": "Compare portfolio performance to a benchmark.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\portfolio.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_position_weights",
+            "description": "Get position weights in portfolio.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\portfolio.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_benchmark_analysis",
+            "description": "Get comprehensive portfolio benchmark analysis.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\portfolio.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_positions",
+            "description": "Get positions for the authenticated user with optional filters and pagination.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\positions.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_position",
+            "description": "Get a specific position by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\positions.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_position",
+            "description": "Create a new position.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\positions.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_position",
+            "description": "Update an existing position.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\positions.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "adjust_position",
+            "description": "Adjust position quantity (buy/sell).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\positions.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "delete_position",
+            "description": "Delete a position.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\positions.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "close_position",
+            "description": "Close a position.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\positions.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_position_summary",
+            "description": "Get position summary for the authenticated user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\positions.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "submit_market_data_task",
+            "description": "Submit a market data fetch task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\tasks.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "submit_portfolio_prices_task",
+            "description": "Submit a portfolio price update task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\tasks.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "submit_asset_info_task",
+            "description": "Submit an asset info fetch task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\tasks.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "submit_portfolio_performance_task",
+            "description": "Submit a portfolio performance calculation task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\tasks.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "submit_portfolio_snapshot_task",
+            "description": "Submit a portfolio snapshot creation task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\tasks.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_task_status",
+            "description": "Get the status of a specific task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\tasks.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "cancel_task",
+            "description": "Cancel a running task.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\tasks.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "get_active_tasks",
+            "description": "Get list of currently active tasks.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\tasks.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_worker_stats",
+            "description": "Get Celery worker statistics.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\tasks.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "bulk_update_all_prices",
+            "description": "Convenience endpoint to update all portfolio prices.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\tasks.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "bulk_create_snapshots",
+            "description": "Convenience endpoint to create portfolio snapshots for all users.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\tasks.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_transactions",
+            "description": "Get transactions for a user with optional filters and pagination.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\transactions.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_transaction",
+            "description": "Get a specific transaction by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\transactions.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_buy_transaction",
+            "description": "Create a buy transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\transactions.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "create_sell_transaction",
+            "description": "Create a sell transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\transactions.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "create_dividend_transaction",
+            "description": "Create a dividend transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\transactions.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_transaction",
+            "description": "Update an existing transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\transactions.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_transaction",
+            "description": "Delete a transaction and update related position.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\transactions.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "get_position_transactions",
+            "description": "Get all transactions for a specific position.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\transactions.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_transaction_performance",
+            "description": "Get transaction performance metrics for a user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\transactions.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_monthly_summary",
+            "description": "Get monthly transaction summary.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\transactions.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_transactions_by_date_range",
+            "description": "Get transactions within a specific date range.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\transactions.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_user_settings",
+            "description": "Get user settings for a specific user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\user_settings.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_user_settings",
+            "description": "Create new user settings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\user_settings.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "update_user_settings",
+            "description": "Update user settings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\user_settings.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "bulk_update_user_settings",
+            "description": "Bulk update multiple user settings at once.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\user_settings.py",
+            "decorator": [
+                "router.patch"
+            ]
+        },
+        {
+            "name": "delete_user_settings",
+            "description": "Delete user settings (reset to defaults).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\user_settings.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "reset_user_settings",
+            "description": "Reset user settings to defaults.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\user_settings.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_user_preferences",
+            "description": "Get simplified user preferences for frontend.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\user_settings.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_user_preferences",
+            "description": "Update simplified user preferences from frontend.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\user_settings.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "export_user_settings",
+            "description": "Export user settings as JSON for backup/transfer.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\user_settings.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "import_user_settings",
+            "description": "Import user settings from JSON backup.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\api\\user_settings.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "display_name",
+            "description": "Return a display-friendly name for the asset.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\asset.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_equity",
+            "description": "Check if asset is an equity instrument.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\asset.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_fixed_income",
+            "description": "Check if asset is a fixed income instrument.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\asset.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "validate_isin",
+            "description": "Validate ISIN format and checksum.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\asset.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "has_isin",
+            "description": "Check if asset has a valid ISIN.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\asset.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "formatted_balance",
+            "description": "Return formatted balance with currency symbol.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\cash_account.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "validate_isin",
+            "description": "Validate ISIN format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\isin.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_ticker",
+            "description": "Validate ticker format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\isin.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_confidence",
+            "description": "Validate confidence score.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\isin.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_currency",
+            "description": "Validate currency code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\isin.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "display_name",
+            "description": "Return a display-friendly representation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\isin.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "country_code",
+            "description": "Extract country code from ISIN.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\isin.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "national_code",
+            "description": "Extract national code from ISIN.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\isin.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "check_digit",
+            "description": "Extract check digit from ISIN.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\isin.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "validate_isin_format",
+            "description": "Validate ISIN format before caching.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\isin.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "validate_country_code",
+            "description": "Validate country code format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\isin.py",
+            "decorator": [
+                "validates"
+            ]
+        },
+        {
+            "name": "create_from_validation",
+            "description": "Create a new validation cache entry.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\models\\isin.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "equity_allocation_percent",
+            "description": "Calculate equity allocation as percentage of total portfolio.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\portfolio_snapshot.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "fixed_income_allocation_percent",
+            "description": "Calculate fixed income allocation as percentage of total portfolio.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\portfolio_snapshot.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "cash_allocation_percent",
+            "description": "Calculate cash allocation as percentage of total portfolio.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\portfolio_snapshot.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "alternative_allocation_percent",
+            "description": "Calculate alternative investments allocation as percentage of total portfolio.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\portfolio_snapshot.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "total_invested_value",
+            "description": "Calculate total invested value (excluding cash).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\portfolio_snapshot.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_profitable",
+            "description": "Check if portfolio is currently profitable.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\portfolio_snapshot.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "allocation_summary",
+            "description": "Get allocation summary as percentages.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\portfolio_snapshot.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "create_from_positions",
+            "description": "Factory method to create portfolio snapshot from current positions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\models\\portfolio_snapshot.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "current_value",
+            "description": "Calculate current market value of the position.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\position.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "unrealized_gain_loss",
+            "description": "Calculate unrealized gain/loss.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\position.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "unrealized_gain_loss_percent",
+            "description": "Calculate unrealized gain/loss percentage.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\position.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "weight_in_portfolio",
+            "description": "Calculate position weight in total portfolio (requires portfolio context).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\position.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "price_change",
+            "description": "Calculate absolute price change from open to close.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\price_history.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "price_change_percent",
+            "description": "Calculate percentage price change from open to close.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\price_history.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "day_range",
+            "description": "Calculate the day's trading range (high - low).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\price_history.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "create_from_yahoo_data",
+            "description": "Factory method to create price history from Yahoo Finance data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\models\\price_history.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_placeholder",
+            "description": "Factory method to create a placeholder price history entry.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\models\\price_history.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "net_amount",
+            "description": "Calculate net amount after all fees.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\transaction.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_buy_transaction",
+            "description": "Check if this is a buy transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\transaction.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_sell_transaction",
+            "description": "Check if this is a sell transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\transaction.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_income_transaction",
+            "description": "Check if this is an income transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\transaction.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "affects_position",
+            "description": "Check if this transaction affects position quantity.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\models\\transaction.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "create_buy",
+            "description": "Factory method to create a buy transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\models\\transaction.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_sell",
+            "description": "Factory method to create a sell transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\models\\transaction.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_dividend_transaction",
+            "description": "Factory method to create a dividend transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\models\\transaction.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_default_settings",
+            "description": "Get default settings as a dictionary.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\models\\user_settings.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_ticker",
+            "description": "Validate ticker format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "_is_valid_ticker_format",
+            "description": "Check if ticker has valid format (1-10 alphanumeric characters).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "_validate_international_ticker",
+            "description": "Perform additional validation for international tickers.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_currency",
+            "description": "Validate currency format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_isin",
+            "description": "Validate ISIN format and checksum.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_asset_type",
+            "description": "Validate asset type, accepting both upper and lower case.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_category",
+            "description": "Validate category, accepting both upper and lower case.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_currency",
+            "description": "Validate currency format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_isin_update",
+            "description": "Validate ISIN format for updates.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "display_name",
+            "description": "Display-friendly name for the asset.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_equity",
+            "description": "Check if asset is an equity instrument.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_fixed_income",
+            "description": "Check if asset is a fixed income instrument.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "day_change",
+            "description": "Calculate absolute price change.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "day_change_percent",
+            "description": "Calculate percentage price change.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\schemas\\asset.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "create",
+            "description": "Create paginated response from data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\base.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_isin_format",
+            "description": "Basic ISIN format validation - allow invalid ISINs for validation testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\isin.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_isin",
+            "description": "Validate ISIN format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\isin.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_ticker",
+            "description": "Validate ticker format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\isin.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_currency",
+            "description": "Validate currency code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\isin.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_identifier",
+            "description": "Validate identifier format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\isin.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_isins",
+            "description": "Validate ISIN format for bulk lookup.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\isin.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_isin",
+            "description": "Validate ISIN format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\isin.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_base_ticker",
+            "description": "Validate base ticker format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\isin.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_tax_lot_method",
+            "description": "Validate tax lot method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\position.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_tax_lot_method",
+            "description": "Validate tax lot method.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\position.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_currency",
+            "description": "Validate currency format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\transaction.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_theme",
+            "description": "Validate theme option.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_currency",
+            "description": "Validate currency code.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_date_format",
+            "description": "Validate date format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_data_provider",
+            "description": "Validate data provider.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_dashboard_view",
+            "description": "Validate dashboard view.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_chart_theme",
+            "description": "Validate chart theme.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_chart_period",
+            "description": "Validate chart period.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_email",
+            "description": "Validate email format.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_theme",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_currency",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_date_format",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_data_provider",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_dashboard_view",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_chart_theme",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_chart_period",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_email",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_settings_dict",
+            "description": "Validate that all keys are valid setting names.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\schemas\\user_settings.py",
+            "decorator": [
+                "field_validator",
+                "classmethod"
+            ]
+        },
+        {
+            "name": "fetch_quote",
+            "description": "Fetch current quote for a ticker. Must be implemented by subclasses.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\services\\base_provider.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "is_fresh",
+            "description": "Check if quote is fresh.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\services\\enhanced_market_data.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "formatted_change",
+            "description": "Get formatted change string.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\services\\enhanced_market_data.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "latest_price",
+            "description": "Get latest closing price.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\services\\enhanced_market_data.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "price_change_1d",
+            "description": "Get 1-day price change (absolute, percent).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\services\\enhanced_market_data.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "volatility",
+            "description": "Calculate annualized volatility.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\services\\enhanced_market_data.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "is_isin_format",
+            "description": "Check if a string matches ISIN format pattern.\n\n        Args:\n            identifier: String to check\n\n        Returns:\n            True if matches ISIN format, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\services\\isin_prototype.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_isin_checksum",
+            "description": "Validate ISIN checksum using the Luhn algorithm.\n\n        Args:\n            isin: ISIN code to validate\n\n        Returns:\n            Tuple of (is_valid, expected_check_digit)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\services\\isin_prototype.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "parse_isin",
+            "description": "Parse ISIN code and extract components.\n\n        Args:\n            isin: ISIN code to parse\n\n        Returns:\n            ISINInfo object with parsed components\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\services\\isin_prototype.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_isin",
+            "description": "Validate ISIN code completely.\n\n        Args:\n            isin: ISIN code to validate\n\n        Returns:\n            Tuple of (is_valid, error_message)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\services\\isin_prototype.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "is_isin_format",
+            "description": "Check if a string matches ISIN format pattern.\n\n        Args:\n            identifier: String to check\n\n        Returns:\n            True if matches ISIN format, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\services\\isin_utils.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_isin_checksum",
+            "description": "Validate ISIN checksum using the Luhn algorithm.\n\n        Args:\n            isin: ISIN code to validate\n\n        Returns:\n            Tuple of (is_valid, expected_check_digit)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\services\\isin_utils.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "parse_isin",
+            "description": "Parse ISIN code and extract components.\n\n        Args:\n            isin: ISIN code to parse\n\n        Returns:\n            ISINInfo object with parsed components\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\services\\isin_utils.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "validate_isin",
+            "description": "Validate ISIN code completely with optional database caching.\n\n        Args:\n            isin: ISIN code to validate\n            use_cache: Whether to use database cache for validation\n\n        Returns:\n            Tuple of (is_valid, error_message)\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\services\\isin_utils.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_preferred_exchanges",
+            "description": "Get preferred exchange codes for a country.\n\n        Args:\n            country_code: 2-letter country code\n\n        Returns:\n            List of exchange codes in order of preference\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\services\\isin_utils.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "suggest_ticker_formats",
+            "description": "Suggest possible ticker formats based on ISIN country.\n\n        Args:\n            isin: ISIN code\n            base_ticker: Base ticker symbol\n\n        Returns:\n            List of suggested ticker formats\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "backend\\services\\isin_utils.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "cli",
+            "description": "Financial Dashboard Task Management CLI.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tasks\\cli.py",
+            "decorator": [
+                "click.group"
+            ]
+        },
+        {
+            "name": "fetch_market_data",
+            "description": "Fetch market data for specified symbols.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tasks\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "update_prices",
+            "description": "Update portfolio prices.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tasks\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "fetch_asset_info",
+            "description": "Fetch detailed asset information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tasks\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "calculate_performance",
+            "description": "Calculate portfolio performance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tasks\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "create_snapshot",
+            "description": "Create portfolio snapshot.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tasks\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.option"
+            ]
+        },
+        {
+            "name": "status",
+            "description": "Check task status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tasks\\cli.py",
+            "decorator": [
+                "cli.command",
+                "click.argument"
+            ]
+        },
+        {
+            "name": "validate_isin_batch",
+            "description": "Validate a batch of ISINs in the background.\n\n    Args:\n        isins: List of ISINs to validate\n\n    Returns:\n        Validation results dictionary\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "isins": {
+                        "type": "string",
+                        "description": "List of ISINs to validate"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "isins",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\tasks\\isin_tasks.py",
+            "decorator": [
+                "shared_task"
+            ]
+        },
+        {
+            "name": "sync_isin_mappings",
+            "description": "Synchronize ISIN mappings from external sources.\n\n    Args:\n        isins: List of ISINs to sync\n        source: Source identifier for tracking\n\n    Returns:\n        Sync results dictionary\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "isins": {
+                        "type": "string",
+                        "description": "List of ISINs to sync"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "Source identifier for tracking"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "isins",
+                    "source",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\tasks\\isin_tasks.py",
+            "decorator": [
+                "shared_task"
+            ]
+        },
+        {
+            "name": "enrich_asset_data",
+            "description": "Enrich asset data with ISIN-based information.\n\n    Args:\n        asset_ids: List of asset IDs to enrich\n\n    Returns:\n        Enrichment results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "asset_ids": {
+                        "type": "string",
+                        "description": "List of asset IDs to enrich"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "asset_ids",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\tasks\\isin_tasks.py",
+            "decorator": [
+                "shared_task"
+            ]
+        },
+        {
+            "name": "cleanup_old_cache_entries",
+            "description": "Clean up old ISIN validation cache entries.\n\n    Returns:\n        Cleanup statistics\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tasks\\isin_tasks.py",
+            "decorator": [
+                "shared_task"
+            ]
+        },
+        {
+            "name": "update_market_data_for_isins",
+            "description": "Update market data for a list of ISINs.\n\n    Args:\n        isins: List of ISINs to update market data for\n\n    Returns:\n        Update results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "isins": {
+                        "type": "string",
+                        "description": "List of ISINs to update market data for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "isins",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\tasks\\isin_tasks.py",
+            "decorator": [
+                "shared_task"
+            ]
+        },
+        {
+            "name": "generate_isin_report",
+            "description": "Generate comprehensive ISIN coverage and quality report.\n\n    Returns:\n        Report data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tasks\\isin_tasks.py",
+            "decorator": [
+                "shared_task"
+            ]
+        },
+        {
+            "name": "daily_isin_maintenance",
+            "description": "Daily maintenance tasks for ISIN system.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tasks\\isin_tasks.py",
+            "decorator": [
+                "shared_task"
+            ]
+        },
+        {
+            "name": "fetch_market_data",
+            "description": "Fetch market data for given symbols.\n\n    Args:\n        symbols: List of ticker symbols to fetch\n        period: Period for data (1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max)\n\n    Returns:\n        Dict with status and results\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "symbols": {
+                        "type": "string",
+                        "description": "List of ticker symbols to fetch"
+                    },
+                    "period": {
+                        "type": "string",
+                        "description": "Period for data (1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "symbols",
+                    "period",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\tasks\\market_data.py",
+            "decorator": [
+                "celery_app.task"
+            ]
+        },
+        {
+            "name": "update_portfolio_prices",
+            "description": "Update prices for all assets in user portfolio(s).\n\n    Args:\n        user_id: Specific user ID to update, or None for all users\n\n    Returns:\n        Dict with update status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "Specific user ID to update, or None for all users"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\tasks\\market_data.py",
+            "decorator": [
+                "celery_app.task"
+            ]
+        },
+        {
+            "name": "fetch_asset_info",
+            "description": "Fetch detailed information for a single asset.\n\n    Args:\n        ticker: Ticker symbol\n\n    Returns:\n        Dict with asset information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ticker": {
+                        "type": "string",
+                        "description": "Ticker symbol"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ticker",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\tasks\\market_data.py",
+            "decorator": [
+                "celery_app.task"
+            ]
+        },
+        {
+            "name": "update_portfolio_prices_mock",
+            "description": "Update prices with mock data for demonstration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "backend\\tasks\\mock_market_data.py",
+            "decorator": [
+                "celery_app.task"
+            ]
+        },
+        {
+            "name": "calculate_portfolio_performance",
+            "description": "Calculate portfolio performance metrics for a user.\n\n    Args:\n        user_id: User ID to calculate performance for\n        days_back: Number of days to look back for performance calculations\n\n    Returns:\n        Dict with performance metrics\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID to calculate performance for"
+                    },
+                    "days_back": {
+                        "type": "string",
+                        "description": "Number of days to look back for performance calculations"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "days_back",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\tasks\\portfolio.py",
+            "decorator": [
+                "celery_app.task"
+            ]
+        },
+        {
+            "name": "create_portfolio_snapshot",
+            "description": "Create daily portfolio snapshot(s) for tracking historical performance.\n\n    Args:\n        user_id: Specific user ID, or None for all users\n\n    Returns:\n        Dict with snapshot creation status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "Specific user ID, or None for all users"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\tasks\\portfolio.py",
+            "decorator": [
+                "celery_app.task"
+            ]
+        },
+        {
+            "name": "generate_portfolio_report",
+            "description": "Generate comprehensive portfolio report.\n\n    Args:\n        user_id: User ID to generate report for\n        report_type: Type of report (daily, weekly, monthly, quarterly, yearly)\n\n    Returns:\n        Dict with report data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID to generate report for"
+                    },
+                    "report_type": {
+                        "type": "string",
+                        "description": "Type of report (daily, weekly, monthly, quarterly, yearly)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "report_type",
+                    "Returns"
+                ]
+            },
+            "file": "backend\\tasks\\portfolio.py",
+            "decorator": [
+                "celery_app.task"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\financial_dashboard_mcp.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Call a tool with the given arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\financial_dashboard_mcp.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_get_prompt",
+            "description": "Handle prompt requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\financial_dashboard_mcp.py",
+            "decorator": [
+                "self.server.get_prompt"
+            ]
+        },
+        {
+            "name": "handle_list_prompts",
+            "description": "List available prompts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\financial_dashboard_mcp.py",
+            "decorator": [
+                "self.server.list_prompts"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\financial_dashboard_server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\financial_dashboard_server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "Handle list tools request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool execution request.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available MCP tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "execute_tool",
+            "description": "Execute an MCP tool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "setup_test_environment",
+            "description": "Set up the test environment.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "engine",
+            "description": "Create test database engine.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "tables",
+            "description": "Create all tables for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engine"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "db_session",
+            "description": "Create a database session for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "engine": {
+                        "type": "string"
+                    },
+                    "tables": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "engine",
+                    "tables"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "fake",
+            "description": "Faker instance for generating test data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_database",
+            "description": "Mock database connection for tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_redis",
+            "description": "Mock Redis connection for tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_celery_task",
+            "description": "Mock Celery task for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_portfolio_data",
+            "description": "Sample portfolio data for testing financial calculations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_asset_prices",
+            "description": "Sample asset price data for testing market data functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_user_data",
+            "description": "Sample user data for testing authentication and authorization.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_market_data_response",
+            "description": "Sample market data API response for testing external integrations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "financial_calculation_test_cases",
+            "description": "Test cases for financial calculations with edge cases.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_yfinance_response",
+            "description": "Mock yfinance API response for testing market data integration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "error_test_cases",
+            "description": "Test cases for error handling scenarios.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_isin_data",
+            "description": "Sample ISIN data for testing ISIN functionality.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_app_startup",
+            "description": "Test that the app starts up correctly.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_backend.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_operations",
+            "description": "Test list operations with unit marker.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_basic.py",
+            "decorator": [
+                "pytest.mark.unit"
+            ]
+        },
+        {
+            "name": "test_financial_calculations",
+            "description": "Test basic financial calculations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_basic.py",
+            "decorator": [
+                "pytest.mark.financial"
+            ]
+        },
+        {
+            "name": "test_slow_operation",
+            "description": "Test marked as slow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_basic.py",
+            "decorator": [
+                "pytest.mark.slow"
+            ]
+        },
+        {
+            "name": "cash_service",
+            "description": "Create cash account service instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_cash_account_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_user",
+            "description": "Create a test user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_cash_account_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_fetch_market_data_task",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_celery_integration.py",
+            "decorator": [
+                "pytest.mark.skipif"
+            ]
+        },
+        {
+            "name": "test_mcp_get_positions_integration",
+            "description": "Test MCP get_positions tool with backend integration.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_portfolio_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_portfolio_tools"
+                ]
+            },
+            "file": "tests\\test_mcp_backend_integration.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_full_mcp_backend_integration",
+            "description": "Test full MCP integration with running backend server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_backend_integration.py",
+            "decorator": [
+                "pytest.mark.skipif"
+            ]
+        },
+        {
+            "name": "test_mcp_server_health",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_server_integration.py",
+            "decorator": [
+                "pytest.mark.skipif"
+            ]
+        },
+        {
+            "name": "test_get_simple_benchmark_return_success",
+            "description": "Test simple benchmark return calculation with successful market data.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_market_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_market_service"
+                ]
+            },
+            "file": "tests\\test_performance_benchmark.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_simple_benchmark_return_fallback",
+            "description": "Test simple benchmark return fallback to historical average.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_market_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_market_service"
+                ]
+            },
+            "file": "tests\\test_performance_benchmark.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_analyze_risk_adjusted_performance",
+            "description": "Test risk-adjusted performance analysis.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_portfolio_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_portfolio_service"
+                ]
+            },
+            "file": "tests\\test_performance_benchmark.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "portfolio_service",
+            "description": "Create portfolio service instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_portfolio_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_user",
+            "description": "Create a test user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_portfolio_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_assets",
+            "description": "Create test assets.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_portfolio_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_cash_account",
+            "description": "Create a test cash account.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_portfolio_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_positions",
+            "description": "Create test positions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_portfolio_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "position_service",
+            "description": "Create position service instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_position_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_user",
+            "description": "Create a test user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_position_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_asset",
+            "description": "Create a test asset.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_position_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_register_invalid_email",
+            "description": "Test registration with invalid email formats.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "email"
+                ]
+            },
+            "file": "tests\\api\\test_auth.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_register_invalid_password",
+            "description": "Test registration with invalid passwords.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "password": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "password"
+                ]
+            },
+            "file": "tests\\api\\test_auth.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_expired_token_rejection",
+            "description": "Test that expired tokens are rejected.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_datetime": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_datetime"
+                ]
+            },
+            "file": "tests\\api\\test_auth.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_protected_endpoints_require_auth",
+            "description": "Test that protected endpoints require authentication.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "endpoint": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "endpoint"
+                ]
+            },
+            "file": "tests\\api\\test_auth.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_protected_endpoints_with_valid_auth",
+            "description": "Test that protected endpoints work with valid authentication.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "endpoint": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "endpoint"
+                ]
+            },
+            "file": "tests\\api\\test_auth.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "test_client",
+            "description": "Create FastAPI test client for ISIN API.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\api\\test_isin_api.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_db_session",
+            "description": "Mock database session for ISIN API tests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\api\\test_isin_api.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_user",
+            "description": "Mock user for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\auth\\test_dependencies.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_inactive_user",
+            "description": "Mock inactive user for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\auth\\test_dependencies.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_db_session",
+            "description": "Mock database session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\auth\\test_dependencies.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_different_algorithms",
+            "description": "Test JWT with different algorithms.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "algorithm": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "algorithm"
+                ]
+            },
+            "file": "tests\\auth\\test_jwt.py",
+            "decorator": [
+                "pytest.mark.parametrize"
+            ]
+        },
+        {
+            "name": "sync_service",
+            "description": "Create ISIN sync service instance for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_client",
+            "description": "Create FastAPI test client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_db_with_mappings",
+            "description": "Mock database with sample ISIN mappings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_start_stop_background_sync",
+            "description": "Test starting and stopping the background sync service.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sync_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sync_service"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_queue_sync_job",
+            "description": "Test queuing sync jobs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sync_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sync_service"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sync_single_isin_create_new",
+            "description": "Test syncing a single ISIN - creating new mapping.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sync_service": {
+                        "type": "string"
+                    },
+                    "mock_db_with_mappings": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sync_service",
+                    "mock_db_with_mappings"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_sync_single_isin_update_existing",
+            "description": "Test syncing a single ISIN - updating existing mapping.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sync_service": {
+                        "type": "string"
+                    },
+                    "mock_db_with_mappings": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sync_service",
+                    "mock_db_with_mappings"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_resolve_conflict_manually",
+            "description": "Test manual conflict resolution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sync_service": {
+                        "type": "string"
+                    },
+                    "mock_db_with_mappings": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sync_service",
+                    "mock_db_with_mappings"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_concurrent_job_processing",
+            "description": "Test concurrent processing of multiple sync jobs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sync_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sync_service"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_large_batch_sync",
+            "description": "Test syncing large batch of ISINs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sync_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sync_service"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_database_error_handling",
+            "description": "Test handling of database errors during sync.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sync_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sync_service"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_external_api_error_handling",
+            "description": "Test handling of external API errors.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sync_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sync_service"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conflict_resolution_error_handling",
+            "description": "Test error handling in conflict resolution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sync_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sync_service"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_full_sync_workflow",
+            "description": "Test complete sync workflow from start to finish.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sync_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sync_service"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_conflict_resolution_workflow",
+            "description": "Test complete conflict resolution workflow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sync_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sync_service"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_api_endpoint_integration",
+            "description": "Test API endpoints with real sync service.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_client"
+                ]
+            },
+            "file": "tests\\integration\\test_isin_sync_service.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_large_batch_validation_performance",
+            "description": "Test validation performance with large batches.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "performance_test_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "performance_test_data"
+                ]
+            },
+            "file": "tests\\performance\\test_isin_performance.py",
+            "decorator": [
+                "pytest.mark.slow"
+            ]
+        },
+        {
+            "name": "test_bulk_mapping_lookup_performance",
+            "description": "Test bulk mapping lookup performance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "performance_test_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "performance_test_data"
+                ]
+            },
+            "file": "tests\\performance\\test_isin_performance.py",
+            "decorator": [
+                "pytest.mark.slow"
+            ]
+        },
+        {
+            "name": "test_sync_job_creation_performance",
+            "description": "Benchmark sync job creation performance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "benchmark": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "benchmark"
+                ]
+            },
+            "file": "tests\\performance\\test_isin_performance.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_concurrent_sync_jobs_performance",
+            "description": "Test performance under concurrent sync job load.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\performance\\test_isin_performance.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.slow"
+            ]
+        },
+        {
+            "name": "test_quote_retrieval_performance",
+            "description": "Benchmark market quote retrieval performance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "benchmark": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "benchmark"
+                ]
+            },
+            "file": "tests\\performance\\test_isin_performance.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_batch_quote_retrieval_performance",
+            "description": "Test batch quote retrieval performance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\performance\\test_isin_performance.py",
+            "decorator": [
+                "pytest.mark.asyncio",
+                "pytest.mark.slow"
+            ]
+        },
+        {
+            "name": "test_async_operations_load",
+            "description": "Test async operations under load.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\performance\\test_isin_performance.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "yfinance_provider",
+            "description": "Create YFinanceProvider instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_fetch_quote_success",
+            "description": "Test successful quote fetch.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_ticker": {
+                        "type": "string"
+                    },
+                    "mock_format_ticker": {
+                        "type": "string"
+                    },
+                    "mock_yf_ticker": {
+                        "type": "string"
+                    },
+                    "yfinance_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_ticker",
+                    "mock_format_ticker",
+                    "mock_yf_ticker",
+                    "yfinance_provider"
+                ]
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_fetch_quote_no_history_with_info",
+            "description": "Test quote fetch when history is empty but info is available.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_ticker": {
+                        "type": "string"
+                    },
+                    "mock_format_ticker": {
+                        "type": "string"
+                    },
+                    "mock_yf_ticker": {
+                        "type": "string"
+                    },
+                    "yfinance_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_ticker",
+                    "mock_format_ticker",
+                    "mock_yf_ticker",
+                    "yfinance_provider"
+                ]
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_fetch_quote_no_data",
+            "description": "Test quote fetch when no data is available.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_ticker": {
+                        "type": "string"
+                    },
+                    "mock_format_ticker": {
+                        "type": "string"
+                    },
+                    "mock_yf_ticker": {
+                        "type": "string"
+                    },
+                    "yfinance_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_ticker",
+                    "mock_format_ticker",
+                    "mock_yf_ticker",
+                    "yfinance_provider"
+                ]
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_fetch_quote_exception",
+            "description": "Test quote fetch when an exception occurs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_ticker": {
+                        "type": "string"
+                    },
+                    "mock_format_ticker": {
+                        "type": "string"
+                    },
+                    "mock_yf_ticker": {
+                        "type": "string"
+                    },
+                    "yfinance_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_ticker",
+                    "mock_format_ticker",
+                    "mock_yf_ticker",
+                    "yfinance_provider"
+                ]
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "alphavantage_provider",
+            "description": "Create AlphaVantageProvider instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_fetch_quote_success",
+            "description": "Test successful quote fetch from Alpha Vantage.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_ticker": {
+                        "type": "string"
+                    },
+                    "mock_format_ticker": {
+                        "type": "string"
+                    },
+                    "mock_requests_get": {
+                        "type": "string"
+                    },
+                    "alphavantage_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_ticker",
+                    "mock_format_ticker",
+                    "mock_requests_get",
+                    "alphavantage_provider"
+                ]
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_fetch_quote_error_message",
+            "description": "Test quote fetch when API returns error message.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_ticker": {
+                        "type": "string"
+                    },
+                    "mock_format_ticker": {
+                        "type": "string"
+                    },
+                    "mock_requests_get": {
+                        "type": "string"
+                    },
+                    "alphavantage_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_ticker",
+                    "mock_format_ticker",
+                    "mock_requests_get",
+                    "alphavantage_provider"
+                ]
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_fetch_quote_rate_limit",
+            "description": "Test quote fetch when rate limit is hit.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_ticker": {
+                        "type": "string"
+                    },
+                    "mock_format_ticker": {
+                        "type": "string"
+                    },
+                    "mock_requests_get": {
+                        "type": "string"
+                    },
+                    "alphavantage_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_ticker",
+                    "mock_format_ticker",
+                    "mock_requests_get",
+                    "alphavantage_provider"
+                ]
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "finnhub_provider",
+            "description": "Create FinnhubProvider instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_fetch_quote_success",
+            "description": "Test successful quote fetch from Finnhub.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_parse_ticker": {
+                        "type": "string"
+                    },
+                    "mock_requests_get": {
+                        "type": "string"
+                    },
+                    "finnhub_provider": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_parse_ticker",
+                    "mock_requests_get",
+                    "finnhub_provider"
+                ]
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "mock_db",
+            "description": "Create mock database session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "market_service",
+            "description": "Create MultiProviderMarketDataService instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_fetch_quote_with_isin_resolution",
+            "description": "Test quote fetch with ISIN resolution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_isin_service": {
+                        "type": "string"
+                    },
+                    "mock_is_isin": {
+                        "type": "string"
+                    },
+                    "market_service": {
+                        "type": "string"
+                    },
+                    "mock_db": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_isin_service",
+                    "mock_is_isin",
+                    "market_service",
+                    "mock_db"
+                ]
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_fetch_quote_by_isin_success",
+            "description": "Test successful quote fetch by ISIN.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_isin_service": {
+                        "type": "string"
+                    },
+                    "mock_validate_isin": {
+                        "type": "string"
+                    },
+                    "market_service": {
+                        "type": "string"
+                    },
+                    "mock_db": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_isin_service",
+                    "mock_validate_isin",
+                    "market_service",
+                    "mock_db"
+                ]
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_fetch_quote_by_isin_invalid",
+            "description": "Test quote fetch by invalid ISIN.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_validate_isin": {
+                        "type": "string"
+                    },
+                    "market_service": {
+                        "type": "string"
+                    },
+                    "mock_db": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_validate_isin",
+                    "market_service",
+                    "mock_db"
+                ]
+            },
+            "file": "tests\\services\\test_market_data_service_comprehensive.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "portfolio_service",
+            "description": "Create portfolio service instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_portfolio_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_user",
+            "description": "Create mock user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_portfolio_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_asset",
+            "description": "Create mock asset.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_portfolio_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_position",
+            "description": "Create mock position.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_asset": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_asset"
+                ]
+            },
+            "file": "tests\\services\\test_portfolio_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_db",
+            "description": "Create mock database session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_portfolio_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_performance_comparison_success",
+            "description": "Test successful performance comparison.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_benchmark": {
+                        "type": "string"
+                    },
+                    "mock_metrics": {
+                        "type": "string"
+                    },
+                    "portfolio_service": {
+                        "type": "string"
+                    },
+                    "mock_db": {
+                        "type": "string"
+                    },
+                    "mock_user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_benchmark",
+                    "mock_metrics",
+                    "portfolio_service",
+                    "mock_db",
+                    "mock_user"
+                ]
+            },
+            "file": "tests\\services\\test_portfolio_service_comprehensive.py",
+            "decorator": [
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_benchmark_return_fallback_to_market_data",
+            "description": "Test benchmark return with market data fallback.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_market_service": {
+                        "type": "string"
+                    },
+                    "portfolio_service": {
+                        "type": "string"
+                    },
+                    "mock_db": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_market_service",
+                    "portfolio_service",
+                    "mock_db"
+                ]
+            },
+            "file": "tests\\services\\test_portfolio_service_comprehensive.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_benchmark_return_fallback_to_historical_average",
+            "description": "Test benchmark return with historical average fallback.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_service": {
+                        "type": "string"
+                    },
+                    "portfolio_service": {
+                        "type": "string"
+                    },
+                    "mock_db": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_service",
+                    "portfolio_service",
+                    "mock_db"
+                ]
+            },
+            "file": "tests\\services\\test_portfolio_service_comprehensive.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "position_service",
+            "description": "Create position service instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_position_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_db",
+            "description": "Create mock database session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_position_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_user",
+            "description": "Create mock user.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_position_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_asset",
+            "description": "Create mock asset.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_position_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_position",
+            "description": "Create mock position.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_asset": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_asset"
+                ]
+            },
+            "file": "tests\\services\\test_position_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "transaction_service",
+            "description": "Create transaction service instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_transaction_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_db",
+            "description": "Create mock database session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_transaction_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_asset",
+            "description": "Create mock asset.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_transaction_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_position",
+            "description": "Create mock position.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\services\\test_transaction_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_transaction",
+            "description": "Create mock transaction.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_asset": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_asset"
+                ]
+            },
+            "file": "tests\\services\\test_transaction_service_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mapping_service",
+            "description": "Create ISIN mapping service instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_isin_utils.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_db_session",
+            "description": "Mock database session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_isin_utils.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_save_mapping_to_db",
+            "description": "Test saving mapping to database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_db": {
+                        "type": "string"
+                    },
+                    "mapping_service": {
+                        "type": "string"
+                    },
+                    "mock_db_session": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_db",
+                    "mapping_service",
+                    "mock_db_session"
+                ]
+            },
+            "file": "tests\\unit\\test_isin_utils.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_mappings_from_db",
+            "description": "Test retrieving mappings from database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_db": {
+                        "type": "string"
+                    },
+                    "mapping_service": {
+                        "type": "string"
+                    },
+                    "mock_db_session": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_db",
+                    "mapping_service",
+                    "mock_db_session"
+                ]
+            },
+            "file": "tests\\unit\\test_isin_utils.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "isin_service",
+            "description": "Create ISIN service instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\unit\\test_isin_utils.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_ticker_for_isin",
+            "description": "Test getting ticker for ISIN.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_db": {
+                        "type": "string"
+                    },
+                    "isin_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_db",
+                    "isin_service"
+                ]
+            },
+            "file": "tests\\unit\\test_isin_utils.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_ticker_for_isin_not_found",
+            "description": "Test getting ticker for ISIN when not found.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_db": {
+                        "type": "string"
+                    },
+                    "isin_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_db",
+                    "isin_service"
+                ]
+            },
+            "file": "tests\\unit\\test_isin_utils.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_resolve_identifier_isin",
+            "description": "Test resolving ISIN identifier.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get_db": {
+                        "type": "string"
+                    },
+                    "isin_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get_db",
+                    "isin_service"
+                ]
+            },
+            "file": "tests\\unit\\test_isin_utils.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_end_to_end_isin_processing",
+            "description": "Test complete ISIN processing workflow.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_isin_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_isin_data"
+                ]
+            },
+            "file": "tests\\unit\\test_isin_utils.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_bulk_processing",
+            "description": "Test bulk ISIN processing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "sample_isin_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "sample_isin_data"
+                ]
+            },
+            "file": "tests\\unit\\test_isin_utils.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+{
+    "tools": [
+        {
+            "name": "clear_cache",
+            "description": "Fixture to clear the cache before each test.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_openfda_client.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_get_top_adverse_events_success",
+            "description": "Test successful API call for top adverse events.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "tests\\test_openfda_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_top_adverse_events_404",
+            "description": "Test 404 Not Found error for top adverse events.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "tests\\test_openfda_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_get_drug_event_pair_frequency_success",
+            "description": "Test successful API call for drug-event pair frequency.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "tests\\test_openfda_client.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_caching_works",
+            "description": "Test that results are cached to avoid repeated API calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_get": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_get"
+                ]
+            },
+            "file": "tests\\test_openfda_client.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

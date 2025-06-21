@@ -1,0 +1,317 @@
+{
+    "tools": [
+        {
+            "name": "press_button",
+            "description": "Press a button on the emulated controller.\n    \n    Args:\n        button: The button to press (e.g., \"A\", \"B\", \"Up\", \"Down\", \"Left\", \"Right\", \"Start\", \"Select\")\n        hold_time: How long to hold the button in seconds\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "button": {
+                        "type": "string",
+                        "description": "The button to press (e.g., \"A\", \"B\", \"Up\", \"Down\", \"Left\", \"Right\", \"Start\", \"Select\")"
+                    },
+                    "hold_time": {
+                        "type": "string",
+                        "description": "How long to hold the button in seconds"
+                    }
+                },
+                "required": [
+                    "button",
+                    "hold_time"
+                ]
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "press_sequence",
+            "description": "Press a sequence of buttons in order.\n    \n    Args:\n        buttons: List of buttons to press in sequence\n        hold_time: How long to hold each button in seconds\n        delay_between: Delay between button presses in seconds\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "buttons": {
+                        "type": "string",
+                        "description": "List of buttons to press in sequence"
+                    },
+                    "hold_time": {
+                        "type": "string",
+                        "description": "How long to hold each button in seconds"
+                    },
+                    "delay_between": {
+                        "type": "string",
+                        "description": "Delay between button presses in seconds"
+                    }
+                },
+                "required": [
+                    "buttons",
+                    "hold_time",
+                    "delay_between"
+                ]
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "hold_buttons",
+            "description": "Hold down multiple buttons simultaneously.\n    \n    Args:\n        buttons: List of buttons to hold down\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "buttons": {
+                        "type": "string",
+                        "description": "List of buttons to hold down"
+                    }
+                },
+                "required": [
+                    "buttons"
+                ]
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "release_buttons",
+            "description": "Release previously held buttons.\n    \n    Args:\n        buttons: List of buttons to release\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "buttons": {
+                        "type": "string",
+                        "description": "List of buttons to release"
+                    }
+                },
+                "required": [
+                    "buttons"
+                ]
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "release_all_buttons",
+            "description": "Release all buttons that might be currently held down.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "get_screenshot",
+            "description": "Get a screenshot of the current game state.\n    \n    Returns:\n        Base64 encoded PNG image of the current screen\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "step_frames",
+            "description": "Step the emulator forward by a specific number of frames.\n    \n    Args:\n        frames: Number of frames to step forward\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "frames": {
+                        "type": "string",
+                        "description": "Number of frames to step forward"
+                    }
+                },
+                "required": [
+                    "frames"
+                ]
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "run_emulator",
+            "description": "Start/resume the emulator at normal speed.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "save_state",
+            "description": "Save the current game state to a file.\n    \n    Args:\n        path: Path where to save the game state\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path where to save the game state"
+                    }
+                },
+                "required": [
+                    "path"
+                ]
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "load_state",
+            "description": "Load a previously saved game state.\n    \n    Args:\n        path: Path to the saved game state\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the saved game state"
+                    }
+                },
+                "required": [
+                    "path"
+                ]
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "load_rom",
+            "description": "Load a ROM file into the emulator.\n    \n    Args:\n        path: Path to the ROM file\n        pause: Whether to pause emulation after loading\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "path": {
+                        "type": "string",
+                        "description": "Path to the ROM file"
+                    },
+                    "pause": {
+                        "type": "string",
+                        "description": "Whether to pause emulation after loading"
+                    }
+                },
+                "required": [
+                    "path",
+                    "pause"
+                ]
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "get_emulator_status",
+            "description": "Get the current status of the emulator.\n    \n    Returns:\n        JSON string containing emulator status information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "execute_sequence",
+            "description": "Execute a sequence of actions with delays in between.\n    \n    Args:\n        actions: List of action dictionaries, each containing:\n            - 'type': The action type ('press', 'hold', 'release', 'wait')\n            - Additional parameters specific to each action type\n        delay_between: Default delay between actions in seconds\n    \n    Action Types:\n    - 'press': Press and release a button\n        - 'button': The button to press\n        - 'hold_time': How long to hold the button (optional)\n    - 'hold': Hold down one or more buttons\n        - 'buttons': List of buttons to hold\n    - 'release': Release one or more buttons\n        - 'buttons': List of buttons to release\n    - 'wait': Wait for a specified amount of time\n        - 'time': Time to wait in seconds\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "actions": {
+                        "type": "string",
+                        "description": "List of action dictionaries, each containing:"
+                    },
+                    "delay_between": {
+                        "type": "string",
+                        "description": "Default delay between actions in seconds"
+                    }
+                },
+                "required": [
+                    "actions",
+                    "delay_between"
+                ]
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "perform_directional_movement",
+            "description": "Perform a directional movement in the game.\n    \n    Args:\n        direction: The direction to move (\"Up\", \"Down\", \"Left\", \"Right\")\n        steps: Number of button presses to perform\n        hold_time: How long to hold the button for each press\n        delay_between: Delay between button presses\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "direction": {
+                        "type": "string",
+                        "description": "The direction to move (\"Up\", \"Down\", \"Left\", \"Right\")"
+                    },
+                    "steps": {
+                        "type": "string",
+                        "description": "Number of button presses to perform"
+                    },
+                    "hold_time": {
+                        "type": "string",
+                        "description": "How long to hold the button for each press"
+                    },
+                    "delay_between": {
+                        "type": "string",
+                        "description": "Delay between button presses"
+                    }
+                },
+                "required": [
+                    "direction",
+                    "steps",
+                    "hold_time",
+                    "delay_between"
+                ]
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        },
+        {
+            "name": "navigate_menu",
+            "description": "Navigate through menu selections with directional and confirmation buttons.\n    \n    Args:\n        selections: List of selection dictionaries, each containing:\n            - 'direction': Direction to move (\"Up\", \"Down\", \"Left\", \"Right\")\n            - 'steps': Number of presses in that direction (default: 1)\n            - 'confirm': Whether to press the confirmation button (default: False)\n            - 'confirm_button': Button to press for confirmation (default: \"A\")\n            - 'delay_after': Additional delay after this selection (default: 0)\n        delay_between: Default delay between actions in seconds\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "selections": {
+                        "type": "string",
+                        "description": "List of selection dictionaries, each containing:"
+                    },
+                    "delay_between": {
+                        "type": "string",
+                        "description": "Default delay between actions in seconds"
+                    }
+                },
+                "required": [
+                    "selections",
+                    "delay_between"
+                ]
+            },
+            "file": "skyemu_mcp_server.py",
+            "decorator": [
+                "app.tool"
+            ]
+        }
+    ]
+}

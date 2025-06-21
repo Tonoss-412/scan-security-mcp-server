@@ -1,0 +1,100 @@
+{
+    "tools": [
+        {
+            "name": "rag_agent",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "crewai-doc-rag\\DocRagCrew.py",
+            "decorator": [
+                "agent"
+            ]
+        },
+        {
+            "name": "doc_search_task",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "crewai-doc-rag\\DocRagCrew.py",
+            "decorator": [
+                "task"
+            ]
+        },
+        {
+            "name": "crew",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "crewai-doc-rag\\DocRagCrew.py",
+            "decorator": [
+                "crew"
+            ]
+        },
+        {
+            "name": "rag_agent",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DocRagApp\\src\\DocRagCrew.py",
+            "decorator": [
+                "agent"
+            ]
+        },
+        {
+            "name": "retrieval_task",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DocRagApp\\src\\DocRagCrew.py",
+            "decorator": [
+                "task"
+            ]
+        },
+        {
+            "name": "response_task",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DocRagApp\\src\\DocRagCrew.py",
+            "decorator": [
+                "task"
+            ]
+        },
+        {
+            "name": "crew",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "DocRagApp\\src\\DocRagCrew.py",
+            "decorator": [
+                "crew"
+            ]
+        },
+        {
+            "name": "fetchWeather",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpserver1\\main.py",
+            "decorator": [
+                "mcpserver.tool"
+            ]
+        }
+    ]
+}

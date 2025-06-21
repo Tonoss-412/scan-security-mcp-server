@@ -1,0 +1,596 @@
+{
+    "tools": [
+        {
+            "name": "connect",
+            "description": "Connect to Cisco Catalyst Center.\n\n    Args:\n        base_url: Base URL of the Catalyst Center (e.g., https://10.10.10.10)\n        username: Username for authentication\n        password: Password for authentication\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "base_url": {
+                        "type": "string",
+                        "description": "Base URL of the Catalyst Center (e.g., https://10.10.10.10)"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "Username for authentication"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Password for authentication"
+                    }
+                },
+                "required": [
+                    "base_url",
+                    "username",
+                    "password"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_network_devices",
+            "description": "Get list of network devices.\n\n    Args:\n        limit: Maximum number of devices to return (default: 10)\n        offset: Pagination offset (default: 1)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "limit": {
+                        "type": "string",
+                        "description": "Maximum number of devices to return (default: 10)"
+                    },
+                    "offset": {
+                        "type": "string",
+                        "description": "Pagination offset (default: 1)"
+                    }
+                },
+                "required": [
+                    "limit",
+                    "offset"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_device_details",
+            "description": "Get detailed information about a specific device.\n\n    Args:\n        device_id: Device ID or UUID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID or UUID"
+                    }
+                },
+                "required": [
+                    "device_id"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_sites",
+            "description": "Get list of sites in the network.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_site_health",
+            "description": "Get health information for a specific site.\n\n    Args:\n        site_id: Site ID or UUID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "site_id": {
+                        "type": "string",
+                        "description": "Site ID or UUID"
+                    }
+                },
+                "required": [
+                    "site_id"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_network_issues",
+            "description": "Get network issues.\n\n    Args:\n        start_time: Start time in ISO format (optional)\n        end_time: End time in ISO format (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "start_time": {
+                        "type": "string",
+                        "description": "Start time in ISO format (optional)"
+                    },
+                    "end_time": {
+                        "type": "string",
+                        "description": "End time in ISO format (optional)"
+                    }
+                },
+                "required": [
+                    "start_time",
+                    "end_time"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_client_devices",
+            "description": "Get client devices connected to the network.\n\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_device_interfaces",
+            "description": "Get interfaces for a specific device.\n\n    Args:\n        device_id: Device ID or UUID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID or UUID"
+                    }
+                },
+                "required": [
+                    "device_id"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_device_config",
+            "description": "Get configuration for a specific device.\n\n    Args:\n        device_id: Device ID or UUID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID or UUID"
+                    }
+                },
+                "required": [
+                    "device_id"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_physical_topology",
+            "description": "Get the physical topology of the network.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_commands",
+            "description": "Run CLI commands on a device.\n\n    Args:\n        device_id: Device ID or UUID\n        commands: List of commands to run\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID or UUID"
+                    },
+                    "commands": {
+                        "type": "string",
+                        "description": "List of commands to run"
+                    }
+                },
+                "required": [
+                    "device_id",
+                    "commands"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_task_result",
+            "description": "Get the result of a task.\n\n    Args:\n        task_id: Task ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_id": {
+                        "type": "string",
+                        "description": "Task ID"
+                    }
+                },
+                "required": [
+                    "task_id"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_network_health",
+            "description": "Get overall network health.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_templates",
+            "description": "Get configuration templates.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_sda_fabric",
+            "description": "Get SDA fabric information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_virtual_networks",
+            "description": "Get virtual network information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_tags",
+            "description": "Get all tags.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_tag_members",
+            "description": "Get members of a specific tag.\n\n    Args:\n        tag_id: Tag ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tag_id": {
+                        "type": "string",
+                        "description": "Tag ID"
+                    }
+                },
+                "required": [
+                    "tag_id"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_pnp_devices",
+            "description": "Get Plug and Play devices.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_software_images",
+            "description": "Get software images.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_events",
+            "description": "Get events.\n\n    Args:\n        tags: Event tags (comma-separated)\n        start_time: Start time in ISO format (optional)\n        end_time: End time in ISO format (optional)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tags": {
+                        "type": "string",
+                        "description": "Event tags (comma-separated)"
+                    },
+                    "start_time": {
+                        "type": "string",
+                        "description": "Start time in ISO format (optional)"
+                    },
+                    "end_time": {
+                        "type": "string",
+                        "description": "End time in ISO format (optional)"
+                    }
+                },
+                "required": [
+                    "tags",
+                    "start_time",
+                    "end_time"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_event_subscriptions",
+            "description": "Get event subscriptions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_application_policy",
+            "description": "Get application policies.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_vlan_info",
+            "description": "Get VLAN information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "flow_analysis",
+            "description": "Create a new flow analysis (path trace).\n\n    Args:\n        source_ip: Source IP address\n        destination_ip: Destination IP address\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "source_ip": {
+                        "type": "string",
+                        "description": "Source IP address"
+                    },
+                    "destination_ip": {
+                        "type": "string",
+                        "description": "Destination IP address"
+                    }
+                },
+                "required": [
+                    "source_ip",
+                    "destination_ip"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_flow_analysis",
+            "description": "Get the result of a flow analysis (path trace).\n\n    Args:\n        flow_id: Flow Analysis ID\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "flow_id": {
+                        "type": "string",
+                        "description": "Flow Analysis ID"
+                    }
+                },
+                "required": [
+                    "flow_id"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_device_by_serial",
+            "description": "Get device by serial number.\n\n    Args:\n        serial_number: Device serial number\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "serial_number": {
+                        "type": "string",
+                        "description": "Device serial number"
+                    }
+                },
+                "required": [
+                    "serial_number"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_device_by_ip",
+            "description": "Get device by IP address.\n\n    Args:\n        ip_address: Device IP address\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "ip_address": {
+                        "type": "string",
+                        "description": "Device IP address"
+                    }
+                },
+                "required": [
+                    "ip_address"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_modules",
+            "description": "Get modules for a device.\n\n    Args:\n        device_id: Device ID (optional - if not provided, returns modules for all devices)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "device_id": {
+                        "type": "string",
+                        "description": "Device ID (optional - if not provided, returns modules for all devices)"
+                    }
+                },
+                "required": [
+                    "device_id"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_device_count",
+            "description": "Get the count of network devices.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_version",
+            "description": "Get the version of Cisco Catalyst Center.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_client_detail",
+            "description": "Get detailed information about a specific client.\n\n    Args:\n        mac_address: Client MAC address\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mac_address": {
+                        "type": "string",
+                        "description": "Client MAC address"
+                    }
+                },
+                "required": [
+                    "mac_address"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_client_enrichment",
+            "description": "Get enrichment information about a specific client.\n\n    Args:\n        mac_address: Client MAC address\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mac_address": {
+                        "type": "string",
+                        "description": "Client MAC address"
+                    }
+                },
+                "required": [
+                    "mac_address"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_discovery_jobs",
+            "description": "Get all discovery jobs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

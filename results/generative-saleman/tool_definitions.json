@@ -1,0 +1,169 @@
+{
+    "tools": [
+        {
+            "name": "add_numbers",
+            "description": "Addtwonumbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "a": {
+                        "type": "number",
+                        "description": "The first number."
+                    },
+                    "b": {
+                        "type": "number",
+                        "description": "The second number."
+                    },
+                    "precision": {
+                        "type": "integer",
+                        "description": "The number of decimal places to round the result to. Default is 4."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "float": {
+                        "type": "string",
+                        "description": "The sum of the two numbers rounded to the specified precision."
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "a",
+                    "b",
+                    "precision",
+                    "Returns",
+                    "float",
+                    "Example"
+                ]
+            },
+            "file": "src\\generative_saleman\\server\\calculator.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "subtract_numbers",
+            "description": "Subtracttwonumbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "a": {
+                        "type": "number",
+                        "description": "The first number."
+                    },
+                    "b": {
+                        "type": "number",
+                        "description": "The second number."
+                    },
+                    "precision": {
+                        "type": "integer",
+                        "description": "The number of decimal places to round the result to. Default is 4."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "float": {
+                        "type": "string",
+                        "description": "The difference of the two numbers rounded to the specified precision."
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "a",
+                    "b",
+                    "precision",
+                    "Returns",
+                    "float",
+                    "Example"
+                ]
+            },
+            "file": "src\\generative_saleman\\server\\calculator.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "multiply_numbers",
+            "description": "Multiplytwonumbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "a": {
+                        "type": "number",
+                        "description": "The first number."
+                    },
+                    "b": {
+                        "type": "number",
+                        "description": "The second number."
+                    },
+                    "precision": {
+                        "type": "integer",
+                        "description": "The number of decimal places to round the result to. Default is 4."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "float": {
+                        "type": "string",
+                        "description": "The product of the two numbers rounded to the specified precision."
+                    },
+                    "Example": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "a",
+                    "b",
+                    "precision",
+                    "Returns",
+                    "float",
+                    "Example"
+                ]
+            },
+            "file": "src\\generative_saleman\\server\\calculator.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\generative_saleman\\server\\payment_cart_managment.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\generative_saleman\\server\\product_info.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "search_board_game",
+            "description": "\n    Search for a board game based on a user's description.\n\n    Parameters:\n        prompt (str): A question or query, ideally asking for board game suggestions or themes.\n                      Example: \"\u0e21\u0e35\u0e1a\u0e2d\u0e23\u0e4c\u0e14\u0e40\u0e01\u0e21\u0e2d\u0e30\u0e44\u0e23\u0e17\u0e35\u0e48\u0e14\u0e31\u0e14\u0e41\u0e1b\u0e25\u0e07\u0e21\u0e32\u0e08\u0e32\u0e01\u0e01\u0e32\u0e23\u0e4c\u0e15\u0e39\u0e19\u0e0d\u0e35\u0e48\u0e1b\u0e38\u0e48\u0e19\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e01\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e22\u0e19\u0e1a\u0e49\u0e32\u0e07?\"\n        top_n (int): The number of top relevant documents to return. Default is 3.\n\n    Returns:\n        list: A list of board game documents, each with the following structure:\n            str          # A formatted string containing the board game title, meta data, and description\n\n    Example result:\n        [\n            \"Title: Monster Eater Dungeon Meshi (TH) \u0e21\u0e2d\u0e19\u0e2a\u0e40\u0e15\u0e2d\u0e23\u0e4c\u0e2d\u0e35\u0e17\u0e40\u0e15\u0e2d\u0e23\u0e4c \u0e2a\u0e39\u0e15\u0e23\u0e25\u0e31\u0e1a\u0e15\u0e33\u0e23\u0e31\u0e1a\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e22\u0e19\\nMeta data: \u0e1b\u0e23\u0e30\u0e40\u0e20\u0e17\u0e1a\u0e2d\u0e23\u0e4c\u0e14\u0e40\u0e01\u0e21 : \u0e04\u0e23\u0e2d\u0e1a\u0e04\u0e23\u0e31\u0e27 \u0e2d\u0e32\u0e22\u0e38 : 10+ \u0e08\u0e33\u0e19\u0e27\u0e19\u0e1c\u0e39\u0e49\u0e40\u0e25\u0e48\u0e19 : 2-5 \u0e04\u0e19 \u0e40\u0e27\u0e25\u0e32 : 45 \u0e19\u0e32\u0e17\u0e35\\nOriginal price: \u0e3f1,450.00\\nDiscount price: N/A\\nAdditional price: N/A\\nURL: https://siamboardgames.com/product/monster-eater-dungeon-meshi-th/\\nContent: \u0e43\u0e19\u0e40\u0e01\u0e21\u0e19\u0e35\u0e49\u0e1c\u0e39\u0e49\u0e40\u0e25\u0e48\u0e19\u0e08\u0e30\u0e44\u0e14\u0e49\u0e40\u0e02\u0e49\u0e32\u0e44\u0e1b\u0e2a\u0e39\u0e48\u0e42\u0e25\u0e01\u0e02\u0e2d\u0e07\u0e2a\u0e39\u0e15\u0e23\u0e25\u0e31\u0e1a\u0e15\u0e33\u0e23\u0e31\u0e1a\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e22\u0e19 \u0e01\u0e32\u0e23\u0e4c\u0e15\u0e39\u0e19\u0e14\u0e31\u0e07\u0e08\u0e32\u0e01\u0e0d\u0e35\u0e48\u0e1b\u0e38\u0e48\u0e19\u0e17\u0e35\u0e48\u0e21\u0e35\u0e18\u0e35\u0e21\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e01\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e22\u0e19\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22\u0e17\u0e35\u0e48\u0e41\u0e15\u0e01\u0e15\u0e48\u0e32\u0e07\u0e01\u0e31\u0e19\u0e44\u0e1b\u0e43\u0e19\u0e40\u0e27\u0e2d\u0e23\u0e4c\u0e0a\u0e31\u0e48\u0e19\u0e1a\u0e2d\u0e23\u0e4c\u0e14\u0e40\u0e01\u0e21 \u0e1c\u0e39\u0e49\u0e40\u0e25\u0e48\u0e19\u0e08\u0e30\u0e44\u0e14\u0e49\u0e2a\u0e27\u0e21\u0e1a\u0e17\u0e1a\u0e32\u0e17\u0e40\u0e1b\u0e47\u0e19\u0e2b\u0e19\u0e36\u0e48\u0e07\u0e43\u0e19\u0e2b\u0e31\u0e27\u0e2b\u0e19\u0e49\u0e32\u0e08\u0e32\u0e01\u0e1b\u0e32\u0e23\u0e4c\u0e15\u0e35\u0e49 \u0e44\u0e25\u0e2d\u0e2d\u0e2a, \u0e0a\u0e39\u0e42\u0e23\u0e48, \u0e17\u0e31\u0e19\u0e0b\u0e4c, \u0e04\u0e32\u0e1a\u0e23\u0e39 \u0e41\u0e25\u0e30 \u0e01\u0e2d\u0e07\u0e17\u0e31\u0e1e\u0e04\u0e32\u0e19\u0e32\u0e40\u0e23\u0e35\u0e22 \u0e17\u0e35\u0e48\u0e21\u0e35\u0e40\u0e1b\u0e49\u0e32\u0e2b\u0e21\u0e32\u0e22\u0e43\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e22\u0e19\u0e43\u0e2b\u0e49\u0e16\u0e36\u0e07\u0e0a\u0e31\u0e49\u0e19\u0e25\u0e48\u0e32\u0e07\u0e2a\u0e38\u0e14\u0e41\u0e25\u0e30\u0e01\u0e33\u0e08\u0e31\u0e14\u0e1a\u0e2d\u0e2a\u0e25\u0e07\u0e43\u0e2b\u0e49\u0e44\u0e14\u0e49 \u0e43\u0e19\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e22\u0e19\u0e19\u0e31\u0e49\u0e19\u0e41\u0e1a\u0e48\u0e07\u0e2d\u0e2d\u0e01\u0e40\u0e1b\u0e47\u0e19 2 \u0e0a\u0e31\u0e49\u0e19 \u0e04\u0e37\u0e2d\u0e0a\u0e31\u0e49\u0e19\u0e1a\u0e19\u0e41\u0e25\u0e30\u0e0a\u0e31\u0e49\u0e19\u0e25\u0e48\u0e32\u0e07 \u0e43\u0e19\u0e23\u0e30\u0e2b\u0e27\u0e48\u0e32\u0e07\u0e17\u0e32\u0e07\u0e02\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e22\u0e19 \u0e1c\u0e39\u0e49\u0e40\u0e25\u0e48\u0e19\u0e08\u0e30\u0e44\u0e14\u0e49\u0e1e\u0e1a\u0e40\u0e08\u0e2d\u0e01\u0e31\u0e1a\u0e21\u0e2d\u0e19\u0e2a\u0e40\u0e15\u0e2d\u0e23\u0e4c,\u0e44\u0e2d\u0e40\u0e17\u0e21,\u0e40\u0e2b\u0e15\u0e38\u0e01\u0e32\u0e23\u0e13\u0e4c\u0e1e\u0e34\u0e40\u0e28\u0e29\u0e21\u0e32\u0e01\u0e21\u0e32\u0e22 \u0e41\u0e25\u0e30\u0e2b\u0e32\u0e01\u0e21\u0e35\u0e1c\u0e39\u0e49\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e22\u0e19\u0e0a\u0e31\u0e49\u0e19\u0e1a\u0e19\u0e44\u0e14\u0e49\u0e04\u0e23\u0e1a 100% \u0e1a\u0e2d\u0e2a\u0e1b\u0e23\u0e30\u0e08\u0e33\u0e0a\u0e31\u0e49\u0e19 \u0e04\u0e34\u0e40\u0e21\u0e23\u0e48\u0e32\u0e1f\u0e32\u0e25\u0e34\u0e19 \u0e08\u0e30\u0e1b\u0e23\u0e32\u0e01\u0e0e\u0e15\u0e31\u0e27\u0e2d\u0e2d\u0e01\u0e21\u0e32\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e02\u0e27\u0e32\u0e07\u0e17\u0e32\u0e07\u0e01\u0e32\u0e23\u0e25\u0e07\u0e2a\u0e39\u0e48\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e22\u0e19\u0e0a\u0e31\u0e49\u0e19\u0e25\u0e48\u0e32\u0e07 \u0e1c\u0e39\u0e49\u0e40\u0e25\u0e48\u0e19\u0e08\u0e30\u0e15\u0e49\u0e2d\u0e07\u0e1b\u0e23\u0e32\u0e1a\u0e1a\u0e2d\u0e2a\u0e25\u0e07\u0e43\u0e2b\u0e49\u0e44\u0e14\u0e49 \u0e41\u0e25\u0e30\u0e25\u0e07\u0e44\u0e1b\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e0a\u0e31\u0e49\u0e19\u0e25\u0e48\u0e32\u0e07\u0e15\u0e48\u0e2d\u0e43\u0e2b\u0e49\u0e04\u0e23\u0e1a 100% \u0e2d\u0e35\u0e01\u0e04\u0e23\u0e31\u0e49\u0e07 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e43\u0e2b\u0e49\u0e1a\u0e2d\u0e2a\u0e15\u0e31\u0e27\u0e2a\u0e38\u0e14\u0e17\u0e49\u0e32\u0e22 \u0e08\u0e2d\u0e21\u0e40\u0e27\u0e17\u0e04\u0e25\u0e31\u0e48\u0e07\u0e17\u0e34\u0e2a\u0e40\u0e0b\u0e34\u0e25 \u0e1b\u0e23\u0e32\u0e01\u0e0e\u0e15\u0e31\u0e27\u0e41\u0e25\u0e30\u0e1b\u0e23\u0e32\u0e1a\u0e25\u0e07\u0e43\u0e2b\u0e49\u0e08\u0e07\u0e44\u0e14\u0e49 \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e40\u0e1b\u0e47\u0e19\u0e01\u0e32\u0e23\u0e08\u0e1a\u0e40\u0e01\u0e21\u0e04\u0e30\u0e41\u0e19\u0e19\u0e08\u0e32\u0e01\u0e40\u0e01\u0e21\u0e19\u0e35\u0e49\u0e08\u0e30\u0e21\u0e32\u0e08\u0e32\u0e01 \u0e44\u0e2d\u0e40\u0e17\u0e21, \u0e21\u0e2d\u0e19\u0e2a\u0e40\u0e15\u0e2d\u0e23\u0e4c (\u0e17\u0e35\u0e48\u0e1b\u0e23\u0e38\u0e07\u0e2d\u0e32\u0e2b\u0e32\u0e23\u0e2a\u0e33\u0e40\u0e23\u0e47\u0e08), \u0e21\u0e2d\u0e19\u0e2a\u0e40\u0e15\u0e2d\u0e23\u0e4c\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e1a\u0e2d\u0e2a \u0e41\u0e25\u0e30 \u0e42\u0e17\u0e40\u0e04\u0e19\u0e40\u0e07\u0e34\u0e19\u0e41\u0e15\u0e48\u0e2b\u0e32\u0e01\u0e1c\u0e39\u0e49\u0e40\u0e25\u0e48\u0e19\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e22\u0e19\u0e0a\u0e31\u0e49\u0e19\u0e25\u0e48\u0e32\u0e07\u0e44\u0e14\u0e49\u0e44\u0e21\u0e48\u0e04\u0e23\u0e1a 100% \u0e01\u0e47\u0e16\u0e39\u0e01\u0e2b\u0e31\u0e01\u0e04\u0e30\u0e41\u0e19\u0e19\u0e14\u0e49\u0e27\u0e22\u0e40\u0e0a\u0e48\u0e19\u0e01\u0e31\u0e19\u0e1c\u0e39\u0e49\u0e40\u0e25\u0e48\u0e19\u0e17\u0e35\u0e48\u0e21\u0e35\u0e04\u0e30\u0e41\u0e19\u0e19\u0e2a\u0e39\u0e07\u0e17\u0e35\u0e48\u0e2a\u0e38\u0e14\u0e08\u0e30\u0e40\u0e1b\u0e47\u0e19\u0e1c\u0e39\u0e49\u0e0a\u0e19\u0e30\u0e40\u0e01\u0e21 \u0e41\u0e25\u0e30\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e02\u0e19\u0e32\u0e19\u0e19\u0e32\u0e21\u0e40\u0e1b\u0e47\u0e19\u0e1c\u0e39\u0e49\u0e1e\u0e34\u0e0a\u0e34\u0e15\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e22\u0e19!\\nAdditional Info: \u0e19\u0e49\u0e33\u0e2b\u0e19\u0e31\u0e01: 1.5 \u0e01\u0e01.; \u0e02\u0e19\u0e32\u0e14: 20 \u00d7 20 \u00d7 8 \u0e40\u0e0b\u0e19\u0e15\u0e34\u0e40\u0e21\u0e15\u0e23\\nBox Contents: \u0e01\u0e32\u0e23\u0e4c\u0e14\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e22\u0e19 125 \u0e43\u0e1a, \u0e01\u0e32\u0e23\u0e4c\u0e14\u0e15\u0e31\u0e27\u0e25\u0e30\u0e04\u0e23 28 \u0e43\u0e1a, \u0e01\u0e32\u0e23\u0e4c\u0e14\u0e21\u0e2d\u0e19\u0e2a\u0e40\u0e15\u0e2d\u0e23\u0e4c 30 \u0e43\u0e1a, \u0e01\u0e32\u0e23\u0e4c\u0e14\u0e1a\u0e2d\u0e2a\u0e21\u0e2d\u0e19\u0e2a\u0e40\u0e15\u0e2d\u0e23\u0e4c 2 \u0e43\u0e1a, \u0e01\u0e32\u0e23\u0e4c\u0e14\u0e44\u0e2d\u0e40\u0e17\u0e47\u0e21 20 \u0e43\u0e1a, \u0e01\u0e32\u0e23\u0e4c\u0e14\u0e02\u0e31\u0e49\u0e19\u0e15\u0e2d\u0e19\u0e01\u0e32\u0e23\u0e40\u0e25\u0e48\u0e19 5 \u0e43\u0e1a, \u0e41\u0e1c\u0e48\u0e19\u0e14\u0e31\u0e19\u0e40\u0e08\u0e35\u0e49\u0e22\u0e19\u0e0a\u0e31\u0e49\u0e19\u0e1a\u0e19/\u0e0a\u0e31\u0e49\u0e19\u0e25\u0e48\u0e32\u0e07 5 \u0e41\u0e1c\u0e48\u0e19, \u0e42\u0e17\u0e40\u0e04\u0e19\u0e2d\u0e32\u0e2b\u0e32\u0e23\u0e41\u0e25\u0e30\u0e40\u0e07\u0e34\u0e19 53 \u0e0a\u0e34\u0e49\u0e19, \u0e42\u0e17\u0e40\u0e04\u0e19\u0e40\u0e27\u0e17\u0e22\u0e4c\u0e21\u0e19\u0e15\u0e4c 36 \u0e0a\u0e34\u0e49\u0e19, \u0e42\u0e17\u0e40\u0e04\u0e19\u0e14\u0e32\u0e1a 1 \u0e0a\u0e34\u0e49\u0e19, \u0e25\u0e39\u0e01\u0e40\u0e15\u0e4b\u0e32 6 \u0e25\u0e39\u0e01, \u0e04\u0e39\u0e48\u0e21\u0e37\u0e2d\u0e40\u0e01\u0e21 1 \u0e40\u0e25\u0e48\u0e21\\nSleeve Contents: \u0e0b\u0e2d\u0e07\u0e43\u0e2a\u0e48\u0e01\u0e32\u0e23\u0e4c\u0e14: White Diamond Lily, \u0e02\u0e19\u0e32\u0e14\u0e0b\u0e2d\u0e07: 63.5 x 88 \u0e21\u0e21., \u0e08\u0e33\u0e19\u0e27\u0e19: 210 \u0e0b\u0e2d\u0e07 / 5 \u0e41\u0e1e\u0e04\\n,\n            ...\n        ]\n\n    Notes:\n        - This tool should only be used for Thai-language prompts specifically related to board games.\n        - Double-check the response to ensure it is relevant to the prompt; if not, adjust the prompt and try again.\n        - If you want to search for board game expansions or extensions, consider increasing top_n to 5 or more.\n    \"\"\"\n    response = requests.post(\n        \"http://localhost:5001/completions\",\n        json={\"prompt\": prompt, \"top_n\": top_n}\n    )\n    return response.json()[\"top_documents\"]\n\n\n# # Add a dynamic greeting resource\n# @mcp.resource(\"greeting://{name}\")\n# def get_greeting(name: str) -> str:\n#     \"\"\"Get a personalized greeting\"\"\"\n#     return f\"Hello, {name}!\"\nif __name__ == \"__main__\":\n    mcp.run()\n",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\generative_saleman\\server\\rag.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,136 @@
+{
+    "tools": [
+        {
+            "name": "create_context",
+            "description": "Create a new context.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\endpoints\\context.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_context",
+            "description": "Get a context by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\endpoints\\context.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_context",
+            "description": "Update an existing context.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\endpoints\\context.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_context",
+            "description": "Delete a context.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\endpoints\\context.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "list_contexts",
+            "description": "List all contexts.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\endpoints\\context.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "create_session",
+            "description": "Create a new session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\endpoints\\session.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_session",
+            "description": "Get a session by ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\endpoints\\session.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_session",
+            "description": "Update an existing session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\endpoints\\session.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "end_session",
+            "description": "End a session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\endpoints\\session.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "list_sessions",
+            "description": "List all sessions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\endpoints\\session.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_sessions_by_context",
+            "description": "Get all sessions for a specific context.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "app\\api\\endpoints\\session.py",
+            "decorator": [
+                "router.get"
+            ]
+        }
+    ]
+}

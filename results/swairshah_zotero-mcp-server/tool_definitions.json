@@ -1,0 +1,231 @@
+{
+    "tools": [
+        {
+            "name": "setup",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\modal_pdf_converter.py",
+            "decorator": [
+                "modal.enter"
+            ]
+        },
+        {
+            "name": "parse_pdf",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\modal_pdf_converter.py",
+            "decorator": [
+                "modal.method"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\modal_pdf_converter.py",
+            "decorator": [
+                "app.local_entrypoint"
+            ]
+        },
+        {
+            "name": "parse",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\modal_pdf_converter.py",
+            "decorator": [
+                "web_app.post"
+            ]
+        },
+        {
+            "name": "poll_results",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\modal_pdf_converter.py",
+            "decorator": [
+                "web_app.get"
+            ]
+        },
+        {
+            "name": "fastapi_app",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\modal_pdf_converter.py",
+            "decorator": [
+                "app.function",
+                "modal.asgi_app"
+            ]
+        },
+        {
+            "name": "parse",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\modal_server.py",
+            "decorator": [
+                "web_app.post"
+            ]
+        },
+        {
+            "name": "poll_results",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\modal_server.py",
+            "decorator": [
+                "web_app.get"
+            ]
+        },
+        {
+            "name": "fastapi_app",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "scripts\\modal_server.py",
+            "decorator": [
+                "app.function",
+                "modal.asgi_app"
+            ]
+        },
+        {
+            "name": "search_papers",
+            "description": "Search through Zotero papers based on tags and/or text.\n    \n    Args:\n        tags: List of tags to filter by\n        query: Search query to filter by title and creator fields\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tags": {
+                        "type": "string",
+                        "description": "List of tags to filter by"
+                    },
+                    "query": {
+                        "type": "string",
+                        "description": "Search query to filter by title and creator fields"
+                    }
+                },
+                "required": [
+                    "tags",
+                    "query"
+                ]
+            },
+            "file": "zotero_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_paper_notes",
+            "description": "Get all notes attached to a specific paper.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "zotero_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_paper",
+            "description": "Get details for a specific paper.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "zotero_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "add_note",
+            "description": "Add a note to a specific paper.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "zotero_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_pdf_content",
+            "description": "Get the PDF content for a given item.\n    \n    Args:\n        item_key: The Zotero item key\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "item_key": {
+                        "type": "string",
+                        "description": "The Zotero item key"
+                    }
+                },
+                "required": [
+                    "item_key"
+                ]
+            },
+            "file": "zotero_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "request_summary",
+            "description": "Request a summary for a paper.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "zotero_mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_real_search_papers",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "zotero_mcp\\tests\\test_integration_server.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "mock_zotero",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "zotero_mcp\\tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        }
+    ]
+}

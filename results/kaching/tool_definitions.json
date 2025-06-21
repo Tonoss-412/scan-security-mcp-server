@@ -1,0 +1,574 @@
+{
+    "tools": [
+        {
+            "name": "from_env",
+            "description": "Create configuration from environment variables.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "kaching\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "_get_default_model_id",
+            "description": "Get default model ID for each backend.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kaching\\config.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "load_from_file",
+            "description": "Load configuration from file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "kaching\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_for_mac",
+            "description": "Create configuration optimized for Mac with Apple Silicon.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "kaching\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_for_pc_ollama",
+            "description": "Create configuration for PC with Ollama.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "kaching\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_for_pc_vllm",
+            "description": "Create configuration for PC with vLLM.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "kaching\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "load_template",
+            "description": "Load configuration from a template file in the config directory.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "kaching\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "list_templates",
+            "description": "List all available configuration templates.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "kaching\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_development",
+            "description": "Create development configuration with safe defaults.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "kaching\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_production",
+            "description": "Create production configuration with full settings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "kaching\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "generate_article",
+            "description": "\n            Generate a complete article. SEO optimization should be done as a separate step.\n            \n            Args:\n                title: Article title\n                keywords: Comma-separated target keywords\n                content_type: review, comparison, guide, listicle\n                word_count: Target word count\n                affiliate_products: Comma-separated product names to include\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Article title"
+                    },
+                    "keywords": {
+                        "type": "string",
+                        "description": "Comma-separated target keywords"
+                    },
+                    "content_type": {
+                        "type": "string",
+                        "description": "review, comparison, guide, listicle"
+                    },
+                    "word_count": {
+                        "type": "string",
+                        "description": "Target word count"
+                    },
+                    "affiliate_products": {
+                        "type": "string",
+                        "description": "Comma-separated product names to include"
+                    }
+                },
+                "required": [
+                    "title",
+                    "keywords",
+                    "content_type",
+                    "word_count",
+                    "affiliate_products"
+                ]
+            },
+            "file": "kaching\\agents\\content_agent.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "optimize_content_seo",
+            "description": "\n            Optimize content for SEO with keyword integration and meta data.\n            \n            Args:\n                content: Raw content to optimize\n                target_keywords: Comma-separated keywords to optimize for\n                meta_title: Custom meta title (optional)\n                meta_description: Custom meta description (optional)\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "Raw content to optimize"
+                    },
+                    "target_keywords": {
+                        "type": "string",
+                        "description": "Comma-separated keywords to optimize for"
+                    },
+                    "meta_title": {
+                        "type": "string",
+                        "description": "Custom meta title (optional)"
+                    },
+                    "meta_description": {
+                        "type": "string",
+                        "description": "Custom meta description (optional)"
+                    }
+                },
+                "required": [
+                    "content",
+                    "target_keywords",
+                    "meta_title",
+                    "meta_description"
+                ]
+            },
+            "file": "kaching\\agents\\content_agent.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "fact_check_content",
+            "description": "\n            Fact-check content using multiple sources via MCP tools.\n            \n            Args:\n                content: Content to fact-check\n                sources_required: Minimum number of sources to verify against\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "Content to fact-check"
+                    },
+                    "sources_required": {
+                        "type": "string",
+                        "description": "Minimum number of sources to verify against"
+                    }
+                },
+                "required": [
+                    "content",
+                    "sources_required"
+                ]
+            },
+            "file": "kaching\\agents\\content_agent.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "score_content_quality",
+            "description": "\n            Score content quality across multiple criteria.\n            \n            Args:\n                content: Content to score\n                criteria: Comma-separated scoring criteria\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "Content to score"
+                    },
+                    "criteria": {
+                        "type": "string",
+                        "description": "Comma-separated scoring criteria"
+                    }
+                },
+                "required": [
+                    "content",
+                    "criteria"
+                ]
+            },
+            "file": "kaching\\agents\\content_agent.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "collect_analytics",
+            "description": "\n            Collect analytics data for specified number of days.\n            \n            Args:\n                days: Number of days to collect data for (default: 7)\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "days": {
+                        "type": "string",
+                        "description": "Number of days to collect data for (default: 7)"
+                    }
+                },
+                "required": [
+                    "days"
+                ]
+            },
+            "file": "kaching\\agents\\monitor_agent.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "publish_content",
+            "description": "\n            Publish content to WordPress.\n            \n            Args:\n                title: Post title\n                content: Post content (HTML or markdown)\n                status: draft, publish, or scheduled\n                categories: Comma-separated categories\n                tags: Comma-separated tags\n                meta_title: SEO meta title\n                meta_description: SEO meta description\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Post title"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Post content (HTML or markdown)"
+                    },
+                    "status": {
+                        "type": "string",
+                        "description": "draft, publish, or scheduled"
+                    },
+                    "categories": {
+                        "type": "string",
+                        "description": "Comma-separated categories"
+                    },
+                    "tags": {
+                        "type": "string",
+                        "description": "Comma-separated tags"
+                    },
+                    "meta_title": {
+                        "type": "string",
+                        "description": "SEO meta title"
+                    },
+                    "meta_description": {
+                        "type": "string",
+                        "description": "SEO meta description"
+                    }
+                },
+                "required": [
+                    "title",
+                    "content",
+                    "status",
+                    "categories",
+                    "tags",
+                    "meta_title",
+                    "meta_description"
+                ]
+            },
+            "file": "kaching\\agents\\publishing_agent.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "add_affiliate_links",
+            "description": "\n            Add affiliate links to content.\n            \n            Args:\n                content: Content to modify\n                product_names: Comma-separated product names\n                product_urls: Comma-separated product URLs\n                affiliate_ids: Comma-separated affiliate IDs (optional)\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "Content to modify"
+                    },
+                    "product_names": {
+                        "type": "string",
+                        "description": "Comma-separated product names"
+                    },
+                    "product_urls": {
+                        "type": "string",
+                        "description": "Comma-separated product URLs"
+                    },
+                    "affiliate_ids": {
+                        "type": "string",
+                        "description": "Comma-separated affiliate IDs (optional)"
+                    }
+                },
+                "required": [
+                    "content",
+                    "product_names",
+                    "product_urls",
+                    "affiliate_ids"
+                ]
+            },
+            "file": "kaching\\agents\\publishing_agent.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "schedule_posts",
+            "description": "\n            Schedule content publishing.\n            \n            Args:\n                titles: Comma-separated post titles to schedule\n                frequency: Posts per week (default: 3)\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "titles": {
+                        "type": "string",
+                        "description": "Comma-separated post titles to schedule"
+                    },
+                    "frequency": {
+                        "type": "string",
+                        "description": "Posts per week (default: 3)"
+                    }
+                },
+                "required": [
+                    "titles",
+                    "frequency"
+                ]
+            },
+            "file": "kaching\\agents\\publishing_agent.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "keyword_research",
+            "description": "\n            Perform keyword research for affiliate content.\n            \n            Args:\n                seed_keywords: Comma-separated list of seed keywords\n                search_volume_min: Minimum monthly search volume\n                difficulty_max: Maximum keyword difficulty (0-100)\n                intent_filter: commercial, informational, navigational, transactional\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "seed_keywords": {
+                        "type": "string",
+                        "description": "Comma-separated list of seed keywords"
+                    },
+                    "search_volume_min": {
+                        "type": "string",
+                        "description": "Minimum monthly search volume"
+                    },
+                    "difficulty_max": {
+                        "type": "string",
+                        "description": "Maximum keyword difficulty (0-100)"
+                    },
+                    "intent_filter": {
+                        "type": "string",
+                        "description": "commercial, informational, navigational, transactional"
+                    }
+                },
+                "required": [
+                    "seed_keywords",
+                    "search_volume_min",
+                    "difficulty_max",
+                    "intent_filter"
+                ]
+            },
+            "file": "kaching\\agents\\research_agent.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "competitor_analysis",
+            "description": "\n            Analyze competitor content and strategies.\n            \n            Args:\n                competitor_urls: Comma-separated list of competitor URLs\n                analysis_depth: shallow, medium, deep\n            ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "competitor_urls": {
+                        "type": "string",
+                        "description": "Comma-separated list of competitor URLs"
+                    },
+                    "analysis_depth": {
+                        "type": "string",
+                        "description": "shallow, medium, deep"
+                    }
+                },
+                "required": [
+                    "competitor_urls",
+                    "analysis_depth"
+                ]
+            },
+            "file": "kaching\\agents\\research_agent.py",
+            "decorator": [
+                "tool"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Simple health check endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kaching\\tools\\health_monitor.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "detailed_status",
+            "description": "Detailed system status",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kaching\\tools\\health_monitor.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "system_metrics",
+            "description": "System resource metrics",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kaching\\tools\\health_monitor.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "current_alerts",
+            "description": "Current system alerts",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "kaching\\tools\\health_monitor.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "get_tools_for_servers",
+            "description": "\n        Get tools from specified MCP servers using context manager.\n        \n        Args:\n            server_names: List of server names to load tools from\n            \n        Yields:\n            Dict[str, ToolCollection]: Mapping of server names to their tool collections\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_names": {
+                        "type": "string",
+                        "description": "List of server names to load tools from"
+                    },
+                    "Yields": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_names",
+                    "Yields"
+                ]
+            },
+            "file": "kaching\\tools\\mcp_integration.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        }
+    ]
+}

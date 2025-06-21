@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "load_gaphor_model",
+            "description": "Load a Gaphor model from the file system",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpplayground\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_model_elements_by_name",
+            "description": "Find model elements by name model elements of a specific type.\n    \n    Types can be \"Class\", \"Interface\", \"Actor\".\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpplayground\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "query_model_elements_of_type",
+            "description": "Query model elements of a specific type.\n    \n    Types can be \"Class\", \"Interface\", \"Actor\".\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpplayground\\__init__.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

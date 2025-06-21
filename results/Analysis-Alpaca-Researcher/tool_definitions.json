@@ -1,0 +1,340 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "Root endpoint with API information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\http_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\http_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "deep_research_endpoint",
+            "description": "\n    Perform comprehensive research on a topic and return detailed information.\n    \n    This endpoint mirrors the MCP tool functionality but via HTTP.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\http_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_settings",
+            "description": "Get current MCP server settings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\http_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "startup_event",
+            "description": "Startup event handler.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\http_server.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "shutdown_event",
+            "description": "Shutdown event handler.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\http_server.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "from_env",
+            "description": "Create settings from environment variables.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "analysis_alpaca\\src\\analysis_alpaca\\config.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "Context manager for server lifecycle.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "app": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "app"
+                ]
+            },
+            "file": "analysis_alpaca\\src\\analysis_alpaca\\core\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "deep_research",
+            "description": "\n        Perform comprehensive research on a topic and return detailed information.\n\n        Args:\n            query: The research question or topic\n            sources: Which sources to use: \"web\" for general info, \"academic\" for scholarly sources, \"both\" for all sources\n            num_results: Number of sources to examine (default 2, max based on config)\n\n        Returns:\n            Comprehensive research results combining multiple sources\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The research question or topic"
+                    },
+                    "sources": {
+                        "type": "string",
+                        "description": "Which sources to use: \"web\" for general info, \"academic\" for scholarly sources, \"both\" for all sources"
+                    },
+                    "num_results": {
+                        "type": "string",
+                        "description": "Number of sources to examine (default 2, max based on config)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "sources",
+                    "num_results",
+                    "Returns"
+                ]
+            },
+            "file": "analysis_alpaca\\src\\analysis_alpaca\\core\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "research_prompt",
+            "description": "\n        Create a prompt for comprehensive, multi-stage research on a topic.\n\n        Args:\n            topic: The topic to research\n\n        Returns:\n            A prompt for comprehensive iterative research with APA citations\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "topic": {
+                        "type": "string",
+                        "description": "The topic to research"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "topic",
+                    "Returns"
+                ]
+            },
+            "file": "analysis_alpaca\\src\\analysis_alpaca\\core\\server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "search",
+            "description": "\n        Perform a search and return results.\n        \n        Args:\n            query: Search query\n            num_results: Number of results to return\n            \n        Returns:\n            List of search results\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search query"
+                    },
+                    "num_results": {
+                        "type": "string",
+                        "description": "Number of results to return"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "num_results",
+                    "Returns"
+                ]
+            },
+            "file": "analysis_alpaca\\src\\analysis_alpaca\\search\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "test_settings",
+            "description": "Test settings fixture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "research_service",
+            "description": "Research service fixture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_settings": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_settings"
+                ]
+            },
+            "file": "analysis_alpaca\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_httpx_response",
+            "description": "Mock HTTP response fixture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_search_results",
+            "description": "Mock search results fixture.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\web_ui\\backend\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\web_ui\\backend\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "start_research",
+            "description": "Start a new research job.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\web_ui\\backend\\main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_research_status",
+            "description": "Get research job status and results.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\web_ui\\backend\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_research_progress",
+            "description": "Get detailed progress for a research job.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\web_ui\\backend\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_research_jobs",
+            "description": "List all research jobs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\web_ui\\backend\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "delete_research_job",
+            "description": "Delete a research job.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "analysis_alpaca\\web_ui\\backend\\main.py",
+            "decorator": [
+                "app.delete"
+            ]
+        }
+    ]
+}

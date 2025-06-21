@@ -1,0 +1,34 @@
+{
+    "tools": [
+        {
+            "name": "get_articles_by_date",
+            "description": "Retourne les actualit\u00e9s pour une date donn\u00e9e.\n    Args:\n        date: Target date in YYYY-MM-DD format (optional, defaults to today)\n        category: Category to filter articles by (optional)\n        tags: Comma-separated list of tags to filter articles by (optional)\n    \"\"\"\n ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "description": "Target date in YYYY-MM-DD format (optional, defaults to today)"
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "Category to filter articles by (optional)"
+                    },
+                    "tags": {
+                        "type": "string",
+                        "description": "Comma-separated list of tags to filter articles by (optional)"
+                    }
+                },
+                "required": [
+                    "date",
+                    "category",
+                    "tags"
+                ]
+            },
+            "file": "src\\boring_news_mcp\\client.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

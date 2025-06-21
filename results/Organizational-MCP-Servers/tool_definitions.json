@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-shared-core\\mcp_knowledge_core.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "health",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-shared-core\\mcp_knowledge_core.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "upload_document",
+            "description": "Upload and process a document",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-shared-core\\mcp_knowledge_core.py",
+            "decorator": [
+                "self.app.post"
+            ]
+        },
+        {
+            "name": "list_documents",
+            "description": "List documents in the knowledge base",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-shared-core\\mcp_knowledge_core.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "search_knowledge",
+            "description": "Search the knowledge base",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-shared-core\\mcp_knowledge_core.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        },
+        {
+            "name": "mcp_endpoint",
+            "description": "Main MCP JSON-RPC endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-shared-core\\mcp_knowledge_core.py",
+            "decorator": [
+                "self.app.post"
+            ]
+        },
+        {
+            "name": "sse_endpoint",
+            "description": "SSE endpoint for MCP streaming",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp-shared-core\\mcp_knowledge_core.py",
+            "decorator": [
+                "self.app.get"
+            ]
+        }
+    ]
+}

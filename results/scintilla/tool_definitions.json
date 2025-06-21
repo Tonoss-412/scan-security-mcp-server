@@ -1,0 +1,878 @@
+{
+    "tools": [
+        {
+            "name": "allowed_domains_list",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "Application lifespan manager with non-blocking startup",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint with FastMCP status",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "Root endpoint",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "extract_sources",
+            "description": "\n        Simple source extraction that creates basic source entries for LLM guidance\n        \n        Args:\n            tool_name: Name of the tool\n            result_data: Tool result data in any format\n            \n        Returns:\n            List of basic source hints for the LLM\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tool_name": {
+                        "type": "string",
+                        "description": "Name of the tool"
+                    },
+                    "result_data": {
+                        "type": "string",
+                        "description": "Tool result data in any format"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tool_name",
+                    "result_data",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agents\\citations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "extract_from_tool_result",
+            "description": "\n        Extract sources from tool results using simple LLM-focused approach\n        \n        Args:\n            tool_name: Name of the tool that generated the result\n            tool_result: The tool result dictionary\n            \n        Returns:\n            List of basic sources for LLM guidance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tool_name": {
+                        "type": "string",
+                        "description": "Name of the tool that generated the result"
+                    },
+                    "tool_result": {
+                        "type": "string",
+                        "description": "The tool result dictionary"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tool_name",
+                    "tool_result",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agents\\citations.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "estimate_tokens",
+            "description": "Rough token estimation (1 token \u2248 4 characters for most text)\"\"\"\n ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agents\\langchain_mcp.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "build_mcp_config",
+            "description": "\n        Build MCP client configuration for different server types\n        \n        Args:\n            config: Source configuration with credentials\n            source_name: Unique name for this source\n            \n        Returns:\n            MCP configuration dict or None if unsupported\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "config": {
+                        "type": "string",
+                        "description": "Source configuration with credentials"
+                    },
+                    "source_name": {
+                        "type": "string",
+                        "description": "Unique name for this source"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "config",
+                    "source_name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agents\\mcp_loader.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "build_server_configs",
+            "description": "\n        Build server configs from database configurations\n        \n        Args:\n            configurations: List of source configurations from database\n            \n        Returns:\n            Dictionary of server configs keyed by source name\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "configurations": {
+                        "type": "string",
+                        "description": "List of source configurations from database"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "configurations",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agents\\mcp_loader.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_bot",
+            "description": "Create a new bot with dedicated sources (admin-only functionality)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\bots.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "list_bots",
+            "description": "List bots accessible to the user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\bots.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_bot",
+            "description": "Get a specific bot with source details",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\bots.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_bot",
+            "description": "Update a bot (admin-only functionality)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\bots.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_bot",
+            "description": "Delete a bot (admin-only functionality)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\bots.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "grant_bot_access",
+            "description": "Grant a user access to a bot (admin-only functionality)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\bots.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "revoke_bot_access",
+            "description": "Revoke a user's access to a bot (admin-only functionality)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\bots.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "list_user_conversations",
+            "description": "List conversations owned by the current user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\conversations.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_conversation_with_messages",
+            "description": "Get a specific conversation with all messages",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\conversations.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "delete_conversation",
+            "description": "Delete a conversation and all its messages",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\conversations.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "update_conversation_title",
+            "description": "Update conversation title",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\conversations.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "list_mcp_servers",
+            "description": "List available MCP servers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\mcp_management.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "store_mcp_credentials",
+            "description": "Store encrypted MCP credentials for a bot",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\mcp_management.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "list_bot_mcp_credentials",
+            "description": "List MCP credentials for a specific bot",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\mcp_management.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "delete_mcp_credentials",
+            "description": "Delete MCP credentials",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\mcp_management.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "get_bot_mcp_status",
+            "description": "Get MCP configuration status for a bot",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\mcp_management.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "test_bot_mcp_connection",
+            "description": "Test MCP connections for a bot",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\mcp_management.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_mcp_cache_status",
+            "description": "Get MCP tool status (FastMCP approach)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\mcp_management.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "trigger_mcp_refresh",
+            "description": "Refresh user's MCP tools (no caching - loads fresh from sources)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\mcp_management.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "invalidate_mcp_cache",
+            "description": "Invalidate user's MCP tool cache (no-op in simple mode)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\mcp_management.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "invalidate_all_mcp_caches",
+            "description": "Invalidate all MCP tool caches (no-op in simple mode)",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\mcp_management.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "query_endpoint",
+            "description": "\n    Main query endpoint with streaming response\n    \n    Handles both test mode and production federated search\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\query.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "handle_test_query",
+            "description": "Handle test mode query with context-aware mock responses",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\query_handlers.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "_generate_mock_response",
+            "description": "Generate mock response based on message content and context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\query_handlers.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_source",
+            "description": "Create a new source for the current user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\sources.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "list_user_sources",
+            "description": "List sources owned by the current user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\sources.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_source",
+            "description": "Get a specific source owned by the current user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\sources.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "update_source",
+            "description": "Update a source owned by the current user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\sources.py",
+            "decorator": [
+                "router.put"
+            ]
+        },
+        {
+            "name": "delete_source",
+            "description": "Delete a source owned by the current user",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\sources.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "get_source_status",
+            "description": "Get source connection status and tool information",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\sources.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "test_source_connection",
+            "description": "Test connection to a source",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\sources.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "refresh_tool_cache",
+            "description": "\n    Refresh cached tools for all user sources\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\sources.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "refresh_source_tools",
+            "description": "\n    Refresh cached tools for a specific source (user-owned or bot-owned if user has access)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\api\\sources.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "get_db_context",
+            "description": "\n    Context manager for database sessions.\n    Use for non-FastAPI contexts.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\db\\base.py",
+            "decorator": [
+                "contextmanager"
+            ]
+        },
+        {
+            "name": "store_source_credentials",
+            "description": "\n        Store encrypted credentials for a source\n        \n        Args:\n            db: Database session\n            source_id: Source ID to store credentials for\n            credentials: Dictionary of credential field -> value\n            \n        Returns:\n            True if successful, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "source_id": {
+                        "type": "string",
+                        "description": "Source ID to store credentials for"
+                    },
+                    "credentials": {
+                        "type": "string",
+                        "description": "Dictionary of credential field -> value"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db",
+                    "source_id",
+                    "credentials",
+                    "Returns"
+                ]
+            },
+            "file": "src\\db\\mcp_credentials.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_source_credentials",
+            "description": "\n        Retrieve and decrypt credentials for a source\n        \n        Args:\n            db: Database session\n            source_id: Source ID to get credentials for\n            \n        Returns:\n            Dictionary of decrypted credentials or None if not found\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "source_id": {
+                        "type": "string",
+                        "description": "Source ID to get credentials for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db",
+                    "source_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\db\\mcp_credentials.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_source_credential_objects",
+            "description": "\n        Retrieve credential objects (with metadata) for a source\n        \n        Args:\n            db: Database session\n            source_id: Source ID to get credentials for\n            \n        Returns:\n            List of credential objects with decrypted values, or None if not found\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "source_id": {
+                        "type": "string",
+                        "description": "Source ID to get credentials for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db",
+                    "source_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\db\\mcp_credentials.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_user_sources_with_credentials",
+            "description": "\n        Get all sources for a user with their MCP configurations\n        \n        Args:\n            db: Database session\n            user_id: User ID to get sources for\n            \n        Returns:\n            List of source configurations with credentials\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "user_id": {
+                        "type": "string",
+                        "description": "User ID to get sources for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db",
+                    "user_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\db\\mcp_credentials.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_bot_sources_with_credentials",
+            "description": "\n        Get sources by IDs with their MCP configurations (for bot access)\n        \n        Args:\n            db: Database session\n            source_ids: List of source IDs to get configurations for\n            \n        Returns:\n            List of source configurations with credentials\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "source_ids": {
+                        "type": "string",
+                        "description": "List of source IDs to get configurations for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db",
+                    "source_ids",
+                    "Returns"
+                ]
+            },
+            "file": "src\\db\\mcp_credentials.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "delete_source_credentials",
+            "description": "\n        Delete all credentials for a source\n        \n        Args:\n            db: Database session\n            source_id: Source ID to delete credentials for\n            \n        Returns:\n            True if successful, False otherwise\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "source_id": {
+                        "type": "string",
+                        "description": "Source ID to delete credentials for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db",
+                    "source_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\db\\mcp_credentials.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "cache_tools_for_source",
+            "description": "\n        Cache tools for a specific source by calling list_tools and storing results in DB\n        \n        Args:\n            db: Database session\n            source_id: Source ID to cache tools for\n            force_refresh: Force refresh even if already cached\n            \n        Returns:\n            Dict with caching results and metadata\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "source_id": {
+                        "type": "string",
+                        "description": "Source ID to cache tools for"
+                    },
+                    "force_refresh": {
+                        "type": "string",
+                        "description": "Force refresh even if already cached"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db",
+                    "source_id",
+                    "force_refresh",
+                    "Returns"
+                ]
+            },
+            "file": "src\\db\\tool_cache.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_cached_tools_for_sources",
+            "description": "\n        Get cached tools for multiple sources from database\n        \n        Args:\n            db: Database session\n            source_ids: List of source IDs to get tools for\n            \n        Returns:\n            List of tool metadata dictionaries\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "source_ids": {
+                        "type": "string",
+                        "description": "List of source IDs to get tools for"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db",
+                    "source_ids",
+                    "Returns"
+                ]
+            },
+            "file": "src\\db\\tool_cache.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "get_cache_status_for_sources",
+            "description": "\n        Get cache status for multiple sources\n        \n        Args:\n            db: Database session\n            source_ids: List of source IDs to check\n            \n        Returns:\n            Dict mapping source_id to cache status info\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "source_ids": {
+                        "type": "string",
+                        "description": "List of source IDs to check"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db",
+                    "source_ids",
+                    "Returns"
+                ]
+            },
+            "file": "src\\db\\tool_cache.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "refresh_all_source_tools",
+            "description": "\n        Refresh tools for all active sources (background task)\n        \n        Args:\n            db: Database session\n            \n        Returns:\n            Summary of refresh results\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "db": {
+                        "type": "string",
+                        "description": "Database session"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "db",
+                    "Returns"
+                ]
+            },
+            "file": "src\\db\\tool_cache.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        }
+    ]
+}

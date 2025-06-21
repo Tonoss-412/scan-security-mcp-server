@@ -1,0 +1,76 @@
+{
+    "tools": [
+        {
+            "name": "list_tools",
+            "description": "List available tools",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "app.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "app.call_tool"
+            ]
+        },
+        {
+            "name": "handle_search_posts",
+            "description": "Handle search_posts tool call",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "retry_with_backoff"
+            ]
+        },
+        {
+            "name": "handle_get_post",
+            "description": "Handle get_post tool call",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "retry_with_backoff"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\utils\\retry.py",
+            "decorator": [
+                "wraps"
+            ]
+        },
+        {
+            "name": "wrapper",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\utils\\retry.py",
+            "decorator": [
+                "wraps"
+            ]
+        }
+    ]
+}

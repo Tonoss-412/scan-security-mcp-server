@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "get_blob_service_client",
+            "description": "Get an Azure Blob Service client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_azure\\azure_server.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "get_cosmos_client",
+            "description": "Get an Azure Cosmos DB client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_azure\\azure_server.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        }
+    ]
+}

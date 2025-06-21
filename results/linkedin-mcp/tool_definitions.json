@@ -1,0 +1,69 @@
+{
+    "tools": [
+        {
+            "name": "keys",
+            "description": "\n        Retrieve all keys from the cache\n        \n        Returns:\n            list[str]: List of keys in the cache\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\linkedin_mcp_server\\cache.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "get_url_for_jobs_search",
+            "description": "\n    Gets the URL for the jobs search query from LinkedIn.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\linkedin_mcp_server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "compose_url_for_jobs_search",
+            "description": "\n    Composes the URL to search for jobs in LinkedIn with proper URI encoding.\n    \n    Args:\n        query: The search query string for jobs in LinkedIn\n        \n    Returns:\n        str: Properly encoded URL string with a placeholder for the start index.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query string for jobs in LinkedIn"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "str": {
+                        "type": "string",
+                        "description": "Properly encoded URL string with a placeholder for the start index."
+                    }
+                },
+                "required": [
+                    "query",
+                    "Returns",
+                    "str"
+                ]
+            },
+            "file": "src\\linkedin_mcp_server\\main.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "connect",
+            "description": "Connect to linkedin server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\linkedin_mcp_server\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

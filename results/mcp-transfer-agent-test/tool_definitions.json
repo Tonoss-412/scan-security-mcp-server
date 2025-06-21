@@ -1,0 +1,618 @@
+{
+    "tools": [
+        {
+            "name": "app_lifespan",
+            "description": "Manage application lifecycle with type-safe context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "search_transfers",
+            "description": "\n    Search for available transfers between two locations.\n    \n    Args:\n        pickup_address: Full address for pickup location\n        pickup_lat: Latitude of pickup location\n        pickup_lng: Longitude of pickup location\n        dropoff_address: Full address for dropoff location\n        dropoff_lat: Latitude of dropoff location\n        dropoff_lng: Longitude of dropoff location\n        pickup_date: Pickup date (YYYY-MM-DD format)\n        pickup_time: Pickup time (HH:MM format, 24h)\n        adults: Number of adults (minimum 1)\n        children: Number of children (0-16 years)\n        infants: Number of infants (0-2 years)\n        round_trip: Whether this is a round trip\n        return_date: Return date for round trips (YYYY-MM-DD format)\n        return_time: Return time for round trips (HH:MM format, 24h)\n        currency: Currency code (EUR, USD, GBP, TRY, RUB)\n        language: Language for response (en, tr, de, ru)\n    \n    Returns:\n        Formatted search results with available transfer options\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pickup_address": {
+                        "type": "string",
+                        "description": "Full address for pickup location"
+                    },
+                    "pickup_lat": {
+                        "type": "string",
+                        "description": "Latitude of pickup location"
+                    },
+                    "pickup_lng": {
+                        "type": "string",
+                        "description": "Longitude of pickup location"
+                    },
+                    "dropoff_address": {
+                        "type": "string",
+                        "description": "Full address for dropoff location"
+                    },
+                    "dropoff_lat": {
+                        "type": "string",
+                        "description": "Latitude of dropoff location"
+                    },
+                    "dropoff_lng": {
+                        "type": "string",
+                        "description": "Longitude of dropoff location"
+                    },
+                    "pickup_date": {
+                        "type": "string",
+                        "description": "Pickup date (YYYY-MM-DD format)"
+                    },
+                    "pickup_time": {
+                        "type": "string",
+                        "description": "Pickup time (HH:MM format, 24h)"
+                    },
+                    "adults": {
+                        "type": "string",
+                        "description": "Number of adults (minimum 1)"
+                    },
+                    "children": {
+                        "type": "string",
+                        "description": "Number of children (0-16 years)"
+                    },
+                    "infants": {
+                        "type": "string",
+                        "description": "Number of infants (0-2 years)"
+                    },
+                    "round_trip": {
+                        "type": "string",
+                        "description": "Whether this is a round trip"
+                    },
+                    "return_date": {
+                        "type": "string",
+                        "description": "Return date for round trips (YYYY-MM-DD format)"
+                    },
+                    "return_time": {
+                        "type": "string",
+                        "description": "Return time for round trips (HH:MM format, 24h)"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "Currency code (EUR, USD, GBP, TRY, RUB)"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language for response (en, tr, de, ru)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "pickup_address",
+                    "pickup_lat",
+                    "pickup_lng",
+                    "dropoff_address",
+                    "dropoff_lat",
+                    "dropoff_lng",
+                    "pickup_date",
+                    "pickup_time",
+                    "adults",
+                    "children",
+                    "infants",
+                    "round_trip",
+                    "return_date",
+                    "return_time",
+                    "currency",
+                    "language",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "make_reservation",
+            "description": "\n    Make a transfer reservation based on search results.\n    \n    Args:\n        uuid: UUID from the search results\n        first_name: Customer's first name\n        last_name: Customer's last name\n        email: Customer's email address\n        phone: Customer's phone number with country code\n        country_code: Customer's country code (2-letter ISO code)\n        outbound_subroute_id: Subroute ID for the outbound journey\n        flight_number: Flight number (optional)\n        terminal: Terminal information (optional)\n        notes: Additional notes for the driver\n        return_subroute_id: Subroute ID for the return journey (round trips only)\n        return_flight_number: Return flight number (optional)\n        return_terminal: Return terminal information (optional)\n        return_notes: Additional notes for the return driver\n        passenger_names: List of passenger full names\n        passenger_countries: List of passenger country codes (2-letter ISO codes)\n    \n    Returns:\n        Reservation confirmation details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "uuid": {
+                        "type": "string",
+                        "description": "UUID from the search results"
+                    },
+                    "first_name": {
+                        "type": "string",
+                        "description": "Customer's first name"
+                    },
+                    "last_name": {
+                        "type": "string",
+                        "description": "Customer's last name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Customer's email address"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "description": "Customer's phone number with country code"
+                    },
+                    "country_code": {
+                        "type": "string",
+                        "description": "Customer's country code (2-letter ISO code)"
+                    },
+                    "outbound_subroute_id": {
+                        "type": "string",
+                        "description": "Subroute ID for the outbound journey"
+                    },
+                    "flight_number": {
+                        "type": "string",
+                        "description": "Flight number (optional)"
+                    },
+                    "terminal": {
+                        "type": "string",
+                        "description": "Terminal information (optional)"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "description": "Additional notes for the driver"
+                    },
+                    "return_subroute_id": {
+                        "type": "string",
+                        "description": "Subroute ID for the return journey (round trips only)"
+                    },
+                    "return_flight_number": {
+                        "type": "string",
+                        "description": "Return flight number (optional)"
+                    },
+                    "return_terminal": {
+                        "type": "string",
+                        "description": "Return terminal information (optional)"
+                    },
+                    "return_notes": {
+                        "type": "string",
+                        "description": "Additional notes for the return driver"
+                    },
+                    "passenger_names": {
+                        "type": "string",
+                        "description": "List of passenger full names"
+                    },
+                    "passenger_countries": {
+                        "type": "string",
+                        "description": "List of passenger country codes (2-letter ISO codes)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "uuid",
+                    "first_name",
+                    "last_name",
+                    "email",
+                    "phone",
+                    "country_code",
+                    "outbound_subroute_id",
+                    "flight_number",
+                    "terminal",
+                    "notes",
+                    "return_subroute_id",
+                    "return_flight_number",
+                    "return_terminal",
+                    "return_notes",
+                    "passenger_names",
+                    "passenger_countries",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_reservations",
+            "description": "\n    List existing reservations based on criteria.\n    \n    Args:\n        query_type: Type of search ('createdate', 'flightdate', 'reservationnumber')\n        start_date: Start date for date-based queries (YYYY-MM-DD)\n        end_date: End date for date-based queries (YYYY-MM-DD)\n        reservation_number: Specific reservation number to look up\n    \n    Returns:\n        List of matching reservations\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query_type": {
+                        "type": "string",
+                        "description": "Type of search ('createdate', 'flightdate', 'reservationnumber')"
+                    },
+                    "start_date": {
+                        "type": "string",
+                        "description": "Start date for date-based queries (YYYY-MM-DD)"
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "End date for date-based queries (YYYY-MM-DD)"
+                    },
+                    "reservation_number": {
+                        "type": "string",
+                        "description": "Specific reservation number to look up"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query_type",
+                    "start_date",
+                    "end_date",
+                    "reservation_number",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_places",
+            "description": "\n    Search for locations using the Places API.\n    \n    Args:\n        query: Search text (e.g., hotel name, airport, city)\n        language: Language code (en, tr, de, ru)\n    \n    Returns:\n        List of matching places with IDs for use with get_place_details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search text (e.g., hotel name, airport, city)"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code (en, tr, de, ru)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "language",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_place_details",
+            "description": "\n    Get detailed information about a location.\n    \n    Args:\n        place_id: Google Place ID from search_places results\n        language: Language code (en, tr, de, ru)\n    \n    Returns:\n        Detailed information about the location including coordinates\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "place_id": {
+                        "type": "string",
+                        "description": "Google Place ID from search_places results"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code (en, tr, de, ru)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "place_id",
+                    "language",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "app_lifespan",
+            "description": "Manage application lifecycle with type-safe context",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "search_transfers",
+            "description": "\n    Search for available transfers between two locations.\n    \n    Args:\n        pickup_address: Full address for pickup location\n        pickup_lat: Latitude of pickup location\n        pickup_lng: Longitude of pickup location\n        dropoff_address: Full address for dropoff location\n        dropoff_lat: Latitude of dropoff location\n        dropoff_lng: Longitude of dropoff location\n        pickup_date: Pickup date (YYYY-MM-DD format)\n        pickup_time: Pickup time (HH:MM format, 24h)\n        adults: Number of adults (minimum 1)\n        children: Number of children (0-16 years)\n        infants: Number of infants (0-2 years)\n        round_trip: Whether this is a round trip\n        return_date: Return date for round trips (YYYY-MM-DD format)\n        return_time: Return time for round trips (HH:MM format, 24h)\n        currency: Currency code (EUR, USD, GBP, TRY, RUB)\n        language: Language for response (en, tr, de, ru)\n    \n    Returns:\n        Formatted search results with available transfer options\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pickup_address": {
+                        "type": "string",
+                        "description": "Full address for pickup location"
+                    },
+                    "pickup_lat": {
+                        "type": "string",
+                        "description": "Latitude of pickup location"
+                    },
+                    "pickup_lng": {
+                        "type": "string",
+                        "description": "Longitude of pickup location"
+                    },
+                    "dropoff_address": {
+                        "type": "string",
+                        "description": "Full address for dropoff location"
+                    },
+                    "dropoff_lat": {
+                        "type": "string",
+                        "description": "Latitude of dropoff location"
+                    },
+                    "dropoff_lng": {
+                        "type": "string",
+                        "description": "Longitude of dropoff location"
+                    },
+                    "pickup_date": {
+                        "type": "string",
+                        "description": "Pickup date (YYYY-MM-DD format)"
+                    },
+                    "pickup_time": {
+                        "type": "string",
+                        "description": "Pickup time (HH:MM format, 24h)"
+                    },
+                    "adults": {
+                        "type": "string",
+                        "description": "Number of adults (minimum 1)"
+                    },
+                    "children": {
+                        "type": "string",
+                        "description": "Number of children (0-16 years)"
+                    },
+                    "infants": {
+                        "type": "string",
+                        "description": "Number of infants (0-2 years)"
+                    },
+                    "round_trip": {
+                        "type": "string",
+                        "description": "Whether this is a round trip"
+                    },
+                    "return_date": {
+                        "type": "string",
+                        "description": "Return date for round trips (YYYY-MM-DD format)"
+                    },
+                    "return_time": {
+                        "type": "string",
+                        "description": "Return time for round trips (HH:MM format, 24h)"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "Currency code (EUR, USD, GBP, TRY, RUB)"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language for response (en, tr, de, ru)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "pickup_address",
+                    "pickup_lat",
+                    "pickup_lng",
+                    "dropoff_address",
+                    "dropoff_lat",
+                    "dropoff_lng",
+                    "pickup_date",
+                    "pickup_time",
+                    "adults",
+                    "children",
+                    "infants",
+                    "round_trip",
+                    "return_date",
+                    "return_time",
+                    "currency",
+                    "language",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "make_reservation",
+            "description": "\n    Make a transfer reservation based on search results.\n    \n    Args:\n        uuid: UUID from the search results\n        first_name: Customer's first name\n        last_name: Customer's last name\n        email: Customer's email address\n        phone: Customer's phone number with country code\n        country_code: Customer's country code (2-letter ISO code)\n        outbound_subroute_id: Subroute ID for the outbound journey\n        flight_number: Flight number (optional)\n        terminal: Terminal information (optional)\n        notes: Additional notes for the driver\n        return_subroute_id: Subroute ID for the return journey (round trips only)\n        return_flight_number: Return flight number (optional)\n        return_terminal: Return terminal information (optional)\n        return_notes: Additional notes for the return driver\n        passenger_names: List of passenger full names\n        passenger_countries: List of passenger country codes (2-letter ISO codes)\n    \n    Returns:\n        Reservation confirmation details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "uuid": {
+                        "type": "string",
+                        "description": "UUID from the search results"
+                    },
+                    "first_name": {
+                        "type": "string",
+                        "description": "Customer's first name"
+                    },
+                    "last_name": {
+                        "type": "string",
+                        "description": "Customer's last name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Customer's email address"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "description": "Customer's phone number with country code"
+                    },
+                    "country_code": {
+                        "type": "string",
+                        "description": "Customer's country code (2-letter ISO code)"
+                    },
+                    "outbound_subroute_id": {
+                        "type": "string",
+                        "description": "Subroute ID for the outbound journey"
+                    },
+                    "flight_number": {
+                        "type": "string",
+                        "description": "Flight number (optional)"
+                    },
+                    "terminal": {
+                        "type": "string",
+                        "description": "Terminal information (optional)"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "description": "Additional notes for the driver"
+                    },
+                    "return_subroute_id": {
+                        "type": "string",
+                        "description": "Subroute ID for the return journey (round trips only)"
+                    },
+                    "return_flight_number": {
+                        "type": "string",
+                        "description": "Return flight number (optional)"
+                    },
+                    "return_terminal": {
+                        "type": "string",
+                        "description": "Return terminal information (optional)"
+                    },
+                    "return_notes": {
+                        "type": "string",
+                        "description": "Additional notes for the return driver"
+                    },
+                    "passenger_names": {
+                        "type": "string",
+                        "description": "List of passenger full names"
+                    },
+                    "passenger_countries": {
+                        "type": "string",
+                        "description": "List of passenger country codes (2-letter ISO codes)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "uuid",
+                    "first_name",
+                    "last_name",
+                    "email",
+                    "phone",
+                    "country_code",
+                    "outbound_subroute_id",
+                    "flight_number",
+                    "terminal",
+                    "notes",
+                    "return_subroute_id",
+                    "return_flight_number",
+                    "return_terminal",
+                    "return_notes",
+                    "passenger_names",
+                    "passenger_countries",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_reservations",
+            "description": "\n    List existing reservations based on criteria.\n    \n    Args:\n        query_type: Type of search ('createdate', 'flightdate', 'reservationnumber')\n        start_date: Start date for date-based queries (YYYY-MM-DD)\n        end_date: End date for date-based queries (YYYY-MM-DD)\n        reservation_number: Specific reservation number to look up\n    \n    Returns:\n        List of matching reservations\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query_type": {
+                        "type": "string",
+                        "description": "Type of search ('createdate', 'flightdate', 'reservationnumber')"
+                    },
+                    "start_date": {
+                        "type": "string",
+                        "description": "Start date for date-based queries (YYYY-MM-DD)"
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "description": "End date for date-based queries (YYYY-MM-DD)"
+                    },
+                    "reservation_number": {
+                        "type": "string",
+                        "description": "Specific reservation number to look up"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query_type",
+                    "start_date",
+                    "end_date",
+                    "reservation_number",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "search_places",
+            "description": "\n    Search for locations using the Places API.\n    \n    Args:\n        query: Search text (e.g., hotel name, airport, city)\n        language: Language code (en, tr, de, ru)\n    \n    Returns:\n        List of matching places with IDs for use with get_place_details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Search text (e.g., hotel name, airport, city)"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code (en, tr, de, ru)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "query",
+                    "language",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_place_details",
+            "description": "\n    Get detailed information about a location.\n    \n    Args:\n        place_id: Google Place ID from search_places results\n        language: Language code (en, tr, de, ru)\n    \n    Returns:\n        Detailed information about the location including coordinates\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "place_id": {
+                        "type": "string",
+                        "description": "Google Place ID from search_places results"
+                    },
+                    "language": {
+                        "type": "string",
+                        "description": "Language code (en, tr, de, ru)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "place_id",
+                    "language",
+                    "Returns"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

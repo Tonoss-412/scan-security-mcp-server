@@ -1,0 +1,436 @@
+{
+    "tools": [
+        {
+            "name": "get_task_description",
+            "description": "\n    Get the description for a specific OpenML task by its ID.\n    Describes ML tasks like classification or regression, including inputs and evaluation criteria.\n\n    Args:\n        task_id: The integer ID of the task.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_id": {
+                        "type": "string",
+                        "description": "The integer ID of the task."
+                    }
+                },
+                "required": [
+                    "task_id"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_tasks",
+            "description": "\n    List OpenML tasks, applying filters specified as part of the path.\n    Example filters: 'limit/10/offset/0', 'type/1/tag/study_1' (type 1 is Supervised Classification).\n    See OpenML API docs for detailed filter syntax.\n\n    Args:\n        filters: The filter string (e.g., 'limit/10/offset/0', 'type/1').\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filters": {
+                        "type": "string",
+                        "description": "The filter string (e.g., 'limit/10/offset/0', 'type/1')."
+                    }
+                },
+                "required": [
+                    "filters"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_flow_description",
+            "description": "\n    Get the description for a specific OpenML flow (model/pipeline) by its ID.\n    Includes parameters, dependencies, etc.\n\n    Args:\n        flow_id: The integer ID of the flow.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "flow_id": {
+                        "type": "string",
+                        "description": "The integer ID of the flow."
+                    }
+                },
+                "required": [
+                    "flow_id"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_flows",
+            "description": "\n    List OpenML flows, applying filters specified as part of the path.\n    Example filters: 'limit/10/offset/0', 'tag/weka'.\n    See OpenML API docs for detailed filter syntax.\n\n    Args:\n        filters: The filter string (e.g., 'limit/10/offset/0', 'uploader/1').\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filters": {
+                        "type": "string",
+                        "description": "The filter string (e.g., 'limit/10/offset/0', 'uploader/1')."
+                    }
+                },
+                "required": [
+                    "filters"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "check_flow_exists",
+            "description": "\n    Check if a flow with a specific name and external version exists on OpenML.\n\n    Args:\n        name: The name of the flow (e.g., 'weka.J48').\n        version: The external version string (e.g., 'Weka_3.7.5_9117').\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the flow (e.g., 'weka.J48')."
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The external version string (e.g., 'Weka_3.7.5_9117')."
+                    }
+                },
+                "required": [
+                    "name",
+                    "version"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_run_description",
+            "description": "\n    Get the description for a specific OpenML run (experiment result) by its ID.\n    Includes task, flow, setup, evaluations, and output files.\n\n    Args:\n        run_id: The integer ID of the run.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "run_id": {
+                        "type": "string",
+                        "description": "The integer ID of the run."
+                    }
+                },
+                "required": [
+                    "run_id"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_runs",
+            "description": "\n    List OpenML runs, applying filters specified as part of the path.\n    Requires filters like task, flow, setup, or uploader ID. Max 10,000 results.\n    Example filters: 'limit/10/offset/0/task/1', 'flow/67/uploader/1'.\n    See OpenML API docs for detailed filter syntax.\n\n    Args:\n        filters: The filter string (e.g., 'limit/10/task/28', 'flow/67'). Must include task, flow, setup, uploader, or run filter.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filters": {
+                        "type": "string",
+                        "description": "The filter string (e.g., 'limit/10/task/28', 'flow/67'). Must include task, flow, setup, uploader, or run filter."
+                    }
+                },
+                "required": [
+                    "filters"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_run_trace",
+            "description": "\n    Get the optimization trace for a specific OpenML run (if available).\n    Shows hyperparameter settings tried during tuning and their evaluations.\n\n    Args:\n        run_id: The integer ID of the run.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "run_id": {
+                        "type": "string",
+                        "description": "The integer ID of the run."
+                    }
+                },
+                "required": [
+                    "run_id"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_evaluations",
+            "description": "\n    List OpenML run evaluations, applying filters specified as part of the path.\n    Requires filters like function, task, flow, setup, uploader, or run ID. Max 10,000 results.\n    Example filters: 'limit/10/offset/0/task/1/function/predictive_accuracy'.\n    See OpenML API docs for detailed filter syntax.\n\n    Args:\n        filters: The filter string (e.g., 'limit/10/task/68/function/f_measure'). Must include filters.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filters": {
+                        "type": "string",
+                        "description": "The filter string (e.g., 'limit/10/task/68/function/f_measure'). Must include filters."
+                    }
+                },
+                "required": [
+                    "filters"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_setup_description",
+            "description": "\n    Get the description for a specific OpenML setup (hyperparameter configuration) by its ID.\n\n    Args:\n        setup_id: The integer ID of the setup.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "setup_id": {
+                        "type": "string",
+                        "description": "The integer ID of the setup."
+                    }
+                },
+                "required": [
+                    "setup_id"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_setups",
+            "description": "\n    List OpenML setups, applying filters specified as part of the path. Max 1,000 results.\n    Example filters: 'limit/10/offset/0/flow/65'.\n    See OpenML API docs for detailed filter syntax.\n\n    Args:\n        filters: The filter string (e.g., 'limit/10/flow/65', 'setup/10,12').\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filters": {
+                        "type": "string",
+                        "description": "The filter string (e.g., 'limit/10/flow/65', 'setup/10,12')."
+                    }
+                },
+                "required": [
+                    "filters"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_study_description",
+            "description": "\n    Get the description for a specific OpenML study (collection of tasks/runs) by its ID or alias.\n\n    Args:\n        study_id_or_alias: The integer ID or string alias of the study.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "study_id_or_alias": {
+                        "type": "string",
+                        "description": "The integer ID or string alias of the study."
+                    }
+                },
+                "required": [
+                    "study_id_or_alias"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_studies",
+            "description": "\n    List OpenML studies, applying filters specified as part of the path.\n    Example filters: 'limit/10/offset/0', 'main_entity_type/task'.\n    See OpenML API docs for detailed filter syntax.\n\n    Args:\n        filters: The filter string (e.g., 'limit/10/offset/0', 'main_entity_type/task'). Can be empty for all studies.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filters": {
+                        "type": "string",
+                        "description": "The filter string (e.g., 'limit/10/offset/0', 'main_entity_type/task'). Can be empty for all studies."
+                    }
+                },
+                "required": [
+                    "filters"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_task_types",
+            "description": "\n    List all task types supported by OpenML (e.g., Supervised Classification, Regression).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_task_type_description",
+            "description": "\n    Get the description for a specific OpenML task type by its ID.\n\n    Args:\n        task_type_id: The integer ID of the task type (e.g., 1 for Supervised Classification).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "task_type_id": {
+                        "type": "string",
+                        "description": "The integer ID of the task type (e.g., 1 for Supervised Classification)."
+                    }
+                },
+                "required": [
+                    "task_type_id"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_evaluation_measures",
+            "description": "\n    List all evaluation measures supported by OpenML (e.g., predictive_accuracy, area_under_roc_curve).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_estimation_procedures",
+            "description": "\n    List all estimation procedures supported by OpenML (e.g., 10-fold Crossvalidation).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\openml_mcp_server\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_dataset_description",
+            "description": "\n    Get the description for a specific OpenML dataset by its ID.\n    Contains all the meta-data about the dataset.\n\n    Args:\n        dataset_id: The integer ID of the dataset.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "dataset_id": {
+                        "type": "string",
+                        "description": "The integer ID of the dataset."
+                    }
+                },
+                "required": [
+                    "dataset_id"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\tools\\data.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_datasets",
+            "description": "\n    List OpenML datasets, applying filters specified as part of the path.\n    Example filters: 'limit/10/offset/0', 'status/active/tag/uci', 'number_instances/0..1000'.\n    See OpenML API docs for detailed filter syntax.\n\n    Args:\n        filters: The filter string (e.g., 'limit/10/offset/0', 'status/active').\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "filters": {
+                        "type": "string",
+                        "description": "The filter string (e.g., 'limit/10/offset/0', 'status/active')."
+                    }
+                },
+                "required": [
+                    "filters"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\tools\\data.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_dataset_features",
+            "description": "\n    Get the features (attributes/columns) description for a specific OpenML dataset.\n\n    Args:\n        dataset_id: The integer ID of the dataset.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "dataset_id": {
+                        "type": "string",
+                        "description": "The integer ID of the dataset."
+                    }
+                },
+                "required": [
+                    "dataset_id"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\tools\\data.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_dataset_qualities",
+            "description": "\n    Get the calculated qualities (meta-features) for a specific OpenML dataset.\n\n    Args:\n        dataset_id: The integer ID of the dataset.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "dataset_id": {
+                        "type": "string",
+                        "description": "The integer ID of the dataset."
+                    }
+                },
+                "required": [
+                    "dataset_id"
+                ]
+            },
+            "file": "src\\openml_mcp_server\\tools\\data.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_data_qualities",
+            "description": "\n    List all available data quality measures supported by OpenML.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\openml_mcp_server\\tools\\data.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "test_fetch_openml_data_success",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\test_api.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

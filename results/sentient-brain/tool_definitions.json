@@ -1,0 +1,136 @@
+{
+    "tools": [
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "create_project",
+            "description": "\n    Create a new project to be indexed.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\api\\code_indexer_router.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "list_projects",
+            "description": "\n    List all registered projects.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\api\\code_indexer_router.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_project_details",
+            "description": "\n    Get details for a specific project by its ID.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\api\\code_indexer_router.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "delete_project",
+            "description": "\n    Delete a project and all its associated indexed files (cascade delete).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\api\\code_indexer_router.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "trigger_codebase_indexing",
+            "description": "\n    Triggers a background task to scan and index the specified project directory.\n    Finds a project by its alias or creates a new one if it doesn't exist.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\api\\code_indexer_router.py",
+            "decorator": [
+                "router.post"
+            ]
+        },
+        {
+            "name": "list_indexed_files",
+            "description": "\n    Retrieve a list of indexed code files, optionally filtering by project alias.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\api\\code_indexer_router.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "get_indexed_file_details",
+            "description": "\n    Retrieve details for a specific indexed file by its database ID.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\api\\code_indexer_router.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "delete_indexed_file",
+            "description": "\n    Delete an indexed file entry from the database by its ID.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\api\\code_indexer_router.py",
+            "decorator": [
+                "router.delete"
+            ]
+        },
+        {
+            "name": "update_file_description_endpoint",
+            "description": "\n    Update the description of an indexed file.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server\\api\\code_indexer_router.py",
+            "decorator": [
+                "router.put"
+            ]
+        }
+    ]
+}

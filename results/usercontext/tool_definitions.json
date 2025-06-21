@@ -1,0 +1,163 @@
+{
+    "tools": [
+        {
+            "name": "on_ready",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "lookup_user.py",
+            "decorator": [
+                "client.event"
+            ]
+        },
+        {
+            "name": "on_connect",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "lookup_user.py",
+            "decorator": [
+                "client.event"
+            ]
+        },
+        {
+            "name": "on_disconnect",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "lookup_user.py",
+            "decorator": [
+                "client.event"
+            ]
+        },
+        {
+            "name": "lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\main.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "read_root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_user_messages",
+            "description": "\n    Retrieves the last 'count' messages stored for the given user ID.\n    Messages are returned in reverse chronological order (most recent first).\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "list_users_with_history",
+            "description": "\n    Scans the Redis database for keys matching the user message pattern\n    and returns a list of the corresponding User IDs.\n\n    *Note: This uses SCAN and might be slow on very large databases.*\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api\\routes.py",
+            "decorator": [
+                "router.get"
+            ]
+        },
+        {
+            "name": "redis",
+            "description": "Gets a Redis connection from the pool.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cogs\\user_history.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "on_message",
+            "description": "Stores user messages in Redis when they are sent.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cogs\\user_history.py",
+            "decorator": [
+                "commands.Cog.listener"
+            ]
+        },
+        {
+            "name": "user_history",
+            "description": "Slash command to retrieve and display user message history.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "cogs\\user_history.py",
+            "decorator": [
+                "app_commands.command",
+                "app_commands.describe"
+            ]
+        },
+        {
+            "name": "get_user_context",
+            "description": "\n    Fetches the last N messages for a given user_id from the User Messages API.\n\n    Args:\n        user_id: The unique identifier for the user.\n        n: The maximum number of recent messages to retrieve. Defaults to 10.\n\n    Returns:\n        A list of message objects, each containing 'timestamp' and 'content'.\n\n    Raises:\n        httpx.HTTPStatusError: If the API returns an error status code (4xx or 5xx).\n        httpx.RequestError: If there's a problem connecting to the API.\n        Exception: For other unexpected errors during the process.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "description": "The unique identifier for the user."
+                    },
+                    "n": {
+                        "type": "string",
+                        "description": "The maximum number of recent messages to retrieve. Defaults to 10."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "Exception": {
+                        "type": "string",
+                        "description": "For other unexpected errors during the process."
+                    }
+                },
+                "required": [
+                    "user_id",
+                    "n",
+                    "Returns",
+                    "Raises",
+                    "Exception"
+                ]
+            },
+            "file": "mcp\\userscontext.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

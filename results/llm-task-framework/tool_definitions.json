@@ -1,0 +1,148 @@
+{
+    "tools": [
+        {
+            "name": "name",
+            "description": "Get the name of the state.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\llm_task_framework\\core\\protocols.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "current_state",
+            "description": "Get the current state.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\llm_task_framework\\core\\protocols.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "metadata",
+            "description": "Get task metadata.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\llm_task_framework\\core\\protocols.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "extractor",
+            "description": "Get the task extractor.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\llm_task_framework\\core\\protocols.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "analyzer",
+            "description": "Get the task analyzer.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\llm_task_framework\\core\\protocols.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "suggester",
+            "description": "Get the task suggester.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\llm_task_framework\\core\\protocols.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "applier",
+            "description": "Get the task applier.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\llm_task_framework\\core\\protocols.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "validator",
+            "description": "Get the task validator (optional).",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\llm_task_framework\\core\\protocols.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "test_integration_placeholder",
+            "description": "Placeholder integration test.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_basic.py",
+            "decorator": [
+                "pytest.mark.integration"
+            ]
+        },
+        {
+            "name": "test_mcp_placeholder",
+            "description": "Placeholder MCP test.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_basic.py",
+            "decorator": [
+                "pytest.mark.mcp"
+            ]
+        },
+        {
+            "name": "test_llm_placeholder",
+            "description": "Placeholder LLM test.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_basic.py",
+            "decorator": [
+                "pytest.mark.llm"
+            ]
+        },
+        {
+            "name": "test_slow_placeholder",
+            "description": "Placeholder slow test.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_basic.py",
+            "decorator": [
+                "pytest.mark.slow"
+            ]
+        }
+    ]
+}

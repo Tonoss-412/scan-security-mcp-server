@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "main",
+            "description": "MCP Hub - Manage Model Context Protocol servers via Docker containers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpctl\\cli.py",
+            "decorator": [
+                "app.callback"
+            ]
+        },
+        {
+            "name": "get_secret",
+            "description": "Retrieve a secret by name",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpctl\\secret_backends\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "set_secret",
+            "description": "Store a secret",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpctl\\secret_backends\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "list_secrets",
+            "description": "List all available secrets",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpctl\\secret_backends\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "delete_secret",
+            "description": "Delete a secret",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpctl\\secret_backends\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "create_repository",
+            "description": "Create a new repository",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpctl\\vcs\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "push_code",
+            "description": "Push local code to repository",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcpctl\\vcs\\base.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        }
+    ]
+}

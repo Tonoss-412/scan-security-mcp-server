@@ -1,0 +1,198 @@
+{
+    "tools": [
+        {
+            "name": "initialize_language_server",
+            "description": "\n    Initialize a language server for the specified language and project.\n\n    Parameters:\n        session_id: Unique identifier for this language server session\n        project_root: Absolute path to the project root directory\n        language: Programming language to initialize the server for (e.g., \"python\", \"java\", \"typescript\")\n        debug: Enable debug logging\n    \n    Returns:\n        Dictionary containing session info and initialization status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_multilspy\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "shutdown_language_server",
+            "description": "\n    Shutdown a language server session.\n    \n    Parameters:\n        session_id: The session ID returned from initialize_language_server\n    \n    Returns:\n        Dictionary indicating success or failure\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_multilspy\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "request_definition",
+            "description": "\n    Find the definition of a symbol at the specified location.\n    \n    Parameters:\n        session_id: The session ID returned from initialize_language_server\n        file_path: Path to the file containing the symbol, relative to project root\n        line: Line number (0-indexed)\n        column: Column number (0-indexed)\n    \n    Returns:\n        Definition information for the symbol\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_multilspy\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "request_references",
+            "description": "\n    Find all references of a symbol at the specified location.\n    \n    Parameters:\n        session_id: The session ID returned from initialize_language_server\n        file_path: Path to the file containing the symbol, relative to project root\n        line: Line number (0-indexed)\n        column: Column number (0-indexed)\n    \n    Returns:\n        References information for the symbol\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_multilspy\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "request_completions",
+            "description": "\n    Get completion suggestions for a location in the code.\n    \n    Parameters:\n        session_id: The session ID returned from initialize_language_server\n        file_path: Path to the file containing the location, relative to project root\n        line: Line number (0-indexed)\n        column: Column number (0-indexed)\n    \n    Returns:\n        Completion suggestions for the location\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_multilspy\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "request_hover",
+            "description": "\n    Get hover information for a symbol at the specified location.\n    \n    Parameters:\n        session_id: The session ID returned from initialize_language_server\n        file_path: Path to the file containing the symbol, relative to project root\n        line: Line number (0-indexed)\n        column: Column number (0-indexed)\n    \n    Returns:\n        Hover information for the symbol\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_multilspy\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "request_document_symbols",
+            "description": "\n    Get all symbols defined in a document.\n    \n    Parameters:\n        session_id: The session ID returned from initialize_language_server\n        file_path: Path to the file to analyze, relative to project root\n    \n    Returns:\n        Symbols defined in the document\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_multilspy\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_supported_languages",
+            "description": "\n    Get a list of programming languages supported by the multilspy server.\n    \n    Returns:\n        Dictionary of supported languages and their descriptions\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_multilspy\\server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_started",
+            "description": "\n    Returns a prompt to help users get started with the multilspy MCP server.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_multilspy\\server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        },
+        {
+            "name": "test_initialize_language_server",
+            "description": "Test initializing a language server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_isdir": {
+                        "type": "string"
+                    },
+                    "mock_sessions": {
+                        "type": "string"
+                    },
+                    "mock_ls_create": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_isdir",
+                    "mock_sessions",
+                    "mock_ls_create"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch",
+                "patch",
+                "patch"
+            ]
+        },
+        {
+            "name": "test_shutdown_language_server",
+            "description": "Test shutting down a language server.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sessions": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sessions"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_request_definition",
+            "description": "Test requesting definitions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sessions": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sessions"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        },
+        {
+            "name": "test_request_completions",
+            "description": "Test requesting completions.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_sessions": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_sessions"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "patch"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,730 @@
+{
+    "tools": [
+        {
+            "name": "crcrcrcrcrc",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_evidence_strategy",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "breakdown_hypothesis",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_hypothesis",
+            "description": "\n    Create a new Hypothesis in Neo4j.\n\n    Args:\n        subject: The name of the subject\n        relation: The relation between subject and object\n        object_: The name of the object\n        confidence: The confidence level (between 0 and 1) - deprecated, use belief instead\n\n    Returns:\n        A dictionary containing the ID of the created hypothesis\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "subject": {
+                        "type": "string",
+                        "description": "The name of the subject"
+                    },
+                    "relation": {
+                        "type": "string",
+                        "description": "The relation between subject and object"
+                    },
+                    "object_": {
+                        "type": "string",
+                        "description": "The name of the object"
+                    },
+                    "confidence": {
+                        "type": "string",
+                        "description": "The confidence level (between 0 and 1) - deprecated, use belief instead"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "subject",
+                    "relation",
+                    "object_",
+                    "confidence",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_hypothesis_with_objects",
+            "description": "\n    Create a new Hypothesis in Neo4j with detailed subject and object properties.\n\n    Args:\n        subject_name: The name of the subject\n        relation: The relation between subject and object\n        object_name: The name of the object\n        confidence: The confidence level (between 0 and 1) - deprecated, use belief instead\n\n    Returns:\n        A dictionary containing the ID of the created hypothesis\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "subject_name": {
+                        "type": "string",
+                        "description": "The name of the subject"
+                    },
+                    "relation": {
+                        "type": "string",
+                        "description": "The relation between subject and object"
+                    },
+                    "object_name": {
+                        "type": "string",
+                        "description": "The name of the object"
+                    },
+                    "confidence": {
+                        "type": "string",
+                        "description": "The confidence level (between 0 and 1) - deprecated, use belief instead"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "subject_name",
+                    "relation",
+                    "object_name",
+                    "confidence",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_hypothesis",
+            "description": "\n    Get a hypothesis by its ID.\n\n    Args:\n        hypothesis_id: The ID of the hypothesis to retrieve\n\n    Returns:\n        A dictionary containing the hypothesis data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "hypothesis_id": {
+                        "type": "string",
+                        "description": "The ID of the hypothesis to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "hypothesis_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_hypothesis",
+            "description": "\n    Update a hypothesis by its ID.\n\n    Args:\n        hypothesis_id: The ID of the hypothesis to update\n        relation: The new relation (optional)\n        belief_alpha: The new belief alpha parameter (optional)\n        belief_beta: The new belief beta parameter (optional)\n\n    Returns:\n        A dictionary indicating success or failure\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "hypothesis_id": {
+                        "type": "string",
+                        "description": "The ID of the hypothesis to update"
+                    },
+                    "relation": {
+                        "type": "string",
+                        "description": "The new relation (optional)"
+                    },
+                    "belief_alpha": {
+                        "type": "string",
+                        "description": "The new belief alpha parameter (optional)"
+                    },
+                    "belief_beta": {
+                        "type": "string",
+                        "description": "The new belief beta parameter (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "hypothesis_id",
+                    "relation",
+                    "belief_alpha",
+                    "belief_beta",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_hypothesis",
+            "description": "\n    Delete a hypothesis by its ID.\n\n    Args:\n        hypothesis_id: The ID of the hypothesis to delete\n        keep_subject_object: If True, keep the subject and object nodes\n\n    Returns:\n        A dictionary indicating success or failure\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "hypothesis_id": {
+                        "type": "string",
+                        "description": "The ID of the hypothesis to delete"
+                    },
+                    "keep_subject_object": {
+                        "type": "string",
+                        "description": "If True, keep the subject and object nodes"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "hypothesis_id",
+                    "keep_subject_object",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_hypotheses",
+            "description": "\n    Find hypotheses matching the given criteria.\n\n    Args:\n        subject: Subject name to match (optional)\n        relation: Relation to match (optional)\n        object_: Object name to match (optional)\n        min_alpha: Minimum alpha value for belief (optional)\n        max_alpha: Maximum alpha value for belief (optional)\n        min_beta: Minimum beta value for belief (optional)\n        max_beta: Maximum beta value for belief (optional)\n        subject_id: Subject ID to match (optional)\n        object_id: Object ID to match (optional)\n\n    Returns:\n        A dictionary containing the matching hypotheses\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "subject": {
+                        "type": "string",
+                        "description": "Subject name to match (optional)"
+                    },
+                    "relation": {
+                        "type": "string",
+                        "description": "Relation to match (optional)"
+                    },
+                    "object_": {
+                        "type": "string",
+                        "description": "Object name to match (optional)"
+                    },
+                    "min_alpha": {
+                        "type": "string",
+                        "description": "Minimum alpha value for belief (optional)"
+                    },
+                    "max_alpha": {
+                        "type": "string",
+                        "description": "Maximum alpha value for belief (optional)"
+                    },
+                    "min_beta": {
+                        "type": "string",
+                        "description": "Minimum beta value for belief (optional)"
+                    },
+                    "max_beta": {
+                        "type": "string",
+                        "description": "Maximum beta value for belief (optional)"
+                    },
+                    "subject_id": {
+                        "type": "string",
+                        "description": "Subject ID to match (optional)"
+                    },
+                    "object_id": {
+                        "type": "string",
+                        "description": "Object ID to match (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "subject",
+                    "relation",
+                    "object_",
+                    "min_alpha",
+                    "max_alpha",
+                    "min_beta",
+                    "max_beta",
+                    "subject_id",
+                    "object_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_subject",
+            "description": "\n    Update a HypothesisSubject by its ID.\n\n    Args:\n        subject_id: The ID of the subject to update\n        name: The new name (optional)\n\n    Returns:\n        A dictionary indicating success or failure\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "subject_id": {
+                        "type": "string",
+                        "description": "The ID of the subject to update"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The new name (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "subject_id",
+                    "name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_subject",
+            "description": "\n    Delete a HypothesisSubject by its ID.\n\n    Args:\n        subject_id: The ID of the subject to delete\n\n    Returns:\n        A dictionary indicating success or failure\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "subject_id": {
+                        "type": "string",
+                        "description": "The ID of the subject to delete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "subject_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_object",
+            "description": "\n    Update a HypothesisObject by its ID.\n\n    Args:\n        object_id: The ID of the object to update\n        name: The new name (optional)\n\n    Returns:\n        A dictionary indicating success or failure\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "object_id": {
+                        "type": "string",
+                        "description": "The ID of the object to update"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The new name (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "object_id",
+                    "name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_object",
+            "description": "\n    Delete a HypothesisObject by its ID.\n\n    Args:\n        object_id: The ID of the object to delete\n\n    Returns:\n        A dictionary indicating success or failure\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "object_id": {
+                        "type": "string",
+                        "description": "The ID of the object to delete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "object_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_subject",
+            "description": "\n    Create a new HypothesisSubject in Neo4j.\n\n    Args:\n        name: The name of the subject\n\n    Returns:\n        A dictionary containing the ID of the created subject\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the subject"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_object",
+            "description": "\n    Create a new HypothesisObject in Neo4j.\n\n    Args:\n        name: The name of the object\n\n    Returns:\n        A dictionary containing the ID of the created object\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the object"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_subject",
+            "description": "\n    Get a subject by its ID.\n\n    Args:\n        subject_id: The ID of the subject to retrieve\n\n    Returns:\n        A dictionary containing the subject data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "subject_id": {
+                        "type": "string",
+                        "description": "The ID of the subject to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "subject_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_object",
+            "description": "\n    Get an object by its ID.\n\n    Args:\n        object_id: The ID of the object to retrieve\n\n    Returns:\n        A dictionary containing the object data\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "object_id": {
+                        "type": "string",
+                        "description": "The ID of the object to retrieve"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "object_id",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_subjects",
+            "description": "\n    Find subjects matching the given criteria.\n\n    Args:\n        name: Name to match (optional)\n        properties: Properties to match (optional)\n\n    Returns:\n        A dictionary containing the matching subjects\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name to match (optional)"
+                    },
+                    "properties": {
+                        "type": "string",
+                        "description": "Properties to match (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "properties",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_objects",
+            "description": "\n    Find objects matching the given criteria.\n\n    Args:\n        name: Name to match (optional)\n        properties: Properties to match (optional)\n\n    Returns:\n        A dictionary containing the matching objects\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name to match (optional)"
+                    },
+                    "properties": {
+                        "type": "string",
+                        "description": "Properties to match (optional)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "properties",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_multiple_hypotheses",
+            "description": "\n    Create multiple Hypothesis objects at once.\n\n    Args:\n        hypotheses_data: A list of dictionaries, each containing data for a hypothesis:\n            - subject: The name of the subject\n            - relation: The relation between subject and object\n            - object: The name of the object\n            - belief: (Optional) A dictionary with alpha and beta values for the belief\n              If not provided, equally_likely() will be used\n            - additional_properties: Additional properties for the hypothesis (optional)\n\n    Returns:\n        A dictionary containing the IDs of the created hypotheses\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "hypotheses_data": {
+                        "type": "string",
+                        "description": "A list of dictionaries, each containing data for a hypothesis:"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "hypotheses_data",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_multiple_hypotheses_with_objects",
+            "description": "\n    Create multiple Hypothesis objects at once with detailed subject and object properties.\n\n    Args:\n        hypotheses_data: A list of dictionaries, each containing data for a hypothesis:\n            - subject_name: The name of the subject\n            - relation: The relation between subject and object\n            - object_name: The name of the object\n            - belief: (Optional) A dictionary with alpha and beta values for the belief\n              If not provided, equally_likely() will be used\n            - subject_properties: Additional properties for the subject (optional)\n            - object_properties: Additional properties for the object (optional)\n            - hypothesis_properties: Additional properties for the hypothesis (optional)\n\n    Returns:\n        A dictionary containing the IDs of the created hypotheses\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "hypotheses_data": {
+                        "type": "string",
+                        "description": "A list of dictionaries, each containing data for a hypothesis:"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "hypotheses_data",
+                    "Returns"
+                ]
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_all_hypotheses",
+            "description": "\n    Retrieve all available Hypothesis instances from the database.\n\n    Returns:\n        A dictionary containing all hypotheses\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\hypothesis_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "say_hello",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\agent\\simple_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "make_sound",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\comp_over_inherit\\test.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\domain\\hypothesis.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "create_from_strings",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\domain\\hypothesis.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "Create a HypothesisObject instance from a dictionary.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\domain\\hypothesis_object.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "from_dict",
+            "description": "Create a HypothesisSubject instance from a dictionary.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\domain\\hypothesis_subject.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "make_graph",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\taskgraph\\discovery.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "make_graph",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\taskgraph\\graph.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "make_graph",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\taskgraph\\graph_builder.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        }
+    ]
+}

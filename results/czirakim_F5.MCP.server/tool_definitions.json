@@ -1,0 +1,76 @@
+{
+    "tools": [
+        {
+            "name": "show_stats_tool",
+            "description": " This tool shows the stats of an object from an F5 device using the iControl REST API.\n     Args:\n            object_name is the name of the object. \n            object_type can be : virtual,pool,irule or profile  \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "F5MCPserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "show_logs_tool",
+            "description": "This tool shows the lines_number of logs from an F5 device using the iControl REST API.\n     Args:\n            lines_number is the number of lines to be returned.  \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "F5MCPserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_tool",
+            "description": " This tool lists object on an F5 device using the iControl REST API.\n     Args:\n            object_name is the name of the object. \n            object_type can be : virtual,pool,irule or profile  \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "F5MCPserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_tool",
+            "description": " This tool creates an object on an F5 device using the iControl REST API.\n        Args:\n            url_body contains the configuration of the pool. \n            object_type can be : virtual,pool,irule or profile  \n        The configuration of the object is the body for an POST request.        \n       \n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "F5MCPserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "update_tool",
+            "description": " This tool updates an object on an F5 device using the iControl REST API.\n        Args:\n            url_body contains the configuration of the pool. \n            object_type can be : virtual,pool,irule or profile\n            object_name is the name of the object.\n\n        The configuration of the object is the body for an PATCH request.\n       \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "F5MCPserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "delete_tool",
+            "description": " This tool updates an object on an F5 device using the  iControl REST API.\n        Args:            \n            object_type can be : virtual,pool,irule or profile\n            object_name is the name of the object.\n\n        The configuration of the pool is the body for an DELETE request.\n       \n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "F5MCPserver.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,533 @@
+{
+    "tools": [
+        {
+            "name": "is_valid_operation",
+            "description": "Validate if operation can be performed on path",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_code_assist\\base_tools.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_code_assist\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "list_prompts",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_code_assist\\server.py",
+            "decorator": [
+                "server.list_prompts"
+            ]
+        },
+        {
+            "name": "get_prompt",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_code_assist\\server.py",
+            "decorator": [
+                "server.get_prompt"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_code_assist\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "main",
+            "description": "MCP Code Assist Server - Code operations for MCP",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_code_assist\\__init__.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "generate_diff",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_code_assist\\tools\\file_tools.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "test_dir",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\test_dir_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "dir_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_dir"
+                ]
+            },
+            "file": "tests\\test_dir_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_create_directory",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "dir_tools": {
+                        "type": "string"
+                    },
+                    "test_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dir_tools",
+                    "test_dir"
+                ]
+            },
+            "file": "tests\\test_dir_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_directory",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "dir_tools": {
+                        "type": "string"
+                    },
+                    "test_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dir_tools",
+                    "test_dir"
+                ]
+            },
+            "file": "tests\\test_dir_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_validate_path",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "dir_tools": {
+                        "type": "string"
+                    },
+                    "test_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dir_tools",
+                    "test_dir"
+                ]
+            },
+            "file": "tests\\test_dir_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_is_valid_operation",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "dir_tools": {
+                        "type": "string"
+                    },
+                    "test_dir": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dir_tools",
+                    "test_dir"
+                ]
+            },
+            "file": "tests\\test_dir_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "file_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_file_operations.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_validate_path",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_tools"
+                ]
+            },
+            "file": "tests\\test_file_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_write_file",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_tools"
+                ]
+            },
+            "file": "tests\\test_file_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_read_file",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_tools"
+                ]
+            },
+            "file": "tests\\test_file_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_delete_file",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_tools"
+                ]
+            },
+            "file": "tests\\test_file_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_modify_file",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_tools"
+                ]
+            },
+            "file": "tests\\test_file_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_rewrite_file",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_tools"
+                ]
+            },
+            "file": "tests\\test_file_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_file_tree",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_tools": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "file_tools"
+                ]
+            },
+            "file": "tests\\test_file_operations.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "repo_path",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\test_git_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "git_tools",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "repo_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "repo_path"
+                ]
+            },
+            "file": "tests\\test_git_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_status",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "git_tools": {
+                        "type": "string"
+                    },
+                    "repo_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "git_tools",
+                    "repo_path"
+                ]
+            },
+            "file": "tests\\test_git_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_diff",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "git_tools": {
+                        "type": "string"
+                    },
+                    "repo_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "git_tools",
+                    "repo_path"
+                ]
+            },
+            "file": "tests\\test_git_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_log",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "git_tools": {
+                        "type": "string"
+                    },
+                    "repo_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "git_tools",
+                    "repo_path"
+                ]
+            },
+            "file": "tests\\test_git_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_show",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "git_tools": {
+                        "type": "string"
+                    },
+                    "repo_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "git_tools",
+                    "repo_path"
+                ]
+            },
+            "file": "tests\\test_git_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_repo",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "tmp_path": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "tmp_path"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_invalid_instruction",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "test_repo": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "test_repo"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

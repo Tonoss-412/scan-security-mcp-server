@@ -1,0 +1,174 @@
+{
+    "tools": [
+        {
+            "name": "set_operation_mode",
+            "description": "Set operation mode for the SVAN quadruped robot\n\n    Args:\n        mode: an integer value corresponding to a certain model.\n            AVAILABLE MODES:\n                - 1 (STOP)\n                - 2 (TWIRL)\n                - 3 (PUSH UP)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mode": {
+                        "type": "string",
+                        "description": "an integer value corresponding to a certain model."
+                    }
+                },
+                "required": [
+                    "mode"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "set_movement",
+            "description": "Set movement velocity for the SVAN quadruped robot\n\n    Args:\n        x_vel: float velocity in x-axis (-1.0 to 1.0). positive x-axis is to the right side of the robot\n        y_vel: float velocity in y-axis (-1.0 to 1.0). positive y-axis is to the front of the robot.\n        duration: float time for execution of movement in seconds. default to 5 seconds\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "x_vel": {
+                        "type": "string",
+                        "description": "float velocity in x-axis (-1.0 to 1.0). positive x-axis is to the right side of the robot"
+                    },
+                    "y_vel": {
+                        "type": "string",
+                        "description": "float velocity in y-axis (-1.0 to 1.0). positive y-axis is to the front of the robot."
+                    },
+                    "duration": {
+                        "type": "string",
+                        "description": "float time for execution of movement in seconds. default to 5 seconds"
+                    }
+                },
+                "required": [
+                    "x_vel",
+                    "y_vel",
+                    "duration"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "set_roll",
+            "description": "Sets the roll value of the SVAN quadruped robot.\n\n    Args:\n        roll: float value (-1.0 to 1.0) - positive roll is towards the right\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "roll": {
+                        "type": "string",
+                        "description": "float value (-1.0 to 1.0) - positive roll is towards the right"
+                    }
+                },
+                "required": [
+                    "roll"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "set_pitch",
+            "description": "Sets the pitch of the SVAN quadruped robot.\n\n    Args:\n        pitch: float value (-1.0 to 1.0) - positive pitch is forwards.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "pitch": {
+                        "type": "string",
+                        "description": "float value (-1.0 to 1.0) - positive pitch is forwards."
+                    }
+                },
+                "required": [
+                    "pitch"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "set_yaw",
+            "description": "Sets the yaw direction of the robot\n\n    Args:\n        yaw: integer value corresponding to yaw angle presets\n            0 - YAW LEFT\n            1 - YAW RIGHT\n            2 - NO YAW\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "yaw": {
+                        "type": "string",
+                        "description": "integer value corresponding to yaw angle presets"
+                    }
+                },
+                "required": [
+                    "yaw"
+                ]
+            },
+            "file": "mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "set_operation_mode",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tool_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "set_roll_value",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tool_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "set_roll_value",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tool_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "set_roll_value",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tool_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "set_movement",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tool_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        }
+    ]
+}

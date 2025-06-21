@@ -1,0 +1,324 @@
+{
+    "tools": [
+        {
+            "name": "drive_forward",
+            "description": "\n    Drive the robot forward at the specified speed.\n    \n    Args:\n        port: Port number of the robot API (default: 8000)\n        speed: Speed in meters per second (default: 0.2)\n        duration: Duration in seconds (optional). If not provided, the robot will continue moving until stopped.\n    \n    Returns:\n        Status message from the robot\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "port": {
+                        "type": "string",
+                        "description": "Port number of the robot API (default: 8000)"
+                    },
+                    "speed": {
+                        "type": "string",
+                        "description": "Speed in meters per second (default: 0.2)"
+                    },
+                    "duration": {
+                        "type": "string",
+                        "description": "Duration in seconds (optional). If not provided, the robot will continue moving until stopped."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "port",
+                    "speed",
+                    "duration",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "drive_backward",
+            "description": "\n    Drive the robot backward at the specified speed.\n    \n    Args:\n        port: Port number of the robot API (default: 8000)\n        speed: Speed in meters per second (default: 0.2)\n        duration: Duration in seconds (optional). If not provided, the robot will continue moving until stopped.\n    \n    Returns:\n        Status message from the robot\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "port": {
+                        "type": "string",
+                        "description": "Port number of the robot API (default: 8000)"
+                    },
+                    "speed": {
+                        "type": "string",
+                        "description": "Speed in meters per second (default: 0.2)"
+                    },
+                    "duration": {
+                        "type": "string",
+                        "description": "Duration in seconds (optional). If not provided, the robot will continue moving until stopped."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "port",
+                    "speed",
+                    "duration",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "turn_left",
+            "description": "\n    Turn the robot left at the specified angular speed.\n    \n    Args:\n        port: Port number of the robot API (default: 8000)\n        speed: Angular speed in radians per second (default: 1.2)\n        duration: Duration in seconds (optional). If not provided, the robot will continue turning until stopped.\n    \n    Returns:\n        Status message from the robot\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "port": {
+                        "type": "string",
+                        "description": "Port number of the robot API (default: 8000)"
+                    },
+                    "speed": {
+                        "type": "string",
+                        "description": "Angular speed in radians per second (default: 1.2)"
+                    },
+                    "duration": {
+                        "type": "string",
+                        "description": "Duration in seconds (optional). If not provided, the robot will continue turning until stopped."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "port",
+                    "speed",
+                    "duration",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "turn_right",
+            "description": "\n    Turn the robot right at the specified angular speed.\n    \n    Args:\n        port: Port number of the robot API (default: 8000)\n        speed: Angular speed in radians per second (default: 1.2)\n        duration: Duration in seconds (optional). If not provided, the robot will continue turning until stopped.\n    \n    Returns:\n        Status message from the robot\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "port": {
+                        "type": "string",
+                        "description": "Port number of the robot API (default: 8000)"
+                    },
+                    "speed": {
+                        "type": "string",
+                        "description": "Angular speed in radians per second (default: 1.2)"
+                    },
+                    "duration": {
+                        "type": "string",
+                        "description": "Duration in seconds (optional). If not provided, the robot will continue turning until stopped."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "port",
+                    "speed",
+                    "duration",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "stop",
+            "description": "\n    Stop all robot movement immediately.\n    \n    Args:\n        port: Port number of the robot API (default: 8000)\n    \n    Returns:\n        Status message from the robot\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "port": {
+                        "type": "string",
+                        "description": "Port number of the robot API (default: 8000)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "port",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "beep",
+            "description": "\n    Play a beep sound through the robot's speaker.\n    \n    Args:\n        port: Port number of the robot API (default: 8000)\n        frequency: Frequency in Hz (default: 440.0, which is the A4 note)\n        duration: Duration in seconds (default: 1.0)\n        volume: Volume between 0.0 and 1.0 (default: 0.5)\n    \n    Returns:\n        Status message from the robot\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "port": {
+                        "type": "string",
+                        "description": "Port number of the robot API (default: 8000)"
+                    },
+                    "frequency": {
+                        "type": "string",
+                        "description": "Frequency in Hz (default: 440.0, which is the A4 note)"
+                    },
+                    "duration": {
+                        "type": "string",
+                        "description": "Duration in seconds (default: 1.0)"
+                    },
+                    "volume": {
+                        "type": "string",
+                        "description": "Volume between 0.0 and 1.0 (default: 0.5)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "port",
+                    "frequency",
+                    "duration",
+                    "volume",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "drive",
+            "description": "\n    Control the robot with precise velocity values for advanced movement.\n    \n    Args:\n        port: Port number of the robot API (default: 8000)\n        linear_velocity: Linear velocity in m/s (forward/backward)\n        angular_velocity: Angular velocity in rad/s (turning)\n        duration: Duration in seconds (optional). If not provided, the robot will continue moving until stopped.\n    \n    Returns:\n        Status message from the robot\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "port": {
+                        "type": "string",
+                        "description": "Port number of the robot API (default: 8000)"
+                    },
+                    "linear_velocity": {
+                        "type": "string",
+                        "description": "Linear velocity in m/s (forward/backward)"
+                    },
+                    "angular_velocity": {
+                        "type": "string",
+                        "description": "Angular velocity in rad/s (turning)"
+                    },
+                    "duration": {
+                        "type": "string",
+                        "description": "Duration in seconds (optional). If not provided, the robot will continue moving until stopped."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "port",
+                    "linear_velocity",
+                    "angular_velocity",
+                    "duration",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "robot_status",
+            "description": "\n    Get the status and available endpoints of the robot.\n    \n    Args:\n        port: Port number of the robot API (default: 8000)\n    \n    Returns:\n        Information about the robot's API and status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "port": {
+                        "type": "string",
+                        "description": "Port number of the robot API (default: 8000)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "port",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_camera_image",
+            "description": "\n    Get the current camera image from the robot.\n    \n    Args:\n        port: Port number of the robot API (default: 8000)\n        format: Image format, either \"jpeg\" or \"png\" (default: \"jpeg\")\n        quality: Image quality for JPEG format (1-100, default: 90)\n    \n    Returns:\n        Image from the robot's camera\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "port": {
+                        "type": "string",
+                        "description": "Port number of the robot API (default: 8000)"
+                    },
+                    "format": {
+                        "type": "string",
+                        "description": "Image format, either \"jpeg\" or \"png\" (default: \"jpeg\")"
+                    },
+                    "quality": {
+                        "type": "string",
+                        "description": "Image quality for JPEG format (1-100, default: 90)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "port",
+                    "format",
+                    "quality",
+                    "Returns"
+                ]
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "list_available_robots",
+            "description": "\n    List all available robots and their status.\n    \n    Returns:\n        List of available robots with their port numbers and status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_robot_info",
+            "description": "Get information about a robot's capabilities",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "tools": [
+        {
+            "name": "get_config",
+            "description": "Get the application configuration singleton.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\chat_service\\config.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "get_openrouter_api_config",
+            "description": "Get the OpenRouter API configuration singleton.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\chat_service\\config.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "get_mcp_config",
+            "description": "Get the MCP configuration singleton.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\chat_service\\config.py",
+            "decorator": [
+                "lru_cache"
+            ]
+        },
+        {
+            "name": "ident",
+            "description": "Return basic service identity information.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\chat_service\\api\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "mbxai_definition",
+            "description": "Return the API definition for all endpoints.\n\n    This endpoint generates documentation about all API endpoints\n    including their paths, methods, request schemas, and response schemas.\n    Endpoints '/ident' and '/mbxai-definition' are excluded.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\chat_service\\api\\server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "chat",
+            "description": "Process a chat message and maintain history if ident is provided.\n\n    Args:\n        request: The chat request containing the messages and optional parameters\n\n    Returns:\n        ChatResponse containing the response, tool calls, and message history\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The chat request containing the messages and optional parameters"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns"
+                ]
+            },
+            "file": "src\\chat_service\\project\\api.py",
+            "decorator": [
+                "router.post"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,116 @@
+{
+    "tools": [
+        {
+            "name": "check_modernization_status",
+            "description": "\n    Analyze Java files in the codebase for modernization opportunities.\n    Returns a JSON object with modernization status for each file.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "java-modernization\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_modernization_recommendations",
+            "description": "\n    Get specific modernization recommendations for a given file.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "java-modernization\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "auto_analyze_codebase_for_mongodb",
+            "description": "\n    One-click MongoDB adoption analysis - automatically analyzes current codebase, \n    loads MongoDB docs, and provides comprehensive adoption recommendations.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mongodb-adoption\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_current_project_info",
+            "description": "Get information about the current working directory project.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mongodb-adoption\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "analyze_current_codebase",
+            "description": "\n    Analyze the current working directory codebase to understand data storage patterns and architecture.\n\n    Args:\n        include_patterns: Comma-separated patterns to include ('sql,orm,nosql,file_storage' or 'all')\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "include_patterns": {
+                        "type": "string",
+                        "description": "Comma-separated patterns to include ('sql,orm,nosql,file_storage' or 'all')"
+                    }
+                },
+                "required": [
+                    "include_patterns"
+                ]
+            },
+            "file": "mongodb-adoption\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "clone_repository",
+            "description": "Clone the MongoDB documentation repository.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mongodb-adoption\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "process_docs",
+            "description": "Process MongoDB documentation files from a specific subfolder.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mongodb-adoption\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_mongodb_adoption_plan",
+            "description": "\n    Generate MongoDB adoption recommendations based on the current codebase analysis.\n\n    Args:\n        focus_areas: Comma-separated focus areas ('migration,performance,schema,integration' or 'all')\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "focus_areas": {
+                        "type": "string",
+                        "description": "Comma-separated focus areas ('migration,performance,schema,integration' or 'all')"
+                    }
+                },
+                "required": [
+                    "focus_areas"
+                ]
+            },
+            "file": "mongodb-adoption\\main.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,354 @@
+{
+    "tools": [
+        {
+            "name": "_create_services",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\nagare\\admin\\mcp\\commands.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "bool",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "v"
+                ]
+            },
+            "file": "src\\nagare\\admin\\mcp\\tools.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_rpc_response",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "response_id": {
+                        "type": "string"
+                    },
+                    "result": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "response_id",
+                    "result"
+                ]
+            },
+            "file": "src\\nagare\\server\\mcp\\application.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "on_initialized",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "_": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "_"
+                ]
+            },
+            "file": "src\\nagare\\server\\mcp\\application.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "on_roots_changed",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "_": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "_"
+                ]
+            },
+            "file": "src\\nagare\\server\\mcp\\application.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "set_logging_level",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request_id": {
+                        "type": "string"
+                    },
+                    "level": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "request_id",
+                    "level"
+                ]
+            },
+            "file": "src\\nagare\\server\\mcp\\application.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "complete",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "argument": {
+                        "type": "string"
+                    },
+                    "ref": {
+                        "type": "string"
+                    },
+                    "services_service": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "argument",
+                    "ref",
+                    "services_service"
+                ]
+            },
+            "file": "src\\nagare\\server\\mcp\\application.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "decorators",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\nagare\\server\\mcp\\application.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "set_response_body",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "_": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "_",
+                    "data"
+                ]
+            },
+            "file": "src\\nagare\\server\\mcp\\application.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "create_channel",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "method": {
+                        "type": "string"
+                    },
+                    "request": {
+                        "type": "string"
+                    },
+                    "response": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "method",
+                    "request",
+                    "response"
+                ]
+            },
+            "file": "src\\nagare\\server\\mcp\\application.py",
+            "decorator": [
+                "route_for"
+            ]
+        },
+        {
+            "name": "handle_json_rpc",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string"
+                    },
+                    "method": {
+                        "type": "string"
+                    },
+                    "request": {
+                        "type": "string"
+                    },
+                    "response": {
+                        "type": "string"
+                    },
+                    "client_id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "url",
+                    "method",
+                    "request",
+                    "response",
+                    "client_id"
+                ]
+            },
+            "file": "src\\nagare\\server\\mcp\\application.py",
+            "decorator": [
+                "route_for"
+            ]
+        },
+        {
+            "name": "decorators",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\nagare\\server\\mcp\\prompts.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "infos",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\nagare\\server\\mcp\\prompts.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "decorators",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\nagare\\server\\mcp\\resources.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "infos",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\nagare\\server\\mcp\\resources.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "decorators",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "src\\nagare\\server\\mcp\\tools.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "infos",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\nagare\\server\\mcp\\tools.py",
+            "decorator": [
+                "property"
+            ]
+        }
+    ]
+}

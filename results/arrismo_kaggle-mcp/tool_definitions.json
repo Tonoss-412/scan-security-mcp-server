@@ -1,0 +1,53 @@
+{
+    "tools": [
+        {
+            "name": "search_kaggle_datasets",
+            "description": "Searches for datasets on Kaggle matching the query using the Kaggle API.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "download_kaggle_dataset",
+            "description": "Downloads files for a specific Kaggle dataset.\n        Args:\n            dataset_ref: The reference of the dataset (e.g., 'username/dataset-slug').\n            download_path: Optional. The path to download the files to. Defaults to '<project_root>/datasets/<dataset_slug>'.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "dataset_ref": {
+                        "type": "string",
+                        "description": "The reference of the dataset (e.g., 'username/dataset-slug')."
+                    },
+                    "download_path": {
+                        "type": "string",
+                        "description": "Optional. The path to download the files to. Defaults to '<project_root>/datasets/<dataset_slug>'."
+                    }
+                },
+                "required": [
+                    "dataset_ref",
+                    "download_path"
+                ]
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "generate_eda_notebook",
+            "description": "Generates a basic EDA prompt for a given Kaggle dataset reference.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\server.py",
+            "decorator": [
+                "mcp.prompt"
+            ]
+        }
+    ]
+}

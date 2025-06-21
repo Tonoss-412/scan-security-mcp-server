@@ -1,0 +1,325 @@
+{
+    "tools": [
+        {
+            "name": "startup_event",
+            "description": "\n    Run tasks when the FastAPI application starts.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "get_root_page",
+            "description": "\n    Render the root page with the list of servers.\n    \n    Args:\n        request: The FastAPI Request object\n        \n    Returns:\n        TemplateResponse with the rendered index.html template\n    \n    Raises:\n        HTTPException: If there's an error rendering the page\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "request": {
+                        "type": "string",
+                        "description": "The FastAPI Request object"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "HTTPException": {
+                        "type": "string",
+                        "description": "If there's an error rendering the page"
+                    }
+                },
+                "required": [
+                    "request",
+                    "Returns",
+                    "Raises",
+                    "HTTPException"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_servers_api",
+            "description": "\n    Get a list of all registered MCP servers.\n    \n    Returns:\n        List of server dictionaries from the installed_servers.json file\n        \n    Raises:\n        HTTPException: If there's an error retrieving the servers\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "restart_claude_api",
+            "description": "\n    Restart the Claude Desktop application by finding its process,\n    terminating it, and starting it again. If Claude is not running,\n    it will simply start Claude.\n    \n    Returns:\n        Dict with status and message\n        \n    Raises:\n        HTTPException: If there's an error restarting Claude\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "set_server_status_api",
+            "description": "\n    Enable or disable a server in both the installed_servers.json and claude_desktop_config.json files.\n    \n    Args:\n        identifier: Server ID or name\n        payload: Dictionary with {\"enabled\": true/false}\n        \n    Returns:\n        Dict with status and message\n        \n    Raises:\n        HTTPException: If there's an error updating the server status\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "identifier": {
+                        "type": "string",
+                        "description": "Server ID or name"
+                    },
+                    "payload": {
+                        "type": "string",
+                        "description": "Dictionary with {\"enabled\": true/false}"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "HTTPException": {
+                        "type": "string",
+                        "description": "If there's an error updating the server status"
+                    }
+                },
+                "required": [
+                    "identifier",
+                    "payload",
+                    "Returns",
+                    "Raises",
+                    "HTTPException"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.put"
+            ]
+        },
+        {
+            "name": "delete_server_api",
+            "description": "\n    Delete a server from the installed servers list.\n    \n    Args:\n        identifier (str): The ID of the server to delete\n        \n    Returns:\n        Dict with status and message\n        \n    Raises:\n        HTTPException: If there's an error deleting the server\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "identifier": {
+                        "type": "string",
+                        "description": "The ID of the server to delete"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "HTTPException": {
+                        "type": "string",
+                        "description": "If there's an error deleting the server"
+                    }
+                },
+                "required": [
+                    "identifier",
+                    "Returns",
+                    "Raises",
+                    "HTTPException"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.delete"
+            ]
+        },
+        {
+            "name": "as_form",
+            "description": "\n        Convert from form fields to Pydantic model.\n        \n        Args:\n            name: Name of the server\n            command_str: The command to run the server as a string\n            arguments_str: Arguments to pass to the command as a string\n            environment_str: Environment variables as a string (KEY=VALUE format, one per line)\n            source_type: Type of source (e.g., local, git, pip)\n            source_location: Source location (e.g., path, URL, package name)\n            \n        Returns:\n            ServerRegistrationForm instance\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "register_server_api",
+            "description": "\n    Register a new MCP server.\n    \n    Processes the form data, verifies the server command, and adds it to installed_servers.json.\n    \n    Args:\n        form_data: Form data with server details\n        \n    Returns:\n        Dict with status and message\n        \n    Raises:\n        HTTPException: If there's an error registering the server\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "form_data": {
+                        "type": "string",
+                        "description": "Form data with server details"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "HTTPException": {
+                        "type": "string",
+                        "description": "If there's an error registering the server"
+                    }
+                },
+                "required": [
+                    "form_data",
+                    "Returns",
+                    "Raises",
+                    "HTTPException"
+                ]
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "List available resources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "Read Claude status.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool calls for Claude restart.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_resources",
+            "description": "\n    Handler for listing available resources.\n    \n    Returns:\n        List of Resource objects representing available resources\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_manager\\mcp_server.py",
+            "decorator": [
+                "server.list_resources"
+            ]
+        },
+        {
+            "name": "handle_read_resource",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "uri": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "uri"
+                ]
+            },
+            "file": "mcp_manager\\mcp_server.py",
+            "decorator": [
+                "server.read_resource"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "\n    Handler for listing available tools.\n    \n    Returns:\n        List of Tool objects representing available tools\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_manager\\mcp_server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "\n    Handler for calling a tool.\n    \n    Args:\n        name: The name of the tool to call\n        arguments: The arguments to pass to the tool\n        \n    Returns:\n        List of content objects representing the tool's response\n        \n    Raises:\n        ValueError: If the requested tool is not recognized\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the tool to call"
+                    },
+                    "arguments": {
+                        "type": "string",
+                        "description": "The arguments to pass to the tool"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "ValueError": {
+                        "type": "string",
+                        "description": "If the requested tool is not recognized"
+                    }
+                },
+                "required": [
+                    "name",
+                    "arguments",
+                    "Returns",
+                    "Raises",
+                    "ValueError"
+                ]
+            },
+            "file": "mcp_manager\\mcp_server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        }
+    ]
+}

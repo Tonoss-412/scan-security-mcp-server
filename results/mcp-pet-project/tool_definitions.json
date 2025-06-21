@@ -1,0 +1,40 @@
+{
+    "tools": [
+        {
+            "name": "add",
+            "description": "Add two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "multiply",
+            "description": "Multiply two numbers",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\math_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_weather",
+            "description": "Get weather for location.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "servers\\weather_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

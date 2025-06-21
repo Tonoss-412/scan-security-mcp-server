@@ -1,0 +1,67 @@
+{
+    "tools": [
+        {
+            "name": "generate_aws_diagram",
+            "description": "Generate an AWS architecture diagram from a specification.\n    \n    Args:\n        title: The title of the diagram\n        services: List of services with id, type, and name\n        connections: List of connections between services with from and to fields\n        format_type: Output format (png, jpg, svg, pdf)\n        \n    Returns:\n        Dictionary with diagram_url and filename\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "The title of the diagram"
+                    },
+                    "services": {
+                        "type": "string",
+                        "description": "List of services with id, type, and name"
+                    },
+                    "connections": {
+                        "type": "string",
+                        "description": "List of connections between services with from and to fields"
+                    },
+                    "format_type": {
+                        "type": "string",
+                        "description": "Output format (png, jpg, svg, pdf)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "title",
+                    "services",
+                    "connections",
+                    "format_type",
+                    "Returns"
+                ]
+            },
+            "file": "aws_diagram_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "parse_natural_language",
+            "description": "Parse a natural language description into a structured AWS architecture diagram specification.\n    \n    Args:\n        description: Natural language description of the AWS architecture\n        \n    Returns:\n        Dictionary with title, services, and connections\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Natural language description of the AWS architecture"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "description",
+                    "Returns"
+                ]
+            },
+            "file": "aws_diagram_mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,124 @@
+{
+    "tools": [
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "health_check",
+            "description": "Health check endpoint that doesn't require authentication",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_tasks",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "get_task_status",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "llm_generate",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "llm_embed",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "deploy_game_server",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "game_server_action",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "infrastructure_action",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "mcp_webhook",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.post"
+            ]
+        }
+    ]
+}

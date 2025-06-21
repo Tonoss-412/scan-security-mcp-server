@@ -1,0 +1,100 @@
+{
+    "tools": [
+        {
+            "name": "get_patient_summary",
+            "description": "Retrieve a patient's basic summary from the EHR database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_discharge_notes",
+            "description": "Fetch discharge notes for a specific admission ID.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_lab_results",
+            "description": "Get recent lab results for a patient.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "run_custom_query",
+            "description": "Run a custom SELECT SQL query against the EHR database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp\\server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "on_mcp",
+            "description": "Called when an MCP connection is established.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ui\\app.py",
+            "decorator": [
+                "cl.on_mcp_connect#type:ignore"
+            ]
+        },
+        {
+            "name": "on_mcp_disconnect",
+            "description": "Called when an MCP connection is terminated.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ui\\app.py",
+            "decorator": [
+                "cl.on_mcp_disconnect#type:ignore"
+            ]
+        },
+        {
+            "name": "on_chat_start",
+            "description": "Initialize the chat session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ui\\app.py",
+            "decorator": [
+                "cl.on_chat_start"
+            ]
+        },
+        {
+            "name": "on_message",
+            "description": "Process user messages and generate responses using the Bedrock model.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\ui\\app.py",
+            "decorator": [
+                "cl.on_message"
+            ]
+        }
+    ]
+}

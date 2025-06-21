@@ -1,0 +1,1547 @@
+{
+    "tools": [
+        {
+            "name": "docfetcher_lifespan",
+            "description": "\n    Manages the DocMonitor client lifecycle.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\doc_fetcher_mcp.py",
+            "decorator": [
+                "asynccontextmanager"
+            ]
+        },
+        {
+            "name": "check_document_changes",
+            "description": "\n    Check for changes in a document by comparing the latest version with the previous version.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\doc_fetcher_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "monitor_documentation",
+            "description": "\n    Add a documentation URL for monitoring, crawl and index it, and store in monitored_documentations, crawled_pages, and document_changes.\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\doc_fetcher_mcp.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "event_loop",
+            "description": "Create an instance of the default event loop for the test session.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_env_vars",
+            "description": "Mock environment variables needed for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "monkeypatch": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "monkeypatch"
+                ]
+            },
+            "file": "tests\\conftest.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_supabase_client",
+            "description": "Mock Supabase client with all necessary methods.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_crawler",
+            "description": "Mock AsyncWebCrawler.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_context",
+            "description": "Mock MCP context with lifespan context.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "mock_crawler": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "mock_crawler"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_crawled_pages_data",
+            "description": "Sample data for crawled pages table.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_monitored_docs_data",
+            "description": "Sample data for monitored documentations table.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_document_changes_data",
+            "description": "Sample data for document changes table.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_check_document_changes_success",
+            "description": "Test successful document change checking.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_check_document_changes_error",
+            "description": "Test error handling in document change checking.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_check_document_changes_invalid_url",
+            "description": "Test with invalid URL.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_monitor_documentation_new_webpage",
+            "description": "Test monitoring a new webpage.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_monitor_documentation_openapi",
+            "description": "Test monitoring an OpenAPI specification.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_monitor_documentation_already_monitored",
+            "description": "Test monitoring a URL that's already being monitored.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_monitor_documentation_sitemap",
+            "description": "Test monitoring a sitemap.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_available_sources_success",
+            "description": "Test successful retrieval of available sources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    },
+                    "sample_crawled_pages_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context",
+                    "sample_crawled_pages_data"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_available_sources_empty",
+            "description": "Test when no sources are available.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_available_sources_error",
+            "description": "Test error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_check_all_document_changes_success",
+            "description": "Test successful checking of all documents.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    },
+                    "sample_crawled_pages_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context",
+                    "sample_crawled_pages_data"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_check_all_document_changes_empty_database",
+            "description": "Test when no URLs are in the database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_perform_rag_query_basic",
+            "description": "Test basic RAG query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_perform_rag_query_with_filters",
+            "description": "Test RAG query with source and endpoint filters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_perform_rag_query_error",
+            "description": "Test error handling in RAG query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_advanced_rag_query_with_reranking",
+            "description": "Test advanced RAG query with reranking enabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_advanced_rag_query_without_reranking",
+            "description": "Test advanced RAG query with reranking disabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_advanced_rag_query_relevance_indicators",
+            "description": "Test that relevance indicators are correctly calculated.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_document_history_success",
+            "description": "Test successful retrieval of document history.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    },
+                    "sample_document_changes_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context",
+                    "sample_document_changes_data"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_document_history_no_history",
+            "description": "Test when no history exists for a document.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_document_history_error",
+            "description": "Test error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_monitored_documentations_success",
+            "description": "Test successful listing of monitored documentations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    },
+                    "sample_monitored_docs_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context",
+                    "sample_monitored_docs_data"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_monitored_documentations_empty",
+            "description": "Test when no documentations are being monitored.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_monitored_documentations_error",
+            "description": "Test error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_documentation_success",
+            "description": "Test successful deletion of documentation from monitoring.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_documentation_not_found",
+            "description": "Test deletion of non-existent documentation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_documentation_error",
+            "description": "Test error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_full_monitoring_workflow",
+            "description": "Test the complete workflow: monitor -> query -> check changes -> delete.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_empty_query_strings",
+            "description": "Test tools with empty query strings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_malformed_urls",
+            "description": "Test tools with malformed URLs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_very_long_urls",
+            "description": "Test with extremely long URLs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_special_characters_in_query",
+            "description": "Test RAG queries with special characters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_unicode_content",
+            "description": "Test with Unicode content in queries and responses.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_supabase_client",
+            "description": "Mock Supabase client with all necessary methods.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_crawler",
+            "description": "Mock AsyncWebCrawler.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "mock_context",
+            "description": "Mock MCP context with lifespan context.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_supabase_client": {
+                        "type": "string"
+                    },
+                    "mock_crawler": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_supabase_client",
+                    "mock_crawler"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_crawled_pages_data",
+            "description": "Sample data for crawled pages table.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_monitored_docs_data",
+            "description": "Sample data for monitored documentations table.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "sample_document_changes_data",
+            "description": "Sample data for document changes table.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_check_document_changes_success",
+            "description": "Test successful document change checking.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_check_document_changes_error",
+            "description": "Test error handling in document change checking.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_check_document_changes_invalid_url",
+            "description": "Test with invalid URL.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_monitor_documentation_new_webpage",
+            "description": "Test monitoring a new webpage.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_monitor_documentation_openapi",
+            "description": "Test monitoring an OpenAPI specification.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_monitor_documentation_already_monitored",
+            "description": "Test monitoring a URL that's already being monitored.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_monitor_documentation_sitemap",
+            "description": "Test monitoring a sitemap.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_available_sources_success",
+            "description": "Test successful retrieval of available sources.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    },
+                    "sample_crawled_pages_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context",
+                    "sample_crawled_pages_data"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_available_sources_empty",
+            "description": "Test when no sources are available.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_available_sources_error",
+            "description": "Test error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_check_all_document_changes_success",
+            "description": "Test successful checking of all documents.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    },
+                    "sample_crawled_pages_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context",
+                    "sample_crawled_pages_data"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_check_all_document_changes_empty_database",
+            "description": "Test when no URLs are in the database.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_perform_rag_query_basic",
+            "description": "Test basic RAG query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_perform_rag_query_with_filters",
+            "description": "Test RAG query with source and endpoint filters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_perform_rag_query_error",
+            "description": "Test error handling in RAG query.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_advanced_rag_query_with_reranking",
+            "description": "Test advanced RAG query with reranking enabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_advanced_rag_query_without_reranking",
+            "description": "Test advanced RAG query with reranking disabled.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_advanced_rag_query_relevance_indicators",
+            "description": "Test that relevance indicators are correctly calculated.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_document_history_success",
+            "description": "Test successful retrieval of document history.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    },
+                    "sample_document_changes_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context",
+                    "sample_document_changes_data"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_document_history_no_history",
+            "description": "Test when no history exists for a document.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_get_document_history_error",
+            "description": "Test error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_monitored_documentations_success",
+            "description": "Test successful listing of monitored documentations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    },
+                    "sample_monitored_docs_data": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context",
+                    "sample_monitored_docs_data"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_monitored_documentations_empty",
+            "description": "Test when no documentations are being monitored.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_list_monitored_documentations_error",
+            "description": "Test error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_documentation_success",
+            "description": "Test successful deletion of documentation from monitoring.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_documentation_not_found",
+            "description": "Test deletion of non-existent documentation.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_delete_documentation_error",
+            "description": "Test error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_full_monitoring_workflow",
+            "description": "Test the complete workflow: monitor -> query -> check changes -> delete.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_empty_query_strings",
+            "description": "Test tools with empty query strings.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_malformed_urls",
+            "description": "Test tools with malformed URLs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_very_long_urls",
+            "description": "Test with extremely long URLs.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_special_characters_in_query",
+            "description": "Test RAG queries with special characters.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_unicode_content",
+            "description": "Test with Unicode content in queries and responses.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_context"
+                ]
+            },
+            "file": "tests\\test_mcp_tools_comprehensive.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "mock_context",
+            "description": "Create a mock MCP context for testing.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_simple_mcp_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_mcp_tools_import",
+            "description": "Test that we can import the MCP tools module.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_simple_mcp_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

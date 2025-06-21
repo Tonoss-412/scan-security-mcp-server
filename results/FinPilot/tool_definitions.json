@@ -1,0 +1,76 @@
+{
+    "tools": [
+        {
+            "name": "get_sector_info_for_stock",
+            "description": "Fetchsectoranalysisforastockusingitstickersymbol",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_sector",
+            "description": "Fetchcomprehensivesectordata",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "stock_profile",
+            "description": "Fetchdetailedstockinformationusingitstickersymbol",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "stock_news",
+            "description": "Fetchrecentnewsarticlesrelatedtoastockusingitstickersymbol",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "find_ticker",
+            "description": "Convertcompanynametostocktickersymbol",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "price_history",
+            "description": "Retrieve2-monthpricehistorywithtickersymbol",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

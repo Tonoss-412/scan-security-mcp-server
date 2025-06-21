@@ -1,0 +1,335 @@
+{
+    "tools": [
+        {
+            "name": "validate_url",
+            "description": "Ensure URL is properly formatted.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    },
+                    "v": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls",
+                    "v"
+                ]
+            },
+            "file": "odoo_mcp_server\\odoo_client.py",
+            "decorator": [
+                "validator"
+            ]
+        },
+        {
+            "name": "is_connected",
+            "description": "Check if client is authenticated.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "odoo_mcp_server\\odoo_client.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List all available Odoo tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "odoo_mcp_server\\server.py",
+            "decorator": [
+                "self.server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool execution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "odoo_mcp_server\\server.py",
+            "decorator": [
+                "self.server.call_tool"
+            ]
+        },
+        {
+            "name": "get_tool_definition",
+            "description": "Get MCP tool definition.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "odoo_mcp_server\\tools.py",
+            "decorator": [
+                "classmethod",
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "execute",
+            "description": "Execute the tool with given arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "odoo_mcp_server\\tools.py",
+            "decorator": [
+                "abstractmethod"
+            ]
+        },
+        {
+            "name": "get_tool_definition",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "odoo_mcp_server\\tools.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_tool_definition",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "odoo_mcp_server\\tools.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_tool_definition",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "odoo_mcp_server\\tools.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_tool_definition",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "odoo_mcp_server\\tools.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_tool_definition",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "odoo_mcp_server\\tools.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_tool_definition",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "odoo_mcp_server\\tools.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_tool_definition",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "odoo_mcp_server\\tools.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_tool_definition",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "odoo_mcp_server\\tools.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "get_tool_definition",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "cls": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "cls"
+                ]
+            },
+            "file": "odoo_mcp_server\\tools.py",
+            "decorator": [
+                "classmethod"
+            ]
+        },
+        {
+            "name": "mock_client",
+            "description": "Create mock Odoo client.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_tools.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_search_tool",
+            "description": "Test search tool execution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client"
+                ]
+            },
+            "file": "tests\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_create_tool",
+            "description": "Test create tool execution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client"
+                ]
+            },
+            "file": "tests\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_update_tool",
+            "description": "Test update tool execution.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "mock_client": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mock_client"
+                ]
+            },
+            "file": "tests\\test_tools.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

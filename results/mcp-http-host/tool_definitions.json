@@ -1,0 +1,174 @@
+{
+    "tools": [
+        {
+            "name": "startup_event",
+            "description": "Initialize the chat session on startup.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.on_event"
+            ]
+        },
+        {
+            "name": "handle_user_request",
+            "description": "Handle a user request through HTTP endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "handle_approval",
+            "description": "Handle tool approval/denial through HTTP endpoint.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "get_session_state",
+            "description": "Get current session state including messages and pending requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "start_session",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "main.py",
+            "decorator": [
+                "app.post"
+            ]
+        },
+        {
+            "name": "parse_args",
+            "description": "Parse command line arguments.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "core\\configuration.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "load_env",
+            "description": "Load environment variables from .env file.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "core\\configuration.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "model_name",
+            "description": "Get the configured LLM model name.\n\n        Returns:\n            The model name as a string.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "core\\configuration.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "server_port",
+            "description": "Get the configured server port.\n\n        Returns:\n            The port number as integer.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "core\\configuration.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "use_ollama",
+            "description": "Check if Ollama should be used as the LLM provider.\n\n        Returns:\n            True if Ollama should be used, False for openai.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "core\\configuration.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "load_config",
+            "description": "Load server configuration from JSON file.\n\n        Args:\n            file_path: Path to the JSON configuration file.\n\n        Returns:\n            Dict containing server configuration.\n\n        Raises:\n            FileNotFoundError: If configuration file doesn't exist.\n            JSONDecodeError: If configuration file is invalid JSON.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Path to the JSON configuration file."
+                    },
+                    "Returns": {
+                        "type": "string"
+                    },
+                    "Raises": {
+                        "type": "string"
+                    },
+                    "FileNotFoundError": {
+                        "type": "string",
+                        "description": "If configuration file doesn't exist."
+                    },
+                    "JSONDecodeError": {
+                        "type": "string",
+                        "description": "If configuration file is invalid JSON."
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "Returns",
+                    "Raises",
+                    "FileNotFoundError",
+                    "JSONDecodeError"
+                ]
+            },
+            "file": "core\\configuration.py",
+            "decorator": [
+                "staticmethod"
+            ]
+        },
+        {
+            "name": "llm_api_key",
+            "description": "Get the LLM API key.\n\n        Returns:\n            The API key as a string.\n\n        Raises:\n            ValueError: If the API key is not found in environment variables.\n        ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "core\\configuration.py",
+            "decorator": [
+                "property"
+            ]
+        }
+    ]
+}

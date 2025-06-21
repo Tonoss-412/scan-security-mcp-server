@@ -1,0 +1,28 @@
+{
+    "tools": [
+        {
+            "name": "server_name",
+            "description": "Get the server name based on environment.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_framework\\utils\\config.py",
+            "decorator": [
+                "property"
+            ]
+        },
+        {
+            "name": "log_level",
+            "description": "Get the appropriate log level for the environment.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_framework\\utils\\config.py",
+            "decorator": [
+                "property"
+            ]
+        }
+    ]
+}

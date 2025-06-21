@@ -1,0 +1,270 @@
+{
+    "tools": [
+        {
+            "name": "get_simulator_status",
+            "description": "Get the current status of the D-Wave simulator.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "mcp_server_app.tool"
+            ]
+        },
+        {
+            "name": "create_qubo",
+            "description": "Create a QUBO problem. Q should be a dict like {'0,0': -1, '1,1': -1, '0,1': 2}.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "mcp_server_app.tool"
+            ]
+        },
+        {
+            "name": "solve_problem",
+            "description": "Solve a problem previously created (QUBO or Ising) identified by its problem_id.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "mcp_server_app.tool"
+            ]
+        },
+        {
+            "name": "mcp_lifespan",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "contextlib.asynccontextmanager"
+            ]
+        },
+        {
+            "name": "root",
+            "description": "",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "api_server.py",
+            "decorator": [
+                "app.get"
+            ]
+        },
+        {
+            "name": "list_tools",
+            "description": "List available D-Wave quantum computing tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_dwave\\server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "call_tool",
+            "description": "Handle tool calls for D-Wave quantum computing operations.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\mcp_server_dwave\\server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "server_instance",
+            "description": "Get the server instance.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "short_lived_server",
+            "description": "Get a server instance with a short lifespan.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "limited_time_server",
+            "description": "Get a server instance with a small annealing time limit.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.fixture"
+            ]
+        },
+        {
+            "name": "test_qubo_creation",
+            "description": "Test QUBO problem creation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_instance": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_instance"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_ising_creation",
+            "description": "Test Ising model creation",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "server_instance": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "server_instance"
+                ]
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_server_lifespan",
+            "description": "Force server lifespan expiration for test purposes.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_annealing_time_limit",
+            "description": "Test that annealing time limit is enforced",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_time_limit_accumulation",
+            "description": "Test that annealing time accumulates correctly across multiple operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_time_limit_reset",
+            "description": "Test that time limit is enforced per server instance",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_time_limit_estimation",
+            "description": "Test that time estimation is reasonably accurate",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_time_limit_edge_cases",
+            "description": "Test edge cases for time limits",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_time_limit_recovery",
+            "description": "Test that time limit can be recovered after partial usage",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_time_limit_reset_with_new_config",
+            "description": "Test that time limit can be reset with a new configuration",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        },
+        {
+            "name": "test_time_limit_persistence",
+            "description": "Test that time limit usage persists across multiple operations",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "tests\\test_server.py",
+            "decorator": [
+                "pytest.mark.asyncio"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,226 @@
+{
+    "tools": [
+        {
+            "name": "main",
+            "description": "Start the MCP server for Oracle Cloud Infrastructure.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_oci\\cli.py",
+            "decorator": [
+                "click.command",
+                "click.option",
+                "click.option",
+                "click.option",
+                "click.option"
+            ]
+        },
+        {
+            "name": "get_compartments",
+            "description": "\n    List all compartments accessible to the user.\n    \n    Returns:\n        List of compartments with their details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "mcp_server_oci\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_instances",
+            "description": "\n    List all instances in a compartment.\n    \n    Args:\n        compartment_id: OCID of the compartment\n        \n    Returns:\n        List of instances with their details\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "compartment_id": {
+                        "type": "string",
+                        "description": "OCID of the compartment"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "compartment_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server_oci\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_instance_details",
+            "description": "\n    Get details of a specific instance.\n    \n    Args:\n        instance_id: OCID of the instance\n        \n    Returns:\n        Details of the instance\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "instance_id": {
+                        "type": "string",
+                        "description": "OCID of the instance"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "instance_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server_oci\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "start_instance_tool",
+            "description": "\n    Start an instance.\n    \n    Args:\n        instance_id: OCID of the instance to start\n        \n    Returns:\n        Result of the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "instance_id": {
+                        "type": "string",
+                        "description": "OCID of the instance to start"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "instance_id",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server_oci\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "stop_instance_tool",
+            "description": "\n    Stop an instance.\n    \n    Args:\n        instance_id: OCID of the instance to stop\n        force: If True, perform a force stop\n        \n    Returns:\n        Result of the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "instance_id": {
+                        "type": "string",
+                        "description": "OCID of the instance to stop"
+                    },
+                    "force": {
+                        "type": "string",
+                        "description": "If True, perform a force stop"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "instance_id",
+                    "force",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server_oci\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "create_instance_tool",
+            "description": "\n    Create a new compute instance.\n    \n    Args:\n        compartment_id: OCID of the compartment\n        availability_domain: Availability domain name\n        subnet_id: OCID of the subnet\n        shape: Compute shape name\n        display_name: Display name for the instance\n        image_id: OCID of the image to use\n        metadata: Optional metadata to include with the instance\n        boot_volume_size_in_gbs: Optional boot volume size in GB\n        shape_config: Optional shape configuration (e.g., OCPUs, memory)\n        \n    Returns:\n        Details of the created instance\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "compartment_id": {
+                        "type": "string",
+                        "description": "OCID of the compartment"
+                    },
+                    "availability_domain": {
+                        "type": "string",
+                        "description": "Availability domain name"
+                    },
+                    "subnet_id": {
+                        "type": "string",
+                        "description": "OCID of the subnet"
+                    },
+                    "shape": {
+                        "type": "string",
+                        "description": "Compute shape name"
+                    },
+                    "display_name": {
+                        "type": "string",
+                        "description": "Display name for the instance"
+                    },
+                    "image_id": {
+                        "type": "string",
+                        "description": "OCID of the image to use"
+                    },
+                    "metadata": {
+                        "type": "string",
+                        "description": "Optional metadata to include with the instance"
+                    },
+                    "boot_volume_size_in_gbs": {
+                        "type": "string",
+                        "description": "Optional boot volume size in GB"
+                    },
+                    "shape_config": {
+                        "type": "string",
+                        "description": "Optional shape configuration (e.g., OCPUs, memory)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "compartment_id",
+                    "availability_domain",
+                    "subnet_id",
+                    "shape",
+                    "display_name",
+                    "image_id",
+                    "metadata",
+                    "boot_volume_size_in_gbs",
+                    "shape_config",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server_oci\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "terminate_instance_tool",
+            "description": "\n    Terminate (delete) a compute instance.\n    \n    Args:\n        instance_id: OCID of the instance to terminate\n        preserve_boot_volume: If True, the boot volume will be preserved after the instance is terminated\n        \n    Returns:\n        Result of the operation\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "instance_id": {
+                        "type": "string",
+                        "description": "OCID of the instance to terminate"
+                    },
+                    "preserve_boot_volume": {
+                        "type": "string",
+                        "description": "If True, the boot volume will be preserved after the instance is terminated"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "instance_id",
+                    "preserve_boot_volume",
+                    "Returns"
+                ]
+            },
+            "file": "mcp_server_oci\\mcp_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

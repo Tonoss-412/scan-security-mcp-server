@@ -1,0 +1,34 @@
+{
+    "tools": [
+        {
+            "name": "get_ais_targets",
+            "description": "Get AIS targets within a radius of a location.\n\n    Args:\n        latitude: Latitude of the location\n        longitude: Longitude of the location\n        radius: Radius in nautical miles (maximum is 10)\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "type": "string",
+                        "description": "Latitude of the location"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "description": "Longitude of the location"
+                    },
+                    "radius": {
+                        "type": "string",
+                        "description": "Radius in nautical miles (maximum is 10)"
+                    }
+                },
+                "required": [
+                    "latitude",
+                    "longitude",
+                    "radius"
+                ]
+            },
+            "file": "saillogger.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

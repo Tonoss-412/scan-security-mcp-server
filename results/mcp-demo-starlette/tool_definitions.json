@@ -1,0 +1,16 @@
+{
+    "tools": [
+        {
+            "name": "fetch_weather",
+            "description": "Fetch current weather for a location defined by latitude and longitude.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "src\\tools.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        }
+    ]
+}

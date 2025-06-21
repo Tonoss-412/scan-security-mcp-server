@@ -1,0 +1,100 @@
+{
+    "tools": [
+        {
+            "name": "handle_list_tools",
+            "description": "List available search tools for screenpipe with Strategy Agents enhancements.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "screenpipe\\mcp\\screenpipe_server.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool execution requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "screenpipe\\mcp\\screenpipe_server.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "screenpipe\\mcp\\screenpipe_server_simple.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool calls.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "screenpipe\\mcp\\screenpipe_server_simple.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "screenpipe\\mcp\\screenpipe_server_stable.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool calls with proper error handling.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "screenpipe\\mcp\\screenpipe_server_stable.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        },
+        {
+            "name": "handle_list_tools",
+            "description": "List available tools including screenpipe and terminal control.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "screenpipe\\mcp\\screenpipe_server_with_terminal.py",
+            "decorator": [
+                "server.list_tools"
+            ]
+        },
+        {
+            "name": "handle_call_tool",
+            "description": "Handle tool execution requests.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "screenpipe\\mcp\\screenpipe_server_with_terminal.py",
+            "decorator": [
+                "server.call_tool"
+            ]
+        }
+    ]
+}

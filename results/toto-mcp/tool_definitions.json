@@ -1,0 +1,84 @@
+{
+    "tools": [
+        {
+            "name": "forecast_timeseries",
+            "description": "\n    Forecast time series data using the Toto model.\n    \n    Args:\n        series_data: List of time series, each as a list of float values (channels x timesteps)\n        prediction_length: Number of future timesteps to predict (default: 336)\n        num_samples: Number of samples for probabilistic forecasting (default: 256)\n        samples_per_batch: Control memory usage during inference (default: 256)\n        time_interval_seconds: Time interval between observations in seconds (default: 900 = 15 minutes)\n    \n    Returns:\n        Dictionary containing forecast results with median, quantiles, and samples\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "series_data": {
+                        "type": "string",
+                        "description": "List of time series, each as a list of float values (channels x timesteps)"
+                    },
+                    "prediction_length": {
+                        "type": "string",
+                        "description": "Number of future timesteps to predict (default: 336)"
+                    },
+                    "num_samples": {
+                        "type": "string",
+                        "description": "Number of samples for probabilistic forecasting (default: 256)"
+                    },
+                    "samples_per_batch": {
+                        "type": "string",
+                        "description": "Control memory usage during inference (default: 256)"
+                    },
+                    "time_interval_seconds": {
+                        "type": "string",
+                        "description": "Time interval between observations in seconds (default: 900 = 15 minutes)"
+                    },
+                    "Returns": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "series_data",
+                    "prediction_length",
+                    "num_samples",
+                    "samples_per_batch",
+                    "time_interval_seconds",
+                    "Returns"
+                ]
+            },
+            "file": "toto_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_model_info",
+            "description": "\n    Get information about the Toto model and system capabilities.\n    \n    Returns:\n        Dictionary containing model and system information\n    ",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "toto_server.py",
+            "decorator": [
+                "mcp.tool"
+            ]
+        },
+        {
+            "name": "get_model_resource",
+            "description": "Get Toto model information as a resource",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "toto_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        },
+        {
+            "name": "get_usage_example",
+            "description": "Get usage example for the Toto forecasting tool",
+            "inputSchema": {
+                "type": "object",
+                "properties": {}
+            },
+            "file": "toto_server.py",
+            "decorator": [
+                "mcp.resource"
+            ]
+        }
+    ]
+}
