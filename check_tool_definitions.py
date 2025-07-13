@@ -1,7 +1,7 @@
 import json
 import re
-import datetime
-import os
+import subprocess
+import tempfile
 
 try:
     from transformers import pipeline
@@ -9,64 +9,36 @@ try:
 except ImportError:
     nlp_available = False
 
-# ==============================================================================
-# BỘ QUY TẮC PHÂN TÍCH BẢO MẬT MCP (PHIÊN BẢN CẢI TIẾN)
-# ==============================================================================
-# Mỗi quy tắc bao gồm:
-# - description: Mô tả về loại lỗ hổng.
-# - severity: Mức độ nghiêm trọng (High, Medium, Low).
-# - recommendation: Khuyến nghị để khắc phục.
-# - patterns: Danh sách các mẫu regex đã được biên dịch để phát hiện.
-# - scope: Phạm vi áp dụng quy tắc ('name', 'description', 'params').
-# ==============================================================================
-
 RULES = {
     "Remote Code Execution": {
-        "description": "Tool có khả năng cho phép thực thi mã hoặc lệnh hệ thống một cách trực tiếp, có thể dẫn đến RCE.",
-        "severity": "High",
-        "recommendation": "Tuyệt đối không sử dụng các tool cho phép thực thi code không được kiểm soát. Nếu cần, hãy đảm bảo môi trường thực thi được sandbox hoàn toàn và mọi input đều được lọc kỹ lưỡng.",
         "patterns": [
             re.compile(p, re.IGNORECASE) for p in [
-                r"\bexecute_python_code\b", r"\beval\b", r"\bexecute_shell_command\b", 
+                r"\bexecute_python_code\b", r"\beval\b", r"\bexecute_shell_command\b",
                 r"\bsubprocess\b", r"\bos\.system\b", r"execute.*command"
             ]
         ],
         "scope": ["name", "description"]
     },
     "Hardcoded Sensitive Data": {
-        "description": "Mô tả của tool chứa các chuỗi trông giống như secret (API key, JWT, UUID) bị hardcode. Đây là một rủi ro bảo mật nghiêm trọng.",
-        "severity": "High",
-        "recommendation": "Tuyệt đối không hardcode secret trong mô tả tool. Sử dụng placeholder như 'YOUR_API_KEY' và hướng dẫn người dùng cách cung cấp secret một cách an toàn.",
         "patterns": [
-            # JWT Token
             re.compile(r"eyJ[a-zA-Z0-9_-]{20,}\.[a-zA-Z0-9_-]{20,}\.[a-zA-Z0-9_-]{20,}"),
-            # Common API Key prefixes (Stripe, etc.)
             re.compile(r"\b(sk|pk|rk)_[a-zA-Z0-9]{20,}\b"),
-            # AWS Access Key ID
             re.compile(r"AKIA[0-9A-Z]{16}"),
-            # UUID (commonly used for session IDs)
             re.compile(r"[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", re.IGNORECASE)
         ],
-        "scope": ["description"] # Chỉ quét mô tả
+        "scope": ["description"]
     },
     "Path Traversal & Arbitrary File Read": {
-        "description": "Tool có thể cho phép đọc các file tùy ý trên hệ thống, có nguy cơ dẫn đến lỗ hổng Path Traversal. Kẻ tấn công có thể truy cập các file nhạy cảm ngoài thư mục dự kiến.",
-        "severity": "Medium",
-        "recommendation": "Luôn xác thực và làm sạch (sanitize) mọi đường dẫn file từ người dùng. Giới hạn quyền truy cập file của tool trong một thư mục được chỉ định (sandbox).",
         "patterns": [
             re.compile(p, re.IGNORECASE) for p in [
-                r"\.\.",  # Path Traversal
-                r"\/etc\/passwd", r"~\/\.ssh", r"\.env", r"id_rsa",
-                r"(read|access|analyze|get|load|view).*file.*(path|name)", # Đọc file kết hợp với tham số đường dẫn
+                r"\.\.", r"/etc/passwd", r"~/.ssh", r"\.env", r"id_rsa",
+                r"(read|access|analyze|get|load|view).*file.*(path|name)",
                 r"analyze_log_file"
             ]
         ],
-        "scope": ["description", "params_str"] # params_str là chuỗi ghép từ các tên tham số
+        "scope": ["description", "params_str"]
     },
     "Indirect Prompt Injection": {
-        "description": "Mô tả của tool chứa các chỉ thị ẩn hoặc hướng dẫn có thể bị kẻ tấn công lợi dụng để thao túng hành vi của mô hình ngôn ngữ, vượt qua các giới hạn an toàn.",
-        "severity": "Medium",
-        "recommendation": "Loại bỏ các chỉ thị về hành vi của mô hình ra khỏi mô tả tool. Các chỉ thị này nên được đặt trong system prompt hoặc các lớp bảo vệ (guardrails) riêng.",
         "patterns": [
             re.compile(p, re.IGNORECASE) for p in [
                 r"<important>[\s\S]*?</important>", r"<hidden>[\s\S]*?</hidden>", r"<secret>[\s\S]*?</secret>",
@@ -78,7 +50,6 @@ RULES = {
     },
 }
 
-# Định nghĩa phủ định/an toàn cho từng rule
 NEGATIONS = {
     "Remote Code Execution": [
         "sandbox", "no code execution", "cannot run code", "read-only", "forbidden", "not allowed", "test only", "mock", "simulate",
@@ -97,12 +68,6 @@ NEGATIONS = {
     ]
 }
 
-NLP_LABELS = {
-    "Remote Code Execution": ["dangerous", "executes code", "runs shell command", "safe", "sandboxed", "does not execute code"],
-    "Path Traversal & Arbitrary File Read": ["reads arbitrary file", "path traversal", "safe", "cannot read arbitrary file", "no path traversal"],
-    "Indirect Prompt Injection": ["vulnerable to prompt injection", "safe", "not vulnerable", "guarded"]
-}
-
 def is_rule_negated_context(rule, text, match_start, match_end):
     window = 60
     context = text[max(0, match_start-window):min(len(text), match_end+window)].lower()
@@ -111,47 +76,21 @@ def is_rule_negated_context(rule, text, match_start, match_end):
             return True
     return False
 
-# Nếu transformers có sẵn, dùng zero-shot-classification để phân tích ngữ cảnh
 if nlp_available:
     classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
     def is_dangerous_context(context):
         labels = ["dangerous", "safe", "not dangerous", "benign", "forbidden", "sandboxed"]
         result = classifier(context, labels)
-        # Nếu nhãn "dangerous" có score cao nhất và >0.5 thì coi là nguy hiểm
         if result['labels'][0] == "dangerous" and result['scores'][0] > 0.5:
             return True
-        # Nếu "safe" hoặc "not dangerous" cao nhất thì không nguy hiểm
         if result['labels'][0] in ["safe", "not dangerous", "benign", "sandboxed"] and result['scores'][0] > 0.5:
             return False
-        # Nếu không rõ, fallback về rule-based
         return None
 else:
     def is_dangerous_context(context):
         return None
 
-# Nếu transformers có sẵn, dùng zero-shot-classification để phân tích ngữ cảnh sensitive data
-if nlp_available:
-    classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
-    def is_sensitive_data_exposed_context(context):
-        labels = [
-            "exposes sensitive data", "returns secret", "returns password", "returns api key", "returns token",
-            "returns credentials", "returns confidential", "returns sensitive information", "safe", "does not expose", "does not return sensitive data"
-        ]
-        result = classifier(context, labels)
-        # Nếu nhãn expose/return sensitive data có score cao nhất và >0.5 thì cảnh báo
-        if result['labels'][0].startswith("exposes") or result['labels'][0].startswith("returns"):
-            if result['scores'][0] > 0.5:
-                return True
-        # Nếu "safe" hoặc "does not expose" cao nhất thì không nguy hiểm
-        if result['labels'][0] in ["safe", "does not expose", "does not return sensitive data"] and result['scores'][0] > 0.5:
-            return False
-        return None
-else:
-    def is_sensitive_data_exposed_context(context):
-        return None
-
 def analyze_single_tool(tool):
-    """Phân tích một tool duy nhất dựa trên bộ quy tắc."""
     tool_name = tool.get("name", "Unnamed Tool")
     description = tool.get("description", "")
     input_schema = tool.get("inputSchema", {})
@@ -159,7 +98,6 @@ def analyze_single_tool(tool):
     param_names_list = list(properties.keys())
     param_names_str = " ".join(param_names_list)
     found_issues = {}
-
     for issue_type, rule in RULES.items():
         matches = []
         if rule["scope"] != ["params_list"]:
@@ -176,17 +114,16 @@ def analyze_single_tool(tool):
                     context_start = max(0, start - 40)
                     context_end = min(len(text_to_scan), end + 40)
                     context = text_to_scan[context_start:context_end].replace('\n', ' ').strip()
-                    # NLP check cho mọi rule
                     nlp_result = is_dangerous_context(context)
                     if nlp_result is False:
-                        continue  # Ngữ cảnh an toàn, bỏ qua
+                        continue
                     if nlp_result is None and is_rule_negated_context(issue_type, text_to_scan, start, end):
-                        continue  # Rule-based phủ định
+                        continue
                     matches.append({
                         "matched_text": match.group(0).replace('\n', ' ').strip(),
                         "context": f"...{context}..."
                     })
-        else: # rule["scope"] == ["params_list"]
+        else:
             for param in param_names_list:
                 if param.lower() in rule["patterns"]:
                     matches.append({
@@ -195,104 +132,123 @@ def analyze_single_tool(tool):
                     })
         if matches:
             found_issues[issue_type] = matches
-
     if found_issues:
-        return {"tool_name": tool_name, "issues": found_issues, "file": tool.get("file", "")}
+        return {"tool_name": tool_name, "issues": found_issues, "file": tool.get("file", ""), "description": description}
     return None
 
-def group_by_vuln_type(all_issues):
-    grouped = {}
-    for tool in all_issues:
-        for vuln, details in tool["issues"].items():
-            if vuln not in grouped:
-                grouped[vuln] = []
-            grouped[vuln].append({"tool_name": tool["tool_name"], "details": details, "file": tool.get("file", "")})
-    return grouped
-
-def generate_minimal_report(grouped_results, config_file_path):
-    lines = [
-        f"# MCP Security Vulnerability Report",
-        f"**File:** `{config_file_path}`",
-        f"**Time:** `{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}`",
-        ""
-    ]
-    if not grouped_results:
-        lines.append("✅ No vulnerabilities detected.")
-        return "\n".join(lines)
-    for vuln, tools in grouped_results.items():
-        lines.append(f"\n## {vuln}")
-        for tool in tools:
-            file_str = f" ({tool['file']})" if tool.get('file') else " (no file info)"
-            lines.append(f"- **Tool:** `{tool['tool_name']}`{file_str}")
-            for finding in tool["details"]:
-                lines.append(f"    - {finding['matched_text']}")
-                if finding["context"]:
-                    lines.append(f"        {finding['context']}")
-    return "\n".join(lines)
-
-def main(config_file_path, report_file_path, scan_msg=None):
-    """Hàm chính để chạy scan và tạo báo cáo."""
-    GREEN = '\033[92m'
-    RED = '\033[91m'
-    YELLOW_BOLD = '\033[1;33m'
-    RESET = '\033[0m'
+def ask_gemini(prompt):
+    gemini_path = r"C:\Users\User\AppData\Roaming\npm\gemini.cmd"
     try:
-        with open(config_file_path, 'r', encoding='utf-8') as file:
-            data = json.load(file)
-    except FileNotFoundError:
-        if scan_msg:
-            print(f"{YELLOW_BOLD}{scan_msg} - No tool definition{RESET}")
-        else:
-            print(f"{YELLOW_BOLD}No tool definition{RESET}")
-        return
-    except json.JSONDecodeError:
-        if scan_msg:
-            print(f"{YELLOW_BOLD}{scan_msg} - No tool definition{RESET}")
-        else:
-            print(f"{YELLOW_BOLD}No tool definition{RESET}")
-        return
+        result = subprocess.run(
+            [gemini_path],
+            input=prompt,
+            capture_output=True,
+            text=True,
+            timeout=60
+        )
+        return result.stdout.strip()
+    except subprocess.TimeoutExpired:
+        print("Gemini CLI timeout!")
+        return "[TIMEOUT]"
+    except Exception as e:
+        print(f"Gemini CLI error: {e}")
+        return f"[ERROR: {e}]"
 
-    tools = data.get("tools", [])
-    if not tools:
-        if scan_msg:
-            print(f"{YELLOW_BOLD}{scan_msg} - No tool definition{RESET}")
-        else:
-            print(f"{YELLOW_BOLD}No tool definition{RESET}")
-        return
+def ask_gemini_file_review(json_path):
+    gemini_path = r"C:\Users\User\AppData\Roaming\npm\gemini.cmd"
+    with open(json_path, "r", encoding="utf-8") as f:
+        file_content = f.read()
+    prompt = f'''
+You are a security expert. Here is the content of a file named mcp_config.json, which contains definitions of many tools (in JSON format).
 
-    all_issues = []
+Please review all tools in this file and identify any that may have the following security risks:
+- Remote Code Execution (RCE)
+- Sensitive Data Exposure
+- Path Traversal & Arbitrary File Read
+- Prompt Injection
+
+For each risky tool, list:
+- Tool name
+- The type(s) of risk detected
+- A brief explanation for each risk
+
+If a tool is safe, you can skip it.
+
+File content:
+{file_content}
+'''
+    try:
+        result = subprocess.run(
+            [gemini_path],
+            input=prompt,
+            capture_output=True,
+            text=True,
+            timeout=180
+        )
+        return result.stdout.strip()
+    except subprocess.TimeoutExpired:
+        print("Gemini CLI timeout!")
+        return "[TIMEOUT]"
+    except Exception as e:
+        print(f"Gemini CLI error: {e}")
+        return f"[ERROR: {e}]"
+
+def to_markdown_tool_entry(tool_name, file_path, description):
+    desc_one_line = description.replace('\n', ' · ').replace('\r', '')
+    return f"    - **{tool_name.upper()}**\n        *`{file_path}`*\n                *{desc_one_line}*"
+
+def to_markdown_gemini_entry(tool_name, file_path, status, gemini_desc):
+    desc_one_line = gemini_desc.replace('\n', ' · ').replace('\r', '')
+    return f"    - **{tool_name.upper()}**\n        *`{file_path}`*\n        - Status: `{status}`\n                *{desc_one_line}*"
+
+def scan_tools_rules_nlp_and_gemini(config_path="mcp_config.json", output_path="security_report.md"):
+    with open(config_path, "r", encoding="utf-8") as f:
+        config = json.load(f)
+    tools = config["tools"]
+    # 1. RULES/NLP: gom lỗi theo issue_type
+    issues_by_type = {}  # {issue_type: [ {tool_name, file, description, context, matched_text} ]}
+    tool_issue_map = {}  # {(tool_name, file): {issue_type: [context, ...]}}
     for tool in tools:
-        result = analyze_single_tool(tool)
-        if result:
-            all_issues.append(result)
-    
-    grouped = group_by_vuln_type(all_issues)
-    report = generate_minimal_report(grouped, config_file_path)
-    
-    try:
-        with open(report_file_path, 'w', encoding='utf-8') as file:
-            file.write(report)
-    except IOError as e:
-        print(f"Lỗi khi ghi báo cáo ra file: {e}")
-
-    # In trạng thái màu
-    if scan_msg:
-        if grouped:
-            print(f"{RED}{scan_msg} - Vulnerabilities found{RESET}")
-        else:
-            print(f"{GREEN}{scan_msg} - No vulnerabilities{RESET}")
-
-def scan_all_results(results_root="results"):
-    repo_dirs = [d for d in os.listdir(results_root) if os.path.isdir(os.path.join(results_root, d))]
-    total = len(repo_dirs)
-    for idx, repo_dir in enumerate(repo_dirs, 1):
-        repo_path = os.path.join(results_root, repo_dir)
-        config_file_path = os.path.join(repo_path, "tool_definitions.json")
-        report_file_path = os.path.join(repo_path, "security_report.md")
-        if not os.path.exists(config_file_path):
-            continue
-        scan_msg = f"Scanning {idx}/{total}: {repo_dir}"
-        main(config_file_path, report_file_path, scan_msg=scan_msg)
+        rule_result = analyze_single_tool(tool)
+        if rule_result:
+            for issue_type, matches in rule_result["issues"].items():
+                for match in matches:
+                    entry = {
+                        "tool_name": tool.get("name", ""),
+                        "file": tool.get("file", ""),
+                        "description": tool.get("description", "")[:120] + ("..." if len(tool.get("description", "")) > 120 else ""),
+                        "context": match["context"],
+                        "matched_text": match["matched_text"]
+                    }
+                    issues_by_type.setdefault(issue_type, []).append(entry)
+                    tool_key = (tool.get("name", ""), tool.get("file", ""))
+                    tool_issue_map.setdefault(tool_key, {}).setdefault(issue_type, []).append(match["context"])
+    # 2. Ghi section Result by rules
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write("*Result by rules:*\n\n")
+        for issue_type, entries in issues_by_type.items():
+            f.write(f"- {issue_type}\n")
+            for entry in entries:
+                f.write(to_markdown_tool_entry(entry['tool_name'], entry['file'], entry['description']) + "\n")
+        if not issues_by_type:
+            f.write("- No issues detected by rules.\n")
+        f.write("\n")
+    # 3. Cross-check by gemini
+    with open(output_path, "a", encoding="utf-8") as f:
+        f.write("*Cross-check by gemini:*\n\n")
+        for issue_type, entries in issues_by_type.items():
+            f.write(f"- {issue_type}\n")
+            for entry in entries:
+                prompt = f"The following tool was flagged as a possible {issue_type} by an automated security scanner.\nPlease answer YES or NO: Is this a real security risk? Explain briefly.\n\nDescription/context:\n{entry['context']}\n"
+                print(f"\n===== GEMINI PROMPT for {issue_type} ({entry['tool_name']}) =====\n")
+                print(prompt)
+                gemini_answer = ask_gemini(prompt)
+                print("\n===== GEMINI RESULT =====\n")
+                print(gemini_answer)
+                status = "YES" if gemini_answer.strip().upper().startswith("YES") else ("NO" if gemini_answer.strip().upper().startswith("NO") else "?")
+                f.write(to_markdown_gemini_entry(entry['tool_name'], entry['file'], status, gemini_answer) + "\n")
+        if not issues_by_type:
+            f.write("- No issues to cross-check.\n")
 
 if __name__ == "__main__":
-    scan_all_results("results")
+    scan_tools_rules_nlp_and_gemini()
