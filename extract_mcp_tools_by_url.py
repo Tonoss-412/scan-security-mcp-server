@@ -332,7 +332,7 @@ def main(repo_urls):
     print("Generated mcp_config.json")
 
 if __name__ == "__main__":
-    repos = [
-        "https://github.com/harishsg993010/damn-vulnerable-MCP-server"
-    ]
+    # Nhập repo url từ console, cho phép nhập nhiều url cách nhau bởi dấu phẩy
+    input_str = input("Input repo mcp server url:)
+    repos = [url.strip() for url in input_str.split(',') if url.strip()]
     main(repos)
