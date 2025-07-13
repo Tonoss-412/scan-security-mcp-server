@@ -1,113 +1,163 @@
+# ===================== recon full repo python (logic cũ, có sắp xếp theo số sao) =====================
 import requests
 import csv
 import time
 import os
-import base64
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
 
-def get_readme_content(owner, repo, token=None):
-    url = f"https://api.github.com/repos/{owner}/{repo}/readme"
-    headers = {"Accept": "application/vnd.github.v3+json"}
-    if token:
-        headers["Authorization"] = f"token {token}"
-    resp = requests.get(url, headers=headers)
-    if resp.status_code == 200:
-        content = resp.json().get("content", "")
-        encoding = resp.json().get("encoding", "base64")
-        if encoding == "base64":
-            try:
-                return base64.b64decode(content).decode("utf-8", errors="ignore")
-            except Exception:
-                return ""
-        else:
-            return content
-    return ""
+# Global variables for easy access during recursion
+all_found_repos = []
+seen_repo_urls = set()
 
-def search_and_filter_mcp_servers(search_terms, output_file, token=None, sort_by="stars", order="asc", max_results=1000):
-    query = " OR ".join([f'"{term}" in:readme' for term in search_terms])
-    query = f"({query}) language:Python"
-    print(f"Search query: {query}")
-
-    base_url = "https://api.github.com/search/repositories"
-    params = {
-        "q": query,
-        "sort": sort_by,
-        "order": order,
-        "per_page": 100
-    }
-    headers = {"Accept": "application/vnd.github+json"}
-    if token:
-        headers['Authorization'] = f'token {token}'
-
-    repos = []
+def fetch_and_store_results(query, headers):
+    """Paginates through all results for a 'safe' query (< 1000 results) and stores them."""
     page = 1
-    seen_repo_urls = set()
-    found_count = 0
-
     while True:
-        params["page"] = page
-        response = requests.get(base_url, params=params, headers=headers)
+        params = {
+            "q": query,
+            "sort": "created",
+            "order": "asc",
+            "per_page": 100,
+            "page": page
+        }
+        
+        response = requests.get("https://api.github.com/search/repositories", params=params, headers=headers)
+        
         if response.status_code != 200:
-            print(f"Error: {response.status_code}")
-            try:
-                print(response.json())
-            except Exception:
-                print(response.text)
+            print(f"Error fetching page {page} for query '{query}'. Status: {response.status_code}")
+            print(f"Response: {response.text}")
             break
 
         items = response.json().get('items', [])
         if not items:
-            break
+            break # No more results
 
         for repo in items:
             repo_url = repo['html_url']
-            if repo_url in seen_repo_urls:
-                continue
-            owner = repo['owner']['login']
-            repo_name = repo['name']
-            readme = get_readme_content(owner, repo_name, token)
-            readme_lower = readme.lower()
-            # Chỉ lấy repo có chứa đúng cụm từ cần tìm
-            if any(term.lower() in readme_lower for term in search_terms):
-                repos.append({
-                    'repository_name': repo_name,
+            if repo_url not in seen_repo_urls:
+                all_found_repos.append({
+                    'repository_name': repo['name'],
                     'repository_url': repo_url,
                     'description': repo.get('description', ''),
-                    'stars': repo.get('stargazers_count', 0),
-                    'created_at': repo.get('created_at', ''),
-                    'updated_at': repo.get('updated_at', ''),
+                    'stargazers_count': repo.get('stargazers_count', 0)
                 })
                 seen_repo_urls.add(repo_url)
-                found_count += 1
-                print(f"Found: {repo_name} ({repo_url})")
-            time.sleep(0.2)  # tránh bị rate limit
 
-            if found_count >= max_results:
-                break
-
-        print(f"Page {page} done, total found: {found_count}")
-        if found_count >= max_results or len(items) < 100:
-            break
+        if len(items) < 100:
+            break # Last page for this query
+        
         page += 1
         time.sleep(0.5)
 
-    # Ghi file CSV, chỉ chứa repo duy nhất (theo url)
+def process_time_chunk_recursively(start_date, end_date, base_query, headers):
+    """
+    Recursively searches a time chunk, splitting it in half if it likely contains more than 1000 results.
+    """
+    # Use ISO 8601 format for the query, which is robust.
+    start_date_str = start_date.strftime('%Y-%m-%dT%H:%M:%SZ')
+    end_date_str = end_date.strftime('%Y-%m-%dT%H:%M:%SZ')
+    
+    # Base case: If the time window is less than a second, it cannot be split further.
+    if start_date >= end_date:
+        return
+
+    time_chunk_query = f"{base_query} created:{start_date_str}..{end_date_str}"
+    
+    # Perform a "dry run" search to get the total count for this chunk.
+    dry_run_params = {"q": time_chunk_query, "per_page": 1}
+    response = requests.get("https://api.github.com/search/repositories", params=dry_run_params, headers=headers)
+
+    if response.status_code != 200:
+        print(f"Error during dry run for {start_date.date()}..{end_date.date()}. Status: {response.status_code}")
+        print(f"Response: {response.text}")
+        return
+
+    data = response.json()
+    total_count = data.get('total_count', 0)
+    print(f"Checking {start_date.date()} to {end_date.date()}... Found {total_count} potential results.")
+    
+    # If total_count is 1000, it's ambiguous. We must split.
+    if total_count >= 1000:
+        print(f"--> Interval has too many results ({total_count}). Splitting.")
+        mid_point = start_date + (end_date - start_date) / 2
+        
+        # Recursively process the two new, smaller chunks
+        process_time_chunk_recursively(start_date, mid_point, base_query, headers)
+        process_time_chunk_recursively(mid_point + timedelta(seconds=1), end_date, base_query, headers)
+    elif total_count > 0:
+        # This interval is "safe" to fetch completely.
+        print(f"--> Interval is safe ({total_count} results). Fetching all pages.")
+        fetch_and_store_results(time_chunk_query, headers)
+
+def adaptive_search_main(search_terms, output_file, token=None):
+    """Main function to orchestrate the adaptive, recursive search."""
+    # Clear global lists to ensure the script is re-runnable
+    all_found_repos.clear()
+    seen_repo_urls.clear()
+
+    # Define keywords to exclude to filter out documentation, examples, etc.
+    exclusions = ["client", "example", "tutorial", "awesome"]
+    exclusion_string = " ".join([f"NOT {word}" for word in exclusions])
+
+    quoted_terms = ' OR '.join([f'"{term}"' for term in search_terms])
+    base_query = f"({quoted_terms}) {exclusion_string} in:description language:Python"
+    print(f"Base search query: {base_query}")
+
+    headers = {"Accept": "application/vnd.github+json"}
+    if token:
+        headers['Authorization'] = f'token {token}'
+    else:
+        print("Warning: No GitHub token provided. You will likely hit the rate limit quickly.")
+
+    # Iterate through initial large chunks (month by month)
+    start_date = datetime(2024, 11, 1)
+    end_of_search_period = datetime.now()
+    
+    current_month_start = start_date
+    while current_month_start < end_of_search_period:
+        current_month_end = current_month_start + relativedelta(months=1) - timedelta(seconds=1)
+        
+        if current_month_end > end_of_search_period:
+            current_month_end = end_of_search_period
+        
+        print(f"\n--- Processing Top-Level Chunk: {current_month_start.date()} to {current_month_end.date()} ---")
+        process_time_chunk_recursively(current_month_start, current_month_end, base_query, headers)
+        
+        current_month_start += relativedelta(months=1)
+
+    # Sắp xếp theo số sao giảm dần trước khi ghi file
+    all_found_repos.sort(key=lambda x: x.get('stargazers_count', 0), reverse=True)
+
+    # Final step: write all collected results to the CSV file
+    print(f"\nSearch complete. Total unique repositories found: {len(all_found_repos)}")
+    print(f"Saving results to {output_file}...")
     with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['repository_name', 'repository_url']
+        fieldnames = ['repository_name', 'repository_url', 'description', 'stargazers_count']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-        for repo in repos:
-            writer.writerow(repo)
-    print(f"Results saved to {output_file}")
+        writer.writerows(all_found_repos)
+    print("Done.")
+
+    # Đọc lại file, sort lại theo số sao giảm dần, ghi đè lại file
+    with open(output_file, 'r', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile)
+        rows = list(reader)
+        rows.sort(key=lambda x: int(x.get('stargazers_count', 0)), reverse=True)
+    with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
+        fieldnames = ['repository_name', 'repository_url', 'description', 'stargazers_count']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+    print("Sorted CSV by stargazers_count.")
 
 if __name__ == "__main__":
-    github_token = "github_token"
+    github_token = os.getenv("GITHUB_TOKEN")
     search_terms = ["mcp server", "Model Context Protocol server"]
     output_file = "mcp_servers.csv"
-    search_and_filter_mcp_servers(
+    
+    adaptive_search_main(
         search_terms,
         output_file,
-        token=github_token,
-        sort_by="stars",
-        order="asc",
-        max_results=1000
+        token=github_token
     )
